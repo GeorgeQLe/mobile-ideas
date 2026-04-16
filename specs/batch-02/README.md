@@ -2,7 +2,7 @@
 
 > Metadata
 > - App range: 021-040
-> - Status: Draft 1 canonical spec rewrite; `026-google-maps.md` upgraded to implementation-ready public-source V1
+> - Status: Draft 1 canonical spec rewrite; `026-google-maps.md` and `033-airbnb.md` upgraded to implementation-ready public-source V1
 > - Research state: public source-discovery links included for the remaining Draft 1 specs; exact source replacement and hands-on verification still required before implementation.
 
 ## Overview
@@ -22,7 +22,7 @@ This batch contains canonical Draft 1 clone specs for apps 21-40 from tasks/idea
 - 030 Lyft - Mobility
 - 031 Lime - Micromobility
 - 032 Turo - Car sharing
-- 033 Airbnb - Travel lodging
+- 033 Airbnb - Travel lodging (implementation-ready public-source V1)
 - 034 Booking.com - Travel lodging
 - 035 Expedia - Travel booking
 - 036 Hopper - Travel deals
@@ -39,5 +39,5 @@ This batch contains canonical Draft 1 clone specs for apps 21-40 from tasks/idea
 
 ## Next Steps
 
-- Replace source-discovery links in every spec with exact verified first-party URLs.
+- Continue exact source replacement and implementation-readiness upgrades, starting with `038-doordash.md`.
 - Complete hands-on verification where lawful and feasible before app implementation starts.

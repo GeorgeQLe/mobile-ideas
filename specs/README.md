@@ -5,7 +5,7 @@ Created: 2026-04-16
 > Metadata
 > - Spec set status: Draft 1 canonical rewrite complete; Phase 3 implementation-readiness upgrades underway
 > - Coverage: 100 of 100 app ideas
-> - Research state: 4 implementation-ready public-source V1 specs; 96 Draft 1 scaffolds still require exact first-party source replacement and hands-on verification blockers
+> - Research state: 5 implementation-ready public-source V1 specs; 95 Draft 1 scaffolds still require exact first-party source replacement and hands-on verification blockers
 
 ## Overview
 
@@ -76,7 +76,7 @@ Every numbered spec uses these canonical sections:
 ## Acceptance Criteria
 
 - All 100 specs use canonical Draft 1 structure.
-- Every spec has source-discovery links and explicit blocked hands-on verification notes.
+- Every Draft 1 scaffold has source-discovery links and explicit blocked hands-on verification notes; upgraded specs replace discovery links with exact first-party URLs.
 - Every spec remains legally scoped to original code, original assets, synthetic or licensed data, and lawful integrations.
 - Phase 3 remains responsible for exact first-party source replacement and hands-on verification.
 
@@ -87,5 +87,5 @@ Every numbered spec uses these canonical sections:
 
 ## Next Steps
 
-- Continue Phase 3 implementation-readiness upgrades, starting with `033-airbnb.md`.
+- Continue Phase 3 implementation-readiness upgrades, starting with `038-doordash.md`.
 - Update each spec with verified behavior and remove blocked notes only when evidence is captured.

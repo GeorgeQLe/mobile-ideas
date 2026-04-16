@@ -276,6 +276,6 @@ This spec is implementation-ready for a V1 that targets documented public behavi
 
 ## Next Steps
 
-- Use this spec as the pattern for upgrading `033-airbnb.md`, `038-doordash.md`, and the remaining architecture-teaching specs.
+- Use this spec together with the upgraded Airbnb spec as the pattern for upgrading `038-doordash.md` and the remaining architecture-teaching specs.
 - Resolve the manual verification blockers before claiming one-for-one native parity.
 - Create or link the downstream implementation repository when Phase 1 is ready to begin.
