@@ -10,6 +10,7 @@ This directory contains Draft 0 technical specs for all 100 mobile app clone ide
 - Structure: five batches of 20 app specs each.
 - Research status: implementation-oriented draft specs, not completed live product research.
 - Legal posture: functional clone specs only. Use original branding, copy, icons, media, sample data, and code. Do not copy proprietary source, private APIs, trademarks, copyrighted assets, paywalled content, or licensed datasets.
+- Quality audit: see `tasks/spec-quality-audit.md`; the current set is Draft 0 and still needs a Draft 1 deepening pass before it can be considered best-quality or implementation-ready.
 
 Every individual spec includes a research verification checklist. Treat those checklist items as required before implementation begins.
 
