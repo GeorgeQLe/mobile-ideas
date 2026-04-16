@@ -10,7 +10,8 @@
 - Planned remediation to add minimal lifecycle docs and rewrite all specs into canonical Draft 1 shape.
 - Defined the implementation-readiness gate in `tasks/implementation-readiness.md`.
 - Archived the Draft 1 ChatGPT spec and upgraded `specs/batch-01/001-chatgpt.md` to an implementation-ready public-source V1 spec with exact sources, app-specific contracts, explicit manual blockers, and a build plan.
+- Archived the Draft 1 TikTok spec and upgraded `specs/batch-01/006-tiktok.md` to an implementation-ready public-source V1 spec with exact marketplace/help/legal sources, app-specific feed/creator/remix/safety contracts, explicit commerce and native verification blockers, and a build plan.
 
 ## Next Steps
 
-- Upgrade `006-tiktok.md` using the `001-chatgpt.md` pattern.
+- Upgrade `016-whatsapp.md` using the `001-chatgpt.md` and `006-tiktok.md` patterns.

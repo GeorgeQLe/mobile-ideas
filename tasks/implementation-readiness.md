@@ -7,7 +7,7 @@ Updated: 2026-04-16
 
 The spec set is moving from Draft 1 scaffolds to implementation-ready specs one app at a time.
 
-Current readiness count: 1 of 100.
+Current readiness count: 2 of 100.
 
 ## Readiness Definition
 
@@ -26,7 +26,8 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | ID | App | Status | Notes |
 |---:|---|---|---|
 | 001 | ChatGPT | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; native/manual parity blockers remain explicit. |
-| 002-100 | Remaining specs | Draft 1 scaffold | Must be upgraded app-by-app using the readiness definition above. |
+| 006 | TikTok | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; creator, account, LIVE, Shop, Coins/gifts, notification, and teen/family manual blockers remain explicit. |
+| 002-005, 007-100 | Remaining specs | Draft 1 scaffold | Must be upgraded app-by-app using the readiness definition above. |
 
 ## Repeatable Upgrade Loop
 
@@ -57,5 +58,5 @@ Start with the architecture-teaching apps from `tasks/ideas.md`:
 
 ## Next Steps
 
-- Upgrade `006-tiktok.md` using the same readiness gate.
+- Upgrade `016-whatsapp.md` using the same readiness gate.
 - Continue the top-ten architecture-teaching apps before remediating the remaining 90 by batch.

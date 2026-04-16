@@ -7,7 +7,7 @@ Updated: 2026-04-16
 
 The 100 technical specs now pass the Draft 1 structural and depth gate.
 
-Most specs are still not final one-for-one clone specs because exact first-party source URLs and hands-on verification remain open Phase 3 work. `001-chatgpt.md` has been upgraded as the first implementation-ready public-source V1 spec, with native/manual parity blockers still explicit.
+Most specs are still not final one-for-one clone specs because exact first-party source URLs and hands-on verification remain open Phase 3 work. `001-chatgpt.md` and `006-tiktok.md` have been upgraded to implementation-ready public-source V1 specs, with native/manual parity blockers still explicit.
 
 ## Audit Scope
 
@@ -41,9 +41,9 @@ A Draft 1 spec must meet these minimums:
 - Specs with all canonical sections: 100.
 - Specs passing Draft 1 depth metrics: 100.
 - Specs failing Draft 1 depth metrics: 0.
-- Specs with exact first-party source URLs replacing discovery links: 1.
+- Specs with exact first-party source URLs replacing discovery links: 2.
 - Specs with hands-on app behavior fully verified: 0.
-- Specs upgraded to implementation-ready public-source V1: 1.
+- Specs upgraded to implementation-ready public-source V1: 2.
 
 ## Resolved Findings
 
@@ -63,7 +63,7 @@ All numbered specs now use the same generator-backed structure and pass the same
 
 ### High: Exact Source Replacement Remains Open
 
-Ninety-nine specs still include App Store, Google Play, and official help/privacy source-discovery links. These are not exact verified first-party listing/help/privacy URLs.
+Ninety-eight specs still include App Store, Google Play, and official help/privacy source-discovery links. These are not exact verified first-party listing/help/privacy URLs.
 
 Impact: A builder still needs to complete the app-by-app research pass before claiming one-for-one product truth.
 
@@ -71,7 +71,7 @@ Recommended fix: In Phase 3, replace every source-discovery link with exact mark
 
 ### High: Hands-On Verification Remains Blocked
 
-All specs still have hands-on account/device verification incomplete. `001-chatgpt.md` now lists manual native/parity blockers explicitly rather than treating them as generic unresolved research.
+All specs still have hands-on account/device verification incomplete. `001-chatgpt.md` and `006-tiktok.md` now list manual native/parity blockers explicitly rather than treating them as generic unresolved research.
 
 Impact: Subscription-gated flows, physical-device flows, region-specific flows, account recovery, deletion/export, and notification behavior may still differ from production apps.
 
@@ -83,9 +83,10 @@ Recommended fix: Use lawful test accounts/devices to verify reachable flows. Mar
 - Every numbered spec includes canonical hygiene sections.
 - Every numbered spec includes legal guardrails, research-source orientation, privacy/safety requirements, edge cases, test plan, acceptance criteria, open questions, and next steps.
 - The spec set now distinguishes source discovery from exact verification and hands-on behavior.
+- The TikTok spec now includes public-source requirements for feeds, creator tools, sounds/effects, remixing, recommendation controls, teen/family controls, safety policy, and commerce blockers.
 
 ## Next Steps
 
-- Continue Phase 3 implementation-readiness upgrades, starting with `006-tiktok.md`.
+- Continue Phase 3 implementation-readiness upgrades, starting with `016-whatsapp.md`.
 - Complete hands-on verification where lawful and feasible.
 - Refresh this audit after Phase 3 to report verified source coverage and remaining blockers.
