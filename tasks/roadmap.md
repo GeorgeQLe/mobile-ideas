@@ -84,4 +84,4 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 
 ## Next Steps
 
-- Upgrade `026-google-maps.md` using the `001-chatgpt.md`, `006-tiktok.md`, and `016-whatsapp.md` patterns.
+- Upgrade `033-airbnb.md` using the `001-chatgpt.md`, `006-tiktok.md`, `016-whatsapp.md`, and `026-google-maps.md` patterns.

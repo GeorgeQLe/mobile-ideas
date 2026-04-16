@@ -7,7 +7,7 @@ Updated: 2026-04-16
 
 The 100 technical specs now pass the Draft 1 structural and depth gate.
 
-Most specs are still not final one-for-one clone specs because exact first-party source URLs and hands-on verification remain open Phase 3 work. `001-chatgpt.md`, `006-tiktok.md`, and `016-whatsapp.md` have been upgraded to implementation-ready public-source V1 specs, with native/manual parity blockers still explicit.
+Most specs are still not final one-for-one clone specs because exact first-party source URLs and hands-on verification remain open Phase 3 work. `001-chatgpt.md`, `006-tiktok.md`, `016-whatsapp.md`, and `026-google-maps.md` have been upgraded to implementation-ready public-source V1 specs, with native/manual parity blockers still explicit.
 
 ## Audit Scope
 
@@ -41,9 +41,9 @@ A Draft 1 spec must meet these minimums:
 - Specs with all canonical sections: 100.
 - Specs passing Draft 1 depth metrics: 100.
 - Specs failing Draft 1 depth metrics: 0.
-- Specs with exact first-party source URLs replacing discovery links: 3.
+- Specs with exact first-party source URLs replacing discovery links: 4.
 - Specs with hands-on app behavior fully verified: 0.
-- Specs upgraded to implementation-ready public-source V1: 3.
+- Specs upgraded to implementation-ready public-source V1: 4.
 
 ## Resolved Findings
 
@@ -63,7 +63,7 @@ All numbered specs now use the same generator-backed structure and pass the same
 
 ### High: Exact Source Replacement Remains Open
 
-Ninety-seven specs still include App Store, Google Play, and official help/privacy source-discovery links. These are not exact verified first-party listing/help/privacy URLs.
+Ninety-six specs still include App Store, Google Play, and official help/privacy source-discovery links. These are not exact verified first-party listing/help/privacy URLs.
 
 Impact: A builder still needs to complete the app-by-app research pass before claiming one-for-one product truth.
 
@@ -85,9 +85,10 @@ Recommended fix: Use lawful test accounts/devices to verify reachable flows. Mar
 - The spec set now distinguishes source discovery from exact verification and hands-on behavior.
 - The TikTok spec now includes public-source requirements for feeds, creator tools, sounds/effects, remixing, recommendation controls, teen/family controls, safety policy, and commerce blockers.
 - The WhatsApp spec now includes public-source requirements for phone-number onboarding, chats, groups, calls, status, channels, backups, linked devices, privacy/security controls, reporting/blocking, business/payment blockers, and AI blockers.
+- The Google Maps spec now includes public-source requirements for map search, place details, directions, navigation, transit, traffic/incidents, offline maps, saved places, reviews/photos, business profiles, Street View/Immersive/Lens-style features, location sharing, Timeline/activity controls, ads, and location-safety blockers.
 
 ## Next Steps
 
-- Continue Phase 3 implementation-readiness upgrades, starting with `026-google-maps.md`.
+- Continue Phase 3 implementation-readiness upgrades, starting with `033-airbnb.md`.
 - Complete hands-on verification where lawful and feasible.
 - Refresh this audit after Phase 3 to report verified source coverage and remaining blockers.
