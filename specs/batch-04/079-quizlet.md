@@ -1,95 +1,178 @@
 # Quizlet-Style Clone Spec
 
-## Legal Scope
-- Build a flashcard and study app with original branding, copy, and card styles.
-- Do not copy Quizlet marks, existing study-set content, or proprietary quiz modes.
-- Use original or licensed study materials only.
-- OCR or scan import should be treated as a separate, optional module.
+> Metadata
+> - Inspiration app: Quizlet
+> - Category: Education
+> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
+> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
 
-## Product Goal
-- Let users create study sets, learn them in multiple modes, and track progress over time.
-- Make set creation and study mode switching frictionless on mobile.
+## Overview
+Build an original mobile product inspired by Quizlet's user-facing workflow, not its brand identity or proprietary implementation.
+The clone target is: Flashcard sets, learn/test modes, matching games, class folders, scanning/importing, and study streaks.
+Primary product surface: placement/setup supported by home and lesson flows.
+The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
+The spec intentionally separates verified public-source facts from inferred clone requirements.
 
-## Research Verification Checklist
-- Verify flashcard set creation, studying, and progress surfaces from public observation.
-- Verify learn, test, and matching-style modes if present in the app.
-- Verify class folders, imports, and study streak behavior.
-- Verify premium gating and collaborative sharing details from support content.
+## Goals
+- Deliver a mobile-first education experience with complete onboarding, core action, settings, and recovery flows.
+- Implement the app-specific focus: Flashcard sets, learn/test modes, matching games, class folders, scanning/importing, and study streaks.
+- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
+- Make public-source verification and blocked hands-on research visible before implementation starts.
+- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+## Non-Goals
+- Do not copy Quizlet branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
+- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
+- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
+- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
+- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+## Research Sources
+- App Store source-discovery link: https://apps.apple.com/us/search?term=Quizlet
+- Google Play source-discovery link: https://play.google.com/store/search?q=Quizlet&c=apps
+- Official help/privacy source-discovery link: https://www.google.com/search?q=Quizlet%20official%20app%20help%20privacy
+- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
+- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
+- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
+- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
+- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+## Detailed Design
+- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for education.
+- Home model: make Placement/Setup the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
+- Core action: make Home the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
+- Detail surface: use Lesson for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
+- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
+- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
+- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
+- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
+- The implementation must support learner onboarding and level selection.
+- The implementation must render lessons with step-by-step progression.
+- The implementation must record attempts and mastery state.
+- The implementation must support review, retry, and spaced repetition where relevant.
+- The implementation must show progress, streaks, and goals.
+- The implementation must support search or course catalog.
+- The implementation must cache active lessons offline.
+- The implementation must gate premium explanations or certificates by entitlement.
+- The implementation must protect minors and classroom data.
+- The implementation must avoid unsupported academic-integrity claims.
+- The implementation must provide accessibility for audio, math, and video content.
+- The implementation must export learner progress where required.
 
 ## Core User Journeys
-- User creates a flashcard set and begins studying immediately.
-- User switches between learn, test, and matching modes.
-- User imports a set from scan or text and edits cards.
-- User organizes sets into classes or folders and shares them.
-- User reviews mistakes and returns to weak cards later.
+- New user installs the app, reviews an original value proposition, creates an account, and reaches Placement/Setup.
+- Returning user opens Placement/Setup, resumes the most recent meaningful activity, and completes the primary action in Home.
+- User searches or browses from Practice, opens Lesson, saves or shares it, and later finds it again from history or library.
+- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
+- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
+- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
 
 ## Screen Inventory
-| Screen | Purpose | Key Inputs | States | Edge Cases |
+| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
 |---|---|---|---|---|
-| Home | Recent sets and streak | None | Populated, empty | No sets |
-| Set Detail | Card list and actions | Set id | Editable, shared | Empty set |
-| Editor | Card creation | Term, definition | Draft, saved | Duplicate card |
-| Learn Mode | Guided study | Swipe, tap | Active, complete | Wrong answer |
-| Test Mode | Assessment flow | Answer input | Running, scored | Skip action |
-| Match Mode | Timed matching game | Drag, tap | Active, finished | Small screen |
-| Classes | Folder organization | Class select | Populated, empty | Shared conflict |
-| Import | Scan or paste content | Camera, text | Parsing, failed | OCR error |
-| Profile | Progress and settings | None | Active, hidden | Shared device |
-
-## Functional Requirements
-- Support create, edit, duplicate, and delete flashcard sets.
-- Support learn, test, and matching study modes.
-- Support tagging, folders, and class organization.
-- Support scan or text import as an optional ingestion path.
-- Track streaks, progress, weak cards, and recent sessions.
-- Support sharing and collaboration with explicit permissions.
-- Provide question shuffling, answer grading, and retry loops.
-- Make study sessions resumable across app restarts.
+| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Placement/Setup | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Home | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Lesson | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Practice | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Progress | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Search/Catalog | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Saved Content | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Subscription | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
 
 ## Data Model
-- `User`: profile, streak, subscription, study prefs.
-- `Set`: title, owner, visibility, tags, folder id.
-- `Card`: front, back, hint, media refs, ordering.
-- `StudySession`: mode, score, duration, weak card ids.
-- `ClassFolder`: name, members, set ids.
-- `ImportJob`: source, progress, parse results, failure reason.
-- `Streak`: count, last studied date, freeze state.
+- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
+- `Course`: stores the primary workspace, account, or grouping context.
+- `Lesson`: represents the main user-facing object in this clone's core flow.
+- `Exercise`: captures lifecycle state, ordering, timestamps, and failure reason codes.
+- `Attempt`: tracks durable interaction history and audit metadata.
+- `Progress`: stores sharing, collaboration, or permission relationships.
+- `Streak`: records notification, recommendation, or entitlement state.
+- `Recommendation`: supports safety, review, policy, or moderation decisions.
+- `Certificate`: stores support or user feedback records.
+- `Entitlement`: holds plan, trial, renewal, expiration, refund, and feature-access state.
+- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
+- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
 
-## API/Backend Contracts
-- `GET /home`, `GET /sets/{id}`, `POST /sets`, `PATCH /sets/{id}`.
-- `POST /cards`, `PATCH /cards/{id}`, `DELETE /cards/{id}`.
-- `POST /study/start`, `POST /study/answer`, `POST /study/complete`.
-- `GET /classes`, `POST /classes`, `POST /imports`, `GET /imports/{id}`.
-- `GET /streak`, `POST /share`, `POST /duplicate`.
-- Study mode content should be versioned and cursor-based for large sets.
+## API And Backend Contracts
+- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
+- Reads: GET /users, GET /courses, GET /lessons, GET /exercises, GET /attempts; all reads return pagination, cache hints, authorization status, and stale-data indicators.
+- Writes: POST /users, POST /courses, POST /lessons, POST /exercises, POST /attempts; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
+- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
+- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
+- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
+- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
+- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
+- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
+- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
 
-## Realtime/Push/Offline
-- Push streak reminders, shared set updates, and import completion.
-- Cache recent sets, weak cards, and session progress offline.
-- Queue answer submissions if connectivity is lost during study.
+## Realtime, Push, And Offline Behavior
+- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
+- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
+- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
+- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
+- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
+- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
 
-## Permissions/Privacy/Safety
-- Request camera only for scan import and only when used.
-- Keep study content private unless the user explicitly shares it.
-- Provide report and block controls for shared sets.
+## Permissions, Privacy, And Safety
+- Treat minor privacy as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat academic misuse as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat accessibility as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat subscription gating as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat content accuracy as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
+- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
+- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
+- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
+- Use original sample data and licensed third-party providers only after legal review.
 
-## Analytics Events
-- `set_created`, `card_added`, `study_started`, `study_completed`
-- `mode_selected`, `import_started`, `import_completed`, `set_shared`
-- `streak_updated`, `weak_card_reviewed`
+## Analytics And Monetization
+- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
+- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
+- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
+- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
+- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
+- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
+- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
 
-## Monetization
-- Use premium gating for advanced study modes, offline, and large-set tools.
-- Keep the core create-and-study loop free enough to remain useful.
+## Edge Cases
+- First launch with no network, no account, or expired session.
+- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
+- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
+- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
+- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
+- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
 
-## Acceptance Tests
-- User can create a set, add cards, and start study immediately.
-- User can switch from learn to test mode in one session.
-- User can import a set and correct parsing mistakes.
-- User can create a class folder and move sets into it.
-- Offline session progress resumes without losing answer state.
+## Test Plan
+- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
+- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
+- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
+- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
+- Permission tests for denied, granted, revoked, and limited-access OS permission states.
+- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
+- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
+- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
+- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
+- Regression tests for every acceptance criterion before marking the spec implementation-ready.
 
-## Implementation Notes
-- Keep answer grading logic deterministic and isolated from UI state.
-- Treat scan import as an async pipeline so OCR failures are recoverable.
-- Preserve card ordering explicitly so study sessions are reproducible.
+## Acceptance Criteria
+- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
+- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
+- A new user can complete onboarding and reach the default home surface without unsupported permissions.
+- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
+- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
+- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
+- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+
+## Open Questions
+- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
+- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
+- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
+- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+## Next Steps
+- Replace source-discovery links with exact first-party URLs from a verified research session.
+- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
+- Resolve open questions and update this spec before app implementation starts.
+- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.

@@ -1,80 +1,178 @@
 # Instacart-Style Clone Spec
 
-## Legal Scope
-- Clone objective: grocery delivery marketplace with store selection, item search, substitutions, shopper chat, checkout, delivery windows, and reorder lists.
-- Must not copy: brand assets, retailer feeds, shopper policies, or proprietary catalog data.
-- Original replacement brand: neutral grocery commerce identity and original content.
+> Metadata
+> - Inspiration app: Instacart
+> - Category: Grocery delivery
+> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
+> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
 
-## Product Goal
-- Help customers order groceries from a selected store and manage substitution preferences.
-- Support shopper communication, slot selection, and repeat basket ordering.
-- Keep inventory, availability, and fulfillment state clearly separated.
+## Overview
+Build an original mobile product inspired by Instacart's user-facing workflow, not its brand identity or proprietary implementation.
+The clone target is: Store selection, grocery catalog, substitutions, shopper chat, checkout, delivery slots, and reorder lists.
+Primary product surface: browse/search supported by listing/menu/product detail and cart/selection flows.
+The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
+The spec intentionally separates verified public-source facts from inferred clone requirements.
 
-## Research Verification Checklist
-- Verify store-first navigation, category browse, substitutions, and delivery-slot flow.
-- Verify shopper chat behavior, order edits, and reorder list handling.
-- Verify whether pickup, alcohol, or pharmacy add-ons are in scope.
-- Verification status: pending lawful research.
+## Goals
+- Deliver a mobile-first grocery delivery experience with complete onboarding, core action, settings, and recovery flows.
+- Implement the app-specific focus: Store selection, grocery catalog, substitutions, shopper chat, checkout, delivery slots, and reorder lists.
+- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
+- Make public-source verification and blocked hands-on research visible before implementation starts.
+- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+## Non-Goals
+- Do not copy Instacart branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
+- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
+- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
+- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
+- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+## Research Sources
+- App Store source-discovery link: https://apps.apple.com/us/search?term=Instacart
+- Google Play source-discovery link: https://play.google.com/store/search?q=Instacart&c=apps
+- Official help/privacy source-discovery link: https://www.google.com/search?q=Instacart%20official%20app%20help%20privacy
+- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
+- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
+- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
+- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
+- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+## Detailed Design
+- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for grocery delivery.
+- Home model: make Browse/Search the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
+- Core action: make Listing/Menu/Product Detail the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
+- Detail surface: use Cart/Selection for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
+- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
+- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
+- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
+- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
+- The implementation must support catalog browse, search, and filters.
+- The implementation must show availability, modifiers, fees, taxes, and total cost.
+- The implementation must support cart edits and saved favorites.
+- The implementation must validate inventory before checkout.
+- The implementation must support payment authorization and failure recovery.
+- The implementation must track order/reservation lifecycle states.
+- The implementation must support merchant or seller communication.
+- The implementation must collect reviews only after eligible events.
+- The implementation must support refunds, returns, disputes, and support.
+- The implementation must detect spam, fraud, and prohibited listings.
+- The implementation must cache recent orders and saved items.
+- The implementation must keep all product/media content original or licensed.
 
 ## Core User Journeys
-- Choose a store, browse aisles or search for items, and build a cart.
-- Set substitution preferences and delivery window, then check out.
-- Chat with the shopper, approve replacements, and receive the delivery.
-- Reorder a past basket and edit quantities quickly.
+- New user installs the app, reviews an original value proposition, creates an account, and reaches Browse/Search.
+- Returning user opens Browse/Search, resumes the most recent meaningful activity, and completes the primary action in Listing/Menu/Product Detail.
+- User searches or browses from Checkout, opens Cart/Selection, saves or shares it, and later finds it again from history or library.
+- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
+- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
+- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
 
 ## Screen Inventory
-| Screen | Purpose | Inputs | States | Edge Cases |
+| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
 |---|---|---|---|---|
-| Store Select | Choose retailer | location, filters | available, none | closed store |
-| Catalog | Find items | search, categories | loaded, sparse | out of stock |
-| Item Detail | Product options | qty, notes, substitute prefs | valid, invalid | limit exceeded |
-| Cart | Checkout review | delivery slot, tip | ready, failed | substitution conflict |
-| Shopper Chat | Replacement coordination | text, approve, reject | active, muted | no shopper reply |
-| Order Track | Fulfillment status | contact, issue | picking, delivering | delay |
-| Reorder | Repeat basket | add all, edit | populated, empty | store unavailable |
-
-## Functional Requirements
-- Store selection before item shopping where inventory is store-specific.
-- Search and browse by category, brand, diet, and household goods type.
-- Substitution preferences per item and per order.
-- Checkout with delivery slot selection, fees, tips, and order tracking.
+| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Browse/Search | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Listing/Menu/Product Detail | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Cart/Selection | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Checkout | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Order/Reservation Status | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Messages | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Reviews | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Returns/Support | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Seller/Admin Tools | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
 
 ## Data Model
-- Store, AisleCategory, Product, CartItem, Order, DeliverySlot, SubstitutionPreference, ShopperMessage, ReorderList, Receipt.
-- Order stores store ID, substitution policy, picker state, and delivery state.
-- Product data must keep pack size, unit price, and availability status.
+- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
+- `Merchant`: stores the primary workspace, account, or grouping context.
+- `CatalogItem`: represents the primary user-facing catalog object, ownership, availability, and display metadata.
+- `Inventory`: captures lifecycle state, ordering, timestamps, and failure reason codes.
+- `Cart`: tracks durable interaction history and audit metadata.
+- `Order`: tracks checkout, confirmation, cancellation, refund, dispute, and audit states.
+- `Payment`: tracks checkout, confirmation, cancellation, refund, dispute, and audit states.
+- `Fulfillment`: supports safety, review, policy, or moderation decisions.
+- `Review`: stores trust, safety, support, escalation, decision, and resolution metadata.
+- `Dispute`: stores trust, safety, support, escalation, decision, and resolution metadata.
+- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
+- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
 
-## API/Backend Contracts
-- Auth: customer session plus payment method and address book.
-- Reads: `/stores`, `/catalog`, `/items/{id}`, `/cart`, `/orders`, `/reorders`, `/delivery-slots`.
-- Writes: add item, set substitute preference, place order, message shopper, approve replacement, reorder.
-- Realtime: shopper updates, inventory changes, order status, and delivery tracking.
+## API And Backend Contracts
+- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
+- Reads: GET /users, GET /merchants, GET /catalogitems, GET /inventories, GET /carts; all reads return pagination, cache hints, authorization status, and stale-data indicators.
+- Writes: POST /users, POST /merchants, POST /catalogitems, POST /inventories, POST /carts; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
+- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
+- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
+- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
+- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
+- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
+- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
+- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
 
-## Realtime/Push/Offline
-- Push on shopper questions, item replacements, slot reminders, and delivery progress.
-- Cache recent stores and reorder lists offline.
-- Cart edits can queue offline, but final checkout requires fresh inventory and slot validation.
+## Realtime, Push, And Offline Behavior
+- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
+- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
+- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
+- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
+- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
+- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
 
-## Permissions/Privacy/Safety
-- Request location and notifications only when choosing a nearby store or tracking delivery.
-- Protect address, phone, and payment data.
-- Provide substitution, missing-item, and shopper conduct reporting.
+## Permissions, Privacy, And Safety
+- Treat payment security as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat consumer protection as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat fraud as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat unsafe goods as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat review abuse as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
+- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
+- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
+- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
+- Use original sample data and licensed third-party providers only after legal review.
 
-## Analytics Events
-- `store_selected`, `item_searched`, `item_added`, `substitution_set`, `checkout_started`, `order_placed`, `shopper_messaged`, `order_completed`, `reorder_used`.
+## Analytics And Monetization
+- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
+- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
+- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
+- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
+- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
+- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
+- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
 
-## Monetization
-- Delivery fees, service fees, and optional membership perks.
-- Retailer promotions must be labeled and auditable.
+## Edge Cases
+- First launch with no network, no account, or expired session.
+- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
+- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
+- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
+- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
+- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
 
-## Acceptance Tests
-- Select a store, add items, set substitution preferences, and place an order.
-- Receive a shopper question and approve a replacement.
-- Reorder a previous basket and confirm the store-specific catalog is used.
-- Track an order through picking and delivery completion.
+## Test Plan
+- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
+- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
+- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
+- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
+- Permission tests for denied, granted, revoked, and limited-access OS permission states.
+- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
+- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
+- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
+- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
+- Regression tests for every acceptance criterion before marking the spec implementation-ready.
 
-## Implementation Notes
-- Store-specific inventory should be treated as the source of truth.
-- Build shopper messaging as a fulfillment workflow, not a general chat system.
-- Test substitution logic carefully because it drives user trust and order accuracy.
+## Acceptance Criteria
+- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
+- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
+- A new user can complete onboarding and reach the default home surface without unsupported permissions.
+- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
+- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
+- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
+- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
 
+## Open Questions
+- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
+- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
+- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
+- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+## Next Steps
+- Replace source-discovery links with exact first-party URLs from a verified research session.
+- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
+- Resolve open questions and update this spec before app implementation starts.
+- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.

@@ -2,19 +2,34 @@
 
 Created: 2026-04-16
 
-This directory contains Draft 0 technical specs for all 100 mobile app clone ideas in `tasks/ideas.md`.
+> Metadata
+> - Spec set status: Draft 1 canonical rewrite complete
+> - Coverage: 100 of 100 app ideas
+> - Research state: public source-discovery links included; exact first-party source replacement and hands-on verification remain Phase 3 work
 
-## Status
+## Overview
 
-- Coverage: 100 of 100 app ideas.
-- Structure: five batches of 20 app specs each.
-- Research status: implementation-oriented draft specs, not completed live product research.
-- Legal posture: functional clone specs only. Use original branding, copy, icons, media, sample data, and code. Do not copy proprietary source, private APIs, trademarks, copyrighted assets, paywalled content, or licensed datasets.
-- Quality audit: see `tasks/spec-quality-audit.md`; the current set is Draft 0 and still needs a Draft 1 deepening pass before it can be considered best-quality or implementation-ready.
+This directory contains canonical Draft 1 technical specs for all 100 mobile app clone ideas in `tasks/ideas.md`.
 
-Every individual spec includes a research verification checklist. Treat those checklist items as required before implementation begins.
+The specs are implementation-oriented planning documents. They define lawful functional parity targets, product flows, data models, backend contracts, privacy and safety requirements, analytics, edge cases, test plans, acceptance criteria, open questions, and next steps.
 
-## Batches
+## Goals
+
+- Keep every clone concept represented by one numbered spec.
+- Use one consistent spec structure across all batches.
+- Make legal scope and research status explicit.
+- Provide enough detail for downstream implementation planning.
+- Preserve blocked hands-on research items instead of inventing unsupported product behavior.
+
+## Non-Goals
+
+- Do not implement application code in this repository.
+- Do not copy branding, trade dress, logos, screenshots, copyrighted media, private APIs, proprietary data, or paywalled content.
+- Do not treat source-discovery links as a substitute for exact verified first-party URLs.
+
+## Detailed Design
+
+The numbered specs live in five batches:
 
 | Batch | App Range | Focus Areas | Directory |
 |---|---:|---|---|
@@ -24,39 +39,53 @@ Every individual spec includes a research verification checklist. Treat those ch
 | Batch 04 | 061-080 | crypto, budgeting, wallet, audio/video, education | `specs/batch-04/` |
 | Batch 05 | 081-100 | wellness, fitness, productivity, cloud, creator tools, smart home | `specs/batch-05/` |
 
-## Spec Format
+Every numbered spec uses these canonical sections:
 
-Each app spec is organized around:
-
-- Legal Scope
-- Product Goal
-- Research Verification Checklist
+- Overview
+- Goals
+- Non-Goals
+- Research Sources
+- Detailed Design
 - Core User Journeys
 - Screen Inventory
-- Functional Requirements
 - Data Model
-- API/Backend Contracts
-- Realtime/Push/Offline behavior
-- Permissions/Privacy/Safety
-- Analytics Events
-- Monetization
-- Acceptance Tests
-- Implementation Notes
+- API And Backend Contracts
+- Realtime, Push, And Offline Behavior
+- Permissions, Privacy, And Safety
+- Analytics And Monetization
+- Edge Cases
+- Test Plan
+- Acceptance Criteria
+- Open Questions
+- Next Steps
 
-## Verification Gate
+## Edge Cases
 
-Before any clone moves into implementation, complete a live research pass:
+- Exact marketplace/help/privacy URLs may differ by region, device platform, or app ownership.
+- Some source-discovery links route through marketplace or search pages and must be replaced with exact first-party URLs before build start.
+- Some features require paid subscriptions, test accounts, physical devices, regulated sandboxes, or region-specific availability and remain blocked until verified.
 
-1. Review first-party app listings, help docs, privacy labels, terms, and public screenshots.
-2. Exercise the app directly where lawful and document screen states, permissions, empty states, settings, and notification behavior.
-3. Replace inferred requirements with verified requirements.
-4. Confirm that all assets, sample data, maps, catalog content, media, and third-party integrations are original, synthetic, open, or properly licensed.
-5. Record unresolved legal, marketplace, privacy, safety, financial, health, or platform-policy risks.
+## Test Plan
 
-## Validation
+- Confirm exactly 100 numbered app specs exist.
+- Confirm no missing numeric IDs from `001` through `100`.
+- Confirm every numbered spec has exactly one H1.
+- Confirm every numbered spec has all canonical sections.
+- Confirm Draft 1 quality metrics pass for line count, screen rows, detailed-design bullets, data entities, API bullets, journeys, tests, sources, safety, analytics, and next steps.
 
-The generated set was checked for:
+## Acceptance Criteria
 
-- 100 numbered app specs.
-- No missing numeric IDs from `001` through `100`.
-- One batch README per batch.
+- All 100 specs use canonical Draft 1 structure.
+- Every spec has source-discovery links and explicit blocked hands-on verification notes.
+- Every spec remains legally scoped to original code, original assets, synthetic or licensed data, and lawful integrations.
+- Phase 3 remains responsible for exact first-party source replacement and hands-on verification.
+
+## Open Questions
+
+- Which exact first-party source URLs should replace the current source-discovery links for each app?
+- Which apps require paid accounts, hardware, region access, regulated sandboxes, or partner integrations for hands-on verification?
+
+## Next Steps
+
+- Complete Phase 3 exact source replacement and hands-on verification.
+- Update each spec with verified behavior and remove blocked notes only when evidence is captured.

@@ -1,38 +1,43 @@
-# Batch 05 Specs
+# Batch 05 Draft 1 Specs
 
-Scope: apps 81-100 from `tasks/ideas.md`.
+> Metadata
+> - App range: 081-100
+> - Status: Draft 1 canonical spec rewrite
+> - Research state: public source-discovery links included; exact source replacement and hands-on verification still required before implementation.
 
-This batch contains implementation-ready technical clone specs for lawful functional parity only. The specs use original branding placeholders and avoid copied assets, copy, source, or private APIs.
+## Overview
+This batch contains canonical Draft 1 clone specs for apps 81-100 from tasks/ideas.md.
 
-## Included Apps
+## Included Specs
 
-| # | App | File |
-|---|---|---|
-| 81 | Photomath | `081-photomath.md` |
-| 82 | Headspace | `082-headspace.md` |
-| 83 | Calm | `083-calm.md` |
-| 84 | Strava | `084-strava.md` |
-| 85 | Nike Run Club | `085-nike-run-club.md` |
-| 86 | MyFitnessPal | `086-myfitnesspal.md` |
-| 87 | Fitbit | `087-fitbit.md` |
-| 88 | Flo | `088-flo.md` |
-| 89 | Notion | `089-notion.md` |
-| 90 | Todoist | `090-todoist.md` |
-| 91 | Trello | `091-trello.md` |
-| 92 | Google Calendar | `092-google-calendar.md` |
-| 93 | Evernote | `093-evernote.md` |
-| 94 | Dropbox | `094-dropbox.md` |
-| 95 | Google Drive | `095-google-drive.md` |
-| 96 | CapCut | `096-capcut.md` |
-| 97 | Canva | `097-canva.md` |
-| 98 | Lightroom | `098-lightroom.md` |
-| 99 | Google Photos | `099-google-photos.md` |
-| 100 | Ring | `100-ring.md` |
+- 081 Photomath - Education utility
+- 082 Headspace - Wellness
+- 083 Calm - Wellness
+- 084 Strava - Fitness social
+- 085 Nike Run Club - Fitness
+- 086 MyFitnessPal - Health tracking
+- 087 Fitbit - Health tracking
+- 088 Flo - Health tracking
+- 089 Notion - Productivity
+- 090 Todoist - Productivity
+- 091 Trello - Productivity
+- 092 Google Calendar - Productivity
+- 093 Evernote - Productivity
+- 094 Dropbox - Cloud storage
+- 095 Google Drive - Cloud storage
+- 096 CapCut - Creator tools
+- 097 Canva - Creator tools
+- 098 Lightroom - Creator tools
+- 099 Google Photos - Photo library
+- 100 Ring - Smart home
 
-## Batch Notes
+## Quality Gate
 
-- Research verification is intentionally marked as pending where live app observation is needed.
-- Specs emphasize original branding, original UI language, and lawful data handling.
-- Realtime, push, offline, and monetization choices are included where they materially affect parity.
-- Treat each file as a buildable product brief, not as a design mock or legal analysis.
+- Each numbered spec uses canonical hygiene sections.
+- Each numbered spec includes source-discovery links, functional requirements, data model, API contracts, edge cases, test plan, acceptance criteria, open questions, and next steps.
+- Each numbered spec remains legally scoped to functional parity with original assets and licensed data.
 
+## Next Steps
+
+- Replace source-discovery links in every spec with exact verified first-party URLs.
+- Complete hands-on verification where lawful and feasible before app implementation starts.

@@ -1,83 +1,178 @@
-# Peer Payments Wallet Clone Spec
+# Cash App-Style Clone Spec
 
-## Legal Scope
-- Clone objective: reproduce peer transfers, stored balance, linked cards/banks, debit card, investing entry point, and security settings.
-- Must not copy: trademarks, card art, bitcoin branding, proprietary cash card designs, or financial partner logos.
-- Original replacement brand/assets: use neutral wallet branding and original financial UI copy.
+> Metadata
+> - Inspiration app: Cash App
+> - Category: Finance
+> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
+> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
 
-## Product Goal
-- Let users send money, receive money, hold a balance, and manage connected funding sources.
-- Preserve the main structure: home, payments, balance, card, linked accounts, and security.
-- Verify transfer timing, limits, and identity-check behavior from lawful research.
+## Overview
+Build an original mobile product inspired by Cash App's user-facing workflow, not its brand identity or proprietary implementation.
+The clone target is: Peer payments, cash balance, debit card, boosts, investing entry points, bitcoin-like flows, and security settings.
+Primary product surface: dashboard supported by transfer/trade ticket and account detail flows.
+The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
+The spec intentionally separates verified public-source facts from inferred clone requirements.
 
-## Research Verification Checklist
-- [ ] Confirm send/request flow and note fields.
-- [ ] Verify balance display, transfer timing, and linked account management.
-- [ ] Verify card ordering, card controls, and payment method selection.
-- [ ] Verify investing/bitcoin-like entry point treatment if present in scope.
-- [ ] Verify push notifications for incoming transfers and security events.
+## Goals
+- Deliver a mobile-first finance experience with complete onboarding, core action, settings, and recovery flows.
+- Implement the app-specific focus: Peer payments, cash balance, debit card, boosts, investing entry points, bitcoin-like flows, and security settings.
+- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
+- Make public-source verification and blocked hands-on research visible before implementation starts.
+- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+## Non-Goals
+- Do not copy Cash App branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
+- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
+- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
+- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
+- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+## Research Sources
+- App Store source-discovery link: https://apps.apple.com/us/search?term=Cash%20App
+- Google Play source-discovery link: https://play.google.com/store/search?q=Cash%20App&c=apps
+- Official help/privacy source-discovery link: https://www.google.com/search?q=Cash%20App%20official%20app%20help%20privacy
+- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
+- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
+- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
+- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
+- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+## Detailed Design
+- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for finance.
+- Home model: make Dashboard the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
+- Core action: make Transfer/Trade Ticket the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
+- Detail surface: use Account Detail for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
+- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
+- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
+- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
+- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
+- The implementation must support secure onboarding with session controls.
+- The implementation must show balances with timestamp and stale-state warnings.
+- The implementation must render transactions with filterable history.
+- The implementation must preview all money movement before submission.
+- The implementation must require idempotency keys for writes.
+- The implementation must support alerts and security notifications.
+- The implementation must export statements or transaction history.
+- The implementation must block high-risk actions with reason codes.
+- The implementation must minimize PII in logs and analytics.
+- The implementation must support account deletion and data export.
+- The implementation must use sandbox rails until licensed.
+- The implementation must show disclosures before regulated actions.
 
 ## Core User Journeys
-- User links a bank account or card and adds balance.
-- User sends money to a contact or requests payment.
-- User views transaction history and balance changes.
-- User manages a debit card and security settings.
-- User opens an investing or crypto-like module if enabled by product scope.
+- New user installs the app, reviews an original value proposition, creates an account, and reaches Dashboard.
+- Returning user opens Dashboard, resumes the most recent meaningful activity, and completes the primary action in Transfer/Trade Ticket.
+- User searches or browses from Transaction Detail, opens Account Detail, saves or shares it, and later finds it again from history or library.
+- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
+- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
+- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
 
 ## Screen Inventory
-| Screen | Purpose | Inputs | States | Edge Cases |
+| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
 |---|---|---|---|---|
-| Home | Balance and shortcuts | Contacts, balance | Active, empty | Unlinked funding |
-| Send Money | Transfer flow | Recipient, amount | Valid, pending | Recipient not found |
-| Request Money | Pull payment | Amount, note | Sent, cancelled | Duplicate request |
-| Card | Debit card controls | Limits, PIN, lock | Active, frozen | Lost card |
-| Security | Account safety | Passcode, device | Configured, alert | Trusted device lost |
-
-## Functional Requirements
-- Support peer transfers by handle, phone, or contact list if enabled.
-- Persist balance, transfer history, cards, linked funding, and security state.
-- Support payment notes and split-request flows.
-- Require server-side risk checks on first-time recipients and large transfers.
-- Allow transaction receipts and support contact entry points.
+| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Dashboard | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Transfer/Trade Ticket | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Account Detail | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Transaction Detail | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Identity/Security | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Alerts | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Statements | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Support | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
 
 ## Data Model
-- User, ContactHandle, BalanceAccount, Transfer, Request, FundingSource, Card, SecuritySetting, RiskCheck, Receipt.
-- Transfer stores recipient, amount, memo, state, and settlement timing.
-- BalanceAccount tracks available, pending, and reserved funds.
+- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
+- `IdentityCheck`: stores the primary workspace, account, or grouping context.
+- `Account`: stores account-level status, balances or settings, authorization state, and lifecycle flags.
+- `Balance`: captures lifecycle state, ordering, timestamps, and failure reason codes.
+- `Transaction`: tracks durable interaction history and audit metadata.
+- `Transfer`: stores sharing, collaboration, or permission relationships.
+- `Instrument`: records notification, recommendation, or entitlement state.
+- `AlertRule`: records delivery preferences, trigger rules, read state, and retry metadata.
+- `Statement`: stores support or user feedback records.
+- `DeviceSession`: captures active workflow state, timestamps, metrics, pause/resume markers, and completion status.
+- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
+- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
 
-## API/Backend Contracts
-- `POST /transfers`, `POST /requests`, `GET /activity`
-- `POST /funding-sources`, `GET /balance`, `PATCH /card`
-- `GET /security`, `POST /security/pin`
-- Use idempotency keys for transfers and requests.
+## API And Backend Contracts
+- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
+- Reads: GET /users, GET /identitychecks, GET /accounts, GET /balances, GET /transactions; all reads return pagination, cache hints, authorization status, and stale-data indicators.
+- Writes: POST /users, POST /identitychecks, POST /accounts, POST /balances, POST /transactions; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
+- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
+- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
+- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
+- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
+- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
+- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
+- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
 
-## Realtime/Push/Offline
-- Push incoming transfer, transfer complete, request responded, and security alert events.
-- Cache recent activity offline.
-- Transfers should remain visible with pending state when network is lost.
+## Realtime, Push, And Offline Behavior
+- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
+- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
+- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
+- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
+- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
+- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
 
-## Permissions/Privacy/Safety
-- Request contacts only if the product enables contact matching.
-- Protect bank tokens, card data, and transfer history.
-- Rate-limit fraud attempts, account takeovers, and repeated failed transfers.
-- Show clear warning states for risky or newly added recipients.
+## Permissions, Privacy, And Safety
+- Treat KYC/AML as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat financial licensing as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat fraud as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat PII leakage as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat irreversible transfer mistakes as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
+- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
+- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
+- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
+- Use original sample data and licensed third-party providers only after legal review.
 
-## Analytics Events
-- `view_home`, `add_funding_source`, `send_transfer`, `request_money`, `view_activity`, `card_locked`, `security_alert_opened`
+## Analytics And Monetization
+- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
+- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
+- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
+- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
+- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
+- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
+- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
 
-## Monetization
-- Revenue comes from instant transfer fees, interchange, and premium account features.
-- Fee logic must be server-configurable.
+## Edge Cases
+- First launch with no network, no account, or expired session.
+- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
+- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
+- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
+- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
+- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
 
-## Acceptance Tests
-- Transfer to a new recipient triggers risk review when thresholds are exceeded.
-- Balance updates after settlement and appears in activity history.
-- Card lock prevents new card transactions until unlocked.
-- Request payment can be cancelled before acceptance.
-- Offline mode preserves pending transfer details.
+## Test Plan
+- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
+- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
+- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
+- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
+- Permission tests for denied, granted, revoked, and limited-access OS permission states.
+- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
+- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
+- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
+- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
+- Regression tests for every acceptance criterion before marking the spec implementation-ready.
 
-## Implementation Notes
-- Keep payment rails abstracted behind adapters.
-- Use original balance and card styling only.
-- Separate contacts from transfer recipients.
-- Mark transfer, compliance, and limit behavior that needs live verification.
+## Acceptance Criteria
+- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
+- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
+- A new user can complete onboarding and reach the default home surface without unsupported permissions.
+- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
+- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
+- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
+- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+
+## Open Questions
+- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
+- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
+- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
+- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+## Next Steps
+- Replace source-discovery links with exact first-party URLs from a verified research session.
+- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
+- Resolve open questions and update this spec before app implementation starts.
+- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.

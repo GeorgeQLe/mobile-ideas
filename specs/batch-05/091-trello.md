@@ -1,75 +1,178 @@
-# 091 Trello Clone Spec
+# Trello-Style Clone Spec
 
-## Legal Scope
-- Clone board, list, card, assignment, attachment, and basic automation flows.
-- Use original branding and card styling, not copied icons or templates.
+> Metadata
+> - Inspiration app: Trello
+> - Category: Productivity
+> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
+> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
 
-## Product Goal
-- Give teams a simple visual board for planning and status tracking.
+## Overview
+Build an original mobile product inspired by Trello's user-facing workflow, not its brand identity or proprietary implementation.
+The clone target is: Boards, lists, cards, labels, due dates, checklists, members, activity log, and automation-like actions.
+Primary product surface: home/workspace supported by create/edit and detail/preview flows.
+The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
+The spec intentionally separates verified public-source facts from inferred clone requirements.
 
-## Research Verification Checklist
-- Public board behaviors, templates, and premium features: verify.
-- Card detail, drag/drop, and notification semantics: verify.
-- Sharing and permission levels: verify.
+## Goals
+- Deliver a mobile-first productivity experience with complete onboarding, core action, settings, and recovery flows.
+- Implement the app-specific focus: Boards, lists, cards, labels, due dates, checklists, members, activity log, and automation-like actions.
+- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
+- Make public-source verification and blocked hands-on research visible before implementation starts.
+- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+## Non-Goals
+- Do not copy Trello branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
+- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
+- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
+- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
+- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+## Research Sources
+- App Store source-discovery link: https://apps.apple.com/us/search?term=Trello
+- Google Play source-discovery link: https://play.google.com/store/search?q=Trello&c=apps
+- Official help/privacy source-discovery link: https://www.google.com/search?q=Trello%20official%20app%20help%20privacy
+- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
+- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
+- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
+- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
+- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+## Detailed Design
+- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for productivity.
+- Home model: make Home/Workspace the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
+- Core action: make Create/Edit the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
+- Detail surface: use Detail/Preview for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
+- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
+- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
+- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
+- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
+- The implementation must support creation and editing of primary objects.
+- The implementation must persist autosave and version history.
+- The implementation must support search and recent items.
+- The implementation must support sharing with role-based permissions.
+- The implementation must handle offline edits and sync conflicts.
+- The implementation must support import/export workflows.
+- The implementation must gate premium templates, storage, or tools by entitlement.
+- The implementation must request file/camera/device permissions only on action.
+- The implementation must render previews without data leakage.
+- The implementation must support deletion and recovery windows.
+- The implementation must keep all templates and assets original or licensed.
+- The implementation must provide clear failed-sync recovery.
 
 ## Core User Journeys
-- User creates a board and adds lists.
-- User adds cards, assigns members, and attaches files.
-- User reorders cards with drag and drop.
-- User opens activity history and notification inbox.
+- New user installs the app, reviews an original value proposition, creates an account, and reaches Home/Workspace.
+- Returning user opens Home/Workspace, resumes the most recent meaningful activity, and completes the primary action in Create/Edit.
+- User searches or browses from Search, opens Detail/Preview, saves or shares it, and later finds it again from history or library.
+- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
+- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
+- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
 
 ## Screen Inventory
-| Screen | Purpose | Inputs | States | Edge Cases |
+| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
 |---|---|---|---|---|
-| Board | Visual planning | Lists, cards | Empty, populated | Huge board |
-| Card Detail | Task detail | Notes, members | Open, closed | Missing attachment |
-| Activity | Change history | Filters | Recent, older | Deleted actor |
-| Templates | Fast setup | Choose board | Loaded, empty | No template |
-| Share | Access control | Invite, role | Pending, active | Expired link |
-
-## Functional Requirements
-- Support boards, lists, cards, labels, due dates, checklists, and attachments.
-- Support drag and drop between lists and boards.
-- Track card activity and comments.
-- Provide board templates and simple automation rules.
-- Maintain a fast board load path with incremental fetch.
+| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Home/Workspace | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Create/Edit | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Detail/Preview | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Search | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Share | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Sync/Activity | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Templates/Library | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Permissions | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
 
 ## Data Model
-- `Workspace`, `Board`, `List`, `Card`, `ChecklistItem`, `Label`, `Member`, `Attachment`, `Activity`.
-- Store card position as an ordered index for cheap reordering.
+- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
+- `Workspace`: stores the primary workspace, account, or grouping context.
+- `Document`: represents the main user-facing object in this clone's core flow.
+- `Asset`: represents the primary user-facing catalog object, ownership, availability, and display metadata.
+- `Project`: tracks durable interaction history and audit metadata.
+- `Version`: stores sharing, collaboration, or permission relationships.
+- `ShareGrant`: records notification, recommendation, or entitlement state.
+- `Template`: supports safety, review, policy, or moderation decisions.
+- `SyncJob`: stores support or user feedback records.
+- `Notification`: records delivery preferences, trigger rules, read state, and retry metadata.
+- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
+- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
 
-## API/Backend Contracts
-- `GET /boards/{id}`
-- `POST /boards`
-- `POST /lists`
-- `PATCH /cards/{id}`
-- `POST /cards/{id}/attachments`
-- `POST /automation/rules`
+## API And Backend Contracts
+- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
+- Reads: GET /users, GET /workspaces, GET /documents, GET /assets, GET /projects; all reads return pagination, cache hints, authorization status, and stale-data indicators.
+- Writes: POST /users, POST /workspaces, POST /documents, POST /assets, POST /projects; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
+- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
+- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
+- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
+- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
+- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
+- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
+- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
 
-## Realtime/Push/Offline
-- Realtime board updates for shared users.
-- Offline card edits queue and reconcile on reconnect.
-- Push for mentions, assignments, and due dates.
+## Realtime, Push, And Offline Behavior
+- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
+- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
+- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
+- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
+- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
+- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
 
-## Permissions/Privacy/Safety
-- Respect board, list, and card-level visibility.
-- Hide private attachment URLs behind signed access.
-- Support deletion and export.
+## Permissions, Privacy, And Safety
+- Treat data loss as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat permission leakage as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat copyrighted assets as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat collaboration access as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat device security as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
+- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
+- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
+- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
+- Use original sample data and licensed third-party providers only after legal review.
 
-## Analytics Events
-- `board_created`, `card_added`, `card_moved`, `attachment_added`, `member_invited`, `automation_used`, `due_date_set`, `notification_opened`.
+## Analytics And Monetization
+- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
+- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
+- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
+- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
+- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
+- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
+- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
 
-## Monetization
-- Freemium with advanced automation, larger attachments, and admin features behind paid tiers.
+## Edge Cases
+- First launch with no network, no account, or expired session.
+- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
+- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
+- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
+- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
+- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
 
-## Acceptance Tests
-- Create a board, add lists, and move a card between them.
-- Invite a collaborator and verify permissions.
-- Work offline and sync a card edit later.
-- Open activity history and confirm actions are recorded.
+## Test Plan
+- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
+- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
+- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
+- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
+- Permission tests for denied, granted, revoked, and limited-access OS permission states.
+- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
+- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
+- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
+- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
+- Regression tests for every acceptance criterion before marking the spec implementation-ready.
 
-## Implementation Notes
-- Use ordered list and card positions to prevent expensive reindexing.
-- Keep drag/drop optimistic but reconcile server ordering on conflict.
-- Make templates server-defined so they can be updated independently.
+## Acceptance Criteria
+- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
+- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
+- A new user can complete onboarding and reach the default home surface without unsupported permissions.
+- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
+- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
+- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
+- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
 
+## Open Questions
+- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
+- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
+- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
+- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+## Next Steps
+- Replace source-discovery links with exact first-party URLs from a verified research session.
+- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
+- Resolve open questions and update this spec before app implementation starts.
+- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.

@@ -1,38 +1,43 @@
-# Batch 01 Clone Specs
+# Batch 01 Draft 1 Specs
 
-This batch covers apps 1-20 from `tasks/ideas.md`.
+> Metadata
+> - App range: 001-020
+> - Status: Draft 1 canonical spec rewrite
+> - Research state: public source-discovery links included; exact source replacement and hands-on verification still required before implementation.
 
-Scope:
-- Lawful functional clones only.
-- Original branding, copy, media, and assets.
-- No claim of live research beyond the local backlog.
-- Items that need direct verification are marked in each spec.
+## Overview
+This batch contains canonical Draft 1 clone specs for apps 1-20 from tasks/ideas.md.
 
-Included apps:
-- 001 ChatGPT
-- 002 Claude
-- 003 Perplexity
-- 004 Character.AI
-- 005 Replika
-- 006 TikTok
-- 007 Instagram
-- 008 Snapchat
-- 009 BeReal
-- 010 Reddit
-- 011 X
-- 012 Bluesky
-- 013 Threads
-- 014 Pinterest
-- 015 Lemon8
-- 016 WhatsApp
-- 017 Telegram
-- 018 Signal
-- 019 Discord
-- 020 Slack
+## Included Specs
 
-Conventions:
-- Each spec is implementation-ready and concise.
-- Each file owns its app-specific functional scope.
-- Screen inventories are written to support routing, backend, and test planning.
-- Acceptance tests emphasize happy path, edge cases, privacy, and offline behavior.
+- 001 ChatGPT - AI assistant
+- 002 Claude - AI assistant
+- 003 Perplexity - AI search
+- 004 Character.AI - AI companion
+- 005 Replika - AI companion
+- 006 TikTok - Short video
+- 007 Instagram - Social media
+- 008 Snapchat - Camera social
+- 009 BeReal - Social media
+- 010 Reddit - Community
+- 011 X - Social media
+- 012 Bluesky - Social media
+- 013 Threads - Social media
+- 014 Pinterest - Discovery
+- 015 Lemon8 - Lifestyle social
+- 016 WhatsApp - Messaging
+- 017 Telegram - Messaging
+- 018 Signal - Messaging
+- 019 Discord - Community chat
+- 020 Slack - Workplace chat
 
+## Quality Gate
+
+- Each numbered spec uses canonical hygiene sections.
+- Each numbered spec includes source-discovery links, functional requirements, data model, API contracts, edge cases, test plan, acceptance criteria, open questions, and next steps.
+- Each numbered spec remains legally scoped to functional parity with original assets and licensed data.
+
+## Next Steps
+
+- Replace source-discovery links in every spec with exact verified first-party URLs.
+- Complete hands-on verification where lawful and feasible before app implementation starts.

@@ -1,97 +1,178 @@
-# TikTok-Style Short Video Clone Spec
+# TikTok-Style Clone Spec
 
-## Legal Scope
-- Clone objective: reproduce a vertical short-video app with discovery feeds, creator upload tools, comments, remixing, and account follows.
-- Must not copy: TikTok branding, music licenses, recommendation code, effects assets, or proprietary moderation systems.
-- Replacement brand/assets: use original feed labels, original icons, and licensed-or-original media only.
+> Metadata
+> - Inspiration app: TikTok
+> - Category: Short video
+> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
+> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
 
-## Product Goal
-- Let a user open the app and immediately watch an endless vertical feed, then create and publish a short video from the same device.
+## Overview
+Build an original mobile product inspired by TikTok's user-facing workflow, not its brand identity or proprietary implementation.
+The clone target is: Infinite vertical feed, creator recording tools, music/sound attribution, comments, duets, follows, and recommendation controls.
+Primary product surface: home feed supported by create/compose and detail/thread flows.
+The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
+The spec intentionally separates verified public-source facts from inferred clone requirements.
 
-## Research Verification Checklist
-- [ ] For You vs Following feed behavior
-- [ ] Upload, trim, captions, and sound attribution flow
-- [ ] Remix/reply-video behavior and privacy gates
-- [ ] Comment, like, share, and save actions
-- [ ] Drafts, privacy, and audience controls
-- [ ] Live and notification surfaces
-- [ ] Teen safety and content restriction rules
-- [ ] Offline draft save and upload retry behavior
+## Goals
+- Deliver a mobile-first short video experience with complete onboarding, core action, settings, and recovery flows.
+- Implement the app-specific focus: Infinite vertical feed, creator recording tools, music/sound attribution, comments, duets, follows, and recommendation controls.
+- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
+- Make public-source verification and blocked hands-on research visible before implementation starts.
+- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+## Non-Goals
+- Do not copy TikTok branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
+- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
+- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
+- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
+- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+## Research Sources
+- App Store source-discovery link: https://apps.apple.com/us/search?term=TikTok
+- Google Play source-discovery link: https://play.google.com/store/search?q=TikTok&c=apps
+- Official help/privacy source-discovery link: https://www.google.com/search?q=TikTok%20official%20app%20help%20privacy
+- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
+- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
+- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
+- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
+- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+## Detailed Design
+- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for short video.
+- Home model: make Home Feed the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
+- Core action: make Create/Compose the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
+- Detail surface: use Detail/Thread for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
+- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
+- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
+- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
+- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
+- The implementation must support account onboarding and profile setup.
+- The implementation must render ranked or chronological feeds with pagination.
+- The implementation must support creation, editing, deletion, and draft recovery.
+- The implementation must support reactions, comments, sharing, and saves.
+- The implementation must provide search and discovery filters.
+- The implementation must support notifications with granular preferences.
+- The implementation must include reporting and blocking controls.
+- The implementation must apply privacy defaults consistently.
+- The implementation must moderate abusive or illegal content.
+- The implementation must cache recent content for poor network reads.
+- The implementation must handle deleted or unavailable content.
+- The implementation must keep creator/user identity original.
 
 ## Core User Journeys
-- User watches the feed, likes a clip, follows a creator, and opens comments.
-- User records a video, trims it, adds text, and publishes it.
-- User remixes another clip or replies with video.
-- User switches between personalized and following feeds.
-- User reviews drafts and deletes an unpublished clip.
+- New user installs the app, reviews an original value proposition, creates an account, and reaches Home Feed.
+- Returning user opens Home Feed, resumes the most recent meaningful activity, and completes the primary action in Create/Compose.
+- User searches or browses from Search/Explore, opens Detail/Thread, saves or shares it, and later finds it again from history or library.
+- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
+- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
+- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
 
 ## Screen Inventory
-| Screen | Purpose | Key States |
-|---|---|---|
-| Feed | Watch vertical videos | loading, autoplay, error |
-| Creator Camera | Record content | preview, recording, paused |
-| Edit/Publish | Trim and annotate | draft, scheduled, posted |
-| Comments | Read and add replies | empty, threaded, moderated |
-| Profile | Creator identity and grid | public, private, restricted |
-| Inbox/Alerts | Follows and mentions | unread, cleared |
-| Discover/Search | Find creators and hashtags | trending, no results |
-| Settings | Privacy and controls | default, restricted |
-
-## Functional Requirements
-- Autoplay one video at a time and preserve watch position per session.
-- Support upload from gallery, camera recording, trimming, captions, and cover frame selection.
-- Show sound/track metadata and make it reusable in other clips where licensed.
-- Support like, save, share, follow, comment, report, and block.
-- Keep drafts locally until published or deleted.
-- Provide creator profile grids, follower counts, and pinned clips.
+| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
+|---|---|---|---|---|
+| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Home Feed | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Create/Compose | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Detail/Thread | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Search/Explore | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Profile | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Inbox/Notifications | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Moderation/Report | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Subscription | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
 
 ## Data Model
-- User: id, handle, bio, privacy, safety, follower_count.
-- Video: id, user_id, caption, media_url, cover_url, privacy, status.
-- FeedItem: id, user_id, algorithm_bucket, source_video_id, rank.
-- Comment: id, video_id, user_id, body, parent_id, moderation_state.
-- Sound: id, title, creator_name, usage_rights, source_url.
-- Draft: id, user_id, local_path, edit_state, last_saved_at.
+- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
+- `Profile`: stores public identity, display preferences, privacy level, and relationship metadata.
+- `Post`: represents the main user-facing object in this clone's core flow.
+- `Comment`: captures conversation content references, participants, moderation state, and delivery status.
+- `Reaction`: tracks durable interaction history and audit metadata.
+- `Follow`: stores sharing, collaboration, or permission relationships.
+- `MessageThread`: captures conversation content references, participants, moderation state, and delivery status.
+- `Notification`: records delivery preferences, trigger rules, read state, and retry metadata.
+- `Report`: stores trust, safety, support, escalation, decision, and resolution metadata.
+- `ModerationAction`: holds derived analytics-safe state and sync metadata.
+- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
+- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
 
-## API/Backend Contracts
-- `GET /feed?mode=for_you|following`
-- `POST /videos/upload-url`, `POST /videos`, `PATCH /videos/:id`
-- `POST /videos/:id/like`, `POST /videos/:id/comments`
-- `POST /users/:id/follow`, `GET /users/:id/videos`
-- `GET /search?q=`, `GET /sounds/:id`, `POST /reports`
-- Use resumable uploads and background transcode jobs.
+## API And Backend Contracts
+- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
+- Reads: GET /users, GET /profiles, GET /posts, GET /comments, GET /reactions; all reads return pagination, cache hints, authorization status, and stale-data indicators.
+- Writes: POST /users, POST /profiles, POST /posts, POST /comments, POST /reactions; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
+- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
+- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
+- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
+- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
+- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
+- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
+- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
 
-## Realtime/Push/Offline
-- Stream comments and creator alerts in realtime when available.
-- Push on new followers, comment replies, and moderation events.
-- Cache drafts and recent feed metadata offline.
-- Queue publishes until upload and transcode complete.
+## Realtime, Push, And Offline Behavior
+- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
+- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
+- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
+- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
+- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
+- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
 
-## Permissions/Privacy/Safety
-- Request camera, microphone, and photo library access only during creation.
-- Provide teen-safe defaults, content restrictions, and block/report flows.
-- Allow audience control per post and disable duet/remix on restricted videos.
-- Do not expose precise location unless the user intentionally adds it.
+## Permissions, Privacy, And Safety
+- Treat moderation as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat harassment as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat minor safety as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat spam as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat privacy leakage as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
+- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
+- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
+- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
+- Use original sample data and licensed third-party providers only after legal review.
 
-## Analytics Events
-- `feed_viewed`, `video_played`, `video_liked`, `video_shared`
-- `creator_followed`, `comment_posted`, `draft_saved`, `video_published`
-- `search_used`, `report_submitted`, `remix_started`
+## Analytics And Monetization
+- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
+- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
+- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
+- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
+- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
+- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
+- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
 
-## Monetization
-- Ad-supported feed with optional creator tipping, gifts, or promoted placements.
-- Premium creator tools can include advanced analytics and larger upload limits.
+## Edge Cases
+- First launch with no network, no account, or expired session.
+- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
+- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
+- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
+- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
+- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
 
-## Acceptance Tests
-- User can swipe through the feed with autoplay and uninterrupted loading.
-- User can create a draft, close the app, and resume editing later.
-- User can publish a clip and see it appear on the profile grid.
-- User can comment and receive a reply notification.
-- Restricted media cannot be remixed when the privacy setting disallows it.
+## Test Plan
+- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
+- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
+- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
+- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
+- Permission tests for denied, granted, revoked, and limited-access OS permission states.
+- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
+- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
+- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
+- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
+- Regression tests for every acceptance criterion before marking the spec implementation-ready.
 
-## Implementation Notes
-- Separate the feed ranking service from media upload and social graph services.
-- Keep the player stateful enough to survive app backgrounding without restarting every clip.
-- Treat moderation as a post-upload workflow that can hide content before feed insertion.
-- Verify exact feed labels, creation limits, and remix rules with direct observation.
+## Acceptance Criteria
+- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
+- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
+- A new user can complete onboarding and reach the default home surface without unsupported permissions.
+- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
+- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
+- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
+- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
 
+## Open Questions
+- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
+- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
+- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
+- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+## Next Steps
+- Replace source-discovery links with exact first-party URLs from a verified research session.
+- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
+- Resolve open questions and update this spec before app implementation starts.
+- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.

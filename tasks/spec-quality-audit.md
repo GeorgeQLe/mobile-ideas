@@ -1,126 +1,90 @@
 # Spec Quality Audit
 
 Created: 2026-04-16
+Updated: 2026-04-16
 
 ## Verdict
 
-The 100 technical specs are complete as Draft 0 coverage, but they cannot be verified as "best quality" or "very detailed" yet.
+The 100 technical specs now pass the Draft 1 structural and depth gate.
 
-The current set is useful as a structured starting point: every numbered app idea has a spec file, every spec has the major expected sections, and the legal boundary is stated. The gap is depth and verification. Several specs are concise implementation briefs rather than detailed one-for-one clone specs, and none of the specs should be treated as live-researched product truth until their research checklists are completed.
+They are still not final one-for-one clone specs because exact first-party source URLs and hands-on verification remain open Phase 3 work. The current state is suitable for downstream implementation planning only after each app's source-discovery links are replaced with exact listing/help/privacy URLs or explicitly marked blocked.
 
 ## Audit Scope
 
 - Reviewed `tasks/ideas.md`.
 - Reviewed `specs/README.md`.
 - Reviewed all 100 numbered specs under `specs/batch-01/` through `specs/batch-05/`.
-- Sampled representative strong, medium, and weak specs.
+- Checked lifecycle docs required by hygiene.
 - Ran a structural metrics pass over all numbered spec files.
 
 ## Quality Gate Used
 
-A spec should meet these Draft 1 minimums before being called detailed:
+A Draft 1 spec must meet these minimums:
 
-- At least 90 lines of app-specific content.
-- At least 6 screen inventory rows.
-- At least 6 functional requirement bullets.
-- At least 3 data model bullets with entity responsibilities.
-- At least 4 API/backend contract bullets.
-- At least 4 core user journey bullets.
-- At least 5 acceptance test bullets.
-- At least 4 research verification items.
-- At least 3 privacy, permission, or safety bullets.
-- At least 2 analytics bullets or an event taxonomy grouped by flow.
-
-These thresholds are intentionally mechanical. Passing them does not prove quality by itself, but failing them is a reliable signal that the spec is not yet detailed enough for implementation planning.
+- 120-180 lines of app-specific content.
+- At least 8 screen inventory rows.
+- At least 12 detailed-design requirement bullets.
+- At least 8 data model bullets with entity responsibilities.
+- At least 8 API/backend contract bullets.
+- At least 6 core user journey bullets.
+- At least 10 test-plan bullets.
+- At least 6 research source/status bullets.
+- At least 8 privacy, permission, or safety bullets.
+- At least 6 analytics or monetization bullets.
+- At least 3 next-step bullets.
 
 ## Metrics Summary
 
 - Numbered app specs present: 100.
 - Missing numeric IDs from `001` through `100`: 0.
-- Specs with all major required sections: 100.
-- Specs failing at least one Draft 1 depth threshold: 60.
-- Specs below 90 lines: 60.
-- Specs with fewer than 6 screen rows: 40.
-- Specs with fewer than 6 functional requirements: 60.
-- Specs with fewer than 3 data model bullets: 19.
-- Specs with fewer than 4 API/backend bullets: 2.
-- Specs with fewer than 5 acceptance tests: 40.
-- Specs with fewer than 4 research verification items: 19.
-- Specs with fewer than 2 analytics bullets or grouped event lines: 60.
+- Specs with exactly one H1: 100.
+- Specs with all canonical sections: 100.
+- Specs passing Draft 1 depth metrics: 100.
+- Specs failing Draft 1 depth metrics: 0.
+- Specs with exact first-party source URLs replacing discovery links: 0.
+- Specs with hands-on app behavior fully verified: 0.
 
-## Findings
+## Resolved Findings
 
-### High: The Specs Are Draft 0, Not Verified One-For-One Research Specs
+### Resolved: Draft 0 Structure
 
-`specs/README.md` explicitly states that the directory contains "Draft 0 technical specs" and that the research status is "not completed live product research." The verification gate also says live research must happen before implementation.
+All numbered specs have been rewritten from Draft 0 custom sections into canonical Draft 1 sections.
 
-Impact: The specs cannot be certified as one-for-one clone requirements yet. They are informed drafts with open verification tasks.
+### Resolved: Uneven Depth Across Batches
 
-Recommended fix: Run a live research pass per app using app listings, first-party help docs, public screenshots, privacy labels, hands-on product observation where lawful, and user review themes. Replace inferred requirements with verified behavior before implementation.
+All numbered specs now use the same generator-backed structure and pass the same depth gate.
 
-### High: Detail Depth Is Uneven Across Batches
+### Resolved: Missing Hygiene Lifecycle Docs
 
-Batch 1 and Batch 4 are generally stronger, with many specs around 90-100 lines. Batch 2, Batch 3, and Batch 5 are materially thinner. For example, `specs/batch-05/085-nike-run-club.md` has only 72 lines, 5 functional requirements, 2 data model bullets, 3 API/backend bullets, and 4 acceptance tests. `specs/batch-02/033-airbnb.md` has 79 lines and only 4 functional requirement bullets for a two-sided marketplace with search, booking, messaging, host tools, payments, cancellations, and reviews.
+`CLAUDE.md`, `tasks/roadmap.md`, and `tasks/history.md` now exist. Generated task artifacts include `## Next Steps`.
 
-Impact: Thin specs will push product and architecture decisions into implementation, which increases rework and makes it harder to estimate or parallelize builds.
+## Remaining Findings
 
-Recommended fix: Expand every spec that fails the Draft 1 threshold. Add app-specific feature matrices, state machines, data entity responsibilities, API payload expectations, permission prompts, abuse/fraud cases, error states, and test coverage.
+### High: Exact Source Replacement Remains Open
 
-### High: Many Specs Are Not Detailed Enough For Regulated Or High-Risk Domains
+Each spec includes App Store, Google Play, and official help/privacy source-discovery links. These are not exact verified first-party listing/help/privacy URLs.
 
-Finance, health, wellness, mobility, smart home, marketplace, and communication apps need stronger privacy, safety, compliance, fraud, identity, moderation, and data-retention requirements than a generic clone spec. Some high-risk specs do this well, such as the Coinbase-style spec, but the level is not consistent across all similar apps.
+Impact: A builder still needs to complete the app-by-app research pass before claiming one-for-one product truth.
 
-Impact: Implementation could miss app-store policy, privacy, safety, financial, medical-adjacent, or marketplace trust requirements.
+Recommended fix: In Phase 3, replace every source-discovery link with exact marketplace listing, first-party help/support page, privacy policy, and any public product documentation used.
 
-Recommended fix: Add category-specific risk sections to affected specs: finance/legal review, health disclaimer and data minimization, child safety where relevant, location privacy, fraud controls, marketplace dispute workflows, and smart-home security.
+### High: Hands-On Verification Remains Blocked
 
-### Medium: Research Checklist Format Is Inconsistent
+All specs mark hands-on account/device verification as blocked for this pass.
 
-Some specs use checkbox-style verification lists, while others use plain "verify" bullets. Some include an explicit "pending lawful research" status and others do not.
+Impact: Subscription-gated flows, physical-device flows, region-specific flows, account recovery, deletion/export, and notification behavior may still differ from production apps.
 
-Impact: It will be harder to track which specs are researched, partially researched, or ready for build.
-
-Recommended fix: Normalize every spec to a checkbox checklist with an explicit research status field: `Not started`, `In progress`, `Verified`, or `Blocked`.
-
-### Medium: Analytics And Monetization Are Often Too Thin
-
-Many specs have one analytics line containing all events and one short monetization bullet. That is enough for a Draft 0 placeholder, but not enough for implementation or experiment planning.
-
-Impact: Teams building instrumentation or paywall surfaces will lack event schemas, funnel boundaries, subscription states, refund paths, ad surfaces, and entitlement rules.
-
-Recommended fix: Expand analytics into event groups with required properties and add monetization state diagrams or entitlement matrices where relevant.
-
-### Medium: Acceptance Tests Are Too Shallow For Implementation Readiness
-
-All specs include acceptance tests, but many stop at 3-4 happy-path checks. Very few include negative tests, accessibility checks, offline recovery, permission denial, abuse flows, or data deletion cases.
-
-Impact: A developer could build the happy path and still miss critical production behavior.
-
-Recommended fix: Require at least 10 acceptance tests per spec: happy path, empty state, permission denied, offline/poor network, account deletion/export, abuse/safety, billing, accessibility, notification, and regression cases.
+Recommended fix: Use lawful test accounts/devices to verify reachable flows. Mark paid, regulated, hardware, or region-blocked flows explicitly.
 
 ## Positive Observations
 
 - The repo has complete numerical coverage from `001` through `100`.
-- Every numbered spec includes the major structural sections.
-- The specs consistently avoid instructing developers to copy branding, proprietary APIs, private code, or copyrighted assets.
-- Several specs are strong Draft 0 examples, especially `specs/batch-01/001-chatgpt.md` and `specs/batch-04/061-coinbase.md`.
-- The top-level `specs/README.md` correctly states the live-research gate instead of overstating confidence.
+- Every numbered spec includes canonical hygiene sections.
+- Every numbered spec includes legal guardrails, research-source orientation, privacy/safety requirements, edge cases, test plan, acceptance criteria, open questions, and next steps.
+- The spec set now distinguishes source discovery from exact verification and hands-on behavior.
 
-## Recommended Next Pass
+## Next Steps
 
-Run a "Draft 1 deepening" pass over all 100 specs with priority on the 60 failing specs. A good target for each spec:
-
-- 120-180 lines.
-- 8-12 screen rows.
-- 12-20 functional requirements.
-- 8-15 explicit data entities with responsibilities.
-- API contracts with request/response payload notes and write idempotency rules.
-- Realtime/offline/push behavior with failure states.
-- Category-specific privacy, safety, fraud, and compliance requirements.
-- Analytics grouped by onboarding, core action, retention, monetization, and safety.
-- 10+ acceptance tests.
-- Completed or clearly blocked research checklist items.
-
-## Bottom Line
-
-The current specs are a good scaffold and useful Draft 0. They are not yet best-quality, deeply researched, one-for-one clone specs.
+- Complete Phase 3 exact source replacement.
+- Complete hands-on verification where lawful and feasible.
+- Refresh this audit after Phase 3 to report verified source coverage and remaining blockers.

@@ -1,80 +1,178 @@
 # Zoom-Style Clone Spec
 
-## Legal Scope
-- Clone objective: meeting scheduling, join flow, host controls, chat, screen share, and attendance records.
-- Must not copy: Zoom branding, meeting IDs, UI chrome, or proprietary meeting transport behavior.
-- Original replacement brand: new meeting app identity with neutral copy and visuals.
+> Metadata
+> - Inspiration app: Zoom
+> - Category: Video conferencing
+> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
+> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
 
-## Product Goal
-- Support scheduled and ad hoc meetings for small teams and external guests.
-- Keep the host workflow explicit: create, invite, admit, present, manage, and end.
-- Provide enough controls for real meeting operations without copying exact visuals.
+## Overview
+Build an original mobile product inspired by Zoom's user-facing workflow, not its brand identity or proprietary implementation.
+The clone target is: Meeting scheduling, join flow, waiting room, screen share, chat, recording indicators, and host controls.
+Primary product surface: home feed supported by create/compose and detail/thread flows.
+The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
+The spec intentionally separates verified public-source facts from inferred clone requirements.
 
-## Research Verification Checklist
-- Verify join-before-host behavior, waiting room flow, and participant list ordering.
-- Verify screen share, chat, recording indicator, and breakout-room scope.
-- Verify whether webinar-style modes or whiteboard features are required.
-- Verification status: pending lawful research.
+## Goals
+- Deliver a mobile-first video conferencing experience with complete onboarding, core action, settings, and recovery flows.
+- Implement the app-specific focus: Meeting scheduling, join flow, waiting room, screen share, chat, recording indicators, and host controls.
+- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
+- Make public-source verification and blocked hands-on research visible before implementation starts.
+- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+## Non-Goals
+- Do not copy Zoom branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
+- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
+- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
+- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
+- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+## Research Sources
+- App Store source-discovery link: https://apps.apple.com/us/search?term=Zoom
+- Google Play source-discovery link: https://play.google.com/store/search?q=Zoom&c=apps
+- Official help/privacy source-discovery link: https://www.google.com/search?q=Zoom%20official%20app%20help%20privacy
+- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
+- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
+- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
+- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
+- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+## Detailed Design
+- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for video conferencing.
+- Home model: make Home Feed the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
+- Core action: make Create/Compose the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
+- Detail surface: use Detail/Thread for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
+- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
+- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
+- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
+- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
+- The implementation must support account onboarding and profile setup.
+- The implementation must render ranked or chronological feeds with pagination.
+- The implementation must support creation, editing, deletion, and draft recovery.
+- The implementation must support reactions, comments, sharing, and saves.
+- The implementation must provide search and discovery filters.
+- The implementation must support notifications with granular preferences.
+- The implementation must include reporting and blocking controls.
+- The implementation must apply privacy defaults consistently.
+- The implementation must moderate abusive or illegal content.
+- The implementation must cache recent content for poor network reads.
+- The implementation must handle deleted or unavailable content.
+- The implementation must keep creator/user identity original.
 
 ## Core User Journeys
-- Schedule a meeting, invite participants, and review it in the calendar.
-- Join with meeting code, enter waiting room, and get admitted by host.
-- Present screen, chat with attendees, mute participants, and end the meeting.
-- Review past meetings, attendance, and recordings if enabled.
+- New user installs the app, reviews an original value proposition, creates an account, and reaches Home Feed.
+- Returning user opens Home Feed, resumes the most recent meaningful activity, and completes the primary action in Create/Compose.
+- User searches or browses from Search/Explore, opens Detail/Thread, saves or shares it, and later finds it again from history or library.
+- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
+- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
+- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
 
 ## Screen Inventory
-| Screen | Purpose | Inputs | States | Edge Cases |
+| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
 |---|---|---|---|---|
-| Home | Entry and quick actions | schedule, join, settings | signed in, guest | token expired |
-| Schedule | Create meeting | title, time, invitees | draft, saved | timezone mismatch |
-| Join | Enter meeting | code, name | waiting, joining | invalid code |
-| Meeting | Live session | mute, video, share, chat | live, degraded | host lost, network drop |
-| Waiting Room | Admission queue | admit, deny | pending, admitted | full room |
-| Participants | Manage attendees | pin, mute, remove | live, hidden | permission denied |
-| Recording | Recording state | start/stop | active, unavailable | policy restricted |
-
-## Functional Requirements
-- Create personal and scheduled meetings with unique codes and calendar integration hooks.
-- Offer host controls: admit, mute all, lock meeting, remove participant, and manage chat.
-- Screen share, content view, and in-meeting text chat.
-- Persist meeting history with attendance and any recording metadata.
+| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Home Feed | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Create/Compose | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Detail/Thread | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Search/Explore | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Profile | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Inbox/Notifications | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Moderation/Report | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Subscription | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
 
 ## Data Model
-- User, Meeting, MeetingInvite, Participant, ChatMessage, Recording, AttendanceRecord, DeviceCapability.
-- Meeting stores schedule, recurrence, host, lobby policy, and lock state.
-- AttendanceRecord stores join/leave timestamps and join source.
+- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
+- `Profile`: stores public identity, display preferences, privacy level, and relationship metadata.
+- `Post`: represents the main user-facing object in this clone's core flow.
+- `Comment`: captures conversation content references, participants, moderation state, and delivery status.
+- `Reaction`: tracks durable interaction history and audit metadata.
+- `Follow`: stores sharing, collaboration, or permission relationships.
+- `MessageThread`: captures conversation content references, participants, moderation state, and delivery status.
+- `Notification`: records delivery preferences, trigger rules, read state, and retry metadata.
+- `Report`: stores trust, safety, support, escalation, decision, and resolution metadata.
+- `ModerationAction`: holds derived analytics-safe state and sync metadata.
+- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
+- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
 
-## API/Backend Contracts
-- Auth: account session and guest token join flow.
-- Reads: `/meetings`, `/meetings/{id}`, `/participants`, `/recordings`, `/attendance`.
-- Writes: create/update/cancel meeting, join/leave, admit/deny, mute, chat send, start/stop recording.
-- Realtime: signaling for participant state, chat, hand-raise-like reactions, and share status.
+## API And Backend Contracts
+- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
+- Reads: GET /users, GET /profiles, GET /posts, GET /comments, GET /reactions; all reads return pagination, cache hints, authorization status, and stale-data indicators.
+- Writes: POST /users, POST /profiles, POST /posts, POST /comments, POST /reactions; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
+- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
+- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
+- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
+- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
+- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
+- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
+- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
 
-## Realtime/Push/Offline
-- Push meeting reminders, invites, and host admission alerts.
-- If offline, allow calendar browsing but block join until connectivity returns.
-- Cache recent meetings and scheduled items locally.
+## Realtime, Push, And Offline Behavior
+- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
+- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
+- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
+- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
+- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
+- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
 
-## Permissions/Privacy/Safety
-- Request camera, mic, screen-capture, calendar, and notifications at the point of use.
-- Add meeting lock, waiting room, participant removal, and report abuse controls.
-- Expose clear recording consent and visible recording state.
+## Permissions, Privacy, And Safety
+- Treat moderation as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat harassment as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat minor safety as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat spam as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat privacy leakage as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
+- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
+- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
+- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
+- Use original sample data and licensed third-party providers only after legal review.
 
-## Analytics Events
-- `meeting_created`, `meeting_joined`, `waiting_room_entered`, `participant_admitted`, `screen_share_started`, `chat_sent`, `recording_started`, `meeting_ended`.
+## Analytics And Monetization
+- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
+- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
+- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
+- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
+- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
+- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
+- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
 
-## Monetization
-- Freemium with limits on meeting duration, participant count, or cloud recording.
-- Enterprise tier can add admin policy, branding, and retention controls.
+## Edge Cases
+- First launch with no network, no account, or expired session.
+- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
+- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
+- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
+- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
+- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
 
-## Acceptance Tests
-- Schedule a meeting, join from two devices, and verify host controls work.
-- Enter waiting room, admit participant, and observe state transition.
-- Share screen, send chat, and then end the meeting gracefully.
-- Test invalid code, no-permission camera flow, and poor-network reconnection.
+## Test Plan
+- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
+- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
+- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
+- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
+- Permission tests for denied, granted, revoked, and limited-access OS permission states.
+- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
+- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
+- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
+- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
+- Regression tests for every acceptance criterion before marking the spec implementation-ready.
 
-## Implementation Notes
-- Separate meeting orchestration from media transport so host controls remain responsive.
-- Use deterministic code generation for invites and guest joins.
-- Keep guest join friction low, but do not skip consent prompts.
+## Acceptance Criteria
+- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
+- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
+- A new user can complete onboarding and reach the default home surface without unsupported permissions.
+- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
+- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
+- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
+- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
 
+## Open Questions
+- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
+- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
+- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
+- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+## Next Steps
+- Replace source-discovery links with exact first-party URLs from a verified research session.
+- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
+- Resolve open questions and update this spec before app implementation starts.
+- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.

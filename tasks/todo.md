@@ -1,7 +1,18 @@
 # Todo
 
-## Code Review Fixes
+## Phase 2: Hygiene And Draft 1 Remediation
 
-- [ ] `specs/README.md:5` and `specs/README.md:11` - Run a live research pass for every app before treating the specs as verified one-for-one clone requirements; replace inferred Draft 0 requirements with sourced, lawful observations.
-- [ ] `specs/batch-05/085-nike-run-club.md:31` and `specs/batch-02/033-airbnb.md:36` - Expand the 60 specs that fail the Draft 1 depth gate with more app-specific functional requirements, data models, API contracts, edge cases, and tests.
-- [ ] `specs/batch-05/085-nike-run-club.md:51` and `specs/batch-02/033-airbnb.md:58` - Add category-specific privacy, safety, compliance, fraud, and data-retention requirements for regulated or high-risk app categories before implementation.
+- [x] Add `CLAUDE.md` with project conventions.
+- [x] Add `tasks/roadmap.md` with phase structure.
+- [x] Add `tasks/history.md` with dated project history.
+- [x] Add `## Next Steps` to generated task artifacts.
+- [x] Rewrite all numbered specs into canonical Draft 1 structure.
+- [x] Run final hygiene and quality validation.
+- [x] Commit and push remediation work.
+
+## Phase 3: Exact Source Replacement And Hands-On Verification
+
+- [ ] Replace App Store, Google Play, and official help/privacy source-discovery links in all 100 specs with exact first-party URLs.
+- [ ] Complete hands-on verification for reachable app flows using lawful test accounts/devices.
+- [ ] Mark paid, hardware, region-blocked, regulated, or otherwise inaccessible flows with explicit blocker notes.
+- [ ] Refresh `tasks/spec-quality-audit.md` after exact source replacement and hands-on verification.

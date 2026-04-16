@@ -1,97 +1,178 @@
-# Perplexity-Style Answer Search Clone Spec
+# Perplexity-Style Clone Spec
 
-## Legal Scope
-- Clone objective: create a search-first answer engine with citations, follow-up prompts, collections, and persistent threads.
-- Must not copy: Perplexity branding, ranking code, source curation rules, logos, or proprietary search partnerships.
-- Replacement brand/assets: use original search branding, answer cards, and source UI.
+> Metadata
+> - Inspiration app: Perplexity
+> - Category: AI search
+> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
+> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
 
-## Product Goal
-- Let a user ask a question and get a concise answer backed by visible sources they can inspect and refine.
-- Keep search, conversation, and saved collections in one mobile flow.
+## Overview
+Build an original mobile product inspired by Perplexity's user-facing workflow, not its brand identity or proprietary implementation.
+The clone target is: Answer engine with cited web results, follow-up questions, source cards, collections, and thread persistence.
+Primary product surface: home supported by conversation and attachment picker flows.
+The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
+The spec intentionally separates verified public-source facts from inferred clone requirements.
 
-## Research Verification Checklist
-- [ ] Search result card layout and citation behavior
-- [ ] Follow-up prompt generation and thread persistence
-- [ ] Collections, bookmarks, and share links
-- [ ] Source card preview and open-in-browser flow
-- [ ] Plan gates for pro search or file upload
-- [ ] Regional search, recency, and personalization options
-- [ ] Mobile offline/poor-network handling
-- [ ] Safety and source quality indicators
+## Goals
+- Deliver a mobile-first ai search experience with complete onboarding, core action, settings, and recovery flows.
+- Implement the app-specific focus: Answer engine with cited web results, follow-up questions, source cards, collections, and thread persistence.
+- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
+- Make public-source verification and blocked hands-on research visible before implementation starts.
+- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+## Non-Goals
+- Do not copy Perplexity branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
+- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
+- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
+- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
+- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+## Research Sources
+- App Store source-discovery link: https://apps.apple.com/us/search?term=Perplexity
+- Google Play source-discovery link: https://play.google.com/store/search?q=Perplexity&c=apps
+- Official help/privacy source-discovery link: https://www.google.com/search?q=Perplexity%20official%20app%20help%20privacy
+- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
+- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
+- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
+- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
+- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+## Detailed Design
+- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for ai search.
+- Home model: make Home the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
+- Core action: make Conversation the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
+- Detail surface: use Attachment Picker for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
+- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
+- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
+- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
+- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
+- The implementation must stream generated responses with resumable state.
+- The implementation must support message edit, retry, copy, and delete actions.
+- The implementation must validate uploads before model processing.
+- The implementation must show capability and cost labels before premium actions.
+- The implementation must separate personalization memory from raw conversation logs.
+- The implementation must support conversation search and archive states.
+- The implementation must provide explicit data retention controls.
+- The implementation must gate unsafe outputs through policy-aware review states.
+- The implementation must queue drafts when offline.
+- The implementation must explain failures with recoverable actions.
+- The implementation must support export and deletion requests.
+- The implementation must keep assistant persona copy original.
 
 ## Core User Journeys
-- User types a question and receives an answer with citations and source cards.
-- User opens a source, asks a follow-up, and continues the same thread.
-- User saves a result to a collection and shares the thread.
-- User refines search with recency or domain constraints.
-- User deletes history or clears a saved collection.
+- New user installs the app, reviews an original value proposition, creates an account, and reaches Home.
+- Returning user opens Home, resumes the most recent meaningful activity, and completes the primary action in Conversation.
+- User searches or browses from Voice Session, opens Attachment Picker, saves or shares it, and later finds it again from history or library.
+- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
+- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
+- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
 
 ## Screen Inventory
-| Screen | Purpose | Key States |
-|---|---|---|
-| Search Home | Enter query | empty, suggested, recent |
-| Answer Thread | Read answer and sources | streaming, cited, stale |
-| Source Viewer | Inspect source cards | open, blocked, unavailable |
-| Collections | Save and organize threads | empty, list, reorder |
-| Follow-up | Continue question flow | prompt, suggested, custom |
-| History | Browse prior searches | recent, archived, deleted |
-| Settings | Search and privacy controls | default, restricted |
-| Upgrade | Pro limits and billing | free, paid, expired |
-
-## Functional Requirements
-- Return an answer object with summary text, citations, source metadata, and confidence hints.
-- Support follow-up questions within the same thread without losing the original query context.
-- Store source URLs, titles, excerpts, and publication dates separately from generated text.
-- Allow save-to-collection, share-link creation, and history deletion.
-- Support domain filters, recency filters, and region-aware search settings.
-- Detect stale answers and offer refresh or re-search.
+| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
+|---|---|---|---|---|
+| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Home | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Conversation | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Attachment Picker | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Voice Session | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Memory/Persona Settings | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| History Search | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Share/Export | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Subscription | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Safety Review | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
 
 ## Data Model
-- QueryThread: id, user_id, query, filters, created_at, updated_at.
-- Answer: id, thread_id, summary, status, refreshed_at.
-- Citation: id, answer_id, source_url, title, excerpt, rank, fetched_at.
-- Collection: id, user_id, name, description, item_count.
-- SavedItem: id, collection_id, thread_id, note.
-- SearchPreference: id, user_id, region, recency_window, safe_search.
+- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
+- `Session`: captures active workflow state, timestamps, metrics, pause/resume markers, and completion status.
+- `Conversation`: represents the main user-facing object in this clone's core flow.
+- `Message`: captures conversation content references, participants, moderation state, and delivery status.
+- `Attachment`: tracks durable interaction history and audit metadata.
+- `MemoryEntry`: stores sharing, collaboration, or permission relationships.
+- `ModelPreset`: records notification, recommendation, or entitlement state.
+- `SafetyDecision`: supports safety, review, policy, or moderation decisions.
+- `ShareLink`: stores support or user feedback records.
+- `Entitlement`: holds plan, trial, renewal, expiration, refund, and feature-access state.
+- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
+- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
 
-## API/Backend Contracts
-- `POST /search/query` returns thread id, streamed answer chunks, and citation payloads.
-- `GET /threads/:id`, `GET /threads/:id/citations`, `POST /threads/:id/followups`.
-- `GET /sources/fetch?url=` for cached source previews with extraction limits.
-- `POST /collections`, `POST /collections/:id/items`, `DELETE /threads/:id`.
-- Include rate limits and query safety checks on all public search endpoints.
+## API And Backend Contracts
+- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
+- Reads: GET /users, GET /sessions, GET /conversations, GET /messages, GET /attachments; all reads return pagination, cache hints, authorization status, and stale-data indicators.
+- Writes: POST /users, POST /sessions, POST /conversations, POST /messages, POST /attachments; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
+- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
+- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
+- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
+- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
+- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
+- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
+- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
 
-## Realtime/Push/Offline
-- Stream the answer and citation hydration separately so the UI can render progressively.
-- Push on collection shares and billing notices only.
-- Cache recent queries, answer summaries, and source metadata offline.
-- Retry source fetches and query refreshes when network returns.
+## Realtime, Push, And Offline Behavior
+- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
+- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
+- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
+- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
+- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
+- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
 
-## Permissions/Privacy/Safety
-- Do not expose private browsing history or source content beyond requested URLs.
-- Flag unsafe or low-confidence answers and route them through a safer response mode.
-- Avoid storing personally sensitive queries in analytics payloads.
-- Respect regional and account-level safe search settings.
+## Permissions, Privacy, And Safety
+- Treat content safety as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat privacy retention as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat attachment scanning as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat model-cost abuse as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat user data export as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
+- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
+- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
+- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
+- Use original sample data and licensed third-party providers only after legal review.
 
-## Analytics Events
-- `query_submitted`, `answer_stream_started`, `citation_clicked`, `source_opened`
-- `followup_submitted`, `collection_saved`, `search_refined`, `answer_refreshed`
-- `pro_upgrade_viewed`, `pro_upgrade_completed`
+## Analytics And Monetization
+- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
+- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
+- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
+- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
+- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
+- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
+- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
 
-## Monetization
-- Free tier with limited queries, slower refresh, and fewer attachments or pro modes.
-- Paid tier with higher query volume, faster refresh, and advanced filters.
+## Edge Cases
+- First launch with no network, no account, or expired session.
+- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
+- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
+- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
+- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
+- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
 
-## Acceptance Tests
-- A question returns a concise answer with at least one source card when sources exist.
-- A follow-up continues the same thread and preserves prior citations.
-- A saved collection can be reopened after restart.
-- A stale answer can be refreshed and the UI updates citations.
-- Offline history loads and queued follow-up sends after reconnect.
+## Test Plan
+- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
+- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
+- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
+- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
+- Permission tests for denied, granted, revoked, and limited-access OS permission states.
+- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
+- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
+- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
+- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
+- Regression tests for every acceptance criterion before marking the spec implementation-ready.
 
-## Implementation Notes
-- Treat answer generation as a composite of search, ranking, and summary rendering.
-- Store citations as first-class records so tests can assert source provenance.
-- Keep filters deterministic and visible to the user.
-- Verify the exact source-card and collection behavior against live app observation.
+## Acceptance Criteria
+- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
+- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
+- A new user can complete onboarding and reach the default home surface without unsupported permissions.
+- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
+- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
+- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
+- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
 
+## Open Questions
+- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
+- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
+- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
+- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+## Next Steps
+- Replace source-discovery links with exact first-party URLs from a verified research session.
+- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
+- Resolve open questions and update this spec before app implementation starts.
+- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.

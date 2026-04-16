@@ -1,36 +1,43 @@
-# Batch 04 Clone Specs
+# Batch 04 Draft 1 Specs
 
-This batch covers apps 61-80 from `tasks/ideas.md`.
+> Metadata
+> - App range: 061-080
+> - Status: Draft 1 canonical spec rewrite
+> - Research state: public source-discovery links included; exact source replacement and hands-on verification still required before implementation.
 
-Scope:
-- lawful functional clones only
-- original branding, copy, icons, media, and sample data
-- no proprietary APIs, assets, or private integrations unless separately licensed
+## Overview
+This batch contains canonical Draft 1 clone specs for apps 61-80 from tasks/ideas.md.
 
-Files:
-- `061-coinbase.md`
-- `062-mint-credit-karma.md`
-- `063-ynab.md`
-- `064-rocket-money.md`
-- `065-apple-wallet.md`
-- `066-spotify.md`
-- `067-apple-music.md`
-- `068-youtube-music.md`
-- `069-soundcloud.md`
-- `070-audible.md`
-- `071-pocket-casts.md`
-- `072-netflix.md`
-- `073-youtube.md`
-- `074-twitch.md`
-- `075-letterboxd.md`
-- `076-imdb.md`
-- `077-duolingo.md`
-- `078-khan-academy.md`
-- `079-quizlet.md`
-- `080-coursera.md`
+## Included Specs
 
-Batch notes:
-- Each spec uses the same implementation-ready section order.
-- Research items are framed as verification tasks, not claims of completed live research.
-- Data contracts assume synthetic or licensed content until a later source-of-truth pass.
-- Offline, push, and privacy requirements are called out where the source app depends on them.
+- 061 Coinbase - Crypto
+- 062 Mint/Credit Karma - Personal finance
+- 063 YNAB - Budgeting
+- 064 Rocket Money - Personal finance
+- 065 Apple Wallet - Wallet
+- 066 Spotify - Music/audio
+- 067 Apple Music - Music/audio
+- 068 YouTube Music - Music/audio
+- 069 SoundCloud - Music/audio
+- 070 Audible - Audiobooks
+- 071 Pocket Casts - Podcasts
+- 072 Netflix - Streaming video
+- 073 YouTube - Video platform
+- 074 Twitch - Live streaming
+- 075 Letterboxd - Entertainment social
+- 076 IMDb - Entertainment database
+- 077 Duolingo - Education
+- 078 Khan Academy - Education
+- 079 Quizlet - Education
+- 080 Coursera - Education
+
+## Quality Gate
+
+- Each numbered spec uses canonical hygiene sections.
+- Each numbered spec includes source-discovery links, functional requirements, data model, API contracts, edge cases, test plan, acceptance criteria, open questions, and next steps.
+- Each numbered spec remains legally scoped to functional parity with original assets and licensed data.
+
+## Next Steps
+
+- Replace source-discovery links in every spec with exact verified first-party URLs.
+- Complete hands-on verification where lawful and feasible before app implementation starts.

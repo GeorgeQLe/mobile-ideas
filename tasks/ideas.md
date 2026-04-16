@@ -195,3 +195,9 @@ Use this template for each clone-spec:
 - Accessibility:
 - Regression checklist:
 ```
+
+## Next Steps
+
+- Keep this backlog as the source list for the 100 clone-spec projects.
+- Use the numbered IDs in this file when updating specs under `specs/batch-*`.
+- Replace Draft 1 source-discovery links with exact first-party research URLs before implementation starts.

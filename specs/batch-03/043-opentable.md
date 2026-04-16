@@ -1,84 +1,178 @@
-# Reservation Booking Clone Spec
+# OpenTable-Style Clone Spec
 
-## Legal Scope
-- Clone objective: reproduce restaurant discovery, reservation search, booking, waitlist, diner profile, and review prompt flows.
-- Must not copy: trademarks, restaurant partner assets, review text, or proprietary ranking logic.
-- Original replacement brand/assets: use neutral reservation branding, original map pins, and seeded restaurant data.
+> Metadata
+> - Inspiration app: OpenTable
+> - Category: Reservations
+> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
+> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
 
-## Product Goal
-- Help diners find a table, book a reservation, manage upcoming plans, and maintain a trustworthy profile.
-- Preserve the core structure: search, list/map browse, restaurant page, reservations, profile, and rewards.
-- Verification is required for actual availability rules, deposit behavior, and waitlist thresholds.
+## Overview
+Build an original mobile product inspired by OpenTable's user-facing workflow, not its brand identity or proprietary implementation.
+The clone target is: Restaurant discovery, availability search, reservations, waitlists, diner profiles, points, and review prompts.
+Primary product surface: browse/search supported by listing/menu/product detail and cart/selection flows.
+The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
+The spec intentionally separates verified public-source facts from inferred clone requirements.
 
-## Research Verification Checklist
-- [ ] Confirm booking flow, guest count handling, and reservation timing increments.
-- [ ] Verify waitlist entry, quote updates, and seating-ready notifications.
-- [ ] Verify diner profile data fields and reservation history surfaces.
-- [ ] Verify points or perks program visibility and eligibility rules.
-- [ ] Verify cancellation policy display and no-show handling.
+## Goals
+- Deliver a mobile-first reservations experience with complete onboarding, core action, settings, and recovery flows.
+- Implement the app-specific focus: Restaurant discovery, availability search, reservations, waitlists, diner profiles, points, and review prompts.
+- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
+- Make public-source verification and blocked hands-on research visible before implementation starts.
+- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+## Non-Goals
+- Do not copy OpenTable branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
+- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
+- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
+- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
+- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+## Research Sources
+- App Store source-discovery link: https://apps.apple.com/us/search?term=OpenTable
+- Google Play source-discovery link: https://play.google.com/store/search?q=OpenTable&c=apps
+- Official help/privacy source-discovery link: https://www.google.com/search?q=OpenTable%20official%20app%20help%20privacy
+- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
+- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
+- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
+- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
+- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+## Detailed Design
+- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for reservations.
+- Home model: make Browse/Search the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
+- Core action: make Listing/Menu/Product Detail the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
+- Detail surface: use Cart/Selection for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
+- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
+- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
+- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
+- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
+- The implementation must support catalog browse, search, and filters.
+- The implementation must show availability, modifiers, fees, taxes, and total cost.
+- The implementation must support cart edits and saved favorites.
+- The implementation must validate inventory before checkout.
+- The implementation must support payment authorization and failure recovery.
+- The implementation must track order/reservation lifecycle states.
+- The implementation must support merchant or seller communication.
+- The implementation must collect reviews only after eligible events.
+- The implementation must support refunds, returns, disputes, and support.
+- The implementation must detect spam, fraud, and prohibited listings.
+- The implementation must cache recent orders and saved items.
+- The implementation must keep all product/media content original or licensed.
 
 ## Core User Journeys
-- User searches by cuisine, date, time, and party size.
-- User compares restaurant cards, opens a detail page, and books a reservation.
-- User joins a waitlist when no slot is available.
-- User views upcoming reservations, modifies time, or cancels.
-- User leaves a post-dining feedback or review prompt.
+- New user installs the app, reviews an original value proposition, creates an account, and reaches Browse/Search.
+- Returning user opens Browse/Search, resumes the most recent meaningful activity, and completes the primary action in Listing/Menu/Product Detail.
+- User searches or browses from Checkout, opens Cart/Selection, saves or shares it, and later finds it again from history or library.
+- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
+- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
+- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
 
 ## Screen Inventory
-| Screen | Purpose | Inputs | States | Edge Cases |
+| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
 |---|---|---|---|---|
-| Search | Find availability | Date, time, party size | Results, none, loading | No matches |
-| Restaurant Detail | Menu, photos, and slots | Restaurant, notes | Open, booked, waitlist | Deposit required |
-| Reservation Flow | Confirm booking | Party size, time, contact | Success, validation fail | Special request rejected |
-| Trips | Manage upcoming plans | Reservation list | Upcoming, past, cancelled | Time zone mismatch |
-| Profile | Diner identity and perks | Name, contact, preferences | Verified, incomplete | Duplicate profile |
-
-## Functional Requirements
-- Support search filters for cuisine, price, neighborhood, seating type, and dietary tags.
-- Store upcoming and past reservations with change/cancel actions.
-- Support special requests, seating notes, and accessibility preferences.
-- Convert no-slot results into waitlist or alternative-time suggestions.
-- Show confirmation code, cancellation policy, and reminder schedule after booking.
+| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Browse/Search | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Listing/Menu/Product Detail | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Cart/Selection | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Checkout | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Order/Reservation Status | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Messages | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Reviews | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Returns/Support | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Seller/Admin Tools | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
 
 ## Data Model
-- DinerProfile, Restaurant, TableSlot, Reservation, WaitlistEntry, ReviewPrompt, PerkAccount, SavedPreference, NotificationPreference.
-- Reservation stores party size, service time, special requests, and policy snapshot.
-- TableSlot stores capacity, duration, buffer time, and bookable status.
+- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
+- `Merchant`: stores the primary workspace, account, or grouping context.
+- `CatalogItem`: represents the primary user-facing catalog object, ownership, availability, and display metadata.
+- `Inventory`: captures lifecycle state, ordering, timestamps, and failure reason codes.
+- `Cart`: tracks durable interaction history and audit metadata.
+- `Order`: tracks checkout, confirmation, cancellation, refund, dispute, and audit states.
+- `Payment`: tracks checkout, confirmation, cancellation, refund, dispute, and audit states.
+- `Fulfillment`: supports safety, review, policy, or moderation decisions.
+- `Review`: stores trust, safety, support, escalation, decision, and resolution metadata.
+- `Dispute`: stores trust, safety, support, escalation, decision, and resolution metadata.
+- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
+- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
 
-## API/Backend Contracts
-- `GET /search?date=&time=&party=`, `GET /restaurants/{id}`
-- `POST /reservations`, `PATCH /reservations/{id}`, `DELETE /reservations/{id}`
-- `POST /waitlist`, `GET /me/reservations`, `GET /me/profile`
-- `POST /review-prompts/{reservationId}/respond`
-- Require strict server-side availability checks at booking time.
+## API And Backend Contracts
+- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
+- Reads: GET /users, GET /merchants, GET /catalogitems, GET /inventories, GET /carts; all reads return pagination, cache hints, authorization status, and stale-data indicators.
+- Writes: POST /users, POST /merchants, POST /catalogitems, POST /inventories, POST /carts; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
+- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
+- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
+- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
+- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
+- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
+- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
+- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
 
-## Realtime/Push/Offline
-- Push confirmation, reminder, change, cancellation, and waitlist-ready events.
-- Cache search preferences and recent restaurant views offline.
-- Live slot refresh should degrade to polling when push or websocket support is unavailable.
+## Realtime, Push, And Offline Behavior
+- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
+- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
+- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
+- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
+- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
+- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
 
-## Permissions/Privacy/Safety
-- Request location only for nearby search and optional map centering.
-- Protect contact details, reservation history, and special-request notes.
-- Rate-limit booking and cancellation attempts to reduce bot abuse.
-- Show clear policy text before submission.
+## Permissions, Privacy, And Safety
+- Treat payment security as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat consumer protection as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat fraud as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat unsafe goods as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Treat review abuse as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
+- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
+- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
+- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
+- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
+- Use original sample data and licensed third-party providers only after legal review.
 
-## Analytics Events
-- `search_availability`, `view_restaurant`, `start_reservation`, `book_reservation`, `join_waitlist`, `modify_reservation`, `cancel_reservation`, `review_prompt_shown`
+## Analytics And Monetization
+- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
+- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
+- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
+- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
+- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
+- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
+- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
 
-## Monetization
-- Revenue comes from partner reservations, premium diner perks, and promoted placement.
-- Perk tiers and sponsored ranking must stay server-configurable.
+## Edge Cases
+- First launch with no network, no account, or expired session.
+- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
+- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
+- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
+- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
+- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
 
-## Acceptance Tests
-- Search returns zero-state with alternative suggestions when no tables match.
-- Booking rejects stale slots after a background availability refresh.
-- Waitlist entry sends a readiness notification when a table opens.
-- Reservation modification preserves policy and time zone correctness.
-- Offline mode preserves saved searches but not live availability.
+## Test Plan
+- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
+- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
+- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
+- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
+- Permission tests for denied, granted, revoked, and limited-access OS permission states.
+- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
+- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
+- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
+- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
+- Regression tests for every acceptance criterion before marking the spec implementation-ready.
 
-## Implementation Notes
-- Keep search ranking and availability separate so future tuning does not change booking correctness.
-- Model restaurant time zones explicitly.
-- Use original branded UI copy, not partner wording.
-- Mark policy, perk, and seating behavior that still needs live verification.
+## Acceptance Criteria
+- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
+- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
+- A new user can complete onboarding and reach the default home surface without unsupported permissions.
+- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
+- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
+- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
+- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+
+## Open Questions
+- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
+- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
+- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
+- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+## Next Steps
+- Replace source-discovery links with exact first-party URLs from a verified research session.
+- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
+- Resolve open questions and update this spec before app implementation starts.
+- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.

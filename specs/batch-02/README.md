@@ -1,36 +1,43 @@
-# Batch 02: Clone Specs 21-40
+# Batch 02 Draft 1 Specs
 
-This batch covers the next 20 clone targets from `tasks/ideas.md`.
+> Metadata
+> - App range: 021-040
+> - Status: Draft 1 canonical spec rewrite
+> - Research state: public source-discovery links included; exact source replacement and hands-on verification still required before implementation.
 
-Scope:
-- Functional parity only.
-- Original branding, copy, iconography, and media.
-- No proprietary source, private APIs, or licensed content reuse.
+## Overview
+This batch contains canonical Draft 1 clone specs for apps 21-40 from tasks/ideas.md.
 
-Apps in this batch:
-- 021 Messenger
-- 022 FaceTime
-- 023 Zoom
-- 024 Gmail
-- 025 Outlook
-- 026 Google Maps
-- 027 Apple Maps
-- 028 Waze
-- 029 Uber
-- 030 Lyft
-- 031 Lime
-- 032 Turo
-- 033 Airbnb
-- 034 Booking.com
-- 035 Expedia
-- 036 Hopper
-- 037 TripIt
-- 038 DoorDash
-- 039 Uber Eats
-- 040 Instacart
+## Included Specs
 
-Conventions:
-- Each spec is written as an implementation-ready technical brief.
-- Each spec includes verification items that still need lawful research.
-- Each spec is self-contained and uses neutral placeholder branding.
+- 021 Messenger - Messaging
+- 022 FaceTime - Video calling
+- 023 Zoom - Video conferencing
+- 024 Gmail - Email
+- 025 Outlook - Email/calendar
+- 026 Google Maps - Maps/navigation
+- 027 Apple Maps - Maps/navigation
+- 028 Waze - Navigation
+- 029 Uber - Mobility
+- 030 Lyft - Mobility
+- 031 Lime - Micromobility
+- 032 Turo - Car sharing
+- 033 Airbnb - Travel lodging
+- 034 Booking.com - Travel lodging
+- 035 Expedia - Travel booking
+- 036 Hopper - Travel deals
+- 037 TripIt - Travel organization
+- 038 DoorDash - Food delivery
+- 039 Uber Eats - Food delivery
+- 040 Instacart - Grocery delivery
 
+## Quality Gate
+
+- Each numbered spec uses canonical hygiene sections.
+- Each numbered spec includes source-discovery links, functional requirements, data model, API contracts, edge cases, test plan, acceptance criteria, open questions, and next steps.
+- Each numbered spec remains legally scoped to functional parity with original assets and licensed data.
+
+## Next Steps
+
+- Replace source-discovery links in every spec with exact verified first-party URLs.
+- Complete hands-on verification where lawful and feasible before app implementation starts.
