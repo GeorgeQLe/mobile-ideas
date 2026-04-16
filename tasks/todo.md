@@ -24,7 +24,7 @@
 
 - [x] Define the implementation-readiness gate in `tasks/implementation-readiness.md`.
 - [x] Upgrade `001-chatgpt.md` from Draft 1 scaffold to implementation-ready public-source V1 spec.
-- [ ] Replace App Store, Google Play, and official help/privacy source-discovery links in the remaining 98 specs with exact first-party URLs.
+- [ ] Replace App Store, Google Play, and official help/privacy source-discovery links in the remaining 97 specs with exact first-party URLs.
 - [ ] Complete hands-on verification for reachable app flows using lawful test accounts/devices, or mark the flow as launch-blocked.
 - [ ] Mark paid, hardware, region-blocked, regulated, or otherwise inaccessible flows with explicit blocker notes and owner/path.
 - [ ] Refresh `tasks/spec-quality-audit.md` after exact source replacement and hands-on verification.
