@@ -5,7 +5,7 @@ Created: 2026-04-16
 > Metadata
 > - Spec set status: Draft 1 canonical rewrite complete
 > - Coverage: 100 of 100 app ideas
-> - Research state: public source-discovery links included; exact first-party source replacement and hands-on verification remain Phase 3 work
+> - Research state: 1 implementation-ready public-source V1 spec; 99 Draft 1 scaffolds still require exact first-party source replacement and hands-on verification blockers
 
 ## Overview
 
@@ -87,5 +87,5 @@ Every numbered spec uses these canonical sections:
 
 ## Next Steps
 
-- Complete Phase 3 exact source replacement and hands-on verification.
+- Continue Phase 3 implementation-readiness upgrades, starting with `006-tiktok.md`.
 - Update each spec with verified behavior and remove blocked notes only when evidence is captured.

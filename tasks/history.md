@@ -8,7 +8,9 @@
 - Added `tasks/spec-quality-audit.md`, documenting that the Draft 0 specs were useful scaffolds but not yet best-quality or deeply researched.
 - Ran a hygiene audit and found missing lifecycle docs plus spec-template drift.
 - Planned remediation to add minimal lifecycle docs and rewrite all specs into canonical Draft 1 shape.
+- Defined the implementation-readiness gate in `tasks/implementation-readiness.md`.
+- Archived the Draft 1 ChatGPT spec and upgraded `specs/batch-01/001-chatgpt.md` to an implementation-ready public-source V1 spec with exact sources, app-specific contracts, explicit manual blockers, and a build plan.
 
 ## Next Steps
 
-- Append dated entries whenever roadmap phases are completed, specs are rewritten, or implementation repositories are linked.
+- Upgrade `006-tiktok.md` using the `001-chatgpt.md` pattern.

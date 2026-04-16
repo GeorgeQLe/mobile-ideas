@@ -9,8 +9,8 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 | Phase | Status | Outcome |
 |---|---|---|
 | Phase 1 | Complete | Initial 100-idea backlog and Draft 0 specs created. |
-| Phase 2 | In progress | Hygiene and Draft 1 spec remediation. |
-| Phase 3 | Planned | Exact source replacement and hands-on verification. |
+| Phase 2 | Complete | Hygiene and Draft 1 spec remediation. |
+| Phase 3 | In progress | App-by-app implementation-readiness upgrades. |
 | Phase 4 | Planned | Per-app implementation planning in downstream repos. |
 
 ## Phase 1: Initial Backlog And Draft 0 Specs
@@ -35,8 +35,8 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 - [x] Add missing lifecycle docs.
 - [x] Normalize task documents with next steps.
 - [x] Rewrite all numbered specs into canonical Draft 1 structure.
-- [ ] Run final hygiene and quality validation.
-- [ ] Commit and push remediation work.
+- [x] Run final hygiene and quality validation.
+- [x] Commit and push remediation work.
 
 ### Acceptance Criteria
 
@@ -45,20 +45,22 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 - Every numbered spec includes research sources, open questions, and next steps.
 - Structural validation confirms no missing spec IDs from `001` through `100`.
 
-## Phase 3: Exact Source Replacement And Hands-On Verification
+## Phase 3: App-By-App Implementation Readiness
 
 ### Milestones
 
-- [ ] Replace source-discovery links with exact first-party app listing, help, privacy, and support URLs.
-- [ ] Capture app-store listing details, public screenshots, privacy labels, release notes, and user review themes.
-- [ ] Complete hands-on verification for each app where lawful and feasible.
-- [ ] Mark blocked flows with explicit reason and owner.
+- [x] Define the implementation-readiness gate.
+- [x] Upgrade `001-chatgpt.md` as the pilot implementation-ready public-source V1 spec.
+- [ ] Upgrade the remaining architecture-teaching top-ten specs.
+- [ ] Upgrade remaining specs by batch until all 100 pass the readiness gate.
+- [ ] Complete hands-on verification for each app where lawful and feasible, or mark blocked flows with explicit reason and owner/path.
 
 ### Acceptance Criteria
 
 - Every spec has exact source links or a documented blocker.
 - Every spec distinguishes verified behavior from inferred clone requirements.
 - High-risk categories have category-specific risk review notes.
+- Every spec has app-specific screens, data model, API contracts, tests, and build plan.
 
 ## Phase 4: Downstream Implementation Planning
 
@@ -82,4 +84,4 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 
 ## Next Steps
 
-- Complete Phase 2 validation and commit the remediation work.
+- Upgrade `006-tiktok.md` using the `001-chatgpt.md` pattern.

@@ -1,5 +1,15 @@
 # Todo
 
+## Priority Task Queue
+
+- [ ] Upgrade `006-tiktok.md` to implementation-ready status using the `001-chatgpt.md` pattern.
+- [ ] Upgrade `016-whatsapp.md` to implementation-ready status.
+- [ ] Upgrade `026-google-maps.md` to implementation-ready status.
+- [ ] Upgrade `033-airbnb.md` to implementation-ready status.
+- [ ] Upgrade `038-doordash.md` to implementation-ready status.
+- [ ] Upgrade the remaining top-ten architecture-teaching specs: `046-amazon.md`, `056-cash-app.md`, `066-spotify.md`, and `089-notion.md`.
+- [ ] Upgrade the remaining 90 specs by batch after the top-ten patterns are proven.
+
 ## Phase 2: Hygiene And Draft 1 Remediation
 
 - [x] Add `CLAUDE.md` with project conventions.
@@ -12,7 +22,9 @@
 
 ## Phase 3: Exact Source Replacement And Hands-On Verification
 
-- [ ] Replace App Store, Google Play, and official help/privacy source-discovery links in all 100 specs with exact first-party URLs.
-- [ ] Complete hands-on verification for reachable app flows using lawful test accounts/devices.
-- [ ] Mark paid, hardware, region-blocked, regulated, or otherwise inaccessible flows with explicit blocker notes.
+- [x] Define the implementation-readiness gate in `tasks/implementation-readiness.md`.
+- [x] Upgrade `001-chatgpt.md` from Draft 1 scaffold to implementation-ready public-source V1 spec.
+- [ ] Replace App Store, Google Play, and official help/privacy source-discovery links in the remaining 99 specs with exact first-party URLs.
+- [ ] Complete hands-on verification for reachable app flows using lawful test accounts/devices, or mark the flow as launch-blocked.
+- [ ] Mark paid, hardware, region-blocked, regulated, or otherwise inaccessible flows with explicit blocker notes and owner/path.
 - [ ] Refresh `tasks/spec-quality-audit.md` after exact source replacement and hands-on verification.
