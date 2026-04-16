@@ -5,7 +5,7 @@ Created: 2026-04-16
 > Metadata
 > - Spec set status: Draft 1 canonical rewrite complete; Phase 3 implementation-readiness upgrades underway
 > - Coverage: 100 of 100 app ideas
-> - Research state: 2 implementation-ready public-source V1 specs; 98 Draft 1 scaffolds still require exact first-party source replacement and hands-on verification blockers
+> - Research state: 3 implementation-ready public-source V1 specs; 97 Draft 1 scaffolds still require exact first-party source replacement and hands-on verification blockers
 
 ## Overview
 
@@ -87,5 +87,5 @@ Every numbered spec uses these canonical sections:
 
 ## Next Steps
 
-- Continue Phase 3 implementation-readiness upgrades, starting with `016-whatsapp.md`.
+- Continue Phase 3 implementation-readiness upgrades, starting with `026-google-maps.md`.
 - Update each spec with verified behavior and remove blocked notes only when evidence is captured.
