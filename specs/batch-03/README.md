@@ -3,7 +3,7 @@
 > Metadata
 > - App range: 041-060
 > - Status: Draft 1 canonical spec rewrite; Phase 3 implementation-readiness upgrades underway
-> - Research state: `041-starbucks.md` through `046-amazon.md` and `056-cash-app.md` are implementation-ready public-source V1; the remaining Batch 03 specs still require exact source replacement and hands-on verification blockers.
+> - Research state: `041-starbucks.md` through `056-cash-app.md` are implementation-ready public-source V1 except `057-venmo.md` through `060-robinhood.md`, which still require exact source replacement and hands-on verification blockers.
 
 ## Overview
 This batch contains canonical Draft 1 clone specs for apps 41-60 from tasks/ideas.md.
@@ -16,15 +16,15 @@ This batch contains canonical Draft 1 clone specs for apps 41-60 from tasks/idea
 - 044 Yelp - Local discovery - implementation-ready public-source V1
 - 045 Too Good To Go - Food marketplace - implementation-ready public-source V1
 - 046 Amazon - Shopping - implementation-ready public-source V1
-- 047 Temu - Shopping
-- 048 SHEIN - Shopping
-- 049 Etsy - Marketplace
-- 050 eBay - Marketplace
-- 051 Facebook Marketplace - Marketplace
-- 052 Poshmark - Resale
-- 053 Depop - Resale
-- 054 StockX - Marketplace
-- 055 Shop - Shopping utility
+- 047 Temu - Shopping - implementation-ready public-source V1
+- 048 SHEIN - Shopping - implementation-ready public-source V1
+- 049 Etsy - Marketplace - implementation-ready public-source V1
+- 050 eBay - Marketplace - implementation-ready public-source V1
+- 051 Facebook Marketplace - Marketplace - implementation-ready public-source V1
+- 052 Poshmark - Resale - implementation-ready public-source V1
+- 053 Depop - Resale - implementation-ready public-source V1
+- 054 StockX - Marketplace - implementation-ready public-source V1
+- 055 Shop - Shopping utility - implementation-ready public-source V1
 - 056 Cash App - Finance - implementation-ready public-source V1
 - 057 Venmo - Finance
 - 058 PayPal - Finance
@@ -39,5 +39,5 @@ This batch contains canonical Draft 1 clone specs for apps 41-60 from tasks/idea
 
 ## Next Steps
 
-- Continue exact source replacement and implementation-readiness upgrades with `047-temu.md`, `048-shein.md`, `049-etsy.md`, `050-ebay.md`, `051-facebook-marketplace.md`, `052-poshmark.md`, `053-depop.md`, `054-stockx.md`, and `055-shop.md`.
+- Continue exact source replacement and implementation-readiness upgrades with `057-venmo.md`, `058-paypal.md`, `059-zelle.md`, and `060-robinhood.md`.
 - Complete hands-on verification where lawful and feasible before app implementation starts.

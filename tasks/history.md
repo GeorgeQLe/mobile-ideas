@@ -73,7 +73,14 @@
 - Rewrote the selected specs to implementation-ready public-source V1 status with app-specific coffee ordering, quick-service ordering, restaurant reservations, local discovery, surplus-food marketplace, loyalty/rewards, pickup, reviews/moderation, business tooling, refund/support, edge-case, test, acceptance, build-plan, and manual verification detail.
 - Updated readiness and audit counts from 44 to 49 implementation-ready public-source V1 specs and prepared the next Batch 03 commerce/resale step.
 
+## 2026-04-17 - Batch 03 Commerce/Resale Readiness Upgrade
+
+- Archived Draft 1 copies for `047-temu.md`, `048-shein.md`, `049-etsy.md`, `050-ebay.md`, `051-facebook-marketplace.md`, `052-poshmark.md`, `053-depop.md`, `054-stockx.md`, and `055-shop.md`.
+- Replaced source-discovery links with exact first-party marketplace, help/support, privacy/legal, product, seller, buyer-protection, shipping/tracking, rewards, verification, merchant, and policy URLs for the selected Batch 03 commerce/resale specs.
+- Rewrote the selected specs to implementation-ready public-source V1 status with app-specific discount shopping, fashion commerce, handmade/custom marketplace, auctions/offers, local marketplace, social resale, bid/ask market, package tracking, wallet/reward, seller/merchant tooling, privacy, support/refund/claim, edge-case, test, acceptance, build-plan, and manual verification detail.
+- Updated readiness and audit counts from 49 to 58 implementation-ready public-source V1 specs and prepared the next Batch 03 finance/payment step.
+
 ## Next Steps
 
-- Upgrade `047-temu.md`, `048-shein.md`, `049-etsy.md`, `050-ebay.md`, `051-facebook-marketplace.md`, `052-poshmark.md`, `053-depop.md`, `054-stockx.md`, and `055-shop.md` as the next Batch 03 commerce/resale pass.
-- Continue the remaining 51 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, and early Batch 03 pattern sets.
+- Upgrade `057-venmo.md`, `058-paypal.md`, `059-zelle.md`, and `060-robinhood.md` as the next Batch 03 finance/payment pass.
+- Continue the remaining 42 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, and early Batch 03 pattern sets.

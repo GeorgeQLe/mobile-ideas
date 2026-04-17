@@ -7,7 +7,7 @@ Updated: 2026-04-17
 
 The spec set is moving from Draft 1 scaffolds to implementation-ready specs by focused batches.
 
-Current readiness count: 49 of 100.
+Current readiness count: 58 of 100.
 
 ## Readiness Definition
 
@@ -74,7 +74,16 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 043 | OpenTable | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; restaurant discovery, reservations, waitlists, Notify Me, verified reviews, points, restaurant tools, and native/manual parity blockers remain explicit. |
 | 044 | Yelp | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; local search, reviews/photos, messaging, quotes, transactions, business-owner tools, moderation, privacy, and native/manual parity blockers remain explicit. |
 | 045 | Too Good To Go | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; surplus-food discovery, Surprise Bags, pickup windows, refunds, impact metrics, partner tools, and native/manual parity blockers remain explicit. |
-| 047-055, 057-065, 067-088, 090-100 | Remaining specs | Draft 1 scaffold | Must be upgraded app-by-app or by focused batch using the readiness definition above. |
+| 047 | Temu | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; discount shopping, broad catalog discovery, product detail, cart/checkout, coupons/credits, shipping/tracking, returns/refunds, support, IP/counterfeit reporting, and native/manual parity blockers remain explicit. |
+| 048 | SHEIN | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; fashion discovery, size/fit, reviews/media, bag/checkout, coupons/points, shipping, returns/refunds, support, social/content risks, and native/manual parity blockers remain explicit. |
+| 049 | Etsy | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; handmade/vintage/custom marketplace, shop pages, personalization, multi-shop cart, messages, seller listings, ads, payments, cases, purchase protection, and native/manual parity blockers remain explicit. |
+| 050 | eBay | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; marketplace search, auctions, offers, watchlist, checkout, authenticity routing, seller listings, returns/refunds, buyer protection, promoted listings, and native/manual parity blockers remain explicit. |
+| 051 | Facebook Marketplace | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; local and shipped listings, location/radius discovery, listing creation, messaging, checkout eligibility, commerce policies, purchase protection, scam safety, and native/manual parity blockers remain explicit. |
+| 052 | Poshmark | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; social resale closets, likes/shares, offers, bundles, prepaid shipping, seller earnings, Posh Protect-style claims, community safety, and native/manual parity blockers remain explicit. |
+| 053 | Depop | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; fashion resale feed, shops, listings, likes/follows, messages, offers, payments, shipping labels, buyer/seller protection, payouts, and native/manual parity blockers remain explicit. |
+| 054 | StockX | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; bid/ask market, market pricing, buy now/sell now, verification, Buyer Promise-style support, seller levels, fees, payouts, two-step security, and native/manual parity blockers remain explicit. |
+| 055 | Shop | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; package tracking, email/order import, merchant discovery, Shop Pay-style wallet, Shop Cash-style rewards, merchant channel, tracking sync, and native/manual parity blockers remain explicit. |
+| 057-065, 067-088, 090-100 | Remaining specs | Draft 1 scaffold | Must be upgraded app-by-app or by focused batch using the readiness definition above. |
 
 ## Repeatable Upgrade Loop
 
@@ -97,8 +106,9 @@ For each spec:
 - Batch 02 travel booking public-source V1 expansion: `034-booking-com.md`, `035-expedia.md`, `036-hopper.md`, and `037-tripit.md`.
 - Batch 02 food/grocery delivery public-source V1 expansion: `039-uber-eats.md` and `040-instacart.md`.
 - Batch 03 food/local discovery public-source V1 expansion: `041-starbucks.md`, `042-mcdonalds.md`, `043-opentable.md`, `044-yelp.md`, and `045-too-good-to-go.md`.
+- Batch 03 commerce/resale public-source V1 expansion: `047-temu.md`, `048-shein.md`, `049-etsy.md`, `050-ebay.md`, `051-facebook-marketplace.md`, `052-poshmark.md`, `053-depop.md`, `054-stockx.md`, and `055-shop.md`.
 
 ## Next Steps
 
-- Upgrade the next Batch 03 commerce/resale specs: `047-temu.md`, `048-shein.md`, `049-etsy.md`, `050-ebay.md`, `051-facebook-marketplace.md`, `052-poshmark.md`, `053-depop.md`, `054-stockx.md`, and `055-shop.md`.
+- Upgrade the next Batch 03 finance/payment/investing specs: `057-venmo.md`, `058-paypal.md`, `059-zelle.md`, and `060-robinhood.md`, then continue with Batch 04 finance specs `061-coinbase.md` through `065-apple-wallet.md`.
 - Continue Phase 3 exact source replacement and hands-on blocker documentation through later batches.
