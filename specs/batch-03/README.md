@@ -3,18 +3,18 @@
 > Metadata
 > - App range: 041-060
 > - Status: Draft 1 canonical spec rewrite; Phase 3 implementation-readiness upgrades underway
-> - Research state: `046-amazon.md` and `056-cash-app.md` are implementation-ready public-source V1; the remaining Batch 03 specs still require exact source replacement and hands-on verification blockers.
+> - Research state: `041-starbucks.md` through `046-amazon.md` and `056-cash-app.md` are implementation-ready public-source V1; the remaining Batch 03 specs still require exact source replacement and hands-on verification blockers.
 
 ## Overview
 This batch contains canonical Draft 1 clone specs for apps 41-60 from tasks/ideas.md.
 
 ## Included Specs
 
-- 041 Starbucks - Food/loyalty
-- 042 McDonald's - Food/loyalty
-- 043 OpenTable - Reservations
-- 044 Yelp - Local discovery
-- 045 Too Good To Go - Food marketplace
+- 041 Starbucks - Food/loyalty - implementation-ready public-source V1
+- 042 McDonald's - Food/loyalty - implementation-ready public-source V1
+- 043 OpenTable - Reservations - implementation-ready public-source V1
+- 044 Yelp - Local discovery - implementation-ready public-source V1
+- 045 Too Good To Go - Food marketplace - implementation-ready public-source V1
 - 046 Amazon - Shopping - implementation-ready public-source V1
 - 047 Temu - Shopping
 - 048 SHEIN - Shopping
@@ -34,10 +34,10 @@ This batch contains canonical Draft 1 clone specs for apps 41-60 from tasks/idea
 ## Quality Gate
 
 - Each numbered spec uses canonical hygiene sections.
-- Each numbered spec includes source-discovery links, functional requirements, data model, API contracts, edge cases, test plan, acceptance criteria, open questions, and next steps.
+- Each numbered spec includes exact source tables or source-discovery links, functional requirements, data model, API contracts, edge cases, test plan, acceptance criteria, open questions, and next steps.
 - Each numbered spec remains legally scoped to functional parity with original assets and licensed data.
 
 ## Next Steps
 
-- Continue exact source replacement and implementation-readiness upgrades with `041-starbucks.md`, `042-mcdonalds.md`, `043-opentable.md`, `044-yelp.md`, and `045-too-good-to-go.md`.
+- Continue exact source replacement and implementation-readiness upgrades with `047-temu.md`, `048-shein.md`, `049-etsy.md`, `050-ebay.md`, `051-facebook-marketplace.md`, `052-poshmark.md`, `053-depop.md`, `054-stockx.md`, and `055-shop.md`.
 - Complete hands-on verification where lawful and feasible before app implementation starts.

@@ -7,7 +7,7 @@ Updated: 2026-04-17
 
 The spec set is moving from Draft 1 scaffolds to implementation-ready specs by focused batches.
 
-Current readiness count: 44 of 100.
+Current readiness count: 49 of 100.
 
 ## Readiness Definition
 
@@ -69,7 +69,12 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 056 | Cash App | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; peer payments, requests, payment links, pools, balance, cash out, debit, direct deposit, savings/offers, merchant checkout, bitcoin, investing, taxes, sponsored accounts, business accounts, security/scam controls, and native/manual parity blockers remain explicit. |
 | 066 | Spotify | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; music, podcasts, audiobooks, playlists, queue, downloads/offline, lyrics, device handoff, shared listening, family/young-listener controls, creator tools, ads, developer playback constraints, and native/manual parity blockers remain explicit. |
 | 089 | Notion | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; workspace pages, blocks, databases, search, sharing/permissions, comments/mentions, notifications, offline pages, imports/exports, AI, integrations/API, billing, privacy, security, and enterprise/admin blockers remain explicit. |
-| 041-045, 047-055, 057-065, 067-088, 090-100 | Remaining specs | Draft 1 scaffold | Must be upgraded app-by-app or by focused batch using the readiness definition above. |
+| 041 | Starbucks | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; coffee ordering, stored value, Rewards, eGifts, store pickup, support/refunds, and native/manual parity blockers remain explicit. |
+| 042 | McDonald's | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Mobile Order and Pay, deals, rewards, pickup modes, delivery handoff, refunds, restaurant/franchise variation, and native/manual parity blockers remain explicit. |
+| 043 | OpenTable | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; restaurant discovery, reservations, waitlists, Notify Me, verified reviews, points, restaurant tools, and native/manual parity blockers remain explicit. |
+| 044 | Yelp | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; local search, reviews/photos, messaging, quotes, transactions, business-owner tools, moderation, privacy, and native/manual parity blockers remain explicit. |
+| 045 | Too Good To Go | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; surplus-food discovery, Surprise Bags, pickup windows, refunds, impact metrics, partner tools, and native/manual parity blockers remain explicit. |
+| 047-055, 057-065, 067-088, 090-100 | Remaining specs | Draft 1 scaffold | Must be upgraded app-by-app or by focused batch using the readiness definition above. |
 
 ## Repeatable Upgrade Loop
 
@@ -91,8 +96,9 @@ For each spec:
 - Batch 02 maps/mobility public-source V1 expansion: `027-apple-maps.md`, `028-waze.md`, `029-uber.md`, `030-lyft.md`, `031-lime.md`, and `032-turo.md`.
 - Batch 02 travel booking public-source V1 expansion: `034-booking-com.md`, `035-expedia.md`, `036-hopper.md`, and `037-tripit.md`.
 - Batch 02 food/grocery delivery public-source V1 expansion: `039-uber-eats.md` and `040-instacart.md`.
+- Batch 03 food/local discovery public-source V1 expansion: `041-starbucks.md`, `042-mcdonalds.md`, `043-opentable.md`, `044-yelp.md`, and `045-too-good-to-go.md`.
 
 ## Next Steps
 
-- Upgrade the next Batch 03 food/local discovery specs: `041-starbucks.md`, `042-mcdonalds.md`, `043-opentable.md`, `044-yelp.md`, and `045-too-good-to-go.md`.
+- Upgrade the next Batch 03 commerce/resale specs: `047-temu.md`, `048-shein.md`, `049-etsy.md`, `050-ebay.md`, `051-facebook-marketplace.md`, `052-poshmark.md`, `053-depop.md`, `054-stockx.md`, and `055-shop.md`.
 - Continue Phase 3 exact source replacement and hands-on blocker documentation through later batches.

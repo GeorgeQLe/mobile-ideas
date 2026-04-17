@@ -65,7 +65,15 @@
 - Rewrote the selected specs to implementation-ready public-source V1 status with app-specific restaurant/store discovery, grocery/retail catalog, menu/item customization, replacements, cart quote, checkout, membership, regulated-item, SNAP/EBT, delivery/pickup, courier/shopper handoff, merchant/retailer tools, privacy, support/refund, edge-case, test, acceptance, build-plan, and manual verification detail.
 - Updated readiness and audit counts from 42 to 44 implementation-ready public-source V1 specs and prepared the next Batch 03 food/local discovery step.
 
+
+## 2026-04-17 - Batch 03 Food/Local Discovery Readiness Upgrade
+
+- Archived Draft 1 copies for `041-starbucks.md`, `042-mcdonalds.md`, `043-opentable.md`, `044-yelp.md`, and `045-too-good-to-go.md`.
+- Replaced source-discovery links with exact first-party marketplace, help/support, privacy/legal, product, rewards/reservation/review, merchant/business, refund, and partner URLs for the selected Batch 03 specs.
+- Rewrote the selected specs to implementation-ready public-source V1 status with app-specific coffee ordering, quick-service ordering, restaurant reservations, local discovery, surplus-food marketplace, loyalty/rewards, pickup, reviews/moderation, business tooling, refund/support, edge-case, test, acceptance, build-plan, and manual verification detail.
+- Updated readiness and audit counts from 44 to 49 implementation-ready public-source V1 specs and prepared the next Batch 03 commerce/resale step.
+
 ## Next Steps
 
-- Upgrade `041-starbucks.md`, `042-mcdonalds.md`, `043-opentable.md`, `044-yelp.md`, and `045-too-good-to-go.md` as the next Batch 03 food/local discovery pass.
-- Continue the remaining 56 Draft 1 specs by batch using the completed Batch 01, top-ten, and Batch 02 pattern sets.
+- Upgrade `047-temu.md`, `048-shein.md`, `049-etsy.md`, `050-ebay.md`, `051-facebook-marketplace.md`, `052-poshmark.md`, `053-depop.md`, `054-stockx.md`, and `055-shop.md` as the next Batch 03 commerce/resale pass.
+- Continue the remaining 51 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, and early Batch 03 pattern sets.
