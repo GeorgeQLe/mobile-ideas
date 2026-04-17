@@ -5,11 +5,11 @@ Created: 2026-04-16
 > Metadata
 > - Spec set status: Draft 1 canonical rewrite complete; Phase 3 implementation-readiness upgrades underway
 > - Coverage: 100 of 100 app ideas
-> - Research state: 58 implementation-ready public-source V1 specs; 42 Draft 1 scaffolds still require exact first-party source replacement and hands-on verification blockers
+> - Research state: 62 implementation-ready public-source V1 specs; 38 Draft 1 scaffolds still require exact first-party source replacement and hands-on verification blockers
 
 ## Overview
 
-This directory contains technical specs for all 100 mobile app clone ideas in `tasks/ideas.md`. Most specs are canonical Draft 1 scaffolds; 58 upgraded specs are implementation-ready public-source V1 specs.
+This directory contains technical specs for all 100 mobile app clone ideas in `tasks/ideas.md`. Most specs are canonical Draft 1 scaffolds; 62 upgraded specs are implementation-ready public-source V1 specs.
 
 The specs are implementation-oriented planning documents. They define lawful functional parity targets, product flows, data models, backend contracts, privacy and safety requirements, analytics, edge cases, test plans, acceptance criteria, open questions, and next steps.
 
@@ -87,5 +87,5 @@ Every numbered spec uses these canonical sections:
 
 ## Next Steps
 
-- Continue Phase 3 implementation-readiness upgrades for the remaining 42 Draft 1 specs by batch.
+- Continue Phase 3 implementation-readiness upgrades for the remaining 38 Draft 1 specs by batch.
 - Update each spec with verified behavior and remove blocked notes only when evidence is captured.

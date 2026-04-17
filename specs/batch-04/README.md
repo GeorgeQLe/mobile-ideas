@@ -39,5 +39,5 @@ This batch contains canonical Draft 1 clone specs for apps 61-80 from tasks/idea
 
 ## Next Steps
 
-- Continue exact source replacement and implementation-readiness upgrades with `089-notion.md` in Batch 05.
+- Continue exact source replacement and implementation-readiness upgrades with `061-coinbase.md`, `062-mint-credit-karma.md`, `063-ynab.md`, `064-rocket-money.md`, and `065-apple-wallet.md`.
 - Complete hands-on verification where lawful and feasible before app implementation starts.
