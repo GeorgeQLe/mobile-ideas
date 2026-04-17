@@ -39,5 +39,5 @@ This batch contains canonical Draft 1 clone specs for apps 41-60 from tasks/idea
 
 ## Next Steps
 
-- Replace source-discovery links in every spec with exact verified first-party URLs.
+- Continue exact source replacement and implementation-readiness upgrades, starting with `046-amazon.md`.
 - Complete hands-on verification where lawful and feasible before app implementation starts.

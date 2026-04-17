@@ -2,7 +2,7 @@
 
 > Metadata
 > - App range: 021-040
-> - Status: Draft 1 canonical spec rewrite; `026-google-maps.md` and `033-airbnb.md` upgraded to implementation-ready public-source V1
+> - Status: Draft 1 canonical spec rewrite; `026-google-maps.md`, `033-airbnb.md`, and `038-doordash.md` upgraded to implementation-ready public-source V1
 > - Research state: public source-discovery links included for the remaining Draft 1 specs; exact source replacement and hands-on verification still required before implementation.
 
 ## Overview
@@ -27,7 +27,7 @@ This batch contains canonical Draft 1 clone specs for apps 21-40 from tasks/idea
 - 035 Expedia - Travel booking
 - 036 Hopper - Travel deals
 - 037 TripIt - Travel organization
-- 038 DoorDash - Food delivery
+- 038 DoorDash - Food delivery (implementation-ready public-source V1)
 - 039 Uber Eats - Food delivery
 - 040 Instacart - Grocery delivery
 
@@ -39,5 +39,5 @@ This batch contains canonical Draft 1 clone specs for apps 21-40 from tasks/idea
 
 ## Next Steps
 
-- Continue exact source replacement and implementation-readiness upgrades, starting with `038-doordash.md`.
+- Continue exact source replacement and implementation-readiness upgrades, starting with `046-amazon.md`.
 - Complete hands-on verification where lawful and feasible before app implementation starts.
