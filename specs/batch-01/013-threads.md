@@ -3,176 +3,217 @@
 > Metadata
 > - Inspiration app: Threads
 > - Category: Social media
-> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
-> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-04-17.
+> - Verification basis: exact public marketplace pages, first-party help/support surfaces, first-party legal/privacy pages, and current public listing notes.
+> - Manual verification blockers: native iOS/Android screen capture, signed-in account lifecycle, paid/entitlement flows, notification payloads, deletion/export completion, and region/device-specific behavior still require lawful test accounts/devices before one-for-one parity claims.
+> - Legal scope: functional parity only; use original code, brand, copy, iconography, sample data, policies, ranking systems, media, and integrations.
 
 ## Overview
-Build an original mobile product inspired by Threads's user-facing workflow, not its brand identity or proprietary implementation.
-The clone target is: Conversation-first microblog with Instagram-like identity linking, quote/reply flows, search, and lightweight discovery.
-Primary product surface: home feed supported by create/compose and detail/thread flows.
-The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
-The spec intentionally separates verified public-source facts from inferred clone requirements.
+
+Build an original mobile product inspired by Threads's public workflow: text-first public conversation tied to Instagram-style identity, threaded posts, replies, reposts, quote posts, trends/live events, DMs, fediverse sharing, privacy controls, Meta policy inheritance, and ad/subscription states.
+
+The clone must not copy Threads branding, screenshots, marketing copy, protected UI artwork, ranking systems, private APIs, proprietary data, marketplace assets, moderation tooling, or paid-plan names. The implementation can reproduce comparable user jobs and interaction patterns with original product language and licensed or first-party providers.
+
+This spec is implementation-ready for a V1 that targets documented public behavior. Any feature marked as manually blocked must ship behind a feature flag or acceptance-test blocker until a lawful hands-on pass confirms exact native behavior.
 
 ## Goals
-- Deliver a mobile-first social media experience with complete onboarding, core action, settings, and recovery flows.
-- Implement the app-specific focus: Conversation-first microblog with Instagram-like identity linking, quote/reply flows, search, and lightweight discovery.
-- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
-- Make public-source verification and blocked hands-on research visible before implementation starts.
-- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+- Provide a mobile-first social product with onboarding, profile setup, feed/discovery, creation, reactions, comments or replies, notifications, messaging where relevant, settings, support, and account controls.
+- Use original ranking, recommendation, moderation, and notification systems with licensed or first-party sample content.
+- Preserve privacy, safety, reporting, block/mute, data access, deletion, teen/minor, and creator controls as first-class product requirements.
+- Produce routes, entities, API contracts, offline behavior, analytics, and tests that a downstream implementation team can build without private APIs.
 
 ## Non-Goals
-- Do not copy Threads branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
-- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
-- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
-- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
-- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+- Do not build a Threads-branded app or imply affiliation with Threads or its owner.
+- Do not scrape production services, use private APIs, replay mobile network traffic, copy proprietary datasets, or bypass access controls.
+- Do not copy plan names, prices, promotional copy, trust/safety labels, creator programs, or moderation decisions.
+- Do not treat public listings as proof of exact native state machines; signed-in, paid, regional, notification, and device-specific behavior remains blocked until verified.
+- Do not build runtime application code in this repository; this repo remains the planning and specification source of truth.
 
 ## Research Sources
-- App Store source-discovery link: https://apps.apple.com/us/search?term=Threads
-- Google Play source-discovery link: https://play.google.com/store/search?q=Threads&c=apps
-- Official help/privacy source-discovery link: https://www.google.com/search?q=Threads%20official%20app%20help%20privacy
-- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
-- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
-- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
-- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
-- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+| Source | Exact URL | Evidence Used | Status |
+|---|---|---|---|
+| Apple App Store | https://apps.apple.com/us/app/threads/id6446901002 | Official iOS listing, category, age rating, supported devices, privacy labels, in-app purchases, version notes, and support/privacy links | Verified 2026-04-17 |
+| Google Play | https://play.google.com/store/apps/details?id=com.instagram.barcelona | Official Android listing, package id, content rating, downloads, data safety, in-app purchases/ads, support contact, and public feature claims | Verified 2026-04-17 |
+| Threads Google Play Listing | https://play.google.com/store/apps/details?id=com.instagram.barcelona | Public Android listing, features, fediverse positioning, terms/privacy links, ratings, and data safety | Verified 2026-04-17 |
+| Threads Supplemental Terms | https://help.instagram.com/769983657850450 | Threads-specific terms | Verified 2026-04-17 |
+| Threads Supplemental Privacy Policy | https://help.instagram.com/515230437301944 | Threads-specific privacy policy | Verified 2026-04-17 |
+| Meta Privacy Policy | https://privacycenter.instagram.com/policy | Meta data handling and rights framework | Verified 2026-04-17 |
+| Instagram Community Guidelines | https://help.instagram.com/477434105621119 | Inherited community policy framework | Verified 2026-04-17 |
+| Meta Safety Center | https://about.meta.com/actions/safety | Safety controls, enforcement, and user protection resources | Verified 2026-04-17 |
 
 ## Detailed Design
-- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for social media.
-- Home model: make Home Feed the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
-- Core action: make Create/Compose the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
-- Detail surface: use Detail/Thread for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
-- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
-- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
-- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
-- The implementation must support account onboarding and profile setup.
-- The implementation must render ranked or chronological feeds with pagination.
-- The implementation must support creation, editing, deletion, and draft recovery.
-- The implementation must support reactions, comments, sharing, and saves.
-- The implementation must provide search and discovery filters.
-- The implementation must support notifications with granular preferences.
-- The implementation must include reporting and blocking controls.
-- The implementation must apply privacy defaults consistently.
-- The implementation must moderate abusive or illegal content.
-- The implementation must cache recent content for poor network reads.
-- The implementation must handle deleted or unavailable content.
-- The implementation must keep creator/user identity original.
+
+### Source-Backed Product Requirements
+
+- The public listings position Threads as Instagram's text-based conversation app with Instagram account linkage, posts, replies, trends/live events, creator following, conversation controls, blocked-account carryover, DMs, notifications, fediverse sharing, ads, and in-app purchases.
+- Identity must support imported username/verification/profile state, independent Threads profile state where allowed, blocked-account carryover, and account linkage/deletion edge cases.
+- Threads must support text posts, media, replies, reposts, quote-style posts, likes, follows, sharing, privacy controls, mentions, mute/block, report, and unavailable/deleted post states.
+- Conversation controls must model who can reply, who can mention, blocked/muted carryover, hidden content, and safety labels without copying Meta UI or ranking systems.
+- Fediverse sharing must be optional, policy-scoped, auditable, and blocked until protocol/legal review verifies deletion, moderation, and cross-server behavior.
+- DMs must be represented with age and availability gates, no unverified encryption claims, message request controls, reporting, blocking, and privacy-safe push payloads.
+- Ads and no-ads subscription states must be original, server-authoritative, and tested across app-store/web ownership, restore, cancel, refund, expiration, and multiple-account behavior.
+- Manual verification remains required for exact native navigation, Instagram linkage, DMs, fediverse settings, ads/no-ads entitlement, push payloads, and regional/account availability.
+
+### Product Architecture Notes
+
+- Use original navigation labels and component names while preserving the documented user jobs.
+- Keep all user-generated content, AI outputs, private messages, uploaded media, location, contacts, and payment state under explicit data ownership and deletion rules.
+- Keep all recommendations and ranking behavior deterministic in test mode; production ranking must be independently designed and auditable.
+- Treat public content differently from private content in storage, deletion, export, moderation, analytics, and support tooling.
+- Model every external dependency as an adapter with feature flags, timeout behavior, provider-specific error mapping, and privacy review.
+- Keep entitlement checks server-authoritative; the client may cache feature summaries but cannot grant paid or sensitive access alone.
+- Store only normalized event codes in analytics and operational logs; raw prompts, posts, messages, media, contact lists, precise location, and payment details are disallowed.
+- Provide support and safety tooling with role-based access, redaction, escalation reasons, and immutable audit events.
+- Include localization, accessibility, age-gate, and regional availability states in route and API schemas.
 
 ## Core User Journeys
-- New user installs the app, reviews an original value proposition, creates an account, and reaches Home Feed.
-- Returning user opens Home Feed, resumes the most recent meaningful activity, and completes the primary action in Create/Compose.
-- User searches or browses from Search/Explore, opens Detail/Thread, saves or shares it, and later finds it again from history or library.
-- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
+
+- New user installs the app, reviews original onboarding and legal/permission education, creates or restores an account, and reaches the default home surface.
+- Returning user opens the app, resumes recent activity, completes the primary feed/create/discovery workflow, and sees state synchronize across sessions.
+- User creates or uploads content, reviews validation and safety checks, publishes or saves a draft, and can edit/delete where the product model allows.
+- User searches or browses, opens a detail view, saves/shares/reacts, and later finds the item from history, profile, library, or saved surfaces where relevant.
+- User denies a requested permission and still receives a functional fallback with clear education for re-enabling the permission.
+- User loses connectivity during a write, sees local state preserved, retries safely, and reconciles with canonical server state after reconnect.
+- User reports content or behavior, blocks/mutes the actor, receives safety feedback, and can follow a support or appeal path.
+- User upgrades, restores, cancels, expires, or loses entitlement access and sees the correct locked/unlocked product state.
+- User requests data export or account deletion and sees confirmation, retention timing, cancellation options where available, and final status.
 
 ## Screen Inventory
-| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
+
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Home Feed | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Create/Compose | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Detail/Thread | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Search/Explore | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Profile | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Inbox/Notifications | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Moderation/Report | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Subscription | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Welcome/Instagram Link | Entry, account creation, consent, and blocked-state education | taps, text, media, permissions, deep links | empty, loading, loaded, signed-out, restricted | denied permission, offline, stale data, blocked entitlement, unavailable content |
+| Home Feed | Home Feed workflow and recovery states | taps, text, media, permissions, deep links | empty, loading, loaded, signed-out, restricted | denied permission, offline, stale data, blocked entitlement, unavailable content |
+| Post Detail | Post Detail workflow and recovery states | taps, text, media, permissions, deep links | empty, loading, loaded, signed-out, restricted | denied permission, offline, stale data, blocked entitlement, unavailable content |
+| Composer | Composer workflow and recovery states | taps, text, media, permissions, deep links | empty, loading, loaded, signed-out, restricted | denied permission, offline, stale data, blocked entitlement, unavailable content |
+| Search And Trends | Search And Trends workflow and recovery states | taps, text, media, permissions, deep links | empty, loading, loaded, signed-out, restricted | denied permission, offline, stale data, blocked entitlement, unavailable content |
+| Profile | Profile workflow and recovery states | taps, text, media, permissions, deep links | empty, loading, loaded, signed-out, restricted | denied permission, offline, stale data, blocked entitlement, unavailable content |
+| Replies | Replies workflow and recovery states | taps, text, media, permissions, deep links | empty, loading, loaded, signed-out, restricted | denied permission, offline, stale data, blocked entitlement, unavailable content |
+| DM Inbox | DM Inbox workflow and recovery states | taps, text, media, permissions, deep links | empty, loading, loaded, signed-out, restricted | denied permission, offline, stale data, blocked entitlement, unavailable content |
+| Fediverse Settings | Fediverse Settings workflow and recovery states | taps, text, media, permissions, deep links | empty, loading, loaded, signed-out, restricted | denied permission, offline, stale data, blocked entitlement, unavailable content |
+| Privacy Controls | Privacy Controls workflow and recovery states | taps, text, media, permissions, deep links | empty, loading, loaded, signed-out, restricted | denied permission, offline, stale data, blocked entitlement, unavailable content |
+| Subscription/Ads | Subscription/Ads workflow and recovery states | taps, text, media, permissions, deep links | empty, loading, loaded, signed-out, restricted | denied permission, offline, stale data, blocked entitlement, unavailable content |
+| Support | Account, policy, support, and recovery controls | taps, text, media, permissions, deep links | empty, loading, loaded, signed-out, restricted | denied permission, offline, stale data, blocked entitlement, unavailable content |
 
 ## Data Model
-- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
-- `Profile`: stores public identity, display preferences, privacy level, and relationship metadata.
-- `Post`: represents the main user-facing object in this clone's core flow.
-- `Comment`: captures conversation content references, participants, moderation state, and delivery status.
-- `Reaction`: tracks durable interaction history and audit metadata.
-- `Follow`: stores sharing, collaboration, or permission relationships.
-- `MessageThread`: captures conversation content references, participants, moderation state, and delivery status.
-- `Notification`: records delivery preferences, trigger rules, read state, and retry metadata.
-- `Report`: stores trust, safety, support, escalation, decision, and resolution metadata.
-- `ModerationAction`: holds derived analytics-safe state and sync metadata.
-- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
+
+- - `User`: identity, age gate, locale, region, account status, consent state, deletion/export state.
+- - `LinkedIdentity`: Threads-specific lifecycle, ownership, authorization, sync, visibility, moderation, and deletion/export metadata.
+- - `ThreadPost`: Threads-specific lifecycle, ownership, authorization, sync, visibility, moderation, and deletion/export metadata.
+- - `MediaAsset`: Threads-specific lifecycle, ownership, authorization, sync, visibility, moderation, and deletion/export metadata.
+- - `Reply`: Threads-specific lifecycle, ownership, authorization, sync, visibility, moderation, and deletion/export metadata.
+- - `Reaction`: Threads-specific lifecycle, ownership, authorization, sync, visibility, moderation, and deletion/export metadata.
+- - `Follow`: Threads-specific lifecycle, ownership, authorization, sync, visibility, moderation, and deletion/export metadata.
+- - `DirectThread`: Threads-specific lifecycle, ownership, authorization, sync, visibility, moderation, and deletion/export metadata.
+- - `FediverseShare`: Threads-specific lifecycle, ownership, authorization, sync, visibility, moderation, and deletion/export metadata.
+- - `PrivacySetting`: Threads-specific lifecycle, ownership, authorization, sync, visibility, moderation, and deletion/export metadata.
+- - `Entitlement`: Threads-specific lifecycle, ownership, authorization, sync, visibility, moderation, and deletion/export metadata.
+- - `ModerationCase`: Threads-specific lifecycle, ownership, authorization, sync, visibility, moderation, and deletion/export metadata.
+- - `AuditEvent`: append-only sensitive account, privacy, billing, moderation, safety, and support changes.
 
 ## API And Backend Contracts
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /profiles, GET /posts, GET /comments, GET /reactions; all reads return pagination, cache hints, authorization status, and stale-data indicators.
-- Writes: POST /users, POST /profiles, POST /posts, POST /comments, POST /reactions; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
-- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+
+- `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`: device-scoped authentication with audit events and abuse throttles.
+- `GET /me`, `PATCH /me`, `GET /settings`, `PATCH /settings`: account, profile, privacy, notification, and entitlement settings.
+- `GET /feed?cursor=&filter=&mode=`: paginated primary surface with cache hints, authorization state, ranking explanation keys, and stale-data markers.
+- `POST /posts`, `PATCH /posts/:id`, `DELETE /posts/:id`: content lifecycle with idempotency keys, validation, moderation prechecks, and deletion semantics.
+- `POST /uploads`, `PUT /uploads/:id/content`, `POST /uploads/:id/complete`: signed upload flow with MIME/size validation, malware scanning, rights metadata, and processing states.
+- `POST /search`, `GET /search/suggestions`: query/search surface with filters, safe-mode, locale, cursor, and empty-state copy keys.
+- `POST /reports`, `POST /blocks`, `POST /mutes`: trust-and-safety lifecycle with policy category, evidence references, user feedback, and moderator audit trails.
+- `GET /notifications`, `PATCH /notification-preferences`: in-app and push notification preferences with categories, quiet hours, delivery state, and permission fallback.
+- `GET /entitlements`, `POST /checkout/session`, `POST /billing/restore`, `POST /billing/webhook`: server-authoritative paid feature lifecycle with duplicate/refund/cancel/restore handling.
+- `POST /data-export`, `DELETE /account`, `GET /privacy/requests/:id`: privacy workflows with confirmation, asynchronous status, retention notes, and support fallback.
+- `GET /support/cases/:id`, `POST /support/cases`: support escalation with redaction, abuse controls, and account recovery states.
 
 ## Realtime, Push, And Offline Behavior
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+
+- Cache the default home surface, recent detail objects, settings, entitlement summary, and safe drafts for offline reads.
+- Queue low-risk drafts locally with retry metadata; block irreversible privacy actions, paid transactions, destructive moderation, account deletion, and regulated or high-risk actions while offline.
+- Realtime updates must reconcile against server state after reconnect to avoid duplicate writes, stale visibility, or entitlement drift.
+- Uploads must resume or fail with visible recovery; partially uploaded or unscanned media cannot be published or processed by downstream providers.
+- Push notifications must be opt-in, category-scoped, revocable, quiet-hour aware, and free of sensitive message, prompt, media, precise-location, or payment details by default.
+- Background work must tolerate app termination, token expiry, OS permission revocation, clock skew, duplicate webhooks, and provider timeouts.
+- Deleted, private, expired, blocked, muted, region-locked, age-restricted, and entitlement-locked objects must be removed or redacted consistently from caches and notifications.
 
 ## Permissions, Privacy, And Safety
-- Treat moderation as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat harassment as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat minor safety as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat spam as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat privacy leakage as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
+
+- Treat cross-account privacy as a launch-blocking review area with owner, mitigation, test coverage, and manual-verification status.
+- Treat fediverse deletion as a launch-blocking review area with owner, mitigation, test coverage, and manual-verification status.
+- Treat harassment as a launch-blocking review area with owner, mitigation, test coverage, and manual-verification status.
+- Treat minor safety as a launch-blocking review area with owner, mitigation, test coverage, and manual-verification status.
+- Treat ads personalization as a launch-blocking review area with owner, mitigation, test coverage, and manual-verification status.
+- Treat DM safety as a launch-blocking review area with owner, mitigation, test coverage, and manual-verification status.
+- Treat policy inheritance as a launch-blocking review area with owner, mitigation, test coverage, and manual-verification status.
+- Request camera, microphone, photos, contacts, location, notifications, files, clipboard, Bluetooth, or motion only when the user invokes a feature that needs it.
+- Provide permission-denied fallbacks, settings education, no dark patterns, and no silent re-prompts.
+- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute, and support escalation paths.
+- Minimize sensitive data in analytics, crash reports, model/provider logs, support tooling, and moderation queues.
+- Redact or hash private identifiers in logs; store raw content only where needed for product function, legal obligation, or user-requested support.
+- Include age, teen/minor, region, regulated content, and accessibility review before launch.
 - Use original sample data and licensed third-party providers only after legal review.
 
 ## Analytics And Monetization
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
+
+- Track privacy-safe lifecycle events: onboarding started/completed, home viewed, search performed, detail opened, create started/completed/failed, report submitted, block/mute created, privacy setting changed, export requested, delete requested, entitlement state changed.
+- Every event must use stable object types and failure codes, not raw user-visible text, prompts, messages, media URLs, contact data, precise location, payment credentials, or private identifiers.
+- Monetization can include original free, trial, paid, creator, ad, or premium tiers where relevant, but names, prices, bundles, benefits, and promotional copy must be original.
+- Paywall states must identify blocked feature, current entitlement, restore path, platform owner, server confirmation state, and support path.
+- Ads or recommendations must separate targeting signals from sensitive content and must expose opt-out or privacy controls where required.
+- Billing tests must cover app-store-owned, web-owned, restored, expired, canceled, refunded, grace-period, family/shared where applicable, and unavailable states.
 
 ## Edge Cases
-- First launch with no network, no account, or expired session.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
+
+- First launch offline, unsupported OS, blocked region, underage user, expired session, suspended account, compromised account, or service outage.
+- Permission denied, permission revoked in OS settings, limited photo library access, microphone/camera interruption, and location downgrade from precise to approximate.
+- Duplicate taps, duplicate webhooks, retry after timeout, stale optimistic UI, stale cache, corrupt cache, and app termination during upload or background sync.
+- Deleted, private, blocked, muted, suspended, age-restricted, region-locked, entitlement-locked, reported, removed, or unavailable objects.
+- User requests export/deletion while subscription, moderation review, support case, upload, or legal retention is active.
+- Abuse and policy: spam, harassment, impersonation, fraud, self-harm, sexual exploitation, minors, illegal goods, copyright violation, and support escalation.
 
 ## Test Plan
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+
+- Unit tests for validation, state machines, visibility rules, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
+- Contract tests for every documented API response shape, error code, pagination behavior, upload state, realtime resume path, privacy request, and webhook idempotency rule.
+- Integration tests for auth, default home load, primary read/write, search, detail open, create/publish/delete, report/block/mute, notification preferences, billing restore, data export, and account deletion.
+- Offline tests for cached reads, queued drafts, blocked sensitive writes, reconnect reconciliation, corrupt-cache recovery, and deleted-object cache cleanup.
+- Permission tests for denied, granted, revoked, limited, and unavailable OS permission states.
+- Safety tests for every launch-blocking risk area plus report submission, enforcement decisions, appeal/support escalation, and policy copy keys.
+- Privacy tests for data minimization, export, deletion, account closure, analytics redaction, support redaction, retention windows, and cache purge.
+- Billing tests for free, trial, paid, expired, canceled, refunded, restored, web-owned, app-store-owned, and unavailable entitlements.
+- Accessibility tests for dynamic type, screen-reader labels, focus order, reduced motion, captions/alt text where relevant, color contrast, and keyboard/external input on tablets.
+- Manual verification tests for native iOS screenshots, native Android screenshots, paid purchase/restore, push payloads, signed-in account settings, deletion/export completion, and region/device-specific behavior.
 
 ## Acceptance Criteria
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+
+- Exact source links in this spec remain current or are refreshed before implementation starts.
+- A downstream team can build the V1 without proprietary Threads assets, private APIs, network traffic, brand copy, ranking systems, or moderation tooling.
+- New and returning users can complete onboarding, primary workflow, settings, support, report/block or safety action, and data/account lifecycle paths.
+- All documented entities have ownership, authorization, lifecycle states, visibility rules, deletion/export behavior, and audit coverage.
+- Realtime, offline, upload, notification, billing, privacy, safety, and support behavior have deterministic API contracts and failure codes.
+- Category-specific launch blockers are either resolved with evidence or remain behind explicit feature flags and acceptance-test blockers.
+- Manual verification blockers are preserved until lawful hands-on evidence confirms exact native behavior.
 
 ## Open Questions
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+- Which downstream implementation repository, framework, and provider stack will own this clone?
+- Which first-party sources should be rechecked immediately before build start because mobile listings and help pages change frequently?
+- Which paid, account-linked, age-gated, regional, notification, or device-specific flows can be lawfully verified with available test accounts/devices?
+- Which features should be deferred if legal, safety, moderation, provider, or platform-policy review cannot be completed before V1?
+
+## Build Plan
+
+- Phase 1: scaffold app shell, auth/session model, default home surface, primary read API, settings/legal links, privacy-safe analytics, and accessibility baseline.
+- Phase 2: add primary creation or conversation flow, upload/media validation where relevant, detail screens, local drafts, and offline cache/reconnect behavior.
+- Phase 3: add search/discovery, saved/history/library/profile surfaces, notifications, support/report/block/mute flows, and moderation state machines.
+- Phase 4: add privacy controls, data export, account deletion, retention jobs, audit events, and support redaction.
+- Phase 5: add entitlements, paywall states, checkout/restore/webhooks, ads or creator monetization where relevant, and billing regression tests.
+- Phase 6: complete category-risk mitigations, accessibility pass, performance/offline validation, policy review, and manual native verification.
 
 ## Next Steps
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
-- Resolve open questions and update this spec before app implementation starts.
-- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.
+
+- Resolve the manual verification blockers before claiming one-for-one native parity.
+- Recheck marketplace listings and first-party help/legal URLs immediately before implementation kickoff.
+- Create or link the downstream implementation repository when Phase 1 is ready to begin.
