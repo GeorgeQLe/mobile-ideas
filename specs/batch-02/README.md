@@ -1,9 +1,9 @@
-# Batch 02 Draft 1 Specs
+# Batch 02 Public-Source V1 Specs
 
 > Metadata
 > - App range: 021-040
-> - Status: Draft 1 canonical spec rewrite; `021-messenger.md` through `038-doordash.md` upgraded to implementation-ready public-source V1; `039-uber-eats.md` and `040-instacart.md` remain Draft 1
-> - Research state: public source-discovery links included for `039-uber-eats.md` and `040-instacart.md`; exact source replacement and hands-on verification still required before implementation.
+> - Status: Draft 1 canonical spec rewrite; `021-messenger.md` through `040-instacart.md` upgraded to implementation-ready public-source V1
+> - Research state: exact first-party source links are now present for every Batch 02 spec; hands-on native/account/device verification remains required before one-for-one parity claims.
 
 ## Overview
 This batch contains canonical Draft 1 clone specs for apps 21-40 from tasks/ideas.md.
@@ -28,8 +28,8 @@ This batch contains canonical Draft 1 clone specs for apps 21-40 from tasks/idea
 - 036 Hopper - Travel deals (implementation-ready public-source V1)
 - 037 TripIt - Travel organization (implementation-ready public-source V1)
 - 038 DoorDash - Food delivery (implementation-ready public-source V1)
-- 039 Uber Eats - Food delivery
-- 040 Instacart - Grocery delivery
+- 039 Uber Eats - Food delivery (implementation-ready public-source V1)
+- 040 Instacart - Grocery delivery (implementation-ready public-source V1)
 
 ## Quality Gate
 
@@ -39,5 +39,5 @@ This batch contains canonical Draft 1 clone specs for apps 21-40 from tasks/idea
 
 ## Next Steps
 
-- Continue exact source replacement and implementation-readiness upgrades with `039-uber-eats.md` and `040-instacart.md`.
+- Continue exact source replacement and implementation-readiness upgrades with Batch 03 food/local discovery specs.
 - Complete hands-on verification where lawful and feasible before app implementation starts.

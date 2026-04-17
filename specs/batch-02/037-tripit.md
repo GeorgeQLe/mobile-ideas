@@ -217,4 +217,4 @@ Hands-on account, inbox sync, paid subscription, push/SMS, document parsing, App
 
 - Resolve manual verification blockers before claiming one-for-one native parity.
 - Treat Inbox Sync, document import, travel IDs, shared calendars, and Pro alerts as privacy/security launch blockers.
-- Continue Phase 3 upgrades with the next Batch 02 food/grocery delivery specs: `039-uber-eats.md` and `040-instacart.md`.
+- Continue Phase 3 upgrades with the next Batch 03 food/local discovery specs: `041-starbucks.md`, `042-mcdonalds.md`, `043-opentable.md`, `044-yelp.md`, and `045-too-good-to-go.md`.

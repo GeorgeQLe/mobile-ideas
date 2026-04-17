@@ -58,7 +58,14 @@
 - Rewrote the selected specs to implementation-ready public-source V1 status with app-specific lodging, multi-product OTA booking, price prediction/watch, trip-flexibility, itinerary import, Inbox Sync, document, calendar, alert, support, privacy, edge-case, test, acceptance, build-plan, and manual verification detail.
 - Updated readiness and audit counts from 38 to 42 implementation-ready public-source V1 specs and prepared the next Batch 02 food/grocery delivery step.
 
+## 2026-04-17 - Batch 02 Food/Grocery Delivery Readiness Upgrade
+
+- Archived Draft 1 copies for `039-uber-eats.md` and `040-instacart.md`.
+- Replaced source-discovery links with exact first-party marketplace, help/support, privacy/legal, product, membership, merchant/retailer, courier/shopper, regulated-item, SNAP/EBT, and accessibility URLs for the selected Batch 02 food/grocery delivery specs.
+- Rewrote the selected specs to implementation-ready public-source V1 status with app-specific restaurant/store discovery, grocery/retail catalog, menu/item customization, replacements, cart quote, checkout, membership, regulated-item, SNAP/EBT, delivery/pickup, courier/shopper handoff, merchant/retailer tools, privacy, support/refund, edge-case, test, acceptance, build-plan, and manual verification detail.
+- Updated readiness and audit counts from 42 to 44 implementation-ready public-source V1 specs and prepared the next Batch 03 food/local discovery step.
+
 ## Next Steps
 
-- Upgrade `039-uber-eats.md` and `040-instacart.md` as the next Batch 02 food/grocery delivery pass.
-- Continue the remaining 58 Draft 1 specs by batch using the completed Batch 01, top-ten, and Batch 02 communication/email/maps/mobility/travel-booking pattern sets.
+- Upgrade `041-starbucks.md`, `042-mcdonalds.md`, `043-opentable.md`, `044-yelp.md`, and `045-too-good-to-go.md` as the next Batch 03 food/local discovery pass.
+- Continue the remaining 56 Draft 1 specs by batch using the completed Batch 01, top-ten, and Batch 02 pattern sets.

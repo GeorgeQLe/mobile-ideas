@@ -84,5 +84,5 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 
 ## Next Steps
 
-- Upgrade `039-uber-eats.md` and `040-instacart.md` as the next Batch 02 food/grocery delivery pass.
-- Continue the remaining 58 Draft 1 specs by batch using the completed Batch 01, top-ten, and Batch 02 communication/email/maps/mobility/travel-booking pattern sets.
+- Upgrade `041-starbucks.md`, `042-mcdonalds.md`, `043-opentable.md`, `044-yelp.md`, and `045-too-good-to-go.md` as the next Batch 03 food/local discovery pass.
+- Continue the remaining 56 Draft 1 specs by batch using the completed Batch 01, top-ten, and Batch 02 pattern sets.

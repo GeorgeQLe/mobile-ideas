@@ -39,5 +39,5 @@ This batch contains canonical Draft 1 clone specs for apps 41-60 from tasks/idea
 
 ## Next Steps
 
-- Continue exact source replacement and implementation-readiness upgrades with `089-notion.md` in Batch 05.
+- Continue exact source replacement and implementation-readiness upgrades with `041-starbucks.md`, `042-mcdonalds.md`, `043-opentable.md`, `044-yelp.md`, and `045-too-good-to-go.md`.
 - Complete hands-on verification where lawful and feasible before app implementation starts.

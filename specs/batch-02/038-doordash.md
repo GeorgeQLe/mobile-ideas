@@ -279,5 +279,5 @@ This spec is implementation-ready for a V1 that targets documented public behavi
 ## Next Steps
 
 - Resolve the manual verification blockers before claiming one-for-one native parity.
-- Use this spec as the food-delivery marketplace pattern for `039-uber-eats.md`, `040-instacart.md`, and related local-commerce specs.
-- Continue the architecture-teaching upgrades with `046-amazon.md`.
+- Use this spec with the Uber Eats and Instacart specs as the food-delivery and grocery-delivery marketplace pattern for related local-commerce specs.
+- Continue Phase 3 upgrades with `041-starbucks.md`, `042-mcdonalds.md`, `043-opentable.md`, `044-yelp.md`, and `045-too-good-to-go.md`.
