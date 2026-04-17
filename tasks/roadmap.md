@@ -51,7 +51,7 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 
 - [x] Define the implementation-readiness gate.
 - [x] Upgrade `001-chatgpt.md` as the pilot implementation-ready public-source V1 spec.
-- [ ] Upgrade the remaining architecture-teaching top-ten specs.
+- [x] Upgrade the remaining architecture-teaching top-ten specs.
 - [ ] Upgrade remaining specs by batch until all 100 pass the readiness gate.
 - [ ] Complete hands-on verification for each app where lawful and feasible, or mark blocked flows with explicit reason and owner/path.
 
@@ -84,4 +84,4 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 
 ## Next Steps
 
-- Upgrade `089-notion.md` using the `001-chatgpt.md`, `006-tiktok.md`, `016-whatsapp.md`, `026-google-maps.md`, `033-airbnb.md`, `038-doordash.md`, `046-amazon.md`, `056-cash-app.md`, and `066-spotify.md` patterns.
+- Upgrade the remaining 90 Draft 1 specs by batch using the completed top-ten pattern set.

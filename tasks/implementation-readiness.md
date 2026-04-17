@@ -7,7 +7,7 @@ Updated: 2026-04-17
 
 The spec set is moving from Draft 1 scaffolds to implementation-ready specs one app at a time.
 
-Current readiness count: 9 of 100.
+Current readiness count: 10 of 100.
 
 ## Readiness Definition
 
@@ -34,7 +34,8 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 046 | Amazon | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; broad shopping marketplace, product search/detail, seller offers, cart/checkout, Prime-style membership, Subscribe & Save-style recurring orders, order tracking, returns/refunds/replacements, seller tools, sponsored listings, reviews, support, and native/manual parity blockers remain explicit. |
 | 056 | Cash App | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; peer payments, requests, payment links, pools, balance, cash out, Cash App Card-style debit, direct deposit, savings/offers, Cash App Pay-style merchant checkout, bitcoin, investing, taxes, sponsored accounts, business accounts, security/scam controls, and native/manual parity blockers remain explicit. |
 | 066 | Spotify | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; music, podcasts, audiobooks, playlists, queue, downloads/offline, lyrics, Connect-like device handoff, shared listening, family/young-listener controls, creator tools, ads, developer playback constraints, and native/manual parity blockers remain explicit. |
-| 002-005, 007-015, 017-025, 027-032, 034-037, 039-045, 047-055, 057-065, 067-100 | Remaining specs | Draft 1 scaffold | Must be upgraded app-by-app using the readiness definition above. |
+| 089 | Notion | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; workspace pages, blocks, databases, search, sharing/permissions, comments/mentions, notifications, offline pages, imports/exports, AI, integrations/API, billing, privacy, security, and enterprise/admin blockers remain explicit. |
+| 002-005, 007-015, 017-025, 027-032, 034-037, 039-045, 047-055, 057-065, 067-088, 090-100 | Remaining specs | Draft 1 scaffold | Must be upgraded app-by-app using the readiness definition above. |
 
 ## Repeatable Upgrade Loop
 
@@ -48,7 +49,7 @@ For each spec:
 6. Add a concrete build plan.
 7. Update this file, `tasks/spec-quality-audit.md`, `tasks/todo.md`, and `tasks/history.md`.
 
-## Current Batch Priority
+## Completed Top-Ten Pattern Set
 
 Start with the architecture-teaching apps from `tasks/ideas.md`:
 
@@ -65,5 +66,5 @@ Start with the architecture-teaching apps from `tasks/ideas.md`:
 
 ## Next Steps
 
-- Upgrade `089-notion.md` using the same readiness gate.
-- Continue the top-ten architecture-teaching apps before remediating the remaining 90 by batch.
+- Remediate the remaining 90 Draft 1 specs by batch using the completed top-ten pattern set.
+- Start with the remaining Batch 01 specs before moving through later batches.
