@@ -37,7 +37,14 @@
 - Rewrote the selected specs to implementation-ready public-source V1 status with app-specific messaging, group/community, channel/workspace, voice/video, integration, admin, billing, privacy, safety, edge-case, test, acceptance, build-plan, and manual verification detail.
 - Updated readiness and audit counts from 23 to 27 implementation-ready public-source V1 specs and made Batch 01 fully implementation-ready for public-source V1.
 
+## 2026-04-17 - Batch 02 Communication/Email Readiness Upgrade
+
+- Archived Draft 1 copies for `021-messenger.md`, `022-facetime.md`, `023-zoom.md`, `024-gmail.md`, and `025-outlook.md`.
+- Replaced source-discovery links with exact first-party marketplace, help/support, privacy/legal, product, and platform documentation URLs for the selected Batch 02 communication/email specs.
+- Rewrote the selected specs to implementation-ready public-source V1 status with app-specific messaging, calling, meetings, email, calendar, AI, enterprise/admin, privacy, safety, edge-case, test, acceptance, build-plan, and manual verification detail.
+- Updated readiness and audit counts from 27 to 32 implementation-ready public-source V1 specs and prepared the next Batch 02 maps/mobility step.
+
 ## Next Steps
 
-- Upgrade `021-messenger.md`, `022-facetime.md`, `023-zoom.md`, `024-gmail.md`, and `025-outlook.md` as the next Batch 02 communication/email pass.
-- Continue the remaining 73 Draft 1 specs by batch using the completed Batch 01 and top-ten pattern set.
+- Upgrade `027-apple-maps.md`, `028-waze.md`, `029-uber.md`, `030-lyft.md`, `031-lime.md`, and `032-turo.md` as the next Batch 02 maps/mobility pass.
+- Continue the remaining 68 Draft 1 specs by batch using the completed Batch 01, top-ten, and Batch 02 communication/email pattern set.

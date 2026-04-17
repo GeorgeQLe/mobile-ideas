@@ -2,7 +2,7 @@
 
 > Metadata
 > - App range: 021-040
-> - Status: Draft 1 canonical spec rewrite; `026-google-maps.md`, `033-airbnb.md`, and `038-doordash.md` upgraded to implementation-ready public-source V1
+> - Status: Draft 1 canonical spec rewrite; `021-messenger.md` through `026-google-maps.md`, `033-airbnb.md`, and `038-doordash.md` upgraded to implementation-ready public-source V1
 > - Research state: public source-discovery links included for the remaining Draft 1 specs; exact source replacement and hands-on verification still required before implementation.
 
 ## Overview
@@ -10,11 +10,11 @@ This batch contains canonical Draft 1 clone specs for apps 21-40 from tasks/idea
 
 ## Included Specs
 
-- 021 Messenger - Messaging
-- 022 FaceTime - Video calling
-- 023 Zoom - Video conferencing
-- 024 Gmail - Email
-- 025 Outlook - Email/calendar
+- 021 Messenger - Messaging (implementation-ready public-source V1)
+- 022 FaceTime - Video calling (implementation-ready public-source V1)
+- 023 Zoom - Video conferencing (implementation-ready public-source V1)
+- 024 Gmail - Email (implementation-ready public-source V1)
+- 025 Outlook - Email/calendar (implementation-ready public-source V1)
 - 026 Google Maps - Maps/navigation (implementation-ready public-source V1)
 - 027 Apple Maps - Maps/navigation
 - 028 Waze - Navigation
@@ -39,5 +39,5 @@ This batch contains canonical Draft 1 clone specs for apps 21-40 from tasks/idea
 
 ## Next Steps
 
-- Continue exact source replacement and implementation-readiness upgrades, starting with `046-amazon.md`.
+- Continue exact source replacement and implementation-readiness upgrades with `027-apple-maps.md`, `028-waze.md`, `029-uber.md`, `030-lyft.md`, `031-lime.md`, and `032-turo.md`.
 - Complete hands-on verification where lawful and feasible before app implementation starts.
