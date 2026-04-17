@@ -2,177 +2,218 @@
 
 > Metadata
 > - Inspiration app: McDonald's
-> - Category: Food/loyalty
-> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
-> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
+> - Category: quick-service restaurant ordering, deals, rewards, delivery, and pickup
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-04-17.
+> - Verification basis: exact public marketplace listings, first-party product/help/legal/privacy pages, support pages, and app-specific public feature documentation.
+> - Manual verification blockers: native iOS/Android screen capture, signup/login, location-gated restaurant availability, Mobile Order and Pay, curbside/front-counter/table-service/drive-thru check-in, payment authorization, PayPal/Venmo/wallet behavior, reward/deal redemption, cancellation timing, McDelivery vendor routing, support/refund handling, restaurant locator detail, push payloads, account deletion, and franchise-specific menu/pricing behavior still require lawful test devices/accounts and any required provider approvals before one-for-one native parity claims.
+> - Legal scope: functional parity only; use original code, brand, copy, icons, menus, listings, reviews, ratings, photos, store/business data, maps, payment providers, loyalty engines, recommendation systems, support scripts, merchant tools, and regulated workflows.
 
 ## Overview
-Build an original mobile product inspired by McDonald's's user-facing workflow, not its brand identity or proprietary implementation.
-The clone target is: Deals, restaurant locator, mobile order, curbside/table service, rewards, and campaign-specific offers.
-Primary product surface: browse/search supported by listing/menu/product detail and cart/selection flows.
-The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
-The spec intentionally separates verified public-source facts from inferred clone requirements.
+
+Build an original mobile product inspired by McDonald's's public workflow for quick-service restaurant ordering, deals, rewards, delivery, and pickup. The clone must preserve the functional interaction model users expect while using original product language, synthetic or licensed data, independent ranking/availability/quote logic, and jurisdiction-aware compliance.
+
+The clone must not copy McDonald's branding, screenshots, marketing copy, protected UI artwork, business/store data, menu copy, photos, reviews, ratings, private APIs, support scripts, recommendation logic, pricing formulas, or loyalty/offer terms. Any feature marked manual verification required must ship behind a feature flag or acceptance-test blocker until lawful hands-on verification confirms behavior.
 
 ## Goals
-- Deliver a mobile-first food/loyalty experience with complete onboarding, core action, settings, and recovery flows.
-- Implement the app-specific focus: Deals, restaurant locator, mobile order, curbside/table service, rewards, and campaign-specific offers.
-- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
-- Make public-source verification and blocked hands-on research visible before implementation starts.
-- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+- Provide a mobile-first quick-service restaurant mobile ordering and rewards app with complete onboarding, discovery, primary transaction, history, settings, support, privacy, and recovery flows.
+- Replace discovery placeholders with exact public sources and translate those sources into implementation-ready product, data, API, safety, analytics, and test requirements.
+- Preserve category trust expectations around account security, payments, location, inventory/availability, support, refunds, reviews, loyalty, merchant/business tools, accessibility, and privacy rights.
+- Produce concrete screens, entities, API contracts, realtime/offline behavior, analytics events, edge cases, acceptance tests, and build phases for a downstream implementation repo.
 
 ## Non-Goals
-- Do not copy McDonald's branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
-- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
-- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
-- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
-- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+- Do not build a McDonald's-branded app or imply affiliation with McDonald's, its parent company, stores, restaurants, business owners, delivery partners, payment providers, or map providers.
+- Do not scrape McDonald's, reuse private APIs, replay network traffic, copy marketplace data, copy menu/listing/review/media content, clone proprietary ranking/risk/loyalty systems, or reproduce policy/support copy.
+- Do not process production payments, refunds, tips, stored value, identity documents, regulated goods, food-safety reports, advertising spend, business payouts, or support disputes without separate legal, compliance, privacy, trust/safety, and provider review.
+- Do not claim exact App Store, Play Store, native-device, checkout, account, reward, notification, support, refund, business-tooling, or regional parity until manual verification blockers are resolved.
+- Do not build runtime application code in this repository; this repo remains the planning and specification source.
 
 ## Research Sources
-- App Store source-discovery link: https://apps.apple.com/us/search?term=McDonald's
-- Google Play source-discovery link: https://play.google.com/store/search?q=McDonald's&c=apps
-- Official help/privacy source-discovery link: https://www.google.com/search?q=McDonald's%20official%20app%20help%20privacy
-- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
-- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
-- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
-- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
-- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+| Source | Exact URL | Evidence Used | Status |
+|---|---|---|---|
+| Apple App Store | https://apps.apple.com/us/app/mcdonalds/id922103212 | Official iOS listing, Food & Drink category, ratings, release notes, app feature claims for deals, Rewards, Mobile Order and Pay, pickup, McDelivery, favorites, and restaurant locator. | Verified 2026-04-17 |
+| Google Play | https://play.google.com/store/apps/details?id=com.mcdonalds.app | Official Android listing, data-safety orientation, app support, and public app feature claims. | Verified 2026-04-17 |
+| McDonald's App Page | https://www.mcdonalds.com/us/en-us/download-app.html | Official app download/product page for app ordering, deals, rewards, pickup, delivery, and favorites. | Verified 2026-04-17 |
+| Mobile Order And Pay | https://www.mcdonalds.com/us/en-us/mobile-order-and-pay.html | Pickup modes, payment methods, location-gated availability, cancellation, refunds, payment management, notifications, location settings, and fraud guidance. | Verified 2026-04-17 |
+| MyMcDonald's Rewards | https://www.mcdonalds.com/us/en-us/mymcdonalds-rewards.html | Rewards earning/redemption, point mechanics, mobile redemption, and eligibility orientation. | Verified 2026-04-17 |
+| McDelivery | https://www.mcdonalds.com/us/en-us/mcdelivery.html | Delivery availability and third-party delivery partner orientation. | Verified 2026-04-17 |
+| Deals | https://www.mcdonalds.com/us/en-us/deals.html | Deal and promotion public product orientation. | Verified 2026-04-17 |
+| Full Menu | https://www.mcdonalds.com/us/en-us/full-menu.html | Public menu category orientation and product availability modeling. | Verified 2026-04-17 |
+| Terms And Conditions | https://www.mcdonalds.com/us/en-us/terms-and-conditions.html | Online services, account, age, MOP, pricing, restaurant/franchise responsibility, deals, communications, ordering, cancellation, refund, and IP/legal rules. | Verified 2026-04-17 |
+| Privacy Statement | https://www.mcdonalds.com/us/en-us/privacy.html | Privacy, communications, location, account, marketing, transaction, rights, and retention orientation. | Verified 2026-04-17 |
+| Customer Feedback | https://www.mcdonalds.com/us/en-us/feedback.html | Canonical customer care/feedback entrypoint for restaurant, order, app, and support concerns. | Verified 2026-04-17 |
 
 ## Detailed Design
-- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for food/loyalty.
-- Home model: make Browse/Search the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
-- Core action: make Listing/Menu/Product Detail the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
-- Detail surface: use Cart/Selection for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
-- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
-- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
-- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
-- The implementation must support catalog browse, search, and filters.
-- The implementation must show availability, modifiers, fees, taxes, and total cost.
-- The implementation must support cart edits and saved favorites.
-- The implementation must validate inventory before checkout.
-- The implementation must support payment authorization and failure recovery.
-- The implementation must track order/reservation lifecycle states.
-- The implementation must support merchant or seller communication.
-- The implementation must collect reviews only after eligible events.
-- The implementation must support refunds, returns, disputes, and support.
-- The implementation must detect spam, fraud, and prohibited listings.
-- The implementation must cache recent orders and saved items.
-- The implementation must keep all product/media content original or licensed.
+
+### Source-Backed Product Requirements
+
+- Home must expose selected restaurant, location permission state, order entry, Rewards points, deals, favorites, delivery entry, and restaurant locator without requiring unsupported permissions.
+- Restaurant selection must validate participating restaurants, distance/availability gates, hours, drive-thru/curbside/front-counter/table-service support, menu/pricing variance, and franchise-operated constraints.
+- Menu and product detail must model category hours, regional availability, item customization, unavailable products, nutrition/allergen references, favorites, and reorder validation.
+- Deals and Rewards must support activation, one-deal-per-visit constraints, reward redemption, point earning, reward restoration after eligible cancellation, expiration, and conflicts with cart state.
+- Cart and checkout must show item price, restaurant-specific price, taxes/fees, pickup mode, payment method, rewards/deals, quote freshness, and selected restaurant before order placement.
+- Mobile Order and Pay must charge only after explicit pay/place-order confirmation, support safe cancellation until preparation starts, and route refund requests to the restaurant or customer care path.
+- Pickup must model curbside spot, table number, front counter, drive-thru code, check-in timing, preparation state, and wrong-location recovery.
+- Delivery must model vendor identity and support handoff when Uber Eats, DoorDash, or another delivery partner owns fulfillment or issue resolution.
+- Communication preferences must include email, SMS where applicable, push notifications, order progress, deals, product announcements, opt-out, and device-setting fallback.
+- Support must handle mobile-order issue, refund, wrong/missing item, unauthorized charge, restaurant complaint, account issue, Rewards issue, delivery partner issue, and privacy/deletion request.
+
+### Manual Verification Required
+
+- Native iOS/Android screen capture.
+- Signup/login.
+- Location-gated restaurant availability.
+- Mobile Order and Pay.
+- Curbside/front-counter/table-service/drive-thru check-in.
+- Payment authorization.
+- PayPal/Venmo/wallet behavior.
+- Reward/deal redemption.
+- Cancellation timing.
+- McDelivery vendor routing.
+- Support/refund handling.
+- Restaurant locator detail.
+- Push payloads.
+- Account deletion.
+- And franchise-specific menu/pricing behavior.
+
+### Build Plan
+
+- Phase A: auth shell, restaurant locator, menu, item detail, bag, checkout preview, deals/rewards read model, synthetic menu seed data, and settings.
+- Phase B: MOP order stub, pickup check-in, payment-token stub, order history, cancellation eligibility, notification preferences, and support case entry.
+- Phase C: deal/reward engine, delivery-vendor handoff, franchise menu/pricing simulator, fraud/unauthorized charge path, refund routing, and privacy export/delete flows.
+- Phase D: payment provider integration, delivery partner contracts, manual pickup evidence capture, accessibility audit, observability, and legal/franchise policy review.
 
 ## Core User Journeys
-- New user installs the app, reviews an original value proposition, creates an account, and reaches Browse/Search.
-- Returning user opens Browse/Search, resumes the most recent meaningful activity, and completes the primary action in Listing/Menu/Product Detail.
-- User searches or browses from Checkout, opens Cart/Selection, saves or shares it, and later finds it again from history or library.
-- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
+
+- New user installs the app, reviews original value proposition and legal links, grants or denies optional permissions, creates an account or continues where allowed, and reaches the primary discovery surface with usable fallback states.
+- Returning user opens the app, sees fresh location/account/availability context, resumes a recent or saved item, completes the primary workflow, and confirms canonical server state after reconnect.
+- User searches or browses with filters, opens a detail page, saves/favorites/bookmarks where applicable, starts the app-specific transaction, recovers from an unavailable item or stale quote, and completes or abandons safely.
+- User denies location, notifications, camera/photos, contacts, or tracking permissions and still receives a clear fallback plus a settings path to re-enable the permission.
+- User loses connectivity during browse, compose, cart, reservation, review, or support work; local state is preserved where safe, but money movement, irreversible writes, privacy actions, and regulated actions require server confirmation.
+- User opens support from an active or historical object, selects an issue type, submits evidence where appropriate, receives status/decision updates, and can find the outcome later.
+- Business or merchant operator manages the app-specific listing, availability, customer communication, support/reputation surface, and operational state from a separately authorized tool.
+- Privacy-focused user updates profile and communication preferences, requests data export/access, deletes or closes the account where allowed, and sees retention caveats for orders, payments, reviews, business records, support cases, or legal holds.
 
 ## Screen Inventory
-| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
+
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Browse/Search | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Listing/Menu/Product Detail | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Cart/Selection | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Checkout | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Order/Reservation Status | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Messages | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Reviews | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Returns/Support | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Seller/Admin Tools | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Welcome/Auth/Consent | Entry, account, age/legal acceptance, and permission education | join, sign in, legal links | new, returning, signed-out, blocked | underage, auth fail, account locked |
+| Home/Deals/Rewards | Primary hub for order, points, deals, favorites, and delivery | order, rewards, deal, delivery | signed-in, guest, personalized | stale points, expired deal, offline |
+| Restaurant Locator | Select fulfillment restaurant and show availability | GPS, search, map, restaurant | nearby, selected, participating | denied location, too far, closed, MOP unavailable |
+| Menu And Item Detail | Browse and customize food and beverages | category, item, modifier | loaded, customized, favorite | breakfast cutoff, unavailable item, price mismatch |
+| Bag And Checkout | Validate order, deals, rewards, payment, pickup mode, and total | quantity, deal, reward, payment | valid, deal applied, reward applied | quote stale, restaurant changed, payment fail |
+| Pickup Check-In | Guide arrival, code, curbside, table service, or counter pickup | spot, table, drive-thru code | arrived, preparing, ready | wrong restaurant, no spot, preparation started |
+| Delivery | Vendor-backed McDelivery order context and support routing | address, vendor, tracking, help | available, ordered, tracking | vendor outage, support handoff, fee mismatch |
+| Payment Methods | Manage cards, wallet methods, PayPal/Venmo where enabled | add, remove, select | saved, verified, default | authorization fail, unsupported card, fraud concern |
+| Order History/Favorites | Reorder, receipt, saved favorites, and issue entry | reorder, receipt, favorite | eligible, unavailable, completed | item unavailable, restaurant mismatch |
+| Settings/Privacy/Support | Profile, communications, payment, data rights, feedback, and deletion | toggles, forms, delete | verified, submitted, pending | email immutable, 2FA fail, retention caveat |
 
 ## Data Model
-- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
-- `Merchant`: stores the primary workspace, account, or grouping context.
-- `CatalogItem`: represents the primary user-facing catalog object, ownership, availability, and display metadata.
-- `Inventory`: captures lifecycle state, ordering, timestamps, and failure reason codes.
-- `Cart`: tracks durable interaction history and audit metadata.
-- `Order`: tracks checkout, confirmation, cancellation, refund, dispute, and audit states.
-- `Payment`: tracks checkout, confirmation, cancellation, refund, dispute, and audit states.
-- `Fulfillment`: supports safety, review, policy, or moderation decisions.
-- `Review`: stores trust, safety, support, escalation, decision, and resolution metadata.
-- `Dispute`: stores trust, safety, support, escalation, decision, and resolution metadata.
-- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
+
+- `User`: identity, age/legal acceptance, contact, Rewards enrollment, communication preferences, payment references, and deletion/export lifecycle.
+- `Restaurant`: franchise/operator flag, location, hours, menu version, pickup modes, MOP eligibility, delivery partners, and support phone.
+- `MenuItem`: category hours, product metadata, modifier groups, nutrition/allergen references, price, availability, and regional flags.
+- `Deal`: campaign, restaurant eligibility, redemption code, Mobile Order eligibility, expiration, frequency limits, and conflict rules.
+- `RewardAccount`: points balance, earning rules, redemption catalog, reward state, expiration, and restoration rules.
+- `Cart`: restaurant, items, pickup mode, deals, rewards, taxes/fees, quote id, payment method, and validation errors.
+- `Order`: restaurant purchase contract, cart snapshot, payment state, preparation state, pickup check-in, receipt, cancellation/refund state, and audit ids.
+- `PaymentMethod`: tokenized card/wallet/PayPal/Venmo reference, billing region, verification, default state, and removal constraints.
+- `DeliveryOrder`: vendor, address, fee/tax/tip snapshot, tracking reference, issue routing, and support handoff.
+- `SupportCase`: issue type, restaurant/order/vendor link, evidence, decision, refund route, owner queue, and SLA.
+- `AuditEvent`: append-only record for auth, permission, search, availability, cart/reservation/order, payment/refund, support, moderation, business-tool, privacy, and safety-sensitive transitions.
+- `LocalCacheRecord`: device-local cache entry for recent discovery results, detail pages, drafts, active transactions, settings, sync attempts, freshness markers, and conflict recovery.
 
 ## API And Backend Contracts
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /merchants, GET /catalogitems, GET /inventories, GET /carts; all reads return pagination, cache hints, authorization status, and stale-data indicators.
-- Writes: POST /users, POST /merchants, POST /catalogitems, POST /inventories, POST /carts; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
-- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+
+- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions/:id` with device-scoped sessions, account locks, deletion state, and fraud/risk flags.
+- `GET /home`, `GET /deals`, `GET /rewards`: points, available deals, mobile-order eligibility, favorite modules, and stale indicators.
+- `GET /restaurants`, `GET /restaurants/:id`, `GET /restaurants/:id/menu`: location-based restaurants, pickup modes, hours, restaurant-level prices, and availability flags.
+- `POST /bag`, `PATCH /bag/:id`, `POST /bag/:id/validate`: item customization, unavailable product recovery, deal/reward application, pickup mode, and quote validation.
+- `POST /orders`, `GET /orders/:id`, `POST /orders/:id/cancel`: Mobile Order and Pay placement, status, cancellation eligibility, receipt, and refund-support path.
+- `POST /orders/:id/check-in`: curbside spot, table service, front counter, drive-thru code, arrival state, and duplicate check-in handling.
+- `GET /delivery/vendors`, `POST /delivery/orders`: McDelivery vendor availability, quote handoff, partner tracking reference, and support owner metadata.
+- `GET /payment-methods`, `POST /payment-methods`, `DELETE /payment-methods/:id`: tokenized payment management, provider verification, and fraud/risk errors.
+- `POST /support/cases`, `POST /data-export`, `DELETE /account`, `PATCH /communication-preferences`: support, privacy rights, deletion, and messaging controls.
+- Observability: all sensitive writes require idempotency keys, structured validation errors, privacy-safe logs, redacted analytics, and audit events.
 
 ## Realtime, Push, And Offline Behavior
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+
+- Availability, cart/reservation/order/payment/support/business-tool state changes must use websocket, SSE, or push-assisted polling with stable event ids and server reconciliation after reconnect.
+- The client may cache discovery modules, recent detail pages, saved/favorite objects, active transaction summaries, settings, and drafts; cached data must always expose freshness and must not hide quote, inventory, review, or availability expiry.
+- Low-risk local drafts may queue with retry metadata; payment, refund, reward redemption, account deletion, business operational writes, reports, moderation decisions, and regulated actions must block while offline.
+- Push notifications must be opt-in, category-controlled, and content-minimized for transactional, reminder, account security, support, offer/marketing, business-tool, and safety categories.
+- Realtime recovery must handle duplicate events, missed events, stale client state, provider outage, simultaneous edits, token expiry, app termination, clock skew, and revoked OS permissions.
+- All manual-blocker surfaces must be feature-flagged until lawful hands-on verification confirms native behavior and provider/legal requirements.
 
 ## Permissions, Privacy, And Safety
-- Treat payment security as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat consumer protection as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat fraud as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat unsafe goods as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat review abuse as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+
+- Launch payments owner for MOP, wallet, PayPal, Venmo, refunds, and unauthorized charge handling.
+- Launch loyalty owner for points, deals, and reward restoration.
+- Launch restaurant operations owner for franchise menu/pricing and pickup states.
+- Launch privacy owner for age, location, transaction, and communication preferences.
+- Launch support owner for delivery partner handoff and restaurant complaints.
+- Request location, notifications, camera/photos/files, contacts, tracking, biometric/device authentication, or Bluetooth only at the moment the user invokes a feature needing it.
+- Default analytics must exclude raw payment credentials, precise location trails, private messages, support evidence, identity documents, sensitive health/allergy details, and user-generated review/photo content.
+- Location UX must distinguish no location, approximate location, precise location, manually entered location, OS-revoked permission, outside-service-area, and unsupported-market states.
+- Payments, refunds, stored value, tips, payouts, rewards, offers, advertising spend, and chargebacks must be provider-backed and jurisdiction-reviewed; never trust client-only financial state.
+- User-generated content, reviews, photos/videos, messages, support evidence, and business responses require reporting, moderation, abuse prevention, appeal/support paths, and privacy redaction.
+- Accessibility must target dynamic type, screen reader labels, focus order, visible focus, sufficient contrast, reduced motion, map/list alternatives, large touch targets, and accessible support channels.
+- Data export, access, deletion, account closure, ad/marketing preferences, notification preferences, and privacy settings must be reachable from settings and covered by tests.
 
 ## Analytics And Monetization
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
+
+- Track privacy-safe funnel events: onboarding started/completed, permission state changed, location selected, discovery viewed, search performed, filter applied, detail opened, primary action started/completed/failed, support opened, notification opened, data export requested, and account deletion requested.
+- Track app-specific quality metrics with object ids, freshness timestamps, provider status, failure codes, quote or availability version, moderation state, and support SLA rather than raw addresses, payment data, private messages, or user content.
+- Monetization can include original service fees, convenience fees, membership/loyalty benefits, advertising/sponsored placement, merchant tools, partner commissions, gift cards, or premium analytics only after legal, tax, consumer-protection, and disclosure review.
+- Sponsored, promoted, recommended, personalized, or ranked content must be explainable enough for QA and privacy review, and must not copy McDonald's's ranking or advertising logic.
+- Safety analytics must track report categories, fraud/risk signals, moderation states, support outcomes, refund reasons, appeal outcomes, and repeat-offender patterns without exposing private evidence to product analytics.
 
 ## Edge Cases
-- First launch with no network, no account, or expired session.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
+
+- First launch offline, expired session, unsupported OS, unsupported region, denied permissions, locked account, stale cache, and language/currency mismatch.
+- Location is inaccurate, manually entered, outside service area, inside a restricted venue, crosses a regional boundary, or changes after cart/reservation/order creation.
+- Listing, store, restaurant, product, bag, review, deal, reward, or business profile becomes unavailable, paused, sold out, closed, deleted, hidden, disputed, or region-blocked.
+- Quote, price, tax, fee, reward, deal, inventory, availability, pickup, reservation, or support state changes between preview and confirmation.
+- Duplicate taps, duplicate webhook delivery, retry after timeout, stale optimistic UI, provider outage, app termination, device clock skew, and partial local cache corruption.
+- Payment fails, authorization succeeds but confirmation fails, refund is partial or delayed, benefit/reward is reversed, fraud hold appears, or support decision conflicts with user expectation.
+- User-generated content contains private data, harassment, hate, illegal content, IP-infringing media, promotional spam, conflict of interest, extortion, or AI-generated review content.
+- Data export, account deletion, payment method deletion, public content removal, support retention, business record retention, fraud investigation, or legal hold conflicts with a user request.
 
 ## Test Plan
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+
+- Unit tests for permission states, location selection, availability validation, primary object state machines, idempotency keys, quote freshness, support reason routing, and privacy-safe analytics payload construction.
+- Unit tests for all app-specific financial or benefit states, including payment authorization, refund/credit, reward/deal/offer eligibility, cancellation cutoff, payout/lead/ad state, and duplicate webhook handling where relevant.
+- Contract tests for every API route, including pagination, validation errors, stale-data indicators, idempotency, auth failures, provider outages, audit events, and privacy redaction.
+- Integration tests for onboarding, signed-out browse where allowed, location fallback, search/filter, detail, primary action, history, support, notifications, settings, data export, and account deletion/closure.
+- Offline tests for cached discovery/detail/history reads, queued low-risk drafts, blocked money/privacy/business/safety writes, reconnect reconciliation, and corrupt-cache recovery.
+- Permission tests for denied, granted, revoked, approximate, and precise location; denied/revoked notifications; and camera/photos/files/contact gates where relevant.
+- Trust/safety tests for report submission, moderation state transitions, fraud hold, unauthorized activity, abusive content, support escalation, and appeal or owner-response behavior.
+- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, map/list alternatives, form errors, fee/policy comprehension, and support channel access.
+- Manual verification tests for native iOS/Android screen capture, signup/login, location-gated restaurant availability, Mobile Order and Pay, curbside/front-counter/table-service/drive-thru check-in, payment authorization, PayPal/Venmo/wallet behavior, reward/deal redemption, cancellation timing, McDelivery vendor routing, support/refund handling, restaurant locator detail, push payloads, account deletion, and franchise-specific menu/pricing behavior.
+- Regression tests for every acceptance criterion before marking native/manual blockers resolved.
 
 ## Acceptance Criteria
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+
+- Exact marketplace, product, help/support, legal, privacy, and app-specific first-party URLs are listed; no source-discovery search URLs remain.
+- A downstream team can build a public-source V1 with original branding, copy, data, media, integrations, maps, payment providers, support scripts, and ranking/availability logic.
+- A new user can onboard, choose or deny optional permissions, reach discovery, inspect a detail surface, complete the app-specific primary action with stubs where needed, and recover from denied permissions or network loss.
+- A returning user can search/filter, use saved/favorite/recent context, recover from stale availability, complete or safely cancel the primary workflow, and confirm server-owned state after reconnect.
+- Business, merchant, restaurant, or store operator workflows are represented where relevant through routes, entities, permissions, audit logs, and tests.
+- Payment, refund, reward/offer, cancellation, support, privacy, notification, moderation, analytics, and accessibility concerns are represented as server-owned contracts and testable states.
+- Manual verification blockers remain explicit and feature-flagged until lawful test accounts/devices and any required provider approvals clear them.
 
 ## Open Questions
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+- Which launch regions determine availability, tax/fee display, payment methods, refund law, privacy rights, accessibility obligations, and support language?
+- Which licensed data, map/geocoding, payment, messaging, notification, moderation, analytics, tax, and support providers will back V1?
+- Which manual flows are feasible with ordinary lawful test accounts, and which require paid accounts, partner approval, business-owner accounts, physical devices, or regional access?
+- What original seed data and media set will replace all McDonald's business, store, menu, review, rating, photo, and promotional content?
 
 ## Next Steps
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
-- Resolve open questions and update this spec before app implementation starts.
-- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.
+
+- Capture lawful hands-on evidence for the listed manual blockers before removing any feature flags or parity blockers.
+- Pick downstream implementation providers for auth, maps/search, payments, notifications, support, analytics, moderation, and storage.
+- Produce an implementation repo build plan with route map, component map, API schema, state machines, seed data, and acceptance test checklist.
