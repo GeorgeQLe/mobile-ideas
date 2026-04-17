@@ -279,6 +279,6 @@ This spec is implementation-ready for a V1 that targets documented public behavi
 
 ## Next Steps
 
-- Continue the architecture-teaching upgrades with `066-spotify.md`.
+- Continue the architecture-teaching upgrades with `089-notion.md`.
 - Resolve Cash App manual verification blockers before claiming one-for-one native or provider parity.
 - Create or link the downstream implementation repository only after finance-provider, legal, compliance, privacy, security, and support owners approve the selected V1 scope.

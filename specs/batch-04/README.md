@@ -2,8 +2,8 @@
 
 > Metadata
 > - App range: 061-080
-> - Status: Draft 1 canonical spec rewrite
-> - Research state: public source-discovery links included; exact source replacement and hands-on verification still required before implementation.
+> - Status: Draft 1 canonical spec rewrite; `066-spotify.md` upgraded to implementation-ready public-source V1
+> - Research state: public source-discovery links included for the remaining Draft 1 specs; exact source replacement and hands-on verification still required before implementation.
 
 ## Overview
 This batch contains canonical Draft 1 clone specs for apps 61-80 from tasks/ideas.md.
@@ -15,7 +15,7 @@ This batch contains canonical Draft 1 clone specs for apps 61-80 from tasks/idea
 - 063 YNAB - Budgeting
 - 064 Rocket Money - Personal finance
 - 065 Apple Wallet - Wallet
-- 066 Spotify - Music/audio
+- 066 Spotify - Music/audio - implementation-ready public-source V1
 - 067 Apple Music - Music/audio
 - 068 YouTube Music - Music/audio
 - 069 SoundCloud - Music/audio
@@ -39,5 +39,5 @@ This batch contains canonical Draft 1 clone specs for apps 61-80 from tasks/idea
 
 ## Next Steps
 
-- Begin exact source replacement and implementation-readiness upgrades with `066-spotify.md`.
+- Continue exact source replacement and implementation-readiness upgrades with `089-notion.md` in Batch 05.
 - Complete hands-on verification where lawful and feasible before app implementation starts.

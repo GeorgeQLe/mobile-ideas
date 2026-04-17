@@ -39,5 +39,5 @@ This batch contains canonical Draft 1 clone specs for apps 81-100 from tasks/ide
 
 ## Next Steps
 
-- Replace source-discovery links in every spec with exact verified first-party URLs.
+- Continue Phase 3 implementation-readiness upgrades, starting with `089-notion.md`.
 - Complete hands-on verification where lawful and feasible before app implementation starts.

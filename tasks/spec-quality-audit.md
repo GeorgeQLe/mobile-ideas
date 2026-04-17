@@ -7,7 +7,7 @@ Updated: 2026-04-17
 
 The 100 technical specs now pass the Draft 1 structural and depth gate.
 
-Most specs are still not final one-for-one clone specs because exact first-party source URLs and hands-on verification remain open Phase 3 work. `001-chatgpt.md`, `006-tiktok.md`, `016-whatsapp.md`, `026-google-maps.md`, `033-airbnb.md`, `038-doordash.md`, `046-amazon.md`, and `056-cash-app.md` have been upgraded to implementation-ready public-source V1 specs, with native/manual parity blockers still explicit.
+Most specs are still not final one-for-one clone specs because exact first-party source URLs and hands-on verification remain open Phase 3 work. `001-chatgpt.md`, `006-tiktok.md`, `016-whatsapp.md`, `026-google-maps.md`, `033-airbnb.md`, `038-doordash.md`, `046-amazon.md`, `056-cash-app.md`, and `066-spotify.md` have been upgraded to implementation-ready public-source V1 specs, with native/manual parity blockers still explicit.
 
 ## Audit Scope
 
@@ -41,9 +41,9 @@ A Draft 1 spec must meet these minimums:
 - Specs with all canonical sections: 100.
 - Specs passing Draft 1 depth metrics: 100.
 - Specs failing Draft 1 depth metrics: 0.
-- Specs with exact first-party source URLs replacing discovery links: 8.
+- Specs with exact first-party source URLs replacing discovery links: 9.
 - Specs with hands-on app behavior fully verified: 0.
-- Specs upgraded to implementation-ready public-source V1: 8.
+- Specs upgraded to implementation-ready public-source V1: 9.
 
 ## Resolved Findings
 
@@ -63,7 +63,7 @@ All numbered specs now use the same generator-backed structure and pass the same
 
 ### High: Exact Source Replacement Remains Open
 
-Ninety-two specs still include App Store, Google Play, and official help/privacy source-discovery links. These are not exact verified first-party listing/help/privacy URLs.
+Ninety-one specs still include App Store, Google Play, and official help/privacy source-discovery links. These are not exact verified first-party listing/help/privacy URLs.
 
 Impact: A builder still needs to complete the app-by-app research pass before claiming one-for-one product truth.
 
@@ -90,9 +90,10 @@ Recommended fix: Use lawful test accounts/devices to verify reachable flows. Mar
 - The DoorDash spec now includes public-source requirements for restaurant/store discovery, menu modifiers, cart quotes, checkout fees/taxes/tips, DashPass, SNAP/EBT, alcohol ID verification, realtime order tracking, Dasher handoff, pickup, merchant adjustments, support/refunds, privacy controls, and local-delivery marketplace blockers.
 - The Amazon spec now includes public-source requirements for broad shopping marketplace discovery, product detail and variation selection, seller offers, cart/checkout, Prime-style benefits, Subscribe & Save-style recurring orders, order tracking, returns/refunds/replacements, seller tools, sponsored listings, review authenticity, customer support, privacy controls, and commerce-marketplace blockers.
 - The Cash App spec now includes public-source requirements for peer payments, requests, payment links, pools, balance, cash out, debit card, direct deposit, savings/offers, merchant checkout, bitcoin, investing, taxes, sponsored accounts, business accounts, security/scam controls, support, privacy controls, and regulated-finance blockers.
+- The Spotify spec now includes public-source requirements for music/podcast/audiobook discovery, search, playlists, queue, now playing, downloads/offline, lyrics, device handoff, shared listening, Premium plans, Family/Kids controls, creator tools, ads, privacy controls, developer playback constraints, and licensed-media blockers.
 
 ## Next Steps
 
-- Continue Phase 3 implementation-readiness upgrades, starting with `066-spotify.md`.
+- Continue Phase 3 implementation-readiness upgrades, starting with `089-notion.md`.
 - Complete hands-on verification where lawful and feasible.
 - Refresh this audit after Phase 3 to report verified source coverage and remaining blockers.

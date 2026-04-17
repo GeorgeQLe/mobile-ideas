@@ -84,4 +84,4 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 
 ## Next Steps
 
-- Upgrade `066-spotify.md` using the `001-chatgpt.md`, `006-tiktok.md`, `016-whatsapp.md`, `026-google-maps.md`, `033-airbnb.md`, `038-doordash.md`, `046-amazon.md`, and `056-cash-app.md` patterns.
+- Upgrade `089-notion.md` using the `001-chatgpt.md`, `006-tiktok.md`, `016-whatsapp.md`, `026-google-maps.md`, `033-airbnb.md`, `038-doordash.md`, `046-amazon.md`, `056-cash-app.md`, and `066-spotify.md` patterns.

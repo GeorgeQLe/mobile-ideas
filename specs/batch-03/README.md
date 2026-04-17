@@ -39,5 +39,5 @@ This batch contains canonical Draft 1 clone specs for apps 41-60 from tasks/idea
 
 ## Next Steps
 
-- Continue exact source replacement and implementation-readiness upgrades with `066-spotify.md` in Batch 04.
+- Continue exact source replacement and implementation-readiness upgrades with `089-notion.md` in Batch 05.
 - Complete hands-on verification where lawful and feasible before app implementation starts.
