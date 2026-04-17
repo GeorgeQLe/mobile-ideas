@@ -30,7 +30,14 @@
 - Rewrote the selected specs to implementation-ready public-source V1 status with app-specific source-backed requirements, screen inventories, data models, API contracts, risk controls, edge cases, tests, acceptance criteria, build plans, and explicit manual verification blockers.
 - Updated readiness and audit counts from 10 to 23 implementation-ready public-source V1 specs and prepared the next runnable Batch 01 tail step.
 
+## 2026-04-17 - Batch 01 Messaging/Workplace Tail Readiness Upgrade
+
+- Archived Draft 1 copies for `017-telegram.md`, `018-signal.md`, `019-discord.md`, and `020-slack.md`.
+- Replaced source-discovery links with exact first-party marketplace, help/support, privacy/legal, safety, moderation, product, and developer URLs for the selected Batch 01 tail specs.
+- Rewrote the selected specs to implementation-ready public-source V1 status with app-specific messaging, group/community, channel/workspace, voice/video, integration, admin, billing, privacy, safety, edge-case, test, acceptance, build-plan, and manual verification detail.
+- Updated readiness and audit counts from 23 to 27 implementation-ready public-source V1 specs and made Batch 01 fully implementation-ready for public-source V1.
+
 ## Next Steps
 
-- Upgrade `017-telegram.md`, `018-signal.md`, `019-discord.md`, and `020-slack.md` to complete the Batch 01 implementation-ready pass.
-- Continue the remaining 77 Draft 1 specs by batch using the completed Batch 01 and top-ten pattern set.
+- Upgrade `021-messenger.md`, `022-facetime.md`, `023-zoom.md`, `024-gmail.md`, and `025-outlook.md` as the next Batch 02 communication/email pass.
+- Continue the remaining 73 Draft 1 specs by batch using the completed Batch 01 and top-ten pattern set.

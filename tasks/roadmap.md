@@ -84,5 +84,5 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 
 ## Next Steps
 
-- Upgrade `017-telegram.md`, `018-signal.md`, `019-discord.md`, and `020-slack.md` to complete the Batch 01 implementation-ready pass.
-- Continue the remaining 77 Draft 1 specs by batch using the completed Batch 01 and top-ten pattern set.
+- Upgrade `021-messenger.md`, `022-facetime.md`, `023-zoom.md`, `024-gmail.md`, and `025-outlook.md` as the next Batch 02 communication/email pass.
+- Continue the remaining 73 Draft 1 specs by batch using the completed Batch 01 and top-ten pattern set.

@@ -7,7 +7,7 @@ Updated: 2026-04-17
 
 The spec set is moving from Draft 1 scaffolds to implementation-ready specs by focused batches.
 
-Current readiness count: 23 of 100.
+Current readiness count: 27 of 100.
 
 ## Readiness Definition
 
@@ -41,6 +41,10 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 015 | Lemon8 | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; lifestyle social risks and native/manual parity blockers remain explicit. |
 | 006 | TikTok | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; creator, account, LIVE, Shop, Coins/gifts, notification, and teen/family manual blockers remain explicit. |
 | 016 | WhatsApp | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; phone verification, contacts, backups, linked devices, calls, business, payments, AI, and native/manual parity blockers remain explicit. |
+| 017 | Telegram | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; cloud chat, secret chats, groups, channels, bots, calls, premium, stories, moderation, and native/manual parity blockers remain explicit. |
+| 018 | Signal | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; phone verification, PIN/registration lock, backups, device transfer, disappearing messages, stories, calls, donations, and native/manual parity blockers remain explicit. |
+| 019 | Discord | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; servers, roles, permissions, voice/video, activities, apps/bots, Nitro-style entitlements, teen safety, moderation, and native/manual parity blockers remain explicit. |
+| 020 | Slack | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; workspaces, channels, huddles, canvases/lists, apps/workflows, external collaboration, AI, retention/export, enterprise/admin, and native/manual parity blockers remain explicit. |
 | 026 | Google Maps | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; live navigation, traffic, transit, offline maps, location sharing, Timeline/activity controls, contributions, business, AR, vehicle/watch, and native/manual parity blockers remain explicit. |
 | 033 | Airbnb | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; booking, checkout, fees/taxes, messaging, reviews, wishlists, identity, cancellations/refunds, host tools, payouts, damage/disputes, safety, and native/manual parity blockers remain explicit. |
 | 038 | DoorDash | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; restaurant/store marketplace, menu modifiers, cart/checkout fees, DashPass, SNAP/EBT, alcohol, order tracking, Dasher handoff, merchant tools, support/refunds, and native/manual parity blockers remain explicit. |
@@ -48,7 +52,7 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 056 | Cash App | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; peer payments, requests, payment links, pools, balance, cash out, debit, direct deposit, savings/offers, merchant checkout, bitcoin, investing, taxes, sponsored accounts, business accounts, security/scam controls, and native/manual parity blockers remain explicit. |
 | 066 | Spotify | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; music, podcasts, audiobooks, playlists, queue, downloads/offline, lyrics, device handoff, shared listening, family/young-listener controls, creator tools, ads, developer playback constraints, and native/manual parity blockers remain explicit. |
 | 089 | Notion | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; workspace pages, blocks, databases, search, sharing/permissions, comments/mentions, notifications, offline pages, imports/exports, AI, integrations/API, billing, privacy, security, and enterprise/admin blockers remain explicit. |
-| 017-025, 027-032, 034-037, 039-045, 047-055, 057-065, 067-088, 090-100 | Remaining specs | Draft 1 scaffold | Must be upgraded app-by-app or by focused batch using the readiness definition above. |
+| 021-025, 027-032, 034-037, 039-045, 047-055, 057-065, 067-088, 090-100 | Remaining specs | Draft 1 scaffold | Must be upgraded app-by-app or by focused batch using the readiness definition above. |
 
 ## Repeatable Upgrade Loop
 
@@ -65,9 +69,9 @@ For each spec:
 ## Completed Pattern Set
 
 - Top-ten architecture-teaching pattern set: `001-chatgpt.md`, `006-tiktok.md`, `016-whatsapp.md`, `026-google-maps.md`, `033-airbnb.md`, `038-doordash.md`, `046-amazon.md`, `056-cash-app.md`, `066-spotify.md`, and `089-notion.md`.
-- Batch 01 public-source V1 expansion: `002-claude.md`, `003-perplexity.md`, `004-character-ai.md`, `005-replika.md`, and `007-instagram.md` through `015-lemon8.md`.
+- Batch 01 public-source V1 expansion: `002-claude.md`, `003-perplexity.md`, `004-character-ai.md`, `005-replika.md`, and `007-instagram.md` through `020-slack.md`.
 
 ## Next Steps
 
-- Upgrade the remaining Batch 01 tail specs: `017-telegram.md`, `018-signal.md`, `019-discord.md`, and `020-slack.md`.
+- Upgrade the next Batch 02 communication/email specs: `021-messenger.md`, `022-facetime.md`, `023-zoom.md`, `024-gmail.md`, and `025-outlook.md`.
 - Continue Phase 3 exact source replacement and hands-on blocker documentation through later batches.

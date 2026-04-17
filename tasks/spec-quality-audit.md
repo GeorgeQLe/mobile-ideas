@@ -5,9 +5,9 @@ Updated: 2026-04-17
 
 ## Verdict
 
-The 100 technical specs pass the Draft 1 structural and depth gate. Phase 3 implementation-readiness upgrades have now replaced discovery sources with exact first-party URLs for 23 specs.
+The 100 technical specs pass the Draft 1 structural and depth gate. Phase 3 implementation-readiness upgrades have now replaced discovery sources with exact first-party URLs for 27 specs.
 
-Most specs are still not final one-for-one clone specs because exact first-party source URLs and hands-on verification remain open Phase 3 work. The implementation-ready public-source V1 set is: `001-chatgpt.md`, `002-claude.md`, `003-perplexity.md`, `004-character-ai.md`, `005-replika.md`, `006-tiktok.md`, `007-instagram.md` through `016-whatsapp.md`, `026-google-maps.md`, `033-airbnb.md`, `038-doordash.md`, `046-amazon.md`, `056-cash-app.md`, `066-spotify.md`, and `089-notion.md`.
+Most specs are still not final one-for-one clone specs because exact first-party source URLs and hands-on verification remain open Phase 3 work. The implementation-ready public-source V1 set is: `001-chatgpt.md`, `002-claude.md`, `003-perplexity.md`, `004-character-ai.md`, `005-replika.md`, `006-tiktok.md`, `007-instagram.md` through `020-slack.md`, `026-google-maps.md`, `033-airbnb.md`, `038-doordash.md`, `046-amazon.md`, `056-cash-app.md`, `066-spotify.md`, and `089-notion.md`.
 
 ## Audit Scope
 
@@ -34,9 +34,9 @@ A Draft 1 or public-source V1 spec must meet these minimums:
 - Specs with all canonical sections: 100.
 - Specs passing Draft 1 depth metrics: 100.
 - Specs failing Draft 1 depth metrics: 0.
-- Specs with exact first-party source URLs replacing discovery links: 23.
+- Specs with exact first-party source URLs replacing discovery links: 27.
 - Specs with hands-on app behavior fully verified: 0.
-- Specs upgraded to implementation-ready public-source V1: 23.
+- Specs upgraded to implementation-ready public-source V1: 27.
 
 ## Resolved Findings
 
@@ -54,13 +54,17 @@ All numbered specs now use the same canonical structure and pass the same depth 
 
 ### Resolved: Batch 01 AI And Social Source Replacement
 
-`002-claude.md`, `003-perplexity.md`, `004-character-ai.md`, `005-replika.md`, and `007-instagram.md` through `015-lemon8.md` now use exact first-party marketplace/help/privacy/legal sources instead of discovery links.
+`002-claude.md`, `003-perplexity.md`, `004-character-ai.md`, `005-replika.md`, and `007-instagram.md` through `020-slack.md` now use exact first-party marketplace/help/privacy/legal sources instead of discovery links.
+
+### Resolved: Batch 01 Messaging And Workplace Tail Source Replacement
+
+`017-telegram.md`, `018-signal.md`, `019-discord.md`, and `020-slack.md` now use exact first-party marketplace/help/privacy/legal/product sources instead of discovery links and include app-specific messaging, community, safety, billing, admin, and manual-verification blockers.
 
 ## Remaining Findings
 
 ### High: Exact Source Replacement Remains Open
 
-Seventy-seven specs still include App Store, Google Play, and official help/privacy source-discovery links. These are not exact verified first-party listing/help/privacy URLs.
+Seventy-three specs still include App Store, Google Play, and official help/privacy source-discovery links. These are not exact verified first-party listing/help/privacy URLs.
 
 Impact: A builder still needs to complete the app-by-app research pass before claiming one-for-one product truth.
 
@@ -80,10 +84,10 @@ Recommended fix: Use lawful test accounts/devices to verify reachable flows. Mar
 - Every numbered spec includes canonical hygiene sections.
 - Every numbered spec includes legal guardrails, research-source orientation, privacy/safety requirements, edge cases, test plan, acceptance criteria, open questions, and next steps.
 - The spec set now distinguishes source discovery from exact verification and hands-on behavior.
-- Batch 01 now has implementation-ready public-source V1 coverage for AI assistant, AI search, AI companion, short-video, social-media, camera-social, community, decentralized-social, visual-discovery, lifestyle-social, and private-messaging patterns.
+- Batch 01 now has implementation-ready public-source V1 coverage for AI assistant, AI search, AI companion, short-video, social-media, camera-social, community, decentralized-social, visual-discovery, lifestyle-social, private messaging, cloud messaging, privacy messaging, community chat, and workplace chat patterns.
 
 ## Next Steps
 
-- Upgrade `017-telegram.md`, `018-signal.md`, `019-discord.md`, and `020-slack.md` to implementation-ready public-source V1 status.
-- Continue Phase 3 implementation-readiness upgrades for the remaining 77 Draft 1 specs by batch.
+- Upgrade `021-messenger.md`, `022-facetime.md`, `023-zoom.md`, `024-gmail.md`, and `025-outlook.md` to implementation-ready public-source V1 status.
+- Continue Phase 3 implementation-readiness upgrades for the remaining 73 Draft 1 specs by batch.
 - Complete hands-on verification where lawful and feasible.

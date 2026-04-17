@@ -12,7 +12,7 @@
 - [x] Upgrade `066-spotify.md` to implementation-ready status.
 - [x] Upgrade the remaining top-ten architecture-teaching spec: `089-notion.md`.
 - [x] Upgrade remaining Batch 01 AI/social Draft 1 specs: `002-005` and `007-015`.
-- [ ] Upgrade the remaining 77 specs by batch after the Batch 01 patterns are proven.
+- [ ] Upgrade the remaining 73 specs by batch after the Batch 01 patterns are proven.
 
 ## Phase 2: Hygiene And Draft 1 Remediation
 
@@ -28,34 +28,35 @@
 
 - [x] Define the implementation-readiness gate in `tasks/implementation-readiness.md`.
 - [x] Upgrade `001-chatgpt.md` from Draft 1 scaffold to implementation-ready public-source V1 spec.
-- [ ] Replace App Store, Google Play, and official help/privacy source-discovery links in the remaining 77 specs with exact first-party URLs.
+- [x] Upgrade `017-telegram.md`, `018-signal.md`, `019-discord.md`, and `020-slack.md` to implementation-ready public-source V1 status.
+- [ ] Replace App Store, Google Play, and official help/privacy source-discovery links in the remaining 73 specs with exact first-party URLs.
 - [ ] Complete hands-on verification for reachable app flows using lawful test accounts/devices, or mark the flow as launch-blocked.
 - [ ] Mark paid, hardware, region-blocked, regulated, or otherwise inaccessible flows with explicit blocker notes and owner/path.
 - [ ] Refresh `tasks/spec-quality-audit.md` after exact source replacement and hands-on verification.
 
-## Next Runnable Step: Upgrade remaining Batch 01 tail specs
+## Next Runnable Step: Upgrade Batch 02 communication/email specs
 
 ### Scope
 
-- Upgrade the remaining Batch 01 Draft 1 specs: `specs/batch-01/017-telegram.md`, `specs/batch-01/018-signal.md`, `specs/batch-01/019-discord.md`, and `specs/batch-01/020-slack.md`.
-- Archive each current Draft 1 file under `docs/history/archive/2026-04-17/phase-3-batch-01-tail-readiness/` before rewriting.
-- Rewrite each selected spec to implementation-ready public-source V1 status using the evidence depth now present in the completed Batch 01 AI/social and top-ten pattern set.
-- Update `tasks/implementation-readiness.md`, `tasks/spec-quality-audit.md`, `specs/README.md`, `specs/batch-01/README.md`, `tasks/todo.md`, `tasks/history.md`, and any summary file whose readiness count becomes stale.
+- Upgrade the next Batch 02 Draft 1 specs: `specs/batch-02/021-messenger.md`, `specs/batch-02/022-facetime.md`, `specs/batch-02/023-zoom.md`, `specs/batch-02/024-gmail.md`, and `specs/batch-02/025-outlook.md`.
+- Archive each current Draft 1 file under `docs/history/archive/2026-04-17/phase-3-batch-02-communication-email-readiness/` before rewriting.
+- Rewrite each selected spec to implementation-ready public-source V1 status using the evidence depth now present in the completed Batch 01 messaging/social patterns plus the completed `026-google-maps.md`, `033-airbnb.md`, and `038-doordash.md` Batch 02 patterns.
+- Update `tasks/implementation-readiness.md`, `tasks/spec-quality-audit.md`, `specs/README.md`, `specs/batch-02/README.md`, `tasks/todo.md`, `tasks/history.md`, and any summary file whose readiness count becomes stale.
 
 ### Source Research
 
-- Replace App Store, Google Play, and official help/privacy source-discovery links with exact first-party URLs for Telegram, Signal, Discord, and Slack.
-- Prioritize public sources for account model, mobile screens, core workflows, help/support, safety/privacy, terms, subscriptions, data export/deletion, notifications, messaging/calling behavior, communities/workspaces, integrations, and platform constraints.
-- Keep phone verification, E2EE claims, workspace administration, paid plans, moderation, push payloads, account recovery, deletion/export, backups, device linking, and enterprise/security behavior as manual blockers unless verified lawfully with test accounts/devices and any required provider approvals.
+- Replace App Store, Google Play, and official help/privacy source-discovery links with exact first-party URLs for Messenger, FaceTime, Zoom, Gmail, and Outlook.
+- Prioritize public sources for account model, mobile screens, core workflows, help/support, safety/privacy, terms, subscriptions, data export/deletion, notifications, messaging/calling/email/calendar behavior, identity, administration, integrations, and platform constraints.
+- Keep phone/email verification, contacts/import, E2EE/privacy claims, call recording/transcription, meeting/webinar controls, enterprise/admin controls, paid plans, moderation, push payloads, account recovery, deletion/export, calendar/mailbox data, and device-specific behavior as manual blockers unless verified lawfully with test accounts/devices and any required provider approvals.
 
 ### Implementation Notes
 
 - Produce app-specific screen inventory, data model, API/backend contracts, offline/realtime behavior, analytics, safety/privacy controls, edge cases, acceptance criteria, and build plan for each upgraded spec.
-- Treat messaging, calls, groups/servers/workspaces, contacts, encryption, moderation, subscriptions, identity, privacy, safety, payments, child/teen users, data deletion, accessibility claims, and regional availability as category risk areas where relevant.
-- Do not claim exact native parity for any account, paid, notification, deletion/export, support, encryption, moderation, admin, or platform-specific flow until verified.
+- Treat messaging, calls, meetings, email, calendar, attachments, contacts, encryption, moderation, subscriptions, identity, privacy, safety, enterprise administration, payments, child/teen users, data deletion, accessibility claims, and regional availability as category risk areas where relevant.
+- Do not claim exact native parity for any account, paid, notification, deletion/export, support, encryption, moderation, meeting, mailbox, admin, or platform-specific flow until verified.
 
 ### Validation
 
 - Confirm the upgraded specs each have exactly one H1 and all canonical sections.
-- Confirm source-discovery links are gone from each upgraded Batch 01 tail spec.
-- Confirm readiness counts and next-step references advance from 23 completed specs to the new batch total.
+- Confirm source-discovery links are gone from each upgraded Batch 02 communication/email spec.
+- Confirm readiness counts and next-step references advance from 27 completed specs to the new batch total.
