@@ -23,6 +23,14 @@
 - Archived the Draft 1 Spotify spec and upgraded `specs/batch-04/066-spotify.md` to an implementation-ready public-source V1 spec with exact marketplace/Premium/help/legal/privacy/family/audiobook/creator/ads/developer sources, app-specific music, podcast, audiobook, playlist, queue, offline, lyrics, device-handoff, shared-listening, family, creator, ads, privacy, and licensed-media contracts, plus explicit downloads, rights, ads, recommendations, subscriptions, family, creator, push, regional, and native verification blockers.
 - Archived the Draft 1 Notion spec and upgraded `specs/batch-05/089-notion.md` to an implementation-ready public-source V1 spec with exact marketplace/help/privacy/terms/security/pricing/AI/API sources, app-specific workspace, page, block, database, search, sharing, permissions, comments, notifications, offline, import/export, AI, integration, billing, privacy, and enterprise/admin contracts, plus explicit workspace, offline sync, AI, import/export, billing, push, API, support, regional, and native verification blockers.
 
+## 2026-04-17 - Batch 01 AI/Social Readiness Upgrade
+
+- Archived Draft 1 copies for `002-claude.md`, `003-perplexity.md`, `004-character-ai.md`, `005-replika.md`, and `007-instagram.md` through `015-lemon8.md`.
+- Replaced source-discovery links with exact first-party marketplace, help/support, privacy/legal, safety, and product URLs for the selected Batch 01 specs.
+- Rewrote the selected specs to implementation-ready public-source V1 status with app-specific source-backed requirements, screen inventories, data models, API contracts, risk controls, edge cases, tests, acceptance criteria, build plans, and explicit manual verification blockers.
+- Updated readiness and audit counts from 10 to 23 implementation-ready public-source V1 specs and prepared the next runnable Batch 01 tail step.
+
 ## Next Steps
 
-- Upgrade the remaining 90 Draft 1 specs by batch using the completed top-ten pattern set.
+- Upgrade `017-telegram.md`, `018-signal.md`, `019-discord.md`, and `020-slack.md` to complete the Batch 01 implementation-ready pass.
+- Continue the remaining 77 Draft 1 specs by batch using the completed Batch 01 and top-ten pattern set.

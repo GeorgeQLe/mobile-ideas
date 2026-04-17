@@ -5,11 +5,11 @@ Created: 2026-04-16
 > Metadata
 > - Spec set status: Draft 1 canonical rewrite complete; Phase 3 implementation-readiness upgrades underway
 > - Coverage: 100 of 100 app ideas
-> - Research state: 10 implementation-ready public-source V1 specs; 90 Draft 1 scaffolds still require exact first-party source replacement and hands-on verification blockers
+> - Research state: 23 implementation-ready public-source V1 specs; 77 Draft 1 scaffolds still require exact first-party source replacement and hands-on verification blockers
 
 ## Overview
 
-This directory contains technical specs for all 100 mobile app clone ideas in `tasks/ideas.md`. Most specs are canonical Draft 1 scaffolds; upgraded specs are implementation-ready public-source V1 specs.
+This directory contains technical specs for all 100 mobile app clone ideas in `tasks/ideas.md`. Most specs are canonical Draft 1 scaffolds; 23 upgraded specs are implementation-ready public-source V1 specs.
 
 The specs are implementation-oriented planning documents. They define lawful functional parity targets, product flows, data models, backend contracts, privacy and safety requirements, analytics, edge cases, test plans, acceptance criteria, open questions, and next steps.
 
@@ -76,7 +76,7 @@ Every numbered spec uses these canonical sections:
 ## Acceptance Criteria
 
 - All 100 specs use canonical Draft 1 structure.
-- Every Draft 1 scaffold has source-discovery links and explicit blocked hands-on verification notes; upgraded specs replace discovery links with exact first-party URLs.
+- Every Draft 1 scaffold has source-discovery links and explicit blocked hands-on verification notes; upgraded specs replace discovery links with exact first-party URLs and explicit native/manual parity blockers.
 - Every spec remains legally scoped to original code, original assets, synthetic or licensed data, and lawful integrations.
 - Phase 3 remains responsible for exact first-party source replacement and hands-on verification.
 
@@ -87,5 +87,5 @@ Every numbered spec uses these canonical sections:
 
 ## Next Steps
 
-- Continue Phase 3 implementation-readiness upgrades for the remaining 90 Draft 1 specs by batch.
+- Continue Phase 3 implementation-readiness upgrades for the remaining 77 Draft 1 specs by batch.
 - Update each spec with verified behavior and remove blocked notes only when evidence is captured.
