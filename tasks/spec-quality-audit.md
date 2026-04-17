@@ -5,9 +5,9 @@ Updated: 2026-04-17
 
 ## Verdict
 
-The 100 technical specs pass the Draft 1 structural and depth gate. Phase 3 implementation-readiness upgrades have now replaced discovery sources with exact first-party URLs for 58 specs.
+The 100 technical specs pass the Draft 1 structural and depth gate. Phase 3 implementation-readiness upgrades have now replaced discovery sources with exact first-party URLs for 62 specs.
 
-Most specs are still not final one-for-one clone specs because exact first-party source URLs and hands-on verification remain open Phase 3 work. The implementation-ready public-source V1 set is: `001-chatgpt.md` through `056-cash-app.md` except `057-060`, plus `066-spotify.md` and `089-notion.md`.
+Most specs are still not final one-for-one clone specs because exact first-party source URLs and hands-on verification remain open Phase 3 work. The implementation-ready public-source V1 set is: `001-chatgpt.md` through `060-robinhood.md`, plus `066-spotify.md` and `089-notion.md`.
 
 ## Audit Scope
 
@@ -34,9 +34,9 @@ A Draft 1 or public-source V1 spec must meet these minimums:
 - Specs with all canonical sections: 100.
 - Specs passing Draft 1 depth metrics: 100.
 - Specs failing Draft 1 depth metrics: 0.
-- Specs with exact first-party source URLs replacing discovery links: 58.
+- Specs with exact first-party source URLs replacing discovery links: 62.
 - Specs with hands-on app behavior fully verified: 0.
-- Specs upgraded to implementation-ready public-source V1: 58.
+- Specs upgraded to implementation-ready public-source V1: 62.
 
 ## Resolved Findings
 
@@ -84,11 +84,15 @@ All numbered specs now use the same canonical structure and pass the same depth 
 
 `047-temu.md`, `048-shein.md`, `049-etsy.md`, `050-ebay.md`, `051-facebook-marketplace.md`, `052-poshmark.md`, `053-depop.md`, `054-stockx.md`, and `055-shop.md` now use exact first-party marketplace, help/support, privacy/legal, product, seller, buyer-protection, shipping/tracking, rewards, verification, merchant, and policy URLs instead of discovery links and include app-specific discount shopping, fashion commerce, handmade/custom marketplace, auctions/offers, local marketplace, social resale, bid/ask market, package tracking, wallet/reward, seller/merchant tooling, privacy, support/refund/claim, edge-case, test, acceptance, build-plan, and manual verification detail.
 
+### Resolved: Batch 03 Finance And Payment Source Replacement
+
+`057-venmo.md`, `058-paypal.md`, `059-zelle.md`, and `060-robinhood.md` now use exact first-party marketplace, help/support, privacy/legal, product, safety, and disclosure URLs instead of discovery links and include app-specific social payments, digital wallet, bank-linked transfer, brokerage/investing, cards, bank links, savings, crypto, requests, disputes, privacy, support, edge-case, test, acceptance, build-plan, and manual verification detail.
+
 ## Remaining Findings
 
 ### High: Exact Source Replacement Remains Open
 
-Forty-two specs still include App Store, Google Play, and official help/privacy source-discovery links. These are not exact verified first-party listing/help/privacy URLs.
+Thirty-eight specs still include App Store, Google Play, and official help/privacy source-discovery links. These are not exact verified first-party listing/help/privacy URLs.
 
 Impact: A builder still needs to complete the app-by-app research pass before claiming one-for-one product truth.
 
@@ -113,6 +117,6 @@ Recommended fix: Use lawful test accounts/devices to verify reachable flows. Mar
 
 ## Next Steps
 
-- Upgrade the next finance/payment/investing specs: `057-venmo.md`, `058-paypal.md`, `059-zelle.md`, `060-robinhood.md`, then `061-coinbase.md` through `065-apple-wallet.md`.
-- Continue Phase 3 implementation-readiness upgrades for the remaining 42 Draft 1 specs by batch.
+- Upgrade the next finance/wallet specs: `061-coinbase.md`, `062-mint-credit-karma.md`, `063-ynab.md`, `064-rocket-money.md`, and `065-apple-wallet.md`.
+- Continue Phase 3 implementation-readiness upgrades for the remaining 38 Draft 1 specs by batch.
 - Complete hands-on verification where lawful and feasible.

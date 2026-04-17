@@ -80,7 +80,14 @@
 - Rewrote the selected specs to implementation-ready public-source V1 status with app-specific discount shopping, fashion commerce, handmade/custom marketplace, auctions/offers, local marketplace, social resale, bid/ask market, package tracking, wallet/reward, seller/merchant tooling, privacy, support/refund/claim, edge-case, test, acceptance, build-plan, and manual verification detail.
 - Updated readiness and audit counts from 49 to 58 implementation-ready public-source V1 specs and prepared the next Batch 03 finance/payment step.
 
+## 2026-04-17 - Batch 03 Finance/Payment Readiness Upgrade
+
+- Archived Draft 1 copies for `057-venmo.md`, `058-paypal.md`, `059-zelle.md`, and `060-robinhood.md`.
+- Replaced source-discovery links with exact first-party marketplace, help/support, privacy/legal, product, safety, and disclosure URLs for the selected Batch 03 finance/payment/investing specs.
+- Rewrote the selected specs to implementation-ready public-source V1 status with app-specific social payment, digital wallet, bank-linked transfer, brokerage/investing, card, bank-link, savings, crypto, request, dispute, privacy, support, edge-case, test, acceptance, build-plan, and manual verification detail.
+- Updated readiness and audit counts from 58 to 62 implementation-ready public-source V1 specs, made Batch 03 fully implementation-ready for public-source V1, and prepared the next Batch 04 finance/wallet step.
+
 ## Next Steps
 
-- Upgrade `057-venmo.md`, `058-paypal.md`, `059-zelle.md`, and `060-robinhood.md` as the next Batch 03 finance/payment pass.
-- Continue the remaining 42 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, and early Batch 03 pattern sets.
+- Upgrade `061-coinbase.md`, `062-mint-credit-karma.md`, `063-ynab.md`, `064-rocket-money.md`, and `065-apple-wallet.md` as the next Batch 04 finance/wallet pass.
+- Continue the remaining 38 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, and Batch 03 pattern sets.

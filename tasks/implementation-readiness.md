@@ -7,7 +7,7 @@ Updated: 2026-04-17
 
 The spec set is moving from Draft 1 scaffolds to implementation-ready specs by focused batches.
 
-Current readiness count: 58 of 100.
+Current readiness count: 62 of 100.
 
 ## Readiness Definition
 
@@ -67,6 +67,10 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 040 | Instacart | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; grocery/retail marketplace, catalog search, replacements, delivery windows, Instacart+-style membership, SNAP/EBT, alcohol, shopper handoff, retailer tools, support/refunds, and native/manual parity blockers remain explicit. |
 | 046 | Amazon | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; broad shopping marketplace, product search/detail, seller offers, cart/checkout, Prime-style membership, recurring orders, order tracking, returns/refunds/replacements, seller tools, sponsored listings, reviews, support, and native/manual parity blockers remain explicit. |
 | 056 | Cash App | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; peer payments, requests, payment links, pools, balance, cash out, debit, direct deposit, savings/offers, merchant checkout, bitcoin, investing, taxes, sponsored accounts, business accounts, security/scam controls, and native/manual parity blockers remain explicit. |
+| 057 | Venmo | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; social payments, split requests, payment notes/feed, QR payments, balance, bank/card links, debit/credit card surfaces, direct deposit, teen accounts, business profiles, purchase protection, crypto, privacy controls, scam education, and native/manual parity blockers remain explicit. |
+| 058 | PayPal | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; digital wallet, send/request, checkout funding, PayPal balance, debit card, rewards, savings, pay later, crypto, package tracking, buyer/seller protection, disputes, security, privacy, and native/manual parity blockers remain explicit. |
+| 059 | Zelle | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; bank-linked send/receive, banking-app enrollment, standalone app fallback, aliases, recipient verification, requests, limits, delayed/blocked transfers, scam-safety education, privacy, and native/manual parity blockers remain explicit. |
+| 060 | Robinhood | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; brokerage onboarding, portfolio, watchlists, stocks/ETFs/options, order tickets, cash sweep, Gold-style subscription, crypto, retirement, futures, prediction/event gates, disclosures, support, privacy, and native/manual parity blockers remain explicit. |
 | 066 | Spotify | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; music, podcasts, audiobooks, playlists, queue, downloads/offline, lyrics, device handoff, shared listening, family/young-listener controls, creator tools, ads, developer playback constraints, and native/manual parity blockers remain explicit. |
 | 089 | Notion | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; workspace pages, blocks, databases, search, sharing/permissions, comments/mentions, notifications, offline pages, imports/exports, AI, integrations/API, billing, privacy, security, and enterprise/admin blockers remain explicit. |
 | 041 | Starbucks | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; coffee ordering, stored value, Rewards, eGifts, store pickup, support/refunds, and native/manual parity blockers remain explicit. |
@@ -83,7 +87,7 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 053 | Depop | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; fashion resale feed, shops, listings, likes/follows, messages, offers, payments, shipping labels, buyer/seller protection, payouts, and native/manual parity blockers remain explicit. |
 | 054 | StockX | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; bid/ask market, market pricing, buy now/sell now, verification, Buyer Promise-style support, seller levels, fees, payouts, two-step security, and native/manual parity blockers remain explicit. |
 | 055 | Shop | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; package tracking, email/order import, merchant discovery, Shop Pay-style wallet, Shop Cash-style rewards, merchant channel, tracking sync, and native/manual parity blockers remain explicit. |
-| 057-065, 067-088, 090-100 | Remaining specs | Draft 1 scaffold | Must be upgraded app-by-app or by focused batch using the readiness definition above. |
+| 061-065, 067-088, 090-100 | Remaining specs | Draft 1 scaffold | Must be upgraded app-by-app or by focused batch using the readiness definition above. |
 
 ## Repeatable Upgrade Loop
 
@@ -107,8 +111,9 @@ For each spec:
 - Batch 02 food/grocery delivery public-source V1 expansion: `039-uber-eats.md` and `040-instacart.md`.
 - Batch 03 food/local discovery public-source V1 expansion: `041-starbucks.md`, `042-mcdonalds.md`, `043-opentable.md`, `044-yelp.md`, and `045-too-good-to-go.md`.
 - Batch 03 commerce/resale public-source V1 expansion: `047-temu.md`, `048-shein.md`, `049-etsy.md`, `050-ebay.md`, `051-facebook-marketplace.md`, `052-poshmark.md`, `053-depop.md`, `054-stockx.md`, and `055-shop.md`.
+- Batch 03 finance/payment/investing public-source V1 expansion: `057-venmo.md`, `058-paypal.md`, `059-zelle.md`, and `060-robinhood.md`.
 
 ## Next Steps
 
-- Upgrade the next Batch 03 finance/payment/investing specs: `057-venmo.md`, `058-paypal.md`, `059-zelle.md`, and `060-robinhood.md`, then continue with Batch 04 finance specs `061-coinbase.md` through `065-apple-wallet.md`.
+- Upgrade the next Batch 04 finance/wallet specs: `061-coinbase.md`, `062-mint-credit-karma.md`, `063-ynab.md`, `064-rocket-money.md`, and `065-apple-wallet.md`.
 - Continue Phase 3 exact source replacement and hands-on blocker documentation through later batches.

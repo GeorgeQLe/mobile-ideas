@@ -84,5 +84,5 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 
 ## Next Steps
 
-- Upgrade `041-starbucks.md`, `042-mcdonalds.md`, `043-opentable.md`, `044-yelp.md`, and `045-too-good-to-go.md` as the next Batch 03 food/local discovery pass.
-- Continue the remaining 56 Draft 1 specs by batch using the completed Batch 01, top-ten, and Batch 02 pattern sets.
+- Upgrade `061-coinbase.md`, `062-mint-credit-karma.md`, `063-ynab.md`, `064-rocket-money.md`, and `065-apple-wallet.md` as the next Batch 04 finance/wallet pass.
+- Continue the remaining 38 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, and Batch 03 pattern sets.
