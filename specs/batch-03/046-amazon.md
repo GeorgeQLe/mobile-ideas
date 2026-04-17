@@ -284,4 +284,4 @@ This spec is implementation-ready for a V1 that targets documented public behavi
 
 - Resolve the manual verification blockers before claiming one-for-one native parity.
 - Use this spec as the broad-shopping-marketplace pattern for `047-temu.md`, `048-shein.md`, `049-etsy.md`, `050-ebay.md`, and related commerce specs.
-- Continue the architecture-teaching upgrades with `056-cash-app.md`.
+- Continue the architecture-teaching upgrades with `066-spotify.md`.

@@ -3,7 +3,7 @@
 > Metadata
 > - App range: 041-060
 > - Status: Draft 1 canonical spec rewrite; Phase 3 implementation-readiness upgrades underway
-> - Research state: `046-amazon.md` is implementation-ready public-source V1; the remaining Batch 03 specs still require exact source replacement and hands-on verification blockers.
+> - Research state: `046-amazon.md` and `056-cash-app.md` are implementation-ready public-source V1; the remaining Batch 03 specs still require exact source replacement and hands-on verification blockers.
 
 ## Overview
 This batch contains canonical Draft 1 clone specs for apps 41-60 from tasks/ideas.md.
@@ -25,7 +25,7 @@ This batch contains canonical Draft 1 clone specs for apps 41-60 from tasks/idea
 - 053 Depop - Resale
 - 054 StockX - Marketplace
 - 055 Shop - Shopping utility
-- 056 Cash App - Finance
+- 056 Cash App - Finance - implementation-ready public-source V1
 - 057 Venmo - Finance
 - 058 PayPal - Finance
 - 059 Zelle - Finance
@@ -39,5 +39,5 @@ This batch contains canonical Draft 1 clone specs for apps 41-60 from tasks/idea
 
 ## Next Steps
 
-- Continue exact source replacement and implementation-readiness upgrades, starting with `056-cash-app.md`.
+- Continue exact source replacement and implementation-readiness upgrades with `066-spotify.md` in Batch 04.
 - Complete hands-on verification where lawful and feasible before app implementation starts.

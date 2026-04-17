@@ -7,7 +7,7 @@ Updated: 2026-04-17
 
 The spec set is moving from Draft 1 scaffolds to implementation-ready specs one app at a time.
 
-Current readiness count: 7 of 100.
+Current readiness count: 8 of 100.
 
 ## Readiness Definition
 
@@ -32,7 +32,8 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 033 | Airbnb | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; booking, checkout, fees/taxes, messaging, reviews, wishlists, identity, cancellations/refunds, host tools, payouts, damage/disputes, safety, and native/manual parity blockers remain explicit. |
 | 038 | DoorDash | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; restaurant/store marketplace, menu modifiers, cart/checkout fees, DashPass, SNAP/EBT, alcohol, order tracking, Dasher handoff, merchant tools, support/refunds, and native/manual parity blockers remain explicit. |
 | 046 | Amazon | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; broad shopping marketplace, product search/detail, seller offers, cart/checkout, Prime-style membership, Subscribe & Save-style recurring orders, order tracking, returns/refunds/replacements, seller tools, sponsored listings, reviews, support, and native/manual parity blockers remain explicit. |
-| 002-005, 007-015, 017-025, 027-032, 034-037, 039-045, 047-100 | Remaining specs | Draft 1 scaffold | Must be upgraded app-by-app using the readiness definition above. |
+| 056 | Cash App | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; peer payments, requests, payment links, pools, balance, cash out, Cash App Card-style debit, direct deposit, savings/offers, Cash App Pay-style merchant checkout, bitcoin, investing, taxes, sponsored accounts, business accounts, security/scam controls, and native/manual parity blockers remain explicit. |
+| 002-005, 007-015, 017-025, 027-032, 034-037, 039-045, 047-055, 057-100 | Remaining specs | Draft 1 scaffold | Must be upgraded app-by-app using the readiness definition above. |
 
 ## Repeatable Upgrade Loop
 
@@ -63,5 +64,5 @@ Start with the architecture-teaching apps from `tasks/ideas.md`:
 
 ## Next Steps
 
-- Upgrade `056-cash-app.md` using the same readiness gate.
+- Upgrade `066-spotify.md` using the same readiness gate.
 - Continue the top-ten architecture-teaching apps before remediating the remaining 90 by batch.

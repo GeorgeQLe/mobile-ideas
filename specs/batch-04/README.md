@@ -39,5 +39,5 @@ This batch contains canonical Draft 1 clone specs for apps 61-80 from tasks/idea
 
 ## Next Steps
 
-- Replace source-discovery links in every spec with exact verified first-party URLs.
+- Begin exact source replacement and implementation-readiness upgrades with `066-spotify.md`.
 - Complete hands-on verification where lawful and feasible before app implementation starts.
