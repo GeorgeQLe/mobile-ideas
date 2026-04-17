@@ -5,7 +5,7 @@ Created: 2026-04-16
 > Metadata
 > - Spec set status: Draft 1 canonical rewrite complete; Phase 3 implementation-readiness upgrades underway
 > - Coverage: 100 of 100 app ideas
-> - Research state: 6 implementation-ready public-source V1 specs; 94 Draft 1 scaffolds still require exact first-party source replacement and hands-on verification blockers
+> - Research state: 7 implementation-ready public-source V1 specs; 93 Draft 1 scaffolds still require exact first-party source replacement and hands-on verification blockers
 
 ## Overview
 
@@ -87,5 +87,5 @@ Every numbered spec uses these canonical sections:
 
 ## Next Steps
 
-- Continue Phase 3 implementation-readiness upgrades, starting with `046-amazon.md`.
+- Continue Phase 3 implementation-readiness upgrades, starting with `056-cash-app.md`.
 - Update each spec with verified behavior and remove blocked notes only when evidence is captured.

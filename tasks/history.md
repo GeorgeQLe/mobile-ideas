@@ -18,7 +18,8 @@
 ## 2026-04-17
 
 - Archived the Draft 1 DoorDash spec and upgraded `specs/batch-02/038-doordash.md` to an implementation-ready public-source V1 spec with exact marketplace/product/help/legal/privacy/merchant/Dasher sources, app-specific restaurant/store discovery, menu modifier, cart quote, checkout fee, DashPass, SNAP/EBT, alcohol, tracking, merchant adjustment, support/refund, privacy, and local-delivery marketplace contracts, plus explicit regulated-item, payment, merchant-tooling, support, and native verification blockers.
+- Archived the Draft 1 Amazon spec and upgraded `specs/batch-03/046-amazon.md` to an implementation-ready public-source V1 spec with exact marketplace/customer/order/return/privacy/legal/Prime/seller/ads sources, app-specific product search/detail, seller offer, cart/checkout, Prime-style membership, Subscribe & Save-style recurring order, order tracking, return/refund/replacement, seller-tooling, sponsored-listing, review, customer-support, privacy, and broad-commerce marketplace contracts, plus explicit payment, membership, subscription, seller, ads, regulated-item, support, and native verification blockers.
 
 ## Next Steps
 
-- Upgrade `046-amazon.md` using the `001-chatgpt.md`, `006-tiktok.md`, `016-whatsapp.md`, `026-google-maps.md`, `033-airbnb.md`, and `038-doordash.md` patterns.
+- Upgrade `056-cash-app.md` using the `001-chatgpt.md`, `006-tiktok.md`, `016-whatsapp.md`, `026-google-maps.md`, `033-airbnb.md`, `038-doordash.md`, and `046-amazon.md` patterns.

@@ -2,8 +2,8 @@
 
 > Metadata
 > - App range: 041-060
-> - Status: Draft 1 canonical spec rewrite
-> - Research state: public source-discovery links included; exact source replacement and hands-on verification still required before implementation.
+> - Status: Draft 1 canonical spec rewrite; Phase 3 implementation-readiness upgrades underway
+> - Research state: `046-amazon.md` is implementation-ready public-source V1; the remaining Batch 03 specs still require exact source replacement and hands-on verification blockers.
 
 ## Overview
 This batch contains canonical Draft 1 clone specs for apps 41-60 from tasks/ideas.md.
@@ -15,7 +15,7 @@ This batch contains canonical Draft 1 clone specs for apps 41-60 from tasks/idea
 - 043 OpenTable - Reservations
 - 044 Yelp - Local discovery
 - 045 Too Good To Go - Food marketplace
-- 046 Amazon - Shopping
+- 046 Amazon - Shopping - implementation-ready public-source V1
 - 047 Temu - Shopping
 - 048 SHEIN - Shopping
 - 049 Etsy - Marketplace
@@ -39,5 +39,5 @@ This batch contains canonical Draft 1 clone specs for apps 41-60 from tasks/idea
 
 ## Next Steps
 
-- Continue exact source replacement and implementation-readiness upgrades, starting with `046-amazon.md`.
+- Continue exact source replacement and implementation-readiness upgrades, starting with `056-cash-app.md`.
 - Complete hands-on verification where lawful and feasible before app implementation starts.

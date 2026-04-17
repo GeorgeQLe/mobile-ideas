@@ -1,13 +1,13 @@
 # Spec Quality Audit
 
 Created: 2026-04-16
-Updated: 2026-04-16
+Updated: 2026-04-17
 
 ## Verdict
 
 The 100 technical specs now pass the Draft 1 structural and depth gate.
 
-Most specs are still not final one-for-one clone specs because exact first-party source URLs and hands-on verification remain open Phase 3 work. `001-chatgpt.md`, `006-tiktok.md`, `016-whatsapp.md`, `026-google-maps.md`, `033-airbnb.md`, and `038-doordash.md` have been upgraded to implementation-ready public-source V1 specs, with native/manual parity blockers still explicit.
+Most specs are still not final one-for-one clone specs because exact first-party source URLs and hands-on verification remain open Phase 3 work. `001-chatgpt.md`, `006-tiktok.md`, `016-whatsapp.md`, `026-google-maps.md`, `033-airbnb.md`, `038-doordash.md`, and `046-amazon.md` have been upgraded to implementation-ready public-source V1 specs, with native/manual parity blockers still explicit.
 
 ## Audit Scope
 
@@ -41,9 +41,9 @@ A Draft 1 spec must meet these minimums:
 - Specs with all canonical sections: 100.
 - Specs passing Draft 1 depth metrics: 100.
 - Specs failing Draft 1 depth metrics: 0.
-- Specs with exact first-party source URLs replacing discovery links: 6.
+- Specs with exact first-party source URLs replacing discovery links: 7.
 - Specs with hands-on app behavior fully verified: 0.
-- Specs upgraded to implementation-ready public-source V1: 6.
+- Specs upgraded to implementation-ready public-source V1: 7.
 
 ## Resolved Findings
 
@@ -63,7 +63,7 @@ All numbered specs now use the same generator-backed structure and pass the same
 
 ### High: Exact Source Replacement Remains Open
 
-Ninety-four specs still include App Store, Google Play, and official help/privacy source-discovery links. These are not exact verified first-party listing/help/privacy URLs.
+Ninety-three specs still include App Store, Google Play, and official help/privacy source-discovery links. These are not exact verified first-party listing/help/privacy URLs.
 
 Impact: A builder still needs to complete the app-by-app research pass before claiming one-for-one product truth.
 
@@ -71,7 +71,7 @@ Recommended fix: In Phase 3, replace every source-discovery link with exact mark
 
 ### High: Hands-On Verification Remains Blocked
 
-All specs still have hands-on account/device verification incomplete. `001-chatgpt.md`, `006-tiktok.md`, `016-whatsapp.md`, `026-google-maps.md`, and `033-airbnb.md` now list manual native/parity blockers explicitly rather than treating them as generic unresolved research.
+All specs still have hands-on account/device verification incomplete. `001-chatgpt.md`, `006-tiktok.md`, `016-whatsapp.md`, `026-google-maps.md`, `033-airbnb.md`, `038-doordash.md`, and `046-amazon.md` now list manual native/parity blockers explicitly rather than treating them as generic unresolved research.
 
 Impact: Subscription-gated flows, physical-device flows, region-specific flows, account recovery, deletion/export, and notification behavior may still differ from production apps.
 
@@ -88,9 +88,10 @@ Recommended fix: Use lawful test accounts/devices to verify reachable flows. Mar
 - The Google Maps spec now includes public-source requirements for map search, place details, directions, navigation, transit, traffic/incidents, offline maps, saved places, reviews/photos, business profiles, Street View/Immersive/Lens-style features, location sharing, Timeline/activity controls, ads, and location-safety blockers.
 - The Airbnb spec now includes public-source requirements for lodging search, map/list results, listing detail, booking checkout, fees/taxes, cancellations/refunds, Trips, messaging, reviews, wishlists, identity verification, host tools, payouts, damage/disputes, safety/privacy policies, and lodging-marketplace blockers.
 - The DoorDash spec now includes public-source requirements for restaurant/store discovery, menu modifiers, cart quotes, checkout fees/taxes/tips, DashPass, SNAP/EBT, alcohol ID verification, realtime order tracking, Dasher handoff, pickup, merchant adjustments, support/refunds, privacy controls, and local-delivery marketplace blockers.
+- The Amazon spec now includes public-source requirements for broad shopping marketplace discovery, product detail and variation selection, seller offers, cart/checkout, Prime-style benefits, Subscribe & Save-style recurring orders, order tracking, returns/refunds/replacements, seller tools, sponsored listings, review authenticity, customer support, privacy controls, and commerce-marketplace blockers.
 
 ## Next Steps
 
-- Continue Phase 3 implementation-readiness upgrades, starting with `046-amazon.md`.
+- Continue Phase 3 implementation-readiness upgrades, starting with `056-cash-app.md`.
 - Complete hands-on verification where lawful and feasible.
 - Refresh this audit after Phase 3 to report verified source coverage and remaining blockers.
