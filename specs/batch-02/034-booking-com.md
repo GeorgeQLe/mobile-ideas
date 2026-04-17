@@ -3,176 +3,211 @@
 > Metadata
 > - Inspiration app: Booking.com
 > - Category: Travel lodging
-> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
-> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
+> - Spec status: Implementation-ready public-source V1; hands-on account/device verification blocked unless noted.
+> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, ranking, policy language, and licensed integrations.
 
 ## Overview
-Build an original mobile product inspired by Booking.com's user-facing workflow, not its brand identity or proprietary implementation.
-The clone target is: Hotel search, filters, room selection, reservation management, loyalty pricing, reviews, and cancellation rules.
-Primary product surface: search supported by map/list results and detail flows.
-The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
-The spec intentionally separates verified public-source facts from inferred clone requirements.
+
+Build an original mobile travel marketplace inspired by Booking.com's public lodging and trip-booking workflows, not its brand identity or proprietary systems.
+The V1 centers on accommodation discovery, map/list comparison, property detail, room/rate selection, reservation management, Genius-style loyalty discounts, property messaging, cancellation/refund handling, and support.
+Flights, rental cars, taxis, attractions, and travel communities are represented as extensible product modules because the public mobile listings position the app as a broader trip-booking surface.
+The spec separates source-backed requirements from inferred clone implementation details and keeps native, paid, provider, account, notification, payment, refund, loyalty, and regional behavior blocked until lawful verification is complete.
 
 ## Goals
-- Deliver a mobile-first travel lodging experience with complete onboarding, core action, settings, and recovery flows.
-- Implement the app-specific focus: Hotel search, filters, room selection, reservation management, loyalty pricing, reviews, and cancellation rules.
-- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
-- Make public-source verification and blocked hands-on research visible before implementation starts.
-- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+- Deliver a mobile-first lodging marketplace with signed-out search, signed-in booking, room/rate comparison, cancellation policy review, reservation management, and support.
+- Replace generic Draft 1 assumptions with exact public sources, app-specific screen/data/API requirements, and explicit manual verification blockers.
+- Support original marketplace inventory, licensed maps/geocoding, provider-backed payments, transparent fees/taxes, review trust, property messaging, and privacy/data-rights controls.
+- Preserve a path for flights, rental cars, taxis, attractions, Genius-style loyalty, and partner handoffs without claiming parity for unverified or provider-dependent surfaces.
+- Provide enough product, data, API, privacy, analytics, edge-case, test, and build-plan detail for downstream estimation.
 
 ## Non-Goals
-- Do not copy Booking.com branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
-- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
-- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
-- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
-- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+- Do not copy Booking.com branding, trade dress, logos, icons, screenshots, listing photos, accommodation inventory, reviews, host/property data, marketing copy, policy text, ranking logic, or support scripts.
+- Do not scrape private marketplace data, reverse-engineer APIs, bypass provider rules, or use unlicensed hotel, flight, car, taxi, attractions, review, map, or pricing content.
+- Do not claim exact native parity for booking, cancellation, refund, messaging, loyalty, notification, payment, identity, account deletion, or provider handoff flows until verified with lawful test accounts/devices.
+- Do not implement regulated travel insurance, payments, taxes, identity checks, or transportation fulfillment without legal, provider, and compliance review.
+- Do not build runtime app code in this repository.
 
 ## Research Sources
-- App Store source-discovery link: https://apps.apple.com/us/search?term=Booking.com
-- Google Play source-discovery link: https://play.google.com/store/search?q=Booking.com&c=apps
-- Official help/privacy source-discovery link: https://www.google.com/search?q=Booking.com%20official%20app%20help%20privacy
-- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
-- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
-- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
-- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
-- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+| Source | Exact URL | Evidence Used | Status |
+|---|---|---|---|
+| Apple App Store | https://apps.apple.com/us/app/booking-com-hotels-travel/id367003839 | Official iOS listing, category, seller, supported devices, privacy labels, release cadence, lodging/flights/cars/taxis/attractions, filters, paperless confirmation, property chat, mobile discounts, free-cancellation claims | Verified 2026-04-17 |
+| Google Play | https://play.google.com/store/apps/details?id=com.booking | Official Android listing, package id, download/rating scale, data safety, accommodation types, filters, whole-trip booking, customer service, mobile discounts, reservation changes, and attractions | Verified 2026-04-17 |
+| Booking.com Customer Service | https://www.booking.com/customer-service.html | Manage booking, contact property, contact customer service, cancellation/change/payment FAQs, customer support positioning, verified review explanation | Verified 2026-04-17 |
+| Booking.com Traveler FAQ | https://www.booking.com/tpi_faq.html | Payment, incorrect charge, cancellation, modification, refund timing, partner-facilitated cancellation, confirmation, and request handling | Verified 2026-04-17 |
+| Genius Loyalty Program | https://www.booking.com/genius.html | Free account-based loyalty, levels, stay/car discounts, flight price alerts, breakfast/room-upgrade benefits, priority support, booking progress | Verified 2026-04-17 |
+| Privacy Notice For Travelers | https://www.booking.com/content/privacy.html | Traveler privacy scope, mobile apps, travel products, data categories, supplier sharing, rights, cookies, AI/automated decisions, retention, and minors | Verified 2026-04-17 |
+| Terms And Conditions | https://www.booking.com/content/terms.html | Platform/service rules, trip-provider contracts, payment/cancellation/refund responsibility, traveler obligations, dispute/legal framing | Verified 2026-04-17 |
 
 ## Detailed Design
-- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for travel lodging.
-- Home model: make Search the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
-- Core action: make Map/List Results the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
-- Detail surface: use Detail for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
-- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
-- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
-- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
-- The implementation must support location/date/availability search.
-- The implementation must render map and list views from one result model.
-- The implementation must show total price or ETA before confirmation.
-- The implementation must handle availability conflicts before payment.
-- The implementation must support saved places or wishlists.
-- The implementation must provide provider/host/driver communication where relevant.
-- The implementation must track live status updates and history.
-- The implementation must support cancellations and refunds by policy.
-- The implementation must request location only at user action.
-- The implementation must cache active trip details offline.
-- The implementation must prevent fraud and unsafe interactions.
-- The implementation must show support entry points from every active transaction.
+
+### Source-Backed Product Requirements
+
+- Public listings describe Booking.com as a mobile app for accommodations, flights, rental cars, taxis, attractions, paperless confirmations, property chat, reservation management, mobile-only discounts, and 24/7 customer service in many languages.
+- Lodging search must support destination, nearby search, dates, rooms, adults, children, pets where supported, price, review score, Wi-Fi quality, property type, special requests, free-cancellation, breakfast, accessibility, and availability filters.
+- Results must render one canonical marketplace result as list cards and map markers with property type, location, review score, price/rate summary, Genius/member discount indicators, cancellation policy summary, availability, sponsored/original ranking tags where applicable, and stale-price warnings.
+- Property detail must include media metadata, room types, rate plans, occupancy, bed configuration, amenities, accessibility, house rules, pet policy, payment policy, cancellation policy, taxes/fees, review summary, location/map preview, property contact, save/compare, and report issue actions.
+- Room/rate selection must model multiple rooms, occupancy validation, rate availability, refundable/non-refundable plans, pay-now/pay-at-property treatment, preauthorization/deposit notes, breakfast/meal inclusions, local taxes, currency, and quote expiry.
+- Checkout must present traveler details, special requests, card/payment or pay-later state, property-charged versus platform-charged responsibility, total price, taxes/fees/deposits, cancellation fees, loyalty discounts, and confirmation email/paperless itinerary state.
+- Reservation management must support upcoming/current/past/canceled reservations, confirmation number/PIN or equivalent, property messaging, date/guest/room/payment request changes where policy allows, cancellation preview, refund state, support escalation, and offline cached essentials.
+- Cancellation and refund flows must be policy-aware: free cancellation, partially refundable, non-refundable, no-show, property-canceled, partner-facilitated, prepayment/deposit, temporary card hold, and bank-processing timelines must be represented as explicit states.
+- Genius-style loyalty must be original but account-based, with signed-in eligibility, level progress, participating-property/car indicators, discount application before taxes/fees where configured, upgrade/breakfast/priority support benefit states, and no copied names or artwork.
+- Verified-review behavior must require completed bookings before review submission and must include authenticity checks, private-data redaction, moderation, right of reply where relevant, and report/removal workflows.
+- Property messaging must keep traveler/property/support communications in app, minimize private data exposure, support translation or locale fallback as an extension, and block harassment, fraud, off-platform payment requests, and unsafe instructions.
+- Flights, rental cars, taxis, and attractions should launch behind provider feature flags with separate provider contracts, booking confirmation, cancellation/refund rules, support ownership, and loyalty eligibility.
+- Privacy controls must expose profile, payment methods, trips, traveler details, loyalty, marketing, cookies/ads, data access/export, account deletion, support, terms, and privacy links.
 
 ## Core User Journeys
-- New user installs the app, reviews an original value proposition, creates an account, and reaches Search.
-- Returning user opens Search, resumes the most recent meaningful activity, and completes the primary action in Map/List Results.
-- User searches or browses from Booking/Request, opens Detail, saves or shares it, and later finds it again from history or library.
-- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
+
+- New traveler opens the app, denies location, enters a destination and dates manually, filters results, compares map/list properties, saves options, and signs in only when a booking or loyalty action requires it.
+- Returning traveler opens recent searches or trips, compares properties, reviews room/rate/cancellation details, applies an eligible loyalty discount, enters traveler/payment details, confirms, and receives a paperless reservation.
+- Traveler reviews the price breakdown before checkout, sees property-collected versus platform-collected charges, understands taxes/fees/deposits, handles a quote refresh, and retries after a card failure without duplicate booking.
+- Traveler cancels a booking, previews refund and fee consequences, confirms cancellation, receives email/in-app confirmation, and tracks refund processing or property/provider responsibility.
+- Traveler requests a reservation change, contact-property action, or special request; the system distinguishes immediate self-serve changes from property approval and support-only paths.
+- Traveler loses connectivity before check-in, opens cached reservation essentials, sees freshness warnings, and cannot perform money movement or cancellation until reconnected.
+- Loyalty user signs in, sees level and discount eligibility, filters participating properties, books an eligible stay, and sees progress/benefits update only after provider-confirmed completion.
+- Support user reports a mismatched room, incorrect charge, canceled booking, unsafe property, fraud, or privacy issue, attaches evidence, and receives an auditable case state.
+- Property-side operator uses an original partner surface to update availability, room/rate plans, cancellation policies, amenities, house rules, messages, and booking requests without exposing proprietary Booking.com partner tooling.
+- Privacy-focused user reviews collected data, marketing preferences, data export/deletion paths, and retention caveats for active bookings, payments, support cases, and legal holds.
 
 ## Screen Inventory
-| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
+
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Search | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Map/List Results | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Detail | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Booking/Request | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Checkout | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Live Trip | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Messages | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| History | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Support | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Welcome/Auth/Consent | Entry, sign-in, account, terms, privacy, loyalty prompt | email, passkey/password, guest continue, legal links | signed-out, signed-in, returning, blocked | auth failure, underage, locked account, unsupported region |
+| Destination Search | Destination/date/room setup | destination, dates, rooms, guests, pets, nearby | default, editing, valid, invalid | ambiguous destination, denied location, impossible occupancy |
+| Map/List Results | Compare lodging inventory | filters, sort, map pan, save, property tap | loading, list, map, saved, no results | stale price, unavailable property, provider outage, no map |
+| Filter And Sort | Narrow properties and policies | price, score, amenities, cancellation, accessibility | applied, cleared, saved | contradictory filters, hidden fee warning, provider lag |
+| Property Detail | Inspect accommodation before room selection | media, amenities, reviews, policies, map, save | available, unavailable, saved | missing license, safety warning, removed listing, region block |
+| Room And Rate Selection | Pick room/rate plan | room, occupancy, rate, meal, cancellation | selected, expired, sold out | price changed, non-refundable, deposit required, max occupancy |
+| Price Breakdown | Explain total price and provider responsibility | currency, taxes, fees, loyalty, payment mode | complete, estimated, refreshed | local tax unknown, property-collected fee, quote expired |
+| Checkout | Confirm reservation | traveler details, card, requests, terms, confirm | ready, authorizing, confirmed | payment fail, duplicate submit, fraud hold, provider timeout |
+| Trips/Reservation Detail | Manage booking and offline essentials | reservation, message, cancel, change, support | upcoming, active, past, canceled | stale cache, missing confirmation, property canceled |
+| Property Messages | Traveler/property/support conversation | text, attachments, translate, report | sent, delivered, support handoff | moderation hold, blocked contact, unsafe/off-platform request |
+| Loyalty | Account benefits and progress | sign in, level, eligible property, benefit | signed-out, active, pending, ineligible | stale level, benefit missing, partner ineligible |
+| Reviews | Read/write verified reviews | rating, text, property response, report | eligible, draft, submitted, moderated | unverified stay, expired window, private data, fake review |
+| Support Case | Booking, payment, safety, refund, privacy help | issue, evidence, contact, escalation | submitted, reviewing, resolved | urgent safety, duplicate claim, provider-owned issue |
+| Partner Console | Original property operations | availability, rooms, rates, policies, messages | draft, active, paused | overbooking, invalid policy, payout/tax blocker |
+| Settings/Privacy | Account, notifications, payment, data rights | toggles, export, delete, legal links | signed-in, signed-out, pending delete | active booking, retention caveat, security check fail |
 
 ## Data Model
-- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
-- `Location`: stores the primary workspace, account, or grouping context.
-- `Listing`: represents the primary user-facing catalog object, ownership, availability, and display metadata.
-- `Availability`: captures lifecycle state, ordering, timestamps, and failure reason codes.
-- `Booking`: tracks checkout, confirmation, cancellation, refund, dispute, and audit states.
-- `PaymentIntent`: tracks checkout, confirmation, cancellation, refund, dispute, and audit states.
-- `MessageThread`: captures conversation content references, participants, moderation state, and delivery status.
-- `Route`: supports safety, review, policy, or moderation decisions.
-- `Review`: stores trust, safety, support, escalation, decision, and resolution metadata.
-- `SupportCase`: stores trust, safety, support, escalation, decision, and resolution metadata.
-- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
+
+- `User`: identity, locale, language/currency, age/consent, contact channels, loyalty state, traveler profiles, privacy settings, export/delete lifecycle, and risk flags.
+- `DeviceSession`: platform, app version, auth token, notification token, location permission, offline cache version, and last active state.
+- `Destination`: text query, canonical place id, coordinates/bounds, locale names, region restrictions, nearby-search state, and map provider provenance.
+- `Property`: lodging type, title, description, location precision, media metadata, amenities, accessibility, house rules, safety/license fields, review summary, and provider status.
+- `RoomRate`: room type, bed setup, occupancy, availability, meal plan, refundable policy, payment policy, deposit/preauth, taxes/fees, loyalty discount, and quote expiry.
+- `SearchQuery`: destination, dates, rooms, adults, children, pets, filters, sort, currency, loyalty context, personalization opt-out, and pagination cursor.
+- `SearchResult`: property id, rank, map marker, rate summary, review score, cancellation badge, loyalty badge, saved/compare state, and unavailable reason.
+- `Reservation`: property, traveler party, room/rate snapshot, price snapshot, confirmation identifiers, policy snapshot, payment state, messages, change/cancel state, support cases, and audit ids.
+- `PaymentInstrument`: tokenized card/wallet, billing region, cardholder permission state, preauthorization/deposit support, failure reason, and deletion constraints.
+- `RefundCase`: cancellation reason, policy engine result, provider responsibility, refund amount, fee amount, processing timeline, payment method, and support owner.
+- `LoyaltyAccount`: original level, eligible bookings, benefits, participating inventory flags, discount application, benefit expiry, and dispute state.
+- `PropertyMessageThread`: participants, reservation link, content references, attachment scan, translation state, moderation state, delivery status, and support handoff.
+- `Review`: reservation eligibility, rating dimensions, text, media, moderation, property response, report/removal, and publication timing.
+- `SupportCase`: booking, payment, property, safety, refund, loyalty, privacy, fraud, or provider issue with evidence, owner queue, escalation, SLA, decision, and appeal.
+- `PartnerInventoryRecord`: property operator, rooms, rates, availability calendar, cancellation rules, taxes/fees, amenities, safety disclosures, and version conflicts.
+- `AuditEvent`: append-only record for auth, search, quote, checkout, payment, cancellation, refund, loyalty, messaging, review, support, privacy, and partner writes.
+- `LocalCacheRecord`: cached searches, property summaries, reservation essentials, message drafts, support evidence drafts, settings, freshness, and conflict metadata.
 
 ## API And Backend Contracts
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /locations, GET /listings, GET /availabilities, GET /bookings; all reads return pagination, cache hints, authorization status, and stale-data indicators.
-- Writes: POST /users, POST /locations, POST /listings, POST /availabilities, POST /bookings; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
-- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+
+- `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, `DELETE /auth/sessions/:id`: account lifecycle with deletion, locked-account, age, locale, and device gates.
+- `GET /destinations/suggest`, `GET /search/lodging`: destination suggestions and lodging search with filters, map bounds, pagination, ranking reason codes, quote freshness, and provider status.
+- `GET /properties/:id`, `GET /properties/:id/rooms`: property details, room/rate inventory, policy snapshots, media metadata, review summaries, safety/license fields, and stale-data indicators.
+- `POST /quotes`, `GET /quotes/:id`: room/rate quote with price, taxes, fees, currency, cancellation policy, loyalty discount, deposit/preauth, provider responsibility, and expiry.
+- `POST /reservations`, `GET /reservations`, `GET /reservations/:id`: booking creation and trip reads with idempotency keys, confirmation identifiers, support affordances, and offline cache hints.
+- `POST /reservations/:id/cancel-preview`, `POST /reservations/:id/cancel`, `POST /reservations/:id/change-request`: policy-aware cancellation/refund and change flows with provider response states.
+- `GET /loyalty`, `POST /loyalty/enroll`, `GET /loyalty/eligible-inventory`: original loyalty progress, benefit eligibility, participating inventory, and missing-benefit dispute hooks.
+- `GET /messages`, `POST /message-threads/:id/messages`, `POST /message-threads/:id/attachments`, `POST /message-threads/:id/report`: property/support messaging with moderation and malware scan.
+- `POST /reviews`, `GET /properties/:id/reviews`, `POST /reviews/:id/report`, `POST /reviews/:id/respond`: verified review lifecycle, sorting, response, report, and moderation decisions.
+- `POST /support/cases`, `GET /support/cases/:id`, `POST /support/cases/:id/evidence`, `POST /support/cases/:id/escalate`: payment, cancellation, property, safety, loyalty, and privacy support.
+- `GET /partner/properties`, `PATCH /partner/properties/:id`, `PATCH /partner/properties/:id/inventory`: original partner inventory and policy management with authorization, validation, and audit events.
+- `POST /data-export`, `GET /data-export/:id`, `DELETE /account`, `GET /privacy/settings`, `PATCH /privacy/settings`: privacy rights with active-booking, fraud, payment, and legal-retention caveats.
 
 ## Realtime, Push, And Offline Behavior
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+
+- Booking confirmation, payment authorization, property message, change request, cancellation, refund, loyalty, support, and partner inventory updates must use websocket/SSE/push-assisted polling with stable event ids and server reconciliation.
+- The client may cache recent searches, property summaries, saved/compared items, settings, message drafts, and active reservation essentials; cached reservations must show freshness and cannot hide cancellation/provider changes.
+- Offline mode may show cached trip essentials such as address, check-in/out, confirmation identifiers, and property contact where policy allows, but checkout, cancellation, refund, payment, support escalation, account deletion, and partner writes require server confirmation.
+- Price quotes, taxes, fees, room availability, cancellation policy, loyalty eligibility, and provider availability must expire and refresh before confirmation.
+- Push notifications must be opt-in and category-controlled for booking confirmation, property messages, check-in reminders, cancellation/refund updates, support, loyalty, price alerts, account security, and marketing.
+- Flights, cars, taxis, attractions, Genius benefits, and provider support states must be feature-flagged by region, provider contract, legal review, and manual verification.
 
 ## Permissions, Privacy, And Safety
-- Treat location privacy as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat payment disputes as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat fraud as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat personal safety as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat regulatory constraints as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+
+- Request location, notifications, camera/photos/files, calendar, contacts, and device authentication only when a related feature is invoked.
+- Default analytics must exclude precise location, full address, payment credentials, cardholder data, raw property messages, traveler identity documents, support evidence, and confirmation identifiers.
+- Lodging safety controls must cover unsafe property reports, mismatched room, hidden fees, discrimination, scams, off-platform payment, harassment, privacy invasion, review abuse, and emergency support paths.
+- Payment, refund, deposit, preauthorization, tax, fee, loyalty discount, and currency behavior must be provider-backed, auditable, and jurisdiction-reviewed.
+- Property/traveler messaging must block off-platform payment pressure, abusive content, sensitive data leakage, spam, fraud, and unsupported provider claims.
+- Review authenticity must require stay eligibility, anti-coercion rules, private-information redaction, moderation, appeal, and property response controls.
+- Privacy rights must support profile edits, marketing/cookie choices, data access/export, account deletion, and documented retention limits for active bookings, payments, taxes, disputes, fraud investigations, and legal holds.
+- Launch owners: marketplace trust owner for fraud/reviews, legal/compliance owner for lodging/taxes/terms, payments owner for checkout/refunds, safety owner for property incidents, privacy owner for data rights, accessibility owner for inclusive travel filters, and support owner for booking disputes.
 
 ## Analytics And Monetization
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
+
+- Track privacy-safe events: onboarding started/completed, destination searched, filter applied, map moved, property opened, room selected, quote refreshed, loyalty benefit viewed, checkout started, booking confirmed, cancellation previewed, support opened, review submitted, data export requested, account deletion requested.
+- Marketplace quality metrics must use object ids, reason codes, latency, quote freshness, provider status, availability freshness, and support SLA without raw messages, payment credentials, exact addresses, or private traveler data.
+- Search/ranking diagnostics must separate organic ranking, sponsored placements, availability, price, cancellation, loyalty, personalization, and legal-region logic, with privacy opt-out behavior.
+- Monetization can include original marketplace fees, lodging commissions, loyalty benefits, ads/sponsored listings, partner booking handoffs, attractions, taxis, cars, premium support, or business travel tools, but fee names/rates and promotional language must be original and legal-reviewed.
+- Fee/tax display must be transparent before confirmation and explicit about whether the platform, property, travel provider, tax authority, or payment provider collects each amount.
 
 ## Edge Cases
-- First launch with no network, no account, or expired session.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
+
+- First launch offline, expired session, unsupported OS, underage user, blocked region, language/currency mismatch, or all optional permissions denied.
+- Destination is ambiguous, unavailable, unsafe, misspelled, embargoed, too broad, or unsupported by licensed maps/place providers.
+- Property is sold out, duplicated, removed, overbooked, suspended, has stale rates, has undisclosed local fees, lacks accessibility data, or changes policy after quote.
+- Room occupancy includes children, infants, pets, multiple rooms, extra beds, accessibility requirements, special requests, and contradictory property rules.
+- Price quote expires, card preauthorization fails, property charges directly, deposit is required, currency changes, loyalty discount disappears, or payment webhook is delayed.
+- Traveler cancels inside/outside free-cancellation window, no-shows, receives property cancellation, has partially refundable policy, or receives refund via provider-owned payment path.
+- Property message is undelivered, translated poorly, contains off-platform payment request, includes private data, enters moderation hold, or requires support handoff.
+- Review window expires, traveler did not complete stay, review contains private/safety content, property disputes review, or fraud system detects incentive abuse.
+- Data export, account deletion, payment method deletion, message retention, reservation history, tax retention, support evidence, legal hold, and fraud investigation conflict.
 
 ## Test Plan
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+
+- Unit tests for destination parsing, filter validation, room/guest rules, availability conflicts, quote expiry, tax/fee line items, loyalty eligibility, and cancellation/refund state machines.
+- Unit tests for privacy-safe analytics, sensitive-field redaction, account deletion eligibility, data export, location permission states, and notification category preferences.
+- Contract tests for search, property, room/rate, quote, reservation, cancellation-preview, refund, loyalty, messaging, review, support, partner inventory, and privacy endpoints.
+- Integration tests for signed-out search, signed-in booking, map/list results, property detail, room selection, checkout, payment failure recovery, trips, cancellation preview, support, and review submission.
+- Offline tests for cached search/property/trip reads, queued message/support drafts, blocked checkout/cancel/payment/delete actions, corrupt cache, and reconnect reconciliation.
+- Payment/refund tests for card failure, property-charged state, platform-charged state, preauthorization/deposit, duplicate submit, refund timeline, partial refund, and provider timeout.
+- Messaging and support tests for property contact, attachment scan, moderation hold, off-platform request, unsafe property report, incorrect charge, duplicate claim, and emergency escalation.
+- Accessibility tests for dynamic type, screen reader labels, focus order, contrast, reduced motion, map/list alternatives, room/rate comparison, and fee/cancellation comprehension.
+- Manual verification tests: native iOS/Android screenshots, account signup/login, checkout/payment, reservation modification, cancellation/refund, property messaging, push payloads, loyalty level/discount, flight/car/taxi/attraction modules, account deletion, and regional availability.
 
 ## Acceptance Criteria
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+
+- Exact source links in this spec remain current or are refreshed before implementation starts.
+- A downstream team can build the V1 without Booking.com assets, inventory, reviews, private APIs, policy text, ranking systems, pricing formulas, or support scripts.
+- New and returning travelers can search destinations, compare map/list results, inspect properties, choose room/rate plans, review fees/taxes/cancellation rules, book a reservation, manage trips, message the property, cancel with refund preview, and recover from denied permissions or network loss.
+- Checkout, pricing, payment responsibility, deposits/preauthorization, cancellation, refunds, loyalty discounts, reviews, support, and provider handoffs are represented as auditable server-owned state machines.
+- Property safety, fraud, off-platform payment, review authenticity, privacy, payment data, support evidence, data export, and account deletion controls are accessible from settings/support and covered by tests.
+- Flights, rental cars, taxis, attractions, Genius-like benefits, provider inventory, native push payloads, and regional legal/tax surfaces remain feature-flagged until provider, legal, privacy, safety, accessibility, and manual verification clear them.
 
 ## Open Questions
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+- Which licensed lodging, map/geocoding, payment, tax, messaging, review, support, fraud, analytics, notification, flight, car, taxi, and attractions providers will back V1?
+- Which launch regions determine lodging taxes, fee display, card preauthorization, cancellation/refund rules, accessibility claims, local fees, and language/customer-support requirements?
+- Will V1 include only lodging at launch, or also flight, car, taxi, and attraction modules behind provider flags?
+- What original loyalty model replaces Genius without copying names, benefit design, discount rules, or promotional language?
+- What policy posture governs free cancellation, non-refundable rates, no-shows, deposit/prepayment, property-collected taxes/fees, refunds, and support decisions?
+- Which property trust requirements are mandatory before publication: business verification, address verification, license/tax setup, safety disclosures, photo review, payment setup, and support contact?
+
+## Build Plan
+
+- Phase 1: scaffold app shell, auth/guest mode, destination search, map/list results, property detail, saved/compare state, settings/legal links, privacy-safe analytics, and licensed map/provider attribution.
+- Phase 2: add room/rate inventory, quote generation, fee/tax/cancellation breakdown, loyalty eligibility, checkout session, payment authorization, reservation confirmation, and booking tests.
+- Phase 3: add Trips, offline reservation essentials, property messaging, support cases, cancellation/refund preview, reservation change requests, and notification categories.
+- Phase 4: add verified reviews, review moderation, property response, fraud/risk gates, off-platform payment detection, safety reports, and support audit tooling.
+- Phase 5: add original partner console for rooms/rates/availability/policies/messages and partner validation tests.
+- Phase 6: evaluate flights, rental cars, taxis, attractions, advanced loyalty, price alerts, and business travel only after provider, legal, privacy, safety, accessibility, and manual verification approvals.
 
 ## Next Steps
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
-- Resolve open questions and update this spec before app implementation starts.
-- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.
+
+- Resolve manual verification blockers before claiming one-for-one native parity.
+- Use this lodging-marketplace spec with `033-airbnb.md` as the travel-booking pattern for related accommodation and marketplace specs.
+- Continue the Batch 02 travel booking pass with `035-expedia.md`, `036-hopper.md`, and `037-tripit.md`.

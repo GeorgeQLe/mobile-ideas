@@ -3,176 +3,207 @@
 > Metadata
 > - Inspiration app: Hopper
 > - Category: Travel deals
-> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
-> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
+> - Spec status: Implementation-ready public-source V1; hands-on account/device verification blocked unless noted.
+> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, predictive models, policy language, and licensed integrations.
 
 ## Overview
-Build an original mobile product inspired by Hopper's user-facing workflow, not its brand identity or proprietary implementation.
-The clone target is: Price prediction, watchlists, deal alerts, flexible dates, booking freeze concepts, and trip fintech add-ons.
-Primary product surface: search supported by map/list results and detail flows.
-The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
-The spec intentionally separates verified public-source facts from inferred clone requirements.
+
+Build an original mobile-first travel deals app inspired by Hopper's public price-prediction, watchlist, booking, price-freeze, and trip-flexibility workflows.
+The V1 should support flight, hotel, home, and car search; deal calendars; watch notifications; booking checkout; price-freeze-style holds; cancel/change-for-any-reason-style add-ons; disruption assistance; support; and privacy controls.
+Because Hopper-like products blend OTA booking with predictive recommendations and paid flexibility products, this spec treats prediction, freeze, refund, rebooking, and add-on claims as high-risk, auditable, legal-reviewed behavior.
+Native parity, paid add-ons, push payloads, real provider booking, price prediction accuracy, rewards, refunds, rebooking, and regional eligibility remain manual blockers.
 
 ## Goals
-- Deliver a mobile-first travel deals experience with complete onboarding, core action, settings, and recovery flows.
-- Implement the app-specific focus: Price prediction, watchlists, deal alerts, flexible dates, booking freeze concepts, and trip fintech add-ons.
-- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
-- Make public-source verification and blocked hands-on research visible before implementation starts.
-- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+- Replace Draft 1 discovery placeholders with exact first-party marketplace, product, help/legal, and privacy sources.
+- Define app-specific requirements for price prediction, watchlists, color-coded deal calendars, flight/hotel/home/car booking, price freezes, trip-flexibility add-ons, disruption guarantees, and support.
+- Model all prediction, quote, freeze, refund, rebooking, and paid add-on states as original, server-owned, legally reviewed contracts.
+- Keep unverified native, account, paid, notification, supplier, prediction, refund, and regulated travel-product behavior blocked.
+- Provide screen inventory, data model, API/backend contracts, offline/realtime behavior, safety/privacy controls, tests, acceptance criteria, and build plan.
 
 ## Non-Goals
-- Do not copy Hopper branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
-- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
-- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
-- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
-- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+- Do not copy Hopper branding, mascot, icons, screenshots, marketing copy, proprietary prediction models, deal rankings, price histories, supplier inventory, product names, legal terms, or support scripts.
+- Do not present paid flexibility products as insurance unless legally approved and provider-backed.
+- Do not claim exact prediction accuracy, freeze coverage, cancel/change refund, disruption guarantee, or customer-support behavior without verified product terms and lawful test bookings.
+- Do not scrape private flight, lodging, home, car, fare, hotel-rate, or price-history data.
+- Do not build application code in this repository.
 
 ## Research Sources
-- App Store source-discovery link: https://apps.apple.com/us/search?term=Hopper
-- Google Play source-discovery link: https://play.google.com/store/search?q=Hopper&c=apps
-- Official help/privacy source-discovery link: https://www.google.com/search?q=Hopper%20official%20app%20help%20privacy
-- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
-- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
-- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
-- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
-- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+| Source | Exact URL | Evidence Used | Status |
+|---|---|---|---|
+| Apple App Store | https://apps.apple.com/us/app/hopper-flights-hotels-cars/id904052407 | Official iOS listing, category, seller, price prediction/watch, deal calendar, flights/hotels/homes/cars, Price Freeze, Cancel/Change For Any Reason, disruption guarantee, support, carbon/tree claims, privacy labels | Verified 2026-04-17 |
+| Google Play | https://play.google.com/store/apps/details?id=com.hopper.mountainview.play | Official Android listing, package id, download/rating scale, data safety, flights/hotels/homes/cars, watch notifications, price freeze, flexible trip products, support contact | Verified 2026-04-17 |
+| Hopper Web Product | https://hopper.com/ | Public Hopper web surface, sign-in deals, rewards/deals orientation, app download, destination deal modules, iOS/Android ratings | Verified 2026-04-17 |
+| Hopper Help Center | https://help.hopper.com/ | Official support entrypoint referenced by listings; exact article-level behavior must be verified before implementation | Verified entrypoint 2026-04-17 |
+| Hopper Privacy Notice | https://mobile-api.hopper.com/api/v1/legal/privacy-policy.html | Privacy scope, account phone verification, booking data, supplier sharing, notifications, marketing/analytics identifiers, access/deletion rights, security, minors | Verified 2026-04-17 |
+| HTS Privacy Notice | https://hts.hopper.com/legal/privacy-policy | Hopper Technology Solutions privacy, services, vendors, personalization, fraud, rights, international transfer, minors, data controller details | Verified 2026-04-17 |
+| Legal Overview | https://mobile-api.hopper.com/api/v1/legal/legal-overview.html | Flight booking caveats, airline rules, cancellation/change fees, non-refundable ticket/booking fee, baggage/additional service caveats, travel documentation, terms/privacy acceptance | Verified 2026-04-17 |
+| Price Freeze For Hotels | https://media.hopper.com/news/hopper-announces-price-freeze-for-hotels-to-help-summer-travelers-lock-in | Public product description for hotel price freeze, coverage cap, deposit crediting, lower-price treatment, transferability claim, mobile availability | Verified 2026-04-17 |
+| Cancel For Any Reason Terms | https://hts.hopper.com/legal/Travix-CFAR | Example CFAR terms, eligibility, cancellation deadline, refund handling, restrictions, non-transferability, service not offered on every booking | Verified 2026-04-17 |
+| Disruption Assistance Example | https://hts.hopper.com/legal/Viva-Disruption | Example disruption assistance terms, delay/cancellation trigger, rebooking cap, service expiration, restrictions, taxes, passenger scope | Verified 2026-04-17 |
 
 ## Detailed Design
-- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for travel deals.
-- Home model: make Search the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
-- Core action: make Map/List Results the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
-- Detail surface: use Detail for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
-- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
-- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
-- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
-- The implementation must support location/date/availability search.
-- The implementation must render map and list views from one result model.
-- The implementation must show total price or ETA before confirmation.
-- The implementation must handle availability conflicts before payment.
-- The implementation must support saved places or wishlists.
-- The implementation must provide provider/host/driver communication where relevant.
-- The implementation must track live status updates and history.
-- The implementation must support cancellations and refunds by policy.
-- The implementation must request location only at user action.
-- The implementation must cache active trip details offline.
-- The implementation must prevent fraud and unsafe interactions.
-- The implementation must show support entry points from every active transaction.
+
+### Source-Backed Product Requirements
+
+- Public listings position Hopper as a mobile app for flights, hotels, homes, and rental cars with price prediction, watch notifications, cheapest-date calendar, price freeze, cancel/change add-ons, disruption rebooking, and 24/7 customer support.
+- Search must support flights, hotels, homes, and cars with product-specific filters and one shared deal-orientation model: quote freshness, predicted trend, current recommendation, confidence, and provider availability.
+- Price prediction must be original, explainable, and probabilistic; every recommendation needs model version, data source, confidence, freshness, and fallback copy when prediction is unavailable.
+- Watchlists must let users watch a route/stay/car search, set date/range preferences, receive push/email alerts, pause/delete watches, and understand that recommendations are not guarantees.
+- Deal calendars must show relative price bands for date combinations without copying Hopper colors/artwork; accessible labels must explain cheap/typical/expensive states without relying on color alone.
+- Price-freeze-style holds must model deposit/fee, frozen product, freeze window, coverage cap, lower-price treatment, transferability, expiration, provider availability, purchase conversion, refundability, and tax/fee treatment.
+- Cancel/change-for-any-reason-style add-ons must be presented as original service products with eligibility, purchase timing, covered booking scope, refund amount, deadline, excluded disruptions, passenger scope, and legal disclaimers.
+- Disruption assistance must model eligible delay/cancellation events, rebooking offers, service caps, election window, traveler choice, no-election expiry, and supplier/provider limitations.
+- Checkout must disclose base trip price, taxes/fees, paid add-ons, price-freeze fee/deposit, flexibility products, provider rules, booking fees, non-refundable amounts, payment method, and quote expiry before confirmation.
+- Trip management must group booked travel, watches, freezes, support cases, add-ons, refund/rebooking states, confirmation emails, supplier contact, and offline essentials.
+- Support must cover booking errors, paid add-on questions, refund/rebooking, flight disruption, hotel/car issues, payment problems, account access, privacy requests, and complaint escalation.
+- Carbon/planting, rewards, subscription, or deal-club claims must remain feature-flagged until public terms, provider commitments, and legal substantiation are reviewed.
 
 ## Core User Journeys
-- New user installs the app, reviews an original value proposition, creates an account, and reaches Search.
-- Returning user opens Search, resumes the most recent meaningful activity, and completes the primary action in Map/List Results.
-- User searches or browses from Booking/Request, opens Detail, saves or shares it, and later finds it again from history or library.
-- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
+
+- New traveler installs the app, searches a flight route, views a cheapest-date calendar, receives a book-now-or-watch recommendation, creates an account, and starts a watch without booking.
+- Returning traveler receives a price alert, opens the watched trip, reviews prediction confidence and fare rules, books the flight, and sees supplier confirmation plus support actions.
+- Traveler searches hotels, freezes a rate with a fee/deposit, waits, returns before expiration, books at the frozen or lower rate where rules allow, or lets the freeze expire with clear outcome.
+- Traveler buys a cancel-for-any-reason-style add-on at checkout, later cancels within the eligible window, sees the refund calculation, and tracks payout or denial reason.
+- Traveler encounters a delayed or canceled flight, opens disruption assistance, receives eligible rebooking options up to a cap, selects or declines, and sees service-expiration warnings.
+- Car renter searches rental cars, reviews age/deposit/provider terms, books, and receives pickup/dropoff details with provider-owned support caveats.
+- Traveler loses connectivity during a trip, reads cached itinerary and support number, but cannot book, freeze, cancel, change, or request reimbursement until reconnected.
+- Support user disputes a price-freeze, add-on, refund, rebooking, or supplier issue through evidence-backed case routing.
+- Privacy-focused user reviews phone/email, search history, watched trips, booked trips, notifications, marketing/analytics choices, data access/deletion, and supplier sharing.
 
 ## Screen Inventory
-| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
+
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Search | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Map/List Results | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Detail | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Booking/Request | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Checkout | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Live Trip | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Messages | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| History | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Support | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Welcome/Auth/Consent | Entry, phone/email account, terms, privacy | phone/email, OTP, passkey/password, legal links | new, returning, signed-out | OTP fail, locked account, underage, blocked region |
+| Deals Home | Search, watches, deals, rewards/deal modules | vertical, destination, dates, watch, sign in | personalized, signed-out, empty | no deals, personalization disabled, provider outage |
+| Flight Search | Route and fare discovery | origin, destination, dates, passengers, cabin | results, calendar, watch, book | prediction unavailable, fare expired, baggage ambiguity |
+| Hotel/Home Search | Lodging deal discovery | destination, dates, guests, filters, map | list, map, calendar, freeze | stale rate, room sold out, provider unavailable |
+| Car Search | Rental car discovery | location, dates, driver age, filters | results, selected, booked | age/deposit block, provider terms conflict |
+| Deal Calendar | Flexible-date pricing | date grid, range, watch, select | cheap, typical, expensive, unknown | color-only risk, stale price, no inventory |
+| Prediction Detail | Explain recommendation | trend, confidence, history, watch | book, wait, watch, unavailable | low confidence, model stale, provider missing |
+| Watchlist | Watched trips and alerts | create, pause, delete, alert settings | active, paused, alerted | duplicate watch, notification denied, stale alert |
+| Price Freeze | Hold a price/rate | freeze product, fee/deposit, window | active, converted, expired | price changed, cap exceeded, provider sold out |
+| Checkout | Book trip and add products | traveler, payment, add-ons, terms | ready, authorizing, booked | payment fail, fraud review, quote expired |
+| Trip Detail | Booked itinerary and recovery | booking, support, cancel/change, docs | upcoming, active, past, canceled | supplier change, offline stale, confirmation missing |
+| Add-On Claims | Cancel/change/disruption service state | claim, reason, evidence, options | eligible, submitted, approved, denied | missed deadline, excluded event, cap exceeded |
+| Support Case | Help and dispute handling | issue, evidence, contact, escalation | submitted, reviewing, resolved | urgent travel, duplicate, legal hold |
+| Settings/Privacy | Account, notifications, data rights | toggles, export, delete, legal links | signed-in, signed-out, pending delete | active booking, retention caveat, OTP fail |
 
 ## Data Model
-- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
-- `Location`: stores the primary workspace, account, or grouping context.
-- `Listing`: represents the primary user-facing catalog object, ownership, availability, and display metadata.
-- `Availability`: captures lifecycle state, ordering, timestamps, and failure reason codes.
-- `Booking`: tracks checkout, confirmation, cancellation, refund, dispute, and audit states.
-- `PaymentIntent`: tracks checkout, confirmation, cancellation, refund, dispute, and audit states.
-- `MessageThread`: captures conversation content references, participants, moderation state, and delivery status.
-- `Route`: supports safety, review, policy, or moderation decisions.
-- `Review`: stores trust, safety, support, escalation, decision, and resolution metadata.
-- `SupportCase`: stores trust, safety, support, escalation, decision, and resolution metadata.
-- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
+
+- `User`: identity, phone/email verification, locale, language/currency, traveler profiles, notification preferences, rewards/deals state, privacy settings, export/delete lifecycle, and risk flags.
+- `DeviceSession`: platform, app version, auth token, notification token, location permission, attribution identifiers, offline cache version, and last active state.
+- `TravelSearch`: vertical, route/destination, dates/flexible range, travelers, cabin/rooms/driver age, filters, sort, personalization state, and cursor.
+- `ProviderOffer`: flight, hotel, home, or car offer with supplier id, fare/rate class, availability token, price, taxes/fees, rules, add-on eligibility, and expiry.
+- `Prediction`: watched search, model version, data source, recommendation, confidence, price bands, expected movement, generated time, and unavailable reason.
+- `Watch`: user, search criteria, alert channels, price threshold, recommendation status, pause/delete state, last alert, and dedupe key.
+- `DealCalendarCell`: date/date-range, product type, price band, quote reference, confidence, inventory state, accessible label, and freshness.
+- `PriceFreeze`: offer snapshot, fee/deposit, freeze window, coverage cap, converted booking, lower-price handling, transferability, expiration, refundability, and audit ids.
+- `FlexProduct`: cancel/change/disruption add-on, eligible product, service terms version, deadline, refund/rebooking cap, passenger scope, excluded events, and legal disclaimer state.
+- `Booking`: booked offer, traveler profiles, payment state, supplier confirmation, add-ons, price-freeze link, support cases, cancellation/change state, and audit ids.
+- `Claim`: flex/disruption/refund claim, eligibility result, evidence, traveler election, payout/rebooking result, denial reason, SLA, and appeal state.
+- `PaymentMethod`: tokenized card/wallet, billing country, SCA/3DS state, add-on fee/refund support, failure reason, and deletion constraints.
+- `SupportCase`: booking, freeze, prediction, watch, add-on, disruption, supplier, payment, privacy, or account issue with evidence, owner queue, decision, and legal hold.
+- `AuditEvent`: append-only record for auth, search, prediction, watch, quote, freeze, checkout, payment, add-on purchase, claim, support, privacy, and supplier callbacks.
+- `LocalCacheRecord`: cached watches, predictions, trip summaries, support drafts, settings, provider contacts, freshness, and conflict markers.
 
 ## API And Backend Contracts
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /locations, GET /listings, GET /availabilities, GET /bookings; all reads return pagination, cache hints, authorization status, and stale-data indicators.
-- Writes: POST /users, POST /locations, POST /listings, POST /availabilities, POST /bookings; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
-- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+
+- `POST /auth/session`, `POST /auth/verify`, `POST /auth/recover`, `DELETE /auth/session`: phone/email account lifecycle with fraud, deletion, and device gates.
+- `GET /search/flights`, `GET /search/hotels`, `GET /search/homes`, `GET /search/cars`: product search with provider availability, fare/rate rules, pagination, quote freshness, and add-on eligibility.
+- `POST /predictions`, `GET /predictions/:id`: original price recommendation with model version, confidence, freshness, accessible explanation, and unavailable states.
+- `GET /deal-calendar`: date-band reads with price bands, confidence, inventory status, and stale-price handling.
+- `GET /watches`, `POST /watches`, `PATCH /watches/:id`, `DELETE /watches/:id`: watched searches, alert preferences, pause/delete, dedupe, and notification state.
+- `POST /price-freezes`, `GET /price-freezes/:id`, `POST /price-freezes/:id/convert`, `POST /price-freezes/:id/transfer`: freeze purchase, expiry, conversion, lower-price handling, cap, and audit events.
+- `GET /flex-products`, `POST /flex-products/purchase`, `POST /claims`, `GET /claims/:id`: add-on eligibility, purchase timing, service terms, claim submission, refund/rebooking decision, and appeal path.
+- `POST /checkout/session`, `POST /bookings`, `GET /trips`, `GET /trips/:id`: booking creation and itinerary reads with idempotency, add-ons, supplier confirmations, and support affordances.
+- `POST /supplier/webhooks/flights`, `POST /supplier/webhooks/hotels`, `POST /supplier/webhooks/cars`: confirmation, schedule, cancellation, refund, and provider status callbacks with dedupe.
+- `POST /support/cases`, `GET /support/cases/:id`, `POST /support/cases/:id/evidence`, `POST /support/cases/:id/escalate`: account, booking, freeze, add-on, disruption, payment, supplier, and privacy cases.
+- `POST /data-export`, `GET /data-export/:id`, `DELETE /account`, `GET /privacy/settings`, `PATCH /privacy/settings`: privacy rights with active-trip, payment, add-on, fraud, support, and legal-retention caveats.
 
 ## Realtime, Push, And Offline Behavior
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+
+- Price alerts, watch recommendations, price-freeze expiry, booking confirmation, supplier schedule changes, disruption eligibility, claim status, support, and account-security updates must use push-assisted polling/websocket events with stable ids.
+- The client may cache active watches, recent predictions, deal calendars, trip summaries, provider contacts, support drafts, and settings; cached predictions must display generated time and cannot be treated as current.
+- Offline mode may show cached watches, trip details, and support contact, but search refresh, booking, price freeze, add-on purchase, cancellation, claim submission, payment, and account deletion require server confirmation.
+- Provider offers, predictions, deal calendar cells, price-freeze conversion eligibility, add-on eligibility, taxes/fees, and payment sessions must expire and refresh before transaction.
+- Push notification categories must include price alerts, watch updates, freeze expiry, booking confirmation, disruption, claim decision, support, account security, rewards/deals, and marketing.
+- Price freeze, CFAR/change, disruption, carbon/rewards, homes, cars, and partner products must be feature-flagged by provider contract, legal review, jurisdiction, and manual verification.
 
 ## Permissions, Privacy, And Safety
-- Treat location privacy as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat payment disputes as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat fraud as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat personal safety as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat regulatory constraints as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+
+- Request notifications, location, calendar, camera/photos/files, contacts, and device authentication only when a related feature is invoked.
+- Default analytics must exclude raw payment credentials, government IDs, full date of birth, exact travel documents, supplier confirmation numbers, private support evidence, and precise location trails.
+- Predictions and recommendations must be labeled as estimates, include confidence/freshness, avoid manipulative urgency, and degrade gracefully when model input is insufficient.
+- Paid flexibility products must show clear eligibility, non-refundable fees, exclusions, caps, deadlines, and legal disclaimers before purchase.
+- Payment, refund, freeze, claim, rebooking, coupon/reward, tax, and supplier settlement behavior must be server-owned, auditable, and provider/legal-reviewed.
+- Support and safety controls must cover stranded travelers, supplier cancellation, payment disputes, add-on denial, fraud, account takeover, privacy incidents, and urgent disruption escalation.
+- Privacy rights must support account update, marketing/analytics choices, data access/export, deletion, and retention caveats for bookings, payments, claims, support, fraud, and legal obligations.
+- Launch owners: prediction owner for model quality, legal/compliance owner for paid add-ons and claims, supplier owner for inventory/booking, payments owner for checkout/refunds, privacy owner for data rights, support owner for disruption/claims, and accessibility owner for deal calendar/prediction UX.
 
 ## Analytics And Monetization
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
+
+- Track privacy-safe events: onboarding started/completed, search performed, calendar viewed, prediction generated, watch created, alert opened, freeze offered/purchased/converted/expired, checkout started, add-on viewed/purchased, trip booked, claim submitted, support opened, data export requested, account deletion requested.
+- Prediction analytics must record model version, confidence band, outcome category, alert latency, and error code without exposing raw user itinerary, payment, or private supplier data.
+- Monetization can include original booking commissions, paid price holds, paid flexibility products, subscription/deal programs, rewards, supplier promotions, carbon contributions, or premium support, but claims, fees, benefit names, and promotional copy must be original and legally substantiated.
+- Paid add-on analytics must separate quote, eligibility, purchase, claim, approval, denial, payout, rebooking, appeal, and complaint states for audit.
+- Fee display must distinguish base fare/rate, taxes, provider fees, platform fees, freeze fee/deposit, paid add-ons, refunds, caps, and non-refundable amounts.
 
 ## Edge Cases
-- First launch with no network, no account, or expired session.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
+
+- First launch offline, OTP failure, locked account, underage user, unsupported region, language/currency mismatch, or notifications denied.
+- Prediction unavailable, low confidence, stale model, provider outage, duplicate watch, alert arrives after price changes, or user books elsewhere.
+- Deal calendar price band changes, no inventory remains, color-only accessibility fails, date range crosses holidays, or quote expires.
+- Price freeze expires, offer sells out, cap is exceeded, lower price appears, fee/deposit is non-refundable, transfer target is invalid, or provider rejects conversion.
+- CFAR/change add-on is unavailable, purchased too late, canceled after deadline, partial trip scope, excluded event, multiple passengers, or refund amount is capped.
+- Disruption event is outside threshold, election window expires, rebooking cap is exceeded, traveler no-shows, supplier changes status late, or replacement fare is unavailable.
+- Payment fails, duplicate authorization occurs, add-on and base booking settle separately, refund returns to closed card, or chargeback conflicts with claim.
+- Support case is urgent, duplicate, outside policy, supplier-owned, fraud-sensitive, legal-hold constrained, or safety-critical.
+- Data export, account deletion, watch history, booking history, payment retention, claim evidence, support logs, fraud investigation, and legal hold conflict.
 
 ## Test Plan
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+
+- Unit tests for search filters, deal-calendar bands, prediction freshness/confidence, watch dedupe, alert rules, quote expiry, price-freeze state machine, and add-on eligibility.
+- Unit tests for CFAR/change/disruption claim windows, caps, passenger scope, excluded events, refund/rebooking decisions, appeal states, and legal disclaimer display.
+- Unit tests for privacy-safe analytics, sensitive-field redaction, account deletion eligibility, data export, notification permission states, and model-outcome logging.
+- Contract tests for search, prediction, deal calendar, watch, price freeze, flex product, claim, checkout, booking, supplier webhook, support, and privacy endpoints.
+- Integration tests for flight search, hotel search, car search, deal calendar, watch creation, price alert open, freeze purchase/conversion, checkout, trip detail, claim submission, and support.
+- Offline tests for cached watches/predictions/trips, blocked booking/freeze/add-on/claim/payment/delete actions, stale prediction warnings, corrupt cache, and reconnect reconciliation.
+- Payment/refund tests for fee/deposit, add-on fee, duplicate submit, provider failure, partial refund, claim payout, rebooking cap, closed-card refund, and webhook delay.
+- Accessibility tests for dynamic type, screen reader labels, focus order, contrast, reduced motion, deal calendar alternatives, prediction explanation, and claim disclosure comprehension.
+- Manual verification tests: native iOS/Android screenshots, phone/email signup, flight/hotel/car checkout, price alerts, price freeze, paid flexibility products, disruption assistance, support, push payloads, refunds, account deletion, and regional availability.
 
 ## Acceptance Criteria
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+
+- Exact source links in this spec remain current or are refreshed before implementation starts.
+- A downstream team can build V1 without Hopper assets, mascot, supplier inventory, proprietary prediction models, private APIs, product names, legal terms, price histories, ranking systems, or support scripts.
+- Travelers can search flights/hotels/homes/cars, view accessible deal calendars, watch trips, receive alerts, understand prediction confidence, book travel, manage trips, purchase clearly disclosed original flexibility products, and recover from denied permissions or network loss.
+- Predictions, watches, quotes, price freezes, paid add-ons, claims, disruption assistance, payments, refunds, support decisions, and privacy rights are represented as auditable server-side state machines.
+- Price-freeze, CFAR/change, disruption, supplier booking, rewards/deals, carbon claims, native push payloads, and regional legal/tax surfaces remain feature-flagged until provider, legal, privacy, safety, accessibility, and manual verification clear them.
 
 ## Open Questions
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+- Which licensed flight, lodging, home, car, pricing, prediction data, payment, tax, support, notification, fraud, and analytics providers will back V1?
+- What source data and evaluation process will support original price predictions without copying Hopper models or making misleading savings claims?
+- Which paid flexibility products are legal to offer in each launch region, and are they services, warranties, insurance, or another regulated category?
+- What are the acceptable coverage caps, refund methods, deadlines, exclusions, tax treatment, and support SLAs for freeze and flexibility products?
+- Will V1 include homes, cars, rewards/deals, carbon contributions, and subscription-like benefits at launch or keep them behind feature flags?
+- How should urgent disruption support be staffed and audited for travelers already in transit?
+
+## Build Plan
+
+- Phase 1: scaffold app shell, auth/OTP, Deals Home, flight search, hotel search, car placeholder, deal calendar, prediction explanation, watchlists, settings/legal links, and privacy-safe analytics.
+- Phase 2: add provider-backed quotes, checkout session, booking confirmation, trip detail, offline cached essentials, price alert notifications, and search/booking tests.
+- Phase 3: add original prediction model service, model versioning, watch alert pipeline, confidence/freshness UX, outcome analytics, and model-quality tests.
+- Phase 4: add price-freeze-style product, freeze purchase/conversion/expiry, fee/deposit accounting, coverage caps, provider conversion, and legal/audit tests.
+- Phase 5: add cancel/change/disruption products, claim submission, eligibility engine, refund/rebooking decisions, appeal/support routing, and paid-add-on tests.
+- Phase 6: add homes, rewards/deals, carbon/substantiation review, richer supplier callbacks, privacy rights automation, accessibility audit, and native/manual verification after provider/legal approvals.
 
 ## Next Steps
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
-- Resolve open questions and update this spec before app implementation starts.
-- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.
+
+- Resolve manual verification blockers before claiming one-for-one native parity.
+- Treat paid flexibility and prediction claims as legal-review blockers before any downstream implementation.
+- Continue the Batch 02 travel booking pass with `037-tripit.md`.

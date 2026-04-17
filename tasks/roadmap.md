@@ -84,5 +84,5 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 
 ## Next Steps
 
-- Upgrade `034-booking-com.md`, `035-expedia.md`, `036-hopper.md`, and `037-tripit.md` as the next Batch 02 travel booking pass.
-- Continue the remaining 62 Draft 1 specs by batch using the completed Batch 01, top-ten, and Batch 02 communication/email/maps/mobility pattern sets.
+- Upgrade `039-uber-eats.md` and `040-instacart.md` as the next Batch 02 food/grocery delivery pass.
+- Continue the remaining 58 Draft 1 specs by batch using the completed Batch 01, top-ten, and Batch 02 communication/email/maps/mobility/travel-booking pattern sets.

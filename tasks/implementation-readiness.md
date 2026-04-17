@@ -7,7 +7,7 @@ Updated: 2026-04-17
 
 The spec set is moving from Draft 1 scaffolds to implementation-ready specs by focused batches.
 
-Current readiness count: 38 of 100.
+Current readiness count: 42 of 100.
 
 ## Readiness Definition
 
@@ -58,12 +58,16 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 031 | Lime | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; shared e-scooter/e-bike discovery, unlock, ride zones, parking, billing, fleet operations, city rules, and native/hardware/manual parity blockers remain explicit. |
 | 032 | Turo | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; car-sharing search, booking, protection, pickup/return evidence, host tools, claims, roadside, regional insurance, and native/manual parity blockers remain explicit. |
 | 033 | Airbnb | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; booking, checkout, fees/taxes, messaging, reviews, wishlists, identity, cancellations/refunds, host tools, payouts, damage/disputes, safety, and native/manual parity blockers remain explicit. |
+| 034 | Booking.com | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; lodging search, map/list comparison, room/rate selection, Genius-style loyalty, reservation management, property messaging, cancellation/refund, support, and native/manual parity blockers remain explicit. |
+| 035 | Expedia | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; flights, stays, cars, activities, packages, itinerary wallet, One Key-style rewards, cancellation/change/refund, supplier handoff, and native/manual parity blockers remain explicit. |
+| 036 | Hopper | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; price prediction, watchlists, deal calendars, price-freeze-style holds, paid trip-flexibility products, disruption assistance, and native/manual parity blockers remain explicit. |
+| 037 | TripIt | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; itinerary import, Inbox Sync, documents, calendar sync, sharing, Pro-style alerts, fare/risk guidance, subscription/enterprise, and native/manual parity blockers remain explicit. |
 | 038 | DoorDash | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; restaurant/store marketplace, menu modifiers, cart/checkout fees, DashPass, SNAP/EBT, alcohol, order tracking, Dasher handoff, merchant tools, support/refunds, and native/manual parity blockers remain explicit. |
 | 046 | Amazon | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; broad shopping marketplace, product search/detail, seller offers, cart/checkout, Prime-style membership, recurring orders, order tracking, returns/refunds/replacements, seller tools, sponsored listings, reviews, support, and native/manual parity blockers remain explicit. |
 | 056 | Cash App | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; peer payments, requests, payment links, pools, balance, cash out, debit, direct deposit, savings/offers, merchant checkout, bitcoin, investing, taxes, sponsored accounts, business accounts, security/scam controls, and native/manual parity blockers remain explicit. |
 | 066 | Spotify | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; music, podcasts, audiobooks, playlists, queue, downloads/offline, lyrics, device handoff, shared listening, family/young-listener controls, creator tools, ads, developer playback constraints, and native/manual parity blockers remain explicit. |
 | 089 | Notion | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; workspace pages, blocks, databases, search, sharing/permissions, comments/mentions, notifications, offline pages, imports/exports, AI, integrations/API, billing, privacy, security, and enterprise/admin blockers remain explicit. |
-| 034-037, 039-045, 047-055, 057-065, 067-088, 090-100 | Remaining specs | Draft 1 scaffold | Must be upgraded app-by-app or by focused batch using the readiness definition above. |
+| 039-045, 047-055, 057-065, 067-088, 090-100 | Remaining specs | Draft 1 scaffold | Must be upgraded app-by-app or by focused batch using the readiness definition above. |
 
 ## Repeatable Upgrade Loop
 
@@ -83,8 +87,9 @@ For each spec:
 - Batch 01 public-source V1 expansion: `002-claude.md`, `003-perplexity.md`, `004-character-ai.md`, `005-replika.md`, and `007-instagram.md` through `020-slack.md`.
 - Batch 02 communication/email public-source V1 expansion: `021-messenger.md`, `022-facetime.md`, `023-zoom.md`, `024-gmail.md`, and `025-outlook.md`.
 - Batch 02 maps/mobility public-source V1 expansion: `027-apple-maps.md`, `028-waze.md`, `029-uber.md`, `030-lyft.md`, `031-lime.md`, and `032-turo.md`.
+- Batch 02 travel booking public-source V1 expansion: `034-booking-com.md`, `035-expedia.md`, `036-hopper.md`, and `037-tripit.md`.
 
 ## Next Steps
 
-- Upgrade the next Batch 02 travel booking specs: `034-booking-com.md`, `035-expedia.md`, `036-hopper.md`, and `037-tripit.md`.
+- Upgrade the next Batch 02 food and grocery delivery specs: `039-uber-eats.md` and `040-instacart.md`.
 - Continue Phase 3 exact source replacement and hands-on blocker documentation through later batches.
