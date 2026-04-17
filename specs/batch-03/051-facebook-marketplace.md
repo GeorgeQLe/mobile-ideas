@@ -2,177 +2,191 @@
 
 > Metadata
 > - Inspiration app: Facebook Marketplace
-> - Category: Marketplace
-> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
-> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
+> - Category: Local and shipped marketplace, listings, messaging, commerce policies, purchase protection, and safety
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-04-17.
+> - Verification basis: exact public marketplace pages, first-party help/support pages, privacy/legal pages, product-policy pages, and current public listing notes.
+> - Manual verification blockers: native iOS/Android screens inside Facebook, signup/login, social graph/profile visibility, Marketplace availability, local radius ranking, listing creation, Messenger handoff, checkout/shipping eligibility, payment authorization, purchase protection, seller ratings, reports, disputes, push payloads, data export/deletion, and regional policy behavior require lawful test devices/accounts.
+> - Legal scope: functional parity only; use original code, brand, copy, icons, product data, listing media, reviews, ranking models, ad systems, payment providers, support scripts, moderation policy, shipping logic, and dispute workflows.
 
 ## Overview
-Build an original mobile product inspired by Facebook Marketplace's user-facing workflow, not its brand identity or proprietary implementation.
-The clone target is: Local listings, category browse, seller profiles, map radius, messaging, saved searches, and fraud reporting.
-Primary product surface: browse/search supported by listing/menu/product detail and cart/selection flows.
-The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
-The spec intentionally separates verified public-source facts from inferred clone requirements.
+
+Build an original local and shipped marketplace inspired by Facebook Marketplace public behavior: browse/search local listings, create listings, buyer/seller profiles, Messenger-style communication, pickup or shipping coordination, checkout where eligible, ratings, reporting, commerce policies, purchase protection, and privacy/safety controls.
+
+The clone must not imply affiliation with Facebook Marketplace. Public-source V1 parity means the product architecture is grounded in exact public sources while all unverified native, account, payment, seller, support, notification, deletion/export, and regional behavior remains launch-blocked until lawful hands-on verification is captured.
 
 ## Goals
-- Deliver a mobile-first marketplace experience with complete onboarding, core action, settings, and recovery flows.
-- Implement the app-specific focus: Local listings, category browse, seller profiles, map radius, messaging, saved searches, and fraud reporting.
-- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
-- Make public-source verification and blocked hands-on research visible before implementation starts.
-- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+- Support the public-source V1 buyer journey for Facebook Marketplace: discovery, listing detail, saved state, transaction draft, checkout or handoff, order tracking, support, and privacy controls.
+- Support seller operations where public behavior requires listing creation, inventory or availability, pricing, order handling, shipping, fees, payouts, reports, and appeals.
+- Make trust and safety explicit for prohibited goods, counterfeit or quality risk, scams, off-platform payments, review abuse, support evidence, privacy, and regional rules.
+- Provide concrete screens, entities, API contracts, offline/realtime behavior, analytics, edge cases, tests, acceptance criteria, and build phases for a downstream implementation repo.
 
 ## Non-Goals
-- Do not copy Facebook Marketplace branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
-- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
-- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
-- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
-- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+- Do not build a Facebook Marketplace-branded app or imply affiliation with Facebook Marketplace, parent companies, sellers, carriers, payment providers, ad products, or support programs.
+- Do not copy branding, logos, screenshots, product photos, marketplace copy, private APIs, ranking systems, seller data, buyer data, messages, reviews, support scripts, fraud models, or policy text.
+- Do not scrape production catalogs or reuse protected media; use licensed, synthetic, partner-provided, or user-owned data.
+- Do not process production payments, refunds, payouts, financing, identity checks, regulated goods, or disputes without separate legal, compliance, trust/safety, and payment-provider review.
+- Do not claim exact native-device, checkout, payment, notification, support, deletion/export, moderation, seller, shipping, payout, or region-specific parity until lawful manual verification is complete.
 
 ## Research Sources
-- App Store source-discovery link: https://apps.apple.com/us/search?term=Facebook%20Marketplace
-- Google Play source-discovery link: https://play.google.com/store/search?q=Facebook%20Marketplace&c=apps
-- Official help/privacy source-discovery link: https://www.google.com/search?q=Facebook%20Marketplace%20official%20app%20help%20privacy
-- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
-- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
-- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
-- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
-- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+| Source | Exact URL | Evidence Used | Status |
+|---|---|---|---|
+| Apple App Store | https://apps.apple.com/us/app/facebook/id284882215 | Official iOS Facebook listing that contains Marketplace surface, privacy labels, age rating, and app support | Verified 2026-04-17 |
+| Google Play | https://play.google.com/store/apps/details?id=com.facebook.katana | Official Android Facebook listing, package id, data safety, and app support | Verified 2026-04-17 |
+| Marketplace | https://www.facebook.com/marketplace | Public Marketplace entrypoint, listing browse, categories, location, and discovery orientation | Verified 2026-04-17 |
+| Marketplace Help | https://www.facebook.com/help/111664009168971 | Buying and selling help entrypoint for Marketplace flows | Verified 2026-04-17 |
+| Commerce Policies | https://www.facebook.com/policies_center/commerce | Allowed and prohibited goods, listing rules, and enforcement requirements | Verified 2026-04-17 |
+| Purchase Protection | https://www.facebook.com/help/228307904608701 | Eligible shipped purchases, buyer protection, claims, and refund orientation | Verified 2026-04-17 |
+| Meta Privacy Policy | https://www.facebook.com/privacy/policy | Personal data, ads, social graph, location, messaging, sharing, retention, and rights | Verified 2026-04-17 |
+| Facebook Terms | https://www.facebook.com/legal/terms | Account, platform, content, service, and dispute terms | Verified 2026-04-17 |
+| Community Standards | https://transparency.meta.com/policies/community-standards/ | Safety, abuse, integrity, harassment, fraud, and content enforcement framework | Verified 2026-04-17 |
 
 ## Detailed Design
-- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for marketplace.
-- Home model: make Browse/Search the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
-- Core action: make Listing/Menu/Product Detail the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
-- Detail surface: use Cart/Selection for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
-- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
-- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
-- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
-- The implementation must support catalog browse, search, and filters.
-- The implementation must show availability, modifiers, fees, taxes, and total cost.
-- The implementation must support cart edits and saved favorites.
-- The implementation must validate inventory before checkout.
-- The implementation must support payment authorization and failure recovery.
-- The implementation must track order/reservation lifecycle states.
-- The implementation must support merchant or seller communication.
-- The implementation must collect reviews only after eligible events.
-- The implementation must support refunds, returns, disputes, and support.
-- The implementation must detect spam, fraud, and prohibited listings.
-- The implementation must cache recent orders and saved items.
-- The implementation must keep all product/media content original or licensed.
+
+### Source-Backed Product Requirements
+
+- Support local and shipped listing discovery with location, category, price, condition, seller profile, availability, saved listings, and report actions.
+- Listing creation must support category, title, price, description, media, condition, location, delivery method, inventory, policy checks, and renewal/sold state.
+- Messaging must keep negotiations, pickup details, shipping context, and reports in a protected conversation model while blocking off-platform scam patterns.
+- Local pickup flows must make safety guidance, meeting logistics, payment caveats, and no-platform-protection states explicit.
+- Account settings must expose profile, addresses, payment tokens where applicable, saved items, orders, returns/refunds or claims, notifications, privacy settings, data export, account deletion, support, and legal links.
+- Every money movement, identity, seller payout, return/refund, support decision, and moderation action must be server-owned, idempotent, auditable, and reversible only through explicit policy rules.
+- Every public-source requirement that still depends on account, device, payment, notification, or regional behavior must remain launch-blocked until lawful hands-on notes are captured.
+
+### Build Plan
+
+1. Foundation: model accounts, regions, item/listing records, media, search, saved items, privacy settings, support cases, audit logs, and synthetic fixtures.
+2. Discovery and detail: build home, search, filters, item/listing detail, seller/store/profile surfaces, recommendation placeholders, and moderation labels.
+3. Commerce path: add cart, offer, bid, bundle, or checkout drafts, quote refresh, payment-token placeholder, taxes/fees, shipping options, order creation, tracking timeline, cancellation, and support handoff behind provider adapters.
+4. Marketplace trust: add buyer/seller protection states, return/refund/dispute workflows, prohibited-item checks, counterfeit or quality reports, review integrity, fraud queues, and appeal paths.
+5. Seller operations: add listing creation, inventory/availability, pricing/offer controls, order fulfillment, shipping labels or handoff, payout ledger, seller support, account health, and policy enforcement where applicable.
+6. Native hardening: verify iOS/Android layouts, permissions, push payloads, accessibility, offline reconciliation, account deletion/export, and region-specific behavior with lawful test devices/accounts.
 
 ## Core User Journeys
-- New user installs the app, reviews an original value proposition, creates an account, and reaches Browse/Search.
-- Returning user opens Browse/Search, resumes the most recent meaningful activity, and completes the primary action in Listing/Menu/Product Detail.
-- User searches or browses from Checkout, opens Cart/Selection, saves or shares it, and later finds it again from history or library.
-- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
+
+- Shopper browses nearby furniture, filters by distance and price, messages seller, arranges pickup, and marks the listing saved or sold.
+- Buyer purchases an eligible shipped item, pays through checkout, tracks shipment, opens protection claim, and receives refund status.
+- Seller creates listing, receives messages, marks pending/sold, handles shipping or pickup, and responds to reports.
+- Privacy-focused user opens settings, changes notification and personalization controls, requests data export, starts account deletion, and sees active-order, tax, fraud, support, and legal-retention caveats.
+- Trust reviewer receives a prohibited-item, counterfeit, scam, harassment, or policy report, reviews evidence, suppresses or restores the MarketplaceListing, notifies affected users, and records appeal state.
 
 ## Screen Inventory
-| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
+
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Browse/Search | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Listing/Menu/Product Detail | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Cart/Selection | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Checkout | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Order/Reservation Status | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Messages | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Reviews | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Returns/Support | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Seller/Admin Tools | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Welcome/Auth | Entry, account, consent, and regional setup | email, phone, passkey, guest | guest, signed-in, verified, blocked | auth failure, underage, unsupported region |
+| Home | Primary discovery and status hub | search, category, saved, cart/order | guest, personalized, loading, empty | stale modules, service outage |
+| Search And Filters | Find products, listings, shops, or merchants | query, category, filters, sort | results, no results, corrected query | restricted category, provider error |
+| Item Detail | Product/listing media, seller context, price, and actions | variation, save, offer, buy, report | available, limited, sold, restricted | price changed, policy flag, seller inactive |
+| Seller Or Store Profile | Public seller, shop, closet, or merchant context | follow, message, listings, report | active, limited, suspended, empty | account restriction, policy investigation |
+| Transaction Draft | Cart, bag, offer, bid, bundle, or checkout draft | quantity, offer, coupon, shipping | valid, pending, expired, needs refresh | stockout, quote expired, invalid promo |
+| Checkout | Address, payment, shipping, fees, and confirmation | address, payment, reward, confirm | ready, authorizing, placed, failed | payment failure, fraud hold, ineligible item |
+| Orders And Tracking | Order history, shipment status, and actions | order tap, tracking, help, return | processing, shipped, delivered, canceled | missing tracking, delayed, wrong item |
+| Returns Claims And Refunds | Post-order recovery and dispute handling | reason, evidence, label, appeal | eligible, open, reviewing, resolved | expired window, seller dispute, legal hold |
+| Messages And Support | Buyer/seller messages and support cases | message, attachment, issue, evidence | active, archived, blocked, resolved | off-platform payment, harassment, duplicate case |
+| Seller Tools | Listing, inventory, orders, shipping, ads, and payouts | media, price, order, payout, campaign | draft, active, paused, held | policy violation, payout hold, account limit |
+| Settings And Privacy | Account, notifications, security, and data rights | toggles, export, delete, legal links | verified, pending, disabled | active order block, retention caveat |
 
 ## Data Model
-- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
-- `Merchant`: stores the primary workspace, account, or grouping context.
-- `CatalogItem`: represents the primary user-facing catalog object, ownership, availability, and display metadata.
-- `Inventory`: captures lifecycle state, ordering, timestamps, and failure reason codes.
-- `Cart`: tracks durable interaction history and audit metadata.
-- `Order`: tracks checkout, confirmation, cancellation, refund, dispute, and audit states.
-- `Payment`: tracks checkout, confirmation, cancellation, refund, dispute, and audit states.
-- `Fulfillment`: supports safety, review, policy, or moderation decisions.
-- `Review`: stores trust, safety, support, escalation, decision, and resolution metadata.
-- `Dispute`: stores trust, safety, support, escalation, decision, and resolution metadata.
-- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
+
+- User: identity, locale, region, buyer/seller roles, consent, notification preferences, privacy settings, risk flags, data-rights lifecycle.
+- DeviceSession: platform, app version, auth token, notification token, permission states, cache version, and last-active timestamp.
+- MarketplaceListing: public title, description, category, media metadata, price or market state, availability, policy flags, moderation state, and source-specific attributes.
+- SellerProfile: public profile, verification state, ratings or performance, account health, shipping/support policies, payout readiness, and enforcement history.
+- CartOrTransactionDraft: user/session, selected items, offers or bids, shipping choices, coupon/reward state, quote snapshot, stale flags, and validation errors.
+- CheckoutQuote: subtotal, discounts, rewards, shipping, tax/fees, buyer/seller protection, payment eligibility, total, expiry, and explainability lines.
+- PaymentToken: provider reference, billing details, verification state, challenge state, failure reason, and deletion constraints.
+- Order: transaction snapshot, payment state, fulfillment groups, tracking ids, cancellation/return/refund/claim state, support links, and audit ids.
+- Shipment: carrier, tracking events, delivery estimate, label source, delivery confirmation, exception state, and reconciliation timestamps.
+- ReturnRefundOrClaim: order/item link, issue type, evidence, eligibility, decision, refund or replacement, appeal, owner queue, and legal hold.
+- MessageOrSupportCase: participants, order/listing/payment links, attachments, moderation flags, SLA, decision, appeal, and retention policy.
+- ReviewOrRating: transaction eligibility, rating, text/media, seller response where allowed, report state, moderation state, and publication timing.
+- RewardPromotionOrAd: source, eligibility, budget or balance, expiration, disclosure, redemption/spend, reversal, and abuse state.
+- AuditEvent: append-only record for auth, profile, listing, search, cart, checkout, payment, shipment, return/refund, message, support, payout, privacy, and moderation changes.
 
 ## API And Backend Contracts
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /merchants, GET /catalogitems, GET /inventories, GET /carts; all reads return pagination, cache hints, authorization status, and stale-data indicators.
-- Writes: POST /users, POST /merchants, POST /catalogitems, POST /inventories, POST /carts; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
-- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+
+- POST /auth/session, POST /auth/recover, DELETE /auth/session: account lifecycle with age, region, verification, fraud, and device gates.
+- GET /home?region=&cursor= and GET /categories: discovery modules, saved states, promotions, personalization, pagination, and stale indicators.
+- GET /search?query=&filters=&sort=&cursor=: marketplacelisting discovery with facets, sponsored/promoted disclosure where relevant, safe-category suppression, and no-result recovery.
+- GET /items/:id: marketplacelisting detail, media, seller/store context, availability, pricing, reviews, shipping, protection, and policy warnings.
+- POST /drafts, PATCH /drafts/:id, POST /drafts/:id/validate: cart, offer, bid, bundle, or checkout draft with stock/price/eligibility refresh.
+- POST /checkout/quotes and GET /checkout/quotes/:id: taxes, fees, shipping, discounts, rewards, protection, total, expiry, and line-item explainability.
+- POST /orders and POST /payments/webhooks: idempotent order creation, payment authorization, duplicate webhook handling, and failure recovery.
+- GET /orders, GET /orders/:id, GET /shipments/:id/events: order history, tracking timeline, delivery exceptions, and support affordances.
+- POST /returns-or-claims, PATCH /returns-or-claims/:id, POST /returns-or-claims/:id/evidence: post-order recovery and appeal lifecycle.
+- POST /messages, POST /support/cases, POST /reports: buyer/seller communication, support routing, and abuse or policy reports.
+- POST /seller/listings, PATCH /seller/listings/:id, GET /seller/orders, GET /seller/payouts: seller operations where in scope.
+- POST /data-export, GET /data-export/:id, DELETE /account: privacy rights with security checks and retention caveats.
 
 ## Realtime, Push, And Offline Behavior
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+
+- Order, payment, shipment, return/refund, claim, listing, inventory, offer, bid, message, payout, moderation, notification, and account-security changes must use websocket/SSE/push-assisted polling with stable event ids and server reconciliation after reconnect.
+- The client may cache home modules, search history, item summaries, saved items, transaction drafts, order summaries, message previews, settings, support status, and tracking events with visible freshness timestamps.
+- Checkout quotes, taxes, fees, shipping promises, buyer/seller protection eligibility, seller availability, reward balances, payment authorization, and payout state must expire server-side and refresh before confirmation.
+- Offline mode may preserve low-risk drafts such as searches, saved items, listing drafts, message drafts, review drafts, and support evidence, but money movement, identity, checkout, seller payout, deletion/export, and moderation decisions require server confirmation.
+- Push payloads must be minimal, avoid sensitive product names when the user opts out, and deep-link through authenticated refresh rather than trusting client-side state.
 
 ## Permissions, Privacy, And Safety
-- Treat payment security as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat consumer protection as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat fraud as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat unsafe goods as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat review abuse as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+
+- Request camera, photo library, microphone, contacts, location, calendar, email-import, notification, and biometric permissions only at the feature moment and provide non-permission fallbacks.
+- Tokenize payment methods, shipping addresses, payout accounts, identity evidence, support evidence, and connected-account credentials; never store raw card, bank, document, email, or carrier credentials in the mobile client.
+- Keep messages, addresses, tracking details, return reasons, claim evidence, payout data, moderation notes, and support decisions access-controlled with role-based audit logs.
+- Expose controls for personalization, ad measurement, push categories, search history, saved items, connected accounts, data export, and account deletion with retention caveats for tax, fraud, order, support, and legal records.
+- Block prohibited goods, unsafe products, counterfeit indicators, off-platform payment requests, harassment, review manipulation, fraud, sanctions risk, underage use, and regulated categories with review queues and appeal paths.
+- Accessibility requirements include dynamic type, screen-reader labels, keyboard order, reduced motion, sufficient contrast, non-color status indicators, and alternative text for user-uploaded media where feasible.
 
 ## Analytics And Monetization
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
+
+- Track discovery impressions, searches, filters, item views, saved items, transaction draft starts, checkout conversion, payment failures, tracking opens, return/refund or claim starts, seller actions, support contacts, policy reports, notification engagement, and privacy changes.
+- Monetization may include marketplace fees, payment services, shipping labels, promoted placements, reward campaigns, seller tools, or merchant services only with clear disclosure and opt-outs.
+- Track privacy setting changes, permission grants/denials, data export requests, deletion starts, report outcomes, support contacts, and unresolved manual-verification blockers separately from business metrics.
+- Do not use private messages, payment data, addresses, identity documents, connected email content, support evidence, claim photos, or moderation notes for ad targeting.
 
 ## Edge Cases
-- First launch with no network, no account, or expired session.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
+
+- A reward, coupon, bid, offer, price, shipping promise, or eligibility state changes while the user is confirming checkout.
+- A seller or merchant becomes unavailable after the buyer starts a transaction draft.
+- A shipment is marked delivered while the buyer reports missing, damaged, or wrong item.
+- Refund destination is unavailable because a payment token, wallet, reward balance, or payout method changed.
+- A listing is reported as counterfeit, unsafe, recalled, prohibited, or infringing after orders have already been placed.
+- A message thread contains private contact details, harassment, phishing, or off-platform payment pressure.
+- Account deletion is requested with active orders, returns, claims, support cases, seller payouts, tax records, or legal holds.
+- Regional availability changes payment methods, buyer protection, seller fees, shipping, returns, or policy wording.
 
 ## Test Plan
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+
+- Validate exactly one H1 and all canonical sections.
+- Validate all exact source URLs are first-party marketplace/help/privacy/legal/product URLs and no generic source placeholders remain.
+- Unit test search filters, item/listing status, quote expiry, promotion/reward rules, permission fallbacks, and privacy toggles.
+- Unit test prohibited-item, counterfeit/scam, payment, payout, return/refund, dispute, support, and moderation state machines.
+- Integration test account, discovery, detail, saved item, transaction draft, checkout or handoff, order, shipment, return/refund, support, and data-rights flows.
+- Integration test seller listing, order handling, shipping label or tracking handoff, payout, account health, ads/promotions, and appeal flows where in scope.
+- Contract test idempotent order creation, webhook replay, refund reversal, payout hold, claim update, and push deep-link refresh.
+- Accessibility test dynamic type, screen readers, focus order, reduced motion, contrast, media alt text, and non-color status indicators.
+- Security test payment tokenization, private messages, evidence access control, signed media uploads, connected-account revocation, account deletion, and audit logs.
+- Abuse test off-platform payment, spam, harassment, prohibited goods, review manipulation, counterfeit claims, and seller/buyer retaliation.
+- Offline test cached discovery/detail/order states, draft preservation, stale quote warnings, and reconnect reconciliation.
+- Manual test native iOS/Android screens and all blockers before removing launch gates.
 
 ## Acceptance Criteria
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+
+- The spec has exactly one H1 and all canonical sections.
+- Exact first-party App Store, Google Play, help/support, privacy/legal, and category-policy URLs replace generic research placeholders.
+- Every account, payment, checkout, refund/return, payout, seller, support, notification, deletion/export, and native-device behavior that lacks lawful hands-on verification remains explicitly blocked.
+- The downstream implementation can derive screens, entities, backend contracts, realtime/offline behavior, analytics, risk controls, edge cases, tests, and build phases without unstated product assumptions.
 
 ## Open Questions
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+- Which Marketplace checkout and shipping features are available to current U.S. mobile users?
+- How much profile/social graph context is visible in native Marketplace buyer/seller surfaces?
+- What exact safety guidance and protection disclaimers appear for local pickup?
+- What push payloads are used for messages, listing updates, offers, claims, and reports?
 
 ## Next Steps
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
-- Resolve open questions and update this spec before app implementation starts.
-- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.
+
+- Use lawful test accounts/devices to verify native screens, onboarding, checkout, payment authorization, push notifications, support, data rights, and region-specific behavior before removing blockers.
+- Create synthetic listings, sellers, products, reviews, orders, tracking events, disputes, support cases, and payout or reward records for implementation test fixtures.
+- Run legal, trust/safety, payments, privacy, accessibility, and marketplace-risk review before enabling production transactions or seller operations.
