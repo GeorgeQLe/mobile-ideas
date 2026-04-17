@@ -2,177 +2,194 @@
 
 > Metadata
 > - Inspiration app: Uber
-> - Category: Mobility
-> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
-> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
+> - Category: Rideshare, taxi, reserve rides, shared rides, rentals, delivery handoff, business travel, safety tooling, and regulated transportation marketplace
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-04-17.
+> - Verification basis: exact public marketplace pages, Uber rider/help/safety/legal/privacy pages, Community Guidelines, upfront pricing documentation, and current public listing notes.
+> - Manual verification blockers: native iOS/Android screen capture, signup/login, payment setup, phone verification, ride request, upfront quote, driver matching, pickup verification, live trip tracking, driver/rider contact, cancellations/refunds, tipping, Uber One, Reserve, shared rides, teen/business profiles, rental/Connect/transit/charter surfaces, safety toolkit, audio recording, emergency/ADT flows, push payloads, and regional ride-type availability still require lawful test devices/accounts before one-for-one parity claims.
+> - Legal scope: functional parity only; use original code, brand, copy, icons, maps, routing, driver/rider data, trip data, price/risk/matching algorithms, payment providers, safety processes, insurance claims, support scripts, and marketplace operations.
 
 ## Overview
-Build an original mobile product inspired by Uber's user-facing workflow, not its brand identity or proprietary implementation.
-The clone target is: Rider pickup/dropoff flow, fare estimate, driver matching, live trip tracking, payment, ratings, and support.
-Primary product surface: search supported by map/list results and detail flows.
-The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
-The spec intentionally separates verified public-source facts from inferred clone requirements.
+
+Build an original rideshare marketplace inspired by Uber's public workflow: rider onboarding, pickup/dropoff search, upfront ride options and pricing, driver matching, live trip tracking, rider/driver contact, cancellations, receipts, ratings/tips, safety toolkit, scheduled rides, memberships, rentals/connect/transit handoffs, business profiles, support, privacy controls, and regulated transportation safeguards.
+
+The clone must not copy Uber branding, screenshots, marketing copy, private APIs, driver/rider data, pricing/matching/risk models, maps, support scripts, or safety process details. Functional parity should be expressed through original product language, licensed maps and payments, independently designed dispatch/quote/risk logic, and jurisdiction-aware operations.
+
+This spec is implementation-ready for a V1 that targets documented public behavior. Any feature marked `Manual verification required` must ship behind a feature flag or acceptance-test blocker until lawful hands-on verification confirms native behavior.
 
 ## Goals
-- Deliver a mobile-first mobility experience with complete onboarding, core action, settings, and recovery flows.
-- Implement the app-specific focus: Rider pickup/dropoff flow, fare estimate, driver matching, live trip tracking, payment, ratings, and support.
-- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
-- Make public-source verification and blocked hands-on research visible before implementation starts.
-- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+- Provide a mobile-first ride marketplace with onboarding, pickup/dropoff entry, ride options, upfront quote, request, match, pickup, trip tracking, cancellation, receipt, rating/tip, support, and privacy controls.
+- Support V1 driver/dispatcher abstractions for availability, quote acceptance, ETA, pickup verification, route progress, contact masking, cancellation, earnings, and safety events without building a full driver app unless separately scoped.
+- Preserve trust expectations around identity, payments, driver screening, safety toolkit, location sharing, emergency support, insurance, cancellation fees, fraud, accessibility, service animals, and regional transportation rules.
+- Expose privacy controls for precise/background location, trip history, payment methods, messages/calls, safety recordings, ad personalization, data export, account deletion, and legal retention.
+- Produce concrete screens, entities, API contracts, realtime/offline rules, analytics, safety controls, edge cases, acceptance tests, and build phases for a downstream implementation repo.
 
 ## Non-Goals
-- Do not copy Uber branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
-- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
-- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
-- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
-- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+- Do not build an Uber-branded app or imply affiliation with Uber, drivers, fleets, taxis, rental companies, delivery merchants, public transit agencies, insurers, ADT, or payment providers.
+- Do not scrape Uber, reuse private Uber APIs, replay network traffic, copy driver/rider data, clone proprietary matching/pricing/risk/ETA systems, or reproduce legal/support copy.
+- Do not process production rideshare payments, driver payouts, taxes, insurance claims, safety emergencies, minors/teen rides, regulated taxi dispatch, airport operations, or audio recordings without separate legal, trust/safety, privacy, and provider review.
+- Do not claim exact App Store, Play Store, native-device, ride request, pricing, matching, Reserve, shared ride, safety toolkit, emergency, rental, business, support, push-notification, or regional parity until manual verification blockers are resolved.
+- Do not build runtime app code in this repository.
 
 ## Research Sources
-- App Store source-discovery link: https://apps.apple.com/us/search?term=Uber
-- Google Play source-discovery link: https://play.google.com/store/search?q=Uber&c=apps
-- Official help/privacy source-discovery link: https://www.google.com/search?q=Uber%20official%20app%20help%20privacy
-- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
-- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
-- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
-- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
-- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+| Source | Exact URL | Evidence Used | Status |
+|---|---|---|---|
+| Apple App Store | https://apps.apple.com/us/app/uber-request-a-ride/id368677368 | Official iOS listing, Travel category, supported devices, ride types, upfront pricing, safety, Uber One, Reserve, rentals, Connect, transit, business, and privacy labels | Verified 2026-04-17 |
+| Google Play | https://play.google.com/store/apps/details?id=com.ubercab | Official Android listing, package id, downloads/rating scale, ride products, upfront price, everyday travel, and data-safety orientation | Verified 2026-04-17 |
+| Uber Ride | https://www.uber.com/us/en/ride/ | Public rider product overview for ride request, ride options, app workflow, pricing, and availability | Verified 2026-04-17 |
+| Rider Help Center | https://help.uber.com/riders | Canonical support entrypoint for account, trip, payment, safety, cancellation, refund, and issue workflows | Verified 2026-04-17 |
+| Rider Safety | https://www.uber.com/us/en/ride/safety/ | Safety toolkit, emergency button, ADT safety agent, Share My Trip, RideCheck, audio recording, PIN verification, number anonymization, driver screening, and support | Verified 2026-04-17 |
+| Uber Safety | https://www.uber.com/us/en/safety/ | Platform safety principles, background checks, insurance, support, public safety portal, and location/phone privacy | Verified 2026-04-17 |
+| Upfront Pricing | https://www.uber.com/us/en/marketplace/pricing/upfront-pricing/ | Upfront ride price display, rider clarity, route/destination/toll change caveats, and pricing transparency framing | Verified 2026-04-17 |
+| Cancellation Help | https://help.uber.com/en/riders/article/cancelling-a-ride?nodeId=edf3d665-70c2-4e53-b890-00357de4012d | Rider cancellation steps, cancellation fee cases, wait-time and grace-period behavior, and region caveats | Verified 2026-04-17 |
+| Community Guidelines | https://www.uber.com/legal/community-guidelines/us-en/ | Safety/respect/lawfulness expectations, platform access consequences, and behavior enforcement | Verified 2026-04-17 |
+| Terms Of Use | https://www.uber.com/legal/en/document/?name=general-terms-of-use&country=united-states&lang=en | Platform terms, account responsibilities, payments, disputes, service limits, and legal constraints | Verified 2026-04-17 |
+| Privacy Notice | https://www.uber.com/legal/en/document/?name=privacy-notice&country=united-states&lang=en | Personal data, location, trip, communications, safety, advertising, retention, rights, and deletion/export obligations | Verified 2026-04-17 |
+| Cities Availability | https://www.uber.com/cities/ | Regional availability orientation for ride products and city-specific service gates | Verified 2026-04-17 |
 
 ## Detailed Design
-- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for mobility.
-- Home model: make Search the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
-- Core action: make Map/List Results the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
-- Detail surface: use Detail for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
-- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
-- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
-- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
-- The implementation must support location/date/availability search.
-- The implementation must render map and list views from one result model.
-- The implementation must show total price or ETA before confirmation.
-- The implementation must handle availability conflicts before payment.
-- The implementation must support saved places or wishlists.
-- The implementation must provide provider/host/driver communication where relevant.
-- The implementation must track live status updates and history.
-- The implementation must support cancellations and refunds by policy.
-- The implementation must request location only at user action.
-- The implementation must cache active trip details offline.
-- The implementation must prevent fraud and unsafe interactions.
-- The implementation must show support entry points from every active transaction.
+
+### Source-Backed Product Requirements
+
+- Public listings position Uber around everyday rides, ride-type selection, upfront pricing, Reserve, shared/group/split fare concepts, Uber One benefits, rentals, delivery handoffs, Connect, transit, charter, business travel, and safety features.
+- Home must support pickup location, destination entry, saved places, recent trips, ride/product modules, account/profile, wallet, promotions, safety, and unavailable-region fallback.
+- Ride request must support pickup pin adjustment, destination, stops, ride type, ETA, upfront price, fare details, payment method, promo/voucher, accessibility/service-animal notes, business/personal profile, and quote expiry.
+- Dispatch must model candidate drivers, acceptance/timeout, pickup ETA, vehicle/license plate, driver profile, rating, contact masking, PIN/verification options, and cancellation windows.
+- Live trip must support driver arrival, wait timer, route progress, destination updates, stops, share trip, safety toolkit, emergency/help, contact, cancellation where allowed, and completion receipt.
+- Pricing must display upfront quote before request, fees/tolls/surcharges where known, authorization holds, quote changes from route/stops/destination/tolls, and cancellation/no-show fee previews.
+- Ratings/tips/receipts must support post-trip rating, issue tags, tip, fare review, receipt line items, business expensing, and support case creation.
+- Safety toolkit must be represented as auditable product surfaces for emergency call, safety agent/contact, share trip, RideCheck-like anomaly detection, audio recording where legal, PIN verification, trusted contacts, and emergency contacts.
+- Driver/marketplace operations must support driver screening status, document/vehicle verification, availability, acceptance, cancellation reasons, earnings, support, safety reports, and region-specific operating rules.
+- Memberships, rentals, Connect, transit, teen, business, charter, and other non-core products must be feature-flagged until legal/provider/manual verification clears them.
 
 ## Core User Journeys
-- New user installs the app, reviews an original value proposition, creates an account, and reaches Search.
-- Returning user opens Search, resumes the most recent meaningful activity, and completes the primary action in Map/List Results.
-- User searches or browses from Booking/Request, opens Detail, saves or shares it, and later finds it again from history or library.
-- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
+
+- New rider signs up, verifies phone/payment, enters pickup and destination, compares ride options, sees an upfront quote, requests a ride, matches with a driver, verifies vehicle details, completes the trip, tips, rates, and receives a receipt.
+- Returning rider opens a saved destination, changes pickup pin, applies a voucher or business profile, requests priority or standard pickup, shares trip status, and handles driver cancellation/reassignment.
+- Rider schedules a future ride, receives reminder/update, handles driver assignment, cancels within policy, or sees a fee preview if cancellation is late.
+- Safety-focused rider opens the safety toolkit during a trip, shares location, uses PIN verification, reports an unsafe situation, or reaches emergency/support paths.
+- Rider disputes a cancellation fee or fare, reviews receipt details, submits evidence, and receives support decision with audit history.
+- Marketplace operator reviews driver/rider safety reports, cancellation abuse, fraud, payment failures, region blockers, airport rules, and support escalations.
 
 ## Screen Inventory
-| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
+
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Search | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Map/List Results | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Detail | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Booking/Request | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Checkout | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Live Trip | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Messages | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| History | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Support | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Welcome/Auth | Entry, phone/email, terms, privacy | phone, email, OTP, legal links | new, returning, locked | OTP fail, underage, blocked region |
+| Home/Pickup | Trip setup and saved places | pickup, destination, recenter, profile | current location, manual, no location | denied GPS, invalid pickup, airport rule |
+| Ride Options | Compare ride products and quotes | ride type, stops, payment, promo | quoted, expired, unavailable | surge/high demand, quote changed, no cars |
+| Request/Match | Dispatch and driver assignment | request, cancel, contact | searching, matched, driver en route | timeout, driver cancel, fraud hold |
+| Pickup | Verify vehicle and driver | PIN, call/text, pickup note | arriving, arrived, waiting | wrong car, no-show, unsafe pickup |
+| Live Trip | Active ride tracking and safety | share, safety, contact, stop, cancel | active, rerouted, paused | off-route, crash signal, network loss |
+| Safety Toolkit | Emergency and trip safety tools | 911, safety agent, share, audio, report | available, recording, shared | region unavailable, permission denied |
+| Receipt/Rating | Close trip and feedback | rating, tip, issue, expense | completed, tipped, expensed | fare dispute, failed payment, lost item |
+| Trip History | Past/future rides and support | trip, receipt, help, rebook | upcoming, past, canceled | missing receipt, legal hold |
+| Wallet/Promos | Payment, vouchers, memberships | card, wallet, voucher, Uber One-like | valid, pending, failed | authorization fail, expired promo |
+| Reserve | Future ride scheduling | date/time, pickup, product, cancel | scheduled, assigned, canceled | fee applies, region unavailable |
+| Business/Profile | Personal/business travel context | profile, expense code, policy | personal, business, managed | policy violation, missing approver |
+| Support | Fare, safety, lost item, account help | issue type, evidence, chat | submitted, reviewing, resolved | emergency, duplicate, legal hold |
+| Settings/Privacy | Account, safety, data, notifications | toggles, export, delete, legal | active, pending delete | active trip block, retention caveat |
 
 ## Data Model
-- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
-- `Location`: stores the primary workspace, account, or grouping context.
-- `Listing`: represents the primary user-facing catalog object, ownership, availability, and display metadata.
-- `Availability`: captures lifecycle state, ordering, timestamps, and failure reason codes.
-- `Booking`: tracks checkout, confirmation, cancellation, refund, dispute, and audit states.
-- `PaymentIntent`: tracks checkout, confirmation, cancellation, refund, dispute, and audit states.
-- `MessageThread`: captures conversation content references, participants, moderation state, and delivery status.
-- `Route`: supports safety, review, policy, or moderation decisions.
-- `Review`: stores trust, safety, support, escalation, decision, and resolution metadata.
-- `SupportCase`: stores trust, safety, support, escalation, decision, and resolution metadata.
-- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
+
+- `User`: identity, phone/email verification, age/consent, rider roles, business profiles, privacy settings, support restrictions, export/delete lifecycle, and fraud flags.
+- `DeviceSession`: platform, app version, auth token, notification token, location permission, audio-recording permission, safety capabilities, and last active state.
+- `LocationPoint`: pickup/dropoff/stops, coordinates, address, geofence, airport/venue rule, precision, and access instructions.
+- `RideProduct`: product type, capacity, accessibility/service-animal notes, region availability, price rules, driver eligibility, and feature flags.
+- `RideQuote`: product, route estimate, upfront price, fees/tolls/surcharges, promo/voucher, payment method, expiry, and change caveats.
+- `Trip`: rider, driver, product, route, status, quote snapshot, payment, cancellation, safety, support, receipt, and audit ids.
+- `DriverProfile`: identity, photo, rating, vehicle, license plate, verification state, screening state, region eligibility, and safety restrictions.
+- `DispatchOffer`: candidate driver, ETA, acceptance deadline, cancellation reason, reassignment state, and fraud/risk signals.
+- `SafetyEvent`: toolkit open, share trip, emergency call, ADT-like contact, RideCheck-like anomaly, audio recording, report, escalation, and outcome.
+- `PaymentIntent`: authorization, capture, refund, tip, voucher, business expense, failure state, and reconciliation.
+- `SupportCase`: fare, cancellation, safety, lost item, payment, account, accessibility, or privacy issue with evidence, owner, decision, appeal, and legal hold.
+- `AuditEvent`: append-only record for auth, trip, dispatch, payment, cancellation, safety, support, privacy, and account changes.
 
 ## API And Backend Contracts
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /locations, GET /listings, GET /availabilities, GET /bookings; all reads return pagination, cache hints, authorization status, and stale-data indicators.
-- Writes: POST /users, POST /locations, POST /listings, POST /availabilities, POST /bookings; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
-- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+
+- `POST /auth/session`, `POST /auth/verify-phone`, `DELETE /auth/session`, `DELETE /auth/sessions/:id`: account/session lifecycle with verification, region, deletion, and restriction gates.
+- `GET /home?lat=&lng=`, `GET /places/autocomplete`, `POST /locations/resolve`: pickup/dropoff setup with geofencing, venue rules, and provider errors.
+- `POST /ride-quotes`, `GET /ride-products`: ride products, upfront quotes, fees/tolls, ETA, product availability, voucher, quote expiry, and limitation warnings.
+- `POST /trips`, `GET /trips/:id`, `PATCH /trips/:id`: request, read, update destination/stops, cancellation, and server-owned trip state.
+- `POST /dispatch/offers`, `PATCH /dispatch/offers/:id`: driver matching, acceptance, timeout, reassignment, and cancellation reason codes.
+- `GET /trips/:id/tracking`, `POST /trips/:id/events`: trip progress, ETA, route changes, driver arrival, wait time, and reconciliation.
+- `POST /trips/:id/contact`: masked rider/driver calls/messages with moderation, retention, and unsafe-contact blocks.
+- `POST /trips/:id/cancel`, `POST /trips/:id/fare-review`: cancellation preview, fee, final cancellation, fare dispute, and support handoff.
+- `POST /payments/authorize`, `POST /payments/capture`, `POST /payments/refund`, `POST /payments/webhooks`: payment lifecycle with idempotency and reconciliation.
+- `POST /safety/events`, `POST /safety/share-trip`, `POST /safety/emergency`, `POST /safety/audio-recordings`: safety event lifecycle with region/legal gates, retention, and audit.
+- `POST /ratings`, `POST /tips`, `GET /receipts/:id`: post-trip feedback, tipping, receipt, and business expense metadata.
+- `POST /support/cases`, `GET /support/cases/:id`, `POST /support/cases/:id/evidence`, `POST /appeals`: support workflow for ride, fare, safety, lost item, payment, and privacy issues.
+- `POST /data-export`, `DELETE /account`, `GET /privacy/settings`, `PATCH /privacy/settings`: privacy rights, active-trip constraints, and retention caveats.
 
 ## Realtime, Push, And Offline Behavior
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+
+- Dispatch, driver ETA, driver arrival, trip start/end, route progress, destination changes, cancellation, payment, safety, and support updates use websocket/SSE/push-assisted polling with stable event ids.
+- The client may cache home, saved places, ride products, current trip, receipt summaries, settings, and support drafts with freshness indicators.
+- Offline mode can show active trip snapshot and emergency guidance but must block new ride request, payment changes, cancellation finalization, safety report submission, and privacy delete until reconnected unless emergency local call is available.
+- Payment authorizations, quotes, driver availability, and cancellation fees must expire and refresh before confirmation.
+- Push notifications must be opt-in and content-minimized for driver arrival, trip changes, cancellation, receipt, safety, support, payment, Reserve reminders, and account security.
 
 ## Permissions, Privacy, And Safety
-- Treat location privacy as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat payment disputes as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat fraud as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat personal safety as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat regulatory constraints as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+
+- Location, background location, notifications, contacts for trip sharing, microphone for audio recording, camera/photos for evidence, and biometric/device auth must be requested only when invoked.
+- Default analytics must exclude precise route trails, raw pickup/dropoff addresses, payment credentials, driver/rider phone numbers, audio recordings, support evidence, and private messages.
+- Safety UX must show vehicle/license/driver checks, share-trip controls, emergency paths, support options, and ride verification without overclaiming prevention.
+- Driver/rider communications must use masked contact, harassment/off-platform payment blocks, evidence retention rules, and support escalation.
+- Cancellations, refunds, tips, vouchers, taxes, airport fees, driver payouts, and chargebacks must be auditable and provider-backed; never trust client-only financial state.
+- Launch owners: marketplace dispatch owner, transportation compliance owner, payments owner, safety owner, privacy owner, accessibility owner, support owner, and fraud/risk owner.
 
 ## Analytics And Monetization
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
+
+- Track privacy-safe events: onboarding completed, pickup set, destination searched, quote viewed, ride requested, driver matched, driver arrived, trip started/ended, safety opened, share trip used, cancellation previewed, support opened, rating submitted, tip added, data export requested, account deletion requested.
+- Dispatch and pricing metrics must use coarse ids, product type, latency, quote freshness, match state, and failure code rather than raw addresses, exact GPS, or payment data.
+- Monetization can include original ride marketplace fees, memberships, business accounts, rental referrals, delivery handoffs, ads, or premium support later, but pricing names, benefit claims, dispatch logic, and Uber One positioning must be original and legal-reviewed.
 
 ## Edge Cases
-- First launch with no network, no account, or expired session.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
+
+- First launch offline, denied location, invalid phone, failed OTP, blocked payment, fraud hold, underage account, airport/venue restriction, or unsupported city.
+- Pickup pin is inaccessible, driver cannot stop, rider is at wrong terminal, destination changes, multiple stops conflict, or service animal/accessibility need is mishandled.
+- No drivers, repeated cancellations, driver mismatch, wrong vehicle, no-show, rider unsafe, route deviates, accident detected, or emergency support needed.
+- Quote expires, fare changes due to route/stops/tolls, payment authorization fails, voucher is invalid, business profile policy blocks, tip edit fails, or refund is disputed.
+- Push is disabled, phone dies, network drops mid-trip, GPS is stale, driver/rider contact fails, or trip completion event duplicates.
+- Account deletion conflicts with active trip, payment dispute, safety investigation, insurance claim, tax record, legal hold, or law-enforcement request.
 
 ## Test Plan
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+
+- Unit tests for ride quote expiry, product availability, pickup/dropoff geofences, cancellation fee preview, dispatch state machine, payment authorization, tip/receipt, privacy-safe analytics, and permission states.
+- Contract tests for auth, locations, products, quotes, trips, dispatch, tracking, payments, safety, ratings, support, privacy, and webhook idempotency.
+- Integration tests for signup, payment setup, ride quote, request, match, pickup verification, live tracking, cancellation, receipt/rating/tip, support case, and privacy settings.
+- Realtime tests for dispatch timeout, driver reassignment, ETA updates, destination edits, duplicate events, offline reconnect, and trip completion reconciliation.
+- Safety tests for emergency flow, share trip, PIN verification, audio recording region gate, unsafe report, blocked contact, and support escalation.
+- Accessibility tests for screen reader labels, dynamic type, contrast, focus order, reduced motion, map/list alternatives, safety controls, and large tap targets.
+- Manual verification tests: native iOS/Android screenshots, phone/payment, live ride request, driver matching, pickup, safety toolkit, Reserve, shared rides, membership, rentals, business, support, push payloads, and regional availability.
 
 ## Acceptance Criteria
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+
+- Exact source links remain current or are refreshed before implementation starts.
+- A downstream team can build V1 without Uber assets, private APIs, driver/rider data, proprietary matching/pricing/risk systems, safety process claims, brand copy, or protected trade dress.
+- Riders can onboard, set pickup/dropoff, compare ride options, review upfront price, request, match, verify driver/vehicle, track trip, cancel with fee preview, pay, tip/rate, get receipt, and access support.
+- Dispatch, quotes, payments, cancellations, safety events, support cases, privacy rights, and account deletion are represented as auditable server-side state machines.
+- Location privacy, contact masking, payment safety, trip sharing, emergency pathways, accessibility, fraud, fare review, data export, and account deletion controls are accessible from settings and covered by tests.
+- Reserve, shared rides, memberships, business, teen, rental, Connect, transit, audio recording, emergency-agent, push payload, airport, and regional features remain feature-flagged until legal/provider/manual verification clears them.
 
 ## Open Questions
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+- Which licensed map, routing, geocoding, payment, identity, background check, communication masking, safety-agent, insurance, analytics, notification, and support providers will back V1?
+- Which launch cities determine ride products, airport rules, cancellation fees, accessibility requirements, taxi/TNC compliance, taxes, and insurance obligations?
+- Will V1 include a driver app, fleet/admin tooling, Reserve, shared rides, membership, business travel, rentals, or keep these behind feature flags?
+- What retention applies to GPS traces, trip history, audio recordings, safety reports, support evidence, payment records, tax records, and law-enforcement requests?
+
+## Build Plan
+
+- Phase 1: rider app shell, auth/phone verification, pickup/dropoff search, ride products, quote service, wallet, settings/legal links, and privacy-safe analytics.
+- Phase 2: dispatch simulator, driver profile/vehicle, request/match/pickup/trip tracking, cancellation preview, receipt/rating/tip, and trip tests.
+- Phase 3: realtime reconciliation, masked contact, support cases, fare review, payment webhooks, push categories, offline active-trip snapshot, and payment/support tests.
+- Phase 4: safety toolkit, share trip, PIN verification, anomaly detection, emergency/support paths, accessibility audit, and safety/privacy tests.
+- Phase 5: Reserve, memberships, business profiles, rentals/Connect/transit, driver/fleet tooling, regional compliance, and manual ride verification gates.
 
 ## Next Steps
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
-- Resolve open questions and update this spec before app implementation starts.
-- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.
+
+- Resolve provider and launch-region choices for maps, payments, identity, masked contact, driver compliance, insurance, safety support, and notifications.
+- Complete lawful native ride verification for request, matching, pickup, live trip, safety, cancellation, support, push, and regional products.
