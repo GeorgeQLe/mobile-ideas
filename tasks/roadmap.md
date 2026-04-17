@@ -84,5 +84,5 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 
 ## Next Steps
 
-- Upgrade `021-messenger.md`, `022-facetime.md`, `023-zoom.md`, `024-gmail.md`, and `025-outlook.md` as the next Batch 02 communication/email pass.
-- Continue the remaining 73 Draft 1 specs by batch using the completed Batch 01 and top-ten pattern set.
+- Upgrade `034-booking-com.md`, `035-expedia.md`, `036-hopper.md`, and `037-tripit.md` as the next Batch 02 travel booking pass.
+- Continue the remaining 62 Draft 1 specs by batch using the completed Batch 01, top-ten, and Batch 02 communication/email/maps/mobility pattern sets.

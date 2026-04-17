@@ -44,7 +44,14 @@
 - Rewrote the selected specs to implementation-ready public-source V1 status with app-specific messaging, calling, meetings, email, calendar, AI, enterprise/admin, privacy, safety, edge-case, test, acceptance, build-plan, and manual verification detail.
 - Updated readiness and audit counts from 27 to 32 implementation-ready public-source V1 specs and prepared the next Batch 02 maps/mobility step.
 
+## 2026-04-17 - Batch 02 Maps/Mobility Readiness Upgrade
+
+- Archived Draft 1 copies for `027-apple-maps.md`, `028-waze.md`, `029-uber.md`, `030-lyft.md`, `031-lime.md`, and `032-turo.md`.
+- Replaced source-discovery links with exact first-party marketplace, help/support, privacy/legal, safety, product, and policy URLs for the selected Batch 02 maps/mobility specs.
+- Rewrote the selected specs to implementation-ready public-source V1 status with app-specific maps, navigation, rideshare, micromobility, car-sharing, routing, dispatch, fleet, booking, protection, privacy, safety, edge-case, test, acceptance, build-plan, and manual verification detail.
+- Updated readiness and audit counts from 32 to 38 implementation-ready public-source V1 specs and prepared the next Batch 02 travel booking step.
+
 ## Next Steps
 
-- Upgrade `027-apple-maps.md`, `028-waze.md`, `029-uber.md`, `030-lyft.md`, `031-lime.md`, and `032-turo.md` as the next Batch 02 maps/mobility pass.
-- Continue the remaining 68 Draft 1 specs by batch using the completed Batch 01, top-ten, and Batch 02 communication/email pattern set.
+- Upgrade `034-booking-com.md`, `035-expedia.md`, `036-hopper.md`, and `037-tripit.md` as the next Batch 02 travel booking pass.
+- Continue the remaining 62 Draft 1 specs by batch using the completed Batch 01, top-ten, and Batch 02 communication/email/maps/mobility pattern sets.

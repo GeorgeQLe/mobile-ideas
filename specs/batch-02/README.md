@@ -2,7 +2,7 @@
 
 > Metadata
 > - App range: 021-040
-> - Status: Draft 1 canonical spec rewrite; `021-messenger.md` through `026-google-maps.md`, `033-airbnb.md`, and `038-doordash.md` upgraded to implementation-ready public-source V1
+> - Status: Draft 1 canonical spec rewrite; `021-messenger.md` through `033-airbnb.md` and `038-doordash.md` upgraded to implementation-ready public-source V1
 > - Research state: public source-discovery links included for the remaining Draft 1 specs; exact source replacement and hands-on verification still required before implementation.
 
 ## Overview
@@ -16,12 +16,12 @@ This batch contains canonical Draft 1 clone specs for apps 21-40 from tasks/idea
 - 024 Gmail - Email (implementation-ready public-source V1)
 - 025 Outlook - Email/calendar (implementation-ready public-source V1)
 - 026 Google Maps - Maps/navigation (implementation-ready public-source V1)
-- 027 Apple Maps - Maps/navigation
-- 028 Waze - Navigation
-- 029 Uber - Mobility
-- 030 Lyft - Mobility
-- 031 Lime - Micromobility
-- 032 Turo - Car sharing
+- 027 Apple Maps - Maps/navigation (implementation-ready public-source V1)
+- 028 Waze - Navigation (implementation-ready public-source V1)
+- 029 Uber - Mobility (implementation-ready public-source V1)
+- 030 Lyft - Mobility (implementation-ready public-source V1)
+- 031 Lime - Micromobility (implementation-ready public-source V1)
+- 032 Turo - Car sharing (implementation-ready public-source V1)
 - 033 Airbnb - Travel lodging (implementation-ready public-source V1)
 - 034 Booking.com - Travel lodging
 - 035 Expedia - Travel booking
@@ -39,5 +39,5 @@ This batch contains canonical Draft 1 clone specs for apps 21-40 from tasks/idea
 
 ## Next Steps
 
-- Continue exact source replacement and implementation-readiness upgrades with `027-apple-maps.md`, `028-waze.md`, `029-uber.md`, `030-lyft.md`, `031-lime.md`, and `032-turo.md`.
+- Continue exact source replacement and implementation-readiness upgrades with `034-booking-com.md`, `035-expedia.md`, `036-hopper.md`, and `037-tripit.md`.
 - Complete hands-on verification where lawful and feasible before app implementation starts.

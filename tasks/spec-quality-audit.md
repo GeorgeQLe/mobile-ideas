@@ -5,9 +5,9 @@ Updated: 2026-04-17
 
 ## Verdict
 
-The 100 technical specs pass the Draft 1 structural and depth gate. Phase 3 implementation-readiness upgrades have now replaced discovery sources with exact first-party URLs for 32 specs.
+The 100 technical specs pass the Draft 1 structural and depth gate. Phase 3 implementation-readiness upgrades have now replaced discovery sources with exact first-party URLs for 38 specs.
 
-Most specs are still not final one-for-one clone specs because exact first-party source URLs and hands-on verification remain open Phase 3 work. The implementation-ready public-source V1 set is: `001-chatgpt.md`, `002-claude.md`, `003-perplexity.md`, `004-character-ai.md`, `005-replika.md`, `006-tiktok.md`, `007-instagram.md` through `025-outlook.md`, `026-google-maps.md`, `033-airbnb.md`, `038-doordash.md`, `046-amazon.md`, `056-cash-app.md`, `066-spotify.md`, and `089-notion.md`.
+Most specs are still not final one-for-one clone specs because exact first-party source URLs and hands-on verification remain open Phase 3 work. The implementation-ready public-source V1 set is: `001-chatgpt.md`, `002-claude.md`, `003-perplexity.md`, `004-character-ai.md`, `005-replika.md`, `006-tiktok.md`, `007-instagram.md` through `033-airbnb.md`, `038-doordash.md`, `046-amazon.md`, `056-cash-app.md`, `066-spotify.md`, and `089-notion.md`.
 
 ## Audit Scope
 
@@ -34,9 +34,9 @@ A Draft 1 or public-source V1 spec must meet these minimums:
 - Specs with all canonical sections: 100.
 - Specs passing Draft 1 depth metrics: 100.
 - Specs failing Draft 1 depth metrics: 0.
-- Specs with exact first-party source URLs replacing discovery links: 32.
+- Specs with exact first-party source URLs replacing discovery links: 38.
 - Specs with hands-on app behavior fully verified: 0.
-- Specs upgraded to implementation-ready public-source V1: 32.
+- Specs upgraded to implementation-ready public-source V1: 38.
 
 ## Resolved Findings
 
@@ -64,11 +64,15 @@ All numbered specs now use the same canonical structure and pass the same depth 
 
 `021-messenger.md`, `022-facetime.md`, `023-zoom.md`, `024-gmail.md`, and `025-outlook.md` now use exact first-party marketplace/help/privacy/legal/product sources instead of discovery links and include app-specific messaging, calling, meetings, email, calendar, safety, AI, enterprise/admin, and manual-verification blockers.
 
+### Resolved: Batch 02 Maps And Mobility Source Replacement
+
+`027-apple-maps.md`, `028-waze.md`, `029-uber.md`, `030-lyft.md`, `031-lime.md`, and `032-turo.md` now use exact first-party marketplace/help/privacy/legal/product sources instead of discovery links and include app-specific maps, navigation, rideshare, micromobility, car-sharing, safety, marketplace, insurance/protection, fleet, and manual-verification blockers.
+
 ## Remaining Findings
 
 ### High: Exact Source Replacement Remains Open
 
-Sixty-eight specs still include App Store, Google Play, and official help/privacy source-discovery links. These are not exact verified first-party listing/help/privacy URLs.
+Sixty-two specs still include App Store, Google Play, and official help/privacy source-discovery links. These are not exact verified first-party listing/help/privacy URLs.
 
 Impact: A builder still needs to complete the app-by-app research pass before claiming one-for-one product truth.
 
@@ -89,9 +93,10 @@ Recommended fix: Use lawful test accounts/devices to verify reachable flows. Mar
 - Every numbered spec includes legal guardrails, research-source orientation, privacy/safety requirements, edge cases, test plan, acceptance criteria, open questions, and next steps.
 - The spec set now distinguishes source discovery from exact verification and hands-on behavior.
 - Batch 01 now has implementation-ready public-source V1 coverage for AI assistant, AI search, AI companion, short-video, social-media, camera-social, community, decentralized-social, visual-discovery, lifestyle-social, private messaging, cloud messaging, privacy messaging, community chat, and workplace chat patterns.
+- Batch 02 now has implementation-ready public-source V1 coverage for communication, calling, meetings, email, maps, navigation, rideshare, micromobility, car-sharing, lodging marketplace, and local delivery patterns.
 
 ## Next Steps
 
-- Upgrade `027-apple-maps.md`, `028-waze.md`, `029-uber.md`, `030-lyft.md`, `031-lime.md`, and `032-turo.md` to implementation-ready public-source V1 status.
-- Continue Phase 3 implementation-readiness upgrades for the remaining 68 Draft 1 specs by batch.
+- Upgrade `034-booking-com.md`, `035-expedia.md`, `036-hopper.md`, and `037-tripit.md` to implementation-ready public-source V1 status.
+- Continue Phase 3 implementation-readiness upgrades for the remaining 62 Draft 1 specs by batch.
 - Complete hands-on verification where lawful and feasible.
