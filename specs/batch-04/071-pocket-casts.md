@@ -2,177 +2,234 @@
 
 > Metadata
 > - Inspiration app: Pocket Casts
-> - Category: Podcasts
-> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
-> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
+> - Category: Podcast discovery, subscriptions, playlists, Up Next queue, filters, playback effects, downloads, sync, and cross-device listening
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-04-19.
+> - Verification basis: exact public marketplace pages, Pocket Casts product pages, Pocket Casts support documentation, Pocket Casts privacy/legal pages, and public Plus/sync/download documentation.
+> - Manual verification blockers: native iOS/Android screen capture, account signup/login, Pocket Casts Plus/Patron purchase/restore/cancel, sync, Up Next ordering, filters/smart playlists, auto-downloads, bookmarks, cloud files, web/desktop/Watch/CarPlay/Chromecast/Sonos behavior, playback effects, push payloads, data export/deletion, OPML import/export, and regional podcast directory availability still require lawful test devices/accounts and provider approval before one-for-one parity claims.
+> - Legal scope: functional parity only; use original code, brand, copy, icons, artwork, podcast directory data, episode metadata, recommendations, hosted files, payment integrations, device integrations, and licensing relationships.
 
 ## Overview
-Build an original mobile product inspired by Pocket Casts's user-facing workflow, not its brand identity or proprietary implementation.
-The clone target is: Podcast discovery, subscriptions, episode queue, filters, playback effects, downloads, and sync.
-Primary product surface: home supported by search and catalog detail flows.
-The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
-The spec intentionally separates verified public-source facts from inferred clone requirements.
+
+Build an original podcast app inspired by Pocket Casts' public workflow: account entry, podcast discovery, subscriptions, show pages, episode detail, Up Next queue, playlists/smart filters, playback effects, chapters, bookmarks, downloads, auto-downloads, sync, OPML import/export, Plus/Patron-style entitlements, web/cloud files, support, privacy controls, and account deletion.
+
+The clone must not copy Pocket Casts or Automattic branding, screenshots, marketing copy, protected UI artwork, private APIs, recommendation systems, podcast directory snapshots, show artwork, episode notes, playback-effect implementation, cloud-file storage, or sync contracts. Functional parity should use original product language, public RSS/provider-approved podcast metadata, licensed artwork where available, and independently designed sync/discovery logic.
+
+This spec is implementation-ready for a V1 based on public sources. Any feature marked `Manual verification required` must remain behind a feature flag or launch blocker until lawful hands-on verification confirms native behavior and rights/provider constraints.
 
 ## Goals
-- Deliver a mobile-first podcasts experience with complete onboarding, core action, settings, and recovery flows.
-- Implement the app-specific focus: Podcast discovery, subscriptions, episode queue, filters, playback effects, downloads, and sync.
-- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
-- Make public-source verification and blocked hands-on research visible before implementation starts.
-- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+- Provide a mobile-first podcast app with onboarding, Discover, Podcasts, show pages, episode detail, player, Up Next queue, playlists/smart filters, downloads, playback effects, bookmarks, sync, Plus gates, support, privacy, and account controls.
+- Support power-listener workflows: queue control, custom playback speed, trim silence, volume boost, skip intervals, chapters, sleep timer, auto-download rules, archiving, filters, OPML import/export, and cross-device sync.
+- Preserve podcast trust expectations around RSS/provider rights, private feed URLs, explicit content, minors, analytics privacy, cloud-file storage, account sync, payments, and data rights.
+- Produce concrete screens, entities, API contracts, realtime/offline rules, analytics, safety controls, edge cases, acceptance tests, and build phases for a downstream implementation repo.
+- Keep public-source requirements, inferred clone requirements, and manual verification blockers visibly separate.
 
 ## Non-Goals
-- Do not copy Pocket Casts branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
-- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
-- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
-- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
-- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+- Do not build a Pocket Casts-branded app or imply affiliation with Pocket Casts, Automattic, podcast creators, networks, Apple Podcasts, Spotify, RSS hosts, device partners, or payment providers.
+- Do not copy podcast artwork, transcripts, private feeds, paid feeds, web player data, recommendations, user queues, filters, or cloud files without rights and provider approval.
+- Do not scrape Pocket Casts, reuse private Pocket Casts APIs, replay network traffic, copy sync implementation, copy directory ranking, or bypass podcast-feed restrictions.
+- Do not treat Plus/Patron, cloud files, web/desktop sync, Sonos, Chromecast, CarPlay, Apple Watch, OPML import/export, auto-downloads, or push notification behavior as generic features; each requires explicit platform/provider review.
+- Do not claim exact App Store, Play Store, native-device, podcast directory, sync, subscription, push-notification, or regional parity until manual verification blockers are resolved.
 
 ## Research Sources
-- App Store source-discovery link: https://apps.apple.com/us/search?term=Pocket%20Casts
-- Google Play source-discovery link: https://play.google.com/store/search?q=Pocket%20Casts&c=apps
-- Official help/privacy source-discovery link: https://www.google.com/search?q=Pocket%20Casts%20official%20app%20help%20privacy
-- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
-- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
-- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
-- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
-- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+| Source | Exact URL | Evidence Used | Status |
+|---|---|---|---|
+| Apple App Store | https://apps.apple.com/us/app/pocket-casts-podcast-player/id414834813 | Official iOS listing, developer Automattic, News category, 9+ age rating, in-app purchases, Watch support, playlists/smart playlists, Up Next, trim silence, variable speed, volume boost, chapters, audio/video, sleep timer, AirPlay/Chromecast/Sonos/CarPlay, sync, notifications, auto-download, storage, OPML, and support links | Verified 2026-04-19 |
+| Google Play | https://play.google.com/store/apps/details?id=au.com.shiftyjelly.pocketcasts | Official Android listing, package id, developer, in-app purchase disclosure, install/support surface, data-safety context, and Android availability | Verified 2026-04-19 |
+| Pocket Casts Product Page | https://pocketcasts.com/ | Product positioning, podcast listening app, free app, Plus/Patron entry points, web/desktop support, and feature framing | Verified 2026-04-19 |
+| Up Next Support | https://support.pocketcasts.com/knowledge-base/up-next/ | Queue behavior, episode ordering, add next/add last, sync expectations, and playback order modeling | Verified 2026-04-19 |
+| Playlists And Filters | https://support.pocketcasts.com/knowledge-base/filters/ | Smart filters/playlists, rules, episode state criteria, manual organization, and auto-updating lists | Verified 2026-04-19 |
+| Auto Download | https://support.pocketcasts.com/knowledge-base/auto-download/ | Auto-download settings, rules, network/storage behavior, episode limits, and offline management | Verified 2026-04-19 |
+| Playback Effects | https://support.pocketcasts.com/knowledge-base/playback-effects/ | Variable speed, trim silence, volume boost, skip controls, per-podcast settings, and player configuration | Verified 2026-04-19 |
+| Syncing | https://support.pocketcasts.com/knowledge-base/syncing/ | Account sync for subscriptions, playback progress, Up Next, filters, listening history, and multi-device recovery | Verified 2026-04-19 |
+| Pocket Casts Plus | https://support.pocketcasts.com/knowledge-base/pocket-casts-plus/ | Plus entitlement, web/desktop apps, cloud files, themes/icons, folders, bookmarks, and paid feature boundaries | Verified 2026-04-19 |
+| OPML Import/Export | https://support.pocketcasts.com/knowledge-base/opml-import-and-export/ | Podcast import/export lifecycle, interoperability, and feed subscription portability | Verified 2026-04-19 |
+| Privacy Policy | https://pocketcasts.com/privacy/ | Account, usage, device, sync, subscription, support, analytics, and privacy-rights modeling | Verified 2026-04-19 |
+| Terms Of Use | https://pocketcasts.com/terms/ | Account, content, subscriptions, service restrictions, third-party podcast content, and legal constraints | Verified 2026-04-19 |
 
 ## Detailed Design
-- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for podcasts.
-- Home model: make Home the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
-- Core action: make Search the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
-- Detail surface: use Catalog Detail for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
-- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
-- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
-- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
-- The implementation must support catalog browse and search.
-- The implementation must render creator, album, show, or title details.
-- The implementation must provide player controls with durable position.
-- The implementation must support queue, save, favorite, and library actions.
-- The implementation must support downloads when licensed.
-- The implementation must track entitlement and regional availability.
-- The implementation must surface continue-watching/listening states.
-- The implementation must support comments or reviews where relevant.
-- The implementation must handle stream errors and DRM/licensing states.
-- The implementation must separate licensed catalog from synthetic development data.
-- The implementation must support parental or content controls where relevant.
-- The implementation must preserve accessibility captions or transcript needs.
+
+### Source-Backed Product Requirements
+
+- Public listings and Pocket Casts pages position the app as a podcast player with discovery, subscriptions, Up Next queue, playlists/smart filters, downloads, playback effects, chapters, audio/video episodes, sleep timer, sync, notifications, OPML, Plus/Patron features, and cross-device support.
+- V1 must model signed-out, free, account-sync enabled, Plus-like, Patron-like, expired, canceled, refunded, platform-owned, private-feed, paid-feed, cloud-file, download-only, explicit-blocked, directory-unavailable, and region-blocked states.
+- Discover must support curated/personalized podcast rows, charts, categories, networks, search, fresh-account fallback, privacy-disabled recommendations, and stale/offline states using provider-approved directory metadata.
+- Podcasts/show grid must support subscribed shows, artwork, unplayed counts, latest episode, archive state, folders if Plus-like, sort order, failed refresh, feed unavailable, and private-feed restrictions.
+- Episode detail must support show metadata, notes, chapters when embedded, play, add next/last, download, archive/unarchive, star/favorite, share, bookmark, mark played, explicit label, and unavailable enclosure states.
+- Up Next must support add next, add last, drag reorder, remove, clear, auto-add rules, sync conflicts, offline queue, cross-device recovery, and episode deletion/availability changes.
+- Playlists/smart filters must support rule-based lists by podcast, release date, duration, download state, starred/favorite, played/unplayed, media type, custom order, manual playlists, and stale-rule states.
+- Playback effects must support variable speed, trim silence, volume boost, skip intro/outro or custom skip intervals, per-podcast defaults, global defaults, unsupported media fallback, and accessibility disclosures.
+- Downloads/offline must support manual download, auto-download rules, Wi-Fi/cellular constraints, storage limits, episode cleanup, partial/corrupt files, private-feed authentication, and feed enclosure changes.
+- Sync must support subscriptions, Up Next, progress, playback effects, filters, listening history, downloads metadata, bookmarks, folders, devices, web/desktop clients, conflict resolution, and account deletion/export behavior.
+- Plus/Patron-like features must support paid entitlement, web/desktop access, cloud files, themes/icons, folders, bookmarks, payment platform ownership, renewal/cancel/refund state, and feature downgrade recovery.
+- OPML import/export must support feed parsing, duplicate handling, invalid private feeds, large files, unsupported feeds, and privacy warnings about sharing subscription lists.
+- Support/privacy/settings must expose account, sync, notifications, downloads/storage, playback effects, Plus billing, OPML, private feeds, data export, account deletion, legal links, and support paths.
+
+### Manual Verification Required
+
+- Native iOS and Android navigation, tab names, Up Next behavior, playlist/filter builder, playback-effect exact controls, bookmarks, folders, cloud files, and release-note behavior.
+- Account signup/login, Plus/Patron purchase/restore/cancel, sync, downloads, auto-download, OPML import/export, private feeds, web/desktop/Watch/CarPlay/Chromecast/Sonos, push payloads, data export/delete, and regional podcast-directory differences.
 
 ## Core User Journeys
-- New user installs the app, reviews an original value proposition, creates an account, and reaches Home.
-- Returning user opens Home, resumes the most recent meaningful activity, and completes the primary action in Search.
-- User searches or browses from Player, opens Catalog Detail, saves or shares it, and later finds it again from history or library.
-- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
+
+- New listener installs the app, optionally creates an account, imports OPML or searches for shows, subscribes, chooses notification/download preferences, and lands on Podcasts/Discover.
+- Returning listener opens Podcasts, sees new episode counts, opens a show, adds an episode to Up Next, reorders the queue, and starts playback.
+- Power listener creates a smart playlist/filter for downloaded unplayed episodes under a duration limit, confirms it auto-updates, and uses it as a daily queue.
+- Listener changes playback speed, trim silence, volume boost, and skip intervals globally and for one podcast, then confirms settings sync across devices.
+- Listener enables auto-download for selected shows, loses connectivity, plays valid downloads offline, hits storage cleanup rules, and reconciles progress after reconnect.
+- Plus-like user uploads a cloud audio file, bookmarks a moment, plays from web/desktop, and handles downgrade where cloud files or bookmarks become locked.
+- User imports OPML with duplicate/invalid/private feeds, resolves errors, exports current subscriptions, and understands privacy implications.
+- Privacy-focused listener deletes listening history, exports data, deletes account, and sees warnings for subscriptions, sync state, cloud files, bookmarks, and support cases.
 
 ## Screen Inventory
-| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
+
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Home | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Search | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Catalog Detail | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Player | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Library | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Downloads | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Creator/Channel | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Comments/Reviews | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Welcome/Auth | Account entry, OPML/import prompt, legal consent | email/social auth, skip, import | new, returning, free, Plus | failed auth, blocked region, sync outage |
+| Discover | Podcast discovery and search entry | category, chart, search, subscribe | loading, curated, personalized | directory unavailable, stale recs |
+| Podcasts | Subscribed show grid/list | show tap, sort, folder, refresh | empty, subscribed, foldered | feed fail, artwork missing, sync conflict |
+| Show Detail | Show and episode list | subscribe, play, download, filter | subscribed, unsubscribed, refreshing | private feed auth, removed feed, malformed RSS |
+| Episode Detail | Episode notes and actions | play, add, download, star, share | available, downloaded, archived | enclosure missing, explicit blocked, note parse fail |
+| Player | Playback and effects | play, pause, speed, skip, effects | playing, paused, buffering | media fail, chapter missing, effects unsupported |
+| Up Next | Queue management | add next/last, reorder, remove, clear | empty, ordered, synced | duplicate, deleted episode, conflict |
+| Playlists/Filters | Rule-based and manual episode lists | rules, sort, save, play | empty, auto-updating, manual | invalid rule, stale feed, sync conflict |
+| Downloads/Storage | Offline files and cleanup | download, auto rules, delete | downloading, downloaded, offline | storage full, corrupt file, private-feed auth |
+| Bookmarks | Saved listening moments | add, edit, delete, jump | empty, saved, synced | entitlement lock, episode deleted, sync conflict |
+| Cloud Files | Plus-like hosted personal audio | upload, metadata, play, delete | pending, processed, failed | storage full, file unsupported, downgrade |
+| OPML | Import/export subscriptions | file import, export, resolve | parsed, duplicate, exported | invalid file, private feed, huge file |
+| Sync/Devices | Account sync and connected clients | sign in, refresh, device remove | synced, pending, conflict | server outage, stale device, merge conflict |
+| Subscription | Plus/Patron plans and billing | subscribe, restore, cancel | free, trial, paid, canceled | platform mismatch, webhook delay, refund |
+| Settings/Privacy/Support | Account, playback, downloads, legal | toggles, export, delete, contact | loaded, pending export, deleting | active subscription, cloud-file retention |
 
 ## Data Model
-- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
-- `CatalogItem`: represents the primary user-facing catalog object, ownership, availability, and display metadata.
-- `Creator`: represents the main user-facing object in this clone's core flow.
-- `Collection`: captures lifecycle state, ordering, timestamps, and failure reason codes.
-- `PlaybackSession`: captures active workflow state, timestamps, metrics, pause/resume markers, and completion status.
-- `QueueItem`: represents the primary user-facing catalog object, ownership, availability, and display metadata.
-- `Download`: records notification, recommendation, or entitlement state.
-- `Entitlement`: holds plan, trial, renewal, expiration, refund, and feature-access state.
-- `Comment`: captures conversation content references, participants, moderation state, and delivery status.
-- `RecommendationSlot`: holds derived analytics-safe state and sync metadata.
-- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
+
+- `User`: account identity, country/region, auth providers, sync state, consent, privacy choices, export/deletion state, and restrictions.
+- `DeviceSession`: device id, platform, app version, playback capability, cast/car/watch/web capability, notification token, sync cursor, and session expiry.
+- `Entitlement`: free, Plus-like, Patron-like, platform owner, renewal/cancel/refund state, web/cloud/bookmark/folder gates, and feature downgrade state.
+- `PodcastShow`: feed URL, canonical id, title, artwork, author/network, categories, explicit flag, private-feed auth, refresh state, and availability.
+- `Episode`: show id, title, notes, audio/video enclosure, duration, chapters, release date, explicit flag, download state, archive/play state, and unavailable reason.
+- `Subscription`: user/show relationship, notification preference, auto-download rule, playback defaults, folder assignment, sort order, and sync version.
+- `UpNextQueue`: ordered episode references, source, added-by rule/manual action, device origin, conflict version, and last sync cursor.
+- `PlaylistFilter`: manual or smart type, rule set, sort, included shows, media/download/played/starred criteria, version, and stale reason.
+- `PlaybackSession`: current episode, position, speed, trim-silence state, volume boost state, skip settings, output device, queue cursor, and sync state.
+- `DownloadAsset`: episode reference, file URL, device, bytes, checksum, private-feed auth state, storage policy, corrupt-cache marker, and retry count.
+- `Bookmark`: episode id, timestamp, note, device origin, entitlement state, sync state, deleted state, and export/deletion behavior.
+- `CloudFile`: user file, metadata, MIME/codec, bytes, processing state, storage quota, playback derivative, deletion/export status, and entitlement gate.
+- `OpmlImport`: uploaded file, parsed feeds, duplicates, invalid/private feed warnings, import results, and export job metadata.
+- `PrivacyRequest`: export, deletion, correction, listening-history removal, cloud-file deletion, status, delivery method, and retention/legal-hold notes.
+- `AuditEvent`: append-only auth, entitlement, sync, subscription, queue, download, cloud file, OPML, privacy, support, and billing-sensitive changes.
+- `LocalCacheRecord`: cached Discover/Podcasts/show/detail/settings, queue, downloads, playback progress, filters, queued writes, stale timestamps, and corruption markers.
 
 ## API And Backend Contracts
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /catalogitems, GET /creators, GET /collections, GET /playbacksessions; all reads return pagination, cache hints, authorization status, and stale-data indicators.
-- Writes: POST /users, POST /catalogitems, POST /creators, POST /collections, POST /playbacksessions; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
-- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+
+- `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, `DELETE /auth/sessions/:id`: account auth with region, sync state, locked-account, and device state.
+- `GET /discover`, `GET /charts`, `GET /categories`, `GET /search?q=&cursor=`: podcast directory discovery with cache hints, region context, explicit filter, and fallback slots.
+- `GET /podcasts/:id`, `POST /podcasts/refresh`, `POST /subscriptions`, `PATCH /subscriptions/:id`, `DELETE /subscriptions/:id`: show detail, feed refresh, subscription, notifications, playback defaults, and folders.
+- `GET /episodes/:id`, `PATCH /episodes/:id/state`: episode detail, notes, chapters, archive/play/star state, unavailable enclosure, and stale-data indicators.
+- `POST /playback/sessions`, `PATCH /playback/sessions/:id`, `GET /playback/sessions/:id`: playback lifecycle with idempotent commands, effects, queue context, position, and sync cursor.
+- `GET /up-next`, `POST /up-next/items`, `PATCH /up-next/items/:id`, `DELETE /up-next/items/:id`, `POST /up-next/reorder`: queue lifecycle, add-next/last, reorder, clear, and conflict resolution.
+- `POST /filters`, `PATCH /filters/:id`, `DELETE /filters/:id`, `GET /filters/:id/items`: manual/smart playlist rules, episode matching, stale rule state, and sync version.
+- `POST /downloads`, `PATCH /downloads/:id`, `DELETE /downloads/:id`, `GET /downloads/status`: manual/auto downloads, storage checks, private-feed auth, retry, and corrupt-cache recovery.
+- `POST /bookmarks`, `PATCH /bookmarks/:id`, `DELETE /bookmarks/:id`, `GET /bookmarks`: bookmark lifecycle with timestamp, note, entitlement, sync, and deleted-episode handling.
+- `POST /cloud-files`, `PATCH /cloud-files/:id`, `DELETE /cloud-files/:id`, `GET /cloud-files/:id/status`: Plus-like file upload, processing, quota, playback, deletion, and export state.
+- `POST /opml/import`, `GET /opml/export/:jobId`: import/export, duplicate handling, invalid/private feed warnings, and privacy-safe export.
+- `GET /sync/state`, `POST /sync/merge`, `POST /devices/:id/remove`: subscriptions, queue, progress, filters, bookmarks, and conflict merge state.
+- `GET /entitlements`, `POST /checkout/session`, `POST /billing/restore`, `POST /billing/webhook`, `POST /subscription/cancel`: plan lifecycle, platform ownership, restores, refunds, and delayed state.
+- `GET /privacy/settings`, `PATCH /privacy/settings`, `POST /data-export`, `DELETE /account`: privacy choices, export, account deletion, cloud-file warnings, and retention state.
+- `POST /reports`, `GET /reports/:id`, `POST /support/cases`, `GET /support/cases/:id`: podcast, episode, feed, billing, sync, account, and support workflows.
 
 ## Realtime, Push, And Offline Behavior
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+
+- Playback progress, Up Next, subscriptions, feed refreshes, filters, bookmarks, cloud-file processing, downloads, subscription changes, support updates, and privacy-export readiness must reconcile from server-owned sync events.
+- Clients may cache Discover, search suggestions, podcast/show detail, episode detail, Podcasts grid, filters, queue, settings, entitlement summary, and support status with stale labels.
+- Offline mode may play valid downloaded episodes, preserve Up Next, track local progress, add/remove low-risk queue items, create bookmarks where entitlement allows, and update filter state from cached episode metadata.
+- Offline mode must block feed refresh, cloud-file upload, OPML import/export, subscription purchase/cancel, account deletion, private-feed auth refresh, support evidence upload, and irreversible cloud-file deletion.
+- Downloads must be device-bound, feed/enclosure-aware, storage-aware, resumable, and invalidated on sign-out, feed removal, private-feed auth failure, deleted enclosure, or user cleanup rules.
+- Sync must be conflict-aware, idempotent, cursor-based, and able to recover from stale devices, duplicate episodes, cross-device queue edits, clock skew, and local cache corruption.
+- Push notifications must be opt-in and category-controlled for new episodes, playlist/filter updates if added, subscription/billing, cloud-file processing, sync alerts, support cases, privacy export, and account security.
+- Push payloads must minimize sensitive content; defaults should avoid exact listening history, private feed names, cloud-file names, payment state, and support evidence.
 
 ## Permissions, Privacy, And Safety
-- Treat licensed media as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat copyright as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat content moderation as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat parental controls as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat download rights as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+
+- Notifications, local files/cloud upload, OPML file access, local network/cast, Bluetooth/car/watch output, contacts/share sheet, and location must be requested only when the related feature is invoked.
+- Default analytics must exclude raw search terms where possible, exact listening history, private feed URLs, cloud-file names, episode notes, payment details, device names, IP-level location, and support evidence.
+- Podcast directory metadata, RSS feeds, private feeds, paid feeds, artwork, transcripts, episode notes, chapters, cloud files, and playback effects are launch blockers with legal/catalog/provider owners.
+- Copyright, trademark, rightsholder takedown, private-feed leakage, paid-feed bypass, explicit-content labeling, recommendation safety, and creator impersonation require launch-blocking review.
+- Explicit content must support show/episode labeling, account-level filters, reporting incorrect tags, private-feed caution, and region/age-specific handling.
+- Sync and cloud files must minimize retained personal data, encrypt sensitive metadata where appropriate, document export/deletion, and separate support access from production data.
+- Account deletion/export must warn about sync data, subscriptions, listening history, queue, filters, bookmarks, cloud files, OPML, support cases, and legal/provider retention.
+- Accessibility must target WCAG 2.2 AA where applicable, dynamic type, screen-reader labels, visible focus, reduced motion, accessible queue reordering, media controls, chapter navigation, and nonvisual filter-builder alternatives.
+- Launch owners: catalog/legal owner for podcast feeds and private/paid feeds; privacy owner for sync/cloud/export; trust/safety owner for explicit/reporting and feed abuse; billing owner for Plus/Patron; accessibility owner for player/queue UX.
 
 ## Analytics And Monetization
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
+
+- Track privacy-safe events: onboarding started/completed, search performed, discover item viewed, show opened, subscription added/removed, episode opened, playback started/completed/failed, queue edited, filter created, download completed, bookmark created, cloud file processed, OPML imported/exported, sync conflict resolved, entitlement changed, report submitted, data export requested, and account deletion requested.
+- Every event must use object type, surface, feature flag, entitlement state, region bucket, error code, latency bucket, and provider status rather than raw episode titles, feed URLs, cloud-file names, exact listening history, or private notes.
+- Recommendation analytics must separate seed type, slot type, explanation key, impression, subscribe, play, hide, and report actions without exposing private user content.
+- Playback analytics must minimize podcast listening detail, separate product analytics from any provider/royalty accounting, and avoid sharing private-feed behavior outside required support workflows.
+- Monetization may include original free access, Plus-like subscription, Patron-like subscription, cloud-file storage, web/desktop access, themes/icons, folders, bookmarks, and provider-approved premium features after legal review.
+- Any paid plan, cloud storage, web/desktop feature, or promotional offer must disclose price, renewal/cancellation, refund/support path, platform ownership, and provider approval before launch.
 
 ## Edge Cases
-- First launch with no network, no account, or expired session.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
+
+- First launch offline, unsupported OS, unsupported region, expired session, account locked, passwordless login failure, or social/platform auth revoked.
+- Search result exists but feed is gone, podcast artwork is missing, explicit filter hides episodes, private-feed auth fails, paid feed cannot be accessed, or RSS is malformed.
+- Episode enclosure redirects, download starts then file changes, episode is deleted while in Up Next, chapter metadata is malformed, or video episode cannot play audio-only.
+- Up Next is edited on two devices, add-next/add-last conflicts, queue includes deleted episodes, auto-add rules duplicate episodes, or sync cursor is stale.
+- Smart filter rule matches zero episodes after feed refresh, rule uses unavailable metadata, or manual playlist contains archived/deleted episodes.
+- Playback effects are unsupported for a media type, trim silence over-skips, volume boost clips audio, speed setting syncs incorrectly, or per-podcast defaults conflict with global defaults.
+- Auto-download exceeds storage, cellular restriction blocks a download, private-feed token expires, app cache is cleared, or sign-out invalidates local files.
+- OPML import has duplicate, private, invalid, or huge feeds; export includes a private feed; user imports while offline; or support case blocks migration.
+- Privacy export email fails, account deletion requested with cloud files/subscription/support case, or legal retention prevents full deletion.
 
 ## Test Plan
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+
+- Unit tests for entitlement gating, feed parsing, queue state machine, filter matching, playback effects, download validation, sync conflict merge, OPML parsing, and privacy-safe analytics payloads.
+- Contract tests for every documented API route, including pagination, cursor reconciliation, idempotency keys, error codes, feed states, download states, cloud-file states, sync states, and webhook duplicates.
+- Integration tests for auth, Discover, search, podcast subscribe/unsubscribe, show detail, episode detail, playback start/stop, Up Next add/reorder, filter create/edit, download, bookmark, OPML import/export, cloud file, and settings.
+- Playback tests for buffering, chapters, speed, trim silence, volume boost, skip intervals, sleep timer, audio/video toggle, output route, failed enclosure, and local cache stale state.
+- Offline tests for valid downloads, missing downloads, corrupt cache, disk full, private-feed auth failure, sign-out invalidation, queued low-risk writes, cached filters, and reconnect reconciliation.
+- Sync tests for subscriptions, progress, Up Next, filters, bookmarks, listening history, stale devices, conflict merge, duplicate episodes, and account deletion/export.
+- Billing tests for Plus-like trial, purchase, restore, cancellation, refund, expired plan, platform-owned subscription, downgrade from Plus features, and web/desktop gate.
+- Privacy tests for private feeds, cloud files, data export, account deletion, deletion blockers, support evidence redaction, listening-history removal, and analytics minimization.
+- Accessibility tests for dynamic type, screen reader labels, focus order, reduced motion, queue reordering, filter builder, media controls, chapters, and OPML/import alternatives.
+- Manual verification tests: native iOS/Android screenshots, Plus/Patron purchase/restore/cancel, sync, Up Next, filters/smart playlists, auto-downloads, bookmarks, cloud files, web/desktop/Watch/CarPlay/Chromecast/Sonos, playback effects, push payloads, export/delete, and regional directory behavior.
 
 ## Acceptance Criteria
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+
+- Exact source links in this spec remain current or are refreshed before implementation starts.
+- A downstream team can build the V1 without needing Pocket Casts assets, network traffic, private APIs, recommendation systems, directory snapshots, user sync data, cloud files, or brand copy.
+- New and returning users can discover, subscribe, search, play, queue, filter, download, bookmark, sync, import/export, and recover podcast listening using original licensed, public RSS, or synthetic data.
+- Podcast, episode, subscription, Up Next, filter, playback effect, download, bookmark, cloud-file, OPML, sync, subscription, privacy, and support workflows have deterministic data models and API contracts.
+- Free, account-sync, Plus-like, Patron-like, cloud-file, private-feed, paid-feed, expired, canceled, refunded, and unavailable entitlement states are covered by tests.
+- Offline playback, downloads, sync, filters, bookmarks, cloud files, OPML, web/device handoff, recommendations, and privacy workflows have explicit blockers where exact native behavior is not verified.
+- Podcast-feed rights, private/paid feeds, explicit-content, sync/cloud privacy, billing, and platform-device constraints have named launch owners and launch-blocking mitigations.
+- Manual verification blockers are either resolved with evidence or remain launch-blocking feature flags before one-for-one native parity is claimed.
 
 ## Open Questions
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+- Which podcast directory provider, RSS parser, artwork cache, sync backend, cloud-file provider, transcript/chapter provider, and billing provider will back the original clone?
+- Which features are V1 versus later: Plus, Patron, cloud files, web/desktop, filters, smart playlists, bookmarks, OPML, private feeds, Chromecast/Sonos/CarPlay/Watch, or auto-downloads?
+- Will V1 support only public RSS feeds, or private/paid feeds and cloud files from launch?
+- Which payment platforms own subscriptions and restores: app stores, web checkout, both, or a provider-managed subscription service?
+- What privacy posture should listening history and sync use by default, and how should private feeds/cloud files affect analytics and support access?
+- Which regions, languages, explicit-content rules, podcast directories, feed-auth models, and device integrations are in launch scope?
+
+## Build Plan
+
+- Phase 1: scaffold app shell, auth optionality, Discover, Search, Podcasts, show detail, episode detail, Player, Up Next, synthetic/public RSS seed data, and privacy-safe analytics.
+- Phase 2: add subscriptions, playback progress, archive/star states, manual queue editing, playback effects, sleep timer, support/settings, and account privacy controls.
+- Phase 3: add feed refresh service, RSS parser, chapter/enclosure handling, private-feed auth model, OPML import/export, and feed regression tests.
+- Phase 4: add downloads/offline mode, auto-download rules, storage management, corrupt-cache recovery, and offline regression tests.
+- Phase 5: add smart filters/playlists, folders if approved, bookmarks, cross-device sync, conflict resolution, stale-device recovery, and sync regression tests.
+- Phase 6: add Plus/Patron entitlements, checkout/restore/webhooks, cloud files, web/desktop gate, downgrade recovery, and billing/cloud regression tests.
+- Phase 7: add push notifications, cast/car/watch/device integrations, accessibility pass, and manual native verification.
+- Phase 8: complete legal/provider launch review for podcast feeds, private/paid feeds, sync/cloud data, recommendations, data deletion/export, regional directory availability, and platform APIs.
 
 ## Next Steps
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
-- Resolve open questions and update this spec before app implementation starts.
-- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.
+
+- Resolve Pocket Casts manual verification blockers before claiming one-for-one native parity.
+- Create or link the downstream implementation repository when this app is selected for build planning.
+- Continue Phase 3 implementation-readiness upgrades with the next Batch 04 video specs.
