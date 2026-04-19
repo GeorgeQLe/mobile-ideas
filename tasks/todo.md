@@ -2,7 +2,7 @@
 
 ## Priority Documentation Todo
 
-- [x] Documentation is current; no missing or stale research, spec, roadmap, or task artifacts found for the enabled project contract.
+- [ ] `$pack install business-app` - configure the project-local documentation/research pack because `.agents/project.json` is missing and the pack recommender selected `business-app` from this repository's mobile product-planning contract. Install the pack before adding pack-specific research items.
 
 ## Priority Task Queue
 

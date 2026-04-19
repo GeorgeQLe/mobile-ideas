@@ -150,7 +150,14 @@
 - Seeded the downstream repository with `docs/plans/todoist-downstream-build-plan.md` from `tasks/todoist-downstream-build-plan.md`.
 - Updated Phase 4 planning to mark downstream repository creation complete and keep runtime implementation work outside this planning repository.
 
+## 2026-04-19 - Research Roadmap Refresh
+
+- Refreshed the priority documentation queue after Phase 4 completion.
+- Confirmed the repository has complete current specs, task history, roadmap, implementation-readiness notes, and downstream Todoist planning for the existing planning contract.
+- Added `$pack install business-app` as the next documentation action because `.agents/project.json` is missing and the pack recommender selected `business-app`; pack-specific research queue items should be generated only after the pack is enabled.
+
 ## Next Steps
 
+- Run `$pack install business-app` before generating pack-specific research/documentation queue items.
 - Continue implementation planning and scaffolding in `https://github.com/GeorgeQLe/todoist-mobile-clone`.
 - Keep Todoist manual verification blockers deferred until lawful hands-on verification evidence exists.
