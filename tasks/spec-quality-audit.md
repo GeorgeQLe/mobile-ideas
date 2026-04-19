@@ -5,9 +5,9 @@ Updated: 2026-04-19
 
 ## Verdict
 
-The 100 technical specs pass the Draft 1 structural and depth gate. Phase 3 implementation-readiness upgrades have now replaced discovery sources with exact first-party URLs for 72 specs.
+The 100 technical specs pass the Draft 1 structural and depth gate. Phase 3 implementation-readiness upgrades have now replaced discovery sources with exact first-party URLs for 77 specs.
 
-Most specs are still not final one-for-one clone specs because exact first-party source URLs and hands-on verification remain open Phase 3 work. The implementation-ready public-source V1 set is: `001-chatgpt.md` through `071-pocket-casts.md`, plus `089-notion.md`.
+Most specs are still not final one-for-one clone specs because exact first-party source URLs and hands-on verification remain open Phase 3 work. The implementation-ready public-source V1 set is: `001-chatgpt.md` through `076-imdb.md`, plus `089-notion.md`.
 
 ## Audit Scope
 
@@ -34,9 +34,9 @@ A Draft 1 or public-source V1 spec must meet these minimums:
 - Specs with all canonical sections: 100.
 - Specs passing Draft 1 depth metrics: 100.
 - Specs failing Draft 1 depth metrics: 0.
-- Specs with exact first-party source URLs replacing discovery links: 72.
+- Specs with exact first-party source URLs replacing discovery links: 77.
 - Specs with hands-on app behavior fully verified: 0.
-- Specs upgraded to implementation-ready public-source V1: 72.
+- Specs upgraded to implementation-ready public-source V1: 77.
 
 ## Resolved Findings
 
@@ -96,11 +96,15 @@ All numbered specs now use the same canonical structure and pass the same depth 
 
 `067-apple-music.md`, `068-youtube-music.md`, `069-soundcloud.md`, `070-audible.md`, and `071-pocket-casts.md` now use exact first-party marketplace, help/support, privacy/legal, product, subscription, creator/audiobook/podcast, playback, download/offline, sync/device, and policy URLs instead of discovery links and include app-specific music, video/audio switching, creator uploads, audiobook credits/returns, podcast queue/sync, privacy, support, edge-case, test, acceptance, build-plan, and manual verification detail.
 
+### Resolved: Batch 04 Video And Entertainment Source Replacement
+
+`072-netflix.md`, `073-youtube.md`, `074-twitch.md`, `075-letterboxd.md`, and `076-imdb.md` now use exact first-party marketplace, help/support, privacy/legal, product, subscription, upload/live, review/rating, watchlist, playback, download/offline, moderation, creator, rental, availability, and policy URLs instead of discovery links and include app-specific streaming video, user-generated video, live streaming, film social, entertainment database, privacy, support, edge-case, test, acceptance, build-plan, and manual verification detail.
+
 ## Remaining Findings
 
 ### High: Exact Source Replacement Remains Open
 
-Twenty-eight specs still include App Store, Google Play, and official help/privacy source-discovery links. These are not exact verified first-party listing/help/privacy URLs.
+Twenty-three specs still include App Store, Google Play, and official help/privacy source-discovery links. These are not exact verified first-party listing/help/privacy URLs.
 
 Impact: A builder still needs to complete the app-by-app research pass before claiming one-for-one product truth.
 
@@ -122,10 +126,10 @@ Recommended fix: Use lawful test accounts/devices to verify reachable flows. Mar
 - The spec set now distinguishes source discovery from exact verification and hands-on behavior.
 - Batch 01 now has implementation-ready public-source V1 coverage for AI assistant, AI search, AI companion, short-video, social-media, camera-social, community, decentralized-social, visual-discovery, lifestyle-social, private messaging, cloud messaging, privacy messaging, community chat, and workplace chat patterns.
 - Batch 02 now has implementation-ready public-source V1 coverage for communication, calling, meetings, email, maps, navigation, rideshare, micromobility, car-sharing, lodging marketplace, multi-product travel booking, travel deals, itinerary organization, local delivery, food delivery, and grocery delivery patterns.
-- Batch 04 now has implementation-ready public-source V1 coverage for crypto exchange, credit/personal finance, zero-based budgeting, subscription and bill management, digital wallet/pass, music streaming, social audio, audiobooks, and podcast player patterns.
+- Batch 04 now has implementation-ready public-source V1 coverage for crypto exchange, credit/personal finance, zero-based budgeting, subscription and bill management, digital wallet/pass, music streaming, social audio, audiobooks, podcast player, streaming video, user-generated video, live streaming, film social, and entertainment database patterns.
 
 ## Next Steps
 
-- Upgrade the next Batch 04 video/entertainment specs: `072-netflix.md`, `073-youtube.md`, `074-twitch.md`, `075-letterboxd.md`, and `076-imdb.md`.
-- Continue Phase 3 implementation-readiness upgrades for the remaining 28 Draft 1 specs by batch.
+- Upgrade the next Batch 04 education specs: `077-duolingo.md`, `078-khan-academy.md`, `079-quizlet.md`, and `080-coursera.md`.
+- Continue Phase 3 implementation-readiness upgrades for the remaining 23 Draft 1 specs by batch.
 - Complete hands-on verification where lawful and feasible.

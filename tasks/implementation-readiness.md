@@ -7,7 +7,7 @@ Updated: 2026-04-19
 
 The spec set is moving from Draft 1 scaffolds to implementation-ready specs by focused batches.
 
-Current readiness count: 72 of 100.
+Current readiness count: 77 of 100.
 
 ## Readiness Definition
 
@@ -82,6 +82,11 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 069 | SoundCloud | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; creator uploads, waveform timed comments, likes/reposts, playlists, profiles, insights, monetization, ads, copyright, privacy, and native/manual parity blockers remain explicit. |
 | 070 | Audible | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; audiobook discovery, library, chapters, bookmarks, sleep timer, credits, Plus-like catalog, returns, Kids Profile, privacy, and native/manual parity blockers remain explicit. |
 | 071 | Pocket Casts | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; podcast discovery, subscriptions, Up Next, playlists/filters, playback effects, downloads, sync, OPML, Plus-like features, privacy, and native/manual parity blockers remain explicit. |
+| 072 | Netflix | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; subscription streaming, profiles, recommendations, downloads/offline, Kids/parental controls, ads, privacy, and native/manual parity blockers remain explicit. |
+| 073 | YouTube | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; user-generated video, Shorts, subscriptions, channels, comments, uploads, live, monetization, supervised accounts, privacy, and native/manual parity blockers remain explicit. |
+| 074 | Twitch | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; live streaming, channels, chat, clips, VODs, subscriptions, fan funding, moderation, ads, privacy, and native/manual parity blockers remain explicit. |
+| 075 | Letterboxd | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; film diary, reviews, ratings, watchlist, lists, activity feed, subscriptions, rentals, privacy, and native/manual parity blockers remain explicit. |
+| 076 | IMDb | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; entertainment database search, watchlist, watched tracking, ratings, reviews, trailers, showtimes, availability, privacy, and native/manual parity blockers remain explicit. |
 | 089 | Notion | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; workspace pages, blocks, databases, search, sharing/permissions, comments/mentions, notifications, offline pages, imports/exports, AI, integrations/API, billing, privacy, security, and enterprise/admin blockers remain explicit. |
 | 041 | Starbucks | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; coffee ordering, stored value, Rewards, eGifts, store pickup, support/refunds, and native/manual parity blockers remain explicit. |
 | 042 | McDonald's | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Mobile Order and Pay, deals, rewards, pickup modes, delivery handoff, refunds, restaurant/franchise variation, and native/manual parity blockers remain explicit. |
@@ -97,7 +102,7 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 053 | Depop | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; fashion resale feed, shops, listings, likes/follows, messages, offers, payments, shipping labels, buyer/seller protection, payouts, and native/manual parity blockers remain explicit. |
 | 054 | StockX | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; bid/ask market, market pricing, buy now/sell now, verification, Buyer Promise-style support, seller levels, fees, payouts, two-step security, and native/manual parity blockers remain explicit. |
 | 055 | Shop | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; package tracking, email/order import, merchant discovery, Shop Pay-style wallet, Shop Cash-style rewards, merchant channel, tracking sync, and native/manual parity blockers remain explicit. |
-| 072-088, 090-100 | Remaining specs | Draft 1 scaffold | Must be upgraded app-by-app or by focused batch using the readiness definition above. |
+| 077-088, 090-100 | Remaining specs | Draft 1 scaffold | Must be upgraded app-by-app or by focused batch using the readiness definition above. |
 
 ## Repeatable Upgrade Loop
 
@@ -124,8 +129,9 @@ For each spec:
 - Batch 03 finance/payment/investing public-source V1 expansion: `057-venmo.md`, `058-paypal.md`, `059-zelle.md`, and `060-robinhood.md`.
 - Batch 04 finance/wallet public-source V1 expansion: `061-coinbase.md`, `062-mint-credit-karma.md`, `063-ynab.md`, `064-rocket-money.md`, and `065-apple-wallet.md`.
 - Batch 04 audio public-source V1 expansion: `067-apple-music.md`, `068-youtube-music.md`, `069-soundcloud.md`, `070-audible.md`, and `071-pocket-casts.md`.
+- Batch 04 video/entertainment public-source V1 expansion: `072-netflix.md`, `073-youtube.md`, `074-twitch.md`, `075-letterboxd.md`, and `076-imdb.md`.
 
 ## Next Steps
 
-- Upgrade the next Batch 04 video/entertainment specs: `072-netflix.md`, `073-youtube.md`, `074-twitch.md`, `075-letterboxd.md`, and `076-imdb.md`.
+- Upgrade the next Batch 04 education specs: `077-duolingo.md`, `078-khan-academy.md`, `079-quizlet.md`, and `080-coursera.md`.
 - Continue Phase 3 exact source replacement and hands-on blocker documentation through later batches.

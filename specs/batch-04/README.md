@@ -2,8 +2,8 @@
 
 > Metadata
 > - App range: 061-080
-> - Status: Draft 1 canonical spec rewrite; `061-071` upgraded to implementation-ready public-source V1
-> - Research state: exact source replacement complete for specs `061-071`; public source-discovery links remain for `072-080` and hands-on verification still required before implementation.
+> - Status: Draft 1 canonical spec rewrite; `061-076` upgraded to implementation-ready public-source V1
+> - Research state: exact source replacement complete for specs `061-076`; public source-discovery links remain for `077-080` and hands-on verification still required before implementation.
 
 ## Overview
 This batch contains canonical Draft 1 clone specs for apps 61-80 from tasks/ideas.md.
@@ -21,11 +21,11 @@ This batch contains canonical Draft 1 clone specs for apps 61-80 from tasks/idea
 - 069 SoundCloud - Music/audio - implementation-ready public-source V1
 - 070 Audible - Audiobooks - implementation-ready public-source V1
 - 071 Pocket Casts - Podcasts - implementation-ready public-source V1
-- 072 Netflix - Streaming video
-- 073 YouTube - Video platform
-- 074 Twitch - Live streaming
-- 075 Letterboxd - Entertainment social
-- 076 IMDb - Entertainment database
+- 072 Netflix - Streaming video - implementation-ready public-source V1
+- 073 YouTube - Video platform - implementation-ready public-source V1
+- 074 Twitch - Live streaming - implementation-ready public-source V1
+- 075 Letterboxd - Entertainment social - implementation-ready public-source V1
+- 076 IMDb - Entertainment database - implementation-ready public-source V1
 - 077 Duolingo - Education
 - 078 Khan Academy - Education
 - 079 Quizlet - Education
@@ -40,5 +40,5 @@ This batch contains canonical Draft 1 clone specs for apps 61-80 from tasks/idea
 
 ## Next Steps
 
-- Continue exact source replacement and implementation-readiness upgrades with `072-netflix.md`, `073-youtube.md`, `074-twitch.md`, `075-letterboxd.md`, and `076-imdb.md`.
+- Continue exact source replacement and implementation-readiness upgrades with `077-duolingo.md`, `078-khan-academy.md`, `079-quizlet.md`, and `080-coursera.md`.
 - Complete hands-on verification where lawful and feasible before app implementation starts.

@@ -101,7 +101,14 @@
 - Rewrote the selected specs to implementation-ready public-source V1 status with app-specific music streaming, video/audio switching, creator uploads, timed comments, audiobook credits/returns, podcast queues/filters/sync, privacy, support, edge-case, test, acceptance, build-plan, and manual verification detail.
 - Updated readiness and audit counts from 67 to 72 implementation-ready public-source V1 specs and prepared the next Batch 04 video/entertainment step.
 
+## 2026-04-19 - Batch 04 Video/Entertainment Readiness Upgrade
+
+- Archived Draft 1 copies for `072-netflix.md`, `073-youtube.md`, `074-twitch.md`, `075-letterboxd.md`, and `076-imdb.md`.
+- Replaced source-discovery links with exact first-party marketplace, help/support, privacy/legal, product, subscription, upload/live, review/rating, watchlist, playback, download/offline, moderation, creator, rental, availability, and policy URLs for the selected Batch 04 video/entertainment specs.
+- Rewrote the selected specs to implementation-ready public-source V1 status with app-specific subscription streaming, user-generated video, live streaming, film diary/social, entertainment database, privacy, support, edge-case, test, acceptance, build-plan, and manual verification detail.
+- Updated readiness and audit counts from 72 to 77 implementation-ready public-source V1 specs and prepared the next Batch 04 education step.
+
 ## Next Steps
 
-- Upgrade `072-netflix.md`, `073-youtube.md`, `074-twitch.md`, `075-letterboxd.md`, and `076-imdb.md` as the next Batch 04 video/entertainment pass.
-- Continue the remaining 28 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, Batch 03, Batch 04 finance/wallet, and Batch 04 audio pattern sets.
+- Upgrade `077-duolingo.md`, `078-khan-academy.md`, `079-quizlet.md`, and `080-coursera.md` as the next Batch 04 education pass.
+- Continue the remaining 23 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, Batch 03, Batch 04 finance/wallet, Batch 04 audio, and Batch 04 video/entertainment pattern sets.
