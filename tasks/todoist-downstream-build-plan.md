@@ -1,0 +1,167 @@
+# Todoist Downstream Build Plan
+
+Created: 2026-04-19
+
+## Scope
+
+Source spec: `specs/batch-05/090-todoist.md`
+
+Proposed downstream repository: `GeorgeQLe/todoist-mobile-clone`
+
+This plan translates the implementation-ready public-source V1 Todoist-style spec into a downstream mobile build plan. It is implementation-agnostic until the downstream repository selects a stack. The downstream app must use original branding, original copy, original icons, original templates, synthetic seed data, documented public URLs, and provider stubs or feature flags for unverified behavior.
+
+Do not create parity claims for native Todoist behavior until lawful hands-on verification resolves the blockers listed in this plan and in the source spec.
+
+## Product Boundaries
+
+- Build functional parity for task planning workflows, not a branded Todoist replica.
+- Do not copy Todoist trademarks, screenshots, marketing copy, protected UI artwork, private APIs, internal ranking systems, paid templates, support scripts, network traces, or proprietary assets.
+- Keep exact public-source legal, help, privacy, terms, security, pricing, template, and integration links available from the source spec before implementation starts.
+- Treat calendar integrations, billing, team/admin flows, widgets, watch behavior, data export, account deletion, support escalation, and exact offline conflict behavior as feature-flagged or blocked until verified.
+- Use synthetic tasks, projects, comments, collaborators, templates, entitlements, notifications, support cases, export jobs, and offline conflicts.
+
+## Route Map
+
+| Route Or State | Screen Coverage | Primary Jobs | Required States | Blockers And Flags |
+|---|---|---|---|---|
+| `/auth/welcome` | Auth shell | Start signup/login, terms acknowledgement, provider handoff stub, account recovery link | first launch, returning, expired session, locked account, provider outage, support-required | `auth.native-order` blocks exact native screen order and provider prompts |
+| `/home/today` | Today/Upcoming | Show due and overdue tasks, complete task, reschedule, quick-add entry, sync banner | empty, loading, loaded, offline, read-only, signed-out | `reminders.native-payloads` and `recurring-date.native-rules` block exact reminder/recurrence parity |
+| `/home/upcoming` | Today/Upcoming | Browse upcoming schedule, inspect date buckets, drag or edit due date, open task detail | empty, loading, loaded, stale sync, offline conflict | `calendar.native-integration` blocks exact external calendar behavior |
+| `/inbox` | Inbox | Capture untriaged tasks, assign project, label, date, priority, collaborator | empty, loading, loaded, offline draft, permission denied | `quick-add.native-parser` blocks exact natural-language parse parity |
+| `/quick-add` | Quick Add | Parse task text into title, due date, recurrence, project, label, priority, reminder | parsing, confirm, validation error, offline draft, parser fallback | `quick-add.native-parser` and `recurring-date.native-rules` |
+| `/tasks/:taskId` | Task Detail | Edit title, description, due date, recurrence, reminder, labels, comments, attachments, audit view | loaded, deleted object, moved object, stale revision, permission changed | attachments require upload safety and support redaction review |
+| `/projects` | Project View | List projects, create project, reorder, show favorites, archived state | empty, loaded, offline, read-only, entitlement blocked | collaboration controls gated by `teams.native-admin` |
+| `/projects/:projectId` | Project View | View list, board, or calendar mode; manage sections; move tasks; share project | loaded, stale sync, deleted project, access revoked, provider error | board/calendar exact behavior blocked by `calendar.native-integration` |
+| `/labels` | Labels/Filters | Create labels, attach labels to tasks, browse label task lists | empty, loaded, stale index, offline, read-only | none beyond core authorization and sync tests |
+| `/filters` | Labels/Filters | Create saved queries, run filters, explain result count and stale-index status | empty, loaded, invalid query, stale index, permission-filtered | exact native query grammar must be documented before parity claim |
+| `/calendar` | Calendar/Board View | Show internal date planning calendar and provider stub connection state | no provider, connected stub, permission denied, stale sync, offline | `calendar.native-integration` blocks Google/Apple/Outlook parity |
+| `/board/:projectId` | Calendar/Board View | Show project sections as columns, move task between sections, resolve conflicts | loaded, drag alternative, offline queue, conflict | needs accessibility drag alternative before launch |
+| `/templates` | Templates | Browse original templates, preview, copy into workspace, explain licensing | empty, loaded, copied, entitlement blocked, provider error | no Todoist template names, copy, categories, or artwork |
+| `/team` | Team Workspace | Workspace overview, members, roles, invites, shared projects, policy status | solo, member, admin, invite pending, region blocked | `teams.native-admin` blocks exact team invite/admin parity |
+| `/team/invites/:id` | Team Workspace | Accept, reject, expire, or request access for an invite | valid, expired, revoked, permission denied, support-needed | `teams.native-admin` |
+| `/settings` | Settings/Billing | Profile, notification prefs, privacy, accessibility, sessions, integrations, legal links | loaded, offline read-only, signed-out, support-required | sensitive changes require audit events |
+| `/settings/billing` | Settings/Billing | Entitlement summary, checkout stub, restore, cancel, delayed webhook state | free, trial, paid, expired, canceled, refunded, region unavailable | `billing.native-platform` blocks paid checkout/restore/cancel parity |
+| `/settings/privacy` | Privacy | Export, delete account, analytics controls, provider revocation, shared-content caveats | export pending, delete pending, legal hold, last admin, support case open | `privacy.native-export-delete` blocks exact native export/delete parity |
+| `/support` | Support | Create support case, attach redacted evidence, view SLA/status, escalation path | empty, intake, pending, escalated, resolved, failed upload | `support.native-escalation` blocks exact support handoff parity |
+| `/notifications` | Notification Center | In-app notification history, read state, preference shortcut, deep-link safety | empty, loaded, permission denied, stale target, revoked access | `reminders.native-payloads` blocks exact push payload parity |
+| `/offline/conflicts` | Offline Conflict Resolution | Review queued writes, duplicate detection, server rejection, discard or retry | no conflicts, duplicate, deleted object, access revoked, provider rejected | `offline.native-conflict-rules` blocks exact native conflict parity |
+
+Every required source-spec screen maps to at least one route or navigation state: Today/Upcoming, Inbox, Project View, Quick Add, Task Detail, Labels/Filters, Calendar/Board View, Templates, Team Workspace, Settings/Billing, Privacy, Support, Export, and Account Deletion.
+
+## API Schema Plan
+
+All write endpoints require idempotency keys, authorization rechecks, audit metadata, stale-revision detection, rate limits, and privacy-safe error responses. All list endpoints support cursor pagination, permission filtering, stale-index labels where relevant, and redacted analytics events.
+
+| API Family | Routes | Owner | Request And Response Scope | Error States | Required Tests |
+|---|---|---|---|---|---|
+| Auth/session | `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, `DELETE /auth/sessions/:id` | Auth owner | Credentials or provider token stub in; session, user, device session, consent state, and recovery status out | invalid credentials, expired provider token, locked account, underage/ineligible, region blocked, support required, rate limited | unit state machine, contract errors, integration login/logout/recover |
+| Profile/settings | `GET /me`, `PATCH /me`, `GET /settings`, `PATCH /settings` | Platform owner | Profile, locale, accessibility, notification prefs, privacy prefs, sessions, legal links | stale revision, invalid locale, denied sensitive change, offline read-only, audit write failed | unit validation, contract patch, privacy audit, accessibility prefs |
+| Tasks | `GET /tasks`, `POST /tasks`, `PATCH /tasks/:id`, `DELETE /tasks/:id` | Task domain owner | Task title, notes, due date, recurrence, priority, project, section, labels, reminders, completion, sync version | invalid recurrence, deleted project, permission denied, stale revision, duplicate offline write, unsafe offline delete | unit validation, contract CRUD, integration task flow, offline conflict |
+| Projects/sections | `GET /projects`, `POST /projects`, `PATCH /projects/:id`, `DELETE /projects/:id`, section subresources or equivalent | Task domain owner | Project metadata, view mode, color token, favorite/archive state, section order, member role summary | last project move conflict, archived project, access revoked, stale reorder, read-only workspace | contract CRUD/reorder, integration project list/board, realtime permission change |
+| Quick add | `POST /quick-add/parse`, `POST /quick-add/commit` | Task domain owner | Raw entry in; parsed title, date, recurrence, project, label, reminder, ambiguity warnings out; committed task out | parser unavailable, ambiguous date, unsupported recurrence, invalid target, offline draft only | unit parser contract, ambiguity snapshots, integration quick-add fallback |
+| Labels | `GET /labels`, `POST /labels`, `PATCH /labels/:id`, `DELETE /labels/:id` | Task domain owner | Label name, color token, usage count, task membership summary | duplicate name, in-use delete confirmation, permission denied, stale revision | unit validation, contract CRUD, integration label filter |
+| Filters | `GET /filters`, `POST /filters`, `PATCH /filters/:id`, `DELETE /filters/:id` | Search owner | Saved query, sort, explanation, result count, stale-index flag | invalid query, unsupported operator, permission-filtered result, stale index | unit query validation, contract errors, search integration |
+| Reminders | `GET /reminders`, `POST /reminders`, `PATCH /reminders/:id`, `DELETE /reminders/:id` | Notifications owner | Reminder time, channel, quiet-hours handling, task summary redaction, delivery status | permission denied, quiet hours, invalid date, push token missing, provider delayed | unit scheduling, contract CRUD, permission tests, push redaction |
+| Comments | `GET /comments`, `POST /comments`, `PATCH /comments/:id`, `DELETE /comments/:id` | Collaboration owner | Task/project target, body, actor, attachment refs, edit/delete state | access revoked, deleted target, unsafe attachment, stale revision, support redaction needed | contract CRUD, integration collaboration, privacy redaction |
+| Templates | `GET /templates`, `POST /templates/:id/copy` | Content owner | Original template metadata, preview, owned copy result, licensing notes | unavailable, entitlement blocked, copy conflict, invalid destination | contract copy, seed-data originality check, integration copy flow |
+| Integrations | `GET /integrations`, `POST /integrations`, `PATCH /integrations/:id`, `DELETE /integrations/:id` | Integrations owner | Provider stub status, scopes, last sync, revoke state, error summary | provider outage, denied scope, expired token, region blocked, admin disabled | contract states, integration stub, privacy provider revocation |
+| Productivity stats | `GET /productivity`, `POST /productivity/recalculate` | Analytics owner | Aggregated completion counts, streak-like synthetic metric, filters, redacted buckets | stale stats, recalculation pending, privacy disabled, deleted data | unit aggregation, privacy analytics, contract pending/error |
+| Search | `GET /search?q=&filters=&cursor=` | Search owner | Redacted query handling, result type, explanation, pagination, stale-index label | invalid filter, too long, permission-filtered, stale index, rate limited | unit query buckets, contract pagination, privacy analytics |
+| Uploads | `POST /uploads`, `PUT /uploads/:id/content`, `POST /uploads/:id/complete` | Storage owner | MIME/size metadata, signed URL or local stub, scan status, retention policy | unsupported MIME, too large, malware risk, expired upload, canceled upload | contract lifecycle, security scan stub, support redaction |
+| Notifications | `GET /notifications`, `PATCH /notifications/:id`, `PATCH /notification-preferences` | Notifications owner | Notification list, read state, preference updates, permission recheck | stale target, access revoked, permission revoked, quiet hours, invalid channel | contract read/preferences, permission tests, deep-link safety |
+| Entitlements/billing | `GET /entitlements`, `POST /checkout/session`, `POST /billing/restore`, `POST /billing/cancel`, `POST /billing/webhook` | Billing owner | Plan state, platform owner, checkout stub, restore/cancel status, delayed webhook | region unavailable, platform mismatch, expired, refunded, webhook delay, team-managed | unit state machine, contract webhooks, billing integration |
+| Export/delete | `POST /data-export`, `GET /data-export/:id`, `DELETE /account` | Privacy owner | Export job, ownership caveats, delete request, legal hold, shared-content consequences | last admin, legal hold, active support case, pending export, billing owner conflict | contract async jobs, privacy integration, deletion rules |
+| Support cases | `POST /support/cases`, `GET /support/cases/:id` | Support owner | Case type, redacted evidence, attachments, SLA, escalation owner, audit trail | unsafe attachment, missing consent, escalation unavailable, case closed, rate limited | contract lifecycle, redaction tests, audit completeness |
+| Audit events | append-only internal write path plus admin read scope where needed | Security owner | Actor, target, event type, before/after redacted diff, request id, device/session, retention class | append failure, unauthorized read, retention conflict | unit serialization, security tests, sensitive-change integration |
+
+## Data Model Plan
+
+| Entity | Ownership | Core Fields | Lifecycle And Authorization | Sync And Deletion Rules |
+|---|---|---|---|---|
+| User | user-owned | id, email hash, display name, locale, accessibility settings, notification prefs, privacy prefs, consent timestamps | active, locked, deletion requested, deleted; user may read/update own safe fields | hard-delete or anonymize after retention window; preserve audit records as required |
+| DeviceSession | user-owned | platform, app version, push token hash, permission state, cache encryption state, last sync cursor | active, expired, revoked; device-scoped authorization | wipe cache on logout/delete; revoke push token on session delete |
+| WorkspaceOrAccount | owner/admin-owned | name, region, plan state, policy controls, billing owner, lifecycle | personal, team, archived, deleted; role-based access | deletion blocked for last admin or legal hold; sync policy with member roles |
+| Task | workspace/user-owned | title, notes, due date, recurrence, priority, completion, project, section, labels, reminders, assignees | active, completed, archived, deleted; owner/member permissions | soft-delete recoverable state; offline writes require revision checks |
+| Project | workspace/user-owned | name, color token, favorite, archived state, view mode, member roles | active, archived, deleted; project role access | deletion cascades need confirmation; shared copies remain explicit |
+| Section | project-owned | name, sort order, collapsed state | active, deleted; inherits project permissions | reorder conflicts resolved by server revision and client explanation |
+| Label | workspace/user-owned | name, color token, usage count | active, deleted; user or workspace scoped | deleting detaches from tasks after confirmation |
+| Filter | workspace/user-owned | name, query, sort, visibility | active, invalid, deleted; visibility rules | invalid queries remain editable, not runnable |
+| Reminder | task-owned | time, relative rule, channel, quiet-hours state, delivery status | scheduled, sent, failed, canceled; task access required | remove on task delete; avoid raw task details in push payload by default |
+| Comment | task/project-owned | body, author, target, attachments, edit/delete state | active, edited, deleted; collaborator access | redacted in support exports unless user-approved |
+| Attachment | comment/task-owned | filename placeholder, MIME, size, scan state, storage ref, retention | pending, clean, rejected, deleted; target access required | block unsafe files; delete by retention and account-delete policy |
+| Template | content-owner-owned | original name, category, steps, preview metadata, license note | draft, published, copied, retired | copied into user workspace as independent synthetic content |
+| IntegrationLink | user/workspace-owned | provider key, scopes, token status, last sync, error state | connected, denied, expired, revoked, admin disabled | revoke tokens on delete; keep audit event without secret material |
+| ProductivityStat | user/workspace-owned | period, completed count, overdue count, streak-like synthetic metric, privacy setting | fresh, stale, recalculating, disabled | aggregate only; exclude raw task content and collaborator identities |
+| Notification | user-owned | event type, actor type, target ref, channel, read state, deep link, retry metadata | unread, read, dismissed, expired | recheck access on open; hide stale/deleted target content |
+| Entitlement | billing-owner-owned | plan class, platform owner, region, trial state, renewal status, team-managed state | free, trial, paid, expired, canceled, refunded, unavailable | server-owned transitions; webhook replay safe |
+| SupportCase | user/support-owned | type, status, redacted evidence, attachments, SLA, escalation owner, audit refs | open, waiting, escalated, resolved, closed | redact raw content by default; retain per policy |
+| AuditEvent | system-owned | actor, target, event type, redacted diff, request id, session id, timestamp | append-only | immutable; retention based on legal/privacy policy |
+| LocalCacheRecord | device-owned | cache key, entity type, stale time, queued write, conflict marker, encryption state | fresh, stale, queued, conflicted, corrupt, wiped | wipe on logout/delete; never cache secrets in plain text |
+
+## Seed Data Plan
+
+Seed data must be synthetic and brand-neutral. Do not use Todoist project names, Todoist templates, real personal tasks, real collaborator identities, real support text, copied task examples, or private user data.
+
+- Users: one solo user, one team admin, two team members, one expired-session user, one locked-account fixture.
+- Workspaces: personal workspace, team workspace with admin/member roles, archived workspace, region-unavailable billing fixture.
+- Projects: Inbox, Home Move, Launch Checklist, Study Plan, Bug Bash, Travel Prep, Health Appointments, and Team Roadmap as original examples.
+- Sections: Backlog, This Week, Waiting, Done, Research, Design, Build, Review.
+- Labels: urgent, errands, focused, blocked, follow-up, delegated.
+- Filters: Due Today, Waiting On Others, High Priority, No Project, Offline Drafts, Team Mentions.
+- Tasks: synthetic tasks spanning no date, overdue, today, upcoming, recurring, completed, blocked, assigned, commented, attachment-pending, and permission-revoked cases.
+- Quick-add examples: neutral phrases that exercise due dates, recurring dates, labels, projects, priority, reminders, and ambiguity fallback without copying native examples.
+- Comments: synthetic collaboration comments with edit/delete states and redaction fixtures.
+- Templates: original template packs for moving, release prep, study schedule, household chores, and team onboarding.
+- Integrations: stubbed calendar provider, stubbed email provider, stubbed automation provider, each with connected, denied, expired, revoked, and admin-disabled states.
+- Productivity stats: aggregated counts only, with privacy-disabled and stale-recalculation fixtures.
+- Notifications: reminder, assignment, comment, invite, billing, export-ready, delete-pending, support-replied, stale-target, and access-revoked examples.
+- Entitlements: free, trial, paid, expired, canceled, refunded, platform-owned, web-owned, team-managed, unavailable, and region-blocked states.
+- Support cases: billing question, export request, account deletion blocker, permission issue, abuse report, and redacted attachment review.
+- Export/delete jobs: pending, running, complete, failed, canceled, legal hold, last-admin blocked, active-support blocked.
+- Offline conflicts: duplicate create, server-deleted task, moved project, permission lost, stale reorder, provider-rejected reminder, corrupt cache, and low-storage recovery.
+
+## Feature Flags And Blocked Acceptance Tests
+
+| Flag Or Blocked Test | Blocks | Owner Before Launch | Default V1 Behavior |
+|---|---|---|---|
+| `auth.native-order` | exact signup/login screen order and provider prompts | Auth owner | public-source auth shell and provider stubs |
+| `quick-add.native-parser` | exact natural-language quick-add parsing accuracy | Task domain owner | deterministic original parser with ambiguity review |
+| `recurring-date.native-rules` | native recurring date edge cases | Task domain owner | documented recurrence subset and blocked edge tests |
+| `reminders.native-payloads` | exact push reminder payloads | Notifications owner | opt-in redacted push payloads and in-app notifications |
+| `calendar.native-integration` | provider-specific calendar integrations | Integrations owner | calendar provider stubs and internal calendar view |
+| `teams.native-admin` | team invite/admin flows | Collaboration owner | synthetic team fixtures and role-gated UI |
+| `billing.native-platform` | paid checkout, restore, cancel, refund paths | Billing owner | entitlement fixtures and checkout stub |
+| `widgets.native` | mobile widgets | Mobile owner | no widget parity claim |
+| `wear.native` | Wear OS/watch behavior | Mobile owner | no watch parity claim |
+| `offline.native-conflict-rules` | exact native offline conflict resolution | Platform owner | deterministic conflict UI and blocked parity tests |
+| `productivity.native-trends` | exact productivity trends | Analytics owner | privacy-safe aggregate stats with synthetic metric |
+| `privacy.native-export-delete` | exact data export and deletion behavior | Privacy owner | async export/delete fixtures with blockers |
+| `support.native-escalation` | support escalation and handoff | Support owner | original support intake and redacted evidence flow |
+
+## Test Checklist
+
+- Unit: validation, recurrence subset, quick-add parse rules, permission resolution, entitlement state machine, idempotency keys, sync conflict detection, deletion/export blockers, audit serialization, and privacy-safe analytics payload construction.
+- Contract: every API route family, pagination, idempotency, stale cursors, authorization denials, validation errors, upload/export/import states, billing webhooks, support lifecycle, and audit event creation.
+- Integration: auth, onboarding, Today/Upcoming, Inbox, quick add, task detail, project/section CRUD, labels, filters, search, notifications, settings, support, data export, account deletion, and legal-source links.
+- Realtime: duplicate events, missed events, reconnect, stale cursor, concurrent edit, permission change while open, token refresh, foreground/background, webhook delay, and push-triggered refetch.
+- Offline: cached reads, queued drafts, blocked unsafe writes, corrupt cache, low storage, reconnect reconciliation, conflict UI, retry, discard, and local data wipe on logout/delete.
+- Permission: notifications, calendar, files/photos, contacts if used, denied, granted, limited, revoked, and admin/parent/device-blocked states.
+- Privacy/security: analytics redaction, access rechecks, support redaction, public/shared leakage, attachment scanning, account takeover recovery, data export caveats, account deletion blockers, and audit log completeness.
+- Billing: free, trial, paid, expired, canceled, refunded, platform-owned, web-owned, team-managed, region-unavailable, delayed webhook, and platform mismatch states.
+- Accessibility: dynamic type, screen reader labels, focus order, reduced motion, contrast, keyboard/external input, drag alternatives for board/reorder flows, and non-color-only status indicators.
+- Manual verification blockers: signup/login, quick-add parsing accuracy, recurring date edge cases, push reminder payloads, calendar integrations, team invite/admin flows, paid checkout/restore/cancel, widgets, Wear OS/watch behavior, offline conflict resolution, productivity trends, data export, account deletion, and support escalation.
+
+## Acceptance Checks For This Plan
+
+- Every required Todoist V1 screen maps to at least one route or navigation state.
+- Every API family from the source spec has an owner, request/response scope, error states, and test coverage.
+- The data model covers user, device session, workspace/account, task, project, section, label, filter, reminder, comment, attachment, template, integration link, productivity stat, notification, entitlement, support case, audit event, and local cache record.
+- Seed data is synthetic and contains no Todoist branding, copied templates, real task content, or private user data.
+- Deferred manual blockers remain explicit and are not treated as completed native parity.
+
+## Next Steps
+
+- Confirm or rename the proposed downstream repository `GeorgeQLe/todoist-mobile-clone`.
+- Create or link the downstream implementation repository.
+- Copy this plan into the downstream repo as the initial product/build context after the repo exists.
+- Select a target stack in the downstream repo before writing runtime app code.

@@ -71,36 +71,53 @@ Todoist is the best first implementation target because it has strong product va
 - Confirmed `specs/batch-05/090-todoist.md` has exact first-party marketplace, help, privacy, terms, security, pricing, template, and integration sources.
 - Confirmed the selected V1 can start with synthetic task/project/collaboration data and provider stubs, without production credentials, paid plans, hardware, regulated approvals, licensed media catalogs, copied assets, or private APIs.
 
-## Next Runnable Step: Produce the Todoist downstream build plan
+## Completed Step: Produce the Todoist downstream build plan
 
-### Scope
+### Result
 
-- Use `specs/batch-05/090-todoist.md` as the source spec for the first implementation-planning pass.
-- Define the downstream target repo proposal as `GeorgeQLe/todoist-mobile-clone`; if that name is unavailable or the user prefers another name, record the chosen replacement before creating or linking a repo.
-- Produce a route map for the V1 mobile app: auth shell, Today/Upcoming, Inbox, Project View, Quick Add, Task Detail, Labels/Filters, Calendar/Board View, Templates, Team Workspace, Settings/Billing, Privacy, Support, Export, and Account Deletion.
-- Produce an API schema plan covering auth/session, profile/settings, tasks, projects, quick add, labels, filters, reminders, comments, templates, integrations, productivity stats, search, uploads, notifications, entitlements, data export, account deletion, support cases, and audit events.
-- Produce a data model plan covering user, device session, workspace/account, task, project, section, label, filter, reminder, comment, attachment, template, integration link, productivity stat, notification, entitlement, support case, audit event, and local cache record.
-- Produce a seed data plan using only synthetic projects, sections, labels, filters, tasks, comments, templates, collaborators, entitlements, notifications, support cases, export jobs, and offline conflict examples.
-- Produce a test checklist for unit, contract, integration, realtime, offline, permission, privacy/security, billing, accessibility, and manual-verification-blocker tests.
-- Preserve all manual blockers from `090-todoist.md` as deferred launch blockers unless lawful hands-on verification evidence is added.
-
-### Research Notes
-
-- This repository remains a planning/specification workspace; do not add runtime app code here.
-- Use `CLAUDE.md` for project conventions and `tasks/implementation-readiness.md` for the readiness gate.
-- Use the Todoist spec's `Build Plan`, `Data Model`, `API And Backend Contracts`, `Realtime, Push, And Offline Behavior`, `Permissions, Privacy, And Safety`, `Test Plan`, and `Acceptance Criteria` sections as the planning source.
-- Keep the downstream plan implementation-agnostic unless a target stack is already documented in the downstream repo or explicitly chosen by the user.
-
-### Implementation Notes
-
-- Add the downstream build plan to a task artifact under `tasks/`, or create/update a dedicated downstream planning artifact if the plan becomes too long for `tasks/todo.md`.
-- Do not create the downstream repo unless the step explicitly scopes repo creation or the user confirms the target name.
-- Include feature flags or blocked acceptance tests for calendar integrations, billing, team/admin flows, widgets/watch behavior, export/delete, support escalation, and exact offline conflict behavior.
-- Link the selected source spec and record the chosen downstream target repo in `tasks/history.md`.
+- Created `tasks/todoist-downstream-build-plan.md` from `specs/batch-05/090-todoist.md`.
+- Recorded the proposed downstream target repository as `GeorgeQLe/todoist-mobile-clone`.
+- Defined an implementation-agnostic route map for auth shell, Today/Upcoming, Inbox, Project View, Quick Add, Task Detail, Labels/Filters, Calendar/Board View, Templates, Team Workspace, Settings/Billing, Privacy, Support, Export, and Account Deletion.
+- Defined API schema planning for auth/session, profile/settings, tasks, projects/sections, quick add, labels, filters, reminders, comments, templates, integrations, productivity stats, search, uploads, notifications, entitlements, data export, account deletion, support cases, and audit events.
+- Defined the downstream data model plan for user, device session, workspace/account, task, project, section, label, filter, reminder, comment, attachment, template, integration link, productivity stat, notification, entitlement, support case, audit event, and local cache record.
+- Defined synthetic seed data covering projects, sections, labels, filters, tasks, comments, templates, collaborators, entitlements, notifications, support cases, export jobs, and offline conflict examples.
+- Defined the downstream test checklist for unit, contract, integration, realtime, offline, permission, privacy/security, billing, accessibility, and manual-verification-blocker coverage.
+- Preserved Todoist manual verification blockers as feature flags or blocked acceptance tests before any native parity claim.
 
 ### Validation
 
-- Confirm the build plan maps every required Todoist V1 screen to at least one route or navigation state.
-- Confirm every API family in `090-todoist.md` has an owner, request/response scope, error states, and test coverage.
-- Confirm seed data is synthetic and contains no Todoist branding, copied templates, real task content, or private user data.
-- Confirm deferred manual blockers remain explicit and are not treated as completed native parity.
+- Confirmed the build plan maps every required Todoist V1 screen to at least one route or navigation state.
+- Confirmed every API family in `090-todoist.md` has an owner, request/response scope, error states, and test coverage.
+- Confirmed seed data is synthetic and excludes Todoist branding, copied templates, real task content, and private user data.
+- Confirmed deferred manual blockers remain explicit and are not treated as completed native parity.
+
+## Next Runnable Step: Create or link the downstream implementation repository
+
+### Scope
+
+- Confirm whether `GeorgeQLe/todoist-mobile-clone` is the final downstream repository name.
+- If the name is accepted and available, create the downstream repository.
+- If the repository already exists, link it from this planning repo instead of creating a duplicate.
+- If the user chooses a different name, update `tasks/todoist-downstream-build-plan.md`, `tasks/history.md`, and this step before creating or linking the repository.
+- Copy or reference `tasks/todoist-downstream-build-plan.md` as the downstream repo's initial product/build context after the downstream repo exists.
+- Do not add runtime app code in this planning repository.
+
+### Research Notes
+
+- This repository remains the source of product/spec history.
+- `CLAUDE.md` requires implementation work to happen outside this planning workspace.
+- The downstream repo should start from `specs/batch-05/090-todoist.md` and `tasks/todoist-downstream-build-plan.md`.
+- The downstream app must keep original branding, original assets, synthetic seed data, and public-source-only requirements.
+
+### Implementation Notes
+
+- Prefer creating a private GitHub repository under `GeorgeQLe` unless the user requests public visibility.
+- If repository creation succeeds, add a link and creation note to `tasks/history.md`.
+- If repository creation is blocked by permissions, name availability, or missing GitHub auth, document the blocker and stop.
+- Do not claim launch or native parity as part of repo creation.
+
+### Validation
+
+- Confirm the downstream repository exists and the selected repository name is recorded consistently.
+- Confirm the downstream repo has access to the source spec and build plan.
+- Confirm no runtime code was added to this planning repository.

@@ -11,7 +11,7 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 | Phase 1 | Complete | Initial 100-idea backlog and Draft 0 specs created. |
 | Phase 2 | Complete | Hygiene and Draft 1 spec remediation. |
 | Phase 3 | Complete | App-by-app implementation-readiness upgrades. |
-| Phase 4 | Planned | Per-app implementation planning in downstream repos. |
+| Phase 4 | In Progress | Per-app implementation planning in downstream repos. |
 
 ## Phase 1: Initial Backlog And Draft 0 Specs
 
@@ -67,7 +67,7 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 ### Milestones
 
 - [x] Choose the first implementation candidate.
-- [ ] Produce a build plan with route map, API schema, data model, seed data, and test checklist.
+- [x] Produce a build plan with route map, API schema, data model, seed data, and test checklist.
 - [ ] Create or link the downstream implementation repository.
 
 ### Acceptance Criteria
@@ -84,5 +84,5 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 
 ## Next Steps
 
-- Produce downstream implementation planning for `specs/batch-05/090-todoist.md` without copying proprietary assets, private APIs, or unverified native behavior.
-- Create or link the downstream implementation repository after the Todoist build plan is accepted.
+- Create or link the downstream implementation repository for `specs/batch-05/090-todoist.md` and `tasks/todoist-downstream-build-plan.md`.
+- Keep all Todoist manual verification blockers deferred until lawful hands-on verification evidence exists.

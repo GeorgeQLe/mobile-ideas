@@ -135,7 +135,15 @@
 - Compared Todoist against higher-risk Spotify, Cash App, and Ring candidates and chose Todoist because it can start with original data, provider stubs, feature flags, and blocked acceptance tests instead of licensed media, regulated finance, or physical security hardware dependencies.
 - Updated Phase 4 planning to make the next runnable step a Todoist downstream build plan covering route map, API schema, data model, seed data, test checklist, target repo proposal, and deferred manual blockers.
 
+## 2026-04-19 - Todoist Downstream Build Plan
+
+- Created `tasks/todoist-downstream-build-plan.md` from `specs/batch-05/090-todoist.md`.
+- Recorded `GeorgeQLe/todoist-mobile-clone` as the proposed downstream implementation repository name.
+- Defined the route map, API schema plan, data model plan, synthetic seed data plan, feature flags, blocked acceptance tests, and test checklist for the Todoist-style public-source V1 downstream app.
+- Preserved signup/login, quick-add parsing, recurring date, push reminder, calendar integration, team/admin, billing, widget/watch, offline conflict, productivity trend, export/delete, and support escalation blockers as deferred manual verification requirements before native parity claims.
+- Updated Phase 4 tracking so the next runnable step is creating or linking the downstream implementation repository.
+
 ## Next Steps
 
-- Produce downstream implementation planning for `specs/batch-05/090-todoist.md`.
-- Create or link the downstream implementation repository after the Todoist build plan is accepted.
+- Create or link the downstream implementation repository for `specs/batch-05/090-todoist.md` and `tasks/todoist-downstream-build-plan.md`.
+- Keep Todoist manual verification blockers deferred until lawful hands-on verification evidence exists.
