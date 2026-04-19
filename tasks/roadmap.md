@@ -84,5 +84,5 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 
 ## Next Steps
 
-- Upgrade `072-netflix.md`, `073-youtube.md`, `074-twitch.md`, `075-letterboxd.md`, and `076-imdb.md` as the next Batch 04 video/entertainment pass.
-- Continue the remaining 28 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, Batch 03, Batch 04 finance/wallet, and Batch 04 audio pattern sets.
+- Upgrade `081-photomath.md`, `082-headspace.md`, `083-calm.md`, `084-strava.md`, `085-nike-run-club.md`, `086-myfitnesspal.md`, `087-fitbit.md`, and `088-flo.md` as the next Batch 05 education/wellness/fitness/health pass.
+- Continue the remaining 19 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, Batch 03, Batch 04 finance/wallet, Batch 04 audio, Batch 04 video/entertainment, and Batch 04 education pattern sets.

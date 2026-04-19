@@ -108,7 +108,14 @@
 - Rewrote the selected specs to implementation-ready public-source V1 status with app-specific subscription streaming, user-generated video, live streaming, film diary/social, entertainment database, privacy, support, edge-case, test, acceptance, build-plan, and manual verification detail.
 - Updated readiness and audit counts from 72 to 77 implementation-ready public-source V1 specs and prepared the next Batch 04 education step.
 
+## 2026-04-19 - Batch 04 Education Readiness Upgrade
+
+- Archived Draft 1 copies for `077-duolingo.md`, `078-khan-academy.md`, `079-quizlet.md`, and `080-coursera.md`.
+- Replaced source-discovery links with exact first-party marketplace, help/support, privacy/legal, product, classroom, subscription, certificate, AI study-tool, and education-platform URLs for the selected Batch 04 education specs.
+- Rewrote the selected specs to implementation-ready public-source V1 status with app-specific gamified learning, course catalogs, video/practice mastery, flashcard study, course marketplace, classroom/teacher tooling, minors/student privacy, subscriptions, credentials, offline/cache, edge-case, test, acceptance, build-plan, and manual verification detail.
+- Updated readiness and audit counts from 77 to 81 implementation-ready public-source V1 specs, made Batch 04 fully implementation-ready for public-source V1, and prepared the next Batch 05 education/wellness/fitness/health step.
+
 ## Next Steps
 
-- Upgrade `077-duolingo.md`, `078-khan-academy.md`, `079-quizlet.md`, and `080-coursera.md` as the next Batch 04 education pass.
-- Continue the remaining 23 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, Batch 03, Batch 04 finance/wallet, Batch 04 audio, and Batch 04 video/entertainment pattern sets.
+- Upgrade `081-photomath.md`, `082-headspace.md`, `083-calm.md`, `084-strava.md`, `085-nike-run-club.md`, `086-myfitnesspal.md`, `087-fitbit.md`, and `088-flo.md` as the next Batch 05 education/wellness/fitness/health pass.
+- Continue the remaining 19 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, Batch 03, Batch 04 finance/wallet, Batch 04 audio, Batch 04 video/entertainment, and Batch 04 education pattern sets.

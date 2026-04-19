@@ -2,8 +2,8 @@
 
 > Metadata
 > - App range: 081-100
-> - Status: Draft 1 canonical spec rewrite
-> - Research state: public source-discovery links included; exact source replacement and hands-on verification still required before implementation.
+> - Status: Draft 1 canonical spec rewrite; `089` upgraded to implementation-ready public-source V1
+> - Research state: exact source replacement complete for `089`; public source-discovery links remain for `081-088` and `090-100`, and hands-on verification still required before implementation.
 
 ## Overview
 This batch contains canonical Draft 1 clone specs for apps 81-100 from tasks/ideas.md.
@@ -18,7 +18,7 @@ This batch contains canonical Draft 1 clone specs for apps 81-100 from tasks/ide
 - 086 MyFitnessPal - Health tracking
 - 087 Fitbit - Health tracking
 - 088 Flo - Health tracking
-- 089 Notion - Productivity
+- 089 Notion - Productivity - implementation-ready public-source V1
 - 090 Todoist - Productivity
 - 091 Trello - Productivity
 - 092 Google Calendar - Productivity
@@ -39,5 +39,5 @@ This batch contains canonical Draft 1 clone specs for apps 81-100 from tasks/ide
 
 ## Next Steps
 
-- Continue Phase 3 implementation-readiness upgrades, starting with `089-notion.md`.
+- Continue Phase 3 implementation-readiness upgrades with `081-photomath.md`, `082-headspace.md`, `083-calm.md`, `084-strava.md`, `085-nike-run-club.md`, `086-myfitnesspal.md`, `087-fitbit.md`, and `088-flo.md`.
 - Complete hands-on verification where lawful and feasible before app implementation starts.
