@@ -156,8 +156,15 @@
 - Confirmed the repository has complete current specs, task history, roadmap, implementation-readiness notes, and downstream Todoist planning for the existing planning contract.
 - Added `$pack install business-app` as the next documentation action because `.agents/project.json` is missing and the pack recommender selected `business-app`; pack-specific research queue items should be generated only after the pack is enabled.
 
+## 2026-04-19 - Business App Pack Enabled
+
+- Installed the project-local `business-app` skill pack.
+- Created `.agents/project.json` with `project_type` set to `business-app` and `enabled_packs` containing `business-app`.
+- Created local Claude and Codex skill symlinks for the business-app research/documentation workflows.
+- Marked the pack-install documentation task complete so the next research roadmap refresh can generate pack-specific queue items.
+
 ## Next Steps
 
-- Run `$pack install business-app` before generating pack-specific research/documentation queue items.
+- Run `$research-roadmap` to generate pack-specific research/documentation queue items now that `business-app` is enabled.
 - Continue implementation planning and scaffolding in `https://github.com/GeorgeQLe/todoist-mobile-clone`.
 - Keep Todoist manual verification blockers deferred until lawful hands-on verification evidence exists.

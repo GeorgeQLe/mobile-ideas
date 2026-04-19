@@ -2,7 +2,7 @@
 
 ## Priority Documentation Todo
 
-- [ ] `$pack install business-app` - configure the project-local documentation/research pack because `.agents/project.json` is missing and the pack recommender selected `business-app` from this repository's mobile product-planning contract. Install the pack before adding pack-specific research items.
+- [x] `$pack install business-app` - configured the project-local documentation/research pack because `.agents/project.json` was missing and the pack recommender selected `business-app` from this repository's mobile product-planning contract. Pack-specific research queue items can now be generated.
 
 ## Priority Task Queue
 
