@@ -2,177 +2,209 @@
 
 > Metadata
 > - Inspiration app: Strava
-> - Category: Fitness social
-> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
-> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
+> - Category: fitness social, GPS activity recording, routes, segments, clubs, challenges, leaderboards, device sync, subscriptions, and location privacy
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-04-19.
+> - Verification basis: exact public marketplace pages, official help/support pages, official privacy/legal pages, and public product documentation listed below.
+> - Manual verification blockers: native iOS/Android screen capture, account signup/login, GPS recording, map rendering, route creation, segment matching, leaderboards, clubs/challenges, privacy zones, beacon/location sharing, device integrations, Apple Health/Google Fit imports, subscription checkout/cancellation, API behavior, notifications, export/delete, support escalation, and regional safety defaults still require lawful test devices/accounts before one-for-one parity claims.
+> - Legal scope: functional parity only; use original code, brand, copy, icons, media, datasets, models, workflows, contracts, pricing, recommendations, and support materials.
 
 ## Overview
-Build an original mobile product inspired by Strava's user-facing workflow, not its brand identity or proprietary implementation.
-The clone target is: Activity recording, GPS routes, segments, kudos, clubs, challenges, leaderboards, and privacy zones.
-Primary product surface: home feed supported by create/compose and detail/thread flows.
-The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
-The spec intentionally separates verified public-source facts from inferred clone requirements.
+
+Build an original fitness social product inspired by Strava's public workflow: record or import activities, view route maps and performance stats, share with followers, join clubs/challenges, compare segments, discover routes, manage subscriptions, export/delete data, and control location privacy.
+
+The clone must not copy marks, maps styling, route/segment database, leaderboard logic, Athlete Intelligence-like output, community content, heatmap data, training metrics, subscription copy, pricing, and API contracts. Functional parity should use original or licensed content, synthetic test data, independently designed algorithms, platform-approved billing, and provider contracts approved for the downstream implementation.
+
+This spec is implementation-ready for a V1 based on public sources. Any feature marked `Manual verification required` must remain behind a feature flag or launch blocker until lawful hands-on verification confirms native behavior and provider constraints.
 
 ## Goals
-- Deliver a mobile-first fitness social experience with complete onboarding, core action, settings, and recovery flows.
-- Implement the app-specific focus: Activity recording, GPS routes, segments, kudos, clubs, challenges, leaderboards, and privacy zones.
-- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
-- Make public-source verification and blocked hands-on research visible before implementation starts.
-- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+- Provide a mobile-first strava-inspired product with onboarding, core workflow, history/detail, settings, support, privacy, entitlement, and recovery flows.
+- Preserve user trust expectations around privacy, safety, accessibility, subscriptions, notifications, data export, account deletion, and category-specific harm controls.
+- Produce concrete screens, entities, API contracts, realtime/offline rules, analytics, edge cases, acceptance tests, and build phases for a downstream implementation repo.
+- Keep public-source requirements, inferred clone requirements, and manual verification blockers visibly separate.
+- Make every source-backed feature buildable with original assets and lawful integrations.
 
 ## Non-Goals
-- Do not copy Strava branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
-- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
-- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
-- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
-- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+- Do not build a Strava-branded app or imply affiliation with Strava, its parent company, app stores, providers, creators, clinicians, partners, device makers, or payment processors.
+- Do not copy proprietary content, datasets, ranking formulas, model outputs, recommendation systems, UI trade dress, screenshots, private APIs, pricing copy, support copy, or provider contracts.
+- Do not scrape, reverse engineer, replay network traffic, bypass paid gates, bypass privacy controls, or use private platform entitlements.
+- Do not treat sensitive education, wellness, fitness, health, location, reproductive-health, or wearable behavior as generic; each relevant surface needs an explicit owner and launch review.
+- Do not claim exact App Store, Play Store, native-device, subscription, notification, support, deletion/export, device, account, regional, or provider parity until manual verification blockers are resolved.
 
 ## Research Sources
-- App Store source-discovery link: https://apps.apple.com/us/search?term=Strava
-- Google Play source-discovery link: https://play.google.com/store/search?q=Strava&c=apps
-- Official help/privacy source-discovery link: https://www.google.com/search?q=Strava%20official%20app%20help%20privacy
-- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
-- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
-- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
-- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
-- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+| Source | Exact URL | Evidence Used | Status |
+|---|---|---|---|
+| Apple App Store | https://apps.apple.com/us/app/strava-run-bike-walk/id426826309 | Official iOS listing, Health & Fitness category, activity recording, routes, social sharing, Apple Watch support, in-app purchases, and privacy labels | Verified 2026-04-19 |
+| Google Play | https://play.google.com/store/apps/details?id=com.strava | Official Android listing, package id, activity tracking, routes, segments, device sync, in-app purchases, data-safety orientation, and supported-device notes | Verified 2026-04-19 |
+| Strava Support | https://support.strava.com/hc/en-us | Public support entry for account, recording, routes, segments, privacy, subscriptions, and troubleshooting | Verified 2026-04-19 |
+| Strava Data and Privacy Help | https://support.strava.com/hc/en-us/articles/360001487844-Data-and-Privacy | Data export, activity privacy, health-related data consent, community features, and user controls | Verified 2026-04-19 |
+| Strava Privacy Policy | https://www.strava.com/legal/privacy | Personal information, location, health data, sharing, privacy rights, and 2026 policy context | Verified 2026-04-19 |
+| Strava Terms | https://www.strava.com/legal/terms | Service use, subscriptions, content, geolocation responsibilities, disputes, and legal constraints | Verified 2026-04-19 |
+| Strava Privacy Support Section | https://support.strava.com/hc/en-us/sections/360000520230-Privacy | Privacy defaults, controls, delete account, export, health data, under-18 defaults, and activity visibility topics | Verified 2026-04-19 |
+| Supported Android Devices | https://support.strava.com/hc/en-us/articles/216919047-Supported-Android-devices-and-Android-operating-systems | Android support and GPS/device limitations review area | Verified 2026-04-19 |
 
 ## Detailed Design
-- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for fitness social.
-- Home model: make Home Feed the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
-- Core action: make Create/Compose the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
-- Detail surface: use Detail/Thread for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
-- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
-- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
-- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
-- The implementation must support account onboarding and profile setup.
-- The implementation must render ranked or chronological feeds with pagination.
-- The implementation must support creation, editing, deletion, and draft recovery.
-- The implementation must support reactions, comments, sharing, and saves.
-- The implementation must provide search and discovery filters.
-- The implementation must support notifications with granular preferences.
-- The implementation must include reporting and blocking controls.
-- The implementation must apply privacy defaults consistently.
-- The implementation must moderate abusive or illegal content.
-- The implementation must cache recent content for poor network reads.
-- The implementation must handle deleted or unavailable content.
-- The implementation must keep creator/user identity original.
+
+### Source-Backed Product Requirements
+
+- Public listings and Strava support pages position the service around GPS activity recording, social fitness sharing, routes, segments, clubs, challenges, device sync, analytics, and subscriptions.
+- V1 must model signed-out preview, new athlete, returning athlete, private athlete, under-18 defaults, subscriber, expired subscriber, imported-device athlete, GPS-denied user, restricted account, and deleted-account states.
+- Onboarding must support sport preferences, location permission primer, privacy defaults, health data consent, device/watch connection, notification preference, and subscription education.
+- Recording must support GPS route capture, indoor/manual activities, pause/resume, sensor data where scoped, battery/permission warnings, map preview, privacy controls, and discard/save flows.
+- Activity detail must support map, splits, elevation, heart-rate/power where scoped, photos, comments, kudos-like reactions, privacy visibility, edits, delete, and export.
+- Social features must support feed, profile, follow, clubs, challenges, comments, reports, blocking, under-18 protections, and moderation queues.
+- Routes and segments must support original route datasets or licensed map providers, privacy zones, stale GPS, leaderboard eligibility, disputed efforts, and safety copy.
+- Settings must expose privacy controls, data export, delete account, connected apps/devices, subscriptions, notifications, support, terms, and privacy policy.
+
+### Manual Verification Required
+
+- native iOS/Android screen capture, account signup/login, GPS recording, map rendering, route creation, segment matching, leaderboards, clubs/challenges, privacy zones, beacon/location sharing, device integrations, Apple Health/Google Fit imports, subscription checkout/cancellation, API behavior, notifications, export/delete, support escalation, and regional safety defaults.
+- Exact native navigation order, copy, permission timing, loading/error states, platform billing behavior, support outcomes, notification payloads, and regional differences.
 
 ## Core User Journeys
-- New user installs the app, reviews an original value proposition, creates an account, and reaches Home Feed.
-- Returning user opens Home Feed, resumes the most recent meaningful activity, and completes the primary action in Create/Compose.
-- User searches or browses from Search/Explore, opens Detail/Thread, saves or shares it, and later finds it again from history or library.
-- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
+
+- New user installs the app, reviews an original value proposition, completes eligibility and preference setup, and reaches the default Strava-style home surface without unsupported permissions.
+- Returning user resumes the most recent meaningful activity, sees stale/offline state clearly, completes the core action, and confirms synced server state after reconnect.
+- User denies a requested permission, receives a usable fallback, and can later re-enable that permission from settings without losing local work.
+- User starts a paid trial or subscription, loses entitlement through cancellation/refund/expiration, and sees consistent locked/unlocked state across devices.
+- Privacy-focused user changes notification/privacy settings, requests data export, deletes the account, and sees consequences for retained records before confirming.
+- Support-seeking user reports a product, billing, privacy, or safety issue with redacted evidence and receives a trackable support case.
 
 ## Screen Inventory
-| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
+
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Home Feed | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Create/Compose | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Detail/Thread | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Search/Explore | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Profile | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Inbox/Notifications | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Moderation/Report | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Subscription | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Welcome/Auth | Entry, account, privacy defaults | email, SSO, age, locale | guest, new, returning | auth fail, underage, suspended, offline |
+| Sport Setup | Activity preferences and devices | sport, device, health consent | complete, skipped | device unavailable, health denied |
+| Feed/Home | Social activity feed and resume | scroll, kudos, comment | personalized, empty, stale | privacy-hidden, offline |
+| Record Activity | GPS or indoor recording | start, pause, stop, sensors | ready, recording, paused | GPS denied, low battery, poor signal |
+| Save Activity | Title, sport, visibility, stats review | edit, privacy, save | draft, saving, saved | duplicate, stale sensor data |
+| Activity Detail | Map, stats, comments, social actions | kudos, comment, share | public, followers, private | deleted, flagged, privacy zone |
+| Routes/Maps | Route discovery and planning | search, filters, save | results, route detail | unsafe route, map provider fail |
+| Segments/Leaderboards | Effort comparison | segment, filter, rank | eligible, ranked | privacy block, GPS anomaly |
+| Clubs/Challenges | Community participation | join, invite, post | active, completed | moderation hold, underage block |
+| Devices/Integrations | Wearables and import connections | connect, sync, revoke | connected, syncing | token expired, duplicate import |
+| Subscription | Paid insights and restore/cancel | checkout, restore, manage | free, trial, paid, expired | refund, store pending |
+| Settings/Privacy/Support | Controls, export, delete, help | toggle, export, delete | loaded, exporting, deleting | public contribution retention |
 
 ## Data Model
-- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
-- `Profile`: stores public identity, display preferences, privacy level, and relationship metadata.
-- `Post`: represents the main user-facing object in this clone's core flow.
-- `Comment`: captures conversation content references, participants, moderation state, and delivery status.
-- `Reaction`: tracks durable interaction history and audit metadata.
-- `Follow`: stores sharing, collaboration, or permission relationships.
-- `MessageThread`: captures conversation content references, participants, moderation state, and delivery status.
-- `Notification`: records delivery preferences, trigger rules, read state, and retry metadata.
-- `Report`: stores trust, safety, support, escalation, decision, and resolution metadata.
-- `ModerationAction`: holds derived analytics-safe state and sync metadata.
-- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
+
+- `User`: identity, locale, country/region, age/eligibility, auth providers, restrictions, and deletion/export state.
+- `AthleteProfile`: app-specific athleteprofile state, lifecycle, ownership, authorization, version, and deletion/export behavior.
+- `PrivacyPreference`: app-specific privacypreference state, lifecycle, ownership, authorization, version, and deletion/export behavior.
+- `Activity`: app-specific activity state, lifecycle, ownership, authorization, version, and deletion/export behavior.
+- `ActivityStream`: app-specific activitystream state, lifecycle, ownership, authorization, version, and deletion/export behavior.
+- `Route`: app-specific route state, lifecycle, ownership, authorization, version, and deletion/export behavior.
+- `Segment`: app-specific segment state, lifecycle, ownership, authorization, version, and deletion/export behavior.
+- `Effort`: app-specific effort state, lifecycle, ownership, authorization, version, and deletion/export behavior.
+- `SensorSample`: app-specific sensorsample state, lifecycle, ownership, authorization, version, and deletion/export behavior.
+- `DeviceConnection`: app-specific deviceconnection state, lifecycle, ownership, authorization, version, and deletion/export behavior.
+- `Club`: app-specific club state, lifecycle, ownership, authorization, version, and deletion/export behavior.
+- `Challenge`: app-specific challenge state, lifecycle, ownership, authorization, version, and deletion/export behavior.
+- `Comment`: app-specific comment state, lifecycle, ownership, authorization, version, and deletion/export behavior.
+- `Reaction`: app-specific reaction state, lifecycle, ownership, authorization, version, and deletion/export behavior.
+- `Report`: app-specific report state, lifecycle, ownership, authorization, version, and deletion/export behavior.
+- `SubscriptionEntitlement`: plan, provider, trial, renewal, expiration, refund, feature flags, and server verification status.
+- `PrivacyRequest`: access/export, deletion, correction, consent withdrawal, identity verification, delivery, retention, and status metadata.
+- `AuditEvent`: append-only record for auth, sensitive data, privacy, billing, support, moderation, and account transitions.
+- `LocalCacheRecord`: device-local cached objects, queued writes, stale timestamps, sync attempts, encryption state, and conflict metadata.
 
 ## API And Backend Contracts
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /profiles, GET /posts, GET /comments, GET /reactions; all reads return pagination, cache hints, authorization status, and stale-data indicators.
-- Writes: POST /users, POST /profiles, POST /posts, POST /comments, POST /reactions; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
-- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+
+- `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`: auth with age, locale, device, and deletion state.
+- `PATCH /athlete/profile`, `GET /feed`, `GET /athletes/:id`: athlete profile, social graph, privacy state, and pagination.
+- `POST /activities/start`, `PATCH /activities/:id/stream`, `POST /activities/:id/finish`: recording lifecycle with sensor samples, GPS confidence, and idempotency.
+- `POST /activities/import`, `GET /device-connections`, `DELETE /device-connections/:id`: device/app imports, token state, duplicate detection, and revocation.
+- `GET /activities/:id`, `PATCH /activities/:id`, `DELETE /activities/:id`: activity detail, edits, visibility, deletion, and audit events.
+- `GET /routes`, `POST /routes`, `GET /routes/:id`: route search, planning, map provider metadata, safety labels, and privacy rules.
+- `GET /segments/:id`, `GET /segments/:id/leaderboard`, `POST /segments/:id/flag`: segment matching, leaderboard eligibility, flags, and dispute states.
+- `POST /clubs/:id/join`, `POST /challenges/:id/join`, `POST /comments`, `POST /reports`: community, moderation, report, block, and abuse workflows.
+- `GET /entitlements`, `POST /checkout/session`, `POST /billing/restore`, `POST /billing/webhook`: subscription verification and paid feature gates.
+- `GET /privacy/settings`, `PATCH /privacy/settings`, `POST /data-export`, `DELETE /account`: privacy controls, export, deletion, and public contribution warnings.
 
 ## Realtime, Push, And Offline Behavior
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+
+- Recording must continue through short connectivity gaps using local GPS/sensor storage with crash recovery and battery/permission warnings.
+- Allow local recording, draft activity review, and cached feed/activity reads offline; block publish, comments, kudos, checkout, export, deletion, and public route creation.
+- Activity upload must be chunked, idempotent, resumable, and validated for GPS anomalies before route/segment matching.
+- Realtime/polling must reconcile comments, kudos, leaderboard rank, challenge progress, device imports, subscription changes, data export, and deletion state.
+- Push payloads must avoid precise location, route start/end, health metrics, private activity titles, and under-18 sensitive details.
+- Privacy zones and hidden details must be applied before map rendering, sharing, notifications, and analytics emission.
 
 ## Permissions, Privacy, And Safety
-- Treat moderation as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat harassment as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat minor safety as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat spam as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat privacy leakage as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+
+- Precise location, health data, under-18 defaults, routes/heatmaps, leaderboards, device sync, subscriptions, and harassment/moderation are launch blockers with named owners.
+- Default privacy must avoid exposing home/work start-end points, live location, precise health metrics, or under-18 activity without explicit controls.
+- Segment and leaderboard systems require anti-cheat, GPS anomaly detection, manual flagging, disputes, and fair ranking rules.
+- Route discovery must include safety disclaimers, map-provider licensing, unsafe-route reporting, and blocked sensitive-area handling.
+- Connected apps/devices require scoped consent, token revocation, duplicate import handling, and no unauthorized downstream data use.
+- Accessibility must cover map alternatives, screen-reader stats summaries, dynamic type, color-independent zones, and reduced-motion activity playback.
 
 ## Analytics And Monetization
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
+
+- Track privacy-safe events: recording_started, recording_saved, activity_uploaded, route_opened, segment_viewed, club_joined, challenge_joined, privacy_setting_changed.
+- Every event must use opaque object ids, version ids, result buckets, latency buckets, entitlement state, locale, and error codes rather than raw user content or sensitive health/location/payment data.
+- Separate product telemetry from safety, billing, support, and privacy audit records so deletion/export policies can be applied correctly.
+- Do not send raw images, precise location, exact health entries, therapy/care details, private notes, food diaries, reproductive-health details, payment credentials, or support evidence as analytics properties.
+- Monetization may include original subscriptions, trials, sponsored benefits, or licensed bundles only after legal, privacy, payment, and platform review.
+- Any paid feature must disclose price, trial, renewal, cancellation path, refund/support owner, regional availability, and data-sharing implications before launch.
 
 ## Edge Cases
-- First launch with no network, no account, or expired session.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
+
+- GPS drift near home
+- recording crash recovery
+- duplicate wearable import
+- segment cheating flag
+- under-18 public activity
+- subscription insight mismatch
+- route crosses unsafe area
+- delete account with public routes
 
 ## Test Plan
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+
+- Unit tests for validation, state machines, entitlement gates, privacy-safe analytics payloads, and deletion/export eligibility.
+- Contract tests for every documented API route, including idempotency, validation errors, authorization, pagination, stale versions, and sensitive-state responses.
+- Integration tests for auth, onboarding, home, core workflow, detail/history, settings, support, subscription, privacy export, and deletion.
+- Offline tests for cached reads, queued drafts, blocked sensitive writes, stale data labels, corrupt cache, disk-full behavior, and reconnect reconciliation.
+- Permission tests for denied, granted, revoked, limited, and platform-unavailable states for every scoped OS permission.
+- Billing tests for free, trial, paid, canceled, expired, refunded, unavailable, restored, family/sponsored where scoped, and store-sync-pending states.
+- Privacy tests for data minimization, consent withdrawal, export completeness, delete warnings, retained records, audit events, and sensitive analytics redaction.
+- Safety tests for category-specific harms, report/escalation paths, blocked launch areas, age/region restrictions, and unsupported claim prevention.
+- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, chart/media alternatives, and error recovery.
+- Manual verification tests for native iOS/Android screen capture, account signup/login, GPS recording, map rendering, route creation, segment matching, leaderboards, clubs/challenges, privacy zones, beacon/location sharing, device integrations, Apple Health/Google Fit imports, subscription checkout/cancellation, API behavior, notifications, export/delete, support escalation, and regional safety defaults.
 
 ## Acceptance Criteria
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+
+- Exact source links in this spec remain current or are refreshed before implementation starts.
+- A downstream team can build the V1 without needing marks, maps styling, route/segment database, leaderboard logic, Athlete Intelligence-like output, community content, heatmap data, training metrics, subscription copy, pricing, and API contracts.
+- New and returning users can complete onboarding, use the core workflow, recover from permission/offline failures, manage entitlements, and reach settings/support with original or licensed data.
+- All documented entities have lifecycle states, owners, authorization rules, audit behavior, and deletion/export handling.
+- Signed-out, signed-in, paid, expired, permission-denied, offline, stale-data, restricted, and deleted-account states are covered by tests.
+- Every manual verification blocker remains behind a launch-blocking feature flag or explicit owner/path until lawful test-device evidence is captured.
+- Privacy, safety, accessibility, subscription, support, data export, and deletion flows have acceptance tests before app implementation starts.
+- The spec uses exact first-party URLs and does not claim one-for-one native parity for unverified behavior.
 
 ## Open Questions
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+- Which original content, datasets, algorithms, providers, and licenses will back the downstream clone?
+- Which features are V1 versus later, especially paid, device, health, community, AI, or partner/provider-dependent surfaces?
+- Which jurisdictions, age gates, accessibility standards, privacy laws, app-store rules, and retention obligations are launch requirements?
+- Which support, moderation, refund, safety, and escalation owners must approve the product before release?
+- Which manual verification blockers can be resolved with lawful test accounts/devices before implementation begins?
+
+## Build Plan
+
+- Phase 1: app shell, auth, athlete setup, privacy defaults, feed, profile, settings, and privacy-safe analytics.
+- Phase 2: activity recording, GPS stream storage, save flow, activity detail, upload reconciliation, and recording tests.
+- Phase 3: routes/maps, privacy zones, device imports, Apple Health/Google Health-style connectors, and map/provider tests.
+- Phase 4: segments, leaderboards, challenges, clubs, moderation, anti-cheat, and location safety regression tests.
+- Phase 5: subscriptions, paid insights, restore/cancel, support cases, export/delete, and billing/privacy tests.
+- Phase 6: launch review for location privacy, health data, minors, map licensing, connected devices, subscriptions, accessibility, and regional availability.
 
 ## Next Steps
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
-- Resolve open questions and update this spec before app implementation starts.
-- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.
+
+- Resolve Strava manual verification blockers before claiming one-for-one native GPS, segment, privacy, subscription, or device-sync parity.
+- Create or link the downstream implementation repository when this app is selected for build planning.
+- Continue Phase 3 implementation-readiness upgrades with the remaining Batch 05 productivity, cloud, creator, photo, and smart-home specs: `090-todoist.md` through `100-ring.md`.
