@@ -6,7 +6,7 @@ Created: 2026-04-19
 
 Source spec: `specs/batch-05/090-todoist.md`
 
-Proposed downstream repository: `GeorgeQLe/todoist-mobile-clone`
+Downstream repository: `https://github.com/GeorgeQLe/todoist-mobile-clone`
 
 This plan translates the implementation-ready public-source V1 Todoist-style spec into a downstream mobile build plan. It is implementation-agnostic until the downstream repository selects a stack. The downstream app must use original branding, original copy, original icons, original templates, synthetic seed data, documented public URLs, and provider stubs or feature flags for unverified behavior.
 
@@ -161,7 +161,6 @@ Seed data must be synthetic and brand-neutral. Do not use Todoist project names,
 
 ## Next Steps
 
-- Confirm or rename the proposed downstream repository `GeorgeQLe/todoist-mobile-clone`.
-- Create or link the downstream implementation repository.
-- Copy this plan into the downstream repo as the initial product/build context after the repo exists.
-- Select a target stack in the downstream repo before writing runtime app code.
+- Select a target stack in `GeorgeQLe/todoist-mobile-clone` before writing runtime app code.
+- Keep this plan linked from `docs/plans/todoist-downstream-build-plan.md` in the downstream repo.
+- Keep `specs/batch-05/090-todoist.md` linked from `docs/source-specs/090-todoist.md` in the downstream repo.

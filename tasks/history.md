@@ -143,7 +143,14 @@
 - Preserved signup/login, quick-add parsing, recurring date, push reminder, calendar integration, team/admin, billing, widget/watch, offline conflict, productivity trend, export/delete, and support escalation blockers as deferred manual verification requirements before native parity claims.
 - Updated Phase 4 tracking so the next runnable step is creating or linking the downstream implementation repository.
 
+## 2026-04-19 - Todoist Downstream Repository Created
+
+- Created the private downstream implementation repository at `https://github.com/GeorgeQLe/todoist-mobile-clone`.
+- Seeded the downstream repository with `docs/source-specs/090-todoist.md` from `specs/batch-05/090-todoist.md`.
+- Seeded the downstream repository with `docs/plans/todoist-downstream-build-plan.md` from `tasks/todoist-downstream-build-plan.md`.
+- Updated Phase 4 planning to mark downstream repository creation complete and keep runtime implementation work outside this planning repository.
+
 ## Next Steps
 
-- Create or link the downstream implementation repository for `specs/batch-05/090-todoist.md` and `tasks/todoist-downstream-build-plan.md`.
+- Continue implementation planning and scaffolding in `https://github.com/GeorgeQLe/todoist-mobile-clone`.
 - Keep Todoist manual verification blockers deferred until lawful hands-on verification evidence exists.
