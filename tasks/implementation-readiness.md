@@ -158,5 +158,5 @@ For each spec:
 
 ## Next Steps
 
-- Choose the first implementation candidate for downstream planning.
+- Produce downstream implementation planning for `specs/batch-05/090-todoist.md`.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.

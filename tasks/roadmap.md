@@ -66,7 +66,7 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 
 ### Milestones
 
-- [ ] Choose the first implementation candidate.
+- [x] Choose the first implementation candidate.
 - [ ] Produce a build plan with route map, API schema, data model, seed data, and test checklist.
 - [ ] Create or link the downstream implementation repository.
 
@@ -84,5 +84,5 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 
 ## Next Steps
 
-- Choose the first implementation candidate from the 100 implementation-ready public-source V1 specs.
-- Produce downstream implementation planning for the selected candidate without copying proprietary assets, private APIs, or unverified native behavior.
+- Produce downstream implementation planning for `specs/batch-05/090-todoist.md` without copying proprietary assets, private APIs, or unverified native behavior.
+- Create or link the downstream implementation repository after the Todoist build plan is accepted.

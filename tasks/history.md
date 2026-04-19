@@ -129,7 +129,13 @@
 - Rewrote the selected specs to implementation-ready public-source V1 status with app-specific productivity planning, kanban collaboration, calendars, notes, cloud storage, creator editing, photo libraries, smart-home video security, edge-case, test, acceptance, build-plan, and manual verification detail.
 - Updated readiness and audit counts from 89 to 100 implementation-ready public-source V1 specs and prepared the first downstream implementation-candidate selection step.
 
+## 2026-04-19 - First Downstream Candidate Selection
+
+- Selected `specs/batch-05/090-todoist.md` as the first downstream implementation candidate.
+- Compared Todoist against higher-risk Spotify, Cash App, and Ring candidates and chose Todoist because it can start with original data, provider stubs, feature flags, and blocked acceptance tests instead of licensed media, regulated finance, or physical security hardware dependencies.
+- Updated Phase 4 planning to make the next runnable step a Todoist downstream build plan covering route map, API schema, data model, seed data, test checklist, target repo proposal, and deferred manual blockers.
+
 ## Next Steps
 
-- Choose the first implementation candidate from the 100 implementation-ready public-source V1 specs.
-- Produce downstream implementation planning for the selected candidate.
+- Produce downstream implementation planning for `specs/batch-05/090-todoist.md`.
+- Create or link the downstream implementation repository after the Todoist build plan is accepted.
