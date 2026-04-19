@@ -2,19 +2,19 @@
 
 > Metadata
 > - App range: 061-080
-> - Status: Draft 1 canonical spec rewrite; `066-spotify.md` upgraded to implementation-ready public-source V1
-> - Research state: public source-discovery links included for the remaining Draft 1 specs; exact source replacement and hands-on verification still required before implementation.
+> - Status: Draft 1 canonical spec rewrite; `061-066` upgraded to implementation-ready public-source V1
+> - Research state: exact source replacement complete for specs `061-066`; public source-discovery links remain for `067-080` and hands-on verification still required before implementation.
 
 ## Overview
 This batch contains canonical Draft 1 clone specs for apps 61-80 from tasks/ideas.md.
 
 ## Included Specs
 
-- 061 Coinbase - Crypto
-- 062 Mint/Credit Karma - Personal finance
-- 063 YNAB - Budgeting
-- 064 Rocket Money - Personal finance
-- 065 Apple Wallet - Wallet
+- 061 Coinbase - Crypto - implementation-ready public-source V1
+- 062 Mint/Credit Karma - Personal finance - implementation-ready public-source V1
+- 063 YNAB - Budgeting - implementation-ready public-source V1
+- 064 Rocket Money - Personal finance - implementation-ready public-source V1
+- 065 Apple Wallet - Wallet - implementation-ready public-source V1
 - 066 Spotify - Music/audio - implementation-ready public-source V1
 - 067 Apple Music - Music/audio
 - 068 YouTube Music - Music/audio
@@ -34,10 +34,11 @@ This batch contains canonical Draft 1 clone specs for apps 61-80 from tasks/idea
 ## Quality Gate
 
 - Each numbered spec uses canonical hygiene sections.
-- Each numbered spec includes source-discovery links, functional requirements, data model, API contracts, edge cases, test plan, acceptance criteria, open questions, and next steps.
+- Draft 1 specs include source-discovery links, functional requirements, data model, API contracts, edge cases, test plan, acceptance criteria, open questions, and next steps.
+- Implementation-ready public-source V1 specs replace source-discovery links with exact first-party URLs and explicit manual verification blockers.
 - Each numbered spec remains legally scoped to functional parity with original assets and licensed data.
 
 ## Next Steps
 
-- Continue exact source replacement and implementation-readiness upgrades with `061-coinbase.md`, `062-mint-credit-karma.md`, `063-ynab.md`, `064-rocket-money.md`, and `065-apple-wallet.md`.
+- Continue exact source replacement and implementation-readiness upgrades with `067-apple-music.md`, `068-youtube-music.md`, `069-soundcloud.md`, `070-audible.md`, and `071-pocket-casts.md`.
 - Complete hands-on verification where lawful and feasible before app implementation starts.

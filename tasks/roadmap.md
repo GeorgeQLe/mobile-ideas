@@ -84,5 +84,5 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 
 ## Next Steps
 
-- Upgrade `061-coinbase.md`, `062-mint-credit-karma.md`, `063-ynab.md`, `064-rocket-money.md`, and `065-apple-wallet.md` as the next Batch 04 finance/wallet pass.
-- Continue the remaining 38 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, and Batch 03 pattern sets.
+- Upgrade `067-apple-music.md`, `068-youtube-music.md`, `069-soundcloud.md`, `070-audible.md`, and `071-pocket-casts.md` as the next Batch 04 audio pass.
+- Continue the remaining 33 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, Batch 03, and Batch 04 finance/wallet pattern sets.

@@ -87,7 +87,14 @@
 - Rewrote the selected specs to implementation-ready public-source V1 status with app-specific social payment, digital wallet, bank-linked transfer, brokerage/investing, card, bank-link, savings, crypto, request, dispute, privacy, support, edge-case, test, acceptance, build-plan, and manual verification detail.
 - Updated readiness and audit counts from 58 to 62 implementation-ready public-source V1 specs, made Batch 03 fully implementation-ready for public-source V1, and prepared the next Batch 04 finance/wallet step.
 
+## 2026-04-18 - Batch 04 Finance/Wallet Readiness Upgrade
+
+- Archived Draft 1 copies for `061-coinbase.md`, `062-mint-credit-karma.md`, `063-ynab.md`, `064-rocket-money.md`, and `065-apple-wallet.md`.
+- Replaced source-discovery links with exact first-party marketplace, help/support, privacy/legal, product, security, developer/platform, and disclosure URLs for the selected Batch 04 finance/wallet specs.
+- Rewrote the selected specs to implementation-ready public-source V1 status with app-specific crypto exchange, credit/personal finance, zero-based budgeting, subscription/bill negotiation, wallet/pass/card, privacy, support, edge-case, test, acceptance, build-plan, and manual verification detail.
+- Updated readiness and audit counts from 62 to 67 implementation-ready public-source V1 specs and prepared the next Batch 04 audio step.
+
 ## Next Steps
 
-- Upgrade `061-coinbase.md`, `062-mint-credit-karma.md`, `063-ynab.md`, `064-rocket-money.md`, and `065-apple-wallet.md` as the next Batch 04 finance/wallet pass.
-- Continue the remaining 38 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, and Batch 03 pattern sets.
+- Upgrade `067-apple-music.md`, `068-youtube-music.md`, `069-soundcloud.md`, `070-audible.md`, and `071-pocket-casts.md` as the next Batch 04 audio pass.
+- Continue the remaining 33 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, Batch 03, and Batch 04 finance/wallet pattern sets.
