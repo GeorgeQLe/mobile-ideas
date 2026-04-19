@@ -84,5 +84,5 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 
 ## Next Steps
 
-- Upgrade `067-apple-music.md`, `068-youtube-music.md`, `069-soundcloud.md`, `070-audible.md`, and `071-pocket-casts.md` as the next Batch 04 audio pass.
-- Continue the remaining 33 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, Batch 03, and Batch 04 finance/wallet pattern sets.
+- Upgrade `072-netflix.md`, `073-youtube.md`, `074-twitch.md`, `075-letterboxd.md`, and `076-imdb.md` as the next Batch 04 video/entertainment pass.
+- Continue the remaining 28 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, Batch 03, Batch 04 finance/wallet, and Batch 04 audio pattern sets.

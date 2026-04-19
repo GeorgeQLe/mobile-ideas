@@ -2,8 +2,8 @@
 
 > Metadata
 > - App range: 061-080
-> - Status: Draft 1 canonical spec rewrite; `061-066` upgraded to implementation-ready public-source V1
-> - Research state: exact source replacement complete for specs `061-066`; public source-discovery links remain for `067-080` and hands-on verification still required before implementation.
+> - Status: Draft 1 canonical spec rewrite; `061-071` upgraded to implementation-ready public-source V1
+> - Research state: exact source replacement complete for specs `061-071`; public source-discovery links remain for `072-080` and hands-on verification still required before implementation.
 
 ## Overview
 This batch contains canonical Draft 1 clone specs for apps 61-80 from tasks/ideas.md.
@@ -16,11 +16,11 @@ This batch contains canonical Draft 1 clone specs for apps 61-80 from tasks/idea
 - 064 Rocket Money - Personal finance - implementation-ready public-source V1
 - 065 Apple Wallet - Wallet - implementation-ready public-source V1
 - 066 Spotify - Music/audio - implementation-ready public-source V1
-- 067 Apple Music - Music/audio
-- 068 YouTube Music - Music/audio
-- 069 SoundCloud - Music/audio
-- 070 Audible - Audiobooks
-- 071 Pocket Casts - Podcasts
+- 067 Apple Music - Music/audio - implementation-ready public-source V1
+- 068 YouTube Music - Music/audio - implementation-ready public-source V1
+- 069 SoundCloud - Music/audio - implementation-ready public-source V1
+- 070 Audible - Audiobooks - implementation-ready public-source V1
+- 071 Pocket Casts - Podcasts - implementation-ready public-source V1
 - 072 Netflix - Streaming video
 - 073 YouTube - Video platform
 - 074 Twitch - Live streaming
@@ -40,5 +40,5 @@ This batch contains canonical Draft 1 clone specs for apps 61-80 from tasks/idea
 
 ## Next Steps
 
-- Continue exact source replacement and implementation-readiness upgrades with `067-apple-music.md`, `068-youtube-music.md`, `069-soundcloud.md`, `070-audible.md`, and `071-pocket-casts.md`.
+- Continue exact source replacement and implementation-readiness upgrades with `072-netflix.md`, `073-youtube.md`, `074-twitch.md`, `075-letterboxd.md`, and `076-imdb.md`.
 - Complete hands-on verification where lawful and feasible before app implementation starts.

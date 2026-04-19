@@ -17,7 +17,7 @@
 - [x] Upgrade Batch 02 travel booking specs: `034-037`.
 - [x] Upgrade Batch 02 food/grocery delivery specs: `039-040`.
 - [x] Upgrade Batch 04 finance/wallet specs: `061-065`.
-- [ ] Upgrade the remaining 33 specs by batch after the Batch 01, Batch 02, Batch 03, and Batch 04 finance/wallet patterns are proven.
+- [ ] Upgrade the remaining 28 specs by batch after the Batch 01, Batch 02, Batch 03, Batch 04 finance/wallet, and Batch 04 audio patterns are proven.
 
 ## Phase 2: Hygiene And Draft 1 Remediation
 
@@ -34,34 +34,34 @@
 - [x] Define the implementation-readiness gate in `tasks/implementation-readiness.md`.
 - [x] Upgrade `001-chatgpt.md` from Draft 1 scaffold to implementation-ready public-source V1 spec.
 - [x] Upgrade `017-telegram.md`, `018-signal.md`, `019-discord.md`, and `020-slack.md` to implementation-ready public-source V1 status.
-- [ ] Replace App Store, Google Play, and official help/privacy source-discovery links in the remaining 33 specs with exact first-party URLs.
+- [ ] Replace App Store, Google Play, and official help/privacy source-discovery links in the remaining 28 specs with exact first-party URLs.
 - [ ] Complete hands-on verification for reachable app flows using lawful test accounts/devices, or mark the flow as launch-blocked.
 - [ ] Mark paid, hardware, region-blocked, regulated, or otherwise inaccessible flows with explicit blocker notes and owner/path.
 - [ ] Refresh `tasks/spec-quality-audit.md` after exact source replacement and hands-on verification.
 
-## Next Runnable Step: Upgrade Batch 04 audio specs
+## Next Runnable Step: Upgrade Batch 04 video and entertainment specs
 
 ### Scope
 
-- Upgrade the next Batch 04 Draft 1 audio/audiobook/podcast specs: `specs/batch-04/067-apple-music.md`, `specs/batch-04/068-youtube-music.md`, `specs/batch-04/069-soundcloud.md`, `specs/batch-04/070-audible.md`, and `specs/batch-04/071-pocket-casts.md`.
-- Archive each current Draft 1 file under `docs/history/archive/2026-04-18/phase-3-batch-04-audio-readiness/` before rewriting.
-- Rewrite each selected spec to implementation-ready public-source V1 status using the evidence depth now present in the completed `066-spotify.md` and earlier marketplace, commerce, travel, mobility, communication, social, and finance patterns.
+- Upgrade the next Batch 04 Draft 1 video/live-streaming/entertainment specs: `specs/batch-04/072-netflix.md`, `specs/batch-04/073-youtube.md`, `specs/batch-04/074-twitch.md`, `specs/batch-04/075-letterboxd.md`, and `specs/batch-04/076-imdb.md`.
+- Archive each current Draft 1 file under `docs/history/archive/2026-04-19/phase-3-batch-04-video-entertainment-readiness/` before rewriting.
+- Rewrite each selected spec to implementation-ready public-source V1 status using the evidence depth now present in the completed audio, marketplace, commerce, travel, mobility, communication, social, and finance patterns.
 - Update `tasks/implementation-readiness.md`, `tasks/spec-quality-audit.md`, `specs/README.md`, `specs/batch-04/README.md`, `tasks/todo.md`, `tasks/history.md`, and any summary file whose readiness count becomes stale.
 
 ### Source Research
 
-- Replace App Store, Google Play, and official help/privacy source-discovery links with exact first-party URLs for Apple Music, YouTube Music, SoundCloud, Audible, and Pocket Casts.
-- Prioritize public sources for account model, subscription tiers, family/student plans where relevant, media catalog, playback, downloads/offline, library, playlists/queues, recommendations, lyrics/transcripts/captions, creator/podcast/audiobook tooling, device handoff, casting, CarPlay/Android Auto or smart speaker surfaces, ads, purchases/credits, reviews/ratings, data export/deletion, support, regional availability, accessibility, and legal/licensing disclosures.
-- Keep account onboarding, paid subscription, media catalog licensing, downloads/offline, device handoff/casting, creator uploads/monetization, audiobook credits/returns, podcast import/sync, push payloads, data deletion/export, support, and device-specific behavior as manual blockers unless verified lawfully with test accounts/devices and any required provider approvals.
+- Replace App Store, Google Play, and official help/privacy source-discovery links with exact first-party URLs for Netflix, YouTube, Twitch, Letterboxd, and IMDb.
+- Prioritize public sources for account model, subscription tiers, ads, video catalog or user-generated video rights, live streaming/chat, creator/channel tools, profiles/watchlists/lists/reviews/ratings, parental controls, downloads/offline, playback quality, recommendations, captions/subtitles/transcripts, moderation, reporting, data export/deletion, support, regional availability, accessibility, and legal/licensing disclosures.
+- Keep account onboarding, paid subscription, ad delivery, licensed video catalog, downloads/offline, live streaming, creator monetization, chat moderation, ratings/reviews, watch history, push payloads, data deletion/export, support, and device-specific behavior as manual blockers unless verified lawfully with test accounts/devices and any required provider approvals.
 
 ### Implementation Notes
 
 - Produce app-specific screen inventory, data model, API/backend contracts, offline/realtime behavior, analytics, safety/privacy controls, edge cases, acceptance criteria, and build plan for each upgraded spec.
-- Treat licensed media rights, creator/podcast hosting, copyright/DMCA, subscriptions, family/minor controls, ads, recommendations, playback telemetry, downloads/offline, accessibility, data deletion, support, and regional availability as category risk areas where relevant.
-- Do not claim exact native parity for any account, notification, deletion/export, support, subscription, catalog, playback, download, device handoff, creator, audiobook credit/return, podcast sync, recommendation, or platform-specific flow until verified.
+- Treat licensed video rights, creator/user-generated content, copyright/DMCA, subscriptions, ads, parental/minor controls, live chat, review integrity, recommendations, playback telemetry, downloads/offline, accessibility, data deletion, support, and regional availability as category risk areas where relevant.
+- Do not claim exact native parity for any account, notification, deletion/export, support, subscription, catalog, playback, download, live stream, chat, creator, review/rating, recommendation, or platform-specific flow until verified.
 
 ### Validation
 
 - Confirm the upgraded specs each have exactly one H1 and all canonical sections.
-- Confirm source-discovery links are gone from each upgraded Batch 04 audio spec.
-- Confirm readiness counts and next-step references advance from 67 completed specs to the new batch total.
+- Confirm source-discovery links are gone from each upgraded Batch 04 video/entertainment spec.
+- Confirm readiness counts and next-step references advance from 72 completed specs to the new batch total.

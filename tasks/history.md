@@ -94,7 +94,14 @@
 - Rewrote the selected specs to implementation-ready public-source V1 status with app-specific crypto exchange, credit/personal finance, zero-based budgeting, subscription/bill negotiation, wallet/pass/card, privacy, support, edge-case, test, acceptance, build-plan, and manual verification detail.
 - Updated readiness and audit counts from 62 to 67 implementation-ready public-source V1 specs and prepared the next Batch 04 audio step.
 
+## 2026-04-19 - Batch 04 Audio Readiness Upgrade
+
+- Archived Draft 1 copies for `067-apple-music.md`, `068-youtube-music.md`, `069-soundcloud.md`, `070-audible.md`, and `071-pocket-casts.md`.
+- Replaced source-discovery links with exact first-party marketplace, help/support, privacy/legal, product, subscription, creator/audiobook/podcast, playback, download/offline, sync/device, and policy URLs for the selected Batch 04 audio specs.
+- Rewrote the selected specs to implementation-ready public-source V1 status with app-specific music streaming, video/audio switching, creator uploads, timed comments, audiobook credits/returns, podcast queues/filters/sync, privacy, support, edge-case, test, acceptance, build-plan, and manual verification detail.
+- Updated readiness and audit counts from 67 to 72 implementation-ready public-source V1 specs and prepared the next Batch 04 video/entertainment step.
+
 ## Next Steps
 
-- Upgrade `067-apple-music.md`, `068-youtube-music.md`, `069-soundcloud.md`, `070-audible.md`, and `071-pocket-casts.md` as the next Batch 04 audio pass.
-- Continue the remaining 33 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, Batch 03, and Batch 04 finance/wallet pattern sets.
+- Upgrade `072-netflix.md`, `073-youtube.md`, `074-twitch.md`, `075-letterboxd.md`, and `076-imdb.md` as the next Batch 04 video/entertainment pass.
+- Continue the remaining 28 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, Batch 03, Batch 04 finance/wallet, and Batch 04 audio pattern sets.
