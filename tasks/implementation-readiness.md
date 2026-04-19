@@ -7,7 +7,7 @@ Updated: 2026-04-19
 
 The spec set is moving from Draft 1 scaffolds to implementation-ready specs by focused batches.
 
-Current readiness count: 81 of 100.
+Current readiness count: 89 of 100.
 
 ## Readiness Definition
 
@@ -106,7 +106,15 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 053 | Depop | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; fashion resale feed, shops, listings, likes/follows, messages, offers, payments, shipping labels, buyer/seller protection, payouts, and native/manual parity blockers remain explicit. |
 | 054 | StockX | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; bid/ask market, market pricing, buy now/sell now, verification, Buyer Promise-style support, seller levels, fees, payouts, two-step security, and native/manual parity blockers remain explicit. |
 | 055 | Shop | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; package tracking, email/order import, merchant discovery, Shop Pay-style wallet, Shop Cash-style rewards, merchant channel, tracking sync, and native/manual parity blockers remain explicit. |
-| 081-088, 090-100 | Remaining specs | Draft 1 scaffold | Must be upgraded app-by-app or by focused batch using the readiness definition above. |
+| 081 | Photomath | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; camera math capture, OCR, solution steps, graphing, Plus-style entitlement, academic-integrity, classroom/minor, and native/manual blockers remain explicit. |
+| 082 | Headspace | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; meditation, sleep, coaching/therapy eligibility, AI companion, employer benefit, consumer health data, subscription, and native/manual blockers remain explicit. |
+| 083 | Calm | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; meditation, sleep stories, soundscapes, breathwork, Premium, consumer health data, licensed content, and native/manual blockers remain explicit. |
+| 084 | Strava | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; GPS recording, routes, segments, clubs, challenges, leaderboards, device sync, location privacy, subscriptions, and native/manual blockers remain explicit. |
+| 085 | Nike Run Club | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; run recording, guided runs, training plans, challenges, shoe tagging, Apple Health/device sync, data retention, and native/manual blockers remain explicit. |
+| 086 | MyFitnessPal | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; food logging, macro tracking, barcode/AI meal scan, recipes, workouts, community privacy, ads/subscriptions, nutrition safety, and native/manual blockers remain explicit. |
+| 087 | Fitbit | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; wearable sync, activity, sleep, heart/stress/nutrition, Premium, Google account migration, sensitive health data, and native/manual blockers remain explicit. |
+| 088 | Flo | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; cycle tracking, predictions, pregnancy/fertility, Anonymous Mode, partner sharing, reproductive-health privacy, subscriptions, and native/manual blockers remain explicit. |
+| 090-100 | Remaining specs | Draft 1 scaffold | Must be upgraded app-by-app or by focused batch using the readiness definition above. |
 
 ## Repeatable Upgrade Loop
 
@@ -135,8 +143,9 @@ For each spec:
 - Batch 04 audio public-source V1 expansion: `067-apple-music.md`, `068-youtube-music.md`, `069-soundcloud.md`, `070-audible.md`, and `071-pocket-casts.md`.
 - Batch 04 video/entertainment public-source V1 expansion: `072-netflix.md`, `073-youtube.md`, `074-twitch.md`, `075-letterboxd.md`, and `076-imdb.md`.
 - Batch 04 education public-source V1 expansion: `077-duolingo.md`, `078-khan-academy.md`, `079-quizlet.md`, and `080-coursera.md`.
+- Batch 05 education/wellness/fitness/health public-source V1 expansion: `081-photomath.md`, `082-headspace.md`, `083-calm.md`, `084-strava.md`, `085-nike-run-club.md`, `086-myfitnesspal.md`, `087-fitbit.md`, and `088-flo.md`.
 
 ## Next Steps
 
-- Upgrade the next Batch 05 education, wellness, fitness, and health specs: `081-photomath.md`, `082-headspace.md`, `083-calm.md`, `084-strava.md`, `085-nike-run-club.md`, `086-myfitnesspal.md`, `087-fitbit.md`, and `088-flo.md`.
+- Upgrade the remaining Batch 05 productivity, cloud, creator, photo, and smart-home specs: `090-todoist.md`, `091-trello.md`, `092-google-calendar.md`, `093-evernote.md`, `094-dropbox.md`, `095-google-drive.md`, `096-capcut.md`, `097-canva.md`, `098-lightroom.md`, `099-google-photos.md`, and `100-ring.md`.
 - Continue Phase 3 exact source replacement and hands-on blocker documentation through later batches.

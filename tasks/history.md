@@ -115,7 +115,14 @@
 - Rewrote the selected specs to implementation-ready public-source V1 status with app-specific gamified learning, course catalogs, video/practice mastery, flashcard study, course marketplace, classroom/teacher tooling, minors/student privacy, subscriptions, credentials, offline/cache, edge-case, test, acceptance, build-plan, and manual verification detail.
 - Updated readiness and audit counts from 77 to 81 implementation-ready public-source V1 specs, made Batch 04 fully implementation-ready for public-source V1, and prepared the next Batch 05 education/wellness/fitness/health step.
 
+## 2026-04-19 - Batch 05 Education/Wellness/Fitness/Health Readiness Upgrade
+
+- Archived Draft 1 copies for `081-photomath.md`, `082-headspace.md`, `083-calm.md`, `084-strava.md`, `085-nike-run-club.md`, `086-myfitnesspal.md`, `087-fitbit.md`, and `088-flo.md`.
+- Replaced source-discovery links with exact first-party marketplace, help/support, privacy/legal, product, subscription, device/wearable, anonymous-mode, data-export/delete, and safety URLs for the selected Batch 05 specs.
+- Rewrote the selected specs to implementation-ready public-source V1 status with app-specific camera math, meditation, sleep/wellness, GPS fitness social, running-plan, nutrition logging, wearable health, reproductive-health privacy, edge-case, test, acceptance, build-plan, and manual verification detail.
+- Updated readiness and audit counts from 81 to 89 implementation-ready public-source V1 specs and prepared the remaining Batch 05 productivity/cloud/creator/photo/smart-home step.
+
 ## Next Steps
 
-- Upgrade `081-photomath.md`, `082-headspace.md`, `083-calm.md`, `084-strava.md`, `085-nike-run-club.md`, `086-myfitnesspal.md`, `087-fitbit.md`, and `088-flo.md` as the next Batch 05 education/wellness/fitness/health pass.
-- Continue the remaining 19 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, Batch 03, Batch 04 finance/wallet, Batch 04 audio, Batch 04 video/entertainment, and Batch 04 education pattern sets.
+- Upgrade `090-todoist.md`, `091-trello.md`, `092-google-calendar.md`, `093-evernote.md`, `094-dropbox.md`, `095-google-drive.md`, `096-capcut.md`, `097-canva.md`, `098-lightroom.md`, `099-google-photos.md`, and `100-ring.md` as the next Batch 05 productivity/cloud/creator/photo/smart-home pass.
+- Continue the remaining 11 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, Batch 03, Batch 04 finance/wallet, Batch 04 audio, Batch 04 video/entertainment, Batch 04 education, and Batch 05 education/wellness/fitness/health pattern sets.
