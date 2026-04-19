@@ -2,7 +2,23 @@
 
 ## Priority Documentation Todo
 
-- [x] `$pack install business-app` - configured the project-local documentation/research pack because `.agents/project.json` was missing and the pack recommender selected `business-app` from this repository's mobile product-planning contract. Pack-specific research queue items can now be generated.
+- [x] `$pack install business-app` - project-local pack configuration is current because `.agents/project.json` sets `project_type` to `business-app` and `enabled_packs` includes `business-app`.
+- [ ] `$icp` - create `research/icp.md` because the `business-app` pack is enabled and no canonical `research/` output exists yet.
+- [ ] `$competitive-analysis` - create `research/competitive-analysis.md` after `$icp`; currently ordered behind it because `research/icp.md` is missing.
+- [ ] `$positioning` - create `research/positioning.md` after `$competitive-analysis`; currently blocked because `research/competitive-analysis.md` is missing.
+- [ ] `$journey-map` - create `research/journey-map.md` after `$icp`; currently blocked because `research/icp.md` is missing, while `specs/` already contains the source specification set.
+- [ ] `$metrics` - create `research/metrics.md` after `$journey-map`; currently blocked because `research/journey-map.md` is missing.
+- [ ] `$gtm` - create `research/gtm.md` after `$icp`, `$competitive-analysis`, `$positioning`, and `$journey-map`; currently blocked because those upstream research outputs are missing.
+- [ ] `$monetization` - create `research/monetization.md` after `$gtm`; currently blocked because `research/icp.md`, `research/competitive-analysis.md`, `research/journey-map.md`, `research/metrics.md`, and `research/gtm.md` are missing.
+- [ ] `$landing-copy` - create `research/landing-copy.md` after `$positioning`, `$journey-map`, and `$monetization`; currently blocked because those upstream research outputs are missing.
+- [ ] `$risk-register` - create `research/risk-register.md` after `$icp` so project, legal, privacy, execution, and downstream-repository risks are tied to an explicit customer and product thesis; currently blocked because `research/icp.md` is missing.
+- [ ] `$enterprise-icp` - create `research/enterprise-icp.md` after `$icp`; currently blocked because `research/icp.md` is missing.
+- [ ] `$assumption-tracker` - create `research/assumption-tracker.md` after at least three primary research docs exist; currently blocked because `research/` has no primary research documents.
+- [ ] `$experiment` - create `research/experiments/<experiment>.md` after `$assumption-tracker`; currently blocked because `research/assumption-tracker.md` is missing and no prioritized hypothesis exists.
+- [ ] `$burn-rate` - create `research/burn-rate.md` after `$monetization`, `$metrics`, and `$gtm`; currently blocked because those upstream business model and measurement outputs are missing.
+- [ ] `$runway-model` - create `research/runway-model.md` after `$burn-rate`, `$monetization`, `$metrics`, and `$gtm`; currently blocked because the upstream financial and growth assumptions are missing.
+- [ ] `$platform-strategy` - create `research/platform-strategy.md` after `$icp`, `$competitive-analysis`, `$journey-map`, and `$metrics`; currently blocked because the core product health and expansion context are missing.
+- [ ] `$reconcile-research fix all` - create `research/reconciliation-report.md` after the first batch of primary research docs exists; currently blocked because fewer than two assertion-bearing `research/*.md` documents exist to reconcile.
 
 ## Priority Task Queue
 
