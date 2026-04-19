@@ -1,5 +1,9 @@
 # Todo
 
+## Priority Documentation Todo
+
+- [x] Documentation is current; no missing or stale research, spec, roadmap, or task artifacts found for the enabled project contract.
+
 ## Priority Task Queue
 
 - [x] Upgrade `006-tiktok.md` to implementation-ready status using the `001-chatgpt.md` pattern.
