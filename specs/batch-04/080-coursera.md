@@ -2,177 +2,222 @@
 
 > Metadata
 > - Inspiration app: Coursera
-> - Category: Education
-> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
-> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
+> - Category: education marketplace, online courses, degrees/certificates, video lessons, quizzes, assignments, deadlines, subscriptions, enterprise learning, and credentials
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-04-19.
+> - Verification basis: exact public marketplace pages, Coursera learner help center, Coursera privacy notice, terms, refund/subscription/product references, and public Coursera product pages.
+> - Manual verification blockers: native iOS/Android screen capture, account signup/login, course enrollment, audit/free trial flows, subscription checkout/cancellation, video playback, downloads/offline behavior, quizzes, peer assignments, grades, deadlines, certificates, financial-aid paths, degree/professional-certificate flows, enterprise account behavior, notifications, data export/deletion, support escalation, and regional catalog availability still require lawful test devices/accounts before one-for-one parity claims.
+> - Legal scope: functional parity only; use original code, brand, copy, icons, partner/university names, course catalogs, videos, assignments, quizzes, certificates, grading rubrics, credentials, subscription copy, learner data, and marketplace ranking logic.
 
 ## Overview
-Build an original mobile product inspired by Coursera's user-facing workflow, not its brand identity or proprietary implementation.
-The clone target is: Course marketplace, modules, video lessons, quizzes, certificates, deadlines, and offline learning.
-Primary product surface: placement/setup supported by home and lesson flows.
-The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
-The spec intentionally separates verified public-source facts from inferred clone requirements.
+
+Build an original mobile learning marketplace inspired by Coursera's public workflow: browse courses, enroll, watch videos, complete modules, take quizzes, submit assignments, track deadlines and grades, earn original certificates or credentials where approved, manage subscriptions/payments, use downloads/offline where scoped, contact support, manage privacy controls, export data, and delete an account.
+
+The clone must not copy Coursera branding, screenshots, marketing copy, university/partner catalogs, videos, quizzes, assignments, credentials, certificate templates, grading rubrics, private APIs, or learner reviews. Functional parity should use original or licensed course content, approved credential issuers, synthetic learner data, independently designed marketplace/ranking rules, and platform-approved billing.
+
+This spec is implementation-ready for a V1 based on public sources. Any feature marked `Manual verification required` must remain behind a feature flag or launch blocker until lawful hands-on verification confirms native behavior and provider constraints.
 
 ## Goals
-- Deliver a mobile-first education experience with complete onboarding, core action, settings, and recovery flows.
-- Implement the app-specific focus: Course marketplace, modules, video lessons, quizzes, certificates, deadlines, and offline learning.
-- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
-- Make public-source verification and blocked hands-on research visible before implementation starts.
-- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+- Provide a mobile-first online learning marketplace with onboarding, catalog search, course detail, enrollment, modules, video lessons, quizzes/assignments, deadlines, grades, certificates, subscriptions, settings, support, privacy, and account controls.
+- Support learner workflows: find a course, enroll or audit where allowed, learn by module, download content where scoped, complete assessments, manage deadlines, earn credentials, and recover from billing or progress issues.
+- Preserve education marketplace trust expectations around licensed content, credentials, assessment integrity, peer review, refunds, subscriptions, enterprise learning, accessibility, data rights, and regional availability.
+- Produce concrete screens, entities, API contracts, realtime/offline rules, analytics, safety controls, edge cases, acceptance tests, and build phases for a downstream implementation repo.
+- Keep public-source requirements, inferred clone requirements, and manual verification blockers visibly separate.
 
 ## Non-Goals
-- Do not copy Coursera branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
-- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
-- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
-- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
-- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+- Do not build a Coursera-branded app or imply affiliation with Coursera, universities, instructors, employers, app stores, credential issuers, or payment providers.
+- Do not copy course catalogs, partner names/logos, lectures, quizzes, assignments, rubrics, certificates, reviews, rankings, pricing, subscription plans, or help copy without explicit rights.
+- Do not scrape Coursera, reuse private APIs, replay network traffic, copy marketplace/recommendation algorithms, bypass paid gates, or mint credentials without approved issuers.
+- Do not treat certificates, degrees, paid subscriptions, peer assessment, financial aid, enterprise learning, or academic integrity as generic features; each needs explicit owner and review before launch.
+- Do not claim exact App Store, Play Store, native-device, course, enrollment, assessment, credential, subscription, deletion/export, support, notification, or regional parity until manual verification blockers are resolved.
 
 ## Research Sources
-- App Store source-discovery link: https://apps.apple.com/us/search?term=Coursera
-- Google Play source-discovery link: https://play.google.com/store/search?q=Coursera&c=apps
-- Official help/privacy source-discovery link: https://www.google.com/search?q=Coursera%20official%20app%20help%20privacy
-- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
-- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
-- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
-- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
-- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+| Source | Exact URL | Evidence Used | Status |
+|---|---|---|---|
+| Apple App Store | https://apps.apple.com/us/app/coursera-learn-career-skills/id736535961 | Official iOS listing, education category, course/skills positioning, certificates/subscriptions where shown, privacy labels, and release context | Verified 2026-04-19 |
+| Google Play | https://play.google.com/store/apps/details?id=org.coursera.android | Official Android listing, package id, education category, in-app purchase disclosure where shown, course learning positioning, and data-safety orientation | Verified 2026-04-19 |
+| Coursera Learner Help Center | https://www.coursera.support/s/learner-help-center | Public support entry for learner accounts, courses, payments, certificates, troubleshooting, and privacy support | Verified 2026-04-19 |
+| Coursera Privacy Notice | https://www.coursera.org/about/privacy | Personal data, learner data, enterprise/partners, cookies, analytics, communications, access/deletion, and regional privacy controls | Verified 2026-04-19 |
+| Coursera Terms Of Use | https://www.coursera.org/about/terms | Account, service-use, content, payments, certificates, acceptable-use, and legal constraints | Verified 2026-04-19 |
+| Coursera Catalog | https://www.coursera.org/courses | Public course marketplace, catalog search, partner/course metadata, and enrollment context | Verified 2026-04-19 |
+| Coursera Plus | https://www.coursera.org/courseraplus | Subscription product orientation and entitlement review context | Verified 2026-04-19 |
+| Coursera Certificates | https://www.coursera.org/career-academy/ | Public career credential/certificate positioning; credential issuance requires separate provider/legal review | Verified 2026-04-19 |
+| Coursera For Business | https://www.coursera.org/business/ | Enterprise learning context, admin/organization review area, and launch-blocking B2B privacy/support requirements | Verified 2026-04-19 |
+| Coursera Campus | https://www.coursera.org/campus/ | Campus/institution deployment context; excluded from V1 unless separately scoped, verified, and legally reviewed | Verified 2026-04-19 |
 
 ## Detailed Design
-- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for education.
-- Home model: make Placement/Setup the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
-- Core action: make Home the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
-- Detail surface: use Lesson for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
-- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
-- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
-- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
-- The implementation must support learner onboarding and level selection.
-- The implementation must render lessons with step-by-step progression.
-- The implementation must record attempts and mastery state.
-- The implementation must support review, retry, and spaced repetition where relevant.
-- The implementation must show progress, streaks, and goals.
-- The implementation must support search or course catalog.
-- The implementation must cache active lessons offline.
-- The implementation must gate premium explanations or certificates by entitlement.
-- The implementation must protect minors and classroom data.
-- The implementation must avoid unsupported academic-integrity claims.
-- The implementation must provide accessibility for audio, math, and video content.
-- The implementation must export learner progress where required.
+
+### Source-Backed Product Requirements
+
+- Public listings and Coursera product pages position the service as a course marketplace for career skills, videos, quizzes, certificates, subscriptions, and partner-backed learning.
+- V1 must model signed-out browse, signed-in learner, enrolled learner, audit/free learner where chosen, paid subscriber, expired subscriber, certificate candidate, enterprise learner, restricted/suspended account, and deleted-account states.
+- Onboarding must support account creation/sign-in, learning goals, topic/career interests, locale, accessibility preference, optional enterprise/institution link, notification/email preference, and paid-plan awareness without dark patterns.
+- Catalog must support search, topic filters, provider/instructor metadata where licensed, level, duration, language, subtitles, credential type, price/entitlement state, ratings/reviews if licensed, and regional/unavailable states.
+- Course detail must support syllabus, modules, videos, readings, quizzes, assignments, deadlines, credential outcome, enrollment/audit/checkout entry points, support owner, and refund/financial-aid blockers where scoped.
+- Learning player must support module sequence, video playback, captions/transcripts, readings, downloads/offline where scoped, progress markers, quizzes, assignments, grades, and deadline reminders.
+- Assessment workflows must support quiz attempts, assignment uploads, peer review where chosen, grading states, retakes, late work, plagiarism/academic-integrity checks, and certificate eligibility.
+- Credential workflows must support certificate/credential issuance, verification links, revocation, name changes, sharing, export/download, and legal/provider approval before launch.
+- Subscriptions/payments must support free, trial, paid, expired, canceled, refunded, unavailable, restore-pending, financial-aid or sponsored states where chosen, and server-verified entitlement state.
+- Settings must expose profile, learning preferences, subscriptions/payments, enterprise link, notifications/email, privacy, data access/export, account deletion, help, terms, and privacy policy.
+
+### Manual Verification Required
+
+- Native iOS and Android navigation, account creation, catalog/search, enrollment, audit/free trial flows, subscription checkout/cancellation, course player, downloads/offline, quizzes, assignments, grades, certificates, enterprise accounts, notifications, data export/delete, support flows, and regional differences.
+- Exact refund, financial-aid, credential issuance, peer review, deadline, grade, and app-store billing behavior.
 
 ## Core User Journeys
-- New user installs the app, reviews an original value proposition, creates an account, and reaches Placement/Setup.
-- Returning user opens Placement/Setup, resumes the most recent meaningful activity, and completes the primary action in Home.
-- User searches or browses from Practice, opens Lesson, saves or shares it, and later finds it again from history or library.
-- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
+
+- New learner installs the app, creates or signs into an account, selects career/topic interests, searches the catalog, opens course detail, and enrolls or saves the course.
+- Returning learner opens an enrolled course, resumes a module video, reads transcript/captions, completes a quiz, sees grade/progress update, and schedules the next deadline.
+- Learner downloads a video or reading where allowed, studies offline, completes allowed local actions, reconnects, and resolves progress sync conflicts.
+- Subscriber starts a trial or paid plan, unlocks eligible courses, cancels or expires, and sees consistent entitlement and certificate eligibility state across devices.
+- Certificate candidate completes required modules/assessments, receives original credential eligibility, downloads or shares a certificate, and handles name-change or revocation cases.
+- Assignment learner submits work, receives grading or peer review, revises where allowed, handles late submission, and understands academic-integrity consequences.
+- Enterprise learner signs in through an organization context, sees assigned learning, completes required coursework, and understands employer/admin visibility.
+- Privacy-focused user changes notifications/email, requests data export, deletes account, and sees consequences for enrollments, certificates, grades, support cases, and payment records.
 
 ## Screen Inventory
-| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
+
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Placement/Setup | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Home | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Lesson | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Practice | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Progress | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Search/Catalog | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Saved Content | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Subscription | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Welcome/Auth | Entry, signup, sign-in, signed-out browse | email, SSO, legal | guest, new, returning | auth fail, SSO fail, suspended, offline |
+| Learner Setup | Goals, topics, locale, org link | topic, career, org code | complete, skipped | org unavailable, invalid code |
+| Home | Resume courses and recommendations | course tap, reminder, save | personalized, signed-out | stale progress, empty, offline |
+| Catalog/Search | Find courses and credentials | query, filters, sort | suggestions, results, no-results | unavailable course, stale price |
+| Course Detail | Syllabus, provider, enrollment, credential | enroll, save, checkout | open, enrolled, locked | regional block, entitlement conflict |
+| Course Player | Module sequence and content | video, reading, quiz, assignment | not-started, active, complete | blocked media, missing captions |
+| Quiz | Assessment attempts and scoring | answers, submit, retake | draft, submitted, graded | stale answer key, attempt limit |
+| Assignment/Peer Review | Upload, rubric, review, grade | file, text, rubric | draft, submitted, reviewed | plagiarism hold, late state |
+| Grades/Progress | Course progress and deadline tracking | module, grade, deadline | active, passed, failed | recalculation, grace period |
+| Certificates | Credential eligibility and sharing | name, download, share | eligible, issued, revoked | name mismatch, provider hold |
+| Subscription/Payments | Trial, paid plans, restore/cancel | checkout, restore, cancel | free, trial, paid, expired | refund, store sync pending |
+| Settings/Privacy/Support | Account, notifications, data rights, help | toggles, export, delete, case | loaded, pending export, deleting | retention hold, support unavailable |
 
 ## Data Model
-- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
-- `Course`: stores the primary workspace, account, or grouping context.
-- `Lesson`: represents the main user-facing object in this clone's core flow.
-- `Exercise`: captures lifecycle state, ordering, timestamps, and failure reason codes.
-- `Attempt`: tracks durable interaction history and audit metadata.
-- `Progress`: stores sharing, collaboration, or permission relationships.
-- `Streak`: records notification, recommendation, or entitlement state.
-- `Recommendation`: supports safety, review, policy, or moderation decisions.
-- `Certificate`: stores support or user feedback records.
-- `Entitlement`: holds plan, trial, renewal, expiration, refund, and feature-access state.
-- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
+
+- `User`: identity, locale, country, role, SSO/enterprise link, preferences, accessibility settings, privacy choices, deletion/export state, and restrictions.
+- `LearnerProfile`: goals, topics, active courses, saved courses, progress summary, credentials, notifications, organization memberships, and learning preferences.
+- `OrganizationMembership`: enterprise/campus sponsor, role, assigned learning, admin visibility, policy state, and removal rules.
+- `Course`: provider, title, description, level, language, duration, modules, credential type, price/entitlement state, regional availability, and content license.
+- `Module`: course, sequence, lessons, quizzes, assignments, deadline, completion criteria, and version metadata.
+- `Lesson`: video/reading object, transcript/caption metadata, estimated duration, download eligibility, progress marker, and content version.
+- `Assessment`: quiz or assignment, prompt, answer rules, rubric, attempt limits, due date, integrity policy, grading state, and version metadata.
+- `AssessmentAttempt`: learner, assessment, answers/files, score, feedback, late flag, plagiarism/integrity state, retry state, and audit data.
+- `PeerReview`: reviewer, target attempt, rubric scores, feedback, conflict/dispute state, and privacy constraints.
+- `Enrollment`: user, course, status, entitlement, deadlines, progress, grade, certificate eligibility, refund window, and completion state.
+- `Certificate`: learner, course/credential, issuer, display name, issue date, verification URL, revocation state, share/export state, and legal metadata.
+- `SubscriptionEntitlement`: plan, store, trial, renewal, expiration, refund, financial-aid/sponsor relation, feature flags, and server verification status.
+- `SupportCase`: user, course/enrollment/payment/certificate target, category, evidence, status, owner, and privacy redaction state.
+- `PrivacyRequest`: data access/export, deletion, credential/payment retention, identity verification, status, delivery, and retention notes.
+- `AuditEvent`: append-only auth, enrollment, assessment, grade, credential, billing, support, privacy, deletion, and sensitive transitions.
+- `LocalCacheRecord`: cached catalog/course/lesson, downloaded media, offline progress queue, entitlement snapshot, stale timestamp, and sync attempts.
 
 ## API And Backend Contracts
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /courses, GET /lessons, GET /exercises, GET /attempts; all reads return pagination, cache hints, authorization status, and stale-data indicators.
-- Writes: POST /users, POST /courses, POST /lessons, POST /exercises, POST /attempts; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
-- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+
+- `POST /auth/session`, `POST /auth/recover`, `POST /auth/sso`, `DELETE /auth/session`, `DELETE /auth/sessions/:id`: account auth with device, locale, SSO, role, and deletion state.
+- `GET /home`, `GET /recommendations`, `PATCH /learner/profile`: personalized home, goals, saved courses, active enrollments, and organization context.
+- `GET /catalog`, `GET /courses/:id`, `GET /courses/:id/modules`: catalog, course detail, syllabus, pricing/entitlement, availability, and cache hints.
+- `POST /enrollments`, `GET /enrollments`, `PATCH /enrollments/:id`: enrollment lifecycle, audit/free/paid state, deadlines, progress, and refund/sponsor metadata.
+- `GET /lessons/:id`, `GET /lessons/:id/media`, `POST /lessons/:id/progress`: video/reading content, captions/transcripts, downloads, completion, and idempotency.
+- `POST /assessments/:id/attempts`, `GET /assessments/:id/attempts/:attemptId`, `POST /attempts/:id/submit`: quiz/assignment attempt lifecycle with validation and late/integrity states.
+- `POST /peer-reviews`, `GET /peer-reviews/:id`: peer grading, rubric feedback, conflict/dispute, and privacy constraints where scoped.
+- `GET /grades`, `GET /deadlines`, `POST /deadlines/:id/reset`: grade/progress/deadline state with grace and recalculation behavior.
+- `GET /certificates`, `POST /certificates/:id/share`, `POST /certificates/:id/name-change`: certificate issuance, verification, sharing, and revocation state.
+- `GET /entitlements`, `POST /checkout/session`, `POST /billing/webhook`, `POST /billing/restore`: subscription/payment verification with server-owned feature state.
+- `GET /notification-preferences`, `PATCH /notification-preferences`: learning reminders, deadlines, grades, payments, certificates, account, support, and privacy settings.
+- `GET /privacy/settings`, `PATCH /privacy/settings`, `POST /data-export`, `DELETE /account`: privacy choices, export/access, deletion, and warning state.
+- `POST /support/cases`, `GET /support/cases/:id`: course, payment, certificate, assessment, enterprise, privacy, and technical support workflows.
 
 ## Realtime, Push, And Offline Behavior
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+
+- Clients may cache Home, catalog slices, course detail, lessons, videos/readings, deadlines, settings, and entitlement snapshots with explicit content-version and freshness labels.
+- Offline mode may allow downloaded video/reading viewing and local progress markers for content already authorized to the learner.
+- Offline mode must block enrollment, checkout, subscription changes, quiz/assignment final submission, peer review submission, certificate issuance, account deletion, data export, and support evidence upload.
+- Progress sync must be idempotent, preserve module/lesson ordering, and mark local progress stale if course or lesson versions changed while offline.
+- Assessment attempts must preserve drafts but require server validation before grading, certificate eligibility, or public/peer submission.
+- Realtime or polling updates must reconcile grades, deadlines, peer reviews, certificate readiness, entitlement changes, refunds, enterprise assignments, data-export readiness, support cases, and account/deletion status.
+- Downloads/offline content must support pending, downloaded, expired, removed, disk-full, provider-error, and content-updated states.
+- Push/email notifications must be opt-in and category-controlled for learning reminders, deadlines, grades, certificates, payment/account events, support, and privacy requests.
+- Push payloads must avoid exact grades, assignment content, certificate identifiers, payment state, enterprise membership, support evidence, and sensitive learning accommodations.
 
 ## Permissions, Privacy, And Safety
-- Treat minor privacy as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat academic misuse as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat accessibility as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat subscription gating as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat content accuracy as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+
+- Notifications, files/photos for assignment or support upload, camera if scan/upload is added, and storage/download access where platform-relevant must be requested only when the related feature is invoked.
+- Licensed course content, partner/provider metadata, certificate issuance, and credential verification are launch blockers with legal/content owners and revocation/support policy.
+- Assessment integrity must support attempt limits, late rules, plagiarism/integrity checks where scoped, honor-code policy, appeals, and no unsupported academic-credit claims.
+- Peer review must minimize exposed learner data, handle harassment/abuse, support dispute paths, and avoid exposing private files beyond review scope.
+- Enterprise/campus workflows require privacy/legal owners, admin visibility disclosures, sponsor/payment ownership, data-sharing controls, retention, export, deletion, and account unlinking.
+- Subscription/payment flows must avoid dark patterns, support store cancellation routes, refund/expiration states, financial-aid/sponsor states where chosen, and server-side verification.
+- Learning analytics must avoid raw assignment text/files, exact grades in generic analytics, enterprise membership leakage, payment details, and sensitive demographic inference.
+- Accessibility must target WCAG 2.2 AA where applicable, dynamic type, screen-reader labels, visible focus, captions/transcripts, keyboard/focus order, reduced motion, and assessment-form alternatives.
+- Account deletion/export must warn about enrollments, grades, certificates, assessment submissions, peer reviews, enterprise records, payment records, support cases, and legal/provider retention.
+- Launch owners: content/legal owner for courses/credentials; privacy owner for enterprise/export; integrity owner for assessments; billing owner for subscriptions/refunds; accessibility owner for video/assessment UX.
 
 ## Analytics And Monetization
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
+
+- Track privacy-safe events: onboarding started/completed, catalog searched, course opened, enrollment started/completed, lesson opened, video played, download started/completed, quiz submitted, assignment submitted, grade viewed, certificate issued, subscription started/canceled, support case opened, export requested, and account deletion requested.
+- Every event must use course id, module id, content version, credential type, entitlement state, organization flag, result bucket, latency bucket, locale, and error code rather than raw answers, assignment files, exact grades, payment credentials, enterprise membership details, or support evidence.
+- Learning analytics must separate product telemetry from grading/certificate eligibility and provide deletion/export hooks for progress, attempts, peer reviews, and credentials where required.
+- Marketplace analytics may capture course discovery, availability, stale pricing, provider latency, and completion funnels without copying partner ranking logic or exposing private learner work.
+- Monetization may include original subscriptions, one-off course purchases, sponsor/enterprise plans, certificate fees, or licensed bundles only after legal, privacy, payment, and platform review.
+- Any paid course, subscription, certificate, financial-aid-like program, enterprise plan, or partner credential must disclose pricing, refund/cancellation path, support owner, data sharing, regional availability, and provider approval before launch.
 
 ## Edge Cases
-- First launch with no network, no account, or expired session.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
+
+- First launch offline, unsupported locale, signed-out learner tries to enroll, course unavailable in region, enterprise SSO fails, or catalog price/entitlement state is stale.
+- Video provider fails, captions missing, download expires, disk full, course content changes mid-module, lesson is retired, or transcript/version mismatch occurs.
+- Quiz submission duplicates, answer key changes, assignment upload fails, file type unsupported, deadline passes during offline work, or grade is recalculated.
+- Peer reviewer is abusive, peer review is incomplete, integrity/plagiarism hold blocks certificate, learner appeals a grade, or certificate name is wrong.
+- Subscription restored from another device, refund webhook arrives late, financial-aid/sponsor state conflicts with store entitlement, or cancellation path differs by platform.
+- Enterprise learner leaves organization, admin assignment changes, employer visibility is disputed, data export requested during deletion, or legal/provider retention prevents full deletion.
+- Push/email arrives after deadline reset, support case includes assessment files, certificate verification link expires, or regional laws require different privacy notices.
 
 ## Test Plan
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+
+- Unit tests for catalog filtering, enrollment state, entitlement gates, lesson progress, download state, quiz scoring, assignment status, deadline logic, grade state, certificate eligibility, and privacy-safe analytics.
+- Contract tests for every documented API route, including pagination, idempotency, validation errors, content versions, entitlement states, attempt states, certificate states, refund states, and deletion/export states.
+- Integration tests for auth, learner setup, Home, catalog search, course detail, enrollment, course player, video/reading, downloads, quizzes, assignments, peer review, grades/progress, certificates, payments, settings, support, export, and deletion.
+- Offline tests for cached catalog/course, downloaded media, local progress queue, blocked enrollment/billing/assessment/privacy writes, content-version mismatch, corrupt cache, disk full, reconnect reconciliation, and duplicate progress.
+- Assessment/integrity tests for quiz attempts, retakes, late work, assignment upload, peer review, plagiarism/integrity hold, grade recalculation, appeals, and certificate eligibility.
+- Enterprise/privacy tests for SSO, assigned learning, admin visibility, organization removal, sponsor entitlement, export, deletion, and data-sharing controls.
+- Billing tests for free, trial, paid, canceled, expired, refund, restore, financial-aid/sponsored, unavailable, and store-sync-pending states.
+- Accessibility tests for captions, transcripts, video controls, assessment forms, dynamic type, screen reader labels, focus order, contrast, reduced motion, and file upload errors.
+- Notification tests for opt-in, denied, revoked, quiet hours, deadlines, grades, certificates, payment/account events, support, and privacy-safe payloads.
+- Manual verification tests: native iOS/Android screenshots, signup, catalog, enrollment, subscription, video, downloads/offline, quizzes, assignments, grades, certificates, enterprise, notifications, export/delete, support, and regional behavior.
 
 ## Acceptance Criteria
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+
+- Exact source links in this spec remain current or are refreshed before implementation starts.
+- A downstream team can build the V1 without needing Coursera assets, private APIs, partner catalogs, videos, quizzes, assignments, credentials, certificates, grading rubrics, pricing, reviews, or brand copy.
+- New and returning learners can discover courses, enroll, watch lessons, complete scoped assessments, track deadlines/grades, manage paid entitlements, and use settings with original or licensed content.
+- User, learner, organization, course, module, lesson, assessment, attempt, peer review, enrollment, certificate, entitlement, support, privacy, and deletion workflows have deterministic data models and API contracts.
+- Signed-out, signed-in, enrolled, audit/free, paid, expired, certificate candidate, enterprise, offline, content-stale, restricted, and deleted-account states are covered by tests.
+- Enrollment, subscriptions, downloads/offline, quizzes, assignments, grades, certificates, enterprise, notifications, export/deletion, and support workflows have explicit blockers where exact native behavior is not verified.
+- Licensed content, credential issuance, assessment integrity, enterprise privacy, subscriptions/refunds, accessibility, data rights, and platform constraints have named launch owners and launch-blocking mitigations.
+- Manual verification blockers are either resolved with evidence or remain launch-blocking feature flags before one-for-one native parity is claimed.
 
 ## Open Questions
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+- Which course subjects, instructors/providers, video platforms, assessment models, credential issuers, certificate templates, and content licenses will back the original clone?
+- Which features are V1 versus later: audit mode, subscriptions, one-off purchases, certificates, peer review, financial aid, enterprise learning, or degrees/professional credentials?
+- Will V1 issue real credentials, or start with internal completion records until provider/legal approval is complete?
+- Which payment/refund model, app-store billing behavior, cancellation path, financial-aid/sponsor state, and enterprise entitlement model are in scope?
+- Which regions, languages, accessibility standards, credential laws, student privacy obligations, tax/payment rules, and retention policies are launch requirements?
+
+## Build Plan
+
+- Phase 1: scaffold app shell, auth, learner setup, Home, catalog/search, course detail, enrollment, synthetic course seed data, settings, and privacy-safe analytics.
+- Phase 2: add course player, video/readings, captions/transcripts, progress tracking, deadlines, downloads/offline cache, and content-version tests.
+- Phase 3: add quizzes, assignments, grade/progress views, integrity states, appeal/support hooks, and assessment regression tests.
+- Phase 4: add subscriptions/payments, restore purchase, entitlement gates, refund/expiration states, support cases, and billing tests.
+- Phase 5: add certificates/credentials, verification links, name changes, revocation states, sharing/export, and credential legal/provider review.
+- Phase 6: add enterprise/campus-like organization context where chosen, assigned learning, admin visibility disclosures, export/deletion handling, and privacy review.
+- Phase 7: complete legal/provider launch review for course content, credentials, assessments, peer review, enterprise, payments/refunds, accessibility, regional availability, and platform APIs.
 
 ## Next Steps
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
-- Resolve open questions and update this spec before app implementation starts.
-- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.
+
+- Resolve Coursera manual verification blockers before claiming one-for-one native parity.
+- Create or link the downstream implementation repository when this app is selected for build planning.
+- Continue Phase 3 implementation-readiness upgrades with Batch 05 education, wellness, fitness, and health specs: `081-photomath.md`, `082-headspace.md`, `083-calm.md`, `084-strava.md`, `085-nike-run-club.md`, `086-myfitnesspal.md`, `087-fitbit.md`, and `088-flo.md`.

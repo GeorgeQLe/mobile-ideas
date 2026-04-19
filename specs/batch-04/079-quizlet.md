@@ -2,177 +2,221 @@
 
 > Metadata
 > - Inspiration app: Quizlet
-> - Category: Education
-> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
-> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
+> - Category: education, flashcards, study sets, learn/test modes, matching games, classes, folders, AI study tools, subscriptions, user-generated content, and academic integrity
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-04-19.
+> - Verification basis: exact public marketplace pages, Quizlet Help Center, Quizlet privacy policy, terms, honor code, subscription/product references, and public support pages.
+> - Manual verification blockers: native iOS/Android screen capture, account signup/login, set creation/import, scan/OCR flows, Magic Notes or AI study tools, Learn/Test/Match behavior, answer grading, class/folder behavior, teacher visibility, subscription entitlements, ads, offline/cache behavior, push/email notifications, content reports, data export/deletion, support escalation, and regional product availability still require lawful test devices/accounts before one-for-one parity claims.
+> - Legal scope: functional parity only; use original code, brand, copy, icons, study sets, explanations, diagrams, textbook content, AI prompts/responses, class data, subscription copy, ranking/recommendation models, and user-generated content.
 
 ## Overview
-Build an original mobile product inspired by Quizlet's user-facing workflow, not its brand identity or proprietary implementation.
-The clone target is: Flashcard sets, learn/test modes, matching games, class folders, scanning/importing, and study streaks.
-Primary product surface: placement/setup supported by home and lesson flows.
-The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
-The spec intentionally separates verified public-source facts from inferred clone requirements.
+
+Build an original mobile study app inspired by Quizlet's public workflow: account entry, study set discovery, flashcard set creation/import, Learn/Test/Match-style study modes, saved sets, folders, classes, teacher/student collaboration, AI-assisted study material generation where chosen, subscriptions, settings, support, privacy controls, data export, and account deletion.
+
+The clone must not copy Quizlet branding, screenshots, marketing copy, flashcard sets, diagrams, explanations, textbooks, AI prompt templates, grading rules, private APIs, or community content. Functional parity should use original or user-authored content, licensed source material, synthetic class data, independently designed study algorithms, and explicit academic-integrity controls.
+
+This spec is implementation-ready for a V1 based on public sources. Any feature marked `Manual verification required` must remain behind a feature flag or launch blocker until lawful hands-on verification confirms native behavior and provider constraints.
 
 ## Goals
-- Deliver a mobile-first education experience with complete onboarding, core action, settings, and recovery flows.
-- Implement the app-specific focus: Flashcard sets, learn/test modes, matching games, class folders, scanning/importing, and study streaks.
-- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
-- Make public-source verification and blocked hands-on research visible before implementation starts.
-- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+- Provide a mobile-first study product with onboarding, search/discovery, set creation, flashcards, practice modes, tests, saved content, classes/folders, subscriptions, settings, support, privacy, and account controls.
+- Support student workflows: create or find a set, study cards, review missed terms, take a test, play a matching mode, save/folder content, join a class, and recover from network or content issues.
+- Preserve education trust expectations around minors, classroom privacy, user-generated content, copyright, AI-generated study material, academic integrity, ads, subscriptions, accessibility, data rights, and account safety.
+- Produce concrete screens, entities, API contracts, realtime/offline rules, analytics, safety controls, edge cases, acceptance tests, and build phases for a downstream implementation repo.
+- Keep public-source requirements, inferred clone requirements, and manual verification blockers visibly separate.
 
 ## Non-Goals
-- Do not copy Quizlet branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
-- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
-- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
-- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
-- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+- Do not build a Quizlet-branded app or imply affiliation with Quizlet, publishers, schools, teachers, app stores, AI providers, or textbook licensors.
+- Do not copy public or private study sets, textbook explanations, diagrams, OCR training data, AI prompts, answer keys, class rosters, subscription plans, ads, or help copy without explicit rights.
+- Do not scrape Quizlet, reuse private APIs, replay network traffic, copy learning/recommendation algorithms, bypass subscription checks, or misrepresent generated content as verified curriculum.
+- Do not treat user-generated study content, teacher classes, copyrighted source material, AI tools, scans/imports, or academic integrity as generic features; each needs explicit owner and review before launch.
+- Do not claim exact App Store, Play Store, native-device, study mode, class, subscription, content report, deletion/export, support, notification, or regional parity until manual verification blockers are resolved.
 
 ## Research Sources
-- App Store source-discovery link: https://apps.apple.com/us/search?term=Quizlet
-- Google Play source-discovery link: https://play.google.com/store/search?q=Quizlet&c=apps
-- Official help/privacy source-discovery link: https://www.google.com/search?q=Quizlet%20official%20app%20help%20privacy
-- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
-- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
-- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
-- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
-- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+| Source | Exact URL | Evidence Used | Status |
+|---|---|---|---|
+| Apple App Store | https://apps.apple.com/us/app/quizlet-ai-powered-flashcards/id546473125 | Official iOS listing, education category, flashcard/study positioning, AI phrasing where shown, subscription context, privacy labels, and release context | Verified 2026-04-19 |
+| Google Play | https://play.google.com/store/apps/details?id=com.quizlet.quizletandroid | Official Android listing, package id, education category, ads/in-app purchase disclosure where shown, study modes, and data-safety orientation | Verified 2026-04-19 |
+| Quizlet Help Center | https://help.quizlet.com/hc/en-us | Public support taxonomy for accounts, sets, study modes, classes, folders, subscriptions, troubleshooting, and privacy support | Verified 2026-04-19 |
+| Quizlet Privacy Policy | https://quizlet.com/privacy | Personal data, children/student data, user content, cookies, ads, analytics, communications, access/deletion, and regional rights | Verified 2026-04-19 |
+| Quizlet Terms Of Service | https://quizlet.com/tos | Account, service-use, user content, subscription, acceptable-use, and legal constraints | Verified 2026-04-19 |
+| Quizlet Honor Code | https://quizlet.com/honor-code | Academic-integrity posture, misuse review area, and launch-blocking integrity controls | Verified 2026-04-19 |
+| Quizlet Product Page | https://quizlet.com/ | Public flashcard, practice, and study product positioning | Verified 2026-04-19 |
+| Quizlet Plus | https://quizlet.com/upgrade | Paid plan orientation, subscription gating, and entitlement review context | Verified 2026-04-19 |
+| Quizlet For Teachers | https://quizlet.com/features/for-teachers | Teacher/classroom product positioning, class/folder context, and education deployment review | Verified 2026-04-19 |
+| Quizlet AI Study Tools | https://quizlet.com/features/ai-study-tools | Public AI study-tool positioning; implementation requires provider, privacy, accuracy, and academic-integrity review | Verified 2026-04-19 |
 
 ## Detailed Design
-- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for education.
-- Home model: make Placement/Setup the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
-- Core action: make Home the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
-- Detail surface: use Lesson for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
-- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
-- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
-- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
-- The implementation must support learner onboarding and level selection.
-- The implementation must render lessons with step-by-step progression.
-- The implementation must record attempts and mastery state.
-- The implementation must support review, retry, and spaced repetition where relevant.
-- The implementation must show progress, streaks, and goals.
-- The implementation must support search or course catalog.
-- The implementation must cache active lessons offline.
-- The implementation must gate premium explanations or certificates by entitlement.
-- The implementation must protect minors and classroom data.
-- The implementation must avoid unsupported academic-integrity claims.
-- The implementation must provide accessibility for audio, math, and video content.
-- The implementation must export learner progress where required.
+
+### Source-Backed Product Requirements
+
+- Public listings and Quizlet pages position the service as a flashcard and study app with searchable study sets, creation tools, multiple practice modes, classes/folders, subscriptions, and AI-assisted study tools.
+- V1 must model signed-out browse, signed-in learner, set creator, class student, teacher, minor, free user, paid subscriber, expired subscriber, ads-supported user, content reporter, restricted/suspended account, and deleted-account states.
+- Onboarding must support account creation or sign-in, study goal/topic selection, age/consent gating, optional class join, accessibility preference, notification/email primer, and paid-plan awareness without blocking core free study.
+- Discovery must support search, recommendations, subject filters, set preview, creator metadata, content warnings, duplicate set handling, unavailable/removed content, and safe-mode behavior.
+- Set creation must support manual cards, imports, scan/OCR where chosen, AI-generated outlines/cards where chosen, terms, definitions, images/diagrams where licensed, language pairs, visibility settings, and draft recovery.
+- Study modes must support flashcards, Learn-like adaptive practice, Test-like generated questions, Match-like game, spelling/writing where chosen, answer feedback, missed-term review, progress, and accessible alternatives.
+- Classes/folders must support organization, teacher/student membership, set assignment, progress visibility where chosen, roster removal, class privacy, and school/minor review.
+- Subscriptions must support free, trial, paid, expired, refunded, unavailable, restore-pending, and feature-locked states; entitlements cannot be trusted from the client alone.
+- Settings must expose profile, content visibility, classes, folders, notifications/email, subscription management, privacy, data access/export, account deletion, help, terms, privacy policy, and honor-code guidance.
+- Content operations must support copyright/IP reports, inappropriate content reports, answer quality feedback, AI content labeling, moderation status, takedowns, appeals/support, and rollback for bad content.
+
+### Manual Verification Required
+
+- Native iOS and Android navigation, set creation/import/scan, exact flashcard/Learn/Test/Match states, answer grading, class/folder behavior, AI study tools, subscription gates, ads, offline/cache, notifications, data export/delete, content reporting, support flows, and regional differences.
+- Teacher visibility, minor account behavior, academic-integrity warnings, and platform-specific billing/cancellation behavior.
 
 ## Core User Journeys
-- New user installs the app, reviews an original value proposition, creates an account, and reaches Placement/Setup.
-- Returning user opens Placement/Setup, resumes the most recent meaningful activity, and completes the primary action in Home.
-- User searches or browses from Practice, opens Lesson, saves or shares it, and later finds it again from history or library.
-- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
+
+- New learner installs the app, signs up, selects study topics, searches for a set, previews cards, saves it, and starts a flashcard session.
+- Returning learner resumes a set, studies flashcards, switches to adaptive practice, reviews missed terms, takes a test, and sees progress update.
+- Creator builds a study set manually, imports terms, optionally uses scan/OCR or AI tooling, edits cards, selects visibility, and publishes or keeps it private.
+- Student joins a class, opens assigned sets, studies them, and understands what activity is visible to a teacher.
+- Teacher creates a class, adds sets or folders, invites students, organizes content, reviews allowed progress, and removes a student.
+- Subscriber starts a trial, unlocks paid study features or offline/customization where chosen, loses entitlement after cancellation/refund/expiration, and sees consistent locked/unlocked state across devices.
+- Content moderator/support user handles a copyright report, inappropriate set report, AI quality issue, or academic-integrity complaint with status and appeal paths.
+- Privacy-focused user changes visibility, disables notifications/email, requests data export, deletes account, and sees consequences for sets, classes, reports, and subscription ownership.
 
 ## Screen Inventory
-| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
+
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Placement/Setup | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Home | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Lesson | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Practice | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Progress | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Search/Catalog | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Saved Content | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Subscription | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Welcome/Auth | Entry, signup, sign-in, signed-out browse | email, social auth, age, legal | guest, new, returning | auth fail, underage, suspended, offline |
+| Home | Resume studying, recommendations, classes | set tap, search, class | personalized, signed-out | stale content, empty, offline |
+| Search/Discover | Find study sets and subjects | query, filters, safe mode | suggestions, results, no-results | removed set, unsafe content |
+| Set Detail | Preview cards, creator, modes, save | save, study, report | public, private, class-only | deleted, blocked, copyright hold |
+| Set Editor | Create/import/edit cards | term, definition, image, import | draft, published, private | import fail, OCR mismatch |
+| Flashcards | Card review and self-check | flip, know, miss | active, complete | missing media, stale card |
+| Learn/Practice | Adaptive study and missed terms | answer, retry, hint | correct, incorrect, due | grading dispute, entitlement locked |
+| Test | Generated assessment from set | question, submit, score | draft, submitted, reviewed | duplicate question, stale key |
+| Match/Game | Timed matching practice | drag, tap, timer | ready, playing, complete | touch issue, accessibility fallback |
+| Classes/Folders | Organize sets and classroom content | join, invite, folder | empty, active, archived | roster removed, privacy hold |
+| Subscription | Trial, paid plans, restore purchase | checkout, restore, cancel | free, trial, paid, expired | refund, store sync pending |
+| Settings/Privacy/Support | Account, visibility, data rights, help | toggles, export, delete, case | loaded, pending export, deleting | retention hold, support unavailable |
 
 ## Data Model
-- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
-- `Course`: stores the primary workspace, account, or grouping context.
-- `Lesson`: represents the main user-facing object in this clone's core flow.
-- `Exercise`: captures lifecycle state, ordering, timestamps, and failure reason codes.
-- `Attempt`: tracks durable interaction history and audit metadata.
-- `Progress`: stores sharing, collaboration, or permission relationships.
-- `Streak`: records notification, recommendation, or entitlement state.
-- `Recommendation`: supports safety, review, policy, or moderation decisions.
-- `Certificate`: stores support or user feedback records.
-- `Entitlement`: holds plan, trial, renewal, expiration, refund, and feature-access state.
-- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
+
+- `User`: identity, age/consent bucket, locale, country, role, preferences, accessibility settings, visibility defaults, deletion/export state, and restrictions.
+- `StudyProfile`: active sets, saved sets, folders, classes, study history, recommendations, notification settings, and learning preferences.
+- `StudySet`: owner, title, description, subject, language, visibility, source/license metadata, card count, moderation state, class associations, and version.
+- `Card`: term, definition, examples, images/diagrams, audio where licensed, language, accepted answers, order, quality flags, and version metadata.
+- `ImportJob`: source type, raw file/image/OCR text, parse status, generated cards, quality warnings, and deletion state.
+- `AIStudyJob`: source material, prompt context, provider, generated output, confidence/warnings, review state, and academic-integrity label.
+- `StudySession`: mode, set version, started/completed timestamps, device/offline state, progress, score, and recovery state.
+- `AnswerAttempt`: card, prompt type, answer, correctness, confidence, retry, latency, hint usage, and privacy-safe audit data.
+- `TestInstance`: generated questions, set version, score, answer key, review state, retake rules, and export/deletion behavior.
+- `Classroom`: teacher, roster, sets/folders, visibility policy, join code, school policy state, archive/removal rules, and export requirements.
+- `Folder`: owner, title, ordered sets, class relation, visibility, share state, and unavailable-set handling.
+- `SubscriptionEntitlement`: plan, store, trial, renewal, expiration, refund, feature flags, and server verification status.
+- `ContentReport`: target set/card/user, reason, evidence, copyright/IP flag, academic-integrity flag, status, resolution, and appeal/support state.
+- `PrivacyRequest`: data access/export, deletion, class/content handling, identity verification, status, delivery, and retention notes.
+- `AuditEvent`: append-only auth, content creation, class, subscription, report, support, privacy, deletion, and sensitive transitions.
+- `LocalCacheRecord`: cached sets/cards/sessions, offline answer queue, draft edits, entitlement snapshot, stale timestamp, and sync attempts.
 
 ## API And Backend Contracts
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /courses, GET /lessons, GET /exercises, GET /attempts; all reads return pagination, cache hints, authorization status, and stale-data indicators.
-- Writes: POST /users, POST /courses, POST /lessons, POST /exercises, POST /attempts; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
-- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+
+- `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, `DELETE /auth/sessions/:id`: account auth with age/consent, device, locale, role, and deletion state.
+- `GET /home`, `GET /recommendations`, `PATCH /study-profile`: personalized home, active sets, class content, and study preferences.
+- `GET /search`, `GET /sets/:id`, `POST /sets`, `PATCH /sets/:id`, `DELETE /sets/:id`: discovery and set lifecycle with visibility, moderation, version, and licensing metadata.
+- `POST /sets/:id/cards`, `PATCH /cards/:id`, `DELETE /cards/:id`: card lifecycle with validation, accepted answers, media/license checks, and versioning.
+- `POST /imports`, `GET /imports/:id`, `POST /ai-study-jobs`, `GET /ai-study-jobs/:id`: import/OCR/AI generation jobs with warnings and review state.
+- `POST /study-sessions`, `POST /study-sessions/:id/attempts`, `POST /study-sessions/:id/complete`: flashcards, practice, match, and test session lifecycle with idempotency.
+- `POST /tests`, `GET /tests/:id`, `POST /tests/:id/submit`: generated assessment lifecycle with scoring, review, retake, and stale-key handling.
+- `POST /classes`, `POST /classes/:id/join`, `GET /classes/:id/roster`, `DELETE /classes/:id/students/:studentId`: classroom membership and roster workflows.
+- `POST /folders`, `PATCH /folders/:id`, `POST /folders/:id/sets`, `DELETE /folders/:id/sets/:setId`: organization and sharing workflows.
+- `GET /entitlements`, `POST /checkout/session`, `POST /billing/webhook`, `POST /billing/restore`: subscription verification with server-owned feature state.
+- `POST /content-reports`, `GET /content-reports/:id`: copyright, inappropriate content, AI quality, academic-integrity, and abuse reports.
+- `GET /notification-preferences`, `PATCH /notification-preferences`: study reminders, class notifications, account, support, and privacy settings.
+- `GET /privacy/settings`, `PATCH /privacy/settings`, `POST /data-export`, `DELETE /account`: privacy choices, export/access, deletion, and warning state.
+- `POST /support/cases`, `GET /support/cases/:id`: account, billing, content, classroom, privacy, and technical support workflows.
 
 ## Realtime, Push, And Offline Behavior
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+
+- Clients may cache saved sets, active study sessions, set drafts, class lists, settings, and entitlement snapshots with explicit set-version and freshness labels.
+- Offline mode may allow cached set study, flashcards, drafts, and local answer queues when the set version is bundled and no public/classroom write is required.
+- Offline mode must block publishing new sets, imports requiring server processing, AI generation, class roster changes, content reports, subscription checkout, account deletion, data export, and support evidence upload.
+- Study session sync must be idempotent, preserve mode-specific order/timer state, and mark attempts stale if set/card versions changed while offline.
+- Realtime or polling updates must reconcile class membership, set takedowns, report status, entitlement changes, data-export readiness, support cases, and account/deletion status.
+- Import/OCR/AI jobs must expose pending, processing, needs-review, completed, failed, canceled, and expired states.
+- Push/email notifications must be opt-in and category-controlled for study reminders, class activity, account/security, support, and privacy requests.
+- Push payloads must avoid raw card content, class membership, child identifiers, AI source material, answer attempts, and support evidence.
 
 ## Permissions, Privacy, And Safety
-- Treat minor privacy as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat academic misuse as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat accessibility as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat subscription gating as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat content accuracy as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+
+- Camera, photos/files, microphone/audio if ever added, notifications, and storage must be requested only when the related feature is invoked.
+- User-generated content is a launch blocker with copyright/IP, inappropriate content, spam, harassment, academic-integrity, takedown, appeal, and moderation owners.
+- AI/OCR/import features must label generated content, require user review before publish, avoid training on private classroom/minor content without approval, and support deletion/export.
+- Child/minor and classroom workflows require privacy/legal owners, consent policy, teacher visibility rules, school contract posture, retention, export, deletion, and ads restrictions.
+- Academic-integrity controls must explain acceptable study use, support report/appeal paths, avoid unsupported anti-cheating claims, and prevent answer-sharing product copy from implying official exam support.
+- Subscription/paywall flows must avoid dark patterns, support store cancellation routes, trial disclosure, refund/expiration states, and server-side verification.
+- Ads must respect age, class, privacy choices, sensitive categories, and regional rules; child/classroom ads require separate launch review.
+- Accessibility must target WCAG 2.2 AA where applicable, dynamic type, screen-reader labels, visible focus, reduced motion, keyboard/focus order, non-drag alternatives for matching, and accessible card/media content.
+- Account deletion/export must warn about sets, classes, folders, reports, AI/import jobs, subscription ownership, support cases, and legal/IP retention.
+- Launch owners: content safety owner for UGC/reports; privacy owner for minors/classes/export; AI owner for generated study material; billing owner for subscriptions; accessibility owner for study modes.
 
 ## Analytics And Monetization
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
+
+- Track privacy-safe events: onboarding started/completed, search performed, set opened, set saved, set created, import started/completed, AI job started/completed, study session started/completed, test submitted, match completed, class joined, subscription started, content report submitted, export requested, and account deletion requested.
+- Every event must use set id, version, subject bucket, mode, result bucket, account state, class flag, entitlement state, locale, and error code rather than raw card content, answers, AI source text, class roster, or child identifiers.
+- Learning analytics must separate product telemetry from adaptive study models and provide deletion/export hooks for study history, sets, imports, and class data where required.
+- Trust analytics may capture takedown volume, report reasons, AI quality flags, import failures, duplicate sets, and suspicious publishing velocity without exposing private study content.
+- Monetization may include original subscriptions, optional school plans, ads for eligible contexts, or licensed content bundles only after legal, privacy, and platform review.
+- Any paid feature, AI feature, ads model, publisher content, or school product must disclose pricing, support owner, data sharing, regional availability, and school/privacy obligations before launch.
 
 ## Edge Cases
-- First launch with no network, no account, or expired session.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
+
+- First launch offline, signed-out user tries to save progress, underage learner without consent, class code invalid, search returns removed sets, or set visibility changes while open.
+- Creator imports malformed files, OCR misreads terms, AI generates wrong or unsafe cards, duplicate card names conflict, image license missing, or set is taken down during study.
+- Study session continues offline, set version changes before sync, timer/game state is lost after app termination, test answer key changes, or progress appears inconsistent across modes.
+- Student joins wrong class, teacher removes student, class set is deleted, school requests data deletion, or teacher visibility rules change.
+- Subscription restored from another device, refund webhook arrives late, app store unavailable, ads fail to load, or feature lock conflicts with server entitlement.
+- Content report is disputed, copyright notice requires removal, support case includes child/classroom data, export requested during deletion, or legal retention prevents full deletion.
 
 ## Test Plan
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+
+- Unit tests for set/card validation, import parsing, AI job states, study session mode state, answer grading, test generation, class membership, entitlement gates, content reports, and privacy-safe analytics.
+- Contract tests for every documented API route, including pagination, idempotency, validation errors, set versions, visibility, report states, class visibility, entitlement states, and deletion/export states.
+- Integration tests for auth, onboarding, Home, search, set detail, set editor, imports, AI jobs, flashcards, Learn/practice, Test, Match, classes/folders, subscription, settings, support, export, and deletion.
+- Offline tests for cached sets, queued attempts, draft edits, set-version mismatch, blocked publish/import/AI/class/privacy writes, reconnect reconciliation, timer recovery, and duplicate submission.
+- Classroom/minor tests for age gates, class join, teacher roster, set assignment, progress visibility, roster removal, export, deletion, ads restriction, and school policy states.
+- Content safety tests for copyright/IP reports, inappropriate content, academic-integrity flags, AI unsafe output, duplicate spam, moderation status, appeals, and support escalation.
+- Billing tests for free, trial, paid, expired, refund, restore, unavailable, and store-sync-pending states.
+- Accessibility tests for flashcards, answer forms, Match alternatives, dynamic type, screen reader labels, focus order, contrast, reduced motion, and media alternatives.
+- Notification tests for opt-in, denied, revoked, quiet hours, study reminders, class activity, account/security, support, and privacy-safe payloads.
+- Manual verification tests: native iOS/Android screenshots, set creation/import/scan, AI tools, study modes, grading, classes/folders, subscriptions, ads, offline/cache, reports, export/delete, support, and regional behavior.
 
 ## Acceptance Criteria
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+
+- Exact source links in this spec remain current or are refreshed before implementation starts.
+- A downstream team can build the V1 without needing Quizlet assets, private APIs, study sets, explanations, diagrams, textbook content, AI prompts, grading algorithms, class data, or brand copy.
+- New and returning learners can discover, create, save, organize, and study original sets across flashcards, practice, test, and matching modes with offline recovery where scoped.
+- User, study profile, study set, card, import, AI job, study session, answer attempt, test, class, folder, entitlement, content report, support, privacy, and deletion workflows have deterministic data models and API contracts.
+- Signed-out, signed-in, creator, classroom student, teacher, minor, free, paid, expired, ads-supported, content-reported, offline, restricted, and deleted-account states are covered by tests.
+- Set creation/import, AI tools, study modes, classes/folders, subscriptions, ads, notifications, content reports, export/deletion, and support workflows have explicit blockers where exact native behavior is not verified.
+- UGC licensing, academic integrity, minors/classroom privacy, AI/OCR safety, subscriptions, ads, accessibility, and platform constraints have named launch owners and launch-blocking mitigations.
+- Manual verification blockers are either resolved with evidence or remain launch-blocking feature flags before one-for-one native parity is claimed.
 
 ## Open Questions
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+- Which content types are V1 versus later: manual flashcards, imports, scan/OCR, AI generation, diagrams/images, audio, textbook-like explanations, or teacher-created materials?
+- Which study modes are V1 versus later: flashcards, adaptive practice, tests, matching, spelling/writing, team modes, or progress reports?
+- Will V1 support minors/classes immediately, or launch self-directed study first until school privacy and moderation workflows are complete?
+- Which AI/OCR providers, content moderation systems, copyright workflows, subscription tiers, and ads policies are in launch scope?
+- Which regions, languages, accessibility standards, student privacy laws, copyright obligations, and retention policies are launch requirements?
+
+## Build Plan
+
+- Phase 1: scaffold app shell, auth, Home, search, set detail, set editor, flashcards, synthetic seed sets, settings, and privacy-safe analytics.
+- Phase 2: add practice, test, matching mode, answer grading, missed-term review, progress, saved sets, folders, and study-mode regression tests.
+- Phase 3: add imports/OCR, AI study jobs where chosen, content review labels, content quality reports, and copyright/academic-integrity moderation.
+- Phase 4: add classes, teacher roster, set assignment, class progress visibility, child/minor restrictions, and export/deletion handling.
+- Phase 5: add subscriptions, restore purchase, entitlement gates, ads where eligible, billing tests, support cases, and accessibility pass.
+- Phase 6: add offline set cache, queued sessions, reconnect reconciliation, push/email preferences, and manual native verification.
+- Phase 7: complete legal/provider launch review for UGC, AI/OCR, copyright/IP, minors/classrooms, ads, subscriptions, accessibility, regional availability, and platform APIs.
 
 ## Next Steps
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
-- Resolve open questions and update this spec before app implementation starts.
-- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.
+
+- Resolve Quizlet manual verification blockers before claiming one-for-one native parity.
+- Create or link the downstream implementation repository when this app is selected for build planning.
+- Continue Batch 04 implementation-readiness upgrades with `080-coursera.md`.
