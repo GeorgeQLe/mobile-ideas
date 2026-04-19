@@ -2,177 +2,196 @@
 
 > Metadata
 > - Inspiration app: YNAB
-> - Category: Budgeting
-> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
-> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
+> - Category: Zero-based budgeting, account import, spending categories, goals/targets, reconciliation, household sharing, subscription, and personal-finance education
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-04-18.
+> - Verification basis: exact public marketplace pages, YNAB public product/pricing pages, YNAB support articles, YNAB API documentation, and YNAB legal/privacy/security pages.
+> - Manual verification blockers: native iOS/Android screens, signup/login, trial/subscription, budget creation, direct import setup, linked account refresh, manual account entry, transaction approval/matching, category targets, scheduled transactions, reconciliation, loan planner, reports, YNAB Together household sharing, API token behavior, imports/exports, support chat, push payloads, data deletion, and regional/provider availability require lawful test accounts/devices before one-for-one parity claims.
+> - Legal scope: functional parity only; use original code, branding, copy, icons, sample data, budgeting method language, subscription terms, account-import providers, support scripts, educational content, and privacy/security controls.
 
 ## Overview
-Build an original mobile product inspired by YNAB's user-facing workflow, not its brand identity or proprietary implementation.
-The clone target is: Zero-based budget, categories, assigned dollars, imports, reconciliation, goals, and household sharing.
-Primary product surface: dashboard supported by transfer/trade ticket and account detail flows.
-The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
-The spec intentionally separates verified public-source facts from inferred clone requirements.
+
+Build an original budgeting app inspired by YNAB's public workflow: budget setup, zero-based allocation, accounts, categories, targets, transaction entry/import, approval, matching, reconciliation, scheduled transactions, reports, loan tracking, household sharing, subscription management, API-style export/integration, support, privacy, and security settings.
+
+The clone must not copy YNAB branding, screenshots, marketing copy, protected UI artwork, proprietary education content, budget method copy, import-provider contracts, private APIs, pricing copy, legal text, or support scripts. Functional parity should use original product language, synthetic budgets and transactions, licensed account-import providers, and clear manual verification blockers.
 
 ## Goals
-- Deliver a mobile-first budgeting experience with complete onboarding, core action, settings, and recovery flows.
-- Implement the app-specific focus: Zero-based budget, categories, assigned dollars, imports, reconciliation, goals, and household sharing.
-- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
-- Make public-source verification and blocked hands-on research visible before implementation starts.
-- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+- Provide a mobile-first budgeting experience with onboarding, budget creation, account setup, category allocation, transaction capture/import, approval, reconciliation, reports, sharing, support, privacy, and subscription settings.
+- Support budgeting trust expectations around imported account consent, stale balances, category overspending, user-entered corrections, household permissions, data export, subscription cancellation, and support escalation.
+- Model direct import, API access, household sharing, loan planner, reports, and subscription billing as provider-backed or entitlement-backed modules with explicit gates.
+- Produce concrete screens, entities, API contracts, offline/realtime rules, analytics, safety controls, edge cases, acceptance tests, and build phases.
+- Preserve the distinction between public-source requirements, inferred clone requirements, and manual verification blockers.
 
 ## Non-Goals
-- Do not copy YNAB branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
-- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
-- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
-- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
-- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+- Do not build a YNAB-branded app or imply affiliation with YNAB, account-import providers, banks, app stores, payment processors, or support teams.
+- Do not provide financial, tax, investment, debt, or credit advice; budgeting guidance must be educational and original.
+- Do not scrape YNAB, reuse private APIs, copy YNAB's educational method copy, copy support scripts, copy subscription offers, or bypass app-store billing rules.
+- Do not import real financial accounts or share household data without explicit user consent, provider approval, privacy review, and security review.
+- Do not claim exact native-device, account-import, subscription, API, notification, support, export/deletion, or regional parity until manual verification blockers are resolved.
 
 ## Research Sources
-- App Store source-discovery link: https://apps.apple.com/us/search?term=YNAB
-- Google Play source-discovery link: https://play.google.com/store/search?q=YNAB&c=apps
-- Official help/privacy source-discovery link: https://www.google.com/search?q=YNAB%20official%20app%20help%20privacy
-- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
-- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
-- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
-- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
-- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+| Source | Exact URL | Evidence Used | Status |
+|---|---|---|---|
+| Apple App Store | https://apps.apple.com/us/app/ynab/id1010865877 | Official iOS listing, developer, Finance category, subscription positioning, privacy labels, age rating, and app update context | Verified 2026-04-18 |
+| Google Play | https://play.google.com/store/apps/details?id=com.youneedabudget.evergreen.app | Official Android listing, package id, data-safety orientation, budgeting/subscription positioning, and support/developer links | Verified 2026-04-18 |
+| YNAB Home | https://www.ynab.com/ | Public product positioning for budgeting, account sync, spending awareness, and financial habit workflows | Verified 2026-04-18 |
+| Pricing | https://www.ynab.com/pricing | Subscription/trial structure, billing expectations, and entitlement lifecycle requirements | Verified 2026-04-18 |
+| Help Center | https://support.ynab.com/en_us | First-party support taxonomy for budgets, accounts, transactions, imports, categories, targets, reconciliation, reports, and troubleshooting | Verified 2026-04-18 |
+| Direct Import Support | https://www.ynab.com/help-center | Linked-account import, provider consent, refresh behavior, and import troubleshooting requirements from the current YNAB help center | Verified 2026-04-18 |
+| YNAB Together | https://support.ynab.com/en_us/ynab-together-B1nS78Cki | Household/group sharing concepts, member access, billing owner, and permission requirements | Verified 2026-04-18 |
+| API Documentation | https://api.ynab.com/ | Public API object model, budgets, accounts, categories, transactions, months, and integration expectations | Verified 2026-04-18 |
+| Terms | https://www.ynab.com/terms | Account terms, subscription/payment responsibilities, user content, service boundaries, and legal responsibilities | Verified 2026-04-18 |
+| Privacy Policy | https://www.ynab.com/privacy-policy | Personal data categories, financial data handling, sharing, retention, rights, and privacy choices | Verified 2026-04-18 |
+| Security | https://www.ynab.com/security | Public security posture for account data, encryption, access, and trust requirements | Verified 2026-04-18 |
 
 ## Detailed Design
-- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for budgeting.
-- Home model: make Dashboard the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
-- Core action: make Transfer/Trade Ticket the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
-- Detail surface: use Account Detail for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
-- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
-- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
-- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
-- The implementation must support secure onboarding with session controls.
-- The implementation must show balances with timestamp and stale-state warnings.
-- The implementation must render transactions with filterable history.
-- The implementation must preview all money movement before submission.
-- The implementation must require idempotency keys for writes.
-- The implementation must support alerts and security notifications.
-- The implementation must export statements or transaction history.
-- The implementation must block high-risk actions with reason codes.
-- The implementation must minimize PII in logs and analytics.
-- The implementation must support account deletion and data export.
-- The implementation must use sandbox rails until licensed.
-- The implementation must show disclosures before regulated actions.
+
+### Source-Backed Product Requirements
+
+- V1 must support account creation, trial/subscription state, legal/privacy consent, first budget creation, default categories, onboarding education, and signed-out, trialing, subscribed, expired, locked, and deleted states.
+- Budget home must show current month, ready-to-assign amount, category groups, category available amounts, assigned/activity values, overspending, underfunded targets, account balances, alerts, and freshness timestamps.
+- Account setup must support manual accounts, linked accounts, cash/credit/loan/off-budget accounts, provider consent, import health, stale credentials, manual balance correction, and account closure.
+- Transaction workflow must support manual entry, imported transactions, approval, matching, split transactions, transfers, scheduled transactions, payee/category memo fields, flags, attachments where allowed, search/filter, and undo/error recovery.
+- Category and target workflow must support category groups, monthly assignment, target type, due date, rollover behavior, overspending handling, hidden categories, move-money interactions, and budget audit history.
+- Reconciliation must support cleared/uncleared transactions, balance comparison, adjustment transaction, locked period treatment, and audit trail.
+- Reports must support spending, net worth, income/expense, category trends, debt/loan snapshots, and export with source/freshness labels.
+- YNAB Together-like sharing must support group owner, invited members, budget access, member removal, billing owner, activity visibility, and privacy boundaries.
+- API/import/export must use token scopes, rate limits, sync cursors, deletion behavior, and support-visible integration troubleshooting.
+- Subscription, support, privacy, data export, account deletion, and legal links must remain reachable from settings and entitlement gates.
+
+### Build Plan
+
+1. Foundation: users, budgets, accounts, categories, months, transactions, subscriptions, privacy, legal links, audit logs, feature flags, and synthetic fixtures.
+2. Budget core: month view, category assignment, account list, transaction list, manual entry, import inbox, search, settings, and local cache.
+3. Import/reconcile: linked accounts, provider consent, import health, matching, approval, reconciliation, scheduled transactions, and stale-state recovery.
+4. Sharing/reports/API: household sharing, reports, loan planner, exports, public API-compatible contracts, and subscription gates.
+5. Trust and privacy: permission boundaries, audit history, account deletion, data export, support evidence redaction, and privacy-safe analytics.
+6. Native verification: confirm iOS/Android screens, import providers, subscription state, push payloads, support paths, exports, and regional differences with lawful test accounts.
 
 ## Core User Journeys
-- New user installs the app, reviews an original value proposition, creates an account, and reaches Dashboard.
-- Returning user opens Dashboard, resumes the most recent meaningful activity, and completes the primary action in Transfer/Trade Ticket.
-- User searches or browses from Transaction Detail, opens Account Detail, saves or shares it, and later finds it again from history or library.
-- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
+
+- New user starts a trial, creates a first budget, adds manual accounts, assigns available money to categories, and sees a balanced current month.
+- User links a checking account, completes provider consent, imports transactions, approves matches, and handles stale credentials.
+- User overspends in a category, moves money from another category, sees the month update, and preserves audit history.
+- User enters a transaction manually while offline, later receives an imported match, approves the match, and avoids duplicate spending.
+- User reconciles an account, compares cleared balance, creates an adjustment if needed, and locks a reconciled point.
+- User creates targets for rent, groceries, yearly expenses, and savings, sees underfunded categories, and adjusts assignments.
+- Household owner invites a partner, shares a budget, removes access, and sees permission/billing effects.
+- User exports budget data, manages API tokens, cancels subscription, requests deletion, and sees retention/subscription caveats.
 
 ## Screen Inventory
-| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
+
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Dashboard | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Transfer/Trade Ticket | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Account Detail | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Transaction Detail | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Identity/Security | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Alerts | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Statements | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Support | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Welcome/Auth | Signup, login, trial, subscription | email, password/passkey, app-store purchase | new, trialing, active, expired | billing fail, locked, deleted |
+| Budget Setup | First budget, currency, categories | name, currency, template, account | empty, guided, ready | duplicate budget, invalid currency |
+| Budget Month | Current month allocation and categories | assign, move, category, month | balanced, underfunded, overspent | negative ready-to-assign, stale import |
+| Account List | Manual/linked accounts and balances | account, refresh, reconcile | manual, linked, stale | provider outage, account closed |
+| Transaction List | Import inbox and history | search, approve, edit, split | pending, approved, matched | duplicate, bad category, deleted payee |
+| Transaction Editor | Manual entry, transfer, split, memo | amount, payee, category, flag | draft, saved, matched | offline, invalid split, locked period |
+| Categories/Targets | Category setup and goal tracking | target, due date, assign | funded, underfunded, hidden | target missed, rollover conflict |
+| Reconciliation | Cleared balance and adjustment | account, cleared, adjustment | matching, adjusted, locked | mismatch, pending imports |
+| Reports | Spending, net worth, income/expense | range, account, category | loaded, filtered, exported | missing data, stale connection |
+| Sharing | Household members and permissions | invite, remove, role | owner, member, invited | billing owner removed, privacy concern |
+| API/Export | Tokens, integrations, data exports | token, scope, download | active, revoked, exported | rate limit, token leak, deletion conflict |
+| Settings/Support | Subscription, privacy, support, deletion | cancel, case, export, delete | active, pending, closed | retention hold, support escalation |
 
 ## Data Model
-- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
-- `IdentityCheck`: stores the primary workspace, account, or grouping context.
-- `Account`: stores account-level status, balances or settings, authorization state, and lifecycle flags.
-- `Balance`: captures lifecycle state, ordering, timestamps, and failure reason codes.
-- `Transaction`: tracks durable interaction history and audit metadata.
-- `Transfer`: stores sharing, collaboration, or permission relationships.
-- `Instrument`: records notification, recommendation, or entitlement state.
-- `AlertRule`: records delivery preferences, trigger rules, read state, and retry metadata.
-- `Statement`: stores support or user feedback records.
-- `DeviceSession`: captures active workflow state, timestamps, metrics, pause/resume markers, and completion status.
-- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
+
+- `User`: identity, locale, currency, subscription, privacy choices, group membership, support state, and deletion lifecycle.
+- `DeviceSession`: device id, platform, auth method, push token, offline queue, and session revocation.
+- `Budget`: owner, name, currency, month range, members, hidden categories, settings, archive state, and deletion state.
+- `BudgetMonth`: budget, month, ready-to-assign, assigned/activity/available totals, overspending, and freshness.
+- `CategoryGroup`: budget, name, ordering, collapsed/hidden state, and category children.
+- `Category`: target, assigned, activity, available, rollover, hidden, notes, and audit trail.
+- `Account`: type, balance, cleared balance, linked/manual state, import provider, reconciliation point, and closure state.
+- `Transaction`: account, payee, category, amount, date, cleared state, approval, import id, match id, split lines, memo, flag, and attachment metadata.
+- `ScheduledTransaction`: recurrence, next date, account, category, amount, approval state, and skip/edit history.
+- `ImportConnection`: institution, consent scope, refresh health, MFA state, cursor, error code, and unlink state.
+- `Reconciliation`: account, cleared balance, adjustment transaction, timestamp, user, and audit notes.
+- `ShareGroup`: owner, members, invitations, access levels, billing owner, removal state, and activity visibility.
+- `ApiToken`: user, scopes, created date, last used, revoked state, rate limit, and integration label.
+- `SupportCase`: issue type, budget/account/transaction link, evidence, owner queue, SLA, and resolution.
+- `AuditEvent`: append-only record for budget, account, category, transaction, import, reconciliation, sharing, subscription, privacy, and support changes.
 
 ## API And Backend Contracts
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /identitychecks, GET /accounts, GET /balances, GET /transactions; all reads return pagination, cache hints, authorization status, and stale-data indicators.
-- Writes: POST /users, POST /identitychecks, POST /accounts, POST /balances, POST /transactions; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
-- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+
+- `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions/:id` manage account access and recovery.
+- `GET /profile`, `PATCH /profile`, `GET /subscription`, `POST /subscription/checkout`, and `POST /subscription/cancel` manage profile and entitlement lifecycle.
+- `GET /budgets`, `POST /budgets`, `GET /budgets/:id`, `PATCH /budgets/:id`, and `DELETE /budgets/:id` manage budget ownership and deletion.
+- `GET /budgets/:id/months/:month`, `PATCH /budgets/:id/months/:month/categories`, and `POST /budgets/:id/move-money` handle assignment and category state.
+- `GET /accounts`, `POST /accounts`, `PATCH /accounts/:id`, `POST /accounts/:id/reconcile`, and `DELETE /accounts/:id` manage manual/linked accounts and reconciliation.
+- `POST /imports/link-session`, `GET /imports/connections`, `POST /imports/connections/:id/refresh`, and `DELETE /imports/connections/:id` manage provider consent and account import.
+- `GET /transactions`, `POST /transactions`, `PATCH /transactions/:id`, `POST /transactions/:id/approve`, `POST /transactions/:id/match`, and `DELETE /transactions/:id` manage manual/imported transactions.
+- `GET /reports`, `GET /exports`, `POST /data-export`, `GET /api-tokens`, `POST /api-tokens`, and `DELETE /api-tokens/:id` expose reports, export, and API integrations.
+- `GET /sharing/groups`, `POST /sharing/invites`, `PATCH /sharing/members/:id`, and `DELETE /sharing/members/:id` manage household access and billing owner constraints.
+- `GET /privacy/settings`, `PATCH /privacy/settings`, `DELETE /account`, `POST /support/cases`, and `GET /support/cases/:id` expose privacy rights, deletion blockers, and support.
 
 ## Realtime, Push, And Offline Behavior
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+
+- Budgets, months, accounts, transactions, imports, categories, targets, reconciliation, sharing, subscription, support, and privacy states must reconcile from server-owned events.
+- The client may cache budgets, current month, account balances, transaction history, reports, settings, support cases, and legal links for offline reads.
+- Offline mode may allow manual transactions, category edits, memo changes, and support drafts, but must block account linking, subscription changes, sharing changes, data deletion, and provider refresh.
+- Import health, account balances, reports, targets, subscription state, API token state, and support status must display freshness and provider state.
+- Push notifications must be opt-in and category-controlled for import issues, overspending, scheduled transactions, subscription, sharing, support, security, and data export readiness.
+- Push payloads must avoid raw balances, payee names, transaction amounts, budget names, member data, API token data, and support evidence unless explicitly allowed by policy.
 
 ## Permissions, Privacy, And Safety
-- Treat KYC/AML as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat financial licensing as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat fraud as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat PII leakage as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat irreversible transfer mistakes as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+
+- Request notifications, files/photos, camera, biometric authentication, and local storage permissions only when a feature needs them.
+- Default analytics must exclude account names, institution names, balances, transaction amounts, payees, memos, budget names, household member identities, API tokens, and support evidence.
+- Direct import, household sharing, subscription billing, public API access, data export, and account deletion require launch owners, provider contracts, audit logs, and manual verification gates.
+- Budget education must avoid personalized financial advice; recommendations should be framed as budgeting assistance and user-controlled rules.
+- Account deletion and data export must warn about active subscription, shared budgets, API tokens, linked import connections, support cases, and backup/retention windows.
+- Accessibility must target WCAG 2.2 AA where applicable, dynamic type, screen-reader labels, visible focus, reduced motion, accessible tables, readable budget math, and keyboard/switch-friendly controls.
+- Launch owners: privacy owner for financial data; provider owner for direct import; billing owner for subscriptions; accessibility owner for budgeting UX; support owner for escalations.
 
 ## Analytics And Monetization
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
+
+- Track privacy-safe events for onboarding, budget created, account added, import linked, transaction entered/imported/approved, category funded, target created, reconciliation completed, report viewed, share invite sent, API token created, support case opened, export requested, and deletion requested.
+- Events must use coarse object type, flow step, provider status, reason code, latency bucket, and feature flag rather than balances, payees, amounts, category names, budget names, or member identities.
+- Monetization may include original subscription tiers, trial, education content, household sharing, and support benefits only with legal-reviewed pricing/cancellation copy and app-store/payment compliance.
 
 ## Edge Cases
-- First launch with no network, no account, or expired session.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
+
+- First launch offline, expired trial, app-store receipt mismatch, duplicate budget, wrong currency, budget deleted while open, or user removed from shared budget.
+- Import provider outage, stale credentials, MFA failure, duplicate imported transaction, delayed pending transaction, balance mismatch, or account closed at the institution.
+- Manual transaction later imports, transfer between accounts is mismatched, split lines do not total, category is hidden, target due date changes, or overspending crosses month boundary.
+- Reconciliation adjustment is needed, cleared balance changes after import, scheduled transaction lands during offline use, or locked period receives edits.
+- Share member loses access, owner cancels subscription, billing owner changes, API token is revoked, export is requested during deletion, or support case remains open after account closure.
 
 ## Test Plan
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+
+- Validate exactly one H1, all canonical sections, exact source URLs, and no generic research placeholders.
+- Unit test budget/month math, category targets, move-money rules, transaction splits, matching, import states, reconciliation, sharing permissions, subscription lifecycle, API tokens, closure blockers, and privacy-safe analytics.
+- Contract test every documented API route, response shape, pagination cursor, provider status, error code, event replay, and consent/disclosure acknowledgement.
+- Integration test onboarding, budget setup, manual account, linked account, transaction import/approval, category assignment, target creation, reconciliation, reports, sharing, API token, support, export, and deletion.
+- Offline/realtime test cached budgets, manual transaction queue, blocked sensitive writes offline, stale labels, reconnect reconciliation, duplicate imports, push deep links, and provider outages.
+- Security test tokenized imports, API token storage, PII redaction, session revocation, support evidence access, audit events, and deletion workflows.
+- Accessibility test screen readers, focus order, dynamic type, contrast, reduced motion, table navigation, amount entry, category math, error recovery, and support paths.
+- Manual verification test native screens, signup, budget creation, imports, transactions, reconciliation, sharing, subscription, API, exports, support, notifications, and deletion before removing launch gates.
 
 ## Acceptance Criteria
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+
+- The spec has exactly one H1 and all canonical sections.
+- Exact first-party marketplace, help/support, privacy/legal, product, pricing, direct-import, sharing, API, and security URLs replace generic research placeholders.
+- A downstream team can build a lawful public-source V1 inspired by YNAB without copying assets, private APIs, import-provider contracts, educational copy, pricing copy, support scripts, or brand copy.
+- Every account import, subscription, sharing, API, support, notification, deletion/export, regional, and native-device behavior without lawful hands-on verification remains explicitly blocked.
+- Budget math, imports, transactions, categories, targets, reconciliation, sharing, API/export, support, and subscription behavior have deterministic state models and tests.
+- Sensitive data has privacy controls, audit events, export/deletion paths, support escalation, and analytics minimization.
+- Provider-backed modules remain feature-flagged until legal, provider, security, accessibility, billing, and manual verification owners approve launch.
 
 ## Open Questions
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+- Which account-import provider, subscription provider, public API strategy, and household-sharing permission model will the implementation use?
+- Which budgeting method language must be rewritten to avoid copying YNAB educational content while preserving functional workflow?
+- Which reports, loan-planner features, and import/export formats belong in V1 versus later phases?
+- Which synthetic budgets, transactions, institutions, shared households, and downstream implementation repos will be used for tests?
 
 ## Next Steps
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
-- Resolve open questions and update this spec before app implementation starts.
-- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.
+
+- Use lawful test accounts/devices to verify native screens, onboarding, subscription, direct import, budget workflows, sharing, API/export, notifications, support, and data rights.
+- Create synthetic users, budgets, accounts, categories, transactions, imports, reports, share groups, API tokens, support cases, and provider events.
+- Run legal, privacy, security, accessibility, billing, provider, and support review before enabling production account import or billing.

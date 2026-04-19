@@ -2,177 +2,191 @@
 
 > Metadata
 > - Inspiration app: Rocket Money
-> - Category: Personal finance
-> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
-> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
+> - Category: Personal finance, subscriptions, bills, budgeting, spending insights, account aggregation, savings, premium services, and bill negotiation/cancellation support
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-04-18.
+> - Verification basis: exact public marketplace pages, Rocket Money public product pages, Rocket Money help center, and Rocket Money privacy/legal/security pages.
+> - Manual verification blockers: native iOS/Android screens, signup/login, account linking, Plaid/open-banking consent, subscription detection, subscription cancellation workflows, concierge actions, bill negotiation intake/outcome, premium subscription, smart savings, budgets, credit score display, transaction categorization, refund/fee handling, support chat, push payloads, data export, account deletion, and provider/regional availability require lawful test accounts/devices and provider approval before one-for-one parity claims.
+> - Legal scope: functional parity only; use original code, branding, copy, icons, sample data, subscription-detection rules, bill-negotiation scripts, cancellation scripts, provider relationships, premium pricing, support scripts, and regulated-finance controls.
 
 ## Overview
-Build an original mobile product inspired by Rocket Money's user-facing workflow, not its brand identity or proprietary implementation.
-The clone target is: Subscription detection, bill negotiation flow, spending insights, cancellation tracking, and premium upsells.
-Primary product surface: dashboard supported by transfer/trade ticket and account detail flows.
-The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
-The spec intentionally separates verified public-source facts from inferred clone requirements.
+
+Build an original personal finance app inspired by Rocket Money's public workflow: account linking, spending dashboard, subscription detection, recurring bill tracking, cancellation assistance, bill negotiation intake, budgeting, spending insights, smart-savings-style goals, premium subscription, credit/financial insights where licensed, support, privacy, data export, and account deletion.
+
+The clone must not copy Rocket Money branding, screenshots, marketing copy, protected UI artwork, private APIs, subscription-detection logic, bill-negotiation scripts, cancellation scripts, Plaid/provider contracts, premium pricing, legal text, or support scripts. Functional parity should use original product language, synthetic transactions, licensed aggregation providers, provider-specific consent, and clear manual blockers for human-assisted workflows.
 
 ## Goals
-- Deliver a mobile-first personal finance experience with complete onboarding, core action, settings, and recovery flows.
-- Implement the app-specific focus: Subscription detection, bill negotiation flow, spending insights, cancellation tracking, and premium upsells.
-- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
-- Make public-source verification and blocked hands-on research visible before implementation starts.
-- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+- Provide a mobile-first finance assistant with account onboarding, linked accounts, spending dashboard, subscriptions, bills, cancellation/negotiation intake, budgets, savings, premium settings, support, privacy, and security controls.
+- Support finance-category trust expectations around account consent, provider freshness, human-assisted actions, third-party biller contact, cancellation authority, savings transfers, fee disclosures, data deletion, and support escalation.
+- Model account aggregation, bill negotiation, cancellation assistance, premium, smart savings, and credit/financial insights as provider-backed or human-assisted modules with explicit eligibility and disclosure gates.
+- Produce concrete screens, entities, API contracts, offline/realtime rules, analytics, safety controls, edge cases, acceptance tests, and build phases.
+- Preserve the distinction between public-source requirements, inferred clone requirements, and manual verification blockers.
 
 ## Non-Goals
-- Do not copy Rocket Money branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
-- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
-- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
-- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
-- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+- Do not build a Rocket Money-branded app or imply affiliation with Rocket Money, Rocket Companies, Plaid, banks, billers, credit bureaus, savings providers, or support/concierge teams.
+- Do not perform production bill negotiation, subscription cancellation, account aggregation, savings transfers, credit-score display, paid concierge work, or financial advice without separate legal, provider, security, and support approval.
+- Do not scrape Rocket Money, reuse private APIs, copy biller/cancellation scripts, copy premium offers, copy recommendation logic, or bypass app-store/payment rules.
+- Do not treat account linking, bill negotiation, subscription cancellation, savings transfers, premium fees, support, or data rights as generic app behavior.
+- Do not claim exact native-device, account-linking, cancellation, negotiation, support, notification, export/deletion, or provider/regional parity until manual verification blockers are resolved.
 
 ## Research Sources
-- App Store source-discovery link: https://apps.apple.com/us/search?term=Rocket%20Money
-- Google Play source-discovery link: https://play.google.com/store/search?q=Rocket%20Money&c=apps
-- Official help/privacy source-discovery link: https://www.google.com/search?q=Rocket%20Money%20official%20app%20help%20privacy
-- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
-- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
-- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
-- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
-- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+| Source | Exact URL | Evidence Used | Status |
+|---|---|---|---|
+| Apple App Store | https://apps.apple.com/us/app/rocket-money-bills-budgets/id1130616675 | Official iOS listing, developer, Finance category, subscription/budget/bill positioning, privacy labels, age rating, and app update context | Verified 2026-04-18 |
+| Google Play | https://play.google.com/store/apps/details?id=com.truebill | Official Android listing, package id, data-safety orientation, bills/subscriptions/budget positioning, and support/developer links | Verified 2026-04-18 |
+| Rocket Money Home | https://www.rocketmoney.com/ | Public product positioning for bills, subscriptions, budgeting, spending, savings, and premium finance assistance | Verified 2026-04-18 |
+| Subscription Cancellation | https://www.rocketmoney.com/cancel-subscriptions | Public cancellation-assistance positioning, subscription detection, and user-action expectations | Verified 2026-04-18 |
+| Bill Negotiation | https://www.rocketmoney.com/bill-negotiation | Public bill negotiation workflow orientation, bill upload/intake, savings claims, and human-assisted service expectations | Verified 2026-04-18 |
+| Help Center | https://help.rocketmoney.com/en/ | First-party support taxonomy for subscriptions, bills, account linking, premium, savings, budgets, and troubleshooting | Verified 2026-04-18 |
+| Terms | https://www.rocketmoney.com/terms | Account terms, premium/service boundaries, subscription cancellation/negotiation responsibilities, fees, and legal responsibilities | Verified 2026-04-18 |
+| Privacy Policy | https://www.rocketmoney.com/privacy | Personal data, financial account data, sharing, retention, rights, and privacy choices | Verified 2026-04-18 |
+| Security | https://www.rocketmoney.com/security | Public security and account-linking trust posture used for privacy/security requirements | Verified 2026-04-18 |
 
 ## Detailed Design
-- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for personal finance.
-- Home model: make Dashboard the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
-- Core action: make Transfer/Trade Ticket the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
-- Detail surface: use Account Detail for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
-- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
-- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
-- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
-- The implementation must support secure onboarding with session controls.
-- The implementation must show balances with timestamp and stale-state warnings.
-- The implementation must render transactions with filterable history.
-- The implementation must preview all money movement before submission.
-- The implementation must require idempotency keys for writes.
-- The implementation must support alerts and security notifications.
-- The implementation must export statements or transaction history.
-- The implementation must block high-risk actions with reason codes.
-- The implementation must minimize PII in logs and analytics.
-- The implementation must support account deletion and data export.
-- The implementation must use sandbox rails until licensed.
-- The implementation must show disclosures before regulated actions.
+
+### Source-Backed Product Requirements
+
+- V1 must support account creation, linked financial account consent, legal/privacy consent, premium entitlement state, support state, and signed-out, linked, stale, premium, canceled, restricted, and deleted states.
+- Dashboard must show balances, spending, income, subscriptions, bills, alerts, budgets, savings, premium prompts, account connection health, and source/freshness timestamps.
+- Account linking must support institution search, provider consent, MFA, linked accounts, refresh health, unlink/delete controls, stale credentials, duplicate accounts, and provider outage states.
+- Subscription detection must identify recurring transactions, merchant, amount, frequency, next expected date, confidence, user confirmation, false-positive dismissal, cancellation eligibility, and history.
+- Cancellation assistance must support user authorization, required credentials or biller information, status tracking, evidence, biller response, cancellation success/failure, refund/fee notes, and user-controlled stop/cancel.
+- Bill negotiation must support bill upload/import, biller identification, service details, authorization, negotiation status, savings outcome, fee/commission disclosure, failed negotiation, and support escalation.
+- Budgeting and spending insights must support category budgets, transaction categorization, recurring bills, alerts, trend summaries, hidden transactions, merchant/category edits, and export.
+- Savings-style features must support goal setup, rules, transfers, provider status, limits, statements, and closure blockers only behind provider approval.
+- Premium must model free, trial, active, canceled, expired, billing failed, refund requested, and benefit-unavailable states with original pricing/copy.
+- Support, privacy, data export, account deletion, legal links, and linked-account removal must remain reachable from settings and relevant flow screens.
+
+### Build Plan
+
+1. Foundation: users, linked accounts, transactions, merchants, subscriptions, bills, budgets, savings, premium, privacy, legal links, audit logs, feature flags, and synthetic fixtures.
+2. Dashboard core: home, account list, transaction list, recurring subscriptions, bills, budgets, alerts, settings, support, notification center, and cached reads.
+3. Assisted services: cancellation intake/status, bill negotiation intake/status, support evidence, user authorization, fee disclosure, and human-review queues.
+4. Provider modules: account aggregation, savings transfers, premium billing, credit/financial insights, exports, and deletion behind provider/legal/security gates.
+5. Trust hardening: consent boundaries, biller authorization, fee disclosures, evidence redaction, privacy-safe analytics, data export, and closure blockers.
+6. Native verification: confirm iOS/Android screens, account linking, cancellation/negotiation status, premium, push payloads, support paths, and provider differences with lawful accounts.
 
 ## Core User Journeys
-- New user installs the app, reviews an original value proposition, creates an account, and reaches Dashboard.
-- Returning user opens Dashboard, resumes the most recent meaningful activity, and completes the primary action in Transfer/Trade Ticket.
-- User searches or browses from Transaction Detail, opens Account Detail, saves or shares it, and later finds it again from history or library.
-- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
+
+- New user signs up, links a checking account, consents to account aggregation, and lands on a dashboard with spending, subscriptions, bills, and connection health.
+- User reviews detected subscriptions, confirms a recurring merchant, dismisses a false positive, and starts cancellation assistance for an eligible subscription.
+- User uploads or selects a bill, authorizes negotiation, tracks human-assisted status, receives an outcome, and sees fee/savings disclosure.
+- User creates category budgets, recategorizes transactions, gets overspending alerts, and exports transaction data.
+- User enables a savings goal, reviews transfer rules, sees provider limits, and handles transfer failure or closure blockers.
+- User starts premium, sees benefit unlocks, cancels, handles billing failure, and requests support.
+- Privacy-focused user unlinks institutions, deletes imported data, requests export, starts account deletion, and sees active-service/retention caveats.
 
 ## Screen Inventory
-| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
+
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Dashboard | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Transfer/Trade Ticket | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Account Detail | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Transaction Detail | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Identity/Security | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Alerts | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Statements | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Support | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Welcome/Auth | Signup, login, legal consent, premium teaser | email, phone, password/passkey | new, returning, locked | duplicate account, deleted account |
+| Account Link Flow | Institution search and provider consent | search, credentials, MFA, consent | searching, linking, linked | MFA fail, provider outage, consent revoked |
+| Dashboard | Spending, bills, subscriptions, alerts | account, bill, subscription, budget | loaded, zero, stale | missing data, provider degraded |
+| Transactions | Imported transactions and categories | filter, merchant, category, split | pending, posted, categorized | duplicate, false merchant, hidden |
+| Subscriptions | Recurring subscriptions and cancellation | merchant, confirm, cancel | detected, confirmed, canceling | false positive, ineligible, biller blocked |
+| Cancellation Detail | Assisted cancellation status | authorization, evidence, stop | submitted, working, canceled | biller rejection, credentials needed |
+| Bill Negotiation | Bill intake and outcome tracking | bill, provider, auth, evidence | draft, submitted, negotiating | missing bill, no savings, fee dispute |
+| Budgets/Spending | Category budgets and trends | category, limit, alert | on-track, over, under | bad category, stale transactions |
+| Savings | Goals and transfer rules | goal, amount, rule, transfer | active, pending, paused | provider hold, transfer fail |
+| Premium | Entitlement, billing, cancellation | trial, subscribe, cancel | free, active, canceled | billing fail, refund request |
+| Support/Privacy/Settings | Help, export, delete, unlink, legal | case, export, delete, unlink | open, pending, closed | active cancellation, legal retention |
 
 ## Data Model
-- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
-- `IdentityCheck`: stores the primary workspace, account, or grouping context.
-- `Account`: stores account-level status, balances or settings, authorization state, and lifecycle flags.
-- `Balance`: captures lifecycle state, ordering, timestamps, and failure reason codes.
-- `Transaction`: tracks durable interaction history and audit metadata.
-- `Transfer`: stores sharing, collaboration, or permission relationships.
-- `Instrument`: records notification, recommendation, or entitlement state.
-- `AlertRule`: records delivery preferences, trigger rules, read state, and retry metadata.
-- `Statement`: stores support or user feedback records.
-- `DeviceSession`: captures active workflow state, timestamps, metrics, pause/resume markers, and completion status.
-- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
+
+- `User`: identity, contact methods, privacy choices, premium state, linked-provider consent, restrictions, and closure lifecycle.
+- `DeviceSession`: device id, auth method, push token, risk markers, offline queue, and revocation state.
+- `InstitutionConnection`: provider, consent scope, connection health, MFA state, refresh cursor, error code, and unlink state.
+- `FinancialAccount`: account type, masked name, balance, freshness, hidden state, ownership, and deletion behavior.
+- `Transaction`: account, merchant, amount, category, date, recurring candidate, pending/posted state, import id, and export metadata.
+- `Subscription`: merchant, amount, frequency, confidence, next date, user confirmation, cancellation eligibility, and lifecycle state.
+- `CancellationCase`: subscription, authorization, required evidence, owner queue, biller status, result, refund/fee notes, and user stop state.
+- `Bill`: biller, account number token, service address token, amount, due date, uploaded evidence, and negotiation eligibility.
+- `NegotiationCase`: bill, authorization, negotiation stage, outcome, savings estimate, fee disclosure, support case, and audit trail.
+- `BudgetCategory`: category, monthly limit, spend, alert threshold, trend, and user override history.
+- `SavingsGoal`: provider account, goal, transfer rule, balance, limits, status, and closure constraints.
+- `PremiumEntitlement`: plan, billing source, trial, active/canceled/expired state, benefit flags, refund state, and renewal.
+- `SupportCase`: issue type, linked account/subscription/bill, evidence, owner queue, SLA, resolution, and privacy flag.
+- `AuditEvent`: append-only record for auth, linking, transaction, subscription, cancellation, bill negotiation, savings, premium, support, privacy, and deletion actions.
 
 ## API And Backend Contracts
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /identitychecks, GET /accounts, GET /balances, GET /transactions; all reads return pagination, cache hints, authorization status, and stale-data indicators.
-- Writes: POST /users, POST /identitychecks, POST /accounts, POST /balances, POST /transactions; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
-- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+
+- `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions/:id` manage account access and recovery.
+- `GET /profile`, `PATCH /profile`, `GET /premium`, `POST /premium/checkout`, and `POST /premium/cancel` manage profile and entitlement lifecycle.
+- `GET /institutions`, `POST /link-sessions`, `GET /connections`, `POST /connections/:id/refresh`, and `DELETE /connections/:id` manage account aggregation and consent.
+- `GET /accounts`, `GET /transactions`, `PATCH /transactions/:id`, and `GET /spending/summary` manage account balances, transactions, categorization, and spending insights.
+- `GET /subscriptions`, `PATCH /subscriptions/:id`, `POST /subscriptions/:id/cancellation-cases`, and `GET /cancellation-cases/:id` manage recurring detection and cancellation status.
+- `GET /bills`, `POST /bills`, `POST /negotiation-cases`, `GET /negotiation-cases/:id`, and `POST /negotiation-cases/:id/evidence` manage bill intake, authorization, status, and outcomes.
+- `GET /budgets`, `POST /budgets/categories`, `PATCH /budgets/categories/:id`, and `GET /alerts` manage budget limits and spending alerts.
+- `GET /savings`, `POST /savings/goals`, `POST /savings/transfers/preview`, and `POST /savings/transfers` manage provider-backed savings features where enabled.
+- `GET /privacy/settings`, `PATCH /privacy/settings`, `POST /data-export`, `GET /data-export/:id`, and `DELETE /account` expose data rights and closure blockers.
+- `POST /support/cases`, `GET /support/cases/:id`, and `POST /support/cases/:id/evidence` handle help, premium issues, negotiation/cancellation disputes, and evidence upload.
 
 ## Realtime, Push, And Offline Behavior
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+
+- Account links, balances, transactions, subscriptions, cancellation cases, bill negotiation cases, budgets, savings, premium, support, privacy, and security states must reconcile from server-owned events.
+- The client may cache dashboards, transaction lists, subscription summaries, bill cases, budgets, settings, support cases, and legal links for offline reads.
+- Offline mode may preserve categorization edits, budget edits, and support drafts but must block account linking, cancellation submission, negotiation submission, savings transfers, premium changes, and account deletion.
+- Account balances, transactions, subscription predictions, bill status, negotiation outcomes, savings rates, premium state, and provider status must display source and freshness.
+- Push notifications must be opt-in and category-controlled for subscription changes, bill due dates, cancellation status, negotiation updates, budget alerts, premium, support, security, and export readiness.
+- Push payloads must avoid account balances, merchant names by default, biller account details, transaction amounts, negotiation evidence, and support evidence unless policy and settings allow.
 
 ## Permissions, Privacy, And Safety
-- Treat KYC/AML as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat financial licensing as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat fraud as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat PII leakage as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat irreversible transfer mistakes as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+
+- Request notifications, camera, files/photos, biometric authentication, and local storage only when a feature requires them.
+- Default analytics must exclude bank credentials, account numbers, balances, transaction amounts, merchant names, biller account details, uploaded bills, cancellation credentials, negotiation evidence, and support evidence.
+- Account aggregation, cancellation assistance, bill negotiation, savings transfers, premium billing, credit insights, support, data export, and deletion require launch owners, provider contracts, audit logs, and manual verification gates.
+- Assisted cancellation and bill negotiation must capture explicit user authorization, disclose fees, avoid deceptive biller contact, preserve evidence, and expose stop/escalation paths.
+- Account deletion and data export must warn about linked accounts, active cancellation/negotiation cases, premium billing, savings transfers, support cases, legal holds, and provider retention.
+- Accessibility must target WCAG 2.2 AA where applicable, dynamic type, screen-reader labels, visible focus, reduced motion, readable bill/fee disclosures, and accessible support paths.
+- Launch owners: provider owner for aggregation/savings; legal owner for negotiation/cancellation authorization; billing owner for premium; privacy owner for data rights; support owner for assisted-service escalation; accessibility owner for finance UX.
 
 ## Analytics And Monetization
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
+
+- Track privacy-safe events for onboarding, account link started/completed, dashboard viewed, subscription confirmed, cancellation case started, bill negotiation submitted, budget created, savings goal created, premium started/canceled, support case opened, export requested, and deletion requested.
+- Events must use coarse object type, flow step, provider status, reason code, latency bucket, and feature flag rather than merchant names, balances, bill images, transaction amounts, or support evidence.
+- Monetization may include original premium subscription, bill negotiation success fees, cancellation assistance, savings provider economics, and partner recommendations only with legal-reviewed fee/cancellation disclosures and user receipts.
 
 ## Edge Cases
-- First launch with no network, no account, or expired session.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
+
+- First launch offline, duplicate account, expired premium, provider outage, revoked account consent, institution MFA loop, deleted account, or app-store receipt mismatch.
+- Subscription detection creates false positives, misses annual subscriptions, merchant changes name, subscription amount varies, cancellation requires phone call, or biller rejects authority.
+- Bill negotiation has missing bill, biller unavailable, no savings, fee dispute, customer changes plan mid-negotiation, or outcome conflicts with biller confirmation.
+- Budget category is wrong, pending transaction changes amount, duplicate import occurs, merchant/category override conflicts, savings transfer fails, or premium benefit disappears.
+- Data export/deletion conflicts with linked accounts, active negotiation, active cancellation, premium billing, savings transfers, support cases, legal holds, or provider retention.
 
 ## Test Plan
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+
+- Validate exactly one H1, all canonical sections, exact source URLs, and no generic research placeholders.
+- Unit test account-link states, recurring detection, subscription confidence, cancellation lifecycle, negotiation lifecycle, budget rules, savings state, premium lifecycle, closure blockers, and privacy-safe analytics.
+- Contract test every documented API route, response shape, pagination cursor, provider status, error code, event replay, and authorization/disclosure acknowledgement.
+- Integration test onboarding, account linking, dashboard, transactions, subscriptions, cancellation, bill negotiation, budgets, savings, premium, support, export, and deletion.
+- Offline/realtime test cached dashboards, blocked assisted-service writes offline, stale labels, reconnect reconciliation, duplicate imports, push deep links, and provider outages.
+- Security test tokenized account links, evidence redaction, session revocation, support evidence access, audit events, provider secret isolation, and deletion workflows.
+- Accessibility test screen readers, focus order, dynamic type, contrast, reduced motion, table navigation, bill/fee disclosure, error recovery, and support paths.
+- Manual verification test native screens, linked accounts, subscription detection/cancellation, negotiation, budgets, savings, premium, support, push payloads, export, and deletion before removing launch gates.
 
 ## Acceptance Criteria
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+
+- The spec has exactly one H1 and all canonical sections.
+- Exact first-party marketplace, help/support, privacy/legal, product, cancellation, bill negotiation, and security URLs replace generic research placeholders.
+- A downstream team can build a lawful public-source V1 inspired by Rocket Money without copying assets, private APIs, provider contracts, cancellation/negotiation scripts, support scripts, premium pricing, or brand copy.
+- Every account linking, subscription cancellation, bill negotiation, premium, savings, support, notification, deletion/export, provider, regional, and native-device behavior without lawful hands-on verification remains explicitly blocked.
+- Account aggregation, subscriptions, cancellation, bill negotiation, budgets, savings, premium, support, and data rights have deterministic state models and tests.
+- Sensitive data has consent boundaries, privacy controls, audit events, export/deletion paths, support escalation, and analytics minimization.
+- Provider-backed and human-assisted modules remain feature-flagged until legal, provider, security, accessibility, billing, support, and manual verification owners approve launch.
 
 ## Open Questions
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+- Which account aggregation, savings, premium billing, support queue, cancellation, and negotiation providers will the implementation use?
+- Which cancellation and negotiation workflows are legally safe for V1 versus support-only education?
+- Which credit-score or recommendation surfaces belong in V1 rather than later provider-backed phases?
+- Which synthetic bills, subscriptions, transactions, cases, and downstream implementation repos will be used for tests?
 
 ## Next Steps
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
-- Resolve open questions and update this spec before app implementation starts.
-- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.
+
+- Use lawful test accounts/devices to verify native screens, account linking, subscriptions, cancellations, bill negotiation, budgets, savings, premium, push notifications, support, and data rights.
+- Create synthetic users, connections, accounts, transactions, subscriptions, cancellation cases, bills, negotiation cases, budgets, savings goals, premium states, support cases, and provider events.
+- Run legal, provider, privacy, security, accessibility, billing, and support review before enabling production account aggregation or assisted cancellation/negotiation.

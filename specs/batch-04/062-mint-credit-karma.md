@@ -1,178 +1,195 @@
 # Mint/Credit Karma-Style Clone Spec
 
 > Metadata
-> - Inspiration app: Mint/Credit Karma
-> - Category: Personal finance
-> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
-> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
+> - Inspiration app: Intuit Credit Karma, including Mint-successor personal finance patterns where public Credit Karma sources support them
+> - Category: Personal finance, credit monitoring, net worth, account aggregation, spending insights, recommendations, tax/loan/insurance marketplace, and financial account support
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-04-18.
+> - Verification basis: exact public marketplace pages, Credit Karma public product pages, Credit Karma support, Intuit/Credit Karma legal and privacy pages, and public security/help guidance.
+> - Manual verification blockers: native iOS/Android screens, signup/login, credit bureau identity questions, credit-score display, credit report disputes, account aggregation, linked financial accounts, net worth migration/import, transaction categorization, Credit Karma Money Spend/Save, card/account funding, credit/loan/insurance recommendations, offer prequalification, tax handoff, data export, account deletion, support chat, push payloads, and regional/provider availability require lawful test accounts/devices and provider approval before one-for-one parity claims.
+> - Legal scope: functional parity only; use original code, branding, copy, icons, sample data, scoring display rules, marketplace ranking, bank partners, tax providers, offer partners, support scripts, and regulated-finance controls.
 
 ## Overview
-Build an original mobile product inspired by Mint/Credit Karma's user-facing workflow, not its brand identity or proprietary implementation.
-The clone target is: Account aggregation, spending categories, budgets, credit score, recommendations, and transaction rules.
-Primary product surface: dashboard supported by transfer/trade ticket and account detail flows.
-The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
-The spec intentionally separates verified public-source facts from inferred clone requirements.
+
+Build an original personal finance app inspired by Credit Karma's public workflow and Mint-successor user expectations: account creation, credit profile, credit scores and reports, monitoring alerts, linked accounts/net worth, spending and transaction insights, account recommendations, Credit Karma Money-style spend/save surfaces, loan/card/insurance marketplace offers, identity monitoring, support, privacy controls, data export, and account deletion.
+
+The clone must not copy Credit Karma or Intuit branding, screenshots, marketing copy, protected UI artwork, private APIs, scoring/ranking models, offer marketplace logic, bank partner arrangements, credit bureau contracts, tax content, legal disclosure text, or support scripts. Public-source parity should be implemented through original product language, synthetic financial data, licensed credit/account providers, provider-specific consent flows, and clear manual blockers.
 
 ## Goals
-- Deliver a mobile-first personal finance experience with complete onboarding, core action, settings, and recovery flows.
-- Implement the app-specific focus: Account aggregation, spending categories, budgets, credit score, recommendations, and transaction rules.
-- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
-- Make public-source verification and blocked hands-on research visible before implementation starts.
-- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+- Provide a mobile-first personal finance experience with account onboarding, credit dashboard, linked-account/net-worth dashboard, transaction insights, recommendations, alerts, support, privacy, and security settings.
+- Support finance-category trust expectations around credit data accuracy, bureau/source freshness, identity verification, linked account consent, sensitive-data minimization, recommendation conflicts, account deletion, and support escalation.
+- Model credit, account aggregation, marketplace recommendations, banking-style spend/save products, tax handoff, and identity monitoring as provider-backed modules with eligibility and disclosure gates.
+- Produce concrete screens, entities, API contracts, offline/realtime rules, analytics, safety controls, edge cases, acceptance tests, and build phases.
+- Preserve the distinction between public-source requirements, inferred clone requirements, and manual verification blockers.
 
 ## Non-Goals
-- Do not copy Mint/Credit Karma branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
-- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
-- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
-- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
-- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+- Do not build a Credit Karma, Mint, or Intuit-branded app or imply affiliation with Intuit, credit bureaus, bank partners, tax products, lenders, insurers, or marketplace partners.
+- Do not calculate or display production credit scores, credit reports, disputes, offers, account balances, bank transactions, tax records, identity monitoring, or financial advice without licensed providers and legal/compliance review.
+- Do not scrape Credit Karma, reuse private APIs, copy recommendation/ranking models, copy disclosure text, copy support scripts, or import real Mint/Credit Karma data without explicit user consent and provider approval.
+- Do not treat credit reporting, account aggregation, marketplace offers, banking products, tax handoff, identity monitoring, support, or data rights as generic app features.
+- Do not claim exact native-device, account, notification, support, credit bureau, financial account, recommendation, deletion/export, or regional parity until manual verification blockers are resolved.
 
 ## Research Sources
-- App Store source-discovery link: https://apps.apple.com/us/search?term=Mint%2FCredit%20Karma
-- Google Play source-discovery link: https://play.google.com/store/search?q=Mint%2FCredit%20Karma&c=apps
-- Official help/privacy source-discovery link: https://www.google.com/search?q=Mint%2FCredit%20Karma%20official%20app%20help%20privacy
-- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
-- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
-- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
-- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
-- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+| Source | Exact URL | Evidence Used | Status |
+|---|---|---|---|
+| Apple App Store | https://apps.apple.com/us/app/intuit-credit-karma/id519817714 | Official iOS listing, developer, Finance category, credit/finance positioning, privacy labels, age rating, and app update context | Verified 2026-04-18 |
+| Google Play | https://play.google.com/store/apps/details?id=com.creditkarma.mobile | Official Android listing, package id, data-safety orientation, credit and finance positioning, and support/developer links | Verified 2026-04-18 |
+| Credit Karma Home | https://www.creditkarma.com/ | Public product positioning for credit scores, financial progress, recommendations, and member dashboard concepts | Verified 2026-04-18 |
+| Credit Karma Support | https://support.creditkarma.com/ | First-party help taxonomy for account access, credit reports/scores, financial accounts, Credit Karma Money, tax, privacy, and support | Verified 2026-04-18 |
+| Free Credit Score | https://www.creditkarma.com/free-credit-score | Credit-score access, monitoring orientation, score update and report framing | Verified 2026-04-18 |
+| Net Worth | https://www.creditkarma.com/net-worth | Public net-worth/account-linking positioning and personal finance dashboard requirements | Verified 2026-04-18 |
+| Credit Karma Money Spend | https://www.creditkarma.com/checking | Spend account, debit-card-style account positioning, banking partner dependencies, and account lifecycle requirements | Verified 2026-04-18 |
+| Credit Karma Money Save | https://www.creditkarma.com/savings | Save account positioning, balance/interest/eligibility, and partner-backed account expectations | Verified 2026-04-18 |
+| Identity Monitoring | https://www.creditkarma.com/id-monitoring | Public identity monitoring and breach-alert orientation | Verified 2026-04-18 |
+| Terms Of Service | https://www.creditkarma.com/about/terms | Account terms, eligibility, service boundaries, user responsibilities, marketplace/product caveats, and arbitration | Verified 2026-04-18 |
+| Privacy Policy | https://www.creditkarma.com/about/privacy | Data categories, credit/financial/account data, sharing, retention, privacy rights, and choices | Verified 2026-04-18 |
+| Intuit Privacy Statement | https://www.intuit.com/privacy/statement/ | Intuit entity privacy scope, data rights, use/sharing, security, and cross-product privacy controls | Verified 2026-04-18 |
+| Security | https://www.creditkarma.com/about/security | Public security practices, account protection, and trust requirements | Verified 2026-04-18 |
 
 ## Detailed Design
-- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for personal finance.
-- Home model: make Dashboard the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
-- Core action: make Transfer/Trade Ticket the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
-- Detail surface: use Account Detail for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
-- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
-- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
-- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
-- The implementation must support secure onboarding with session controls.
-- The implementation must show balances with timestamp and stale-state warnings.
-- The implementation must render transactions with filterable history.
-- The implementation must preview all money movement before submission.
-- The implementation must require idempotency keys for writes.
-- The implementation must support alerts and security notifications.
-- The implementation must export statements or transaction history.
-- The implementation must block high-risk actions with reason codes.
-- The implementation must minimize PII in logs and analytics.
-- The implementation must support account deletion and data export.
-- The implementation must use sandbox rails until licensed.
-- The implementation must show disclosures before regulated actions.
+
+### Source-Backed Product Requirements
+
+- V1 must support adult onboarding, email/phone authentication, identity verification for credit access, legal consent, privacy choices, account recovery, and signed-out, verification-required, verified, restricted, and closed states.
+- Credit dashboard must show credit-score cards, source/freshness labels, score factors, alerts, report sections, dispute/support entrypoints, simulator/education tiles where licensed, and clear no-guarantee disclaimers.
+- Net worth/account aggregation must support provider consent, linked institutions, account balances, account refresh, stale/failed connections, transaction imports, categorization, spending summaries, cash/debt/investment buckets, and unlink/delete controls.
+- Transaction insights must support merchant/category normalization, rules, recategorization, recurring bills/subscriptions, budget-like summaries, duplicate/late imports, hidden/excluded transactions, and export.
+- Recommendation marketplace must support cards, loans, insurance, banking products, and other offers with eligibility/prequalification state, partner handoff, sponsored/affiliate disclosure, no-guarantee copy, and privacy-safe ranking.
+- Credit Karma Money-style spend/save products must be represented as partner-backed accounts with eligibility, account opening, balances, card, transfers, interest, statements, support, and closure blockers behind provider approval.
+- Identity monitoring must expose breach/dark-web alert state, monitored identifiers, alert details, remediation education, and opt-in/out controls without exposing sensitive identifiers in analytics.
+- Support, privacy, data export, account deletion, marketing preferences, linked-account deletion, and legal links must remain reachable from settings and relevant detail screens.
+
+### Build Plan
+
+1. Foundation: account, identity, consent, privacy, legal links, provider adapters, financial account tokens, feature flags, audit events, and synthetic credit/account fixtures.
+2. Dashboard core: credit home, net worth home, alerts, recommendations, activity, support, settings, notification preferences, and cached reads with freshness labels.
+3. Account aggregation: institution search, consent handoff, linked accounts, balances, transaction imports, categories, rules, stale states, and unlink/delete flows.
+4. Marketplace modules: offer eligibility, partner handoff, sponsored disclosure, Credit Karma Money-style account gates, identity monitoring, and tax handoff behind compliance/provider flags.
+5. Trust and privacy: score/source labels, recommendation disclosures, PII redaction, data export, account closure blockers, support evidence handling, and privacy-safe analytics.
+6. Native verification: confirm iOS/Android screens, bureau/provider flows, push payloads, support paths, data rights, and regional/provider differences with lawful test accounts.
 
 ## Core User Journeys
-- New user installs the app, reviews an original value proposition, creates an account, and reaches Dashboard.
-- Returning user opens Dashboard, resumes the most recent meaningful activity, and completes the primary action in Transfer/Trade Ticket.
-- User searches or browses from Transaction Detail, opens Account Detail, saves or shares it, and later finds it again from history or library.
-- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
+
+- New user creates an account, verifies identity for credit access, accepts terms/privacy, and lands on a credit dashboard with score freshness and onboarding education.
+- Returning user opens the app, sees credit score changes, reviews score factors, opens a report item, and starts a dispute/support path.
+- User links financial accounts, reviews consent, sees net worth and transaction imports, handles stale credentials, and unlinks an institution.
+- User recategorizes transactions, creates category rules, sees spending summaries, and exports transaction data.
+- User opens a card or loan recommendation, reviews prequalification and sponsored disclosures, follows a partner handoff, and later returns to the app.
+- User opens Credit Karma Money-style spend/save surfaces, sees eligibility/provider states, statements, transfer blockers, and support paths.
+- User receives identity monitoring alert, reviews masked details, follows remediation steps, and changes notification preferences.
+- Privacy-focused user downloads data, deletes linked accounts, starts account deletion, and sees legal/provider retention caveats.
 
 ## Screen Inventory
-| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
+
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Dashboard | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Transfer/Trade Ticket | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Account Detail | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Transaction Detail | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Identity/Security | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Alerts | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Statements | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Support | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Welcome/Auth | Signup, login, legal consent, recovery | email, phone, password/passkey, OTP | new, returning, locked | duplicate account, unsupported age, closed account |
+| Identity/Credit Setup | Credit-profile verification | SSN fragment, DOB, address, questions | required, pending, verified | bureau mismatch, thin file, manual review |
+| Credit Dashboard | Scores, factors, alerts, report entry | score card, factor, alert | loaded, no-score, stale | bureau outage, score delayed, restricted |
+| Credit Report Detail | Accounts, inquiries, collections, disputes | section, item, dispute | current, changed, disputed | incorrect item, bureau unavailable |
+| Net Worth Home | Linked accounts, balances, trends | institution, account, refresh | linked, zero, stale | consent expired, provider outage |
+| Account Link Flow | Institution search and consent handoff | search, credentials, consent | searching, linking, linked | MFA fail, unsupported bank, revoked consent |
+| Transactions/Spending | Imported transactions and insights | filter, category, rule | loaded, categorized, hidden | duplicate, pending, merchant mismatch |
+| Recommendations | Cards, loans, insurance, accounts | offer, filter, apply | eligible, prequalified, sponsored | denied, expired, partner unavailable |
+| Money Spend/Save | Partner account surfaces | open, transfer, statement | eligible, active, pending | provider hold, transfer fail, closure blocked |
+| Identity Monitoring | Alerts and remediation | alert, identifier, settings | opted-in, alert, resolved | sensitive identifier masked, false positive |
+| Support/Privacy/Settings | Help, notifications, export, delete | case, export, delete, legal | open, pending export, closure | legal retention, linked account remaining |
 
 ## Data Model
-- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
-- `IdentityCheck`: stores the primary workspace, account, or grouping context.
-- `Account`: stores account-level status, balances or settings, authorization state, and lifecycle flags.
-- `Balance`: captures lifecycle state, ordering, timestamps, and failure reason codes.
-- `Transaction`: tracks durable interaction history and audit metadata.
-- `Transfer`: stores sharing, collaboration, or permission relationships.
-- `Instrument`: records notification, recommendation, or entitlement state.
-- `AlertRule`: records delivery preferences, trigger rules, read state, and retry metadata.
-- `Statement`: stores support or user feedback records.
-- `DeviceSession`: captures active workflow state, timestamps, metrics, pause/resume markers, and completion status.
-- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
+
+- `User`: identity status, contact methods, region, consent, privacy choices, score access, restrictions, and closure lifecycle.
+- `DeviceSession`: device id, platform, auth method, push token, risk markers, and session revocation.
+- `CreditProfile`: bureau source, score snapshot, factors, report sections, alert history, freshness, dispute state, and provider status.
+- `FinancialInstitution`: provider id, consent scope, connection health, MFA state, refresh cadence, and unlink state.
+- `LinkedAccount`: account type, masked name, balance, currency, provider status, ownership, hidden/excluded flag, and deletion behavior.
+- `Transaction`: account, merchant, amount, category, pending/posted state, import source, rule match, exclusion, and export metadata.
+- `CategoryRule`: merchant/category pattern, user override, priority, effective date, and audit trail.
+- `Recommendation`: product type, partner, eligibility, prequalification, sponsored disclosure, ranking reason, expiry, and handoff state.
+- `MoneyAccount`: partner-backed spend/save account, balance, card, transfers, statements, interest/rate snapshot, provider restrictions, and closure state.
+- `IdentityAlert`: monitored identifier, breach/source category, masked detail, severity, remediation, notification state, and resolution.
+- `SupportCase`: issue type, linked credit item/account/offer, evidence, owner queue, SLA, resolution, appeal, and privacy flag.
+- `AuditEvent`: append-only record for auth, identity, credit access, account linking, recommendation, money account, support, privacy, and deletion actions.
+- `LocalCacheRecord`: cached dashboard, reports, balances, transactions, offers, settings, support cases, sync attempts, and offline expiry.
 
 ## API And Backend Contracts
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /identitychecks, GET /accounts, GET /balances, GET /transactions; all reads return pagination, cache hints, authorization status, and stale-data indicators.
-- Writes: POST /users, POST /identitychecks, POST /accounts, POST /balances, POST /transactions; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
-- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+
+- `POST /auth/session`, `POST /auth/verify`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions/:id` manage secure access and recovery.
+- `GET /profile`, `PATCH /profile`, `POST /identity/credit-check`, and `GET /eligibility` return identity, bureau, feature, provider, and manual-verification gates.
+- `GET /credit/summary`, `GET /credit/report`, `GET /credit/alerts`, and `POST /credit/disputes` expose scores, report sections, changes, disputes, and provider state.
+- `GET /institutions`, `POST /institutions/link-session`, `GET /linked-accounts`, `POST /linked-accounts/:id/refresh`, and `DELETE /linked-accounts/:id` manage account aggregation and consent.
+- `GET /transactions`, `PATCH /transactions/:id`, `POST /category-rules`, and `GET /spending/summary` handle imports, categorization, user rules, and summaries.
+- `GET /recommendations`, `POST /recommendations/:id/prequalify`, and `POST /recommendations/:id/handoff` manage marketplace offers, disclosures, eligibility, and partner handoff.
+- `GET /money-accounts`, `POST /money-accounts/open`, `POST /money-accounts/transfers/preview`, `POST /money-accounts/transfers`, and `GET /statements` model partner-backed spend/save accounts.
+- `GET /identity-monitoring`, `PATCH /identity-monitoring/settings`, and `POST /identity-alerts/:id/resolve` model alert preferences and remediation state.
+- `GET /privacy/settings`, `PATCH /privacy/settings`, `POST /data-export`, `GET /data-export/:id`, and `DELETE /account` expose data rights, linked-account deletion, and closure blockers.
+- `POST /support/cases`, `GET /support/cases/:id`, and `POST /support/cases/:id/evidence` handle help, disputes, privacy requests, and support-safe evidence upload.
 
 ## Realtime, Push, And Offline Behavior
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+
+- Credit score/report, linked-account, transaction, recommendation, money-account, identity-alert, support, privacy, and security states must reconcile from server-owned events.
+- The client may cache dashboards, score snapshots with freshness labels, balances, transactions, offers, support cases, settings, and legal links for offline reads.
+- Offline mode may preserve categorization edits and support drafts but must block account linking, money transfers, offer applications, disputes, data deletion, and provider state changes.
+- Credit scores, balances, transactions, recommendations, rates, eligibility, and provider statuses must display source and freshness and refresh before sensitive decisions.
+- Push notifications must be opt-in and category-controlled for credit changes, identity alerts, account connection issues, offer updates, money-account activity, support, security, and data export readiness.
+- Push payloads must avoid full SSNs, credit scores by default, balances, transaction details, partner offer data, identity-alert identifiers, and support evidence unless explicitly allowed by policy.
 
 ## Permissions, Privacy, And Safety
-- Treat KYC/AML as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat financial licensing as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat fraud as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat PII leakage as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat irreversible transfer mistakes as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+
+- Request notifications, files/photos, contacts, camera, biometric authentication, and location only when a feature requires them.
+- Default analytics must exclude raw SSNs, credit report items, credit scores, balances, transactions, account numbers, bank credentials, identity-alert identifiers, offer details, tax data, and support evidence.
+- Credit reporting, account aggregation, marketplace offers, banking-style accounts, identity monitoring, disputes, tax handoff, support, data export, and deletion require launch owners, provider contracts, audit logs, and manual verification gates.
+- Recommendation flows must disclose sponsored/partner relationships, eligibility uncertainty, prequalification limits, and no-guarantee/no-financial-advice treatment.
+- Account deletion and data export must warn about credit provider retention, linked financial accounts, money accounts, support cases, tax/provider records, legal holds, and regulatory retention.
+- Accessibility must target WCAG 2.2 AA where applicable, dynamic type, screen-reader labels, visible focus, reduced motion, readable score explanations, chart alternatives, and accessible support paths.
+- Launch owners: compliance owner for credit/account/marketplace products; privacy owner for data rights; provider owner for aggregation and Credit Karma Money-style accounts; trust/safety owner for identity alerts; accessibility owner for finance UX; support owner for disputes.
 
 ## Analytics And Monetization
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
+
+- Track privacy-safe events for onboarding, credit verification state, dashboard viewed, score factor opened, account link started/completed, transaction categorized, recommendation viewed, partner handoff started, identity alert opened, support case opened, data export requested, and account deletion requested.
+- Events must use coarse categories, reason codes, provider status, feature flags, latency bucket, and flow step rather than raw credit, account, transaction, identity, tax, or offer data.
+- Monetization may include original sponsored recommendations, affiliate marketplace economics, partner-backed accounts, and premium monitoring features only with legal-reviewed disclosures, opt-outs, and privacy controls.
 
 ## Edge Cases
-- First launch with no network, no account, or expired session.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
+
+- First launch offline, lost email/phone, duplicate account, thin credit file, frozen credit file, bureau mismatch, identity questions unavailable, locked account, or closed account.
+- Credit score changes unexpectedly, report item is disputed, bureau data is delayed, alert is a false positive, or score source differs across providers.
+- Bank connection requires MFA, credentials expire, institution is unsupported, duplicate accounts import, pending transactions change, merchant/category is wrong, or historical Mint-like data is incomplete.
+- Recommendation prequalification expires, partner denies application, offer terms change, sponsored ranking changes, or user interprets education as financial advice.
+- Money account transfer fails, statement is unavailable, partner account is restricted, interest/rate changes, or closure is blocked by pending activity.
+- Data export/deletion conflicts with linked accounts, support cases, provider retention, tax records, money accounts, legal holds, or unresolved disputes.
 
 ## Test Plan
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+
+- Validate exactly one H1, all canonical sections, exact source URLs, and no generic research placeholders.
+- Unit test account state, credit verification gates, linked-account connection states, transaction categorization, category rules, recommendation eligibility, money-account blockers, identity-alert state, closure blockers, and privacy-safe analytics.
+- Contract test every documented API route, response shape, pagination cursor, provider status, error code, event replay, and consent/disclosure acknowledgement.
+- Integration test onboarding, credit dashboard, report detail, account linking, net worth, transaction rules, recommendations, money account surfaces, identity monitoring, support, data export, and account deletion.
+- Offline/realtime test cached dashboards, stale source labels, blocked sensitive writes offline, reconnect reconciliation, duplicate imports, push deep links, and provider outages.
+- Security test tokenized account links, PII redaction, session revocation, support evidence access, audit events, provider secret isolation, and deletion workflows.
+- Accessibility test screen readers, focus order, dynamic type, contrast, reduced motion, chart alternatives, score explanations, error recovery, and support paths.
+- Manual verification test native screens, credit profile, account aggregation, transaction imports, recommendations, money accounts, support, push payloads, data export, account deletion, and provider-specific behavior before removing launch gates.
 
 ## Acceptance Criteria
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+
+- The spec has exactly one H1 and all canonical sections.
+- Exact first-party marketplace, help/support, privacy/legal, product, security, credit, net-worth, money-account, and identity-monitoring URLs replace generic research placeholders.
+- A downstream team can build a lawful public-source V1 inspired by Credit Karma/Mint-successor finance patterns without copying assets, network traffic, private APIs, scoring/ranking models, disclosure text, support scripts, or brand copy.
+- Every credit, account aggregation, financial account, recommendation, money account, tax, support, notification, deletion/export, regional, and native-device behavior without lawful hands-on verification remains explicitly blocked.
+- Sensitive reads and writes require provider consent, source/freshness labels, audit events, privacy controls, and user-visible support or failure state.
+- Privacy, security, recommendation disclosures, data export, account deletion, and support escalation are represented in screens, entities, APIs, and tests.
+- Regulated and provider-backed modules remain feature-flagged until legal, compliance, provider, security, accessibility, and manual verification owners approve launch.
 
 ## Open Questions
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+- Which Mint-successor import, net-worth, and transaction history behaviors are available through public Credit Karma flows and lawful test accounts?
+- Which credit bureau, aggregation, banking, identity monitoring, tax, and offer providers will the implementation use?
+- Which recommendations or money-account features should be removed from V1 rather than shipped behind blockers?
+- Which synthetic fixtures and downstream implementation repos will be used for credit, linked-account, transaction, offer, and identity-alert tests?
 
 ## Next Steps
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
-- Resolve open questions and update this spec before app implementation starts.
-- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.
+
+- Use lawful test accounts/devices to verify native screens, credit profile, linked accounts, net worth, transaction insights, recommendations, money accounts, push notifications, support, and data rights.
+- Create synthetic users, credit profiles, linked accounts, transactions, category rules, recommendations, money accounts, identity alerts, support cases, and provider events.
+- Run legal, compliance, privacy, trust/safety, accessibility, provider, and support review before enabling production credit, account aggregation, offers, or banking-style workflows.

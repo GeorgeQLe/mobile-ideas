@@ -2,177 +2,186 @@
 
 > Metadata
 > - Inspiration app: Apple Wallet
-> - Category: Wallet
-> - Spec status: Draft 1, public-source research pass complete; hands-on account/device verification blocked unless noted.
-> - Legal scope: functional parity research only; use original code, branding, copy, media, sample data, and licensed integrations.
+> - Category: Digital wallet, payment cards, passes, tickets, keys, IDs, loyalty, transit, order tracking, NFC/secure-element-adjacent presentation, and platform wallet support
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-04-18.
+> - Verification basis: exact public marketplace page, Apple Wallet and Apple Pay product pages, Apple Support Wallet pages, Apple Platform Security, Apple privacy/legal pages, and Apple Developer Wallet/PassKit documentation.
+> - Manual verification blockers: native iOS screens, hardware/device support, Face ID/Touch ID/passcode behavior, Apple Pay card provisioning, issuer verification, NFC presentation, Express Mode, transit cards, car/home/hotel keys, IDs, passes, tickets, order tracking, Wallet notifications, pass sharing, pass updates, removal/deletion, data export, Android parity decisions, support paths, and regional/issuer availability require lawful test devices/accounts, platform entitlement approval, and provider approval before one-for-one parity claims.
+> - Legal scope: functional parity only; use original code, branding, copy, icons, sample passes, card art, issuer/provider relationships, NFC claims, secure-element claims, pass templates, legal text, and platform entitlements.
 
 ## Overview
-Build an original mobile product inspired by Apple Wallet's user-facing workflow, not its brand identity or proprietary implementation.
-The clone target is: Cards, passes, tickets, loyalty IDs, transaction history, NFC-like presentation states, and secure settings.
-Primary product surface: dashboard supported by transfer/trade ticket and account detail flows.
-The implementation should preserve the interaction model users expect while replacing all marks, artwork, copy, content, ranking systems, and third-party data with original or licensed equivalents.
-The spec intentionally separates verified public-source facts from inferred clone requirements.
+
+Build an original wallet app inspired by Apple Wallet's public workflow: wallet home, payment-card-like credentials, passes, tickets, loyalty cards, transit passes, keys, IDs where legally available, order tracking, notifications, pass sharing, card/pass detail, privacy/security controls, support, and platform integrations.
+
+The clone must not copy Apple branding, screenshots, marketing copy, protected UI artwork, Wallet card/pass designs, private APIs, issuer provisioning flows, Apple Pay tokenization, secure-element behavior, NFC behavior, legal text, or support scripts. Functional parity should be expressed through original wallet objects, sample passes, platform-approved APIs, licensed issuer/merchant integrations, and explicit manual blockers for native/hardware/issuer flows.
 
 ## Goals
-- Deliver a mobile-first wallet experience with complete onboarding, core action, settings, and recovery flows.
-- Implement the app-specific focus: Cards, passes, tickets, loyalty IDs, transaction history, NFC-like presentation states, and secure settings.
-- Provide enough product, data, API, privacy, analytics, and test detail for an engineering team to estimate and build a lawful clone.
-- Make public-source verification and blocked hands-on research visible before implementation starts.
-- Preserve a consistent spec shape across all 100 clone projects so future agents can compare, prioritize, and execute.
+
+- Provide a mobile-first digital wallet with wallet home, cards/passes, pass detail, presentation mode, barcode/QR display, issuer/provider status, notifications, sharing, support, privacy, and security settings.
+- Support wallet-category trust expectations around device security, biometric/passcode gating, tokenized credentials, pass updates, lost device risk, issuer verification, data minimization, regional availability, and support escalation.
+- Model payment-card provisioning, NFC/secure-element presentation, transit, IDs, keys, order tracking, and issuer/merchant pass updates as platform/provider-backed modules with explicit entitlement and manual verification gates.
+- Produce concrete screens, entities, API contracts, offline/realtime rules, analytics, safety controls, edge cases, acceptance tests, and build phases.
+- Preserve the distinction between public-source requirements, inferred clone requirements, and manual verification blockers.
 
 ## Non-Goals
-- Do not copy Apple Wallet branding, trade dress, logos, app icons, screenshots, marketing copy, or proprietary media.
-- Do not use private APIs, scraped paywalled content, unlicensed catalog data, or reverse-engineered server contracts.
-- Do not claim exact one-for-one behavior for any flow that has not been verified through lawful public or hands-on research.
-- Do not implement production payments, regulated finance, clinical health advice, transport dispatch, or smart-home control without separate legal and platform review.
-- Do not build the app in this repository; this repo remains a planning and specification workspace.
+
+- Do not build an Apple Wallet-branded app or imply affiliation with Apple, Apple Pay, Apple Cash, Apple Card, issuers, transit agencies, merchants, hotels, automakers, states, or platform entitlement providers.
+- Do not process production payment tokenization, NFC card-present payments, government IDs, car/home/hotel keys, transit value, order tracking from merchants, or issuer support without separate platform, legal, provider, and security approval.
+- Do not copy Wallet UI artwork, pass templates, card art, private APIs, secure-element claims, NFC implementation, issuer scripts, or legal/support text.
+- Do not imply Android can reproduce Apple-only secure-element or Wallet entitlements; cross-platform V1 must define original equivalent capabilities.
+- Do not claim exact native-device, hardware, payment, NFC, key, ID, transit, notification, support, or regional parity until manual verification blockers are resolved.
 
 ## Research Sources
-- App Store source-discovery link: https://apps.apple.com/us/search?term=Apple%20Wallet
-- Google Play source-discovery link: https://play.google.com/store/search?q=Apple%20Wallet&c=apps
-- Official help/privacy source-discovery link: https://www.google.com/search?q=Apple%20Wallet%20official%20app%20help%20privacy
-- Public listing items to verify: app description, category, screenshots, privacy labels, age rating, in-app purchases, latest release notes, and support/developer links.
-- Public documentation items to verify: account model, subscription gates, deletion/export controls, safety policies, and support paths.
-- Public review themes to collect: onboarding confusion, missing features, reliability complaints, pricing complaints, and retention drivers.
-- Hands-on verification status: blocked for this pass; use a test device/account and document screen states before implementation.
-- Research risk: source-discovery links may route through marketplace search; replace them with exact listing/help URLs during the next research pass.
+
+| Source | Exact URL | Evidence Used | Status |
+|---|---|---|---|
+| Apple App Store | https://apps.apple.com/us/app/apple-wallet/id1160481993 | Official iOS listing, developer Apple, built-in wallet positioning, privacy labels, device requirements, and release context | Verified 2026-04-18 |
+| Apple Wallet | https://www.apple.com/wallet/ | Public product positioning for cards, passes, keys, IDs, and wallet organization | Verified 2026-04-18 |
+| Apple Pay | https://www.apple.com/apple-pay/ | Apple Pay positioning for card payments, online/in-store use, security/privacy framing, and issuer requirements | Verified 2026-04-18 |
+| Apple Support Wallet | https://support.apple.com/wallet | First-party support taxonomy for adding/using cards, passes, keys, IDs, transit, order tracking, and troubleshooting | Verified 2026-04-18 |
+| Apple Pay Security | https://support.apple.com/guide/security/apple-pay-component-security-sec2561eb018/web | Platform security model, device account numbers, tokenization, authentication, and secure-element-oriented requirements | Verified 2026-04-18 |
+| Apple Privacy | https://www.apple.com/privacy/ | Public privacy principles and data-minimization orientation for wallet/payment-like surfaces | Verified 2026-04-18 |
+| Apple Pay Legal | https://www.apple.com/legal/applepayments/ | Apple Pay legal terms, regional legal references, and service-boundary requirements | Verified 2026-04-18 |
+| Apple Developer Wallet | https://developer.apple.com/wallet/ | Wallet developer capabilities for passes, keys, IDs, and integration surface orientation | Verified 2026-04-18 |
+| PassKit Documentation | https://developer.apple.com/documentation/passkit | Developer API orientation for passes, payment authorization, pass provisioning, and wallet-adjacent contracts | Verified 2026-04-18 |
 
 ## Detailed Design
-- Onboarding: support guest, signup, returning-user, permission-primer, and blocked-region or blocked-account states as appropriate for wallet.
-- Home model: make Dashboard the default returning-user surface with empty, loading, personalized, degraded-network, and signed-out variants.
-- Core action: make Transfer/Trade Ticket the highest-priority creation or transaction flow and keep its primary action reachable within two taps from home.
-- Detail surface: use Account Detail for preview, confirmation, or consumption states with clear ownership of saved, shared, unavailable, and error states.
-- Notifications: support opt-in prompts, transactional notifications, preference categories, quiet hours, and revoked-permission fallback.
-- Settings: include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements: represent free, trial, paid, expired, refunded, and unavailable plan states without copying the inspiration app's pricing.
-- Accessibility: support dynamic type, screen reader labels, visible focus, sufficient contrast, reduced motion, and captions/transcripts for media where applicable.
-- The implementation must support secure onboarding with session controls.
-- The implementation must show balances with timestamp and stale-state warnings.
-- The implementation must render transactions with filterable history.
-- The implementation must preview all money movement before submission.
-- The implementation must require idempotency keys for writes.
-- The implementation must support alerts and security notifications.
-- The implementation must export statements or transaction history.
-- The implementation must block high-risk actions with reason codes.
-- The implementation must minimize PII in logs and analytics.
-- The implementation must support account deletion and data export.
-- The implementation must use sandbox rails until licensed.
-- The implementation must show disclosures before regulated actions.
+
+### Source-Backed Product Requirements
+
+- V1 must support wallet home, cards/passes list, pass detail, barcode/QR presentation, issuer/provider status, notification settings, privacy/security settings, support links, and signed-out/unavailable states where accounts are required.
+- Card-like credentials must support eligibility, issuer/provider handoff, verification state, tokenized display, last four/masked metadata, transaction history where provider supplies it, remove/suspend, and device-security requirements.
+- Passes must support event tickets, boarding passes, loyalty cards, coupons, gift cards, order tracking, and generic membership passes with pass fields, barcode/QR, expiration, location/time relevance, share eligibility, update state, and removal.
+- Presentation mode must support bright barcode/QR view, offline availability, expired/revoked state, screenshot/security policy, accessibility labels, and no unsupported NFC claims.
+- Keys, IDs, transit, and NFC-like flows must remain feature-flagged behind platform entitlement/provider gates and must use original equivalent copy if hardware-level behavior cannot be reproduced.
+- Wallet notifications must support pass updates, order status, transaction status, expiry, location/time relevance where allowed, security alerts, and user category controls.
+- Privacy/security must expose device lock requirements, session/device management for account-backed wallet objects, pass data sharing, issuer/provider data, remove all local wallet data, data export, and deletion/retention caveats.
+- Support must route to issuer/provider/merchant where appropriate and distinguish app support from issuer/payment/network/platform support.
+
+### Build Plan
+
+1. Foundation: users, device capability model, wallet items, cards, passes, issuers, merchants, notifications, privacy settings, legal links, audit logs, feature flags, and synthetic fixtures.
+2. Wallet core: home list, card/pass detail, barcode/QR presentation, search/filter, grouping, updates, expired/removed states, settings, support, and offline cache.
+3. Provider modules: issuer provisioning handoff, pass update webhooks, order tracking, loyalty/ticket import, notification center, sharing, and remove/suspend workflows.
+4. Entitlement-gated modules: payment tokenization, NFC presentation, transit, keys, IDs, and secure-element-adjacent flows behind platform/legal/provider/manual gates.
+5. Trust hardening: device security checks, sensitive metadata redaction, support routing, data export/deletion, privacy-safe analytics, accessibility, and lost-device recovery.
+6. Native verification: confirm iOS screens, device capabilities, issuer verification, pass updates, notifications, offline behavior, sharing, and platform limitations with lawful devices/accounts.
 
 ## Core User Journeys
-- New user installs the app, reviews an original value proposition, creates an account, and reaches Dashboard.
-- Returning user opens Dashboard, resumes the most recent meaningful activity, and completes the primary action in Transfer/Trade Ticket.
-- User searches or browses from Transaction Detail, opens Account Detail, saves or shares it, and later finds it again from history or library.
-- User denies a requested permission, still receives a usable fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees the correct locked/unlocked product states.
+
+- New user opens wallet home, adds a sample loyalty pass from a merchant link, sees it in the wallet, opens detail, presents the barcode, and removes it.
+- User adds an event ticket, receives a time-sensitive update, shares it if allowed, presents it offline, and handles expired/revoked state.
+- User starts adding a payment-card-like credential, enters issuer verification, sees pending/verified states, and removes/suspends the credential.
+- User receives order tracking updates from a merchant, opens order detail, sees shipment milestones, and hides/removes the order pass.
+- User configures notification categories, privacy choices, device-lock requirement, data export, and local data deletion.
+- User attempts a key, ID, transit, or NFC-like flow, sees entitlement/provider blocker, and follows the provider/manual verification path.
+- User loses device access, revokes sessions or provider tokens, and follows support escalation.
 
 ## Screen Inventory
-| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
+
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Dashboard | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Transfer/Trade Ticket | Primary creation or action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Account Detail | Inspect, consume, or confirm item details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Transaction Detail | Find or filter content and actions | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Identity/Security | Identity, ownership, or sharing context | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Alerts | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Statements | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Support | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Wallet Home | Cards/passes, grouping, alerts | card, pass, search, add | empty, loaded, offline | device unsupported, provider degraded |
+| Add Item | Add card/pass/order/key/ID | scan, file, link, issuer, provider | selecting, importing, verifying | unsupported item, entitlement missing |
+| Card Detail | Credential metadata and status | verify, remove, suspend | pending, active, suspended | issuer decline, token unavailable |
+| Pass Detail | Ticket/pass fields and actions | barcode, share, remove | active, relevant, updated | expired, revoked, duplicate |
+| Presentation Mode | Bright barcode/QR or provider handoff | barcode, QR, NFC gate | ready, offline, locked | screen too dim, revoked, no NFC entitlement |
+| Order Tracking | Merchant order status | order, shipment, support | placed, shipped, delivered | merchant disconnected, stale status |
+| Keys/IDs/Transit Gate | Entitlement-gated wallet objects | apply, verify, provider | eligible, pending, blocked | region unavailable, device unsupported |
+| Notifications | Wallet update categories | toggle, quiet hours | enabled, disabled | permission revoked, payload minimized |
+| Support Routing | Issuer, merchant, app support | case, provider, evidence | routed, open, resolved | wrong support owner, legal hold |
+| Privacy/Security Settings | Device lock, sharing, export, deletion | lock, export, delete, legal | secured, pending export | active item, provider retention |
 
 ## Data Model
-- `User`: owns identity, preferences, locale, entitlements, consent, and deletion/export state.
-- `IdentityCheck`: stores the primary workspace, account, or grouping context.
-- `Account`: stores account-level status, balances or settings, authorization state, and lifecycle flags.
-- `Balance`: captures lifecycle state, ordering, timestamps, and failure reason codes.
-- `Transaction`: tracks durable interaction history and audit metadata.
-- `Transfer`: stores sharing, collaboration, or permission relationships.
-- `Instrument`: records notification, recommendation, or entitlement state.
-- `AlertRule`: records delivery preferences, trigger rules, read state, and retry metadata.
-- `Statement`: stores support or user feedback records.
-- `DeviceSession`: captures active workflow state, timestamps, metrics, pause/resume markers, and completion status.
-- `AuditEvent`: append-only server record for sensitive writes, account changes, moderation actions, and billing or entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, and conflict resolution metadata.
+
+- `User`: account-backed identity, region, privacy choices, wallet settings, deletion lifecycle, and support state.
+- `DeviceCapability`: platform, OS version, biometric/passcode state, NFC availability, secure-element entitlement, notification permission, and offline storage status.
+- `WalletItem`: type, issuer, owner, display metadata, ordering, status, relevance rules, removal state, and privacy classification.
+- `CardCredential`: issuer, token reference, masked account, verification state, transaction feed status, suspend/remove state, and support route.
+- `Pass`: pass type, fields, barcode/QR payload token, expiration, relevance, share policy, update token, and revocation state.
+- `Ticket`: event, venue, seat, transfer/share eligibility, scan state, issuer updates, and expiration.
+- `OrderPass`: merchant, order id token, milestones, shipment status, support route, and removal state.
+- `KeyOrIdCredential`: credential type, entitlement, issuer/provider, verification state, device binding, and manual blocker reason.
+- `NotificationPreference`: category, permission state, payload policy, quiet hours, and fallback channel.
+- `SupportCase`: item, issuer/merchant/app route, evidence, owner queue, SLA, resolution, and privacy flag.
+- `AuditEvent`: append-only record for add, update, present, share, remove, suspend, verify, support, privacy, and deletion actions.
+- `LocalCacheRecord`: cached wallet items, pass assets, presentation payloads, settings, support cases, sync attempts, and offline expiry.
 
 ## API And Backend Contracts
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /identitychecks, GET /accounts, GET /balances, GET /transactions; all reads return pagination, cache hints, authorization status, and stale-data indicators.
-- Writes: POST /users, POST /identitychecks, POST /accounts, POST /balances, POST /transactions; all writes require validation errors, idempotency keys for user actions, and audit events for sensitive state changes.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context; returns empty-state copy keys rather than hard-coded UI copy.
-- Upload/import: use signed upload URLs, MIME/size validation, malware or content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must handle missed events by refetching canonical state.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+
+- `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions/:id` manage account-backed wallet access where required.
+- `GET /device-capabilities`, `GET /wallet-items`, `POST /wallet-items`, `PATCH /wallet-items/:id`, and `DELETE /wallet-items/:id` manage wallet inventory, ordering, and item lifecycle.
+- `POST /passes/import`, `POST /passes/:id/share`, `POST /passes/:id/present`, and `GET /passes/:id/updates` manage pass import, sharing, presentation, updates, and revocation.
+- `POST /cards/provisioning-session`, `GET /cards/:id`, `POST /cards/:id/verify`, `POST /cards/:id/suspend`, and `DELETE /cards/:id` manage card-like credential verification and removal.
+- `GET /orders`, `POST /orders/import`, `GET /orders/:id`, and `POST /orders/:id/hide` manage order tracking where merchant providers exist.
+- `POST /credentials/eligibility`, `POST /credentials/apply`, and `GET /credentials/:id` expose key, ID, transit, and entitlement-gated credential blockers.
+- `GET /notification-preferences`, `PATCH /notification-preferences`, and server fanout manage wallet updates, security alerts, order status, and expiry notifications.
+- `GET /privacy/settings`, `PATCH /privacy/settings`, `POST /data-export`, `GET /data-export/:id`, and `DELETE /account` expose data rights and wallet-item deletion blockers.
+- `POST /support/cases`, `GET /support/cases/:id`, and `POST /support/cases/:id/evidence` route support to app, issuer, merchant, or provider owners.
 
 ## Realtime, Push, And Offline Behavior
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must be reconciled against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+
+- Wallet items, cards, passes, orders, notifications, support, privacy, and security states must reconcile from server-owned events or provider update tokens.
+- The client may cache wallet home, pass metadata, presentation payloads, order status, settings, support cases, and legal links for offline reads/presentation.
+- Offline mode may present cached non-revoked barcode/QR passes where policy allows, but must block provisioning, verification, sharing, deletion, order updates, and entitlement-gated credential changes.
+- Pass updates, revocations, order milestones, credential status, issuer verification, and notification permissions must display freshness and provider state.
+- Push notifications must be opt-in and category-controlled for pass updates, order status, transaction/credential status, expiry, relevance reminders, support, security, and export readiness.
+- Push payloads must avoid full card numbers, exact account data, sensitive credential data, government ID details, key data, travel details, order detail, and support evidence unless policy and settings allow.
 
 ## Permissions, Privacy, And Safety
-- Treat KYC/AML as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat financial licensing as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat fraud as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat PII leakage as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Treat irreversible transfer mistakes as a launch-blocking review area; document owner, mitigation, and test coverage before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+
+- Request notifications, camera, NFC, location, biometric authentication, files/photos, and Bluetooth only when a feature requires them and only if the platform supports the feature.
+- Default analytics must exclude card numbers, tokens, barcode payloads, ID details, key material, order identifiers, travel details, precise location, pass fields, issuer secrets, and support evidence.
+- Payment cards, NFC, keys, IDs, transit, order tracking, issuer provisioning, pass sharing, support, data export, and deletion require launch owners, provider contracts, platform entitlements, audit logs, and manual verification gates.
+- Presentation mode must avoid unsupported secure-element claims, clearly label barcode/QR versus NFC behavior, and show revoked/expired/unsupported states before presentation.
+- Account deletion and local data removal must warn about provider-retained cards/passes, issuer accounts, order history, keys/IDs/transit credentials, support cases, legal holds, and device backups.
+- Accessibility must target WCAG 2.2 AA where applicable, dynamic type, screen-reader labels, visible focus, reduced motion, accessible barcode alternatives, clear issuer/support routing, and readable pass fields.
+- Launch owners: platform owner for entitlements; provider owner for issuers/merchants; security owner for credential storage; privacy owner for data rights; accessibility owner for presentation UX; support owner for routing/escalation.
 
 ## Analytics And Monetization
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement rules; do not copy exact pricing, offers, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, or private messages as event properties.
+
+- Track privacy-safe events for wallet opened, item added, pass imported, pass presented, card provisioning started, verification state changed, item removed, notification changed, support case opened, export requested, and deletion requested.
+- Events must use coarse item type, flow step, provider status, reason code, latency bucket, and feature flag rather than pass fields, card data, issuer tokens, barcodes, IDs, key material, order identifiers, or location.
+- Monetization may include original issuer/merchant integrations, pass distribution, loyalty/order services, or enterprise wallet tooling only with legal-reviewed provider agreements and user consent.
 
 ## Edge Cases
-- First launch with no network, no account, or expired session.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
+
+- Device lacks passcode/biometric, OS unsupported, NFC unavailable, entitlement missing, user is offline, wallet item is revoked, or app is restored on a new device.
+- Card issuer declines verification, token provisioning fails, card is suspended, transaction feed is unavailable, or user removes item while provider still retains account.
+- Pass is duplicated, barcode expires, event changes, ticket is transferred, issuer update fails, location/time relevance is denied, or presentation occurs after revocation.
+- Order tracking merchant disconnects, shipment status is stale, refund/cancellation changes order state, or support owner is merchant rather than app.
+- Key/ID/transit feature is region-blocked, provider approval is missing, hardware entitlement unavailable, or user expects Apple-only secure-element behavior on another platform.
+- Data export/deletion conflicts with active credentials, provider retention, issuer disputes, order history, support cases, legal holds, or device backups.
 
 ## Test Plan
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+
+- Validate exactly one H1, all canonical sections, exact source URLs, and no generic research placeholders.
+- Unit test wallet item lifecycle, pass import/update/revocation, presentation state, credential eligibility, notification preferences, support routing, closure blockers, and privacy-safe analytics.
+- Contract test every documented API route, response shape, provider status, error code, event replay, entitlement blocker, and disclosure acknowledgement.
+- Integration test wallet home, add pass, present pass, share pass, remove item, card provisioning gate, order tracking, notifications, support, export, and deletion.
+- Offline/realtime test cached presentation, blocked sensitive writes offline, stale labels, provider update tokens, revocation reconciliation, push deep links, and provider outages.
+- Security test token redaction, pass payload storage, session revocation, support evidence access, audit events, platform secret isolation, and local data deletion.
+- Accessibility test screen readers, focus order, dynamic type, contrast, reduced motion, barcode alternatives, pass field reading, error recovery, and support paths.
+- Manual verification test native iOS screens, cards, passes, keys, IDs, transit, order tracking, push payloads, sharing, support, deletion/export, hardware behavior, and regional/provider differences before removing launch gates.
 
 ## Acceptance Criteria
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are all represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests exist and cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+
+- The spec has exactly one H1 and all canonical sections.
+- Exact first-party marketplace, Apple Wallet, Apple Pay, support, privacy/legal, security, developer, and PassKit URLs replace generic research placeholders.
+- A downstream team can build a lawful public-source V1 inspired by Apple Wallet without copying assets, private APIs, pass templates, card art, secure-element claims, NFC behavior, issuer contracts, legal text, support scripts, or brand copy.
+- Every card, pass, key, ID, transit, NFC, secure-element, issuer, support, notification, deletion/export, regional, and native-device behavior without lawful hands-on verification remains explicitly blocked.
+- Wallet home, pass detail, presentation, provisioning gates, notifications, support routing, privacy, data export, and deletion have deterministic state models and tests.
+- Sensitive wallet data has consent boundaries, privacy controls, audit events, local deletion paths, support escalation, and analytics minimization.
+- Platform/provider-backed modules remain feature-flagged until legal, platform, provider, security, accessibility, support, and manual verification owners approve launch.
 
 ## Open Questions
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, or regulated sandbox?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+
+- Which wallet capabilities are implemented as true platform Wallet integrations versus original in-app barcode/QR wallet equivalents?
+- Which issuer, merchant, transit, key, ID, and order-tracking providers will the implementation use?
+- Which Android-equivalent behavior is in scope when Apple-only secure-element or Wallet entitlements cannot be reproduced?
+- Which synthetic cards, passes, tickets, orders, keys, IDs, providers, and downstream implementation repos will be used for tests?
 
 ## Next Steps
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, and user-review themes in a dedicated research note.
-- Resolve open questions and update this spec before app implementation starts.
-- Produce a build plan with route map, component map, API schema, seed data plan, and test checklist.
+
+- Use lawful test devices/accounts to verify native Apple Wallet screens, card/pass/key/ID/transit/order workflows, notifications, sharing, support, deletion/export, and regional/provider behavior.
+- Create synthetic cards, passes, tickets, loyalty cards, order passes, credential blockers, support cases, and provider events.
+- Run legal, platform, provider, security, privacy, accessibility, and support review before enabling production wallet credentials or NFC/secure-element-adjacent features.
