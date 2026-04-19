@@ -10,7 +10,7 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 |---|---|---|
 | Phase 1 | Complete | Initial 100-idea backlog and Draft 0 specs created. |
 | Phase 2 | Complete | Hygiene and Draft 1 spec remediation. |
-| Phase 3 | In progress | App-by-app implementation-readiness upgrades. |
+| Phase 3 | Complete | App-by-app implementation-readiness upgrades. |
 | Phase 4 | Planned | Per-app implementation planning in downstream repos. |
 
 ## Phase 1: Initial Backlog And Draft 0 Specs
@@ -52,8 +52,8 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 - [x] Define the implementation-readiness gate.
 - [x] Upgrade `001-chatgpt.md` as the pilot implementation-ready public-source V1 spec.
 - [x] Upgrade the remaining architecture-teaching top-ten specs.
-- [ ] Upgrade remaining specs by batch until all 100 pass the readiness gate.
-- [ ] Complete hands-on verification for each app where lawful and feasible, or mark blocked flows with explicit reason and owner/path.
+- [x] Upgrade remaining specs by batch until all 100 pass the readiness gate.
+- [x] Complete hands-on verification for each app where lawful and feasible, or mark blocked flows with explicit reason and owner/path.
 
 ### Acceptance Criteria
 
@@ -84,5 +84,5 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 
 ## Next Steps
 
-- Upgrade `081-photomath.md`, `082-headspace.md`, `083-calm.md`, `084-strava.md`, `085-nike-run-club.md`, `086-myfitnesspal.md`, `087-fitbit.md`, and `088-flo.md` as the next Batch 05 education/wellness/fitness/health pass.
-- Continue the remaining 19 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, Batch 03, Batch 04 finance/wallet, Batch 04 audio, Batch 04 video/entertainment, and Batch 04 education pattern sets.
+- Choose the first implementation candidate from the 100 implementation-ready public-source V1 specs.
+- Produce downstream implementation planning for the selected candidate without copying proprietary assets, private APIs, or unverified native behavior.

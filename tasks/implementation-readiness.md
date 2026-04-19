@@ -5,9 +5,9 @@ Updated: 2026-04-19
 
 ## Verdict
 
-The spec set is moving from Draft 1 scaffolds to implementation-ready specs by focused batches.
+The full spec set has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs.
 
-Current readiness count: 89 of 100.
+Current readiness count: 100 of 100.
 
 ## Readiness Definition
 
@@ -114,7 +114,17 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 086 | MyFitnessPal | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; food logging, macro tracking, barcode/AI meal scan, recipes, workouts, community privacy, ads/subscriptions, nutrition safety, and native/manual blockers remain explicit. |
 | 087 | Fitbit | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; wearable sync, activity, sleep, heart/stress/nutrition, Premium, Google account migration, sensitive health data, and native/manual blockers remain explicit. |
 | 088 | Flo | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; cycle tracking, predictions, pregnancy/fertility, Anonymous Mode, partner sharing, reproductive-health privacy, subscriptions, and native/manual blockers remain explicit. |
-| 090-100 | Remaining specs | Draft 1 scaffold | Must be upgraded app-by-app or by focused batch using the readiness definition above. |
+| 090 | Todoist | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; task inbox, quick add, natural-language due dates, projects, labels, filters, reminders, comments, calendar/list/board views, productivity trends, templates, integrations, team collaboration, and native/manual blockers remain explicit. |
+| 091 | Trello | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Inbox capture, boards, lists, cards, checklists, Planner calendar sync, offline mobile capture, automation, Power-Ups-style integrations, workspace visibility, AI summaries, and native/manual blockers remain explicit. |
+| 092 | Google Calendar | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; event creation, recurring events, multiple calendars, tasks, invitations, Meet links, working location, shared calendars, booking pages, privacy, Calendar API, and native/manual blockers remain explicit. |
+| 093 | Evernote | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; notes, notebooks, tags, tasks, Home dashboard, calendar connection, scanner, web clipping, OCR/search, audio/transcription, AI notes, shared spaces, and native/manual blockers remain explicit. |
+| 094 | Dropbox | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; cloud files/folders, camera uploads, offline files, previews, sharing links, file requests, transfer, scanning, version history, deleted-file recovery, teams, and native/manual blockers remain explicit. |
+| 095 | Google Drive | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; My Drive, folders, shared drives, search, filters, scanning, offline files, sharing permissions, activity notifications, Workspace collaboration, AI summaries, eSignatures, Drive API, and native/manual blockers remain explicit. |
+| 096 | CapCut | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; timeline editing, trim/split/merge, speed curves, keyframes, chroma key, stabilization, captions, text-to-speech, background removal, templates, effects, music licensing, export, and native/manual blockers remain explicit. |
+| 097 | Canva | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; design editor, templates, photo/video editing, presentations, Magic Studio-style AI, Brand Hub, content library, team collaboration, education controls, licensing, exports, and native/manual blockers remain explicit. |
+| 098 | Lightroom | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; photo/video library, imports, camera capture, raw editing, presets, masking, retouch, Quick Actions, generative remove, cloud albums, export, metadata, and native/manual blockers remain explicit. |
+| 099 | Google Photos | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; backup, library timeline, albums, AI search/editing, memories, Locked Folder, sharing, partner sharing, device cleanup, Lens, prints, storage, privacy, and native/manual blockers remain explicit. |
+| 100 | Ring | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; device dashboard, setup, live view, two-way talk, motion alerts, event history, recordings, subscriptions, alarm monitoring, shared users, privacy zones, E2EE, law-enforcement request controls, and hardware/native/manual blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 
@@ -144,8 +154,9 @@ For each spec:
 - Batch 04 video/entertainment public-source V1 expansion: `072-netflix.md`, `073-youtube.md`, `074-twitch.md`, `075-letterboxd.md`, and `076-imdb.md`.
 - Batch 04 education public-source V1 expansion: `077-duolingo.md`, `078-khan-academy.md`, `079-quizlet.md`, and `080-coursera.md`.
 - Batch 05 education/wellness/fitness/health public-source V1 expansion: `081-photomath.md`, `082-headspace.md`, `083-calm.md`, `084-strava.md`, `085-nike-run-club.md`, `086-myfitnesspal.md`, `087-fitbit.md`, and `088-flo.md`.
+- Batch 05 productivity/cloud/creator/photo/smart-home public-source V1 expansion: `090-todoist.md`, `091-trello.md`, `092-google-calendar.md`, `093-evernote.md`, `094-dropbox.md`, `095-google-drive.md`, `096-capcut.md`, `097-canva.md`, `098-lightroom.md`, `099-google-photos.md`, and `100-ring.md`.
 
 ## Next Steps
 
-- Upgrade the remaining Batch 05 productivity, cloud, creator, photo, and smart-home specs: `090-todoist.md`, `091-trello.md`, `092-google-calendar.md`, `093-evernote.md`, `094-dropbox.md`, `095-google-drive.md`, `096-capcut.md`, `097-canva.md`, `098-lightroom.md`, `099-google-photos.md`, and `100-ring.md`.
-- Continue Phase 3 exact source replacement and hands-on blocker documentation through later batches.
+- Choose the first implementation candidate for downstream planning.
+- Complete hands-on verification where lawful and feasible before one-for-one native parity claims.

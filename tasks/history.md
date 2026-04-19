@@ -122,7 +122,14 @@
 - Rewrote the selected specs to implementation-ready public-source V1 status with app-specific camera math, meditation, sleep/wellness, GPS fitness social, running-plan, nutrition logging, wearable health, reproductive-health privacy, edge-case, test, acceptance, build-plan, and manual verification detail.
 - Updated readiness and audit counts from 81 to 89 implementation-ready public-source V1 specs and prepared the remaining Batch 05 productivity/cloud/creator/photo/smart-home step.
 
+## 2026-04-19 - Batch 05 Productivity/Cloud/Creator/Photo/Smart-Home Readiness Upgrade
+
+- Archived Draft 1 copies for `090-todoist.md`, `091-trello.md`, `092-google-calendar.md`, `093-evernote.md`, `094-dropbox.md`, `095-google-drive.md`, `096-capcut.md`, `097-canva.md`, `098-lightroom.md`, `099-google-photos.md`, and `100-ring.md`.
+- Replaced source-discovery links with exact first-party marketplace, help/support, privacy/legal, product, developer, AI, security, subscription, and hardware/support URLs for the remaining Batch 05 specs.
+- Rewrote the selected specs to implementation-ready public-source V1 status with app-specific productivity planning, kanban collaboration, calendars, notes, cloud storage, creator editing, photo libraries, smart-home video security, edge-case, test, acceptance, build-plan, and manual verification detail.
+- Updated readiness and audit counts from 89 to 100 implementation-ready public-source V1 specs and prepared the first downstream implementation-candidate selection step.
+
 ## Next Steps
 
-- Upgrade `090-todoist.md`, `091-trello.md`, `092-google-calendar.md`, `093-evernote.md`, `094-dropbox.md`, `095-google-drive.md`, `096-capcut.md`, `097-canva.md`, `098-lightroom.md`, `099-google-photos.md`, and `100-ring.md` as the next Batch 05 productivity/cloud/creator/photo/smart-home pass.
-- Continue the remaining 11 Draft 1 specs by batch using the completed Batch 01, top-ten, Batch 02, Batch 03, Batch 04 finance/wallet, Batch 04 audio, Batch 04 video/entertainment, Batch 04 education, and Batch 05 education/wellness/fitness/health pattern sets.
+- Choose the first implementation candidate from the 100 implementation-ready public-source V1 specs.
+- Produce downstream implementation planning for the selected candidate.

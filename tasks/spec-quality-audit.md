@@ -5,9 +5,9 @@ Updated: 2026-04-19
 
 ## Verdict
 
-The 100 technical specs pass the Draft 1 structural and depth gate. Phase 3 implementation-readiness upgrades have now replaced discovery sources with exact first-party URLs for 89 specs.
+The 100 technical specs pass the Draft 1 structural and public-source V1 depth gate. Phase 3 implementation-readiness upgrades have now replaced discovery sources with exact first-party URLs for all 100 specs.
 
-Most specs are still not final one-for-one clone specs because exact first-party source URLs and hands-on verification remain open Phase 3 work. The implementation-ready public-source V1 set is: `001-chatgpt.md` through `089-notion.md`, except `090-todoist.md` through `100-ring.md` remain Draft 1.
+The specs are not final one-for-one clone specs because hands-on verification remains blocked for native, paid, account, hardware, support, and regional flows. The implementation-ready public-source V1 set now covers `001-chatgpt.md` through `100-ring.md`.
 
 ## Audit Scope
 
@@ -22,7 +22,7 @@ Most specs are still not final one-for-one clone specs because exact first-party
 A Draft 1 or public-source V1 spec must meet these minimums:
 
 - One H1 and all canonical sections.
-- App-specific research source table or source-discovery list, depending on readiness state.
+- App-specific research source table with exact first-party URLs.
 - App-specific source-backed requirements, screen inventory, data model, API/backend contracts, offline/realtime behavior, privacy/safety controls, analytics, edge cases, tests, acceptance criteria, open questions, and next steps.
 - Explicit blocked hands-on verification notes for account, paid, native, notification, device, and regional behavior that has not been lawfully verified.
 
@@ -34,9 +34,9 @@ A Draft 1 or public-source V1 spec must meet these minimums:
 - Specs with all canonical sections: 100.
 - Specs passing Draft 1 depth metrics: 100.
 - Specs failing Draft 1 depth metrics: 0.
-- Specs with exact first-party source URLs replacing discovery links: 89.
+- Specs with exact first-party source URLs replacing discovery links: 100.
 - Specs with hands-on app behavior fully verified: 0.
-- Specs upgraded to implementation-ready public-source V1: 89.
+- Specs upgraded to implementation-ready public-source V1: 100.
 
 ## Resolved Findings
 
@@ -108,15 +108,11 @@ All numbered specs now use the same canonical structure and pass the same depth 
 
 `081-photomath.md`, `082-headspace.md`, `083-calm.md`, `084-strava.md`, `085-nike-run-club.md`, `086-myfitnesspal.md`, `087-fitbit.md`, and `088-flo.md` now use exact first-party marketplace, help/support, privacy/legal, product, subscription, device/wearable, anonymous-mode, data-export/delete, and safety URLs instead of discovery links and include app-specific camera math, meditation, sleep/wellness, GPS fitness social, running-plan, nutrition logging, wearable health, reproductive-health privacy, edge-case, test, acceptance, build-plan, and manual verification detail.
 
+### Resolved: Batch 05 Productivity Cloud Creator Photo And Smart Home Source Replacement
+
+`090-todoist.md`, `091-trello.md`, `092-google-calendar.md`, `093-evernote.md`, `094-dropbox.md`, `095-google-drive.md`, `096-capcut.md`, `097-canva.md`, `098-lightroom.md`, `099-google-photos.md`, and `100-ring.md` now use exact first-party marketplace, help/support, privacy/legal, product, developer, AI, security, subscription, and hardware/support URLs instead of discovery links and include app-specific productivity, calendar, notes, cloud storage, creator tool, photo library, smart-home/video security, edge-case, test, acceptance, build-plan, and manual verification detail.
+
 ## Remaining Findings
-
-### High: Exact Source Replacement Remains Open
-
-Eleven specs still include App Store, Google Play, and official help/privacy source-discovery links. These are not exact verified first-party listing/help/privacy URLs.
-
-Impact: A builder still needs to complete the app-by-app research pass before claiming one-for-one product truth.
-
-Recommended fix: In Phase 3, replace every source-discovery link with exact marketplace listing, first-party help/support page, privacy policy, and any public product documentation used.
 
 ### High: Hands-On Verification Remains Blocked
 
@@ -135,10 +131,9 @@ Recommended fix: Use lawful test accounts/devices to verify reachable flows. Mar
 - Batch 01 now has implementation-ready public-source V1 coverage for AI assistant, AI search, AI companion, short-video, social-media, camera-social, community, decentralized-social, visual-discovery, lifestyle-social, private messaging, cloud messaging, privacy messaging, community chat, and workplace chat patterns.
 - Batch 02 now has implementation-ready public-source V1 coverage for communication, calling, meetings, email, maps, navigation, rideshare, micromobility, car-sharing, lodging marketplace, multi-product travel booking, travel deals, itinerary organization, local delivery, food delivery, and grocery delivery patterns.
 - Batch 04 now has implementation-ready public-source V1 coverage for crypto exchange, credit/personal finance, zero-based budgeting, subscription and bill management, digital wallet/pass, music streaming, social audio, audiobooks, podcast player, streaming video, user-generated video, live streaming, film social, entertainment database, gamified lessons, broad course learning, flashcard study, and online course marketplace patterns.
-- Batch 05 now has implementation-ready public-source V1 coverage for camera math learning, meditation, sleep/wellness, GPS fitness social, running plans, nutrition logging, wearable health dashboards, and reproductive-health tracking patterns.
+- Batch 05 now has implementation-ready public-source V1 coverage for camera math learning, meditation, sleep/wellness, GPS fitness social, running plans, nutrition logging, wearable health dashboards, reproductive-health tracking, productivity planning, kanban collaboration, calendars, notes, cloud storage, creator tools, photo editing, photo libraries, and smart-home video security patterns.
 
 ## Next Steps
 
-- Upgrade the remaining Batch 05 productivity, cloud, creator, photo, and smart-home specs: `090-todoist.md`, `091-trello.md`, `092-google-calendar.md`, `093-evernote.md`, `094-dropbox.md`, `095-google-drive.md`, `096-capcut.md`, `097-canva.md`, `098-lightroom.md`, `099-google-photos.md`, and `100-ring.md`.
-- Continue Phase 3 implementation-readiness upgrades for the remaining 11 Draft 1 specs by batch.
+- Choose the first implementation candidate for downstream planning.
 - Complete hands-on verification where lawful and feasible.
