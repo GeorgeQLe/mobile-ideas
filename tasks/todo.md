@@ -1,125 +1,110 @@
-# Todo
+# Todo — Mobile Ideas
 
-## Priority Documentation Todo
+> Current phase: 6 of 6 — Downstream Repository Seeding And Spec Store Publication
+> Source roadmap: `tasks/roadmap.md`
+> Test strategy: none
 
-- [x] `$pack install business-app` - project-local pack configuration is current because `.agents/project.json` sets `project_type` to `business-app` and `enabled_packs` includes `business-app`.
-- [ ] `$icp` - create `research/icp.md` because the `business-app` pack is enabled and no canonical `research/` output exists yet.
-- [ ] `$competitive-analysis` - create `research/competitive-analysis.md` after `$icp`; currently ordered behind it because `research/icp.md` is missing.
-- [ ] `$positioning` - create `research/positioning.md` after `$competitive-analysis`; currently blocked because `research/competitive-analysis.md` is missing.
-- [ ] `$journey-map` - create `research/journey-map.md` after `$icp`; currently blocked because `research/icp.md` is missing, while `specs/` already contains the source specification set.
-- [ ] `$metrics` - create `research/metrics.md` after `$journey-map`; currently blocked because `research/journey-map.md` is missing.
-- [ ] `$gtm` - create `research/gtm.md` after `$icp`, `$competitive-analysis`, `$positioning`, and `$journey-map`; currently blocked because those upstream research outputs are missing.
-- [ ] `$monetization` - create `research/monetization.md` after `$gtm`; currently blocked because `research/icp.md`, `research/competitive-analysis.md`, `research/journey-map.md`, `research/metrics.md`, and `research/gtm.md` are missing.
-- [ ] `$landing-copy` - create `research/landing-copy.md` after `$positioning`, `$journey-map`, and `$monetization`; currently blocked because those upstream research outputs are missing.
-- [ ] `$risk-register` - create `research/risk-register.md` after `$icp` so project, legal, privacy, execution, and downstream-repository risks are tied to an explicit customer and product thesis; currently blocked because `research/icp.md` is missing.
-- [ ] `$enterprise-icp` - create `research/enterprise-icp.md` after `$icp`; currently blocked because `research/icp.md` is missing.
-- [ ] `$assumption-tracker` - create `research/assumption-tracker.md` after at least three primary research docs exist; currently blocked because `research/` has no primary research documents.
-- [ ] `$experiment` - create `research/experiments/<experiment>.md` after `$assumption-tracker`; currently blocked because `research/assumption-tracker.md` is missing and no prioritized hypothesis exists.
-- [ ] `$burn-rate` - create `research/burn-rate.md` after `$monetization`, `$metrics`, and `$gtm`; currently blocked because those upstream business model and measurement outputs are missing.
-- [ ] `$runway-model` - create `research/runway-model.md` after `$burn-rate`, `$monetization`, `$metrics`, and `$gtm`; currently blocked because the upstream financial and growth assumptions are missing.
-- [ ] `$platform-strategy` - create `research/platform-strategy.md` after `$icp`, `$competitive-analysis`, `$journey-map`, and `$metrics`; currently blocked because the core product health and expansion context are missing.
-- [ ] `$reconcile-research fix all` - create `research/reconciliation-report.md` after the first batch of primary research docs exists; currently blocked because fewer than two assertion-bearing `research/*.md` documents exist to reconcile.
+## Phase 6: Downstream Repository Seeding And Spec Store Publication
 
-## Priority Task Queue
+### Goal
 
-- [ ] `$plan-phase 6` - generate executable implementation steps for downstream repository seeding because `tasks/roadmap.md` Phase 6 has unchecked acceptance criteria and `tasks/repo-seeding.md` lists all 100 target repos, but `tasks/todo.md` has no Phase 6 `### Tests First`, `### Implementation`, or `### Green` sections.
-- [ ] Review `tasks/recurring-todo.md`: "Refresh research roadmap" - next due is 2026-05-19 or after the next major documentation change; Phase 6 roadmap and repo-seeding docs were added on 2026-04-20, so promote to `tasks/todo.md` only if this requires execution work now.
-- [ ] `$ship-end --no-deploy` - record the new repo-seeding planning work in history before bulk execution because `tasks/history.md` was last modified on 2026-04-19 15:38:07 -0400 while the Phase 6 roadmap and `tasks/repo-seeding.md` were modified on 2026-04-20.
+Create one GitHub repository per clone implementation target using `gh`, seed each repository with its source spec and minimal implementation-planning docs, and keep this repository as the public canonical spec store once the legal/open-source audit is complete.
 
-## Phase 2: Hygiene And Draft 1 Remediation
+### Scope
 
-- [x] Add `CLAUDE.md` with project conventions.
-- [x] Add `tasks/roadmap.md` with phase structure.
-- [x] Add `tasks/history.md` with dated project history.
-- [x] Add `## Next Steps` to generated task artifacts.
-- [x] Rewrite all numbered specs into canonical Draft 1 structure.
-- [x] Run final hygiene and quality validation.
-- [x] Commit and push remediation work.
+- Use `tasks/repo-seeding.md` as the operational checklist and manifest for all 100 downstream repositories.
+- Create downstream repos as private first unless a repo has completed legal/name/license review and the user explicitly approves public visibility.
+- Seed each downstream repo with source-spec docs, source-store backlink, legal/non-affiliation notice, original-assets requirement, and an empty implementation task scaffold.
+- Keep this repository code-free and authoritative for specs, readiness status, source links, blockers, and public-source V1 scope.
+- Prepare this spec store for open-source publication with license, README, contribution guidance, disclaimers, and a final check for secrets, copied assets, proprietary content, and ambiguous affiliation language.
 
-## Phase 3: Exact Source Replacement And Hands-On Verification
+### Acceptance Criteria
 
-- [x] Define the implementation-readiness gate in `tasks/implementation-readiness.md`.
-- [x] Upgrade `001-chatgpt.md` from Draft 1 scaffold to implementation-ready public-source V1 spec.
-- [x] Upgrade `017-telegram.md`, `018-signal.md`, `019-discord.md`, and `020-slack.md` to implementation-ready public-source V1 status.
-- [x] Replace App Store, Google Play, and official help/privacy source-discovery links in the remaining 11 specs with exact first-party URLs.
-- [x] Complete hands-on verification for reachable app flows using lawful test accounts/devices, or mark the flow as launch-blocked.
-- [x] Mark paid, hardware, region-blocked, regulated, or otherwise inaccessible flows with explicit blocker notes and owner/path.
-- [x] Refresh `tasks/spec-quality-audit.md` after exact source replacement and hands-on verification.
+- [x] `tasks/repo-seeding.md` lists all 100 target repos and source specs.
+- [x] A reusable `gh` seeding command pattern exists.
+- [ ] The `gh` seeding command pattern has been tested on one non-Todoist repo.
+- [ ] Existing `GeorgeQLe/todoist-mobile-clone` is reconciled with the same seed structure used for the other repos.
+- [ ] All 100 downstream repos exist or have explicit blocker notes in `tasks/repo-seeding.md`.
+- [ ] This spec-store repo has a public-release checklist covering license, README, contribution policy, legal scope, attribution/non-affiliation language, and content audit.
+- [ ] This spec-store repo is made public only after the open-source checklist is complete and explicitly approved.
 
-## Completed Step: Choose the first downstream implementation candidate
+### Execution Profile
 
-### Decision
+**Parallel mode:** serial
+**Integration owner:** main agent
+**Conflict risk:** high
+**Review gates:** correctness, security, docs/API conformance
 
-Selected `specs/batch-05/090-todoist.md` as the first downstream implementation candidate.
+**Subagent lanes:** none
 
-Todoist is the best first implementation target because it has strong product value, a clear public-source V1 spec, mostly original-data workflows, and a useful mobile architecture shape without requiring regulated money movement, licensed media catalogs, physical hardware, real-world dispatch, or safety-critical location behavior to start planning.
+### Implementation
 
-### Candidate Comparison
+- Step 6.1: Audit the current repo-seeding contract and choose the dry-run target
+  - Files: modify `tasks/repo-seeding.md`
+  - Confirm the manifest still lists 100 target repos, exactly one checked existing repo, and source specs that exist under `specs/`.
+  - Select one low-risk non-Todoist dry-run target, preferably a productivity or notes app, and record why it is safe to test privately.
+  - Add a status/log section for dry-run evidence, batch progress, failures, blockers, and explicit decisions to keep repos private.
 
-| Candidate | Category | Startup Risk | Product Value | Decision |
-|---|---|---|---|---|
-| `090-todoist.md` | Productivity/task planning | Low to medium: auth, private tasks, reminders, offline sync, collaboration, calendar integrations, billing, export/delete, and support blockers can start behind feature flags or provider stubs. | High: core CRUD, quick add, projects, filters, reminders, collaboration, offline behavior, and privacy flows create a useful full-stack mobile implementation plan. | Choose first. |
-| `066-spotify.md` | Licensed media | High: music/podcast/audiobook catalogs, rights, ads, recommendations, downloads, family controls, creator tools, and regional availability block native parity. | High, but provider/legal complexity dominates early implementation planning. | Defer. |
-| `056-cash-app.md` | Regulated finance | Very high: identity verification, money movement, card issuance, bitcoin, investing, taxes, disputes, teen accounts, scam controls, and compliance approvals are launch blockers. | High, but unsuitable as the first build without a regulated provider/compliance plan. | Defer. |
-| `100-ring.md` | Smart home/security hardware | Very high: device setup, Wi-Fi provisioning, video/audio streams, alarm monitoring, E2EE, law-enforcement controls, subscriptions, and hardware ownership block native parity. | High, but depends on physical devices and sensitive home-security review. | Defer. |
+- Step 6.2: Add reusable downstream seed templates
+  - Files: create `templates/downstream/README.md`, create `templates/downstream/docs/plans/README.md`, create `templates/downstream/tasks/roadmap.md`, create `templates/downstream/tasks/todo.md`, create `templates/downstream/.gitignore`
+  - Templates must use placeholders for app ID, app name, target repo, source spec path, source spec-store URL, non-affiliation language, legal scope, original-assets requirement, and manual verification blockers.
+  - Templates must not include proprietary names as project branding, copied app-store media, screenshots, logos, private API language, production credentials, or real user data.
 
-### Deferred Todoist Blockers
+- Step 6.3: Add the local seeding utility and dry-run mode
+  - Files: create `scripts/seed-downstream-repos.mjs`, modify `tasks/repo-seeding.md`
+  - Parse the `tasks/repo-seeding.md` manifest and support a single-target dry run before any batch creation.
+  - Generate seed files from `templates/downstream/`, copy the selected source spec into `docs/source-specs/`, and print the exact `gh` commands before executing them.
+  - Default to private repos, refuse public creation, skip existing repos unless `--reconcile-existing` is provided, and write blocker evidence back to `tasks/repo-seeding.md`.
 
-- Manual verification remains required for signup/login, quick-add parsing accuracy, recurring date edge cases, push reminder payloads, calendar integrations, team invite/admin flows, paid checkout/restore/cancel, widgets, Wear OS/watch behavior, offline conflict resolution, productivity trends, data export, account deletion, and support escalation.
-- Calendar, notification, billing, team, export/delete, and support flows should begin as explicit provider stubs, feature flags, blocked acceptance tests, or non-parity fallbacks.
-- The downstream implementation must use original branding, original copy, original icons, original templates, synthetic seed data, and documented public URLs only.
+- Step 6.4: Prepare this spec store for public release review
+  - Files: create `README.md`, create `LICENSE`, create `CONTRIBUTING.md`, create `SECURITY.md`, modify `tasks/repo-seeding.md`
+  - Document the repo purpose, lawful functional-parity scope, non-affiliation language, source/spec map, no-proprietary-assets rule, contribution expectations, source-correction process, manual verification evidence policy, and downstream repo linkage policy.
+  - Keep the repository private until the manual approval task is complete.
 
-### Validation
+- Step 6.5: Run one private non-Todoist dry-run seed
+  - Files: modify `tasks/repo-seeding.md`
+  - Verify `gh auth status`; if authentication fails, pause for the manual auth task instead of working around it.
+  - Run the seeding utility against the selected dry-run target with private visibility.
+  - Record the created repo URL, seeded files, commit SHA if available, and any blocker notes in `tasks/repo-seeding.md`.
 
-- Confirmed `tasks/implementation-readiness.md` marks `090 | Todoist` as `Implementation-ready for public-source V1`.
-- Confirmed `specs/batch-05/090-todoist.md` has exact first-party marketplace, help, privacy, terms, security, pricing, template, and integration sources.
-- Confirmed the selected V1 can start with synthetic task/project/collaboration data and provider stubs, without production credentials, paid plans, hardware, regulated approvals, licensed media catalogs, copied assets, or private APIs.
+- Step 6.6: Reconcile the existing Todoist downstream repo with the shared seed structure
+  - Files: modify `tasks/repo-seeding.md`, update downstream repo `GeorgeQLe/todoist-mobile-clone`
+  - Compare `GeorgeQLe/todoist-mobile-clone` against the template structure.
+  - Add missing seed docs or record explicit differences that should remain because Todoist was created before the shared seed template.
+  - Mark the Todoist row and batch checklist consistently after reconciliation evidence exists.
 
-## Completed Step: Produce the Todoist downstream build plan
+- Step 6.7: Seed the remaining downstream repos in controlled private batches
+  - Files: modify `tasks/repo-seeding.md`
+  - Create repos batch by batch only after the dry-run and Todoist reconciliation pass.
+  - Keep every downstream repo private, preserve source-spec links and manual blockers, and record per-repo creation evidence or explicit blocker notes.
+  - Stop the batch on authentication, permission, naming, rate-limit, or template validation failures and record the blocker instead of partially guessing.
 
-### Result
+- Step 6.8: Verify the full downstream repo manifest
+  - Files: modify `tasks/repo-seeding.md`
+  - Confirm every target repo either exists privately with the expected seeded files and source-spec backlink, or has an explicit blocker note.
+  - Confirm no downstream repo was made public and no proprietary assets, screenshots, logos, private APIs, production credentials, or real user data were seeded.
+  - Confirm `tasks/repo-seeding.md` has batch-level and per-repo evidence for the dry run, Todoist reconciliation, and all remaining repos.
 
-- Created `tasks/todoist-downstream-build-plan.md` from `specs/batch-05/090-todoist.md`.
-- Recorded the proposed downstream target repository as `GeorgeQLe/todoist-mobile-clone`.
-- Defined an implementation-agnostic route map for auth shell, Today/Upcoming, Inbox, Project View, Quick Add, Task Detail, Labels/Filters, Calendar/Board View, Templates, Team Workspace, Settings/Billing, Privacy, Support, Export, and Account Deletion.
-- Defined API schema planning for auth/session, profile/settings, tasks, projects/sections, quick add, labels, filters, reminders, comments, templates, integrations, productivity stats, search, uploads, notifications, entitlements, data export, account deletion, support cases, and audit events.
-- Defined the downstream data model plan for user, device session, workspace/account, task, project, section, label, filter, reminder, comment, attachment, template, integration link, productivity stat, notification, entitlement, support case, audit event, and local cache record.
-- Defined synthetic seed data covering projects, sections, labels, filters, tasks, comments, templates, collaborators, entitlements, notifications, support cases, export jobs, and offline conflict examples.
-- Defined the downstream test checklist for unit, contract, integration, realtime, offline, permission, privacy/security, billing, accessibility, and manual-verification-blocker coverage.
-- Preserved Todoist manual verification blockers as feature flags or blocked acceptance tests before any native parity claim.
+- Step 6.9: Publish the spec store only after explicit approval
+  - Files: modify `tasks/repo-seeding.md`
+  - Complete the public-release checklist in `tasks/repo-seeding.md`.
+  - After the manual approval task is checked off, run the visibility change for `GeorgeQLe/mobile-ideas`.
+  - Record the approval evidence, command used, resulting visibility, and any follow-up blocker notes.
 
-### Validation
+### Milestone: Phase 6 Downstream Repository Seeding And Spec Store Publication
 
-- Confirmed the build plan maps every required Todoist V1 screen to at least one route or navigation state.
-- Confirmed every API family in `090-todoist.md` has an owner, request/response scope, error states, and test coverage.
-- Confirmed seed data is synthetic and excludes Todoist branding, copied templates, real task content, and private user data.
-- Confirmed deferred manual blockers remain explicit and are not treated as completed native parity.
+**Acceptance Criteria:**
 
-## Completed Step: Create or link the downstream implementation repository
+- [x] `tasks/repo-seeding.md` lists all 100 target repos and source specs.
+- [x] A reusable `gh` seeding command pattern exists.
+- [ ] The `gh` seeding command pattern has been tested on one non-Todoist repo.
+- [ ] Existing `GeorgeQLe/todoist-mobile-clone` is reconciled with the same seed structure used for the other repos.
+- [ ] All 100 downstream repos exist or have explicit blocker notes in `tasks/repo-seeding.md`.
+- [ ] This spec-store repo has a public-release checklist covering license, README, contribution policy, legal scope, attribution/non-affiliation language, and content audit.
+- [ ] This spec-store repo is made public only after the open-source checklist is complete and explicitly approved.
 
-### Result
+**On Completion**
 
-- Created the private downstream implementation repository at `https://github.com/GeorgeQLe/todoist-mobile-clone`.
-- Seeded the downstream repository with `docs/source-specs/090-todoist.md` copied from `specs/batch-05/090-todoist.md`.
-- Seeded the downstream repository with `docs/plans/todoist-downstream-build-plan.md` copied from `tasks/todoist-downstream-build-plan.md`.
-- Updated this planning repository to record the downstream repository URL.
-- Did not add runtime app code in this planning repository.
-
-### Validation
-
-- Confirmed the downstream repository exists at `https://github.com/GeorgeQLe/todoist-mobile-clone`.
-- Confirmed the downstream repo has access to the source spec and build plan.
-- Confirmed no runtime code was added to this planning repository.
-
-### On Completion
-
-- Phase 4 is complete.
-- Completed phase archived to `tasks/phases/phase-4.md`.
-- No additional roadmap phases remain in this planning repository.
-- Next documentation/work queue should be generated with `$research-roadmap`.
-
-## Next Steps
-
-- Run `$research-roadmap` to recommend the next documentation action from current project state.
-- Continue implementation planning and scaffolding in `https://github.com/GeorgeQLe/todoist-mobile-clone`.
-- Keep Todoist manual verification blockers deferred until lawful hands-on verification evidence exists.
+- Deviations from plan: none recorded yet.
+- Tech debt / follow-ups: none recorded yet.
+- Ready for next phase: no.
