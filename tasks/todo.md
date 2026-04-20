@@ -178,9 +178,35 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
 
 - Step 6.8: Verify the full downstream repo manifest
   - Files: modify `tasks/repo-seeding.md`
-  - Confirm every target repo either exists privately with the expected seeded files and source-spec backlink, or has an explicit blocker note.
-  - Confirm no downstream repo was made public and no proprietary assets, screenshots, logos, private APIs, production credentials, or real user data were seeded.
-  - Confirm `tasks/repo-seeding.md` has batch-level and per-repo evidence for the dry run, Todoist reconciliation, and all remaining repos.
+  - Execution profile: serial, main agent, low conflict risk (read-only GitHub API checks plus docs updates), no subagent lanes, test strategy `none` (docs-only repo).
+  - Prerequisites:
+    - `gh auth status` shows active account `GeorgeQLe` with `repo` + `workflow` scopes. If it fails, stop and use the `gh auth login` manual blocker path.
+    - Step 6.7 marked complete: 97 of 98 newly-seeded repos recorded in per-batch evidence tables, ID 075 Letterboxd recorded as a blocker, 090 Todoist reconciled, 093 Evernote seeded.
+    - Step 6.7 blocker for ID 075 is still present and requires verification as a blocker row, not a seeded row.
+  - Sub-tasks:
+    1. For every manifest row in `tasks/repo-seeding.md` (IDs 001-100), run `gh repo view GeorgeQLe/<slug>-mobile-clone --json visibility,nameWithOwner,url,defaultBranchRef` and confirm `visibility == PRIVATE` for all 100 rows (the Letterboxd row is expected to be `PRIVATE` and empty; all others are expected to have `main`).
+    2. For every row recorded as seeded in Step 6.7 or earlier (IDs 001-074, 076-089, 091-092, 094-100 plus 090 Todoist reconciliation and 093 Evernote seed), run `gh api repos/GeorgeQLe/<slug>-mobile-clone/contents/docs/source-specs --jq '.[].name'` and confirm the expected `NNN-<slug>.md` source-spec file is present. Sample-check the root README contents via `gh api repos/.../readme --jq .name` for a minimum of five representative repos (one per batch) to confirm the template README is present.
+    3. For the Letterboxd blocker row 075, re-confirm via `gh repo view GeorgeQLe/letterboxd-mobile-clone --json visibility,isEmpty` that the repo exists, is `PRIVATE`, and is empty (no seeded commits). Record confirmation under `### Failures And Blockers`.
+    4. Scan `tasks/repo-seeding.md` per-batch evidence sections and manifest checkboxes for internal consistency: 99 rows checked `[x]`, row 075 unchecked `[ ]`, one blocker entry for 075, five `### Step 6.7 Batch 0N Seeding` sections plus the prior 6.5/6.6 sections, and one consolidated content-audit statement.
+    5. Add a new `### Step 6.8 Full Manifest Verification - YYYY-MM-DD` evidence section summarizing: count of `PRIVATE` repos (should be 100), count of repos containing the expected source spec (should be 99), Letterboxd blocker confirmation, content-audit statement that no proprietary logos/screenshots/media/private APIs/credentials/real user data exist in any inspected repo, and any new blockers observed.
+    6. Check the `Verify all 100 target repos exist and link back to this spec store.` item under `## Batch Execution Todo` in `tasks/repo-seeding.md` only after steps 1-5 pass.
+    7. Check off Step 6.8 in `tasks/todo.md` when the verification section is in place.
+  - Gotchas and conventions from this session:
+    - GitHub API propagation can lag between `gh repo create` and subsequent reads; the Step 6.7 blocker for Letterboxd originated from this lag. If a spot-check fails transiently, note the timing and re-query rather than marking the repo a new blocker.
+    - This is a read-only verification step — do not push, reconcile, or re-seed any downstream repo; that is explicitly out of scope.
+    - This repo is docs-only: validation is the evidence log plus `gh repo view` and `gh api` JSON.
+  - Acceptance criteria:
+    - `tasks/repo-seeding.md` contains a `### Step 6.8 Full Manifest Verification` section with per-criterion counts, Letterboxd blocker confirmation, and a content-audit statement.
+    - Every row in the per-repo manifest is either checked `[x]` (99 rows) or has an explicit blocker entry (row 075).
+    - Every non-blocker repo is confirmed `PRIVATE` with the expected source spec present.
+    - The `Verify all 100 target repos exist and link back to this spec store.` item in `tasks/repo-seeding.md` is checked.
+    - Step 6.8 is checked in `tasks/todo.md`.
+    - No downstream repo was made public during verification; no proprietary assets were introduced.
+  - Out of scope:
+    - Re-seeding or reconciling the Letterboxd blocker repo (deferred to a future follow-up).
+    - Step 6.9 public visibility change for `GeorgeQLe/mobile-ideas`.
+    - Any implementation code inside downstream repos.
+  - Ship-one-step handoff contract: implement only Step 6.8, validate it, mark Step 6.8 done in `tasks/todo.md`, update `tasks/history.md`, commit and push the completed work to this repo's `main`, deploy only when an explicit manual deploy contract exists (none currently — skip), write the Step 6.9 plan into `tasks/todo.md`, ensure `.claude/settings.local.json` keeps `"showClearContextOnPlanAccept": true` and `"defaultMode": "acceptEdits"`, start the approval UI for Step 6.9 by calling `EnterPlanMode` first, write a brief pass-through plan in plan mode, call `ExitPlanMode`, and stop before implementing Step 6.9. Do not call `ExitPlanMode` from normal mode.
 
 - Step 6.9: Publish the spec store only after explicit approval
   - Files: modify `tasks/repo-seeding.md`
