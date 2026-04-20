@@ -45,18 +45,26 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
   - Select one low-risk non-Todoist dry-run target, preferably a productivity or notes app, and record why it is safe to test privately.
   - Add a status/log section for dry-run evidence, batch progress, failures, blockers, and explicit decisions to keep repos private.
 
-- Step 6.2: Add reusable downstream seed templates
+- [x] Step 6.2: Add reusable downstream seed templates
   - Files: create `templates/downstream/README.md`, create `templates/downstream/docs/plans/README.md`, create `templates/downstream/tasks/roadmap.md`, create `templates/downstream/tasks/todo.md`, create `templates/downstream/.gitignore`
   - Templates must use placeholders for app ID, app name, target repo, source spec path, source spec-store URL, non-affiliation language, legal scope, original-assets requirement, and manual verification blockers.
   - Templates must not include proprietary names as project branding, copied app-store media, screenshots, logos, private API language, production credentials, or real user data.
   - Prepared execution notes: use `tasks/repo-seeding.md` as the source for required placeholders and preserve the selected dry-run target, `GeorgeQLe/evernote-mobile-clone`, for later Step 6.5 execution.
   - The templates should be generic enough for all 100 manifest rows and should not hard-code Evernote, Todoist, or any inspiration-app brand as the downstream project identity.
 
-- Step 6.3: Add the local seeding utility and dry-run mode
+- [ ] Step 6.3: Add the local seeding utility and dry-run mode
   - Files: create `scripts/seed-downstream-repos.mjs`, modify `tasks/repo-seeding.md`
   - Parse the `tasks/repo-seeding.md` manifest and support a single-target dry run before any batch creation.
   - Generate seed files from `templates/downstream/`, copy the selected source spec into `docs/source-specs/`, and print the exact `gh` commands before executing them.
   - Default to private repos, refuse public creation, skip existing repos unless `--reconcile-existing` is provided, and write blocker evidence back to `tasks/repo-seeding.md`.
+  - Prepared execution plan:
+    - Read the per-repo manifest table from `tasks/repo-seeding.md` using a strict Markdown-table parser for the `Done`, `ID`, `App`, `Target Repo`, and `Source Spec` columns.
+    - Validate that every selected manifest row has an existing source spec under `specs/` and that the target repo is under the expected owner/repo form.
+    - Render every file under `templates/downstream/` by replacing the required placeholders: app ID, app name, project name, project summary, target repo, source spec path, source spec filename, source spec-store URL, non-affiliation notice, legal scope, original-assets requirement, and manual verification blockers.
+    - For `--dry-run`, write generated output to a temporary local preview directory or print a file manifest without running `gh`, then record dry-run evidence in `tasks/repo-seeding.md`.
+    - For execution mode, require an explicit single target first, run `gh repo create ... --private --clone=false`, clone the private repo, add rendered files plus `docs/source-specs/<source-spec>`, commit, and push.
+    - Refuse `--public`, refuse missing placeholders, refuse target repos that already exist unless `--reconcile-existing` is passed, and record authentication, permission, naming, rate-limit, template, or source-spec failures as blockers in `tasks/repo-seeding.md`.
+    - Preserve `GeorgeQLe/evernote-mobile-clone` from `specs/batch-05/093-evernote.md` as the selected Step 6.5 dry-run target; do not create it in Step 6.3 unless the step explicitly advances into execution.
 
 - Step 6.4: Prepare this spec store for public release review
   - Files: create `README.md`, create `LICENSE`, create `CONTRIBUTING.md`, create `SECURITY.md`, modify `tasks/repo-seeding.md`

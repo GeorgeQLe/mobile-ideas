@@ -170,8 +170,15 @@
 - Added a repo-seeding evidence log covering dry-run target status, batch progress, blocker handling, and explicit private-by-default decisions.
 - Marked Phase 6 Step 6.1 complete and prepared Step 6.2 notes for reusable downstream seed templates.
 
+## 2026-04-20 - Downstream Seed Templates
+
+- Added reusable downstream seed templates under `templates/downstream/` for README, implementation planning, roadmap, current todo, and generic gitignore scaffolding.
+- Standardized placeholders for app ID, app name, target repo, source spec path, canonical spec-store URL, non-affiliation language, legal scope, original-assets requirements, and manual verification blockers.
+- Kept the templates generic for all 100 downstream manifest rows without hard-coding Todoist, Evernote, or any inspiration-app brand as downstream project identity.
+- Marked Phase 6 Step 6.2 complete and expanded Step 6.3 with a self-contained plan for the local seeding utility and dry-run mode.
+
 ## Next Steps
 
-- Add reusable downstream seed templates under `templates/downstream/`.
+- Add the local downstream seeding utility and dry-run mode.
 - Keep all downstream repos private until their legal/name/license review and explicit public-release approval are complete.
 - Keep GitHub CLI authentication as a Step 6.5 manual blocker if `gh auth status` fails.

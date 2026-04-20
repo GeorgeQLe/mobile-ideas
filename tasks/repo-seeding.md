@@ -96,7 +96,8 @@ Then copy the source spec into `docs/source-specs/`, add README/planning scaffol
 ### Batch Progress
 
 - Dry-run target selected: `GeorgeQLe/evernote-mobile-clone`.
-- Dry-run execution: pending reusable templates and local seeding utility.
+- Reusable downstream templates: ready under `templates/downstream/`.
+- Dry-run execution: pending local seeding utility.
 - Todoist reconciliation: pending shared seed templates.
 - Batch creation: not started.
 

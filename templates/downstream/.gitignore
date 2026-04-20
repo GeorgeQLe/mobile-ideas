@@ -1,0 +1,42 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# JavaScript and web build output
+dist/
+build/
+.next/
+.nuxt/
+.svelte-kit/
+coverage/
+
+# Expo and React Native local output
+.expo/
+.expo-shared/
+web-build/
+
+# Native mobile build output
+android/.gradle/
+android/app/build/
+ios/Pods/
+ios/build/
+
+# Logs and caches
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.turbo/
+.cache/
+tmp/
+temp/
