@@ -52,7 +52,7 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
   - Prepared execution notes: use `tasks/repo-seeding.md` as the source for required placeholders and preserve the selected dry-run target, `GeorgeQLe/evernote-mobile-clone`, for later Step 6.5 execution.
   - The templates should be generic enough for all 100 manifest rows and should not hard-code Evernote, Todoist, or any inspiration-app brand as the downstream project identity.
 
-- [ ] Step 6.3: Add the local seeding utility and dry-run mode
+- [x] Step 6.3: Add the local seeding utility and dry-run mode
   - Files: create `scripts/seed-downstream-repos.mjs`, modify `tasks/repo-seeding.md`
   - Parse the `tasks/repo-seeding.md` manifest and support a single-target dry run before any batch creation.
   - Generate seed files from `templates/downstream/`, copy the selected source spec into `docs/source-specs/`, and print the exact `gh` commands before executing them.
@@ -66,10 +66,17 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
     - Refuse `--public`, refuse missing placeholders, refuse target repos that already exist unless `--reconcile-existing` is passed, and record authentication, permission, naming, rate-limit, template, or source-spec failures as blockers in `tasks/repo-seeding.md`.
     - Preserve `GeorgeQLe/evernote-mobile-clone` from `specs/batch-05/093-evernote.md` as the selected Step 6.5 dry-run target; do not create it in Step 6.3 unless the step explicitly advances into execution.
 
-- Step 6.4: Prepare this spec store for public release review
+- [ ] Step 6.4: Prepare this spec store for public release review
   - Files: create `README.md`, create `LICENSE`, create `CONTRIBUTING.md`, create `SECURITY.md`, modify `tasks/repo-seeding.md`
   - Document the repo purpose, lawful functional-parity scope, non-affiliation language, source/spec map, no-proprietary-assets rule, contribution expectations, source-correction process, manual verification evidence policy, and downstream repo linkage policy.
   - Keep the repository private until the manual approval task is complete.
+  - Prepared execution plan:
+    - Create a root `README.md` for public readers that explains this repository is a canonical spec store, not an implementation app; links to `specs/`, `tasks/repo-seeding.md`, and downstream private repos when available; defines "clone" as lawful functional-parity research; states all downstream repos remain private until legal/name/license review; and includes explicit non-affiliation and no-proprietary-assets language.
+    - Create a root `LICENSE` appropriate for documentation/spec content. If no stronger project-specific requirement appears, prefer a clear documentation-friendly license and note that third-party trademarks, brand names, source-app marks, screenshots, logos, proprietary media, and external source material are not licensed by this repo.
+    - Create `CONTRIBUTING.md` with rules for source corrections, exact first-party URL updates, manual verification evidence, privacy-preserving notes, no copied assets, no private APIs, no production data, and downstream implementation link submissions.
+    - Create `SECURITY.md` explaining how to report secrets, private data, copied assets, unsafe affiliation language, proprietary/API leakage, or downstream seeding mistakes without opening public issues containing sensitive details.
+    - Update `tasks/repo-seeding.md` by checking or adding public-release checklist evidence for README, license, contribution policy, security/contact policy, legal scope, attribution/non-affiliation language, downstream linkage, and content-audit status.
+    - Do not make `GeorgeQLe/mobile-ideas` public in this step; publication remains blocked until Step 6.9 and the manual approval task are complete.
 
 - Step 6.5: Run one private non-Todoist dry-run seed
   - Files: modify `tasks/repo-seeding.md`

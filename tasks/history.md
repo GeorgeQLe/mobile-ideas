@@ -177,8 +177,16 @@
 - Kept the templates generic for all 100 downstream manifest rows without hard-coding Todoist, Evernote, or any inspiration-app brand as downstream project identity.
 - Marked Phase 6 Step 6.2 complete and expanded Step 6.3 with a self-contained plan for the local seeding utility and dry-run mode.
 
+## 2026-04-20 - Downstream Seeding Utility
+
+- Added `scripts/seed-downstream-repos.mjs` to parse the 100-row downstream manifest, render `templates/downstream/`, copy source specs into `docs/source-specs/`, and print the exact private-only `gh` and `git` commands for a selected target.
+- Added local dry-run support for single-target previews and private execution support guarded by explicit `--execute`, `gh auth status`, existing-repo checks, `--reconcile-existing`, and blocker logging.
+- Validated the selected Evernote dry-run target with `node scripts/seed-downstream-repos.mjs --target 093 --dry-run --preview-dir /tmp/mobile-ideas-evernote-seed-preview`.
+- Confirmed the generated Evernote preview had no unresolved template placeholders and that `--public` is refused by the utility.
+- Marked Phase 6 Step 6.3 complete and prepared Step 6.4 for public-release review docs.
+
 ## Next Steps
 
-- Add the local downstream seeding utility and dry-run mode.
+- Prepare this spec store for public-release review with README, license, contribution, security, and repo-seeding checklist updates.
 - Keep all downstream repos private until their legal/name/license review and explicit public-release approval are complete.
 - Keep GitHub CLI authentication as a Step 6.5 manual blocker if `gh auth status` fails.

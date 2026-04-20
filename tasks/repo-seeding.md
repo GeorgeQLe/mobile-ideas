@@ -54,6 +54,22 @@ gh repo clone GeorgeQLe/<spec-slug>-mobile-clone ../<spec-slug>-mobile-clone
 
 Then copy the source spec into `docs/source-specs/`, add README/planning scaffolds, commit, and push.
 
+## Local Seeding Utility
+
+Use the local utility for a single target only:
+
+```sh
+node scripts/seed-downstream-repos.mjs --target <ID|App|Owner/Repo> --dry-run
+node scripts/seed-downstream-repos.mjs --target <ID|App|Owner/Repo> --execute
+```
+
+Guardrails:
+
+- `--dry-run` writes a local preview directory, renders every file under `templates/downstream/`, copies the selected source spec into `docs/source-specs/`, prints the exact `gh` and `git` commands for execution mode, and never runs remote commands.
+- `--execute` requires one explicit manifest target, checks `gh auth status`, refuses public repo creation, checks whether the target repo exists, refuses existing repos unless `--reconcile-existing` is provided, creates private repos with `gh repo create ... --private --clone=false`, clones, seeds, commits, and pushes.
+- `--public`, `--visibility public`, and `--all` are refused.
+- Execution-mode validation, authentication, permission, naming, existing-repo, clone, commit, or push failures are recorded under the blocker log unless `--no-record-blockers` is supplied.
+
 ## Open-Source Spec Store Checklist
 
 - [ ] Add or confirm a license appropriate for documentation/spec content.
@@ -93,17 +109,30 @@ Then copy the source spec into `docs/source-specs/`, add README/planning scaffol
 - Selection rationale: Evernote is a non-Todoist productivity/notes app, matching the preferred dry-run category. The private seed can exercise notes, notebook, task, search, attachment, sharing, offline, and entitlement planning surfaces without using proprietary assets, screenshots, logos, production credentials, real user data, payment movement, health data, regulated finance, smart-home hardware, or public repo visibility.
 - Required guardrails for the dry run: create private only, seed docs only, use original non-affiliation language, copy only the source spec from this spec store, and keep manual verification blockers unresolved until lawful hands-on evidence exists.
 
+### Step 6.3 Utility And Local Dry Run - 2026-04-20
+
+- Created `scripts/seed-downstream-repos.mjs` as the single-target downstream seeding utility.
+- Parser evidence: the utility strictly parses the `Done`, `ID`, `App`, `Target Repo`, and `Source Spec` columns from the per-repo checklist, validates the 100-row manifest, validates `owner/repo` target names, and validates source specs under `specs/batch-*/`.
+- Template evidence: the utility renders all files under `templates/downstream/`, refuses unresolved `{{PLACEHOLDER}}` tokens, copies the selected source spec into `docs/source-specs/`, and derives non-affiliation, legal-scope, original-assets, and manual-blocker text from the manifest and source spec.
+- Guardrail evidence: the utility supports `--dry-run` and `--execute`; refuses `--public`, `--visibility public`, and `--all`; requires one explicit target; defaults to private-only `gh repo create`; refuses existing repos unless `--reconcile-existing` is supplied; and records execution-mode blocker evidence in this file.
+- Local dry-run command: `node scripts/seed-downstream-repos.mjs --target 093 --dry-run --preview-dir /tmp/mobile-ideas-evernote-seed-preview`.
+- Local dry-run result: rendered `.gitignore`, `README.md`, `docs/plans/README.md`, `docs/source-specs/093-evernote.md`, `tasks/roadmap.md`, and `tasks/todo.md` under `/tmp/mobile-ideas-evernote-seed-preview`.
+- Placeholder check: `rg "\{\{[A-Z0-9_]+\}\}" /tmp/mobile-ideas-evernote-seed-preview` returned no matches.
+- Remote execution status: not run in Step 6.3; `GeorgeQLe/evernote-mobile-clone` creation remains Step 6.5 after the public-release review prep step.
+
 ### Batch Progress
 
 - Dry-run target selected: `GeorgeQLe/evernote-mobile-clone`.
 - Reusable downstream templates: ready under `templates/downstream/`.
-- Dry-run execution: pending local seeding utility.
+- Local dry-run utility: ready and validated against `GeorgeQLe/evernote-mobile-clone` without creating the repository.
+- Remote dry-run execution: pending Step 6.5.
 - Todoist reconciliation: pending shared seed templates.
 - Batch creation: not started.
 
 ### Failures And Blockers
 
 - No Step 6.1 manifest, source-spec, or checked-row blockers found.
+- No Step 6.3 local dry-run blockers found.
 - GitHub authentication is not checked until Step 6.5; if `gh auth status` fails then, complete the manual task in `tasks/manual-todo.md`.
 - Human review may still be needed for repo-name or visibility questions recorded during later automated runs.
 
