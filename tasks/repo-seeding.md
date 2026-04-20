@@ -129,13 +129,21 @@ Guardrails:
 - Content-audit evidence: reviewed the new root public-release docs for private-by-default visibility, non-affiliation language, legal scope, original-assets requirements, and no copied third-party media or proprietary content.
 - Publication status: `GeorgeQLe/mobile-ideas` remains private. Public visibility remains blocked until the final checklist item is complete and explicit approval is recorded for Step 6.9.
 
+### Step 6.5 Private Evernote Seed Attempt - 2026-04-20
+
+- Target evidence: confirmed the selected dry-run target remained `GeorgeQLe/evernote-mobile-clone` with source spec `specs/batch-05/093-evernote.md`.
+- Auth evidence: an initial top-level `gh auth status` succeeded for account `GeorgeQLe`, but the seeding utility's internal `gh auth status` check failed twice with an invalid default token.
+- Execution command attempted: `node scripts/seed-downstream-repos.mjs --target 093 --execute --clone-dir /tmp/evernote-mobile-clone`.
+- Creation status: blocked before `gh repo create`; `gh repo view GeorgeQLe/evernote-mobile-clone` could not resolve the repository after the failed attempts.
+- Next action: resolve the GitHub CLI auth/config mismatch with `gh auth login -h github.com` or equivalent credential cleanup, then rerun Step 6.5.
+
 ### Batch Progress
 
 - Dry-run target selected: `GeorgeQLe/evernote-mobile-clone`.
 - Reusable downstream templates: ready under `templates/downstream/`.
 - Local dry-run utility: ready and validated against `GeorgeQLe/evernote-mobile-clone` without creating the repository.
 - Public-release review docs: ready for review; publication still blocked pending explicit approval.
-- Remote dry-run execution: pending Step 6.5.
+- Remote dry-run execution: blocked at Step 6.5 by GitHub CLI auth/config mismatch before repo creation.
 - Todoist reconciliation: pending shared seed templates.
 - Batch creation: not started.
 
@@ -143,7 +151,7 @@ Guardrails:
 
 - No Step 6.1 manifest, source-spec, or checked-row blockers found.
 - No Step 6.3 local dry-run blockers found.
-- GitHub authentication is not checked until Step 6.5; if `gh auth status` fails then, complete the manual task in `tasks/manual-todo.md`.
+- Step 6.5 blocker: the seeding utility's internal `gh auth status` check failed twice for `GeorgeQLe/evernote-mobile-clone` with an invalid default token, despite a top-level status check succeeding. No repository was created.
 - Human review may still be needed for repo-name or visibility questions recorded during later automated runs.
 
 ### Explicit Private-Repo Decisions

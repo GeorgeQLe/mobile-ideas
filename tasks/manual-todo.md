@@ -5,7 +5,7 @@
 
 ## Pre-Phase / Setup
 
-- [ ] Complete GitHub CLI authentication with `gh auth login` if `gh auth status` fails. _(blocks: Step 6.5)_
+- [x] Complete GitHub CLI authentication with `gh auth login` if `gh auth status` fails. _(blocks: Step 6.5)_
 
 ## During Phase
 

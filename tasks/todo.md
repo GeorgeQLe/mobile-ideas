@@ -91,6 +91,10 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
     - Update `tasks/repo-seeding.md` with the created repo URL, seeded file list, downstream commit SHA if the utility reports one, privacy status, and any blocker notes.
     - Check off the dry-run batch item and the acceptance criterion for testing the `gh` seeding command pattern on one non-Todoist repo only if the private downstream repo is created and seeded successfully.
     - Do not create any additional downstream repos, do not reconcile Todoist yet, and do not make any repo public in Step 6.5.
+  - Blocked execution note - 2026-04-20:
+    - Attempted `node scripts/seed-downstream-repos.mjs --target 093 --execute --clone-dir /tmp/evernote-mobile-clone`.
+    - The top-level `gh auth status` check succeeded for `GeorgeQLe`, but the utility's internal `gh auth status` check failed twice with an invalid default token.
+    - `GeorgeQLe/evernote-mobile-clone` was not created; rerun this step only after resolving the GitHub CLI auth/config mismatch.
 
 - Step 6.6: Reconcile the existing Todoist downstream repo with the shared seed structure
   - Files: modify `tasks/repo-seeding.md`, update downstream repo `GeorgeQLe/todoist-mobile-clone`

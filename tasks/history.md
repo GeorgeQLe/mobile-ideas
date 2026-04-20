@@ -193,6 +193,12 @@
 - Added `SECURITY.md` for private reporting of secrets, private data, copied assets, unsafe affiliation language, proprietary/API leakage, and downstream seeding or visibility mistakes.
 - Updated `tasks/repo-seeding.md` with public-release checklist evidence, kept `GeorgeQLe/mobile-ideas` private, marked Phase 6 Step 6.4 complete, and prepared Step 6.5 for the private Evernote downstream seed run.
 
+## 2026-04-20 - Evernote Downstream Seed Blocked
+
+- Attempted Phase 6 Step 6.5 for `GeorgeQLe/evernote-mobile-clone` with `node scripts/seed-downstream-repos.mjs --target 093 --execute --clone-dir /tmp/evernote-mobile-clone`.
+- Confirmed the top-level GitHub CLI auth check passed for `GeorgeQLe`, but the seeding utility's internal `gh auth status` check failed twice with an invalid default token.
+- Confirmed `GeorgeQLe/evernote-mobile-clone` was not created and recorded the blocker in `tasks/repo-seeding.md` and `tasks/todo.md`.
+
 ## Next Steps
 
 - Run the private non-Todoist dry-run seed for `GeorgeQLe/evernote-mobile-clone`.
