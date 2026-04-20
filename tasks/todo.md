@@ -176,7 +176,7 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
     - Any implementation code inside downstream repos beyond the template seed.
   - Ship-one-step handoff contract: implement only Step 6.7, validate it batch by batch, mark Step 6.7 and the `All 100 downstream repos...` acceptance item done in `tasks/todo.md` when the final batch completes or all remaining rows have blocker notes, update `tasks/history.md`, commit and push the completed work to this repo's `main` (downstream repos push as part of each per-ID seed), deploy only when an explicit manual deploy contract exists (none currently), write the Step 6.8 plan into `tasks/todo.md`, ensure `.claude/settings.local.json` keeps `"showClearContextOnPlanAccept": true` and `"defaultMode": "acceptEdits"`, start the approval UI for Step 6.8 by calling `EnterPlanMode` first, write a brief pass-through plan in plan mode, call `ExitPlanMode`, and stop before implementing Step 6.8. Do not call `ExitPlanMode` from normal mode.
 
-- Step 6.8: Verify the full downstream repo manifest
+- [x] Step 6.8: Verify the full downstream repo manifest
   - Files: modify `tasks/repo-seeding.md`
   - Execution profile: serial, main agent, low conflict risk (read-only GitHub API checks plus docs updates), no subagent lanes, test strategy `none` (docs-only repo).
   - Prerequisites:
@@ -209,10 +209,38 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
   - Ship-one-step handoff contract: implement only Step 6.8, validate it, mark Step 6.8 done in `tasks/todo.md`, update `tasks/history.md`, commit and push the completed work to this repo's `main`, deploy only when an explicit manual deploy contract exists (none currently — skip), write the Step 6.9 plan into `tasks/todo.md`, ensure `.claude/settings.local.json` keeps `"showClearContextOnPlanAccept": true` and `"defaultMode": "acceptEdits"`, start the approval UI for Step 6.9 by calling `EnterPlanMode` first, write a brief pass-through plan in plan mode, call `ExitPlanMode`, and stop before implementing Step 6.9. Do not call `ExitPlanMode` from normal mode.
 
 - Step 6.9: Publish the spec store only after explicit approval
-  - Files: modify `tasks/repo-seeding.md`
-  - Complete the public-release checklist in `tasks/repo-seeding.md`.
-  - After the manual approval task is checked off, run the visibility change for `GeorgeQLe/mobile-ideas`.
-  - Record the approval evidence, command used, resulting visibility, and any follow-up blocker notes.
+  - Files: modify `tasks/repo-seeding.md`, modify `tasks/manual-todo.md` (manual approval task), modify `tasks/todo.md` and `tasks/history.md` on completion.
+  - Execution profile: serial, main agent, high conflict risk (irreversible visibility change on the canonical spec store), no subagent lanes, test strategy `none` (docs-only repo).
+  - Prerequisites:
+    - `gh auth status` shows active account `GeorgeQLe` via keyring with `repo` + `workflow` scopes.
+    - Step 6.8 complete; 99 of 99 non-blocker downstream repos confirmed `PRIVATE` with expected source spec; ID 075 Letterboxd remains a recorded blocker (non-blocking for Step 6.9 — `GeorgeQLe/mobile-ideas` publication only changes *this* spec store's visibility, not downstream repo visibility).
+    - The six open-source spec-store checklist items in `tasks/repo-seeding.md` (`## Open-Source Spec Store Checklist`) have the first six items checked `[x]`; only the final `gh repo edit ... --visibility public` item remains `[ ]`.
+  - Sub-tasks:
+    1. Re-audit `tasks/repo-seeding.md` `## Open-Source Spec Store Checklist` and confirm each of the first six items is still accurate: license (`LICENSE` present, CC BY 4.0 with third-party-mark exclusions), public-reader `README.md`, non-affiliation and no-proprietary-assets language, `CONTRIBUTING.md`, `SECURITY.md`, and the content-audit for secrets/accounts/assets/screenshots/proprietary-copy/private-APIs/ambiguous-affiliation. Re-run a content-audit pass over the repo root and `specs/` for any drift since Step 6.4; record the audit result under a new `### Step 6.9 Pre-Publication Re-Audit - YYYY-MM-DD` evidence subsection.
+    2. Confirm downstream privacy is intact by re-reading the Step 6.8 evidence section; if any downstream repo drifted to non-`PRIVATE` since Step 6.8, stop and record it as a blocker — do not publish the spec store while a downstream repo is public.
+    3. Add or update the manual approval task in `tasks/manual-todo.md`: "Approve public visibility change for `GeorgeQLe/mobile-ideas` on 2026-0X-XX". Do not proceed until the user explicitly checks this item. Record the exact approval date and user statement in `tasks/repo-seeding.md`.
+    4. After approval is recorded, run `gh repo edit GeorgeQLe/mobile-ideas --visibility public --accept-visibility-change-consequences` from this working directory. Capture stdout/stderr verbatim into the evidence log.
+    5. Re-verify with `gh repo view GeorgeQLe/mobile-ideas --json visibility,nameWithOwner,url` that visibility is now `PUBLIC`. Record the JSON response.
+    6. Update `tasks/repo-seeding.md`: check the final `## Open-Source Spec Store Checklist` item, add a `### Step 6.9 Spec Store Publication - YYYY-MM-DD` evidence section with approval evidence, command used, stdout/stderr, resulting visibility, and any follow-up blocker notes.
+    7. Check off the final Phase 6 acceptance criterion `This spec-store repo is made public only after the open-source checklist is complete and explicitly approved.` and Step 6.9 in `tasks/todo.md`. Update the Milestone `On Completion` block with any deviations, tech debt, and readiness for the next phase.
+    8. Update `tasks/history.md` with a Step 6.9 entry.
+  - Gotchas and conventions from this session:
+    - Visibility change on this repo is essentially irreversible from a discovery standpoint (search engines and archivers may cache content). Do not run the `gh repo edit ... --visibility public` command without an explicit, recorded manual approval — not even in a dry-run mode.
+    - `gh repo edit --visibility public` requires `--accept-visibility-change-consequences` when transitioning from `PRIVATE` to `PUBLIC`; omitting the flag will fail.
+    - Do not change visibility of any downstream repo in Step 6.9; downstream repos remain `PRIVATE` until each has its own legal/name/license review.
+    - The Letterboxd ID 075 blocker is not a Step 6.9 gate; reconciling it is a separate follow-up and must not delay Step 6.9 if the spec-store checklist is otherwise complete and approved.
+    - This repo is docs-only: validation is the evidence log plus post-edit `gh repo view --json visibility`.
+  - Acceptance criteria:
+    - `tasks/repo-seeding.md` has a `### Step 6.9 Pre-Publication Re-Audit` subsection and a `### Step 6.9 Spec Store Publication` evidence section with approval date, command run, command output, and resulting visibility.
+    - The final `## Open-Source Spec Store Checklist` item in `tasks/repo-seeding.md` is checked.
+    - `gh repo view GeorgeQLe/mobile-ideas --json visibility` returns `PUBLIC`.
+    - The final Phase 6 acceptance criterion in `tasks/todo.md` is checked; Step 6.9 is checked.
+    - No downstream repo visibility changed in this step; Letterboxd ID 075 blocker remains as-is.
+  - Out of scope:
+    - Reconciling the Letterboxd ID 075 seeding blocker.
+    - Making any downstream repo public.
+    - Any structural changes to `specs/` content.
+  - Ship-one-step handoff contract: implement only Step 6.9, validate it, mark Step 6.9 and the final Phase 6 acceptance criterion done in `tasks/todo.md`, update `tasks/history.md`, commit and push the completed work to this repo's `main`, deploy only when an explicit manual deploy contract exists (none currently — skip). Since Step 6.9 closes out Phase 6, do not draft a new step plan; instead note Phase 6 completion in the Milestone `On Completion` block.
 
 ### Milestone: Phase 6 Downstream Repository Seeding And Spec Store Publication
 

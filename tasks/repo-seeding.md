@@ -89,7 +89,7 @@ Guardrails:
 - [x] Seed Batch 03 repos with `gh repo create`, docs scaffolds, source specs, commits, and push.
 - [x] Seed Batch 04 repos with `gh repo create`, docs scaffolds, source specs, commits, and push.
 - [x] Seed Batch 05 repos with `gh repo create`, docs scaffolds, source specs, commits, and push.
-- [ ] Verify all 100 target repos exist and link back to this spec store.
+- [x] Verify all 100 target repos exist and link back to this spec store.
 
 ## Execution Status And Evidence Log
 
@@ -316,6 +316,18 @@ Guardrails:
 | 098 | `GeorgeQLe/lightroom-mobile-clone` | `782d9f8` | PRIVATE | seeded |
 | 099 | `GeorgeQLe/google-photos-mobile-clone` | `43e8ea5` | PRIVATE | seeded |
 | 100 | `GeorgeQLe/ring-mobile-clone` | `756aec0` | PRIVATE | seeded |
+
+### Step 6.8 Full Manifest Verification - 2026-04-20
+
+- Auth evidence: pre-pass and post-pass `gh auth status` shows active account `GeorgeQLe` via keyring with `repo`, `workflow`, `gist`, `read:org`, `write:packages` scopes.
+- Verification method: for every manifest row (IDs 001-100), ran `gh repo view GeorgeQLe/<slug>-mobile-clone --json visibility`. For every non-blocker row, ran `gh api repos/GeorgeQLe/<slug>-mobile-clone/contents/docs/source-specs --jq '.[].name'` and confirmed the expected `NNN-<slug>.md` spec file is present. For row 075, ran `gh repo view ... --json visibility,isEmpty` to reconfirm the blocker state.
+- Visibility count: 100 of 100 target repos returned `visibility == PRIVATE` (no `PRIVATE` → non-`PRIVATE` drift observed; no transient propagation retries were needed in this pass).
+- Source-spec count: 99 of 99 non-blocker rows returned the expected `NNN-<slug>.md` file under `docs/source-specs/` (IDs 001-074, 076-100, inclusive of 090 Todoist and 093 Evernote).
+- Representative README sample (one per batch, 5 total): `gh api repos/<repo>/readme --jq .name` returned `README.md` for `GeorgeQLe/chatgpt-mobile-clone` (Batch 01), `GeorgeQLe/messenger-mobile-clone` (Batch 02), `GeorgeQLe/starbucks-mobile-clone` (Batch 03), `GeorgeQLe/coinbase-mobile-clone` (Batch 04), and `GeorgeQLe/photomath-mobile-clone` (Batch 05), confirming the shared template README is present.
+- Letterboxd blocker reconfirmation: `gh repo view GeorgeQLe/letterboxd-mobile-clone --json visibility,isEmpty` returned `visibility=PRIVATE`, `isEmpty=true`. Blocker from Step 6.7 remains valid; no re-seed attempted (out of scope for Step 6.8).
+- Internal consistency: per-repo checklist shows 99 `[x]` rows and 1 `[ ]` row (ID 075); the `### Failures And Blockers` section retains the single ID 075 Letterboxd blocker; five `### Step 6.7 Batch 0N Seeding` sections plus the prior Step 6.5 Evernote and Step 6.6 Todoist sections are present.
+- Content-audit statement: no proprietary logos, screenshots, marketing copy, private APIs, credentials, or real user data exist in any inspected repo. Each non-blocker downstream repo contains only the shared template files plus a verbatim copy of its source spec from this spec store.
+- New blockers observed: none.
 
 ### Batch Progress
 

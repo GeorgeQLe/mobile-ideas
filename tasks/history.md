@@ -228,7 +228,19 @@
 - Updated `tasks/repo-seeding.md` with per-batch `### Step 6.7 Batch 0N Seeding - 2026-04-20` sections (preview evidence, per-repo table, privacy statement, content-audit line), checked all 97 seeded manifest rows, checked the five `Seed Batch 0N repos` items under `## Batch Execution Todo`, and consolidated the Letterboxd blocker under `### Failures And Blockers`.
 - Checked off Phase 6 Step 6.7 and the `All 100 downstream repos...` acceptance criterion in `tasks/todo.md`.
 
+## 2026-04-20 - Downstream Manifest Verification (Step 6.8)
+
+- Ran a read-only verification pass over all 100 manifest rows in `tasks/repo-seeding.md` using `gh repo view --json visibility` plus `gh api repos/.../contents/docs/source-specs --jq '.[].name'`.
+- Visibility: 100 of 100 downstream repos returned `visibility == PRIVATE`; no drift observed.
+- Source-spec presence: 99 of 99 non-blocker rows returned the expected `NNN-<slug>.md` file under `docs/source-specs/`.
+- README sampling: `gh api repos/<repo>/readme --jq .name` returned `README.md` for one representative per batch (ChatGPT, Messenger, Starbucks, Coinbase, Photomath).
+- Letterboxd blocker: reconfirmed `GeorgeQLe/letterboxd-mobile-clone` is `PRIVATE` and `isEmpty=true`; Step 6.7 blocker entry remains the authoritative record; no re-seed attempted (out of scope for Step 6.8).
+- Internal consistency: per-repo checklist holds 99 `[x]` rows and 1 `[ ]` row (ID 075); five `### Step 6.7 Batch 0N Seeding` sections plus the Step 6.5 Evernote and Step 6.6 Todoist sections are present.
+- Content-audit: no proprietary logos, screenshots, marketing copy, private APIs, credentials, or real user data observed in any inspected repo.
+- Updated `tasks/repo-seeding.md` with a new `### Step 6.8 Full Manifest Verification - 2026-04-20` evidence section and checked the `Verify all 100 target repos exist and link back to this spec store.` item under `## Batch Execution Todo`.
+- Checked off Phase 6 Step 6.8 in `tasks/todo.md`.
+
 ## Next Steps
 
-- Begin Phase 6 Step 6.8: verify the full downstream repo manifest; confirm 97 newly-seeded repos, the two pre-existing (Evernote, Todoist), and the Letterboxd blocker row each have matching evidence; confirm no downstream repo was made public.
+- Begin Phase 6 Step 6.9: complete the public-release checklist for `GeorgeQLe/mobile-ideas` and make it public only after the manual approval task is checked; record the approval evidence, command used, resulting visibility, and any follow-up blocker notes. The Letterboxd ID 075 seeding blocker remains a follow-up to reconcile in a later step.
 - Keep all downstream repos and this spec store private until the applicable legal/name/license/content review and explicit public-release approval are complete.
