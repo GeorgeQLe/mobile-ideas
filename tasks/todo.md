@@ -24,7 +24,7 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
 - [x] A reusable `gh` seeding command pattern exists.
 - [x] The `gh` seeding command pattern has been tested on one non-Todoist repo.
 - [x] Existing `GeorgeQLe/todoist-mobile-clone` is reconciled with the same seed structure used for the other repos.
-- [ ] All 100 downstream repos exist or have explicit blocker notes in `tasks/repo-seeding.md`.
+- [x] All 100 downstream repos exist or have explicit blocker notes in `tasks/repo-seeding.md`.
 - [x] This spec-store repo has a public-release checklist covering license, README, contribution policy, legal scope, attribution/non-affiliation language, and content audit.
 - [ ] This spec-store repo is made public only after the open-source checklist is complete and explicitly approved.
 
@@ -133,7 +133,7 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
     - Step 6.9 public visibility change for `GeorgeQLe/mobile-ideas`.
   - Ship-one-step handoff contract: implement only Step 6.6, validate it, mark Step 6.6 and its acceptance criterion done in `tasks/todo.md`, update `tasks/history.md`, commit and push the completed work to this repo's `main` (and push the reconciliation commit to the downstream repo), deploy only when an explicit manual deploy contract exists (none currently), write the Step 6.7 plan into `tasks/todo.md`, ensure `.claude/settings.local.json` has `"showClearContextOnPlanAccept": true` and `"defaultMode": "acceptEdits"`, start the approval UI for Step 6.7 by calling `EnterPlanMode` first, write a brief pass-through plan in plan mode, call `ExitPlanMode`, and stop before implementing Step 6.7. Do not call `ExitPlanMode` from normal mode.
 
-- Step 6.7: Seed the remaining downstream repos in controlled private batches
+- [x] Step 6.7: Seed the remaining downstream repos in controlled private batches
   - Files: modify `tasks/repo-seeding.md` (this repo); create 98 new private downstream repositories under `GeorgeQLe/<slug>-mobile-clone` (one per unchecked manifest row).
   - Execution profile: serial, main agent, high conflict risk (GitHub API rate limits, auth drift, naming collisions), no subagent lanes, test strategy `none` (docs-only repo).
   - Prerequisites:
@@ -196,7 +196,7 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
 - [x] A reusable `gh` seeding command pattern exists.
 - [x] The `gh` seeding command pattern has been tested on one non-Todoist repo.
 - [x] Existing `GeorgeQLe/todoist-mobile-clone` is reconciled with the same seed structure used for the other repos.
-- [ ] All 100 downstream repos exist or have explicit blocker notes in `tasks/repo-seeding.md`.
+- [x] All 100 downstream repos exist or have explicit blocker notes in `tasks/repo-seeding.md`.
 - [x] This spec-store repo has a public-release checklist covering license, README, contribution policy, legal scope, attribution/non-affiliation language, and content audit.
 - [ ] This spec-store repo is made public only after the open-source checklist is complete and explicitly approved.
 

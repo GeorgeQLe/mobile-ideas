@@ -215,7 +215,20 @@
 - Content-audit confirmed no proprietary logos, screenshots, marketing copy, private APIs, credentials, or real user data were introduced.
 - Checked off Phase 6 Step 6.6, its acceptance criterion in `tasks/todo.md`, and the Todoist reconciliation row in `tasks/repo-seeding.md`.
 
+## 2026-04-20 - Downstream Batch Seeding (Step 6.7)
+
+- Seeded Batches 01-05 of the downstream repo manifest in serial order under `scripts/seed-downstream-repos.mjs --execute`; each batch was preceded by a fresh dry-run preview that passed the `rg "\{\{[A-Z0-9_]+\}\}"` placeholder check.
+- Batch 01 (IDs 001-020): all 20 created private and seeded; root-commit SHAs recorded in `tasks/repo-seeding.md`.
+- Batch 02 (IDs 021-040): all 20 created private and seeded.
+- Batch 03 (IDs 041-060): all 20 created private and seeded.
+- Batch 04 (IDs 061-080): 19 seeded; ID 075 `GeorgeQLe/letterboxd-mobile-clone` recorded as a Step 6.7 blocker — `gh repo create` succeeded (post-create `gh repo view --json visibility` returned `PRIVATE`) but the immediately-following `gh repo clone` failed with a GraphQL "Could not resolve" error (GitHub API propagation lag); per the stop-on-failure contract no retry was attempted and the created remote repo was left unseeded.
+- Batch 05 (IDs 081-100 minus the already-completed 090 Todoist and 093 Evernote): all 18 created private and seeded.
+- Totals: 97 of 98 remaining downstream repos created private and seeded; 1 blocker recorded; all 99 existing downstream repos (97 new + 090 + 093) confirmed `PRIVATE` post-push; the unseeded letterboxd repo is also `PRIVATE`.
+- Content-audit: every seeded repo contains only the six shared template files plus a copy of its source spec under `docs/source-specs/NNN-<slug>.md`; no proprietary logos, screenshots, marketing copy, private APIs, credentials, or real user data were introduced.
+- Updated `tasks/repo-seeding.md` with per-batch `### Step 6.7 Batch 0N Seeding - 2026-04-20` sections (preview evidence, per-repo table, privacy statement, content-audit line), checked all 97 seeded manifest rows, checked the five `Seed Batch 0N repos` items under `## Batch Execution Todo`, and consolidated the Letterboxd blocker under `### Failures And Blockers`.
+- Checked off Phase 6 Step 6.7 and the `All 100 downstream repos...` acceptance criterion in `tasks/todo.md`.
+
 ## Next Steps
 
-- Begin Phase 6 Step 6.7: seed the remaining downstream repos in controlled private batches.
+- Begin Phase 6 Step 6.8: verify the full downstream repo manifest; confirm 97 newly-seeded repos, the two pre-existing (Evernote, Todoist), and the Letterboxd blocker row each have matching evidence; confirm no downstream repo was made public.
 - Keep all downstream repos and this spec store private until the applicable legal/name/license/content review and explicit public-release approval are complete.
