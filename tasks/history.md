@@ -163,8 +163,15 @@
 - Created local Claude and Codex skill symlinks for the business-app research/documentation workflows.
 - Marked the pack-install documentation task complete so the next research roadmap refresh can generate pack-specific queue items.
 
+## 2026-04-20 - Downstream Repo Seeding Audit
+
+- Audited `tasks/repo-seeding.md` and confirmed the downstream manifest still has 100 target repo rows, exactly one checked existing repo row, and source specs present under `specs/`.
+- Selected `GeorgeQLe/evernote-mobile-clone` from `specs/batch-05/093-evernote.md` as the private non-Todoist dry-run target for the later seeding run.
+- Added a repo-seeding evidence log covering dry-run target status, batch progress, blocker handling, and explicit private-by-default decisions.
+- Marked Phase 6 Step 6.1 complete and prepared Step 6.2 notes for reusable downstream seed templates.
+
 ## Next Steps
 
-- Run `$research-roadmap` to generate pack-specific research/documentation queue items now that `business-app` is enabled.
-- Continue implementation planning and scaffolding in `https://github.com/GeorgeQLe/todoist-mobile-clone`.
-- Keep Todoist manual verification blockers deferred until lawful hands-on verification evidence exists.
+- Add reusable downstream seed templates under `templates/downstream/`.
+- Keep all downstream repos private until their legal/name/license review and explicit public-release approval are complete.
+- Keep GitHub CLI authentication as a Step 6.5 manual blocker if `gh auth status` fails.

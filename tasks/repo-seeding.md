@@ -75,6 +75,43 @@ Then copy the source spec into `docs/source-specs/`, add README/planning scaffol
 - [ ] Seed Batch 05 repos with `gh repo create`, docs scaffolds, source specs, commits, and push.
 - [ ] Verify all 100 target repos exist and link back to this spec store.
 
+## Execution Status And Evidence Log
+
+### Step 6.1 Audit - 2026-04-20
+
+- Manifest evidence: `tasks/repo-seeding.md` contains 100 downstream target rows.
+- Existing repo evidence: exactly one target row is checked, `GeorgeQLe/todoist-mobile-clone`.
+- Source-spec evidence: every manifest `Source Spec` path exists under `specs/`.
+- Command-pattern evidence: the reusable `gh repo create ... --private --clone=false` pattern remains documented above, followed by clone, docs scaffold, commit, and push steps.
+- Privacy decision: all downstream repos remain private by default; public visibility is refused until the relevant legal/name/license review is complete and the user explicitly approves public release.
+
+### Selected Dry-Run Target
+
+- Target app: Evernote.
+- Target repo: `GeorgeQLe/evernote-mobile-clone`.
+- Source spec: `specs/batch-05/093-evernote.md`.
+- Selection rationale: Evernote is a non-Todoist productivity/notes app, matching the preferred dry-run category. The private seed can exercise notes, notebook, task, search, attachment, sharing, offline, and entitlement planning surfaces without using proprietary assets, screenshots, logos, production credentials, real user data, payment movement, health data, regulated finance, smart-home hardware, or public repo visibility.
+- Required guardrails for the dry run: create private only, seed docs only, use original non-affiliation language, copy only the source spec from this spec store, and keep manual verification blockers unresolved until lawful hands-on evidence exists.
+
+### Batch Progress
+
+- Dry-run target selected: `GeorgeQLe/evernote-mobile-clone`.
+- Dry-run execution: pending reusable templates and local seeding utility.
+- Todoist reconciliation: pending shared seed templates.
+- Batch creation: not started.
+
+### Failures And Blockers
+
+- No Step 6.1 manifest, source-spec, or checked-row blockers found.
+- GitHub authentication is not checked until Step 6.5; if `gh auth status` fails then, complete the manual task in `tasks/manual-todo.md`.
+- Human review may still be needed for repo-name or visibility questions recorded during later automated runs.
+
+### Explicit Private-Repo Decisions
+
+- Do not use `--public` in the seeding utility.
+- Do not make `GeorgeQLe/mobile-ideas` public until the open-source spec-store checklist is complete and the manual approval task is checked.
+- Do not make any downstream implementation repo public until it has original code/assets and its own legal/name/license review.
+
 ## Per-Repo Checklist
 
 | Done | ID | App | Target Repo | Source Spec |

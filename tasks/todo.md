@@ -39,7 +39,7 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
 
 ### Implementation
 
-- Step 6.1: Audit the current repo-seeding contract and choose the dry-run target
+- [x] Step 6.1: Audit the current repo-seeding contract and choose the dry-run target
   - Files: modify `tasks/repo-seeding.md`
   - Confirm the manifest still lists 100 target repos, exactly one checked existing repo, and source specs that exist under `specs/`.
   - Select one low-risk non-Todoist dry-run target, preferably a productivity or notes app, and record why it is safe to test privately.
@@ -49,6 +49,8 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
   - Files: create `templates/downstream/README.md`, create `templates/downstream/docs/plans/README.md`, create `templates/downstream/tasks/roadmap.md`, create `templates/downstream/tasks/todo.md`, create `templates/downstream/.gitignore`
   - Templates must use placeholders for app ID, app name, target repo, source spec path, source spec-store URL, non-affiliation language, legal scope, original-assets requirement, and manual verification blockers.
   - Templates must not include proprietary names as project branding, copied app-store media, screenshots, logos, private API language, production credentials, or real user data.
+  - Prepared execution notes: use `tasks/repo-seeding.md` as the source for required placeholders and preserve the selected dry-run target, `GeorgeQLe/evernote-mobile-clone`, for later Step 6.5 execution.
+  - The templates should be generic enough for all 100 manifest rows and should not hard-code Evernote, Todoist, or any inspiration-app brand as the downstream project identity.
 
 - Step 6.3: Add the local seeding utility and dry-run mode
   - Files: create `scripts/seed-downstream-repos.mjs`, modify `tasks/repo-seeding.md`
