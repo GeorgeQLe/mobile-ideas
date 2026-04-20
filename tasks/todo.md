@@ -22,25 +22,9 @@
 
 ## Priority Task Queue
 
-- [x] Upgrade `006-tiktok.md` to implementation-ready status using the `001-chatgpt.md` pattern.
-- [x] Upgrade `016-whatsapp.md` to implementation-ready status.
-- [x] Upgrade `026-google-maps.md` to implementation-ready status.
-- [x] Upgrade `033-airbnb.md` to implementation-ready status.
-- [x] Upgrade `038-doordash.md` to implementation-ready status.
-- [x] Upgrade `046-amazon.md` to implementation-ready status.
-- [x] Upgrade `056-cash-app.md` to implementation-ready status.
-- [x] Upgrade `066-spotify.md` to implementation-ready status.
-- [x] Upgrade the remaining top-ten architecture-teaching spec: `089-notion.md`.
-- [x] Upgrade remaining Batch 01 AI/social Draft 1 specs: `002-005` and `007-015`.
-- [x] Upgrade Batch 02 communication/email specs: `021-025`.
-- [x] Upgrade Batch 02 maps/mobility specs: `027-032`.
-- [x] Upgrade Batch 02 travel booking specs: `034-037`.
-- [x] Upgrade Batch 02 food/grocery delivery specs: `039-040`.
-- [x] Upgrade Batch 04 finance/wallet specs: `061-065`.
-- [x] Upgrade Batch 04 video/entertainment specs: `072-076`.
-- [x] Upgrade Batch 04 education specs: `077-080`.
-- [x] Upgrade Batch 05 education/wellness/fitness/health specs: `081-088`.
-- [x] Upgrade the remaining 11 specs by batch after the Batch 01, Batch 02, Batch 03, Batch 04 finance/wallet, Batch 04 audio, Batch 04 video/entertainment, Batch 04 education, and Batch 05 education/wellness/fitness/health patterns are proven.
+- [ ] `$plan-phase 6` - generate executable implementation steps for downstream repository seeding because `tasks/roadmap.md` Phase 6 has unchecked acceptance criteria and `tasks/repo-seeding.md` lists all 100 target repos, but `tasks/todo.md` has no Phase 6 `### Tests First`, `### Implementation`, or `### Green` sections.
+- [ ] Review `tasks/recurring-todo.md`: "Refresh research roadmap" - next due is 2026-05-19 or after the next major documentation change; Phase 6 roadmap and repo-seeding docs were added on 2026-04-20, so promote to `tasks/todo.md` only if this requires execution work now.
+- [ ] `$ship-end --no-deploy` - record the new repo-seeding planning work in history before bulk execution because `tasks/history.md` was last modified on 2026-04-19 15:38:07 -0400 while the Phase 6 roadmap and `tasks/repo-seeding.md` were modified on 2026-04-20.
 
 ## Phase 2: Hygiene And Draft 1 Remediation
 
