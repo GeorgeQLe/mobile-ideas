@@ -185,8 +185,16 @@
 - Confirmed the generated Evernote preview had no unresolved template placeholders and that `--public` is refused by the utility.
 - Marked Phase 6 Step 6.3 complete and prepared Step 6.4 for public-release review docs.
 
+## 2026-04-20 - Public-Release Review Prep
+
+- Added root `README.md` documenting the canonical spec-store purpose, repository map, lawful functional-parity scope, non-affiliation policy, no-proprietary-assets rule, downstream private-by-default policy, and source-correction path.
+- Added root `LICENSE` licensing original documentation/spec content under CC BY 4.0 while excluding third-party marks, source-app material, logos, screenshots, media, external source material, private APIs, credentials, real user data, and downstream repositories.
+- Added `CONTRIBUTING.md` with source-correction, first-party URL, manual verification evidence, privacy-preserving note, no copied asset, no private API, no production data, and downstream implementation link rules.
+- Added `SECURITY.md` for private reporting of secrets, private data, copied assets, unsafe affiliation language, proprietary/API leakage, and downstream seeding or visibility mistakes.
+- Updated `tasks/repo-seeding.md` with public-release checklist evidence, kept `GeorgeQLe/mobile-ideas` private, marked Phase 6 Step 6.4 complete, and prepared Step 6.5 for the private Evernote downstream seed run.
+
 ## Next Steps
 
-- Prepare this spec store for public-release review with README, license, contribution, security, and repo-seeding checklist updates.
-- Keep all downstream repos private until their legal/name/license review and explicit public-release approval are complete.
-- Keep GitHub CLI authentication as a Step 6.5 manual blocker if `gh auth status` fails.
+- Run the private non-Todoist dry-run seed for `GeorgeQLe/evernote-mobile-clone`.
+- Check GitHub CLI authentication before Step 6.5 and use the manual auth blocker if `gh auth status` fails.
+- Keep all downstream repos and this spec store private until the applicable legal/name/license/content review and explicit public-release approval are complete.

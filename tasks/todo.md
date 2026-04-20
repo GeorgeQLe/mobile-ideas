@@ -25,7 +25,7 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
 - [ ] The `gh` seeding command pattern has been tested on one non-Todoist repo.
 - [ ] Existing `GeorgeQLe/todoist-mobile-clone` is reconciled with the same seed structure used for the other repos.
 - [ ] All 100 downstream repos exist or have explicit blocker notes in `tasks/repo-seeding.md`.
-- [ ] This spec-store repo has a public-release checklist covering license, README, contribution policy, legal scope, attribution/non-affiliation language, and content audit.
+- [x] This spec-store repo has a public-release checklist covering license, README, contribution policy, legal scope, attribution/non-affiliation language, and content audit.
 - [ ] This spec-store repo is made public only after the open-source checklist is complete and explicitly approved.
 
 ### Execution Profile
@@ -66,7 +66,7 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
     - Refuse `--public`, refuse missing placeholders, refuse target repos that already exist unless `--reconcile-existing` is passed, and record authentication, permission, naming, rate-limit, template, or source-spec failures as blockers in `tasks/repo-seeding.md`.
     - Preserve `GeorgeQLe/evernote-mobile-clone` from `specs/batch-05/093-evernote.md` as the selected Step 6.5 dry-run target; do not create it in Step 6.3 unless the step explicitly advances into execution.
 
-- [ ] Step 6.4: Prepare this spec store for public release review
+- [x] Step 6.4: Prepare this spec store for public release review
   - Files: create `README.md`, create `LICENSE`, create `CONTRIBUTING.md`, create `SECURITY.md`, modify `tasks/repo-seeding.md`
   - Document the repo purpose, lawful functional-parity scope, non-affiliation language, source/spec map, no-proprietary-assets rule, contribution expectations, source-correction process, manual verification evidence policy, and downstream repo linkage policy.
   - Keep the repository private until the manual approval task is complete.
@@ -83,6 +83,14 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
   - Verify `gh auth status`; if authentication fails, pause for the manual auth task instead of working around it.
   - Run the seeding utility against the selected dry-run target with private visibility.
   - Record the created repo URL, seeded files, commit SHA if available, and any blocker notes in `tasks/repo-seeding.md`.
+  - Prepared execution plan:
+    - Confirm the selected dry-run target is still `GeorgeQLe/evernote-mobile-clone` with source spec `specs/batch-05/093-evernote.md` in `tasks/repo-seeding.md`.
+    - Run `gh auth status`. If it fails, stop and report the manual task in `tasks/manual-todo.md`: complete GitHub CLI authentication with `gh auth login`.
+    - Run `node scripts/seed-downstream-repos.mjs --target 093 --execute` from the spec-store repo.
+    - Confirm the utility creates a private repo only, seeds `.gitignore`, `README.md`, `docs/plans/README.md`, `docs/source-specs/093-evernote.md`, `tasks/roadmap.md`, and `tasks/todo.md`, commits the seed files, and pushes to the downstream repo.
+    - Update `tasks/repo-seeding.md` with the created repo URL, seeded file list, downstream commit SHA if the utility reports one, privacy status, and any blocker notes.
+    - Check off the dry-run batch item and the acceptance criterion for testing the `gh` seeding command pattern on one non-Todoist repo only if the private downstream repo is created and seeded successfully.
+    - Do not create any additional downstream repos, do not reconcile Todoist yet, and do not make any repo public in Step 6.5.
 
 - Step 6.6: Reconcile the existing Todoist downstream repo with the shared seed structure
   - Files: modify `tasks/repo-seeding.md`, update downstream repo `GeorgeQLe/todoist-mobile-clone`
@@ -117,7 +125,7 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
 - [ ] The `gh` seeding command pattern has been tested on one non-Todoist repo.
 - [ ] Existing `GeorgeQLe/todoist-mobile-clone` is reconciled with the same seed structure used for the other repos.
 - [ ] All 100 downstream repos exist or have explicit blocker notes in `tasks/repo-seeding.md`.
-- [ ] This spec-store repo has a public-release checklist covering license, README, contribution policy, legal scope, attribution/non-affiliation language, and content audit.
+- [x] This spec-store repo has a public-release checklist covering license, README, contribution policy, legal scope, attribution/non-affiliation language, and content audit.
 - [ ] This spec-store repo is made public only after the open-source checklist is complete and explicitly approved.
 
 **On Completion**

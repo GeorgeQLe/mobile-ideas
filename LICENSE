@@ -1,0 +1,24 @@
+# License
+
+Unless otherwise noted, the original documentation, planning text, specification text, templates, and task files in this repository are licensed under the Creative Commons Attribution 4.0 International License.
+
+License summary: https://creativecommons.org/licenses/by/4.0/
+Legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+You may share and adapt the original repository content with attribution, subject to the license terms.
+
+## Exclusions
+
+This license does not grant rights to third-party material, including:
+
+- Source app names, company names, product names, service names, trademarks, trade dress, or brand identifiers.
+- Third-party logos, icons, screenshots, app-store media, marketing copy, help-center text, copyrighted media, paywalled content, datasets, or documentation excerpts.
+- External source material linked from specs.
+- Proprietary source code, private APIs, production credentials, private account data, real user data, or platform internals.
+- Downstream repositories unless they include their own license.
+
+Any third-party names in this repository are used only to identify source products for research orientation and non-affiliation context.
+
+## Attribution
+
+When reusing original content from this repository, provide attribution to `GeorgeQLe/mobile-ideas`, identify material changes when practical, and preserve legal, non-affiliation, blocker, and no-proprietary-assets notices that remain relevant to the reused content.

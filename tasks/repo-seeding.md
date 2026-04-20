@@ -72,12 +72,12 @@ Guardrails:
 
 ## Open-Source Spec Store Checklist
 
-- [ ] Add or confirm a license appropriate for documentation/spec content.
-- [ ] Refresh `README.md` for public readers, including scope, repo map, and how to use the specs.
-- [ ] Add explicit non-affiliation and no-proprietary-assets language.
-- [ ] Add contribution guidance for source corrections, manual verification evidence, and downstream implementation links.
-- [ ] Audit for secrets, private accounts, copied assets, screenshots, proprietary copy, private APIs, and ambiguous affiliation language.
-- [ ] Decide whether downstream clone repos remain private until they contain original code and pass their own legal review.
+- [x] Add or confirm a license appropriate for documentation/spec content.
+- [x] Refresh `README.md` for public readers, including scope, repo map, and how to use the specs.
+- [x] Add explicit non-affiliation and no-proprietary-assets language.
+- [x] Add contribution guidance for source corrections, manual verification evidence, and downstream implementation links.
+- [x] Audit for secrets, private accounts, copied assets, screenshots, proprietary copy, private APIs, and ambiguous affiliation language.
+- [x] Decide whether downstream clone repos remain private until they contain original code and pass their own legal review.
 - [ ] Use `gh repo edit GeorgeQLe/mobile-ideas --visibility public` only after explicit approval.
 
 ## Batch Execution Todo
@@ -120,11 +120,21 @@ Guardrails:
 - Placeholder check: `rg "\{\{[A-Z0-9_]+\}\}" /tmp/mobile-ideas-evernote-seed-preview` returned no matches.
 - Remote execution status: not run in Step 6.3; `GeorgeQLe/evernote-mobile-clone` creation remains Step 6.5 after the public-release review prep step.
 
+### Step 6.4 Public-Release Review Prep - 2026-04-20
+
+- README evidence: added root `README.md` for public readers with the canonical spec-store purpose, repository map, source/downstream policy, legal functional-parity scope, non-affiliation notice, no-proprietary-assets rule, and source-correction path.
+- License evidence: added root `LICENSE` using CC BY 4.0 for original documentation/spec content, with explicit exclusions for third-party marks, source-app names, logos, screenshots, media, external source material, private APIs, credentials, real user data, and downstream repositories.
+- Contribution evidence: added `CONTRIBUTING.md` with source-correction rules, exact first-party URL guidance, manual verification evidence policy, privacy-preserving notes, no copied assets, no private APIs, no production data, and downstream implementation link requirements.
+- Security evidence: added `SECURITY.md` for private reporting of secrets, private data, copied assets, unsafe affiliation language, proprietary/API leakage, and downstream seeding or visibility mistakes.
+- Content-audit evidence: reviewed the new root public-release docs for private-by-default visibility, non-affiliation language, legal scope, original-assets requirements, and no copied third-party media or proprietary content.
+- Publication status: `GeorgeQLe/mobile-ideas` remains private. Public visibility remains blocked until the final checklist item is complete and explicit approval is recorded for Step 6.9.
+
 ### Batch Progress
 
 - Dry-run target selected: `GeorgeQLe/evernote-mobile-clone`.
 - Reusable downstream templates: ready under `templates/downstream/`.
 - Local dry-run utility: ready and validated against `GeorgeQLe/evernote-mobile-clone` without creating the repository.
+- Public-release review docs: ready for review; publication still blocked pending explicit approval.
 - Remote dry-run execution: pending Step 6.5.
 - Todoist reconciliation: pending shared seed templates.
 - Batch creation: not started.
