@@ -208,6 +208,48 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
     - Any implementation code inside downstream repos.
   - Ship-one-step handoff contract: implement only Step 6.8, validate it, mark Step 6.8 done in `tasks/todo.md`, update `tasks/history.md`, commit and push the completed work to this repo's `main`, deploy only when an explicit manual deploy contract exists (none currently — skip), write the Step 6.9 plan into `tasks/todo.md`, ensure `.claude/settings.local.json` keeps `"showClearContextOnPlanAccept": true` and `"defaultMode": "acceptEdits"`, start the approval UI for Step 6.9 by calling `EnterPlanMode` first, write a brief pass-through plan in plan mode, call `ExitPlanMode`, and stop before implementing Step 6.9. Do not call `ExitPlanMode` from normal mode.
 
+- Step 6.8a: Re-seed the Letterboxd downstream repo (follow-up to the Step 6.7 Letterboxd blocker)
+  - Files: modify `tasks/repo-seeding.md` (consolidate the ID 075 blocker into a resolution entry and check the manifest row); downstream repo `GeorgeQLe/letterboxd-mobile-clone` gets its first commit (separate clone directory outside this repo).
+  - Execution profile: serial, main agent, medium conflict risk (single remote repo transitioning from empty to seeded; no batch interleave), no subagent lanes, test strategy `none` (docs-only repo).
+  - Prerequisites:
+    - `gh auth status` shows active account `GeorgeQLe` via keyring with `repo` + `workflow` scopes. If it fails, stop and use the `gh auth login` manual blocker path.
+    - Step 6.8 complete: `gh repo view GeorgeQLe/letterboxd-mobile-clone --json visibility,isEmpty` still returns `visibility=PRIVATE`, `isEmpty=true` (re-verify as sub-task 1 below; do not proceed if visibility drifted or the repo is no longer empty).
+    - Source spec `specs/batch-04/075-letterboxd.md` exists unchanged under `specs/`.
+    - Shared templates under `templates/downstream/` remain valid (Step 6.7 Batch 04 preview already confirmed; no re-audit required unless templates changed since then).
+    - `scripts/seed-downstream-repos.mjs --reconcile-existing` guardrails remain in place: the utility will skip `gh repo create` when the remote already exists, then `gh repo clone`, copy the rendered template plus source spec, `git add`, `git commit`, and `git push origin HEAD`.
+    - `/Users/georgele/projects/mobile/dev/letterboxd-mobile-clone` (the default derived clone directory) must not exist; the utility refuses to clobber an existing clone path. Use `--clone-dir /tmp/letterboxd-mobile-clone-reseed` if the default path is occupied.
+  - Sub-tasks:
+    1. Re-verify the remote state: `gh repo view GeorgeQLe/letterboxd-mobile-clone --json visibility,nameWithOwner,url,isEmpty,defaultBranchRef`. Expected: `visibility=PRIVATE`, `isEmpty=true`, `defaultBranchRef` null or absent. If the repo is not empty (someone else seeded it), stop and record the state change as a new blocker instead of re-seeding.
+    2. Render a fresh preview to confirm template health: `node scripts/seed-downstream-repos.mjs --target 075 --dry-run --preview-dir /tmp/mobile-ideas-letterboxd-reseed-preview`. Confirm no unresolved placeholders with `rg "\{\{[A-Z0-9_]+\}\}" /tmp/mobile-ideas-letterboxd-reseed-preview`.
+    3. Execute the re-seed with `--reconcile-existing` so the utility skips `gh repo create` (the repo already exists) and only clones, seeds, commits, and pushes: `node scripts/seed-downstream-repos.mjs --target 075 --execute --reconcile-existing --clone-dir /tmp/letterboxd-mobile-clone-reseed`. Capture the root-commit SHA from the utility output or `git -C /tmp/letterboxd-mobile-clone-reseed rev-parse HEAD`.
+    4. Post-verify: `gh repo view GeorgeQLe/letterboxd-mobile-clone --json visibility,isEmpty,defaultBranchRef` returns `visibility=PRIVATE`, `isEmpty=false`, `defaultBranchRef.name=main`. Confirm the source spec with `gh api repos/GeorgeQLe/letterboxd-mobile-clone/contents/docs/source-specs --jq '.[].name'` returning `075-letterboxd.md`, and the README with `gh api repos/GeorgeQLe/letterboxd-mobile-clone/readme --jq .name` returning `README.md`.
+    5. Update `tasks/repo-seeding.md`:
+       - Add a new `### Step 6.8a Letterboxd Re-Seed - YYYY-MM-DD` evidence section with the pre-re-seed remote state, preview evidence, execute command, seeded file list, downstream commit SHA, privacy status, post-verify source-spec and README evidence, and a content-audit statement (no proprietary logos/screenshots/media/private APIs/credentials/real user data added).
+       - Update the existing Letterboxd blocker entry under `### Failures And Blockers` from an open blocker to a resolved entry, cross-linking the new Step 6.8a evidence section.
+       - Change the ID 075 Letterboxd row in the `Per-Repo Checklist` manifest table from `[ ]` to `[x]`, and update the Step 6.7 Batch 04 per-repo table row for ID 075 from `seeded commit SHA — / PRIVATE (empty) / blocker: ...` to `seeded (re-seed 2026-XX-XX)` with the new commit SHA and a pointer to Step 6.8a.
+       - Update the `Batch Progress` summary line for Step 6.7 batch seeding to note the Letterboxd blocker is resolved in Step 6.8a.
+    6. Update `tasks/todo.md`: check Step 6.8a; re-run Step 6.8's manifest checks mentally — the `Verify all 100 target repos exist and link back to this spec store.` item remains checked, and the Phase 6 acceptance criterion `All 100 downstream repos exist or have explicit blocker notes in tasks/repo-seeding.md` now holds with a stronger statement (100 of 100 seeded), which does not require a checkbox change but should be noted in the Step 6.8a evidence.
+    7. Update `tasks/history.md` with a `## YYYY-MM-DD - Letterboxd Downstream Re-Seed (Step 6.8a)` entry summarizing the re-seed, commit SHA, and blocker resolution.
+    8. Commit and push this spec store's changes to `GeorgeQLe/mobile-ideas` `main`; the downstream repo push happens inside the seeding utility in sub-task 3.
+  - Gotchas and conventions from this session:
+    - The Step 6.7 Batch 04 blocker was caused by a GitHub API propagation lag between `gh repo create` and the immediately-following `gh repo clone`. Since the repo is now several days old, that lag window has long since closed and a clone should succeed. If it fails again with `GraphQL: Could not resolve`, wait 60 seconds and retry once before recording a new blocker — do not bulk-retry and do not delete/recreate the repo.
+    - `--reconcile-existing` is the only supported path to seed an already-existing empty remote; do not delete and recreate the Letterboxd repo, and do not pass `--execute` without `--reconcile-existing` (the utility will refuse).
+    - Do not overwrite the existing remote visibility. Letterboxd must remain `PRIVATE`.
+    - Do not copy proprietary Letterboxd logos, screenshots, marketing copy, film metadata, private APIs, credentials, or real user data into the seeded repo; only the shared template placeholders and the source spec from this store are allowed.
+    - The `--clone-dir` value must not already exist locally. Use `/tmp/letterboxd-mobile-clone-reseed` (or a fresh scratch path) to keep the clone isolated and easy to clean up.
+    - This repo is docs-only: validation is the post-seed `gh repo view` and `gh api` JSON plus the evidence log in `tasks/repo-seeding.md`.
+  - Acceptance criteria:
+    - `GeorgeQLe/letterboxd-mobile-clone` is `PRIVATE` and `isEmpty=false`, with `main` as the default branch.
+    - `docs/source-specs/075-letterboxd.md` and `README.md` are present on the remote (verified via `gh api`).
+    - `tasks/repo-seeding.md` has a `### Step 6.8a Letterboxd Re-Seed` evidence section, the ID 075 manifest row is `[x]`, the Letterboxd blocker entry is marked resolved, and the Batch 04 per-repo table row is updated.
+    - Step 6.8a is checked in `tasks/todo.md`; `tasks/history.md` has the Step 6.8a entry.
+    - No proprietary assets were introduced; no other downstream repo was modified; no visibility change occurred for any repo in the manifest or for `GeorgeQLe/mobile-ideas`.
+  - Out of scope:
+    - Step 6.9 public visibility change for `GeorgeQLe/mobile-ideas`.
+    - Any implementation code inside the Letterboxd downstream repo beyond the template seed.
+    - Re-verification of the other 99 downstream repos (covered by Step 6.8).
+  - Ship-one-step handoff contract: implement only Step 6.8a, validate it, mark Step 6.8a done in `tasks/todo.md`, update `tasks/history.md`, commit and push the completed work to this repo's `main` (and push the seeded commit to `GeorgeQLe/letterboxd-mobile-clone` via the seeding utility), deploy only when an explicit manual deploy contract exists (none currently — skip). Step 6.9 remains the Phase 6 closing step; after 6.8a, start the approval UI for Step 6.9 by calling `EnterPlanMode` first, write a brief pass-through plan in plan mode, call `ExitPlanMode`, and stop before implementing Step 6.9. Do not call `ExitPlanMode` from normal mode.
+
 - Step 6.9: Publish the spec store only after explicit approval
   - Files: modify `tasks/repo-seeding.md`, modify `tasks/manual-todo.md` (manual approval task), modify `tasks/todo.md` and `tasks/history.md` on completion.
   - Execution profile: serial, main agent, high conflict risk (irreversible visibility change on the canonical spec store), no subagent lanes, test strategy `none` (docs-only repo).
