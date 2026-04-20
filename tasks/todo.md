@@ -22,7 +22,7 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
 
 - [x] `tasks/repo-seeding.md` lists all 100 target repos and source specs.
 - [x] A reusable `gh` seeding command pattern exists.
-- [ ] The `gh` seeding command pattern has been tested on one non-Todoist repo.
+- [x] The `gh` seeding command pattern has been tested on one non-Todoist repo.
 - [ ] Existing `GeorgeQLe/todoist-mobile-clone` is reconciled with the same seed structure used for the other repos.
 - [ ] All 100 downstream repos exist or have explicit blocker notes in `tasks/repo-seeding.md`.
 - [x] This spec-store repo has a public-release checklist covering license, README, contribution policy, legal scope, attribution/non-affiliation language, and content audit.
@@ -78,7 +78,7 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
     - Update `tasks/repo-seeding.md` by checking or adding public-release checklist evidence for README, license, contribution policy, security/contact policy, legal scope, attribution/non-affiliation language, downstream linkage, and content-audit status.
     - Do not make `GeorgeQLe/mobile-ideas` public in this step; publication remains blocked until Step 6.9 and the manual approval task are complete.
 
-- Step 6.5: Run one private non-Todoist dry-run seed
+- [x] Step 6.5: Run one private non-Todoist dry-run seed
   - Files: modify `tasks/repo-seeding.md`
   - Verify `gh auth status`; if authentication fails, pause for the manual auth task instead of working around it.
   - Run the seeding utility against the selected dry-run target with private visibility.
@@ -91,10 +91,12 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
     - Update `tasks/repo-seeding.md` with the created repo URL, seeded file list, downstream commit SHA if the utility reports one, privacy status, and any blocker notes.
     - Check off the dry-run batch item and the acceptance criterion for testing the `gh` seeding command pattern on one non-Todoist repo only if the private downstream repo is created and seeded successfully.
     - Do not create any additional downstream repos, do not reconcile Todoist yet, and do not make any repo public in Step 6.5.
-  - Blocked execution note - 2026-04-20:
-    - Attempted `node scripts/seed-downstream-repos.mjs --target 093 --execute --clone-dir /tmp/evernote-mobile-clone`.
-    - The top-level `gh auth status` check succeeded for `GeorgeQLe`, but the utility's internal `gh auth status` check failed twice with an invalid default token.
-    - `GeorgeQLe/evernote-mobile-clone` was not created; rerun this step only after resolving the GitHub CLI auth/config mismatch.
+  - Blocked execution note - 2026-04-20 (resolved):
+    - Initial attempt `node scripts/seed-downstream-repos.mjs --target 093 --execute --clone-dir /tmp/evernote-mobile-clone` failed: top-level `gh auth status` passed but the utility's internal check reported an invalid default token, so no repo was created.
+  - Rerun - 2026-04-20:
+    - After completing the `gh auth login` manual task, reran `node scripts/seed-downstream-repos.mjs --target 093 --execute` from the spec-store repo.
+    - Result: private `GeorgeQLe/evernote-mobile-clone` created, seeded with the six templated files plus `docs/source-specs/093-evernote.md`, root commit `278b06d` pushed to `origin/main`.
+    - Post-push `gh repo view` confirmed visibility `PRIVATE`.
 
 - Step 6.6: Reconcile the existing Todoist downstream repo with the shared seed structure
   - Files: modify `tasks/repo-seeding.md`, update downstream repo `GeorgeQLe/todoist-mobile-clone`
@@ -126,7 +128,7 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
 
 - [x] `tasks/repo-seeding.md` lists all 100 target repos and source specs.
 - [x] A reusable `gh` seeding command pattern exists.
-- [ ] The `gh` seeding command pattern has been tested on one non-Todoist repo.
+- [x] The `gh` seeding command pattern has been tested on one non-Todoist repo.
 - [ ] Existing `GeorgeQLe/todoist-mobile-clone` is reconciled with the same seed structure used for the other repos.
 - [ ] All 100 downstream repos exist or have explicit blocker notes in `tasks/repo-seeding.md`.
 - [x] This spec-store repo has a public-release checklist covering license, README, contribution policy, legal scope, attribution/non-affiliation language, and content audit.

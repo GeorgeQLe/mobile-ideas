@@ -83,7 +83,7 @@ Guardrails:
 ## Batch Execution Todo
 
 - [ ] Reconcile the existing `GeorgeQLe/todoist-mobile-clone` repo with the seed structure below.
-- [ ] Dry-run the seeding process on one low-risk non-Todoist repo, preferably a productivity or notes app.
+- [x] Dry-run the seeding process on one low-risk non-Todoist repo, preferably a productivity or notes app.
 - [ ] Seed Batch 01 repos with `gh repo create`, docs scaffolds, source specs, commits, and push.
 - [ ] Seed Batch 02 repos with `gh repo create`, docs scaffolds, source specs, commits, and push.
 - [ ] Seed Batch 03 repos with `gh repo create`, docs scaffolds, source specs, commits, and push.
@@ -137,13 +137,24 @@ Guardrails:
 - Creation status: blocked before `gh repo create`; `gh repo view GeorgeQLe/evernote-mobile-clone` could not resolve the repository after the failed attempts.
 - Next action: resolve the GitHub CLI auth/config mismatch with `gh auth login -h github.com` or equivalent credential cleanup, then rerun Step 6.5.
 
+### Step 6.5 Private Evernote Seed Rerun - 2026-04-20
+
+- Auth evidence: `gh auth status` shows active account `GeorgeQLe` via keyring, token scopes include `repo`, `workflow`, `gist`, `read:org`, `write:packages`; the seeding utility's internal `gh auth status` check now passes.
+- Pre-state evidence: `gh repo view GeorgeQLe/evernote-mobile-clone` returned a GraphQL "Could not resolve" error before execution, confirming the target did not exist.
+- Execution command: `node scripts/seed-downstream-repos.mjs --target 093 --execute`.
+- Creation evidence: `gh repo create GeorgeQLe/evernote-mobile-clone --private --description 'Evernote inspired lawful mobile clone implementation' --clone=false` succeeded, returning `https://github.com/GeorgeQLe/evernote-mobile-clone`.
+- Clone, commit, push evidence: cloned empty repo, committed six seeded files as root commit `278b06d` with message `chore: seed Evernote implementation workspace`, and pushed to `origin/main`.
+- Seeded files: `.gitignore`, `README.md`, `docs/plans/README.md`, `docs/source-specs/093-evernote.md`, `tasks/roadmap.md`, `tasks/todo.md`.
+- Privacy evidence: post-push `gh repo view GeorgeQLe/evernote-mobile-clone --json visibility,nameWithOwner,url` returned `{"nameWithOwner":"GeorgeQLe/evernote-mobile-clone","url":"https://github.com/GeorgeQLe/evernote-mobile-clone","visibility":"PRIVATE"}`.
+- Content-audit evidence: seeded files are template placeholders plus a copy of `specs/batch-05/093-evernote.md`; no proprietary logos, screenshots, media, private APIs, credentials, or real user data were copied.
+
 ### Batch Progress
 
 - Dry-run target selected: `GeorgeQLe/evernote-mobile-clone`.
 - Reusable downstream templates: ready under `templates/downstream/`.
 - Local dry-run utility: ready and validated against `GeorgeQLe/evernote-mobile-clone` without creating the repository.
 - Public-release review docs: ready for review; publication still blocked pending explicit approval.
-- Remote dry-run execution: blocked at Step 6.5 by GitHub CLI auth/config mismatch before repo creation.
+- Remote dry-run execution: completed 2026-04-20; private `GeorgeQLe/evernote-mobile-clone` seeded at commit `278b06d`.
 - Todoist reconciliation: pending shared seed templates.
 - Batch creation: not started.
 
@@ -151,7 +162,7 @@ Guardrails:
 
 - No Step 6.1 manifest, source-spec, or checked-row blockers found.
 - No Step 6.3 local dry-run blockers found.
-- Step 6.5 blocker: the seeding utility's internal `gh auth status` check failed twice for `GeorgeQLe/evernote-mobile-clone` with an invalid default token, despite a top-level status check succeeding. No repository was created.
+- Step 6.5 blocker (resolved 2026-04-20): the seeding utility's internal `gh auth status` check had failed twice for `GeorgeQLe/evernote-mobile-clone` with an invalid default token. Re-authentication via `gh auth login` (manual task) restored keyring-backed credentials; the rerun succeeded and seeded the private repo at commit `278b06d`.
 - Human review may still be needed for repo-name or visibility questions recorded during later automated runs.
 
 ### Explicit Private-Repo Decisions
@@ -256,7 +267,7 @@ Guardrails:
 | [x] | 090 | Todoist | `GeorgeQLe/todoist-mobile-clone` | `specs/batch-05/090-todoist.md` |
 | [ ] | 091 | Trello | `GeorgeQLe/trello-mobile-clone` | `specs/batch-05/091-trello.md` |
 | [ ] | 092 | Google Calendar | `GeorgeQLe/google-calendar-mobile-clone` | `specs/batch-05/092-google-calendar.md` |
-| [ ] | 093 | Evernote | `GeorgeQLe/evernote-mobile-clone` | `specs/batch-05/093-evernote.md` |
+| [x] | 093 | Evernote | `GeorgeQLe/evernote-mobile-clone` | `specs/batch-05/093-evernote.md` |
 | [ ] | 094 | Dropbox | `GeorgeQLe/dropbox-mobile-clone` | `specs/batch-05/094-dropbox.md` |
 | [ ] | 095 | Google Drive | `GeorgeQLe/google-drive-mobile-clone` | `specs/batch-05/095-google-drive.md` |
 | [ ] | 096 | CapCut | `GeorgeQLe/capcut-mobile-clone` | `specs/batch-05/096-capcut.md` |

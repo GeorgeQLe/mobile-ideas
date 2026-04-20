@@ -199,8 +199,14 @@
 - Confirmed the top-level GitHub CLI auth check passed for `GeorgeQLe`, but the seeding utility's internal `gh auth status` check failed twice with an invalid default token.
 - Confirmed `GeorgeQLe/evernote-mobile-clone` was not created and recorded the blocker in `tasks/repo-seeding.md` and `tasks/todo.md`.
 
+## 2026-04-20 - Evernote Downstream Seed Completed
+
+- Reran Phase 6 Step 6.5 after the `gh auth login` manual task was resolved; `gh auth status` shows active account `GeorgeQLe` via keyring with `repo`/`workflow` scopes.
+- Ran `node scripts/seed-downstream-repos.mjs --target 093 --execute`; created private `GeorgeQLe/evernote-mobile-clone`, seeded the six template files plus `docs/source-specs/093-evernote.md`, and pushed root commit `278b06d` to `origin/main`.
+- Verified post-push visibility is `PRIVATE` via `gh repo view --json visibility`; content-audit confirmed placeholder-only docs with no proprietary logos, screenshots, media, private APIs, credentials, or real user data.
+- Checked off Phase 6 Step 6.5, its acceptance criterion, and the dry-run batch row in `tasks/repo-seeding.md` and `tasks/todo.md`; marked the prior blocker resolved.
+
 ## Next Steps
 
-- Run the private non-Todoist dry-run seed for `GeorgeQLe/evernote-mobile-clone`.
-- Check GitHub CLI authentication before Step 6.5 and use the manual auth blocker if `gh auth status` fails.
+- Begin Phase 6 Step 6.6: reconcile `GeorgeQLe/todoist-mobile-clone` with the shared downstream seed templates.
 - Keep all downstream repos and this spec store private until the applicable legal/name/license/content review and explicit public-release approval are complete.
