@@ -82,7 +82,7 @@ Guardrails:
 
 ## Batch Execution Todo
 
-- [ ] Reconcile the existing `GeorgeQLe/todoist-mobile-clone` repo with the seed structure below.
+- [x] Reconcile the existing `GeorgeQLe/todoist-mobile-clone` repo with the seed structure below.
 - [x] Dry-run the seeding process on one low-risk non-Todoist repo, preferably a productivity or notes app.
 - [ ] Seed Batch 01 repos with `gh repo create`, docs scaffolds, source specs, commits, and push.
 - [ ] Seed Batch 02 repos with `gh repo create`, docs scaffolds, source specs, commits, and push.
@@ -148,6 +148,22 @@ Guardrails:
 - Privacy evidence: post-push `gh repo view GeorgeQLe/evernote-mobile-clone --json visibility,nameWithOwner,url` returned `{"nameWithOwner":"GeorgeQLe/evernote-mobile-clone","url":"https://github.com/GeorgeQLe/evernote-mobile-clone","visibility":"PRIVATE"}`.
 - Content-audit evidence: seeded files are template placeholders plus a copy of `specs/batch-05/093-evernote.md`; no proprietary logos, screenshots, media, private APIs, credentials, or real user data were copied.
 
+### Step 6.6 Todoist Reconciliation - 2026-04-20
+
+- Preview evidence: `node scripts/seed-downstream-repos.mjs --target 090 --dry-run --preview-dir /tmp/mobile-ideas-todoist-seed-preview` rendered the six template files; `rg "\{\{[A-Z0-9_]+\}\}" /tmp/mobile-ideas-todoist-seed-preview` returned no matches.
+- Pre-state evidence: `gh repo view GeorgeQLe/todoist-mobile-clone --json visibility,nameWithOwner,url` returned `PRIVATE`; clone of existing downstream repo contained pre-template Todoist build-plan content (`docs/plans/todoist-downstream-build-plan.md`, `docs/decisions/stack.md`, Expo/React Native scaffold under `src/`, `tests/`, `App.tsx`, `package.json`, `tasks/history.md`).
+- Files added: `docs/plans/README.md` (generic template scaffold, coexists with the existing Todoist-specific build plan).
+- Files aligned: `.gitignore` replaced with the shared template version (the prior downstream ignore file was a minimal subset with no Todoist-specific entries).
+- Files already in parity: `docs/source-specs/090-todoist.md` is byte-identical to `specs/batch-05/090-todoist.md`; no copy required.
+- Files kept with rationale (`keep-with-note`):
+  - `README.md` — predates the shared template and documents stack decision, build plan pointer, and Todoist-specific boundaries; already carries non-affiliation language and is not silently overwritten.
+  - `tasks/roadmap.md` — contains downstream-specific phases derived from the Todoist source spec (foundation, core workflows, trust/collaboration) that the generic template roadmap would erase.
+  - `tasks/todo.md` — contains priority implementation tasks and manual verification blockers already tailored to Todoist; the template scaffold is a generic subset.
+  - `tasks/history.md`, `docs/decisions/stack.md`, `docs/plans/todoist-downstream-build-plan.md`, `App.tsx`, `app.json`, `babel.config.js`, `CLAUDE.md`, `package.json`, `package-lock.json`, `tsconfig.json`, `src/`, `tests/`, `.agents/project.json` — pre-template Todoist scaffold and planning artifacts preserved intact; the shared seed has no equivalent and silent replacement would destroy prior work.
+- Commit evidence: single reconciliation commit `ffcdbc0` on `GeorgeQLe/todoist-mobile-clone` `main` with message `chore: reconcile with shared downstream seed templates`; pushed to `origin/main`.
+- Privacy evidence: post-push `gh repo view GeorgeQLe/todoist-mobile-clone --json visibility,nameWithOwner,url` returned `{"nameWithOwner":"GeorgeQLe/todoist-mobile-clone","url":"https://github.com/GeorgeQLe/todoist-mobile-clone","visibility":"PRIVATE"}`.
+- Content-audit evidence: reconciliation added only the template `.gitignore` and generic `docs/plans/README.md`; no proprietary Todoist logos, screenshots, marketing copy, private APIs, credentials, or real user data were introduced.
+
 ### Batch Progress
 
 - Dry-run target selected: `GeorgeQLe/evernote-mobile-clone`.
@@ -155,7 +171,7 @@ Guardrails:
 - Local dry-run utility: ready and validated against `GeorgeQLe/evernote-mobile-clone` without creating the repository.
 - Public-release review docs: ready for review; publication still blocked pending explicit approval.
 - Remote dry-run execution: completed 2026-04-20; private `GeorgeQLe/evernote-mobile-clone` seeded at commit `278b06d`.
-- Todoist reconciliation: pending shared seed templates.
+- Todoist reconciliation: completed 2026-04-20; `GeorgeQLe/todoist-mobile-clone` aligned at commit `ffcdbc0`, pre-template Todoist scaffold preserved as `keep-with-note`.
 - Batch creation: not started.
 
 ### Failures And Blockers

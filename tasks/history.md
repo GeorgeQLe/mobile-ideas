@@ -206,7 +206,16 @@
 - Verified post-push visibility is `PRIVATE` via `gh repo view --json visibility`; content-audit confirmed placeholder-only docs with no proprietary logos, screenshots, media, private APIs, credentials, or real user data.
 - Checked off Phase 6 Step 6.5, its acceptance criterion, and the dry-run batch row in `tasks/repo-seeding.md` and `tasks/todo.md`; marked the prior blocker resolved.
 
+## 2026-04-20 - Todoist Downstream Reconciliation
+
+- Ran `node scripts/seed-downstream-repos.mjs --target 090 --dry-run --preview-dir /tmp/mobile-ideas-todoist-seed-preview`; preview rendered with no unresolved `{{PLACEHOLDER}}` tokens.
+- Cloned existing private `GeorgeQLe/todoist-mobile-clone` into a scratch directory and diffed each expected seed file against the preview; source spec `docs/source-specs/090-todoist.md` was already byte-identical to `specs/batch-05/090-todoist.md`.
+- Aligned `.gitignore` with the shared template and added generic `docs/plans/README.md`; preserved the pre-template Todoist README, `tasks/roadmap.md`, `tasks/todo.md`, `tasks/history.md`, `docs/decisions/stack.md`, `docs/plans/todoist-downstream-build-plan.md`, and Expo/React Native scaffold as `keep-with-note` items with rationale recorded in `tasks/repo-seeding.md`.
+- Pushed reconciliation commit `ffcdbc0` to `GeorgeQLe/todoist-mobile-clone` `main`; post-push `gh repo view --json visibility` confirmed `PRIVATE`.
+- Content-audit confirmed no proprietary logos, screenshots, marketing copy, private APIs, credentials, or real user data were introduced.
+- Checked off Phase 6 Step 6.6, its acceptance criterion in `tasks/todo.md`, and the Todoist reconciliation row in `tasks/repo-seeding.md`.
+
 ## Next Steps
 
-- Begin Phase 6 Step 6.6: reconcile `GeorgeQLe/todoist-mobile-clone` with the shared downstream seed templates.
+- Begin Phase 6 Step 6.7: seed the remaining downstream repos in controlled private batches.
 - Keep all downstream repos and this spec store private until the applicable legal/name/license/content review and explicit public-release approval are complete.

@@ -23,7 +23,7 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
 - [x] `tasks/repo-seeding.md` lists all 100 target repos and source specs.
 - [x] A reusable `gh` seeding command pattern exists.
 - [x] The `gh` seeding command pattern has been tested on one non-Todoist repo.
-- [ ] Existing `GeorgeQLe/todoist-mobile-clone` is reconciled with the same seed structure used for the other repos.
+- [x] Existing `GeorgeQLe/todoist-mobile-clone` is reconciled with the same seed structure used for the other repos.
 - [ ] All 100 downstream repos exist or have explicit blocker notes in `tasks/repo-seeding.md`.
 - [x] This spec-store repo has a public-release checklist covering license, README, contribution policy, legal scope, attribution/non-affiliation language, and content audit.
 - [ ] This spec-store repo is made public only after the open-source checklist is complete and explicitly approved.
@@ -98,7 +98,7 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
     - Result: private `GeorgeQLe/evernote-mobile-clone` created, seeded with the six templated files plus `docs/source-specs/093-evernote.md`, root commit `278b06d` pushed to `origin/main`.
     - Post-push `gh repo view` confirmed visibility `PRIVATE`.
 
-- Step 6.6: Reconcile the existing Todoist downstream repo with the shared seed structure
+- [x] Step 6.6: Reconcile the existing Todoist downstream repo with the shared seed structure
   - Files: modify `tasks/repo-seeding.md` (this repo); update downstream repo `GeorgeQLe/todoist-mobile-clone` (separate clone)
   - Execution profile: serial, main agent, high conflict risk, no subagent lanes, test strategy `none` (docs-only repo, no lint/typecheck/tests configured).
   - Prerequisites:
@@ -134,10 +134,47 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
   - Ship-one-step handoff contract: implement only Step 6.6, validate it, mark Step 6.6 and its acceptance criterion done in `tasks/todo.md`, update `tasks/history.md`, commit and push the completed work to this repo's `main` (and push the reconciliation commit to the downstream repo), deploy only when an explicit manual deploy contract exists (none currently), write the Step 6.7 plan into `tasks/todo.md`, ensure `.claude/settings.local.json` has `"showClearContextOnPlanAccept": true` and `"defaultMode": "acceptEdits"`, start the approval UI for Step 6.7 by calling `EnterPlanMode` first, write a brief pass-through plan in plan mode, call `ExitPlanMode`, and stop before implementing Step 6.7. Do not call `ExitPlanMode` from normal mode.
 
 - Step 6.7: Seed the remaining downstream repos in controlled private batches
-  - Files: modify `tasks/repo-seeding.md`
-  - Create repos batch by batch only after the dry-run and Todoist reconciliation pass.
-  - Keep every downstream repo private, preserve source-spec links and manual blockers, and record per-repo creation evidence or explicit blocker notes.
-  - Stop the batch on authentication, permission, naming, rate-limit, or template validation failures and record the blocker instead of partially guessing.
+  - Files: modify `tasks/repo-seeding.md` (this repo); create 98 new private downstream repositories under `GeorgeQLe/<slug>-mobile-clone` (one per unchecked manifest row).
+  - Execution profile: serial, main agent, high conflict risk (GitHub API rate limits, auth drift, naming collisions), no subagent lanes, test strategy `none` (docs-only repo).
+  - Prerequisites:
+    - `gh auth status` shows active account `GeorgeQLe` via keyring with `repo` + `workflow` scopes. If it fails, stop and use the `gh auth login` manual blocker path.
+    - Steps 6.5 (Evernote seed) and 6.6 (Todoist reconciliation) both marked complete; shared templates under `templates/downstream/` validated.
+    - `tasks/repo-seeding.md` manifest lists 100 target rows with two already checked (`[x] 090` Todoist, `[x] 093` Evernote); the remaining 98 rows are the Step 6.7 scope.
+    - `scripts/seed-downstream-repos.mjs` default-private guardrails (`--public`/`--visibility public`/`--all` refused, existing-repo refusal unless `--reconcile-existing`) remain in place.
+  - Batching:
+    - Group by manifest batch: Batch 01 (IDs 001-020, minus none), Batch 02 (021-040), Batch 03 (041-060), Batch 04 (061-080), Batch 05 (081-100, minus 090 and 093). Seed one batch per iteration; do not interleave batches.
+    - Before each batch, run a single fresh preview (`--dry-run --preview-dir /tmp/mobile-ideas-seed-preview-<ID>`) for the first ID in the batch to confirm template health and `rg "\{\{[A-Z0-9_]+\}\}"` returns no matches.
+    - Within a batch, seed repos one at a time in ascending ID order with `node scripts/seed-downstream-repos.mjs --target <ID> --execute`; wait for push to complete before moving to the next ID.
+  - Sub-tasks (per ID):
+    1. Pre-check: `gh repo view GeorgeQLe/<slug>-mobile-clone --json visibility` — if the repo already exists, stop the batch and record the conflict as a blocker (do not pass `--reconcile-existing` in bulk).
+    2. Execute: `node scripts/seed-downstream-repos.mjs --target <ID> --execute`.
+    3. Post-check: `gh repo view GeorgeQLe/<slug>-mobile-clone --json visibility,nameWithOwner,url` returns `PRIVATE`.
+    4. Capture downstream root-commit SHA from the seeding utility output or `git -C <clone-dir> rev-parse HEAD`.
+    5. Append a compact evidence line for that ID to the per-batch evidence table in `tasks/repo-seeding.md` and check the manifest row `[x]`.
+    6. On any failure (auth, permission, naming collision, rate limit, template validation, clone, commit, or push), stop the batch, record the blocker under `### Failures And Blockers` with the exact ID, command, and error text, and do not guess a fix.
+  - Per-batch deliverables in `tasks/repo-seeding.md`:
+    - A new `### Step 6.7 Batch 0N Seeding - YYYY-MM-DD` section with: batch ID range, preview evidence, per-repo table (ID, repo, commit SHA, visibility, notes), authorized privacy statement, and content-audit line.
+    - Updated manifest checkboxes for every newly-created repo in that batch.
+    - Updated `Batch Execution Todo` checkbox for the batch (`[x] Seed Batch 0N repos...`).
+  - Rate-limit and throttling guidance:
+    - GitHub REST API allows 5,000 requests/hour for authenticated users; each seed uses a handful of requests. The full 98 repos should fit in one session, but monitor for secondary-rate-limit warnings from `gh` and back off 60s if seen. Record any throttle event as a blocker entry rather than retrying blindly.
+  - Gotchas and conventions from this session:
+    - The seeding utility's internal `gh auth status` check has historically failed even when the top-level check passed; if it fails mid-batch, stop and redirect to `gh auth login` manually.
+    - Every downstream repo must remain `PRIVATE`. Do not pass `--public` or `--visibility public`.
+    - Never copy proprietary logos, screenshots, marketing copy, private APIs, credentials, or real user data into any seeded repo; only template placeholders and the source spec from this store are allowed.
+    - If a manifest source-spec path does not resolve under `specs/`, the utility refuses to run — record the missing spec as a blocker instead of improvising.
+    - This repo is docs-only: validation is the per-ID post-push `gh repo view` JSON plus the evidence table.
+  - Acceptance criteria:
+    - All 98 previously-unchecked manifest rows are either checked `[x]` with a recorded private repo URL and root-commit SHA, or have an explicit blocker note in `tasks/repo-seeding.md`.
+    - Every newly-created downstream repo is `PRIVATE` post-push.
+    - `tasks/repo-seeding.md` contains a Step 6.7 batch section for each batch actually executed, plus any partial-batch stop evidence.
+    - No proprietary assets, screenshots, logos, private APIs, credentials, or real user data were introduced into any downstream repo.
+    - Phase 6 acceptance `All 100 downstream repos exist or have explicit blocker notes in tasks/repo-seeding.md` is satisfied.
+  - Out of scope:
+    - Step 6.8 full-manifest verification pass.
+    - Step 6.9 public visibility change for `GeorgeQLe/mobile-ideas`.
+    - Any implementation code inside downstream repos beyond the template seed.
+  - Ship-one-step handoff contract: implement only Step 6.7, validate it batch by batch, mark Step 6.7 and the `All 100 downstream repos...` acceptance item done in `tasks/todo.md` when the final batch completes or all remaining rows have blocker notes, update `tasks/history.md`, commit and push the completed work to this repo's `main` (downstream repos push as part of each per-ID seed), deploy only when an explicit manual deploy contract exists (none currently), write the Step 6.8 plan into `tasks/todo.md`, ensure `.claude/settings.local.json` keeps `"showClearContextOnPlanAccept": true` and `"defaultMode": "acceptEdits"`, start the approval UI for Step 6.8 by calling `EnterPlanMode` first, write a brief pass-through plan in plan mode, call `ExitPlanMode`, and stop before implementing Step 6.8. Do not call `ExitPlanMode` from normal mode.
 
 - Step 6.8: Verify the full downstream repo manifest
   - Files: modify `tasks/repo-seeding.md`
@@ -158,7 +195,7 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
 - [x] `tasks/repo-seeding.md` lists all 100 target repos and source specs.
 - [x] A reusable `gh` seeding command pattern exists.
 - [x] The `gh` seeding command pattern has been tested on one non-Todoist repo.
-- [ ] Existing `GeorgeQLe/todoist-mobile-clone` is reconciled with the same seed structure used for the other repos.
+- [x] Existing `GeorgeQLe/todoist-mobile-clone` is reconciled with the same seed structure used for the other repos.
 - [ ] All 100 downstream repos exist or have explicit blocker notes in `tasks/repo-seeding.md`.
 - [x] This spec-store repo has a public-release checklist covering license, README, contribution policy, legal scope, attribution/non-affiliation language, and content audit.
 - [ ] This spec-store repo is made public only after the open-source checklist is complete and explicitly approved.
