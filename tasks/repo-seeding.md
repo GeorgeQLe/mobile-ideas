@@ -514,6 +514,36 @@ Guardrails:
 | 179 | `GeorgeQLe/pbs-kids-mobile-clone` | PRIVATE | seeded |
 | 180 | `GeorgeQLe/babbel-mobile-clone` | PRIVATE | seeded |
 
+### Batch 181-200 Seeding Evidence - 2026-04-21T19:14:54.840Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4940,"reset":1776794019,"used":60},"graphql":{"limit":5000,"remaining":4921,"reset":1776791416,"used":79},"search":{"limit":30,"remaining":30,"reset":1776790659,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4936,"reset":1776801506,"used":64},"graphql":{"limit":5000,"remaining":4970,"reset":1776802278,"used":30},"search":{"limit":30,"remaining":30,"reset":1776798954,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 181 | `GeorgeQLe/rosetta-stone-mobile-clone` | PRIVATE | seeded |
+| 182 | `GeorgeQLe/busuu-mobile-clone` | PRIVATE | seeded |
+| 183 | `GeorgeQLe/google-translate-mobile-clone` | PRIVATE | seeded |
+| 184 | `GeorgeQLe/deepl-mobile-clone` | PRIVATE | seeded |
+| 185 | `GeorgeQLe/otter-ai-mobile-clone` | PRIVATE | seeded |
+| 186 | `GeorgeQLe/grammarly-mobile-clone` | PRIVATE | seeded |
+| 187 | `GeorgeQLe/github-mobile-mobile-clone` | PRIVATE | seeded |
+| 188 | `GeorgeQLe/linear-mobile-clone` | PRIVATE | seeded |
+| 189 | `GeorgeQLe/jira-mobile-clone` | PRIVATE | seeded |
+| 190 | `GeorgeQLe/asana-mobile-clone` | PRIVATE | seeded |
+| 191 | `GeorgeQLe/clickup-mobile-clone` | PRIVATE | seeded |
+| 192 | `GeorgeQLe/figma-mobile-clone` | PRIVATE | seeded |
+| 193 | `GeorgeQLe/miro-mobile-clone` | PRIVATE | seeded |
+| 194 | `GeorgeQLe/calendly-mobile-clone` | PRIVATE | seeded |
+| 195 | `GeorgeQLe/fantastical-mobile-clone` | PRIVATE | seeded |
+| 196 | `GeorgeQLe/things-3-mobile-clone` | PRIVATE | seeded |
+| 197 | `GeorgeQLe/obsidian-mobile-clone` | PRIVATE | seeded |
+| 198 | `GeorgeQLe/bear-mobile-clone` | PRIVATE | seeded |
+| 199 | `GeorgeQLe/day-one-mobile-clone` | PRIVATE | seeded |
+| 200 | `GeorgeQLe/alltrails-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
 
 - No Step 6.1 manifest, source-spec, or checked-row blockers found.
@@ -713,26 +743,26 @@ Guardrails:
 | [x] | 178 | YouTube Kids | `GeorgeQLe/youtube-kids-mobile-clone` | `specs/batch-09/178-youtube-kids.md` |
 | [x] | 179 | PBS Kids | `GeorgeQLe/pbs-kids-mobile-clone` | `specs/batch-09/179-pbs-kids.md` |
 | [x] | 180 | Babbel | `GeorgeQLe/babbel-mobile-clone` | `specs/batch-09/180-babbel.md` |
-| [ ] | 181 | Rosetta Stone | `GeorgeQLe/rosetta-stone-mobile-clone` | `specs/batch-10/181-rosetta-stone.md` |
-| [ ] | 182 | Busuu | `GeorgeQLe/busuu-mobile-clone` | `specs/batch-10/182-busuu.md` |
-| [ ] | 183 | Google Translate | `GeorgeQLe/google-translate-mobile-clone` | `specs/batch-10/183-google-translate.md` |
-| [ ] | 184 | DeepL | `GeorgeQLe/deepl-mobile-clone` | `specs/batch-10/184-deepl.md` |
-| [ ] | 185 | Otter.ai | `GeorgeQLe/otter-ai-mobile-clone` | `specs/batch-10/185-otter-ai.md` |
-| [ ] | 186 | Grammarly | `GeorgeQLe/grammarly-mobile-clone` | `specs/batch-10/186-grammarly.md` |
-| [ ] | 187 | GitHub Mobile | `GeorgeQLe/github-mobile-mobile-clone` | `specs/batch-10/187-github-mobile.md` |
-| [ ] | 188 | Linear | `GeorgeQLe/linear-mobile-clone` | `specs/batch-10/188-linear.md` |
-| [ ] | 189 | Jira | `GeorgeQLe/jira-mobile-clone` | `specs/batch-10/189-jira.md` |
-| [ ] | 190 | Asana | `GeorgeQLe/asana-mobile-clone` | `specs/batch-10/190-asana.md` |
-| [ ] | 191 | ClickUp | `GeorgeQLe/clickup-mobile-clone` | `specs/batch-10/191-clickup.md` |
-| [ ] | 192 | Figma | `GeorgeQLe/figma-mobile-clone` | `specs/batch-10/192-figma.md` |
-| [ ] | 193 | Miro | `GeorgeQLe/miro-mobile-clone` | `specs/batch-10/193-miro.md` |
-| [ ] | 194 | Calendly | `GeorgeQLe/calendly-mobile-clone` | `specs/batch-10/194-calendly.md` |
-| [ ] | 195 | Fantastical | `GeorgeQLe/fantastical-mobile-clone` | `specs/batch-10/195-fantastical.md` |
-| [ ] | 196 | Things 3 | `GeorgeQLe/things-3-mobile-clone` | `specs/batch-10/196-things-3.md` |
-| [ ] | 197 | Obsidian | `GeorgeQLe/obsidian-mobile-clone` | `specs/batch-10/197-obsidian.md` |
-| [ ] | 198 | Bear | `GeorgeQLe/bear-mobile-clone` | `specs/batch-10/198-bear.md` |
-| [ ] | 199 | Day One | `GeorgeQLe/day-one-mobile-clone` | `specs/batch-10/199-day-one.md` |
-| [ ] | 200 | AllTrails | `GeorgeQLe/alltrails-mobile-clone` | `specs/batch-10/200-alltrails.md` |
+| [x] | 181 | Rosetta Stone | `GeorgeQLe/rosetta-stone-mobile-clone` | `specs/batch-10/181-rosetta-stone.md` |
+| [x] | 182 | Busuu | `GeorgeQLe/busuu-mobile-clone` | `specs/batch-10/182-busuu.md` |
+| [x] | 183 | Google Translate | `GeorgeQLe/google-translate-mobile-clone` | `specs/batch-10/183-google-translate.md` |
+| [x] | 184 | DeepL | `GeorgeQLe/deepl-mobile-clone` | `specs/batch-10/184-deepl.md` |
+| [x] | 185 | Otter.ai | `GeorgeQLe/otter-ai-mobile-clone` | `specs/batch-10/185-otter-ai.md` |
+| [x] | 186 | Grammarly | `GeorgeQLe/grammarly-mobile-clone` | `specs/batch-10/186-grammarly.md` |
+| [x] | 187 | GitHub Mobile | `GeorgeQLe/github-mobile-mobile-clone` | `specs/batch-10/187-github-mobile.md` |
+| [x] | 188 | Linear | `GeorgeQLe/linear-mobile-clone` | `specs/batch-10/188-linear.md` |
+| [x] | 189 | Jira | `GeorgeQLe/jira-mobile-clone` | `specs/batch-10/189-jira.md` |
+| [x] | 190 | Asana | `GeorgeQLe/asana-mobile-clone` | `specs/batch-10/190-asana.md` |
+| [x] | 191 | ClickUp | `GeorgeQLe/clickup-mobile-clone` | `specs/batch-10/191-clickup.md` |
+| [x] | 192 | Figma | `GeorgeQLe/figma-mobile-clone` | `specs/batch-10/192-figma.md` |
+| [x] | 193 | Miro | `GeorgeQLe/miro-mobile-clone` | `specs/batch-10/193-miro.md` |
+| [x] | 194 | Calendly | `GeorgeQLe/calendly-mobile-clone` | `specs/batch-10/194-calendly.md` |
+| [x] | 195 | Fantastical | `GeorgeQLe/fantastical-mobile-clone` | `specs/batch-10/195-fantastical.md` |
+| [x] | 196 | Things 3 | `GeorgeQLe/things-3-mobile-clone` | `specs/batch-10/196-things-3.md` |
+| [x] | 197 | Obsidian | `GeorgeQLe/obsidian-mobile-clone` | `specs/batch-10/197-obsidian.md` |
+| [x] | 198 | Bear | `GeorgeQLe/bear-mobile-clone` | `specs/batch-10/198-bear.md` |
+| [x] | 199 | Day One | `GeorgeQLe/day-one-mobile-clone` | `specs/batch-10/199-day-one.md` |
+| [x] | 200 | AllTrails | `GeorgeQLe/alltrails-mobile-clone` | `specs/batch-10/200-alltrails.md` |
 | [ ] | 201 | Poe | `GeorgeQLe/poe-mobile-clone` | `specs/batch-11/201-poe.md` |
 | [ ] | 202 | Gemini | `GeorgeQLe/gemini-mobile-clone` | `specs/batch-11/202-gemini.md` |
 | [ ] | 203 | Microsoft Copilot | `GeorgeQLe/microsoft-copilot-mobile-clone` | `specs/batch-11/203-microsoft-copilot.md` |
