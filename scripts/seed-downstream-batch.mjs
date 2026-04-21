@@ -11,19 +11,20 @@ const cloneRoot = path.join(tmpdir(), "mobile-ideas-downstream-seeds");
 
 function usage() {
   return `Usage:
-  node scripts/seed-downstream-batch.mjs --from <id> --to <id> --execute [--delay-ms 30000] [--limit 20]
+  node scripts/seed-downstream-batch.mjs --from <id> --to <id> --execute [--delay-ms 30000] [--limit 20] [--repos-per-hour 20]
   node scripts/seed-downstream-batch.mjs --from <id> --to <id> --dry-run [--limit 20]
 
 Guardrails:
   - Serial only.
   - Private-only; delegates each repo to seed-downstream-repos.mjs.
   - Default limit is 20 repos per run.
+  - Default rolling cap is 20 repos/hour; maximum allowed cap is 40 repos/hour.
   - Default execute delay is 30000ms between repo seeds.
   - Stops on first failure.`;
 }
 
 function parseArgs(argv) {
-  const args = { from: null, to: null, execute: false, dryRun: false, delayMs: 30000, limit: 20 };
+  const args = { from: null, to: null, execute: false, dryRun: false, delayMs: 30000, limit: 20, reposPerHour: 20 };
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
     if (arg === "--help" || arg === "-h") {
@@ -36,6 +37,7 @@ function parseArgs(argv) {
     else if (arg === "--dry-run") args.dryRun = true;
     else if (arg === "--delay-ms") args.delayMs = Number(argv[++i]);
     else if (arg === "--limit") args.limit = Number(argv[++i]);
+    else if (arg === "--repos-per-hour") args.reposPerHour = Number(argv[++i]);
     else throw new Error(`Unknown arg: ${arg}`);
   }
   if (!Number.isInteger(args.from) || !Number.isInteger(args.to) || args.from < 1 || args.to < args.from) {
@@ -43,6 +45,10 @@ function parseArgs(argv) {
   }
   if (args.execute === args.dryRun) throw new Error("Choose exactly one of --execute or --dry-run.");
   if (!Number.isInteger(args.limit) || args.limit < 1 || args.limit > 40) throw new Error("--limit must be 1-40.");
+  if (!Number.isInteger(args.reposPerHour) || args.reposPerHour < 1 || args.reposPerHour > 40) {
+    throw new Error("--repos-per-hour must be 1-40.");
+  }
+  if (args.limit > args.reposPerHour) throw new Error("--limit cannot exceed --repos-per-hour.");
   if (!Number.isInteger(args.delayMs) || args.delayMs < 30000) throw new Error("--delay-ms must be at least 30000 for execute mode.");
   return args;
 }
@@ -149,12 +155,64 @@ function appendEvidence(from, to, seeded, preRate, postRate, dryRun) {
   fs.writeFileSync(manifestPath, `${markdown.slice(0, index)}${section}${markdown.slice(index)}`, "utf8");
 }
 
+function parseCompletedBatchEvents(markdown) {
+  const lines = markdown.split("\n");
+  const events = [];
+  for (let index = 0; index < lines.length; index += 1) {
+    const heading = lines[index].match(/^### Batch \d{3,4}-\d{3,4} Seeding Evidence - (.+)$/);
+    if (!heading) continue;
+    const timestamp = Date.parse(heading[1]);
+    if (Number.isNaN(timestamp)) continue;
+    const execution = lines[index + 2]?.match(/with (\d+) successful repo\(s\)\./);
+    if (!execution) continue;
+    events.push({ timestamp, count: Number(execution[1]) });
+  }
+  return events;
+}
+
+function formatDuration(ms) {
+  const totalSeconds = Math.max(0, Math.ceil(ms / 1000));
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  return `${minutes}m ${seconds}s`;
+}
+
+function enforceHourlyCap(markdown, targetCount, reposPerHour) {
+  const windowMs = 60 * 60 * 1000;
+  const now = Date.now();
+  const recentEvents = parseCompletedBatchEvents(markdown)
+    .filter((event) => event.timestamp > now - windowMs)
+    .sort((a, b) => a.timestamp - b.timestamp);
+  const recentCount = recentEvents.reduce((sum, event) => sum + event.count, 0);
+  if (recentCount + targetCount <= reposPerHour) return;
+
+  let eligibleAt = null;
+  for (const event of recentEvents) {
+    const candidate = event.timestamp + windowMs + 1000;
+    const countAtCandidate = recentEvents
+      .filter((recentEvent) => recentEvent.timestamp > candidate - windowMs)
+      .reduce((sum, recentEvent) => sum + recentEvent.count, 0);
+    if (countAtCandidate + targetCount <= reposPerHour) {
+      eligibleAt = candidate;
+      break;
+    }
+  }
+
+  const waitMs = eligibleAt === null ? windowMs : eligibleAt - now;
+  const eligibleIso = new Date(eligibleAt ?? now + windowMs).toISOString();
+  throw new Error(
+    `Rolling GitHub creation cap would be exceeded: ${recentCount} repo(s) recorded in the last hour, ` +
+      `${targetCount} selected, cap ${reposPerHour}/hour. Try again after ${eligibleIso} ` +
+      `(about ${formatDuration(waitMs)}).`
+  );
+}
+
 function sleep(ms) {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 }
 
 const args = parseArgs(process.argv.slice(2));
-const { rows } = parseManifest();
+const { markdown, rows } = parseManifest();
 const targets = rows
   .filter((row) => row.id >= args.from && row.id <= args.to && !row.done)
   .slice(0, args.limit);
@@ -163,6 +221,8 @@ if (targets.length === 0) {
   console.log("No unchecked targets in range.");
   process.exit(0);
 }
+
+if (args.execute) enforceHourlyCap(markdown, targets.length, args.reposPerHour);
 
 console.log(`Selected ${targets.length} target(s): ${targets.map((row) => row.idText).join(", ")}`);
 const preRate = args.execute ? rateLimitSnapshot("Pre-batch") : "dry-run";

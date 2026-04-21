@@ -30,6 +30,7 @@ Planning and specification workspace for mobile app clone ideas. Not runtime cod
 - User approval for GitHub downstream repo creation batches was granted on 2026-04-21, with the constraint that every downstream repo must be private.
 - Seeding must stay serial. Do not parallelize `gh repo create`, clone, commit, push, or verification calls.
 - Default batch size is 20 repos per hour with at least 30 seconds between repo seeds. After two clean batches, the maximum can rise to 40 repos per hour, still serial.
+- Repeated runs must use `scripts/seed-downstream-batch.mjs` with the rolling hourly cap enabled; if it reports a future eligible time, wait instead of bypassing the guard.
 - Stop immediately on any GitHub `403`, `429`, secondary-rate-limit message, auth/permission failure, naming failure, clone propagation failure, template placeholder failure, or non-private visibility result.
 - On rate-limit responses, obey `retry-after` or `x-ratelimit-reset`; otherwise wait at least one minute and use exponential backoff. Continuing while rate-limited risks GitHub enforcement.
 - Before and after each batch, check authenticated rate-limit status with `gh api rate_limit` and record evidence in `tasks/repo-seeding.md`.
