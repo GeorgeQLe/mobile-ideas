@@ -152,3 +152,17 @@ Recommended fix: Use lawful test accounts/devices to verify reachable flows. Mar
 
 - Phase 7 Step 7.3: upgrade IDs 101-200 from canonical Draft 1 to implementation-ready public-source V1 with exact first-party sources, verified-vs-inferred distinction, full category risk review, and explicit blockers.
 - Complete hands-on verification where lawful and feasible.
+
+## 1000-App Extension Addendum - 2026-04-21
+
+The backlog now targets 1000 mobile app clone projects. IDs 201-1000 were added as canonical Draft 1 scaffolds with one H1, the canonical section set, source-discovery research rows, legal-scope guardrails, screen/entity/API/test/build-plan scaffolding, and explicit manual verification blockers.
+
+Metrics after extension:
+
+- Numbered app specs present: 1000.
+- Missing numeric IDs from `001` through `1000`: 0 after structural validation.
+- Implementation-ready public-source V1 specs: 100 (IDs 001-100).
+- Canonical Draft 1 specs/scaffolds awaiting exact-source replacement: 900 (IDs 101-1000).
+- Hands-on app behavior fully verified: 0; manual blockers remain explicit.
+
+Remaining high-priority gap: promote IDs 101-1000 to implementation-ready public-source V1 by replacing discovery URLs with exact first-party URLs, distinguishing verified vs inferred behavior, and completing category-specific risk reviews.

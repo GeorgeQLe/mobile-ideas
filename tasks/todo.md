@@ -122,3 +122,24 @@ Extend the canonical spec store with a second 100 clone-spec ideas (IDs 101-200)
 - Canonical spec template: see any of `specs/batch-01/*.md` through `specs/batch-05/*.md` for implementation-ready structure; `specs/batch-01/001-chatgpt.md` is the pilot reference.
 - Backlog source of truth: `tasks/ideas.md` rows 101-200.
 - Prior phase archives: `tasks/phases/phase-4.md`, `tasks/phases/phase-6.md`.
+
+## Phase 8: 1000-App Extension Pipeline (IDs 201-1000)
+
+### Goal
+
+Extend the canonical spec store from 200 to 1000 mobile app clone ideas. IDs 201-1000 now have backlog rows and canonical Draft 1 scaffold specs; future work promotes them to implementation-ready public-source V1 and then extends downstream planning/seeding manifests.
+
+### Acceptance Criteria
+
+- [x] 800 new backlog rows exist in `tasks/ideas.md` for IDs 201-1000.
+- [x] 800 new spec files exist under `specs/batch-11/` through `specs/batch-50/`.
+- [x] Every new spec has exactly one H1 and canonical sections including Build Plan and Next Steps.
+- [ ] IDs 201-1000 replace source-discovery links with exact first-party URLs.
+- [ ] IDs 201-1000 pass implementation-readiness gate.
+- [ ] Phase 5 implementation-plan queue grows to 1000 rows.
+- [ ] `tasks/repo-seeding.md` manifest grows to 1000 rows after readiness upgrades.
+- [ ] No downstream repo is made public; no proprietary assets introduced.
+
+### Next Concrete Action
+
+Promote batches 11-50 from Draft 1 scaffold to implementation-ready public-source V1 in controlled category batches. Do not begin remote downstream seeding for IDs 201-1000 until exact-source verification and manifest extension are complete.

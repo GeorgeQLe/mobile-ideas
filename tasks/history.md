@@ -311,3 +311,11 @@
 - Archived completed Phase 6 todo content to `tasks/phases/phase-6.md`.
 - Rewrote `tasks/todo.md` as the Phase 7 work log; Step 7.1 (create 100 Draft 0 stubs across `specs/batch-06/` through `specs/batch-10/`) is the next concrete action with ship-one-step handoff contract.
 - No spec files created yet; no downstream repo changes; `GeorgeQLe/mobile-ideas` remains PUBLIC and all 100 existing downstream repos remain PRIVATE.
+
+## 2026-04-21 - 1000-App Extension Scaffold
+
+- Added 800 backlog rows for IDs 201-1000.
+- Created canonical Draft 1 scaffold specs under `specs/batch-11/` through `specs/batch-50/`.
+- Added `AGENTS.md` Codex project conventions.
+- Updated roadmap, todo, specs index, and quality audit for the 1000-target state.
+- Remote downstream repo creation remains blocked until explicit approval and readiness/manifest work are complete.

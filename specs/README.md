@@ -3,13 +3,13 @@
 Created: 2026-04-16
 
 > Metadata
-> - Spec set status: Draft 1 canonical rewrite complete for all 200 IDs; Phase 3 implementation-readiness upgrades complete for public-source V1 (IDs 001-100). Phase 7 Step 7.2 canonical Draft 1 normalization complete for IDs 101-200; implementation-readiness upgrade (exact first-party URLs, verified/inferred distinction, category risk reviews) queued in Step 7.3.
-> - Coverage: 200 of 200 app ideas (100 implementation-ready + 100 Draft 1 canonical)
-> - Research state: 100 implementation-ready public-source V1 specs with exact first-party source replacement and explicit hands-on verification blockers; 100 Draft 1 canonical specs awaiting implementation-readiness upgrade (exact URL replacement + category risk review in Step 7.3)
+> - Spec set status: Draft 1 canonical scaffold complete for all 1000 IDs; Phase 3 implementation-readiness upgrades complete for public-source V1 (IDs 001-100). Phase 7 Step 7.2 canonical Draft 1 normalization complete for IDs 101-200; implementation-readiness upgrade (exact first-party URLs, verified/inferred distinction, category risk reviews) queued in Step 7.3.
+> - Coverage: 1000 of 1000 app ideas (100 implementation-ready + 100 Draft 1 canonical + 800 Draft 1 canonical scaffold)
+> - Research state: 100 implementation-ready public-source V1 specs with exact first-party source replacement and explicit hands-on verification blockers; 900 Draft 1 canonical specs awaiting implementation-readiness upgrade (exact URL replacement + category risk review in Step 7.3)
 
 ## Overview
 
-This directory contains technical specs for all 200 mobile app clone ideas in `tasks/ideas.md`. The first 100 numbered specs (IDs 001-100) are upgraded to implementation-ready public-source V1 status. The second 100 numbered specs (IDs 101-200) are canonical Draft 1 as of Phase 7 Step 7.2; Step 7.3 will replace discovery URLs with exact first-party URLs, distinguish verified vs inferred behavior, and complete category risk reviews to reach implementation-ready status.
+This directory contains technical specs for all 1000 mobile app clone ideas in `tasks/ideas.md`. The first 100 numbered specs (IDs 001-100) are upgraded to implementation-ready public-source V1 status. IDs 101-200 are canonical Draft 1 as of Phase 7 Step 7.2. IDs 201-1000 are canonical Draft 1 scaffolds added on 2026-04-21. Future passes must replace discovery URLs with exact first-party URLs, distinguish verified vs inferred behavior, and complete category risk reviews to reach implementation-ready status.
 
 The specs are implementation-oriented planning documents. They define lawful functional parity targets, product flows, data models, backend contracts, privacy and safety requirements, analytics, edge cases, test plans, acceptance criteria, open questions, and next steps.
 
@@ -43,6 +43,46 @@ The numbered specs live in ten batches:
 | Batch 08 | 141-160 | micro-investing, robo-advisors, neobanks, FX, kids/teen banking, pharmacy, telehealth, therapy, sleep/recovery trackers | `specs/batch-08/` | Draft 1 canonical |
 | Batch 09 | 161-180 | period/pregnancy/baby tracking, family organizer/locator, parental controls, school comms, LMS, kids learning, language learning | `specs/batch-09/` | Draft 1 canonical |
 | Batch 10 | 181-200 | language learning, translation, transcription, writing, dev tools, project management, design, scheduling, calendars, tasks, notes, journaling, hiking | `specs/batch-10/` | Draft 1 canonical |
+| Batch 11 | 201-220 | extended mobile-app backlog | `specs/batch-11/` | Draft 1 canonical scaffold |
+| Batch 12 | 221-240 | extended mobile-app backlog | `specs/batch-12/` | Draft 1 canonical scaffold |
+| Batch 13 | 241-260 | extended mobile-app backlog | `specs/batch-13/` | Draft 1 canonical scaffold |
+| Batch 14 | 261-280 | extended mobile-app backlog | `specs/batch-14/` | Draft 1 canonical scaffold |
+| Batch 15 | 281-300 | extended mobile-app backlog | `specs/batch-15/` | Draft 1 canonical scaffold |
+| Batch 16 | 301-320 | extended mobile-app backlog | `specs/batch-16/` | Draft 1 canonical scaffold |
+| Batch 17 | 321-340 | extended mobile-app backlog | `specs/batch-17/` | Draft 1 canonical scaffold |
+| Batch 18 | 341-360 | extended mobile-app backlog | `specs/batch-18/` | Draft 1 canonical scaffold |
+| Batch 19 | 361-380 | extended mobile-app backlog | `specs/batch-19/` | Draft 1 canonical scaffold |
+| Batch 20 | 381-400 | extended mobile-app backlog | `specs/batch-20/` | Draft 1 canonical scaffold |
+| Batch 21 | 401-420 | extended mobile-app backlog | `specs/batch-21/` | Draft 1 canonical scaffold |
+| Batch 22 | 421-440 | extended mobile-app backlog | `specs/batch-22/` | Draft 1 canonical scaffold |
+| Batch 23 | 441-460 | extended mobile-app backlog | `specs/batch-23/` | Draft 1 canonical scaffold |
+| Batch 24 | 461-480 | extended mobile-app backlog | `specs/batch-24/` | Draft 1 canonical scaffold |
+| Batch 25 | 481-500 | extended mobile-app backlog | `specs/batch-25/` | Draft 1 canonical scaffold |
+| Batch 26 | 501-520 | extended mobile-app backlog | `specs/batch-26/` | Draft 1 canonical scaffold |
+| Batch 27 | 521-540 | extended mobile-app backlog | `specs/batch-27/` | Draft 1 canonical scaffold |
+| Batch 28 | 541-560 | extended mobile-app backlog | `specs/batch-28/` | Draft 1 canonical scaffold |
+| Batch 29 | 561-580 | extended mobile-app backlog | `specs/batch-29/` | Draft 1 canonical scaffold |
+| Batch 30 | 581-600 | extended mobile-app backlog | `specs/batch-30/` | Draft 1 canonical scaffold |
+| Batch 31 | 601-620 | extended mobile-app backlog | `specs/batch-31/` | Draft 1 canonical scaffold |
+| Batch 32 | 621-640 | extended mobile-app backlog | `specs/batch-32/` | Draft 1 canonical scaffold |
+| Batch 33 | 641-660 | extended mobile-app backlog | `specs/batch-33/` | Draft 1 canonical scaffold |
+| Batch 34 | 661-680 | extended mobile-app backlog | `specs/batch-34/` | Draft 1 canonical scaffold |
+| Batch 35 | 681-700 | extended mobile-app backlog | `specs/batch-35/` | Draft 1 canonical scaffold |
+| Batch 36 | 701-720 | extended mobile-app backlog | `specs/batch-36/` | Draft 1 canonical scaffold |
+| Batch 37 | 721-740 | extended mobile-app backlog | `specs/batch-37/` | Draft 1 canonical scaffold |
+| Batch 38 | 741-760 | extended mobile-app backlog | `specs/batch-38/` | Draft 1 canonical scaffold |
+| Batch 39 | 761-780 | extended mobile-app backlog | `specs/batch-39/` | Draft 1 canonical scaffold |
+| Batch 40 | 781-800 | extended mobile-app backlog | `specs/batch-40/` | Draft 1 canonical scaffold |
+| Batch 41 | 801-820 | extended mobile-app backlog | `specs/batch-41/` | Draft 1 canonical scaffold |
+| Batch 42 | 821-840 | extended mobile-app backlog | `specs/batch-42/` | Draft 1 canonical scaffold |
+| Batch 43 | 841-860 | extended mobile-app backlog | `specs/batch-43/` | Draft 1 canonical scaffold |
+| Batch 44 | 861-880 | extended mobile-app backlog | `specs/batch-44/` | Draft 1 canonical scaffold |
+| Batch 45 | 881-900 | extended mobile-app backlog | `specs/batch-45/` | Draft 1 canonical scaffold |
+| Batch 46 | 901-920 | extended mobile-app backlog | `specs/batch-46/` | Draft 1 canonical scaffold |
+| Batch 47 | 921-940 | extended mobile-app backlog | `specs/batch-47/` | Draft 1 canonical scaffold |
+| Batch 48 | 941-960 | extended mobile-app backlog | `specs/batch-48/` | Draft 1 canonical scaffold |
+| Batch 49 | 961-980 | extended mobile-app backlog | `specs/batch-49/` | Draft 1 canonical scaffold |
+| Batch 50 | 981-1000 | extended mobile-app backlog | `specs/batch-50/` | Draft 1 canonical scaffold |
 
 Every numbered spec uses these canonical sections:
 
@@ -62,6 +102,7 @@ Every numbered spec uses these canonical sections:
 - Test Plan
 - Acceptance Criteria
 - Open Questions
+- Build Plan
 - Next Steps
 
 ## Edge Cases
@@ -72,8 +113,8 @@ Every numbered spec uses these canonical sections:
 
 ## Test Plan
 
-- Confirm exactly 200 numbered app specs exist (100 implementation-ready + 100 Draft 1 canonical).
-- Confirm no missing numeric IDs from `001` through `200`.
+- Confirm exactly 1000 numbered app specs exist (100 implementation-ready + 900 Draft 1 canonical/scaffold).
+- Confirm no missing numeric IDs from `001` through `1000`.
 - Confirm every numbered spec has exactly one H1.
 - Confirm every numbered spec has all canonical sections.
 - For IDs 001-100, confirm public-source V1 quality metrics pass for line count, screen rows, detailed-design bullets, data entities, API bullets, journeys, tests, sources, safety, analytics, blockers, and next steps.
@@ -82,9 +123,9 @@ Every numbered spec uses these canonical sections:
 ## Acceptance Criteria
 
 - All 100 IDs 001-100 specs use canonical Draft 1 structure with exact first-party source links and explicit native/manual parity blockers.
-- All 100 IDs 101-200 specs are canonical Draft 1 with exactly one H1, metadata block (`Readiness status: Draft 1`), all 18 canonical section headings, and substantive non-TODO content in every section (bodies are normalized; exact-URL verification and implementation-readiness depth pending Step 7.3).
+- All 900 IDs 101-1000 specs are canonical Draft 1/scaffold with exactly one H1, metadata block (`Readiness status: Draft 1`), all 18 canonical section headings, and substantive non-TODO content in every section (bodies are normalized; exact-URL verification and implementation-readiness depth pending Step 7.3).
 - Every spec remains legally scoped to original code, original assets, synthetic or licensed data, and lawful integrations.
-- Phase 4 remains responsible for choosing an implementation candidate; Phase 7 remains responsible for promoting IDs 101-200 to Draft 1 and implementation-ready V1 status.
+- Phase 4 remains responsible for choosing an implementation candidate; Future extension phases remain responsible for promoting IDs 101-1000 to implementation-ready V1 status.
 
 ## Open Questions
 
