@@ -13,4 +13,4 @@
 
 ## Post-Phase / Verification
 
-- [ ] Explicitly approve making `GeorgeQLe/mobile-ideas` public after the open-source checklist is complete. _(blocks: Step 6.9)_
+- [x] Explicitly approve making `GeorgeQLe/mobile-ideas` public after the open-source checklist is complete. _(blocks: Step 6.9)_ — approved 2026-04-20 by user statement: "ok sounds good, make that repo public".

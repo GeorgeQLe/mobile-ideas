@@ -250,7 +250,7 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
     - Re-verification of the other 99 downstream repos (covered by Step 6.8).
   - Ship-one-step handoff contract: implement only Step 6.8a, validate it, mark Step 6.8a done in `tasks/todo.md`, update `tasks/history.md`, commit and push the completed work to this repo's `main` (and push the seeded commit to `GeorgeQLe/letterboxd-mobile-clone` via the seeding utility), deploy only when an explicit manual deploy contract exists (none currently — skip). Step 6.9 remains the Phase 6 closing step; after 6.8a, start the approval UI for Step 6.9 by calling `EnterPlanMode` first, write a brief pass-through plan in plan mode, call `ExitPlanMode`, and stop before implementing Step 6.9. Do not call `ExitPlanMode` from normal mode.
 
-- Step 6.9: Publish the spec store only after explicit approval
+- [x] Step 6.9: Publish the spec store only after explicit approval
   - Files: modify `tasks/repo-seeding.md`, modify `tasks/manual-todo.md` (manual approval task), modify `tasks/todo.md` and `tasks/history.md` on completion.
   - Execution profile: serial, main agent, high conflict risk (irreversible visibility change on the canonical spec store), no subagent lanes, test strategy `none` (docs-only repo).
   - Prerequisites:
@@ -294,10 +294,11 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
 - [x] Existing `GeorgeQLe/todoist-mobile-clone` is reconciled with the same seed structure used for the other repos.
 - [x] All 100 downstream repos exist or have explicit blocker notes in `tasks/repo-seeding.md`.
 - [x] This spec-store repo has a public-release checklist covering license, README, contribution policy, legal scope, attribution/non-affiliation language, and content audit.
-- [ ] This spec-store repo is made public only after the open-source checklist is complete and explicitly approved.
+- [x] This spec-store repo is made public only after the open-source checklist is complete and explicitly approved.
 
 **On Completion**
 
-- Deviations from plan: none recorded yet.
-- Tech debt / follow-ups: none recorded yet.
-- Ready for next phase: no.
+- Phase 6 completed 2026-04-20.
+- Deviations from plan: Step 6.7 Batch 04 recorded a GitHub API propagation-lag blocker for ID 075 Letterboxd (repo created private but clone-after-create failed); resolved in Step 6.8a via `--reconcile-existing` re-seed at downstream commit `6851ac9` without recreating the repo or changing its visibility. Step 6.9 required a two-pass ship-one-step run because the manual approval task in `tasks/manual-todo.md` was unchecked at the first pass; the second pass, after explicit user approval ("ok sounds good, make that repo public", 2026-04-20), executed `gh repo edit GeorgeQLe/mobile-ideas --visibility public --accept-visibility-change-consequences` and verified visibility `PUBLIC` / `isPrivate=false`.
+- Tech debt / follow-ups: none. All 100 downstream repos are seeded `PRIVATE`; the spec store is `PUBLIC`; no Letterboxd follow-up remains.
+- Ready for next phase: yes. Phase 6 is closed; no Phase 7 has been planned yet.

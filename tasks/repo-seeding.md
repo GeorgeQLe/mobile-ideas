@@ -78,7 +78,7 @@ Guardrails:
 - [x] Add contribution guidance for source corrections, manual verification evidence, and downstream implementation links.
 - [x] Audit for secrets, private accounts, copied assets, screenshots, proprietary copy, private APIs, and ambiguous affiliation language.
 - [x] Decide whether downstream clone repos remain private until they contain original code and pass their own legal review.
-- [ ] Use `gh repo edit GeorgeQLe/mobile-ideas --visibility public` only after explicit approval.
+- [x] Use `gh repo edit GeorgeQLe/mobile-ideas --visibility public` only after explicit approval.
 
 ## Batch Execution Todo
 
@@ -356,7 +356,18 @@ Guardrails:
 - Downstream privacy re-check: Step 6.8 recorded 100 of 100 downstream repos `PRIVATE`; Step 6.8a re-seeded `GeorgeQLe/letterboxd-mobile-clone` while preserving `PRIVATE`. No downstream repo has drifted to non-`PRIVATE` since Step 6.8.
 - Approval gate status: `tasks/manual-todo.md` line 16 (`Explicitly approve making GeorgeQLe/mobile-ideas public after the open-source checklist is complete.`) remains unchecked (`[ ]`) as of this audit. Per the Step 6.9 ship-one-step handoff contract, `gh repo edit GeorgeQLe/mobile-ideas --visibility public --accept-visibility-change-consequences` was NOT executed.
 - Result: the six open-source spec-store checklist items are still accurate and checked; the final `gh repo edit ... --visibility public` item remains `[ ]` pending explicit manual approval.
-- New blocker observed: Step 6.9 publication blocker — see `### Failures And Blockers` entry below.
+- New blocker observed: Step 6.9 publication blocker — see `### Failures And Blockers` entry below. (Resolved 2026-04-20 in the Step 6.9 Spec Store Publication subsection immediately following.)
+
+### Step 6.9 Spec Store Publication - 2026-04-20
+
+- Approval evidence: `tasks/manual-todo.md` line 16 approval task was flipped from `[ ]` to `[x]` with user statement `"ok sounds good, make that repo public"` (2026-04-20) after the user re-read the pre-publication re-audit above.
+- Pre-change visibility: `gh repo view GeorgeQLe/mobile-ideas --json visibility,isPrivate,nameWithOwner` returned `{"isPrivate":true,"nameWithOwner":"GeorgeQLe/mobile-ideas","visibility":"PRIVATE"}` (recorded in the Step 6.9 Pre-Publication Re-Audit above).
+- Command executed: `gh repo edit GeorgeQLe/mobile-ideas --visibility public --accept-visibility-change-consequences`.
+- Command output: stdout and stderr were both empty (exit status 0).
+- Post-change verification: `gh repo view GeorgeQLe/mobile-ideas --json visibility,isPrivate,nameWithOwner,url` returned `{"isPrivate":false,"nameWithOwner":"GeorgeQLe/mobile-ideas","url":"https://github.com/GeorgeQLe/mobile-ideas","visibility":"PUBLIC"}`.
+- Downstream privacy: no downstream repo visibility was changed; all 100 downstream repos remain `PRIVATE`.
+- Follow-up blocker notes: the Step 6.9 publication blocker in `### Failures And Blockers` is resolved by this subsection; no new blockers observed. The Letterboxd ID 075 blocker was already resolved in Step 6.8a and is not a Step 6.9 follow-up.
+- Phase 6 status: with this publication, the final Phase 6 acceptance criterion `This spec-store repo is made public only after the open-source checklist is complete and explicitly approved.` holds; Phase 6 is closed.
 
 ### Batch Progress
 
@@ -375,7 +386,7 @@ Guardrails:
 - Step 6.5 blocker (resolved 2026-04-20): the seeding utility's internal `gh auth status` check had failed twice for `GeorgeQLe/evernote-mobile-clone` with an invalid default token. Re-authentication via `gh auth login` (manual task) restored keyring-backed credentials; the rerun succeeded and seeded the private repo at commit `278b06d`.
 - Step 6.7 blocker (2026-04-20, RESOLVED 2026-04-20 in Step 6.8a — see `### Step 6.8a Letterboxd Re-Seed - 2026-04-20`) for ID 075 `GeorgeQLe/letterboxd-mobile-clone`: `gh repo create` succeeded (private repo visible via `gh repo view --json visibility` → `PRIVATE`, created 2026-04-20T18:44:21Z), but the immediately-following `gh repo clone GeorgeQLe/letterboxd-mobile-clone /Users/georgele/projects/mobile/dev/letterboxd-mobile-clone` failed with `GraphQL: Could not resolve to a Repository with the name 'GeorgeQLe/letterboxd-mobile-clone'. (repository)` — a GitHub API propagation lag between create and clone. Per the Step 6.7 stop-on-failure contract, no retry was attempted; the created remote repo remained unseeded (no README/source-spec/tasks pushed) and the manifest row 075 stayed unchecked until Step 6.8a re-seeded it via `--reconcile-existing` at downstream commit `6851ac9`. The previously-written "Step 6.3 blocker" line for this event (auto-labelled by the seeding utility) has been consolidated into this Step 6.7 blocker entry.
 - Human review may still be needed for repo-name or visibility questions recorded during later automated runs.
-- Step 6.9 publication blocker (open, 2026-04-20): the Step 6.9 pre-publication re-audit confirmed all six open-source spec-store checklist items remain accurate and checked, but the manual approval task in `tasks/manual-todo.md` (line 16, `Explicitly approve making GeorgeQLe/mobile-ideas public after the open-source checklist is complete.`) is still `[ ]`. Per the Step 6.9 ship-one-step handoff contract, the `gh repo edit GeorgeQLe/mobile-ideas --visibility public --accept-visibility-change-consequences` command was not run; `GeorgeQLe/mobile-ideas` remains `PRIVATE`. To clear this blocker: the user must (a) re-read the `## Open-Source Spec Store Checklist` and the `### Step 6.9 Pre-Publication Re-Audit - 2026-04-20` subsection, (b) check the manual approval task in `tasks/manual-todo.md`, then (c) re-run the Step 6.9 ship-one-step handoff. No downstream repo is affected by this blocker; all 100 downstream repos remain `PRIVATE` as recorded in Step 6.8 and Step 6.8a.
+- Step 6.9 publication blocker (RESOLVED 2026-04-20 — see `### Step 6.9 Spec Store Publication - 2026-04-20`): the Step 6.9 pre-publication re-audit confirmed all six open-source spec-store checklist items remain accurate and checked, but the manual approval task in `tasks/manual-todo.md` (line 16, `Explicitly approve making GeorgeQLe/mobile-ideas public after the open-source checklist is complete.`) is still `[ ]`. Per the Step 6.9 ship-one-step handoff contract, the `gh repo edit GeorgeQLe/mobile-ideas --visibility public --accept-visibility-change-consequences` command was not run; `GeorgeQLe/mobile-ideas` remains `PRIVATE`. To clear this blocker: the user must (a) re-read the `## Open-Source Spec Store Checklist` and the `### Step 6.9 Pre-Publication Re-Audit - 2026-04-20` subsection, (b) check the manual approval task in `tasks/manual-todo.md`, then (c) re-run the Step 6.9 ship-one-step handoff. No downstream repo is affected by this blocker; all 100 downstream repos remain `PRIVATE` as recorded in Step 6.8 and Step 6.8a.
 
 ### Explicit Private-Repo Decisions
 
