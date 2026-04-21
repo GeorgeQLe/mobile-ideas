@@ -277,6 +277,18 @@
 - No Phase 7 has been planned. When a new phase is scoped, draft its plan in `tasks/todo.md` following the prior phase structure.
 - Keep all downstream implementation repos `PRIVATE` until each passes its own legal/name/license review and receives explicit public-release approval.
 
+## 2026-04-20 - Phase 7 Step 7.1: Draft 0 Placeholders for IDs 101-200
+
+- Created 100 Draft 0 placeholder spec files under `specs/batch-06/` through `specs/batch-10/` (20 files per batch) covering IDs 101-200 from the 2026-04-20 `tasks/ideas.md` extension.
+- File naming follows the established `NNN-<kebab-slug>.md` convention: `specs/batch-06/101-tinder.md` … `specs/batch-10/200-alltrails.md`. Slug picks resolve special cases (`106-coffee-meets-bagel`, `113-realtor`, `114-apartments`, `133-new-york-times`, `156-hims-hers`, `169-google-family-link`, `185-otter-ai`, `196-things-3`, etc.).
+- Each placeholder file contains exactly one H1 (`# <Inspiration>-Style Clone Spec`), a metadata block (`> Inspiration`, `> Category`, `> Readiness status: Draft 0`, `> Legal scope: functional parity only — original code, original brand, original assets, lawful data sources; no proprietary logos, screenshots, copy, private APIs, or paywalled content.`), a one-paragraph summary pointing back at the `tasks/ideas.md` row, and TODO placeholders under all 18 canonical section headings (Overview, Goals, Non-Goals, Research Sources, Detailed Design, Core User Journeys, Screen Inventory, Data Model, API And Backend Contracts, Realtime/Push/Offline Behavior, Permissions/Privacy/Safety, Analytics And Monetization, Edge Cases, Test Plan, Acceptance Criteria, Open Questions, Build Plan, Next Steps).
+- Acceptance verified: each batch directory holds 20 files; total of 100 new files; `awk` H1 audit confirms every file has exactly one `# `-prefixed line; no missing IDs from 101 through 200.
+- Updated `specs/README.md`: bumped coverage from 100 to 200 ideas, expanded the batch index to ten rows with a new Readiness column, and split the Test Plan / Acceptance Criteria to distinguish IDs 001-100 (implementation-ready) from IDs 101-200 (Draft 0 placeholders).
+- Updated `tasks/spec-quality-audit.md`: bumped scope to 200 specs, refreshed the metrics summary, added a new High-severity finding "Draft 0 Gap For IDs 101-200 (Phase 7 Step 7.1)" mirroring the original 001-100 audit structure, and updated Next Steps to point at Step 7.2 and Step 7.3.
+- No proprietary assets introduced; placeholders carry no first-party URLs, screen catalogs, data models, or API contracts yet (Step 7.2 will populate them).
+- `tasks/todo.md`: checked off Step 7.1 with verification evidence inline; rewrote Step 7.2 with detailed per-file requirements, category risk routing, validation rules, commit strategy, and a new Ship-One-Step Handoff Contract.
+- No downstream repo changes; `GeorgeQLe/mobile-ideas` remains PUBLIC; all 100 existing downstream repos remain PRIVATE.
+
 ## 2026-04-20 - Phase 7 Opened; Backlog Extended to 200 Ideas
 
 - Appended 100 new clone-spec ideas (IDs 101-200) to `tasks/ideas.md` under the "Extension Added 2026-04-20" section, covering categories under-represented in IDs 001-100: dating (6), jobs (4), real estate (5), neighborhood/events (3), reading/newsletters (13), news aggregation (7), investing (6), neobanks (5), telehealth/pharmacy (8), wellness trackers (5), parenting/family (11), kids education (6), language/translation (7), dev/project tools (8), productivity/notes/tasks (10), and hiking (1).
