@@ -454,6 +454,36 @@ Guardrails:
 | 139 | `GeorgeQLe/stocktwits-mobile-clone` | PRIVATE | seeded |
 | 140 | `GeorgeQLe/public-mobile-clone` | PRIVATE | seeded |
 
+### Batch 141-160 Seeding Evidence - 2026-04-21T15:56:18.858Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4997,"reset":1776789798,"used":3},"graphql":{"limit":5000,"remaining":4838,"reset":1776787799,"used":162},"search":{"limit":30,"remaining":30,"reset":1776786346,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4937,"reset":1776789798,"used":63},"graphql":{"limit":5000,"remaining":4757,"reset":1776787799,"used":243},"search":{"limit":30,"remaining":30,"reset":1776787038,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 141 | `GeorgeQLe/acorns-mobile-clone` | PRIVATE | seeded |
+| 142 | `GeorgeQLe/stash-mobile-clone` | PRIVATE | seeded |
+| 143 | `GeorgeQLe/wealthfront-mobile-clone` | PRIVATE | seeded |
+| 144 | `GeorgeQLe/betterment-mobile-clone` | PRIVATE | seeded |
+| 145 | `GeorgeQLe/chime-mobile-clone` | PRIVATE | seeded |
+| 146 | `GeorgeQLe/revolut-mobile-clone` | PRIVATE | seeded |
+| 147 | `GeorgeQLe/wise-mobile-clone` | PRIVATE | seeded |
+| 148 | `GeorgeQLe/greenlight-mobile-clone` | PRIVATE | seeded |
+| 149 | `GeorgeQLe/step-mobile-clone` | PRIVATE | seeded |
+| 150 | `GeorgeQLe/goodrx-mobile-clone` | PRIVATE | seeded |
+| 151 | `GeorgeQLe/walgreens-mobile-clone` | PRIVATE | seeded |
+| 152 | `GeorgeQLe/zocdoc-mobile-clone` | PRIVATE | seeded |
+| 153 | `GeorgeQLe/teladoc-mobile-clone` | PRIVATE | seeded |
+| 154 | `GeorgeQLe/betterhelp-mobile-clone` | PRIVATE | seeded |
+| 155 | `GeorgeQLe/talkspace-mobile-clone` | PRIVATE | seeded |
+| 156 | `GeorgeQLe/hims-and-hers-mobile-clone` | PRIVATE | seeded |
+| 157 | `GeorgeQLe/ro-mobile-clone` | PRIVATE | seeded |
+| 158 | `GeorgeQLe/oura-mobile-clone` | PRIVATE | seeded |
+| 159 | `GeorgeQLe/whoop-mobile-clone` | PRIVATE | seeded |
+| 160 | `GeorgeQLe/sleep-cycle-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
 
 - No Step 6.1 manifest, source-spec, or checked-row blockers found.
@@ -613,26 +643,26 @@ Guardrails:
 | [x] | 138 | Yahoo Finance | `GeorgeQLe/yahoo-finance-mobile-clone` | `specs/batch-07/138-yahoo-finance.md` |
 | [x] | 139 | Stocktwits | `GeorgeQLe/stocktwits-mobile-clone` | `specs/batch-07/139-stocktwits.md` |
 | [x] | 140 | Public | `GeorgeQLe/public-mobile-clone` | `specs/batch-07/140-public.md` |
-| [ ] | 141 | Acorns | `GeorgeQLe/acorns-mobile-clone` | `specs/batch-08/141-acorns.md` |
-| [ ] | 142 | Stash | `GeorgeQLe/stash-mobile-clone` | `specs/batch-08/142-stash.md` |
-| [ ] | 143 | Wealthfront | `GeorgeQLe/wealthfront-mobile-clone` | `specs/batch-08/143-wealthfront.md` |
-| [ ] | 144 | Betterment | `GeorgeQLe/betterment-mobile-clone` | `specs/batch-08/144-betterment.md` |
-| [ ] | 145 | Chime | `GeorgeQLe/chime-mobile-clone` | `specs/batch-08/145-chime.md` |
-| [ ] | 146 | Revolut | `GeorgeQLe/revolut-mobile-clone` | `specs/batch-08/146-revolut.md` |
-| [ ] | 147 | Wise | `GeorgeQLe/wise-mobile-clone` | `specs/batch-08/147-wise.md` |
-| [ ] | 148 | Greenlight | `GeorgeQLe/greenlight-mobile-clone` | `specs/batch-08/148-greenlight.md` |
-| [ ] | 149 | Step | `GeorgeQLe/step-mobile-clone` | `specs/batch-08/149-step.md` |
-| [ ] | 150 | GoodRx | `GeorgeQLe/goodrx-mobile-clone` | `specs/batch-08/150-goodrx.md` |
-| [ ] | 151 | Walgreens | `GeorgeQLe/walgreens-mobile-clone` | `specs/batch-08/151-walgreens.md` |
-| [ ] | 152 | Zocdoc | `GeorgeQLe/zocdoc-mobile-clone` | `specs/batch-08/152-zocdoc.md` |
-| [ ] | 153 | Teladoc | `GeorgeQLe/teladoc-mobile-clone` | `specs/batch-08/153-teladoc.md` |
-| [ ] | 154 | BetterHelp | `GeorgeQLe/betterhelp-mobile-clone` | `specs/batch-08/154-betterhelp.md` |
-| [ ] | 155 | Talkspace | `GeorgeQLe/talkspace-mobile-clone` | `specs/batch-08/155-talkspace.md` |
-| [ ] | 156 | Hims & Hers | `GeorgeQLe/hims-and-hers-mobile-clone` | `specs/batch-08/156-hims-hers.md` |
-| [ ] | 157 | Ro | `GeorgeQLe/ro-mobile-clone` | `specs/batch-08/157-ro.md` |
-| [ ] | 158 | Oura | `GeorgeQLe/oura-mobile-clone` | `specs/batch-08/158-oura.md` |
-| [ ] | 159 | Whoop | `GeorgeQLe/whoop-mobile-clone` | `specs/batch-08/159-whoop.md` |
-| [ ] | 160 | Sleep Cycle | `GeorgeQLe/sleep-cycle-mobile-clone` | `specs/batch-08/160-sleep-cycle.md` |
+| [x] | 141 | Acorns | `GeorgeQLe/acorns-mobile-clone` | `specs/batch-08/141-acorns.md` |
+| [x] | 142 | Stash | `GeorgeQLe/stash-mobile-clone` | `specs/batch-08/142-stash.md` |
+| [x] | 143 | Wealthfront | `GeorgeQLe/wealthfront-mobile-clone` | `specs/batch-08/143-wealthfront.md` |
+| [x] | 144 | Betterment | `GeorgeQLe/betterment-mobile-clone` | `specs/batch-08/144-betterment.md` |
+| [x] | 145 | Chime | `GeorgeQLe/chime-mobile-clone` | `specs/batch-08/145-chime.md` |
+| [x] | 146 | Revolut | `GeorgeQLe/revolut-mobile-clone` | `specs/batch-08/146-revolut.md` |
+| [x] | 147 | Wise | `GeorgeQLe/wise-mobile-clone` | `specs/batch-08/147-wise.md` |
+| [x] | 148 | Greenlight | `GeorgeQLe/greenlight-mobile-clone` | `specs/batch-08/148-greenlight.md` |
+| [x] | 149 | Step | `GeorgeQLe/step-mobile-clone` | `specs/batch-08/149-step.md` |
+| [x] | 150 | GoodRx | `GeorgeQLe/goodrx-mobile-clone` | `specs/batch-08/150-goodrx.md` |
+| [x] | 151 | Walgreens | `GeorgeQLe/walgreens-mobile-clone` | `specs/batch-08/151-walgreens.md` |
+| [x] | 152 | Zocdoc | `GeorgeQLe/zocdoc-mobile-clone` | `specs/batch-08/152-zocdoc.md` |
+| [x] | 153 | Teladoc | `GeorgeQLe/teladoc-mobile-clone` | `specs/batch-08/153-teladoc.md` |
+| [x] | 154 | BetterHelp | `GeorgeQLe/betterhelp-mobile-clone` | `specs/batch-08/154-betterhelp.md` |
+| [x] | 155 | Talkspace | `GeorgeQLe/talkspace-mobile-clone` | `specs/batch-08/155-talkspace.md` |
+| [x] | 156 | Hims & Hers | `GeorgeQLe/hims-and-hers-mobile-clone` | `specs/batch-08/156-hims-hers.md` |
+| [x] | 157 | Ro | `GeorgeQLe/ro-mobile-clone` | `specs/batch-08/157-ro.md` |
+| [x] | 158 | Oura | `GeorgeQLe/oura-mobile-clone` | `specs/batch-08/158-oura.md` |
+| [x] | 159 | Whoop | `GeorgeQLe/whoop-mobile-clone` | `specs/batch-08/159-whoop.md` |
+| [x] | 160 | Sleep Cycle | `GeorgeQLe/sleep-cycle-mobile-clone` | `specs/batch-08/160-sleep-cycle.md` |
 | [ ] | 161 | Clue | `GeorgeQLe/clue-mobile-clone` | `specs/batch-09/161-clue.md` |
 | [ ] | 162 | Ovia | `GeorgeQLe/ovia-mobile-clone` | `specs/batch-09/162-ovia.md` |
 | [ ] | 163 | BabyCenter | `GeorgeQLe/babycenter-mobile-clone` | `specs/batch-09/163-babycenter.md` |
