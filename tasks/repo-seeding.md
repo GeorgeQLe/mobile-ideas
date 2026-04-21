@@ -546,7 +546,7 @@ Guardrails:
 
 ### Batch 201-216 Partial Seeding Evidence - 2026-04-21T19:28:23Z
 
-- Execution mode: serial private seeding with 15 successful repo(s), followed by single-target reconciliation for ID 216 after GitHub clone propagation lag.
+- Execution mode: serial private seeding with 16 successful repo(s), including single-target reconciliation for ID 216 after GitHub clone propagation lag.
 - Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4936,"reset":1776801506,"used":64},"graphql":{"limit":5000,"remaining":4970,"reset":1776802278,"used":30},"search":{"limit":30,"remaining":30,"reset":1776799096,"used":0}}`
 - Post-reconciliation rate limit: `{"core":{"limit":5000,"remaining":4888,"reset":1776801506,"used":112},"graphql":{"limit":5000,"remaining":4902,"reset":1776802278,"used":98},"search":{"limit":30,"remaining":30,"reset":1776799753,"used":0}}`
 - Verification: IDs 201-216 returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
@@ -570,6 +570,20 @@ Guardrails:
 | 214 | `GeorgeQLe/grammarly-keyboard-mobile-clone` | PRIVATE | seeded |
 | 215 | `GeorgeQLe/wordtune-mobile-clone` | PRIVATE | seeded |
 | 216 | `GeorgeQLe/quillbot-mobile-clone` | PRIVATE | seeded via reconcile |
+
+### Batch 217-220 Seeding Evidence - 2026-04-21T19:31:25.583Z
+
+- Execution mode: serial private seeding with 4 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4888,"reset":1776801506,"used":112},"graphql":{"limit":5000,"remaining":4902,"reset":1776802278,"used":98},"search":{"limit":30,"remaining":30,"reset":1776799834,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4876,"reset":1776801506,"used":124},"graphql":{"limit":5000,"remaining":4886,"reset":1776802278,"used":114},"search":{"limit":30,"remaining":30,"reset":1776799945,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 217 | `GeorgeQLe/ask-ai-mobile-clone` | PRIVATE | seeded |
+| 218 | `GeorgeQLe/genie-mobile-clone` | PRIVATE | seeded |
+| 219 | `GeorgeQLe/monica-mobile-clone` | PRIVATE | seeded |
+| 220 | `GeorgeQLe/notion-ai-mobile-clone` | PRIVATE | seeded |
 
 ### Failures And Blockers
 
@@ -808,10 +822,10 @@ Guardrails:
 | [x] | 214 | Grammarly Keyboard | `GeorgeQLe/grammarly-keyboard-mobile-clone` | `specs/batch-11/214-grammarly-keyboard.md` |
 | [x] | 215 | Wordtune | `GeorgeQLe/wordtune-mobile-clone` | `specs/batch-11/215-wordtune.md` |
 | [x] | 216 | QuillBot | `GeorgeQLe/quillbot-mobile-clone` | `specs/batch-11/216-quillbot.md` |
-| [ ] | 217 | Ask AI | `GeorgeQLe/ask-ai-mobile-clone` | `specs/batch-11/217-ask-ai.md` |
-| [ ] | 218 | Genie | `GeorgeQLe/genie-mobile-clone` | `specs/batch-11/218-genie.md` |
-| [ ] | 219 | Monica | `GeorgeQLe/monica-mobile-clone` | `specs/batch-11/219-monica.md` |
-| [ ] | 220 | Notion AI | `GeorgeQLe/notion-ai-mobile-clone` | `specs/batch-11/220-notion-ai.md` |
+| [x] | 217 | Ask AI | `GeorgeQLe/ask-ai-mobile-clone` | `specs/batch-11/217-ask-ai.md` |
+| [x] | 218 | Genie | `GeorgeQLe/genie-mobile-clone` | `specs/batch-11/218-genie.md` |
+| [x] | 219 | Monica | `GeorgeQLe/monica-mobile-clone` | `specs/batch-11/219-monica.md` |
+| [x] | 220 | Notion AI | `GeorgeQLe/notion-ai-mobile-clone` | `specs/batch-11/220-notion-ai.md` |
 | [ ] | 221 | Forefront AI | `GeorgeQLe/forefront-ai-mobile-clone` | `specs/batch-12/221-forefront-ai.md` |
 | [ ] | 222 | Consensus | `GeorgeQLe/consensus-mobile-clone` | `specs/batch-12/222-consensus.md` |
 | [ ] | 223 | Picsart | `GeorgeQLe/picsart-mobile-clone` | `specs/batch-12/223-picsart.md` |
