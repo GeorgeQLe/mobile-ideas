@@ -585,6 +585,36 @@ Guardrails:
 | 219 | `GeorgeQLe/monica-mobile-clone` | PRIVATE | seeded |
 | 220 | `GeorgeQLe/notion-ai-mobile-clone` | PRIVATE | seeded |
 
+### Batch 221-240 Seeding Evidence - 2026-04-21T21:17:29.587Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4970,"reset":1776806431,"used":30},"graphql":{"limit":5000,"remaining":4999,"reset":1776806310,"used":1},"search":{"limit":30,"remaining":30,"reset":1776803209,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4910,"reset":1776806431,"used":90},"graphql":{"limit":5000,"remaining":4916,"reset":1776806310,"used":84},"search":{"limit":30,"remaining":30,"reset":1776806309,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 221 | `GeorgeQLe/forefront-ai-mobile-clone` | PRIVATE | seeded |
+| 222 | `GeorgeQLe/consensus-mobile-clone` | PRIVATE | seeded |
+| 223 | `GeorgeQLe/picsart-mobile-clone` | PRIVATE | seeded |
+| 224 | `GeorgeQLe/vsco-mobile-clone` | PRIVATE | seeded |
+| 225 | `GeorgeQLe/snapseed-mobile-clone` | PRIVATE | seeded |
+| 226 | `GeorgeQLe/adobe-express-mobile-clone` | PRIVATE | seeded |
+| 227 | `GeorgeQLe/photoshop-express-mobile-clone` | PRIVATE | seeded |
+| 228 | `GeorgeQLe/procreate-pocket-mobile-clone` | PRIVATE | seeded |
+| 229 | `GeorgeQLe/sketchbook-mobile-clone` | PRIVATE | seeded |
+| 230 | `GeorgeQLe/ibis-paint-x-mobile-clone` | PRIVATE | seeded |
+| 231 | `GeorgeQLe/clip-studio-paint-mobile-clone` | PRIVATE | seeded |
+| 232 | `GeorgeQLe/bazaart-mobile-clone` | PRIVATE | seeded |
+| 233 | `GeorgeQLe/prequel-mobile-clone` | PRIVATE | seeded |
+| 234 | `GeorgeQLe/facetune-mobile-clone` | PRIVATE | seeded |
+| 235 | `GeorgeQLe/beautyplus-mobile-clone` | PRIVATE | seeded |
+| 236 | `GeorgeQLe/snow-mobile-clone` | PRIVATE | seeded |
+| 237 | `GeorgeQLe/meitu-mobile-clone` | PRIVATE | seeded |
+| 238 | `GeorgeQLe/polish-mobile-clone` | PRIVATE | seeded |
+| 239 | `GeorgeQLe/photoroom-mobile-clone` | PRIVATE | seeded |
+| 240 | `GeorgeQLe/pixelcut-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
 
 - Step 6.3 blocker (2026-04-21T19:26:15.427Z, RESOLVED 2026-04-21 in `### Batch 201-216 Partial Seeding Evidence - 2026-04-21T19:28:23Z`) for GeorgeQLe/quillbot-mobile-clone: `gh repo create` returned the private repo URL, but the immediately-following `gh repo clone GeorgeQLe/quillbot-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/quillbot-mobile-clone` failed with `GraphQL: Could not resolve to a Repository with the name 'GeorgeQLe/quillbot-mobile-clone'. (repository)`. The remote was verified as PRIVATE and empty, then seeded with `--reconcile-existing` at downstream commit `f6e5265`.
@@ -826,26 +856,26 @@ Guardrails:
 | [x] | 218 | Genie | `GeorgeQLe/genie-mobile-clone` | `specs/batch-11/218-genie.md` |
 | [x] | 219 | Monica | `GeorgeQLe/monica-mobile-clone` | `specs/batch-11/219-monica.md` |
 | [x] | 220 | Notion AI | `GeorgeQLe/notion-ai-mobile-clone` | `specs/batch-11/220-notion-ai.md` |
-| [ ] | 221 | Forefront AI | `GeorgeQLe/forefront-ai-mobile-clone` | `specs/batch-12/221-forefront-ai.md` |
-| [ ] | 222 | Consensus | `GeorgeQLe/consensus-mobile-clone` | `specs/batch-12/222-consensus.md` |
-| [ ] | 223 | Picsart | `GeorgeQLe/picsart-mobile-clone` | `specs/batch-12/223-picsart.md` |
-| [ ] | 224 | VSCO | `GeorgeQLe/vsco-mobile-clone` | `specs/batch-12/224-vsco.md` |
-| [ ] | 225 | Snapseed | `GeorgeQLe/snapseed-mobile-clone` | `specs/batch-12/225-snapseed.md` |
-| [ ] | 226 | Adobe Express | `GeorgeQLe/adobe-express-mobile-clone` | `specs/batch-12/226-adobe-express.md` |
-| [ ] | 227 | Photoshop Express | `GeorgeQLe/photoshop-express-mobile-clone` | `specs/batch-12/227-photoshop-express.md` |
-| [ ] | 228 | Procreate Pocket | `GeorgeQLe/procreate-pocket-mobile-clone` | `specs/batch-12/228-procreate-pocket.md` |
-| [ ] | 229 | Sketchbook | `GeorgeQLe/sketchbook-mobile-clone` | `specs/batch-12/229-sketchbook.md` |
-| [ ] | 230 | ibis Paint X | `GeorgeQLe/ibis-paint-x-mobile-clone` | `specs/batch-12/230-ibis-paint-x.md` |
-| [ ] | 231 | Clip Studio Paint | `GeorgeQLe/clip-studio-paint-mobile-clone` | `specs/batch-12/231-clip-studio-paint.md` |
-| [ ] | 232 | Bazaart | `GeorgeQLe/bazaart-mobile-clone` | `specs/batch-12/232-bazaart.md` |
-| [ ] | 233 | Prequel | `GeorgeQLe/prequel-mobile-clone` | `specs/batch-12/233-prequel.md` |
-| [ ] | 234 | Facetune | `GeorgeQLe/facetune-mobile-clone` | `specs/batch-12/234-facetune.md` |
-| [ ] | 235 | BeautyPlus | `GeorgeQLe/beautyplus-mobile-clone` | `specs/batch-12/235-beautyplus.md` |
-| [ ] | 236 | SNOW | `GeorgeQLe/snow-mobile-clone` | `specs/batch-12/236-snow.md` |
-| [ ] | 237 | Meitu | `GeorgeQLe/meitu-mobile-clone` | `specs/batch-12/237-meitu.md` |
-| [ ] | 238 | Polish | `GeorgeQLe/polish-mobile-clone` | `specs/batch-12/238-polish.md` |
-| [ ] | 239 | PhotoRoom | `GeorgeQLe/photoroom-mobile-clone` | `specs/batch-12/239-photoroom.md` |
-| [ ] | 240 | Pixelcut | `GeorgeQLe/pixelcut-mobile-clone` | `specs/batch-12/240-pixelcut.md` |
+| [x] | 221 | Forefront AI | `GeorgeQLe/forefront-ai-mobile-clone` | `specs/batch-12/221-forefront-ai.md` |
+| [x] | 222 | Consensus | `GeorgeQLe/consensus-mobile-clone` | `specs/batch-12/222-consensus.md` |
+| [x] | 223 | Picsart | `GeorgeQLe/picsart-mobile-clone` | `specs/batch-12/223-picsart.md` |
+| [x] | 224 | VSCO | `GeorgeQLe/vsco-mobile-clone` | `specs/batch-12/224-vsco.md` |
+| [x] | 225 | Snapseed | `GeorgeQLe/snapseed-mobile-clone` | `specs/batch-12/225-snapseed.md` |
+| [x] | 226 | Adobe Express | `GeorgeQLe/adobe-express-mobile-clone` | `specs/batch-12/226-adobe-express.md` |
+| [x] | 227 | Photoshop Express | `GeorgeQLe/photoshop-express-mobile-clone` | `specs/batch-12/227-photoshop-express.md` |
+| [x] | 228 | Procreate Pocket | `GeorgeQLe/procreate-pocket-mobile-clone` | `specs/batch-12/228-procreate-pocket.md` |
+| [x] | 229 | Sketchbook | `GeorgeQLe/sketchbook-mobile-clone` | `specs/batch-12/229-sketchbook.md` |
+| [x] | 230 | ibis Paint X | `GeorgeQLe/ibis-paint-x-mobile-clone` | `specs/batch-12/230-ibis-paint-x.md` |
+| [x] | 231 | Clip Studio Paint | `GeorgeQLe/clip-studio-paint-mobile-clone` | `specs/batch-12/231-clip-studio-paint.md` |
+| [x] | 232 | Bazaart | `GeorgeQLe/bazaart-mobile-clone` | `specs/batch-12/232-bazaart.md` |
+| [x] | 233 | Prequel | `GeorgeQLe/prequel-mobile-clone` | `specs/batch-12/233-prequel.md` |
+| [x] | 234 | Facetune | `GeorgeQLe/facetune-mobile-clone` | `specs/batch-12/234-facetune.md` |
+| [x] | 235 | BeautyPlus | `GeorgeQLe/beautyplus-mobile-clone` | `specs/batch-12/235-beautyplus.md` |
+| [x] | 236 | SNOW | `GeorgeQLe/snow-mobile-clone` | `specs/batch-12/236-snow.md` |
+| [x] | 237 | Meitu | `GeorgeQLe/meitu-mobile-clone` | `specs/batch-12/237-meitu.md` |
+| [x] | 238 | Polish | `GeorgeQLe/polish-mobile-clone` | `specs/batch-12/238-polish.md` |
+| [x] | 239 | PhotoRoom | `GeorgeQLe/photoroom-mobile-clone` | `specs/batch-12/239-photoroom.md` |
+| [x] | 240 | Pixelcut | `GeorgeQLe/pixelcut-mobile-clone` | `specs/batch-12/240-pixelcut.md` |
 | [ ] | 241 | Lensa | `GeorgeQLe/lensa-mobile-clone` | `specs/batch-13/241-lensa.md` |
 | [ ] | 242 | Remini | `GeorgeQLe/remini-mobile-clone` | `specs/batch-13/242-remini.md` |
 | [ ] | 243 | PicCollage | `GeorgeQLe/piccollage-mobile-clone` | `specs/batch-13/243-piccollage.md` |
