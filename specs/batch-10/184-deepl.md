@@ -1,80 +1,157 @@
 # DeepL-Style Clone Spec
 
-> Inspiration: DeepL
-> Category: Translation
-> Readiness status: Draft 0
-> Legal scope: functional parity only — original code, original brand, original assets, lawful data sources; no proprietary logos, screenshots, copy, private APIs, or paywalled content.
-
-This is a Draft 0 placeholder generated for ID 184 (DeepL) from `tasks/ideas.md`. Section bodies are TODO placeholders; Phase 7 Step 7.2 will rewrite this file into the canonical Draft 1 structure used across batches 01-05.
+> Metadata
+> - Inspiration app: DeepL
+> - Category: Translation
+> - Readiness status: Draft 1
+> - Verification basis: public marketplace listings and help articles — pending exact URL verification.
+> - Manual verification blockers: native document translation flow, glossary enforcement on device, subscription purchase/restore, and accessibility passes still require a test device.
+> - Legal scope: functional parity only; use original UI, original branding, and a licensed MT engine.
 
 ## Overview
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 184 for the inspiration brief.
+Build an original mobile translation app inspired by DeepL's focus on high-quality text and document translation, glossary control, and alternative translations.
+
+The clone must not copy DeepL branding, model outputs, iconography, or glossary data. Use a licensed or first-party MT engine.
 
 ## Goals
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 184 for the inspiration brief.
+- Provide high-quality text translation with alternative phrasings and in-place edits.
+- Support document translation (PDF, DOCX) with layout preservation where possible.
+- Support user glossaries enforced per language pair.
+- Offer saved translations and history with privacy-first defaults.
+- Provide a tier structure for higher-volume document translation.
 
 ## Non-Goals
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 184 for the inspiration brief.
+- Do not imply DeepL affiliation.
+- Do not copy glossary data or output samples.
+- Do not train on user inputs by default.
+- Do not claim one-for-one model quality parity.
 
 ## Research Sources
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 184 for the inspiration brief.
+| Source | Exact URL | Evidence Used | Status |
+|---|---|---|---|
+| Apple App Store listing | https://apps.apple.com/us/app/deepl-translate/id1552407475 | iOS listing, privacy labels | Source discovery — pending exact URL verification |
+| Google Play listing | https://play.google.com/store/apps/details?id=com.deepl.mobiletranslator | Android listing, data safety | Source discovery — pending exact URL verification |
+| DeepL Help Center | https://support.deepl.com/ | Documents, glossaries, Pro | Source discovery — pending exact URL verification |
+| DeepL Privacy Policy | https://www.deepl.com/en/privacy | Personal data, enterprise | Source discovery — pending exact URL verification |
 
 ## Detailed Design
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 184 for the inspiration brief.
+### Source-Backed Product Requirements
+
+- App supports text and document translation and a free + paid tier.
+- Documents must upload securely, translate, and return in similar format.
+- Glossary entries must be enforced per language pair.
+- Alternative translations must be browsable and clickable to replace inline.
+- Subscription state must include free, trial, paid, expired, restored, and web-managed.
 
 ## Core User Journeys
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 184 for the inspiration brief.
+- User pastes text, selects target language, sees translation and alternative phrasings.
+- User taps an alternative phrasing; the output updates inline.
+- User uploads a document, monitors progress, downloads translated file.
+- User creates a glossary entry (source -> target) and sees it enforced.
+- User saves a translation to favorites and searches later.
+- User upgrades to paid, sees document/volume limits update, and restores on another device.
+- User clears history and deletes account.
 
 ## Screen Inventory
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 184 for the inspiration brief.
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
+|---|---|---|---|---|
+| Home | Text translate with alternatives | paste, type, swap | idle, translating | offline, rate limit |
+| Document Translate | Upload and monitor | pick file, format | uploading, processing, done | format unsupported, too large |
+| Glossary | Manage entries | add, edit, remove | empty, loaded | import conflict |
+| History / Favorites | Saved and recent | search, favorite | loaded, cleared | sync issue |
+| Voice / Speech Input | Dictate text to translate | mic | ready, recording | mic denied |
+| Settings | Privacy, account, tier | toggles | loaded | region restriction |
+| Subscription | Plan and restore | plan, restore | free, paid, expired | webhook delay |
+| Support | Help and feedback | form | submitted | unavailable |
 
 ## Data Model
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 184 for the inspiration brief.
+- `User`, `LanguagePair`, `TranslationRequest`, `TranslationResult`, `AlternativeChoice`, `Document` (source, target, status, asset refs), `GlossaryEntry` (pair, source term, target term), `Favorite`, `HistoryEntry` (retention), `Entitlement`, `AuditEvent`.
 
 ## API And Backend Contracts
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 184 for the inspiration brief.
+- `POST /translate/text`, `POST /translate/text/alternatives/:id`.
+- `POST /documents`, `PUT /documents/:id/content`, `POST /documents/:id/translate`, `GET /documents/:id`, `GET /documents/:id/download`.
+- `GET /glossaries`, `POST /glossaries`, `PATCH /glossaries/:id`, `DELETE /glossaries/:id`.
+- `GET /favorites`, `POST /favorites`, `DELETE /favorites/:id`.
+- `GET /history`, `DELETE /history`.
+- `POST /auth/session`, `DELETE /account`, `POST /data-export`.
+- `GET /entitlements`, `POST /checkout/session`, `POST /billing/restore`, `POST /billing/webhook`.
 
-## Realtime/Push/Offline Behavior
+## Realtime, Push, And Offline Behavior
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 184 for the inspiration brief.
+- Document translation is async; app polls or listens for status.
+- Text translation cached locally for repeat queries within session.
+- Push optional for document-ready notifications; never include translated content.
+- Offline mode limited; inform user when MT is unavailable.
 
-## Permissions/Privacy/Safety
+## Permissions, Privacy, And Safety
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 184 for the inspiration brief.
+- No logging of translated content by default; opt-in feedback sampling.
+- Documents stored only long enough to deliver translated output, then deleted per retention policy.
+- Glossary entries are user-private by default.
+- Enterprise mode (optional) supports SSO and admin audit logs.
+- Analytics exclude input content and file names.
+- Export + delete account available.
 
 ## Analytics And Monetization
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 184 for the inspiration brief.
+- Events: translate success/failure, document uploaded/completed/failed, glossary created, favorite added, entitlement changed.
+- Tiers original; no borrowed copy.
+- Paywall must identify blocked feature (e.g. document size limit).
 
 ## Edge Cases
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 184 for the inspiration brief.
+- Document too large, corrupt, or password-protected.
+- Glossary entry conflicts with in-context translation.
+- User edits alternative translation and wants to revert.
+- Entitlement mismatch between web and mobile.
+- File format unsupported (e.g. scanned PDF without OCR tier).
+- Network lost mid-document upload.
 
 ## Test Plan
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 184 for the inspiration brief.
+- Unit tests for alternative-swap state machine, glossary enforcement, history retention.
+- Contract tests for documents and glossary APIs.
+- Integration tests for text translate, document translate end-to-end, glossary CRUD.
+- Billing tests for tiers and restore across platforms.
+- Privacy tests for retention defaults, export/delete.
+- Accessibility tests for dynamic type, screen reader, keyboard on iPad.
+- Manual verification: document formats on device, entitlement reconciliation.
 
 ## Acceptance Criteria
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 184 for the inspiration brief.
+- Source URLs verified.
+- Text, document, glossary flows work end to end.
+- Entitlements reconcile across platforms.
+- Retention policy documented and tested.
+- Manual blockers feature-flagged.
 
 ## Open Questions
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 184 for the inspiration brief.
+- Which MT engine backs V1?
+- Will OCR for scanned PDFs ship in V1?
+- Enterprise SSO in V1?
+- Which document formats are mandatory vs nice-to-have?
 
 ## Build Plan
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 184 for the inspiration brief.
+- Phase 1: text translation + alternatives + history.
+- Phase 2: document upload/translate pipeline.
+- Phase 3: glossary management + enforcement.
+- Phase 4: entitlements + paywall.
+- Phase 5: enterprise options (SSO, audit).
+- Phase 6: accessibility, privacy, manual verification.
 
 ## Next Steps
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 184 for the inspiration brief.
+- Verify source URLs.
+- Select MT provider and document pipeline.
+- Define retention and enterprise DPA.

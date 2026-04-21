@@ -1,80 +1,167 @@
 # Otter.ai-Style Clone Spec
 
-> Inspiration: Otter.ai
-> Category: Transcription
-> Readiness status: Draft 0
-> Legal scope: functional parity only — original code, original brand, original assets, lawful data sources; no proprietary logos, screenshots, copy, private APIs, or paywalled content.
-
-This is a Draft 0 placeholder generated for ID 185 (Otter.ai) from `tasks/ideas.md`. Section bodies are TODO placeholders; Phase 7 Step 7.2 will rewrite this file into the canonical Draft 1 structure used across batches 01-05.
+> Metadata
+> - Inspiration app: Otter.ai
+> - Category: Transcription
+> - Readiness status: Draft 1
+> - Verification basis: public marketplace listings, help center, and product pages — pending exact URL verification.
+> - Manual verification blockers: native live recording performance, meeting integration OAuth flows, speaker diarization quality on device audio, subscription purchase/restore, and accessibility passes still require a test device/account.
+> - Legal scope: functional parity only; use original UI, original branding, original ASR/diarization provider, and lawful meeting integrations.
 
 ## Overview
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 185 for the inspiration brief.
+Build an original mobile transcription app inspired by live meeting transcription with speaker labels, automatic summaries, importable audio files, and calendar-based meeting sync.
+
+The clone must not copy Otter.ai branding, summaries of proprietary meetings, private APIs, named features, or marketing copy.
 
 ## Goals
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 185 for the inspiration brief.
+- Live recording with near-real-time transcription and speaker diarization.
+- Import audio/video files for async transcription.
+- Calendar integration to auto-join or auto-record meetings (user-controlled).
+- Summaries, action items, highlights, and shareable snippets.
+- Consent-first UX with clear "all participants consent" disclosures.
 
 ## Non-Goals
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 185 for the inspiration brief.
+- Do not imply Otter affiliation.
+- Do not record meetings without clear user-issued consent notice.
+- Do not use user audio for model training without explicit opt-in.
+- Do not operate as a stealth bot without platform permission.
 
 ## Research Sources
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 185 for the inspiration brief.
+| Source | Exact URL | Evidence Used | Status |
+|---|---|---|---|
+| Apple App Store listing | https://apps.apple.com/us/app/otter-transcribe-voice-notes/id1276437113 | iOS listing, privacy labels | Source discovery — pending exact URL verification |
+| Google Play listing | https://play.google.com/store/apps/details?id=com.aisense.otter | Android listing, data safety | Source discovery — pending exact URL verification |
+| Otter Help Center | https://help.otter.ai/ | Live transcription, summaries, integrations | Source discovery — pending exact URL verification |
+| Otter Privacy Policy | https://otter.ai/privacy-policy | Personal data, consent | Source discovery — pending exact URL verification |
 
 ## Detailed Design
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 185 for the inspiration brief.
+### Source-Backed Product Requirements
+
+- App must support live mic recording and file import.
+- Speaker labels must be user-editable per conversation.
+- Summaries must be marked AI-generated and editable.
+- Calendar integration (Google/Microsoft) must be opt-in with revocable scopes.
+- Subscription states: free minutes, paid plans, trials, restored.
 
 ## Core User Journeys
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 185 for the inspiration brief.
+- User taps Record, sees a consent banner, and captures live transcription with speaker labels.
+- User imports an audio file, waits for transcription, and reviews output.
+- User connects calendar, enables auto-record for specific meetings, and joins as bot.
+- User edits speaker names in a completed transcript.
+- User views summary/action items, edits them, and shares via link or export.
+- User searches across all transcripts.
+- User upgrades tier to increase monthly minutes.
+- User deletes transcript and account data export.
 
 ## Screen Inventory
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 185 for the inspiration brief.
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
+|---|---|---|---|---|
+| Home | Recent conversations | list, search, new | empty, loaded | offline |
+| Recorder | Live capture | mic, pause, stop | ready, recording, paused, complete | mic denied, storage low |
+| Transcript Viewer | View/edit transcript | play, edit, label | loaded, editing | asset missing |
+| Summary | View AI summary and actions | edit, copy, share | generated, edited | generation failed |
+| Import | Upload audio/video | pick, monitor | uploading, processing, done | format unsupported |
+| Calendar Integration | Manage meeting sync | connect, select events | connected, disconnected | scope revoked |
+| Meeting Bot Control | Auto-join toggles | per-meeting controls | enabled, disabled | bot join failed |
+| Search | Find across transcripts | query, filter | results, empty | index stale |
+| Settings | Privacy, account, consent | toggles | loaded | enterprise-managed |
+| Subscription | Plan, minutes, restore | plan, restore | free, paid | webhook delay |
+| Support | Help and feedback | form | submitted | unavailable |
 
 ## Data Model
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 185 for the inspiration brief.
+- `User`, `Conversation` (source: live/import/meeting), `AudioAsset` (uri, duration, format, retention), `TranscriptSegment` (start, end, text, speaker id, confidence), `Speaker` (label, voiceprint id optional), `Summary`, `ActionItem`, `CalendarConnection`, `MeetingBotJob`, `UsageLimit` (monthly minutes), `Entitlement`, `SafetyReport`, `AuditEvent`.
 
 ## API And Backend Contracts
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 185 for the inspiration brief.
+- `POST /auth/session`, `DELETE /account`, `POST /data-export`.
+- `POST /conversations` (live/import), `GET /conversations`, `GET /conversations/:id`, `DELETE /conversations/:id`.
+- `POST /uploads`, `PUT /uploads/:id/content`, `POST /uploads/:id/complete`.
+- `POST /live-sessions`, `POST /live-sessions/:id/end`, `GET /live-sessions/:id/stream` (SSE/WebSocket).
+- `POST /conversations/:id/summarize`, `PATCH /conversations/:id/segments/:segId`.
+- `POST /speakers`, `PATCH /speakers/:id`, `DELETE /speakers/:id`.
+- `POST /calendar/connect`, `DELETE /calendar/connect`, `GET /meetings`, `POST /meetings/:id/autojoin`.
+- `GET /search?q=`.
+- `GET /entitlements`, `POST /checkout/session`, `POST /billing/restore`, `POST /billing/webhook`.
+- `POST /safety/reports`.
 
-## Realtime/Push/Offline Behavior
+## Realtime, Push, And Offline Behavior
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 185 for the inspiration brief.
+- Live transcription must stream partial segments with stable IDs; finalize on commit.
+- Recordings must persist locally if upload fails; resume upload on reconnect.
+- Push notifications: transcript ready, meeting joined, monthly limit reached — never include transcript content by default.
+- Background recording must handle interruptions (calls, route changes) without losing audio.
 
-## Permissions/Privacy/Safety
+## Permissions, Privacy, And Safety
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 185 for the inspiration brief.
+- Mic requested at record start; audio route permission for meeting capture.
+- Calendar scopes minimized; meeting subject redaction in analytics.
+- Consent banner on every new recording; meeting bot must announce itself when joining.
+- Default data retention configurable; user can delete any conversation.
+- Analytics exclude raw audio, transcript, speaker names.
+- PII scrubbing for shared links; link expiry and access controls.
+- Organization/enterprise mode: SSO/SCIM, audit logs, secrets redaction.
 
 ## Analytics And Monetization
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 185 for the inspiration brief.
+- Events: recording started/ended, import completed, transcript ready, summary generated, meeting joined, share created, minutes-limit reached, entitlement changed.
+- Free monthly minutes tier with paid expansion; original plan names.
+- Paywall identifies blocked feature (minutes, meetings, summaries).
 
 ## Edge Cases
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 185 for the inspiration brief.
+- Mic denied mid-recording.
+- Meeting bot blocked by host or platform policy.
+- Speaker diarization collapses speakers with similar voices.
+- Large file upload over cellular; resumable required.
+- Calendar scope revoked; auto-join disabled with clear notice.
+- Transcript shared link forwarded to unauthorized recipient (requires expiry/auth).
+- Account deletion with pending long-running transcription job.
 
 ## Test Plan
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 185 for the inspiration brief.
+- Unit tests for segment assembly, speaker edits, monthly-minute tracking.
+- Contract tests for live stream, upload, meeting bot APIs.
+- Integration tests for record->transcript->summary, import->transcript, calendar connect->auto-join.
+- Permission tests for mic/calendar grant/deny/revoke.
+- Privacy tests for retention, export/delete, share-link expiry.
+- Billing tests for minutes limit, trial/paid/restore.
+- Accessibility tests for captions, dynamic type, VoiceOver navigation through transcripts.
+- Manual verification: real device recording, meeting bot in live meeting.
 
 ## Acceptance Criteria
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 185 for the inspiration brief.
+- Source URLs verified.
+- Live and import transcription work with consent banners.
+- Calendar integration and meeting bot opt-in work with revocable scopes.
+- Entitlements reconcile across platforms.
+- Manual blockers feature-flagged.
 
 ## Open Questions
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 185 for the inspiration brief.
+- Which ASR + diarization provider backs V1?
+- Will meeting bot support Zoom/Meet/Teams in V1, or phased?
+- Enterprise SSO/SCIM in V1?
+- Voiceprints on-device only, or server-side with opt-in?
 
 ## Build Plan
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 185 for the inspiration brief.
+- Phase 1: live record + live transcript + basic viewer.
+- Phase 2: import pipeline + async transcription.
+- Phase 3: summaries + action items + search.
+- Phase 4: calendar integration + meeting bot.
+- Phase 5: entitlements + sharing.
+- Phase 6: enterprise + accessibility + manual verification.
 
 ## Next Steps
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 185 for the inspiration brief.
+- Verify source URLs.
+- Select ASR and meeting-bot providers.
+- Define consent copy and legal review for recording.

@@ -1,80 +1,163 @@
 # Calendly-Style Clone Spec
 
-> Inspiration: Calendly
-> Category: Scheduling
-> Readiness status: Draft 0
-> Legal scope: functional parity only — original code, original brand, original assets, lawful data sources; no proprietary logos, screenshots, copy, private APIs, or paywalled content.
-
-This is a Draft 0 placeholder generated for ID 194 (Calendly) from `tasks/ideas.md`. Section bodies are TODO placeholders; Phase 7 Step 7.2 will rewrite this file into the canonical Draft 1 structure used across batches 01-05.
+> Metadata
+> - Inspiration app: Calendly
+> - Category: Scheduling
+> - Readiness status: Draft 1
+> - Verification basis: public marketplace listings, help center — pending exact URL verification.
+> - Manual verification blockers: calendar OAuth scopes per provider, timezone edge cases, push notifications, subscription purchase/restore, and accessibility passes still require a test device/account.
+> - Legal scope: functional parity only; use original UI, branding, and OAuth integrations to user-consented calendars only.
 
 ## Overview
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 194 for the inspiration brief.
+Build an original mobile scheduling app inspired by Calendly: meeting types, availability rules, booking links, calendar connections, and invitee experience.
+
+The clone must not copy Calendly branding, iconography, feature names, or private APIs.
 
 ## Goals
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 194 for the inspiration brief.
+- Create meeting types with duration, availability rules, location.
+- Connect calendars (Google, Microsoft, Apple) with minimal scopes.
+- Share booking links; invitee selects time and confirms.
+- Send reminders and reschedule/cancel flows.
+- Team scheduling (round robin, collective).
 
 ## Non-Goals
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 194 for the inspiration brief.
+- Do not imply Calendly affiliation.
+- Do not store invitee PII beyond booking lifecycle.
+- Do not bypass calendar scopes.
 
 ## Research Sources
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 194 for the inspiration brief.
+| Source | Exact URL | Evidence Used | Status |
+|---|---|---|---|
+| Apple App Store listing | https://apps.apple.com/us/app/calendly-meeting-scheduling/id1187711434 | iOS listing, privacy labels | Source discovery — pending exact URL verification |
+| Google Play listing | https://play.google.com/store/apps/details?id=com.calendly.app | Android listing, data safety | Source discovery — pending exact URL verification |
+| Calendly Help | https://help.calendly.com/ | Meeting types, availability, integrations | Source discovery — pending exact URL verification |
+| Calendly Security | https://calendly.com/security | SSO, data handling | Source discovery — pending exact URL verification |
 
 ## Detailed Design
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 194 for the inspiration brief.
+### Source-Backed Product Requirements
+
+- Meeting types have duration, buffer, availability windows, location (conference or in-person).
+- Calendar connections supply busy times and create events.
+- Booking link is public; invitee confirms with name, email, answers.
+- Reminders via email and/or SMS (with consent).
+- Reschedule/cancel via signed token link.
 
 ## Core User Journeys
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 194 for the inspiration brief.
+- User signs up, connects a calendar, creates a 30-min meeting type.
+- User customizes availability rules and buffer times.
+- User shares a booking link; invitee picks a slot and confirms.
+- Invitee receives confirmation with ICS and calendar event.
+- Organizer receives a push and sees booking in app.
+- Invitee reschedules via link; calendars update.
+- Organizer connects a second calendar for conflict detection.
+- Organizer sets round-robin for a team meeting type.
+- Organizer disconnects calendar; active events preserved, future bookings pause.
+- Organizer deletes account.
 
 ## Screen Inventory
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 194 for the inspiration brief.
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
+|---|---|---|---|---|
+| Auth | Sign-in and calendar connect | provider pick | waiting, connected | scope denied |
+| Dashboard | Upcoming meetings | act | empty, items | offline |
+| Meeting Types | Manage | add/edit | empty, loaded | required field |
+| Meeting Editor | Configure type | duration, rules | drafting, saved | invalid rule |
+| Availability | Working hours | edit | loaded | time zone mismatch |
+| Booking Page (invitee) | Pick time and confirm | date, slot, form | loading, selected, confirmed | all slots full |
+| Event Detail | View booking | reschedule, cancel | active, canceled, past | token expired |
+| Integrations | Calendar connections | connect/disconnect | connected, disconnected | scope revoked |
+| Settings | Account, notifications | toggles | loaded | admin-managed |
+| Subscription | Plans and restore | plan, restore | free, paid | webhook delay |
 
 ## Data Model
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 194 for the inspiration brief.
+- `User`, `Organization` (optional), `MeetingType`, `AvailabilityRule`, `BufferRule`, `CalendarConnection` (provider, tokens), `BusyBlock` (cached), `Booking` (time, invitee, answers), `ReminderSchedule`, `ReschedToken`, `Entitlement`, `AuditEvent`.
 
 ## API And Backend Contracts
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 194 for the inspiration brief.
+- `POST /auth/session`, `DELETE /account`.
+- `POST /calendar/connect/:provider`, `DELETE /calendar/connect/:id`.
+- `GET /meeting-types`, `POST /meeting-types`, `PATCH /meeting-types/:id`, `DELETE /meeting-types/:id`.
+- `GET /availability?meetingTypeId=&date=` (public endpoint for invitee).
+- `POST /bookings` (public, requires captcha), `POST /bookings/:token/reschedule`, `POST /bookings/:token/cancel`.
+- `GET /bookings?view=upcoming|past` (auth).
+- `POST /reminders/schedule` (internal).
+- `GET /entitlements`, `POST /billing/webhook`.
+- `POST /teams/:id/round-robin` (team scheduling config).
 
-## Realtime/Push/Offline Behavior
+## Realtime, Push, And Offline Behavior
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 194 for the inspiration brief.
+- Calendar conflict check runs at invitee selection time.
+- Push for new booking, reschedule, cancel — opaque payloads.
+- Offline read of recent bookings; no public booking endpoints offline.
+- Reminder worker sends on schedule regardless of app state.
 
-## Permissions/Privacy/Safety
+## Permissions, Privacy, And Safety
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 194 for the inspiration brief.
+- Calendar OAuth scopes minimized: read busy blocks, create event in primary.
+- Meeting subjects redacted in analytics; stored events use organizer-chosen titles.
+- SMS reminders require invitee opt-in with clear terms.
+- Captcha on public booking endpoint.
+- Export + delete available.
+- Audit log for disconnects and policy changes.
 
 ## Analytics And Monetization
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 194 for the inspiration brief.
+- Events: meeting type created, calendar connected, booking created/canceled/rescheduled, reminder sent.
+- Tiers original; paywall identifies blocked feature (team scheduling, integrations).
 
 ## Edge Cases
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 194 for the inspiration brief.
+- Timezone DST boundary on booking.
+- Calendar scope revoked mid-booking cycle.
+- Invitee browser out of sync with server time.
+- Double-booking race; server must hold and validate.
+- Reschedule token expired.
+- Team member leaves org with active bookings.
 
 ## Test Plan
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 194 for the inspiration brief.
+- Unit tests for availability calculation across DST, buffers, round-robin assignment.
+- Contract tests for public/private endpoints.
+- Integration tests for end-to-end booking + reschedule + cancel.
+- Timezone tests with multiple DST scenarios.
+- Privacy tests for minimum calendar scopes.
+- Billing tests.
+- Accessibility tests for date/time pickers.
+- Manual verification: OAuth per provider, push, calendar event creation.
 
 ## Acceptance Criteria
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 194 for the inspiration brief.
+- Source URLs verified.
+- Meeting type + calendar connect + public booking + reschedule flows complete.
+- Scopes minimized and revocable.
+- Entitlements reconcile.
+- Manual blockers feature-flagged.
 
 ## Open Questions
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 194 for the inspiration brief.
+- SMS provider?
+- Which calendar providers in V1?
+- Team scheduling in V1 or later?
+- Captcha provider?
 
 ## Build Plan
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 194 for the inspiration brief.
+- Phase 1: auth + meeting types + availability + public booking.
+- Phase 2: calendar integrations (Google first).
+- Phase 3: reminders (email) + reschedule/cancel.
+- Phase 4: SMS reminders + captcha.
+- Phase 5: team scheduling + billing.
+- Phase 6: accessibility + manual verification.
 
 ## Next Steps
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 194 for the inspiration brief.
+- Verify source URLs.
+- Select SMS and captcha providers.
+- Define OAuth scopes per provider.
