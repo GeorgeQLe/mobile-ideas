@@ -276,3 +276,12 @@
 
 - No Phase 7 has been planned. When a new phase is scoped, draft its plan in `tasks/todo.md` following the prior phase structure.
 - Keep all downstream implementation repos `PRIVATE` until each passes its own legal/name/license review and receives explicit public-release approval.
+
+## 2026-04-20 - Phase 7 Opened; Backlog Extended to 200 Ideas
+
+- Appended 100 new clone-spec ideas (IDs 101-200) to `tasks/ideas.md` under the "Extension Added 2026-04-20" section, covering categories under-represented in IDs 001-100: dating (6), jobs (4), real estate (5), neighborhood/events (3), reading/newsletters (13), news aggregation (7), investing (6), neobanks (5), telehealth/pharmacy (8), wellness trackers (5), parenting/family (11), kids education (6), language/translation (7), dev/project tools (8), productivity/notes/tasks (10), and hiking (1).
+- Updated ideas.md summary line to reflect 200 total projects and updated Next Steps to point at Phase 1 Step 2 of the extension (Draft 0 stubs).
+- Opened Phase 7 (Backlog Extension Pipeline for IDs 101-200) in `tasks/roadmap.md` with six milestones (Steps 7.1-7.6).
+- Archived completed Phase 6 todo content to `tasks/phases/phase-6.md`.
+- Rewrote `tasks/todo.md` as the Phase 7 work log; Step 7.1 (create 100 Draft 0 stubs across `specs/batch-06/` through `specs/batch-10/`) is the next concrete action with ship-one-step handoff contract.
+- No spec files created yet; no downstream repo changes; `GeorgeQLe/mobile-ideas` remains PUBLIC and all 100 existing downstream repos remain PRIVATE.

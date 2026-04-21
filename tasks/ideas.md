@@ -2,7 +2,7 @@
 
 Created: 2026-04-16
 
-This backlog defines 100 mobile app clone projects for research and specification. "Clone" means functional parity research: reproduce core user flows, information architecture, interaction models, data contracts, and edge cases with original code, original branding, original copy, original media, and legally obtained data. Do not copy proprietary source code, private APIs, trademarks, copyrighted assets, or paywalled content.
+This backlog defines 200 mobile app clone projects for research and specification (the original 100, plus a 100-app extension added 2026-04-20 covering dating, real estate, news, investing, health, parenting, education, dev tools, and productivity categories not represented in the first batch). "Clone" means functional parity research: reproduce core user flows, information architecture, interaction models, data contracts, and edge cases with original code, original branding, original copy, original media, and legally obtained data. Do not copy proprietary source code, private APIs, trademarks, copyrighted assets, or paywalled content.
 
 ## Research And Spec Standard
 
@@ -125,6 +125,113 @@ Each project should produce a spec before implementation:
 | 99 | Google Photos | Photo library | Photo backup, timeline, albums, sharing, search, memories, editor, and storage management. | `$plan-interview clone-spec Google Photos-style gallery` |
 | 100 | Ring | Smart home | Device dashboard, live camera view, event history, alerts, zones, shared users, and subscription video access. | `$plan-interview clone-spec Ring-style smart home camera app` |
 
+## Extension Added 2026-04-20 (IDs 101-200)
+
+The second 100 cover categories under-represented in the first batch: dating, jobs, real estate, neighborhood/events, reading/newsletters, news aggregation, investing/banking, telehealth, wellness trackers, parenting/family, kids education, language/translation, dev tools, design collaboration, and productivity utilities. Same lawful functional-parity rules apply.
+
+| # | Inspiration App | Category | Clone-Spec Focus | Planning Prompt |
+|---:|---|---|---|---|
+| 101 | Tinder | Dating | Swipe-based discovery, profile/photos, matches, chat, super likes, boost subscriptions, and safety tools. | `$plan-interview clone-spec Tinder-style swipe dating app` |
+| 102 | Bumble | Dating | Women-message-first dating flow, 24-hour match window, Bizz/BFF modes, video chat, and verified profiles. | `$plan-interview clone-spec Bumble-style dating app` |
+| 103 | Hinge | Dating | Prompt-based profiles, like-with-comment interactions, "most compatible" recommendations, and standouts. | `$plan-interview clone-spec Hinge-style relationship dating app` |
+| 104 | Grindr | Dating | Location-grid discovery, quick chat, profile tags, inclusive identity fields, and safety/privacy controls. | `$plan-interview clone-spec Grindr-style geosocial dating app` |
+| 105 | Match | Dating | Long-form profile matching, search filters, daily matches, events, and subscription tiers. | `$plan-interview clone-spec Match-style relationship dating app` |
+| 106 | Coffee Meets Bagel | Dating | Daily curated matches, bagel tokens, discover tab, and community-driven conversation starters. | `$plan-interview clone-spec CMB-style curated dating app` |
+| 107 | LinkedIn | Professional networking | Professional profiles, feed, connections, messaging, job listings, company pages, and creator posts. | `$plan-interview clone-spec LinkedIn-style professional network` |
+| 108 | Indeed | Job search | Job search, resume upload, easy apply, saved searches, company reviews, and salary data. | `$plan-interview clone-spec Indeed-style job search app` |
+| 109 | Glassdoor | Jobs/reviews | Anonymous company reviews, salary data, interview questions, job listings, and employer responses. | `$plan-interview clone-spec Glassdoor-style employer review app` |
+| 110 | ZipRecruiter | Job search | Candidate-employer matching, smart apply, saved jobs, recruiter chat, and application tracking. | `$plan-interview clone-spec ZipRecruiter-style matching job app` |
+| 111 | Zillow | Real estate | For-sale/for-rent map search, listing detail, Zestimate-like valuations, saved homes, and agent contact. | `$plan-interview clone-spec Zillow-style real estate browser` |
+| 112 | Redfin | Real estate | Map-first listing browser, tour scheduling, offer tools, saved searches, and price/school filters. | `$plan-interview clone-spec Redfin-style real estate app` |
+| 113 | Realtor.com | Real estate | MLS-sourced listings, commute filters, mortgage calculator, agent directory, and home value tracking. | `$plan-interview clone-spec Realtor-style listing app` |
+| 114 | Apartments.com | Rentals | Rental marketplace, 3D tours, saved filters, contact property, and application submission. | `$plan-interview clone-spec Apartments-style rental app` |
+| 115 | Zumper | Rentals | Rental listings, instant notifications, credit-checked applications, and landlord messaging. | `$plan-interview clone-spec Zumper-style rental app` |
+| 116 | Nextdoor | Neighborhood social | Verified-neighborhood feed, classifieds, recommendations, alerts, and local business pages. | `$plan-interview clone-spec Nextdoor-style neighborhood app` |
+| 117 | Meetup | Events | Interest-based group discovery, event RSVPs, organizer tools, calendars, and attendee lists. | `$plan-interview clone-spec Meetup-style event app` |
+| 118 | Eventbrite | Events/tickets | Event discovery, ticket purchase, organizer dashboards, scannable tickets, and calendar integration. | `$plan-interview clone-spec Eventbrite-style ticketing app` |
+| 119 | Medium | Blogging | Article feed, personalized recommendations, claps, highlights, paywall, and writer profiles. | `$plan-interview clone-spec Medium-style long-form blog app` |
+| 120 | Substack | Newsletters | Newsletter subscriptions, posts, audio, comments, creator notifications, and paid tiers. | `$plan-interview clone-spec Substack-style newsletter app` |
+| 121 | Wattpad | Fiction | Serialized story reader, chapter comments, reading lists, follow authors, and creator writing tools. | `$plan-interview clone-spec Wattpad-style story reader` |
+| 122 | Webtoon | Digital comics | Vertical-scroll comics, daily schedule, episode unlocks, creator uploads, and subscription coins. | `$plan-interview clone-spec Webtoon-style comic reader` |
+| 123 | Goodreads | Book social | Book database, shelves, reviews, reading challenges, friends feed, and recommendations. | `$plan-interview clone-spec Goodreads-style book social` |
+| 124 | Kindle | E-reader | E-book library, sync-across-devices reading, highlights, X-Ray features, dictionary, and store. | `$plan-interview clone-spec Kindle-style e-reader` |
+| 125 | Libby | Library audio/e-books | Library card sign-in, holds/checkouts, audiobook and e-book playback, wish lists, and tag shelves. | `$plan-interview clone-spec Libby-style library app` |
+| 126 | Apple Books | E-reader | Library, store, audiobooks, reading goals, collections, and system-integrated reading UX. | `$plan-interview clone-spec Apple Books-style reader` |
+| 127 | Scribd | Reading subscription | All-you-can-read subscription library across books, audiobooks, and documents. | `$plan-interview clone-spec Scribd-style subscription reader` |
+| 128 | Readwise | Highlights | Highlight sync from Kindle/Apple Books/articles, spaced-repetition review, and daily digest. | `$plan-interview clone-spec Readwise-style highlight app` |
+| 129 | Pocket | Read-later | Article saving, offline reading, tags, discover, and text-to-speech. | `$plan-interview clone-spec Pocket-style read-later app` |
+| 130 | Instapaper | Read-later | Clean article view, highlights, notes, folders, and export. | `$plan-interview clone-spec Instapaper-style read-later app` |
+| 131 | Feedly | RSS reader | Source subscriptions, organized feeds, smart filters, saved boards, and read-later. | `$plan-interview clone-spec Feedly-style RSS app` |
+| 132 | Apple News | News aggregator | Topic following, publication subscriptions, curated top stories, widgets, and Apple News+ bundle. | `$plan-interview clone-spec Apple News-style news app` |
+| 133 | The New York Times | News | Paywalled news app with sections, saved articles, crosswords/games entry, and audio articles. | `$plan-interview clone-spec NYT-style news app` |
+| 134 | Flipboard | News magazine | Magazine-style curated feeds, custom smart magazines, and topic following. | `$plan-interview clone-spec Flipboard-style news magazine` |
+| 135 | SmartNews | News aggregator | Topic channels, offline news, breaking alerts, and balanced-source views. | `$plan-interview clone-spec SmartNews-style aggregator` |
+| 136 | Ground News | News bias | Bias-rated news aggregation, source comparison, blindspot feeds, and factuality metrics. | `$plan-interview clone-spec Ground News-style bias app` |
+| 137 | Bloomberg | Finance news | Markets dashboard, watchlists, articles, audio, and paid subscription gating. | `$plan-interview clone-spec Bloomberg-style finance news` |
+| 138 | Yahoo Finance | Stocks/news | Portfolio tracking, watchlists, quote detail, news, and earnings alerts. | `$plan-interview clone-spec Yahoo Finance-style tracker` |
+| 139 | Stocktwits | Investing social | Cashtag-driven investing feed, sentiment, watchlists, and creator rooms. | `$plan-interview clone-spec Stocktwits-style investing social` |
+| 140 | Public | Investing social | Commission-free brokerage with social investing feed, themes, and analyst insights. | `$plan-interview clone-spec Public-style social brokerage` |
+| 141 | Acorns | Micro-investing | Round-up savings, portfolio auto-rebalance, family accounts, and banking. | `$plan-interview clone-spec Acorns-style roundup investing` |
+| 142 | Stash | Investing | Fractional investing, Stock-Back card, education, retirement, and smart portfolios. | `$plan-interview clone-spec Stash-style beginner investing` |
+| 143 | Wealthfront | Robo-advisor | Automated portfolios, cash account, bond ladder, financial planning, and tax-loss harvesting. | `$plan-interview clone-spec Wealthfront-style robo-advisor` |
+| 144 | Betterment | Robo-advisor | Goal-based investing, IRAs, cash reserve, and socially-responsible portfolios. | `$plan-interview clone-spec Betterment-style robo-advisor` |
+| 145 | Chime | Neobank | Mobile banking, SpotMe overdraft, credit builder, early direct deposit, and savings round-ups. | `$plan-interview clone-spec Chime-style neobank` |
+| 146 | Revolut | Neobank | Multi-currency wallet, stocks/crypto, international transfers, card management, and budgeting. | `$plan-interview clone-spec Revolut-style super wallet` |
+| 147 | Wise | International transfer | Multi-currency account, low-fee transfers, borderless card, and transparent FX. | `$plan-interview clone-spec Wise-style FX transfer app` |
+| 148 | Greenlight | Kids banking | Kids debit cards, parental controls, chores/allowance, and investing education. | `$plan-interview clone-spec Greenlight-style kids banking` |
+| 149 | Step | Teen banking | Teen banking with secured card, credit building, and family financial tools. | `$plan-interview clone-spec Step-style teen banking` |
+| 150 | GoodRx | Pharmacy prices | Drug price comparison, coupons, pharmacy lookup, Gold subscription, and telehealth add-ons. | `$plan-interview clone-spec GoodRx-style pharmacy app` |
+| 151 | Walgreens | Pharmacy | Prescription refills, store locator, photo prints, shop, and rewards. | `$plan-interview clone-spec Walgreens-style pharmacy app` |
+| 152 | Zocdoc | Doctor booking | Provider search by insurance and specialty, online booking, patient reviews, and intake forms. | `$plan-interview clone-spec Zocdoc-style provider booking` |
+| 153 | Teladoc | Telehealth | On-demand virtual visits, scheduled appointments, prescriptions, and behavioral health. | `$plan-interview clone-spec Teladoc-style telehealth app` |
+| 154 | BetterHelp | Therapy | Licensed therapist matching, video/phone/chat sessions, journaling, and worksheets. | `$plan-interview clone-spec BetterHelp-style therapy app` |
+| 155 | Talkspace | Therapy | Messaging-first therapy, psychiatry add-on, insurance handling, and care plans. | `$plan-interview clone-spec Talkspace-style therapy app` |
+| 156 | Hims & Hers | Telehealth | Condition-based intake, async prescriptions, subscription refills, and wellness shop. | `$plan-interview clone-spec Hims-style telehealth app` |
+| 157 | Ro | Telehealth | Condition-by-condition care paths, weight loss/sexual health/hair, and ongoing care subscriptions. | `$plan-interview clone-spec Ro-style direct care app` |
+| 158 | Oura | Sleep ring | Sleep/readiness/activity scoring, heart-rate trends, temperature trends, and coaching. | `$plan-interview clone-spec Oura-style health ring app` |
+| 159 | Whoop | Fitness tracker | Recovery/strain/sleep scoring, journal, coaching, and members-only subscription hardware. | `$plan-interview clone-spec Whoop-style recovery tracker` |
+| 160 | Sleep Cycle | Sleep tracking | Sound-based sleep analysis, smart alarm, trends, and snoring detection. | `$plan-interview clone-spec Sleep Cycle-style sleep tracker` |
+| 161 | Clue | Period tracker | Cycle tracking, symptom logging, predictions, and birth-control/conception modes. | `$plan-interview clone-spec Clue-style cycle tracker` |
+| 162 | Ovia | Pregnancy | Fertility/pregnancy/parenting tracking across stages with health content and logging. | `$plan-interview clone-spec Ovia-style pregnancy tracker` |
+| 163 | BabyCenter | Parenting | Week-by-week pregnancy content, community, baby tracking, and milestones. | `$plan-interview clone-spec BabyCenter-style parenting app` |
+| 164 | Huckleberry | Baby sleep | Baby sleep/feeding logging, SweetSpot predictions, and sleep plans. | `$plan-interview clone-spec Huckleberry-style baby tracker` |
+| 165 | Cozi | Family organizer | Shared family calendar, grocery/shopping lists, meal plans, and chores. | `$plan-interview clone-spec Cozi-style family organizer` |
+| 166 | Life360 | Family locator | Family location sharing, circles, driving reports, SOS alerts, and roadside assistance. | `$plan-interview clone-spec Life360-style family locator` |
+| 167 | Bark | Parental monitoring | Cross-account monitoring for social/texts, alerts, and screen-time controls. | `$plan-interview clone-spec Bark-style parental monitor` |
+| 168 | Qustodio | Parental controls | App/website controls, screen-time schedules, and activity reports across devices. | `$plan-interview clone-spec Qustodio-style parental controls` |
+| 169 | Google Family Link | Parental controls | Device pairing, app approvals, screen-time limits, and location for child accounts. | `$plan-interview clone-spec Family Link-style parent app` |
+| 170 | ClassDojo | School communication | Classroom feed, parent-teacher messaging, student portfolios, and behavior points. | `$plan-interview clone-spec ClassDojo-style school app` |
+| 171 | Remind | School messaging | Class announcements, two-way messaging, translations, and attendance alerts. | `$plan-interview clone-spec Remind-style school messenger` |
+| 172 | Canvas Student | LMS | Assignments, grades, submissions, discussions, and course calendar for K-12/higher ed. | `$plan-interview clone-spec Canvas-style student LMS` |
+| 173 | Google Classroom | LMS | Class streams, assignment turn-in, Drive integration, and grading. | `$plan-interview clone-spec Google Classroom-style LMS` |
+| 174 | ScratchJr | Kids coding | Block-based coding for young learners, storybook projects, and sharing. | `$plan-interview clone-spec ScratchJr-style kids coding app` |
+| 175 | ABCmouse | Kids education | Guided PreK-2 curriculum, activities, books, videos, and rewards. | `$plan-interview clone-spec ABCmouse-style learning app` |
+| 176 | Khan Academy Kids | Kids learning | Free adaptive PreK-2 lessons, stories, and creative play. | `$plan-interview clone-spec Khan Kids-style learning app` |
+| 177 | Epic! | Kids reading | Children's book/audiobook/video subscription, reading logs, and classroom accounts. | `$plan-interview clone-spec Epic-style kids reading app` |
+| 178 | YouTube Kids | Kids video | Age-tiered video library, parental controls, timer, and creator profiles. | `$plan-interview clone-spec YouTube Kids-style video app` |
+| 179 | PBS Kids | Kids TV | Ad-free kids video catalog, games, and live stream with minimal login. | `$plan-interview clone-spec PBS Kids-style video app` |
+| 180 | Babbel | Language learning | Structured lessons, review manager, speech recognition, and subscription unlock. | `$plan-interview clone-spec Babbel-style language app` |
+| 181 | Rosetta Stone | Language learning | Immersion-style lessons, TruAccent speech grading, and stories. | `$plan-interview clone-spec Rosetta-style language app` |
+| 182 | Busuu | Language learning | Course path, community corrections, live classes, and certification. | `$plan-interview clone-spec Busuu-style language app` |
+| 183 | Google Translate | Translation | Text/voice/camera translation, conversation mode, offline languages, and saved phrases. | `$plan-interview clone-spec Google Translate-style app` |
+| 184 | DeepL | Translation | High-quality text/document translation, glossary, and alternative translations. | `$plan-interview clone-spec DeepL-style translator` |
+| 185 | Otter.ai | Transcription | Live transcription, speaker labels, summaries, import, and meeting sync. | `$plan-interview clone-spec Otter-style transcription app` |
+| 186 | Grammarly | Writing assistant | Cross-app writing suggestions, tone detection, keyboard, and document checks. | `$plan-interview clone-spec Grammarly-style writing app` |
+| 187 | GitHub Mobile | Dev tools | Issues, PRs, code review, notifications, and Actions monitoring on mobile. | `$plan-interview clone-spec GitHub Mobile-style dev app` |
+| 188 | Linear | Issue tracking | Fast issue tracker, cycles, projects, triage, and keyboard-forward UX. | `$plan-interview clone-spec Linear-style issue tracker` |
+| 189 | Jira | Issue tracking | Agile boards, backlogs, sprints, workflows, and enterprise permissions. | `$plan-interview clone-spec Jira-style agile tracker` |
+| 190 | Asana | Project management | Projects, tasks, timelines, goals, and team portfolios. | `$plan-interview clone-spec Asana-style project app` |
+| 191 | ClickUp | Project management | Docs, tasks, whiteboards, dashboards, and customizable views. | `$plan-interview clone-spec ClickUp-style all-in-one app` |
+| 192 | Figma | Design | Design file viewer, comments, prototypes playback, and mobile file browsing. | `$plan-interview clone-spec Figma-style design viewer` |
+| 193 | Miro | Whiteboard | Collaborative whiteboards, sticky notes, frames, templates, and mobile pan/zoom. | `$plan-interview clone-spec Miro-style whiteboard app` |
+| 194 | Calendly | Scheduling | Meeting type setup, availability rules, booking links, and calendar connections. | `$plan-interview clone-spec Calendly-style scheduler` |
+| 195 | Fantastical | Calendar | Natural-language event input, unified calendars, tasks, and weather-aware views. | `$plan-interview clone-spec Fantastical-style calendar` |
+| 196 | Things 3 | Tasks | Inbox/today/upcoming/anytime/someday, projects, headings, tags, and quick entry. | `$plan-interview clone-spec Things 3-style task app` |
+| 197 | Obsidian | Notes | Local Markdown vault, backlinks, graph, plugins, and sync. | `$plan-interview clone-spec Obsidian-style note app` |
+| 198 | Bear | Notes | Markdown notes with tags/hashtags, rich-link previews, themes, and sync. | `$plan-interview clone-spec Bear-style note app` |
+| 199 | Day One | Journaling | Daily journaling with photos/audio, timeline, streaks, prompts, and encrypted sync. | `$plan-interview clone-spec Day One-style journaling app` |
+| 200 | AllTrails | Hiking | Trail discovery/map, recorded activities, offline maps, reviews, and trip planning. | `$plan-interview clone-spec AllTrails-style hiking app` |
+
 ## Suggested Batch Order
 
 Start with these ten because they cover distinct architectures and teach reusable patterns:
@@ -198,6 +305,7 @@ Use this template for each clone-spec:
 
 ## Next Steps
 
-- Keep this backlog as the source list for the 100 clone-spec projects.
-- Use the numbered IDs in this file when updating specs under `specs/batch-*`.
+- Keep this backlog as the source list for the 200 clone-spec projects (IDs 001-200).
+- Use the numbered IDs in this file when updating specs under `specs/batch-*`. Batches 01-05 cover IDs 001-100; batches 06-10 will cover IDs 101-200 once Draft 0 specs are created.
 - Replace Draft 1 source-discovery links with exact first-party research URLs before implementation starts.
+- The 101-200 extension is still Backlog-only (no Draft 0 specs yet). Next pipeline step: run Phase 1 Step 2 for the extension — create Draft 0 placeholder specs under `specs/batch-06/` through `specs/batch-10/`.

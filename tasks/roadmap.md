@@ -13,7 +13,8 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 | Phase 3 | Complete | App-by-app implementation-readiness upgrades. |
 | Phase 4 | Complete | Per-app implementation planning in downstream repos. |
 | Phase 5 | Active | High-level downstream implementation plan queue for all 100 specs. |
-| Phase 6 | Planned | Seed one downstream repository per clone while keeping this repository as the canonical spec store. |
+| Phase 6 | Complete | Seeded 100 private downstream repos; spec store published public 2026-04-20. |
+| Phase 7 | Active | Backlog extension pipeline for IDs 101-200 (Draft 0 → readiness → seeding). |
 
 ## Phase 1: Initial Backlog And Draft 0 Specs
 
@@ -328,9 +329,31 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
 - Finance, health, location, marketplace, communication, media, and smart-home apps require elevated risk review.
 - Every downstream implementation must begin by expanding exactly one Phase 5 plan row into app-specific implementation phases and tests.
 
+## Phase 7: Backlog Extension Pipeline (IDs 101-200)
+
+### Milestones
+
+- [ ] Step 7.1: Draft 0 placeholder specs for all 100 new ideas under `specs/batch-06/` through `specs/batch-10/`.
+- [ ] Step 7.2: Draft 1 canonical normalization for IDs 101-200.
+- [ ] Step 7.3: Implementation-readiness upgrades for IDs 101-200.
+- [ ] Step 7.4: Extend `tasks/roadmap.md` Phase 5 plan queue and `tasks/repo-seeding.md` manifest to 200 rows.
+- [ ] Step 7.5: Seed 100 new private downstream repos via `scripts/seed-downstream-repos.mjs`.
+- [ ] Step 7.6: Close Phase 7 after verification.
+
+### Acceptance Criteria
+
+- 100 new spec files exist with canonical sections.
+- All 100 pass implementation-readiness gate.
+- 100 new private downstream repos exist (or explicit blockers logged).
+- No downstream repo made public during Phase 7.
+
+### Detail
+
+Full step-level plan lives in `tasks/todo.md` Phase 7.
+
 ## Next Steps
 
-- Complete Phase 6 manifest and open-source prep before bulk repo creation.
+- Complete Phase 7 Step 7.1 (Draft 0 stubs) before advancing.
 - Continue implementation planning and scaffolding in `https://github.com/GeorgeQLe/todoist-mobile-clone` for Phase 5 plan `090`.
 - Select the next Phase 5 plan row when ready, then expand that app into detailed downstream implementation phases from its source spec.
 - Keep all manual verification blockers deferred until lawful hands-on verification evidence exists.
