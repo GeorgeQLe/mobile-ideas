@@ -1,80 +1,192 @@
 # Epic!-Style Clone Spec
 
-> Inspiration: Epic!
-> Category: Kids reading
-> Readiness status: Draft 0
-> Legal scope: functional parity only — original code, original brand, original assets, lawful data sources; no proprietary logos, screenshots, copy, private APIs, or paywalled content.
-
-This is a Draft 0 placeholder generated for ID 177 (Epic!) from `tasks/ideas.md`. Section bodies are TODO placeholders; Phase 7 Step 7.2 will rewrite this file into the canonical Draft 1 structure used across batches 01-05.
+> Metadata
+> - Inspiration app: Epic!
+> - Category: Kids reading (books, audiobooks, videos)
+> - Readiness status: Draft 1
+> - Verification basis: public marketplace listings and public help-center pages observed during source discovery.
+> - Manual verification blockers: native capture, subscription purchase/restore, classroom login flows, offline downloads, and push payloads require hands-on verification.
+> - Legal scope: functional parity only; use original code, brand, copy, iconography, and UX. Book, audiobook, and video catalog must be licensed; no proprietary content reuse. COPPA-style review required before launch.
 
 ## Overview
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 177 for the inspiration brief.
+Build an original mobile kids-reading app inspired by Epic!: children's book, audiobook, and video subscription with reading logs, quizzes, and classroom teacher accounts. COPPA-aligned data handling; no behavioral advertising; strict parental/teacher controls.
+
+This spec is implementation-ready for a V1. Unverified behaviors must ship behind feature flags.
 
 ## Goals
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 177 for the inspiration brief.
+- Library of licensed children's books, audiobooks, and videos.
+- Per-child reading log and badges.
+- Parent and teacher accounts with class/roster management.
+- Subscription gating for families; free tier for classrooms (inferred, verify).
+- Offline download of content for trips.
 
 ## Non-Goals
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 177 for the inspiration brief.
+- Do not copy proprietary characters, brand, or catalog metadata.
+- Do not target advertising to children.
+- Do not collect personal data beyond operational minimums.
+- Do not allow open chat or social features between kids.
+- Do not claim parity until manual verification.
 
 ## Research Sources
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 177 for the inspiration brief.
+| Source | Exact URL | Evidence Used | Status |
+|---|---|---|---|
+| Apple App Store | https://apps.apple.com/us/app/epic-kids-books-reading/id719219382 | Source discovery — pending exact URL verification | Pending |
+| Google Play | https://play.google.com/store/apps/details?id=com.getepic.Epic | Source discovery — pending exact URL verification | Pending |
+| Epic Help | https://help.getepic.com | Source discovery — pending exact URL verification | Pending |
+| Epic Privacy | https://www.getepic.com/privacy | Source discovery — pending exact URL verification | Pending |
+| Epic Terms | https://www.getepic.com/termsofservice | Source discovery — pending exact URL verification | Pending |
 
 ## Detailed Design
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 177 for the inspiration brief.
+### Source-Backed Product Requirements
+
+- Parent-owned and teacher-owned accounts with child/student profiles.
+- Library of books, audiobooks, and videos; search and category browse.
+- Reading log and quizzes with badges.
+- Classroom roster management for teachers.
+- Subscription for family accounts; school tier handling (inferred, verify).
+- Offline downloads.
 
 ## Core User Journeys
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 177 for the inspiration brief.
+- Parent subscribes and creates child profiles.
+- Child picks profile and opens the kid-safe library.
+- Child reads a book; reading log updates.
+- Child takes a quiz and earns a badge.
+- Teacher imports a class roster and assigns a collection.
+- Parent reviews reading progress and adjusts reading level.
+- Parent downloads books for a trip.
+- Parent pauses/cancels subscription.
+- Teacher removes a student from the class.
+- Parent deletes an account.
 
 ## Screen Inventory
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 177 for the inspiration brief.
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
+|---|---|---|---|---|
+| Parent Onboarding | Account, subscription | email, payment | new | payment fail |
+| Teacher Onboarding | Verify school affiliation | email, verification | new, pending | verification fail |
+| Child/Student Profiles | Pick profile | tap | populated | none |
+| Kid Home | Featured and categories | tap | loaded | offline |
+| Book Reader | Read-along | tap pages | loaded | audio fail |
+| Audiobook Player | Listen | play/seek | playing | stream fail |
+| Video Player | Watch | play/seek | playing | stream fail |
+| Quiz | Answer questions | select | running | grading fail |
+| Reading Log | Progress and badges | view | loaded | signed-out |
+| Classroom | Roster and assignments | add, assign | loaded | seat limit |
+| Subscription | Plans, restore | select | free, paid | platform mismatch |
+| Downloads | Offline content | download | queued, done | storage full |
+| Parental Gate | Gate adult actions | challenge | pass, fail | skip |
+| Privacy Center | Export, delete | actions | idle | pending |
 
 ## Data Model
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 177 for the inspiration brief.
+- `ParentUser`: identity, billing.
+- `TeacherUser`: identity, verification state.
+- `ChildProfile` / `StudentProfile`: initials, age/grade, reading level, progress.
+- `Classroom`: teacher, name, seat count, roster.
+- `Assignment`: classroom, content ref, due-at.
+- `ContentItem`: id, type (book|audiobook|video), license, metadata, age band.
+- `ReadingLog`: profile, item, minutes, completion, last-position.
+- `Badge`: id, criteria.
+- `Download`: device, item, status.
+- `Entitlement`: plan, platform, state.
+- `AuditEvent`: billing, privacy, profile changes.
 
 ## API And Backend Contracts
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 177 for the inspiration brief.
+- `POST /auth/parent/session`, `POST /auth/teacher/session`, `DELETE /auth/session`.
+- `POST /profiles`, `PATCH /profiles/:id`, `DELETE /profiles/:id`.
+- `GET /library`, `GET /content/:id`, `GET /search?q=`.
+- `POST /reading-log`, `GET /reading-log?profile=&range=`.
+- `POST /quizzes/:id/submit`.
+- `POST /classrooms`, `PATCH /classrooms/:id`, `POST /classrooms/:id/roster`, `POST /classrooms/:id/assignments`.
+- `POST /downloads`, `DELETE /downloads/:id`.
+- `GET /entitlements`, `POST /checkout/session`, `POST /billing/restore`, `POST /billing/webhook`.
+- `POST /data-export`, `DELETE /account`.
+- `POST /support/cases`.
 
-## Realtime/Push/Offline Behavior
+## Realtime, Push, And Offline Behavior
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 177 for the inspiration brief.
+- Offline reading/listening/watching for downloaded items.
+- Progress sync opportunistic; last-write-wins per item.
+- Push only to parent/teacher device (weekly digest, assignment reminders); never to child profile.
+- Content license updates may expire downloaded items; handle gracefully.
+- Session watchdog triggers inactivity logout.
 
-## Permissions/Privacy/Safety
+## Permissions, Privacy, And Safety
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 177 for the inspiration brief.
+- COPPA-aligned review required before launch.
+- No third-party advertising or behavioral tracking for under-13.
+- Parental consent flow at account creation; age gate during sign-up.
+- School/teacher accounts follow FERPA-aligned practices for US classroom use.
+- Child/student profile contains minimal identifiers (initials, age/grade).
+- Parental gate for all adult actions.
+- No open chat or social features between kids.
+- Catalog moderation: age-band filtering and content review.
+- Accessibility: dynamic type, captions for videos, read-along highlighting, reduced motion.
+- Launch owner: privacy lead, child-safety lead, accessibility owner, legal counsel.
 
 ## Analytics And Monetization
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 177 for the inspiration brief.
+- Privacy-safe events only: content opened (id), reading minutes bucketed, badge earned, subscription state changed — never child identifiers or behavioral profiles.
+- Monetization via family subscription; classroom tier (inferred).
+- Original paywall copy; restore-purchase supported.
+- No ads.
 
 ## Edge Cases
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 177 for the inspiration brief.
+- Device storage full during download.
+- Multiple children on one device; fast profile switch.
+- Subscription lapse mid-session; show friendly locked state.
+- Assignment due while student offline.
+- Content license expired; hide item with notice.
+- Classroom seat limit reached; block add with message.
+- Parental gate bypass attempts.
+- Account deletion with active classroom.
 
 ## Test Plan
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 177 for the inspiration brief.
+- Unit tests for reading log, quiz grading, badge rules.
+- Contract tests for all endpoints.
+- Integration tests for profile-read-progress, classroom-assign-complete.
+- COPPA-style privacy tests.
+- Accessibility tests.
+- Billing tests.
+- Offline tests.
+- Classroom-role tests (teacher vs parent permissions).
+- Manual verification: native captures, purchase/restore, offline, classroom login.
 
 ## Acceptance Criteria
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 177 for the inspiration brief.
+- Exact source URLs verified.
+- COPPA-style review complete.
+- Content licenses signed before launch.
+- Parental gate, subscription, classroom, and offline flows functional.
+- Accessibility confirmed.
 
 ## Open Questions
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 177 for the inspiration brief.
+- Content licensing partners for V1.
+- FERPA scope for classroom tier.
+- Subscription tier pricing and trial structure.
+- International availability.
 
 ## Build Plan
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 177 for the inspiration brief.
+- Phase 1: parent/teacher auth, profiles, library browse.
+- Phase 2: readers/players (book/audio/video).
+- Phase 3: reading log, quizzes, badges.
+- Phase 4: classrooms, rosters, assignments.
+- Phase 5: subscription, entitlements, webhooks, offline downloads.
+- Phase 6: privacy, accessibility, legal review, manual verification.
 
 ## Next Steps
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 177 for the inspiration brief.
+- Verify URLs.
+- Sign licensing agreements for V1 catalog.
+- Commission COPPA-style and accessibility review.

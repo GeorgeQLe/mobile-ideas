@@ -1,80 +1,176 @@
 # Huckleberry-Style Clone Spec
 
-> Inspiration: Huckleberry
-> Category: Baby sleep
-> Readiness status: Draft 0
-> Legal scope: functional parity only — original code, original brand, original assets, lawful data sources; no proprietary logos, screenshots, copy, private APIs, or paywalled content.
-
-This is a Draft 0 placeholder generated for ID 164 (Huckleberry) from `tasks/ideas.md`. Section bodies are TODO placeholders; Phase 7 Step 7.2 will rewrite this file into the canonical Draft 1 structure used across batches 01-05.
+> Metadata
+> - Inspiration app: Huckleberry
+> - Category: Baby sleep and feeding tracker
+> - Readiness status: Draft 1
+> - Verification basis: public App Store and Play Store listings and public help-center discovery. Exact URLs pending verification.
+> - Manual verification blockers: proprietary sleep-window prediction, subscription flows, premium-feature gating, and clinical-content handling require hands-on verification.
+> - Legal scope: functional parity only; original code, brand, copy, iconography, editorial content, illustrations, and prediction models. No proprietary sleep-science content reuse.
 
 ## Overview
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 164 for the inspiration brief.
+Build an original mobile baby-tracking app inspired by Huckleberry: log sleep sessions, feedings, diapers, and pumping; deliver optimal sleep-window predictions based on age and recent sleep; provide sleep plans and content; and support premium features with original copy.
 
 ## Goals
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 164 for the inspiration brief.
+- Track sleep, feedings (breast, bottle, solids), diapers, pumping, growth, and milestones.
+- Predict optimal nap/bedtime windows from age and recent sleep history.
+- Provide sleep plans and content tailored to child age with disclaimers.
+- Support multiple children and caregivers sharing a child.
+- Keep privacy controls visible; child data excluded from advertising.
 
 ## Non-Goals
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 164 for the inspiration brief.
+- Do not present as a medical device or diagnostic tool.
+- Do not copy proprietary sleep-science content, brand, or feature names.
+- Do not share child data with advertisers.
+- Do not collect data from the child directly.
 
 ## Research Sources
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 164 for the inspiration brief.
+| Source | Exact URL | Evidence Used | Status |
+|---|---|---|---|
+| Apple App Store | https://apps.apple.com/us/app/huckleberry-baby-kid-sleep/id1223615833 | Features, age rating, privacy labels | Source discovery — pending exact URL verification |
+| Google Play | https://play.google.com/store/apps/details?id=com.huckleberrylabs.app | Features, data safety | Source discovery — pending exact URL verification |
+| Huckleberry help center | https://huckleberrycare.com/help | Feature how-to | Source discovery — pending exact URL verification |
+| Huckleberry privacy policy | https://huckleberrycare.com/privacy | Data handling | Source discovery — pending exact URL verification |
+| Huckleberry sleep content | https://huckleberrycare.com/blog | Editorial tone reference | Source discovery — pending exact URL verification |
 
 ## Detailed Design
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 164 for the inspiration brief.
+### Source-Backed Product Requirements
+
+- Per-child profile with DOB, weight, custom notes.
+- Logging for sleep (start/end), feeding, diaper, pumping, medications, custom events with rich detail.
+- Predictions for next nap/bedtime based on age and recent data.
+- Sleep-plan content by age with disclaimers.
+- Caregiver co-parenting sharing with invite codes.
+- Export and deletion controls.
 
 ## Core User Journeys
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 164 for the inspiration brief.
+- User creates child profile, invites a partner, and lands on child home.
+- User logs sleep start and end; timer supports live tracking.
+- User logs bottle/breast feeding with side and duration.
+- User reviews sleep windows and sees next-nap suggestion.
+- User reads a sleep plan article.
+- User edits past log; sync resolves across devices.
+- User exports data.
+- User upgrades to premium; original paywall copy.
+- User reviews charts for trends.
+- User removes a caregiver or transfers ownership.
 
 ## Screen Inventory
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 164 for the inspiration brief.
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
+|---|---|---|---|---|
+| Onboarding | Child profile, caregiver invite | DOB, name, invite | new | duplicate child |
+| Child Home | Today's log and prediction | quick-add | empty, populated | offline |
+| Sleep Timer | Live session tracking | start, stop | idle, running, paused | app backgrounded |
+| Feeding Log | Feed entry | type, side, amount | empty, saved | validation |
+| Diaper Log | Diaper entry | type | saved | duplicate |
+| History Charts | Trends over time | range | loaded | sparse |
+| Sleep Plan | Content and recommendations | age | loaded | unavailable |
+| Caregivers | Invite and manage | invite code | loaded | revoked |
+| Subscription | Plans, restore | plan | free, paid | restore fail |
+| Privacy Center | Export, delete | actions | idle | pending |
+| Settings | Units, notifications | toggles | loaded | signed-out |
+| Support | Contact, FAQ | form | idle | unavailable |
 
 ## Data Model
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 164 for the inspiration brief.
+- `User`: identity, locale, consent.
+- `Family`: id, owner, caregivers list.
+- `ChildProfile`: id, family, DOB, weight, notes.
+- `LogEntry`: child, category (sleep/feed/diaper/pump/other), start, end, details, edited-at.
+- `Prediction`: child, type (nap/bedtime), window start, window end, confidence.
+- `ContentItem`: age range, title, body, disclaimers.
+- `Invite`: code, family, role, expires-at.
+- `PrivacySettings`: sync, analytics opt-in.
+- `Entitlement`: plan, platform.
+- `AuditEvent`: caregiver changes, privacy, billing.
 
 ## API And Backend Contracts
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 164 for the inspiration brief.
+- `POST /auth/session`, `DELETE /auth/session`.
+- `POST /families`, `POST /families/:id/invites`, `POST /invites/:code/accept`, `DELETE /families/:id/members/:userId`.
+- `POST /children`, `PATCH /children/:id`, `DELETE /children/:id`.
+- `POST /logs`, `PATCH /logs/:id`, `DELETE /logs/:id`, `GET /logs?range=&child=`.
+- `GET /predictions?child=`.
+- `GET /content?age=`.
+- `POST /data-export`, `DELETE /account`.
+- `GET /entitlements`, `POST /billing/restore`, `POST /billing/webhook`.
+- `POST /support/cases`.
 
-## Realtime/Push/Offline Behavior
+## Realtime, Push, And Offline Behavior
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 164 for the inspiration brief.
+- Offline-first logging; co-parent sync via server with last-writer-wins and audit.
+- Live timers must survive app backgrounding and device reboot.
+- Push for nap-window reminders (opt-in); payloads generic.
+- Local DB encrypted.
 
-## Permissions/Privacy/Safety
+## Permissions, Privacy, And Safety
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 164 for the inspiration brief.
+- COPPA-style review required: no child-directed data collection beyond parent-provided profile; no ads targeted to child context.
+- Caregivers co-own data with equal rights; define owner vs member.
+- Export and deletion accessible.
+- Post-Dobbs stance n/a but general health-data minimization applies.
+- Launch owner: privacy lead, content reviewer, accessibility owner.
 
 ## Analytics And Monetization
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 164 for the inspiration brief.
+- Track privacy-safe events: log saved (category), prediction viewed, invite sent, subscription events.
+- No child content in analytics.
+- Free tier plus premium with original paywall copy.
 
 ## Edge Cases
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 164 for the inspiration brief.
+- Timezone changes affecting sleep windows.
+- Daylight savings transitions.
+- Twin/sibling profiles tracked simultaneously.
+- Caregiver revoked mid-log.
+- Historical data imported from another app.
+- Device clock incorrect.
+- Push permission denied; suggest in-app alternatives.
+- Sync conflict on same sleep session from two devices.
+- Partner leaves family; data retention.
 
 ## Test Plan
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 164 for the inspiration brief.
+- Unit tests for timer, prediction engine, caregiver permissions.
+- Contract tests for all endpoints.
+- Integration tests for multi-device sync and caregiver invite.
+- Privacy tests.
+- Billing tests.
+- Offline tests.
+- Accessibility tests.
+- Manual verification: native timer behavior, subscription flow.
 
 ## Acceptance Criteria
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 164 for the inspiration brief.
+- Multi-caregiver sync reliable.
+- Predictions and plan content delivered with disclaimers.
+- COPPA-style review complete.
+- Export and deletion accessible.
 
 ## Open Questions
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 164 for the inspiration brief.
+- Scope of V1 content library.
+- Which prediction model baseline.
+- Premium feature set.
 
 ## Build Plan
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 164 for the inspiration brief.
+- Phase 1: scaffold, onboarding, child profile, log, timer.
+- Phase 2: predictions, charts, content.
+- Phase 3: caregiver invite, sync, privacy center.
+- Phase 4: subscription, notifications.
+- Phase 5: accessibility, legal review.
+- Phase 6: manual verification, rollout.
 
 ## Next Steps
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 164 for the inspiration brief.
+- Verify URLs.
+- Commission COPPA-style review.
+- Define prediction model.
