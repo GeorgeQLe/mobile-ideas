@@ -484,6 +484,36 @@ Guardrails:
 | 159 | `GeorgeQLe/whoop-mobile-clone` | PRIVATE | seeded |
 | 160 | `GeorgeQLe/sleep-cycle-mobile-clone` | PRIVATE | seeded |
 
+### Batch 161-180 Seeding Evidence - 2026-04-21T16:17:26.460Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4937,"reset":1776789798,"used":63},"graphql":{"limit":5000,"remaining":4756,"reset":1776787799,"used":244},"search":{"limit":30,"remaining":30,"reset":1776787492,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4877,"reset":1776789798,"used":123},"graphql":{"limit":5000,"remaining":4936,"reset":1776791416,"used":64},"search":{"limit":30,"remaining":30,"reset":1776788306,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 161 | `GeorgeQLe/clue-mobile-clone` | PRIVATE | seeded |
+| 162 | `GeorgeQLe/ovia-mobile-clone` | PRIVATE | seeded |
+| 163 | `GeorgeQLe/babycenter-mobile-clone` | PRIVATE | seeded |
+| 164 | `GeorgeQLe/huckleberry-mobile-clone` | PRIVATE | seeded |
+| 165 | `GeorgeQLe/cozi-mobile-clone` | PRIVATE | seeded |
+| 166 | `GeorgeQLe/life360-mobile-clone` | PRIVATE | seeded |
+| 167 | `GeorgeQLe/bark-mobile-clone` | PRIVATE | seeded |
+| 168 | `GeorgeQLe/qustodio-mobile-clone` | PRIVATE | seeded |
+| 169 | `GeorgeQLe/google-family-link-mobile-clone` | PRIVATE | seeded |
+| 170 | `GeorgeQLe/classdojo-mobile-clone` | PRIVATE | seeded |
+| 171 | `GeorgeQLe/remind-mobile-clone` | PRIVATE | seeded |
+| 172 | `GeorgeQLe/canvas-student-mobile-clone` | PRIVATE | seeded |
+| 173 | `GeorgeQLe/google-classroom-mobile-clone` | PRIVATE | seeded |
+| 174 | `GeorgeQLe/scratchjr-mobile-clone` | PRIVATE | seeded |
+| 175 | `GeorgeQLe/abcmouse-mobile-clone` | PRIVATE | seeded |
+| 176 | `GeorgeQLe/khan-academy-kids-mobile-clone` | PRIVATE | seeded |
+| 177 | `GeorgeQLe/epic-mobile-clone` | PRIVATE | seeded |
+| 178 | `GeorgeQLe/youtube-kids-mobile-clone` | PRIVATE | seeded |
+| 179 | `GeorgeQLe/pbs-kids-mobile-clone` | PRIVATE | seeded |
+| 180 | `GeorgeQLe/babbel-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
 
 - No Step 6.1 manifest, source-spec, or checked-row blockers found.
@@ -663,26 +693,26 @@ Guardrails:
 | [x] | 158 | Oura | `GeorgeQLe/oura-mobile-clone` | `specs/batch-08/158-oura.md` |
 | [x] | 159 | Whoop | `GeorgeQLe/whoop-mobile-clone` | `specs/batch-08/159-whoop.md` |
 | [x] | 160 | Sleep Cycle | `GeorgeQLe/sleep-cycle-mobile-clone` | `specs/batch-08/160-sleep-cycle.md` |
-| [ ] | 161 | Clue | `GeorgeQLe/clue-mobile-clone` | `specs/batch-09/161-clue.md` |
-| [ ] | 162 | Ovia | `GeorgeQLe/ovia-mobile-clone` | `specs/batch-09/162-ovia.md` |
-| [ ] | 163 | BabyCenter | `GeorgeQLe/babycenter-mobile-clone` | `specs/batch-09/163-babycenter.md` |
-| [ ] | 164 | Huckleberry | `GeorgeQLe/huckleberry-mobile-clone` | `specs/batch-09/164-huckleberry.md` |
-| [ ] | 165 | Cozi | `GeorgeQLe/cozi-mobile-clone` | `specs/batch-09/165-cozi.md` |
-| [ ] | 166 | Life360 | `GeorgeQLe/life360-mobile-clone` | `specs/batch-09/166-life360.md` |
-| [ ] | 167 | Bark | `GeorgeQLe/bark-mobile-clone` | `specs/batch-09/167-bark.md` |
-| [ ] | 168 | Qustodio | `GeorgeQLe/qustodio-mobile-clone` | `specs/batch-09/168-qustodio.md` |
-| [ ] | 169 | Google Family Link | `GeorgeQLe/google-family-link-mobile-clone` | `specs/batch-09/169-google-family-link.md` |
-| [ ] | 170 | ClassDojo | `GeorgeQLe/classdojo-mobile-clone` | `specs/batch-09/170-classdojo.md` |
-| [ ] | 171 | Remind | `GeorgeQLe/remind-mobile-clone` | `specs/batch-09/171-remind.md` |
-| [ ] | 172 | Canvas Student | `GeorgeQLe/canvas-student-mobile-clone` | `specs/batch-09/172-canvas-student.md` |
-| [ ] | 173 | Google Classroom | `GeorgeQLe/google-classroom-mobile-clone` | `specs/batch-09/173-google-classroom.md` |
-| [ ] | 174 | ScratchJr | `GeorgeQLe/scratchjr-mobile-clone` | `specs/batch-09/174-scratchjr.md` |
-| [ ] | 175 | ABCmouse | `GeorgeQLe/abcmouse-mobile-clone` | `specs/batch-09/175-abcmouse.md` |
-| [ ] | 176 | Khan Academy Kids | `GeorgeQLe/khan-academy-kids-mobile-clone` | `specs/batch-09/176-khan-academy-kids.md` |
-| [ ] | 177 | Epic! | `GeorgeQLe/epic-mobile-clone` | `specs/batch-09/177-epic.md` |
-| [ ] | 178 | YouTube Kids | `GeorgeQLe/youtube-kids-mobile-clone` | `specs/batch-09/178-youtube-kids.md` |
-| [ ] | 179 | PBS Kids | `GeorgeQLe/pbs-kids-mobile-clone` | `specs/batch-09/179-pbs-kids.md` |
-| [ ] | 180 | Babbel | `GeorgeQLe/babbel-mobile-clone` | `specs/batch-09/180-babbel.md` |
+| [x] | 161 | Clue | `GeorgeQLe/clue-mobile-clone` | `specs/batch-09/161-clue.md` |
+| [x] | 162 | Ovia | `GeorgeQLe/ovia-mobile-clone` | `specs/batch-09/162-ovia.md` |
+| [x] | 163 | BabyCenter | `GeorgeQLe/babycenter-mobile-clone` | `specs/batch-09/163-babycenter.md` |
+| [x] | 164 | Huckleberry | `GeorgeQLe/huckleberry-mobile-clone` | `specs/batch-09/164-huckleberry.md` |
+| [x] | 165 | Cozi | `GeorgeQLe/cozi-mobile-clone` | `specs/batch-09/165-cozi.md` |
+| [x] | 166 | Life360 | `GeorgeQLe/life360-mobile-clone` | `specs/batch-09/166-life360.md` |
+| [x] | 167 | Bark | `GeorgeQLe/bark-mobile-clone` | `specs/batch-09/167-bark.md` |
+| [x] | 168 | Qustodio | `GeorgeQLe/qustodio-mobile-clone` | `specs/batch-09/168-qustodio.md` |
+| [x] | 169 | Google Family Link | `GeorgeQLe/google-family-link-mobile-clone` | `specs/batch-09/169-google-family-link.md` |
+| [x] | 170 | ClassDojo | `GeorgeQLe/classdojo-mobile-clone` | `specs/batch-09/170-classdojo.md` |
+| [x] | 171 | Remind | `GeorgeQLe/remind-mobile-clone` | `specs/batch-09/171-remind.md` |
+| [x] | 172 | Canvas Student | `GeorgeQLe/canvas-student-mobile-clone` | `specs/batch-09/172-canvas-student.md` |
+| [x] | 173 | Google Classroom | `GeorgeQLe/google-classroom-mobile-clone` | `specs/batch-09/173-google-classroom.md` |
+| [x] | 174 | ScratchJr | `GeorgeQLe/scratchjr-mobile-clone` | `specs/batch-09/174-scratchjr.md` |
+| [x] | 175 | ABCmouse | `GeorgeQLe/abcmouse-mobile-clone` | `specs/batch-09/175-abcmouse.md` |
+| [x] | 176 | Khan Academy Kids | `GeorgeQLe/khan-academy-kids-mobile-clone` | `specs/batch-09/176-khan-academy-kids.md` |
+| [x] | 177 | Epic! | `GeorgeQLe/epic-mobile-clone` | `specs/batch-09/177-epic.md` |
+| [x] | 178 | YouTube Kids | `GeorgeQLe/youtube-kids-mobile-clone` | `specs/batch-09/178-youtube-kids.md` |
+| [x] | 179 | PBS Kids | `GeorgeQLe/pbs-kids-mobile-clone` | `specs/batch-09/179-pbs-kids.md` |
+| [x] | 180 | Babbel | `GeorgeQLe/babbel-mobile-clone` | `specs/batch-09/180-babbel.md` |
 | [ ] | 181 | Rosetta Stone | `GeorgeQLe/rosetta-stone-mobile-clone` | `specs/batch-10/181-rosetta-stone.md` |
 | [ ] | 182 | Busuu | `GeorgeQLe/busuu-mobile-clone` | `specs/batch-10/182-busuu.md` |
 | [ ] | 183 | Google Translate | `GeorgeQLe/google-translate-mobile-clone` | `specs/batch-10/183-google-translate.md` |
