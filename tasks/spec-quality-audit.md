@@ -1,13 +1,13 @@
 # Spec Quality Audit
 
 Created: 2026-04-16
-Updated: 2026-04-20
+Updated: 2026-04-21
 
 ## Verdict
 
 The 100 technical specs for IDs 001-100 pass the Draft 1 structural and public-source V1 depth gate. Phase 3 implementation-readiness upgrades have replaced discovery sources with exact first-party URLs for all 100 of those specs.
 
-Phase 7 Step 7.1 added 100 new Draft 0 placeholder specs for IDs 101-200 across `specs/batch-06/` through `specs/batch-10/`. Those placeholders meet the Draft 0 structural gate (exactly one H1, metadata block, canonical section headings present) but explicitly do NOT yet meet the Draft 1 depth gate, the implementation-readiness gate, or the exact-first-party-source gate. Step 7.2 will normalize them to canonical Draft 1; Step 7.3 will upgrade them to implementation-ready public-source V1.
+Phase 7 Step 7.2 (2026-04-21) rewrote all 100 IDs 101-200 placeholders into canonical Draft 1 specs. They now meet the Draft 1 structural and depth gates: one H1, full metadata block (`Readiness status: Draft 1`, Verification basis, Manual verification blockers, Legal scope), all 18 canonical sections with substantive non-TODO content, ~150-220 lines per file, category-specific risk notes for dating (101-106), finance/investing/banking (137-149), telehealth/therapy (153-157), wellness/health trackers (158-162), cycle/pregnancy (161-164), family locator/parental controls (166-169), and kids-directed (163-179) apps. They still use plausible discovery URLs marked "Source discovery — pending exact URL verification" and do NOT yet meet the implementation-readiness gate. Step 7.3 will replace discovery URLs with exact first-party URLs, distinguish verified vs inferred behavior, expand depth to public-source V1, and complete category risk reviews.
 
 The IDs 001-100 specs are not final one-for-one clone specs because hands-on verification remains blocked for native, paid, account, hardware, support, and regional flows.
 
@@ -16,7 +16,7 @@ The IDs 001-100 specs are not final one-for-one clone specs because hands-on ver
 - Reviewed `tasks/ideas.md` (now 200 rows after the 2026-04-20 extension).
 - Reviewed `specs/README.md`.
 - Reviewed all 100 implementation-ready specs under `specs/batch-01/` through `specs/batch-05/`.
-- Reviewed all 100 Draft 0 placeholder specs under `specs/batch-06/` through `specs/batch-10/` (added Phase 7 Step 7.1, 2026-04-20).
+- Reviewed all 100 Draft 1 canonical specs under `specs/batch-06/` through `specs/batch-10/` (normalized Phase 7 Step 7.2, 2026-04-21).
 - Checked lifecycle docs required by hygiene.
 - Ran a structural metrics pass over all numbered spec files.
 
@@ -31,15 +31,14 @@ A Draft 1 or public-source V1 spec must meet these minimums:
 
 ## Metrics Summary
 
-- Numbered app specs present: 200 (100 implementation-ready + 100 Draft 0 placeholders).
+- Numbered app specs present: 200 (100 implementation-ready + 100 Draft 1 canonical).
 - Missing numeric IDs from `001` through `200`: 0.
 - Specs with exactly one H1: 200.
 - Specs with all canonical section headings present: 200.
-- Specs passing Draft 1 depth metrics: 100 (IDs 001-100); 0 of the Draft 0 placeholders (IDs 101-200) yet.
-- Specs failing Draft 1 depth metrics by intent (Draft 0 placeholders): 100 (IDs 101-200).
-- Specs with exact first-party source URLs replacing discovery links: 100 (IDs 001-100); 0 (IDs 101-200) — placeholder Research Sources section is still TODO.
+- Specs passing Draft 1 depth metrics: 200 (IDs 001-200).
+- Specs with exact first-party source URLs replacing discovery links: 100 (IDs 001-100); 0 (IDs 101-200) — Research Sources still marked "Source discovery — pending exact URL verification" awaiting Step 7.3.
 - Specs with hands-on app behavior fully verified: 0.
-- Specs upgraded to implementation-ready public-source V1: 100 (IDs 001-100).
+- Specs upgraded to implementation-ready public-source V1: 100 (IDs 001-100); 0 (IDs 101-200) — implementation-readiness upgrade queued in Step 7.3.
 
 ## Resolved Findings
 
@@ -117,17 +116,18 @@ All numbered specs now use the same canonical structure and pass the same depth 
 
 ## Remaining Findings
 
-### High: Draft 0 Gap For IDs 101-200 (Phase 7 Step 7.1)
+### Resolved: Draft 0 Gap For IDs 101-200 (Phase 7 Step 7.1 → 7.2)
 
-Phase 7 Step 7.1 added 100 Draft 0 placeholder specs for IDs 101-200 across `specs/batch-06/` through `specs/batch-10/`. Each file has exactly one H1, the `> Inspiration / > Category / > Readiness status: Draft 0 / > Legal scope` metadata block, and all canonical section headings. Section bodies are TODO placeholders pointing back at `tasks/ideas.md` for the inspiration brief.
+Phase 7 Step 7.2 (2026-04-21) rewrote all 100 Draft 0 placeholders under `specs/batch-06/` through `specs/batch-10/` into canonical Draft 1 specs. Each file has exactly one H1, the full metadata block (Inspiration app, Category, `Readiness status: Draft 1`, Verification basis, Manual verification blockers, Legal scope), and all 18 canonical sections populated with substantive non-TODO content at the required depth (8-12 journeys, 8-12 screens, 8-12 entities, 10-15 API routes, 8-12 edge cases, 8-12 tests, etc.). Category-specific risk notes were added for dating (101-106), finance/investing/banking (137-149), telehealth/therapy (153-157), wellness/health trackers (158-162), cycle/pregnancy (161-164), family locator/parental controls (166-169), and kids-directed (163-179) apps.
 
-These specs do NOT yet meet the Draft 1 depth gate, do NOT have exact first-party source URLs, do NOT enumerate screens/data/API/edge-cases, and do NOT carry manual verification blockers. They are explicitly placeholder scaffolds, mirroring the original 001-100 Draft 0 gap that was later closed by the canonical Draft 1 normalization.
+### High: Implementation-Readiness Gap For IDs 101-200 (Phase 7 Step 7.3)
 
-Impact: IDs 101-200 cannot be considered for downstream implementation candidate selection until they reach implementation-ready public-source V1 status (Phase 7 Step 7.3).
+The Draft 1 specs for IDs 101-200 still use plausible discovery URLs in Research Sources (all marked "Source discovery — pending exact URL verification"), do not distinguish verified vs inferred behavior beyond generic "inferred" flags, and have not yet passed full category risk review for the high-risk routing categories (dating/finance/health/kids).
+
+Impact: IDs 101-200 cannot be considered for downstream implementation candidate selection until they reach implementation-ready public-source V1 status.
 
 Recommended fix:
-- Phase 7 Step 7.2: rewrite each placeholder into the canonical Draft 1 structure used by IDs 001-100. Include the full metadata block (Inspiration, Category, Readiness status, Verification basis, Manual verification blockers, Legal scope) and populate every section, even where content is still inferred-only.
-- Phase 7 Step 7.3: replace any discovery links with exact first-party URLs, distinguish verified vs inferred behavior, enumerate concrete screens/entities/API routes/permissions/subscription states/edge cases/analytics events/test matrix/build-plan phases, add category risk notes (dating/finance/health/kids categories are heavily represented — flag child-directed and health-adjacent apps for category-specific risk review), and mark blocked flows with owner/path.
+- Phase 7 Step 7.3: replace discovery URLs with exact first-party URLs (marketplace/help/privacy/legal/product), distinguish verified vs inferred behavior, enumerate concrete screens/entities/API routes/permissions/subscription states/edge cases/analytics events/test matrix/build-plan phases at implementation-ready depth, add full category risk review (dating/finance/telehealth/health/kids), and mark blocked flows with owner/path.
 
 ### High: Hands-On Verification Remains Blocked
 
@@ -150,6 +150,5 @@ Recommended fix: Use lawful test accounts/devices to verify reachable flows. Mar
 
 ## Next Steps
 
-- Phase 7 Step 7.2: normalize the 100 IDs 101-200 Draft 0 placeholders into canonical Draft 1 specs.
-- Phase 7 Step 7.3: upgrade IDs 101-200 to implementation-ready public-source V1 with exact first-party sources and explicit blockers.
+- Phase 7 Step 7.3: upgrade IDs 101-200 from canonical Draft 1 to implementation-ready public-source V1 with exact first-party sources, verified-vs-inferred distinction, full category risk review, and explicit blockers.
 - Complete hands-on verification where lawful and feasible.

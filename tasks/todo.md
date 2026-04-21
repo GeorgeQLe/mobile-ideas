@@ -47,35 +47,57 @@ Extend the canonical spec store with a second 100 clone-spec ideas (IDs 101-200)
   - Acceptance verified: `find specs/batch-06 specs/batch-07 specs/batch-08 specs/batch-09 specs/batch-10 -name '*.md' | wc -l` → 100; `awk '/^# / {c[FILENAME]++} END {for (f in c) if (c[f]!=1) print}'` over those files prints nothing (every file has exactly one H1); each batch directory has 20 files; every ID 101-200 is present.
   - Commit: `feat(specs): add Draft 0 placeholders for IDs 101-200 (batches 06-10)`.
 
-- [ ] Step 7.2: Draft 1 canonical normalization for IDs 101-200 (next concrete action)
-  - Files: rewrite all 100 spec files under `specs/batch-06/` through `specs/batch-10/` from Draft 0 placeholders into canonical Draft 1.
-  - Reference template: any of `specs/batch-01/*.md` through `specs/batch-05/*.md`. The pilot reference is `specs/batch-01/001-chatgpt.md`. Match its structure exactly: one H1 (`# <Inspiration>-Style Clone Spec`), then a metadata block with `> Inspiration app`, `> Category`, `> Readiness status: Draft 1`, `> Verification basis`, `> Manual verification blockers`, `> Legal scope`. Then all 18 canonical sections, each with substantive (not TODO) content even where it remains inferred-only.
-  - Per file, populate at minimum: Overview paragraph naming the inspiration and the category-specific job-to-be-done; Goals (5-8 bullets); Non-Goals (4-6 bullets); Research Sources table with at least 3-5 source-discovery rows pointing at the public marketplace listing, the company help center, and the company privacy/legal page (exact first-party URL replacement is deferred to Step 7.3 — Step 7.2 may use plausible discovery URLs and mark them); Detailed Design with source-backed product requirement bullets; Core User Journeys (8-12 bullets); Screen Inventory table (8-12 rows with Screen | Purpose | Inputs | States | Edge Cases); Data Model (8-12 entity bullets); API And Backend Contracts (10-15 route bullets); Realtime/Push/Offline Behavior (5-8 bullets); Permissions/Privacy/Safety (6-10 bullets, with category-specific risk notes for dating/finance/health/kids); Analytics And Monetization (5-8 bullets); Edge Cases (8-12 bullets); Test Plan (8-12 bullets); Acceptance Criteria (5-8 bullets); Open Questions (4-8 bullets); Build Plan (5-7 phases); Next Steps (3-5 bullets).
-  - Category risk routing for Step 7.2: dating apps (101-106), telehealth/therapy (153-157), wellness/health trackers (158-162), kids/parental (163-179), and finance/investing/banking (137-149) must each carry a category-specific risk note in Permissions/Privacy/Safety even at Draft 1 (Step 7.3 will add the full review).
-  - Avoid inventing proprietary behavior. Where verification is impossible from public sources, write the requirement as inferred and add an Open Question — do not assert one-for-one parity. Never copy proprietary copy, screenshots, logos, private API behavior, or paywalled content.
-  - Validate: every file has exactly one H1; every file has all 18 canonical section headings; every file has Research Sources + Open Questions + Next Steps with non-empty content; every metadata block reads `Readiness status: Draft 1`; no `TODO` placeholders remain in section bodies.
-  - Commit strategy: one commit per batch is recommended (`feat(specs): canonical Draft 1 for batch-06 (IDs 101-120)` … `… batch-10 (IDs 181-200)`) since 100 file rewrites in one commit is unwieldy. Final summary commit may follow if needed.
-  - Update `tasks/spec-quality-audit.md` after Step 7.2 lands: bump Draft 1-passing count from 100 to 200, downgrade the "Draft 0 Gap For IDs 101-200" finding to "Resolved", and restate the remaining gap as "implementation-readiness pending (Step 7.3)".
+- [x] Step 7.2: Draft 1 canonical normalization for IDs 101-200 (landed 2026-04-21)
+  - All 100 placeholders under `specs/batch-06/` through `specs/batch-10/` rewritten to canonical Draft 1 matching `specs/batch-01/001-chatgpt.md` structure; metadata block now reads `Readiness status: Draft 1` with Verification basis + Manual verification blockers + Legal scope; all 18 sections populated at target depth (8-12 journeys/screens/entities/edge cases, 10-15 API routes, etc.); files land in the 150-220 line range.
+  - Category risk notes applied: dating (101-106), finance/investing/banking (137-149), telehealth/therapy (153-157), wellness/health (158-162), cycle/pregnancy (161-164), family locator/parental controls (166-169), kids-directed (163, 174-179).
+  - Research Sources use plausible discovery URLs marked "Source discovery — pending exact URL verification" — exact URL replacement deferred to Step 7.3.
+  - Validation passed: one H1 per file, 18 H2 sections per file, no `^TODO` lines remaining, `Readiness status: Draft 1` in every metadata block.
+  - Commits: `feat(specs): canonical Draft 1 for batch-06 (IDs 101-120)` … `feat(specs): canonical Draft 1 for batch-10 (IDs 181-200)` (five commits).
+  - Updated `specs/README.md` (Readiness column flipped to "Draft 1 canonical" for batches 06-10; metadata, overview, test plan, acceptance criteria refreshed) and `tasks/spec-quality-audit.md` (resolved Draft 0 Gap finding; opened Implementation-Readiness Gap finding for Step 7.3).
 
-  ### Ship-One-Step Handoff Contract (for Step 7.2)
+- [ ] Step 7.3: Implementation-readiness upgrades for IDs 101-200 (next concrete action)
+  - Files: modify all 100 Draft 1 spec files under `specs/batch-06/` through `specs/batch-10/`; update `tasks/implementation-readiness.md` metrics; optionally archive Draft 1 copies under `specs/archive/` if that convention is in use.
+  - Goal: upgrade each spec from canonical Draft 1 (Step 7.2) to implementation-ready public-source V1, matching the quality bar of IDs 001-100 in batches 01-05.
+  - Exact-URL replacement: In each spec's Research Sources table, replace every "Source discovery — pending exact URL verification" row with the exact first-party URL (Apple App Store listing with canonical bundle id, Google Play listing with canonical package id, company help/support articles that back specific feature claims, privacy policy, terms of use, usage/safety/community policies, developer/API docs where applicable). Include at least 6-12 exact-URL source rows per spec, matching the `specs/batch-01/001-chatgpt.md` pattern (11 source rows).
+  - Verified vs inferred: every requirement bullet under Detailed Design must either cite the first-party source backing it (verified) or be explicitly framed as `inferred from public behavior` with a corresponding Open Question. Use the source table as the authority; when a claim has no source row, downgrade it to inferred or drop it.
+  - Depth expansion: grow each spec's Detailed Design (12-18 source-backed requirement bullets), Screen Inventory (12-16 rows), Data Model (12-18 entities), API And Backend Contracts (14-20 routes), Edge Cases (12-18 bullets), Test Plan (12-18 bullets), Acceptance Criteria (6-10 bullets), and Build Plan (6-7 phases with explicit manual verification gate). Target line count per file: 200-260 (like batch-01 exemplars).
+  - Manual verification blockers: make the metadata `Manual verification blockers` line app-specific. For each app, list which native/paid/account/hardware/region/support flows remain unverified and cannot be claimed as one-for-one parity until hands-on evidence arrives.
+  - Category risk review (full, not just notes):
+    - Dating (101-106): minor protection gate, age verification, non-consensual-imagery policy, doxxing/stalking controls, photo content policy, block/report/unmatch state machine, hidden/incognito mode, sensitive-message scanning with explicit opt-in, harassment escalation/owner path.
+    - Finance/investing/banking (137-149): no-investment-advice disclaimers, KYC/AML flows with vendor partner (e.g., Alloy/Persona-equivalent — keep vendor-agnostic), market-data licensing, SEC/FINRA-adjacent framing (no advisor status implication), FDIC/banking-partner disclosure copy, fraud/account-takeover controls; for 148-149 kids/teen banking, add COPPA-adjacent + parental-consent review; for 139-140 social investing, add insider-trading/market-abuse moderation policy.
+    - Pharmacy/doctor booking (150-152): prescription PHI handling, controlled-substance indicators, insurance eligibility verification, review/defamation moderation, no-medical-advice framing.
+    - Telehealth/therapy (153-157): HIPAA posture, state-by-state licensure enforcement, "not for emergencies — call 911" redirect copy, crisis/self-harm escalation path, controlled-substance telehealth-prescribing regulations, data-residency for health records, minor-use gating, PHI audit logs, BAA coverage for subprocessors, insurance-claim handling.
+    - Wellness/health trackers (158-162): explicit "not a medical device" framing, HealthKit/Health Connect scope minimization, mic/biometric consent, heart-rate/temperature data privacy, partner-sharing opt-in.
+    - Cycle/pregnancy (161-164): post-Dobbs data-disclosure stance (minimize retention; no LEO disclosure without process), local-first storage preference, pregnancy-loss/crisis copy, minor-use gating.
+    - Family locator/parental controls (166-169): child consent/assent, parental consent gate, no covert monitoring (device-owner disclosure), precise-location minimization, COPPA-adjacent review for <13, domestic-abuse threat model (monitored user can see + exit).
+    - School apps (170-173): FERPA posture, student-data privacy, district/admin gating, teacher/parent/student role separation, no advertising to students.
+    - Kids-directed (163, 174-179): COPPA scope, no third-party advertising/behavioral tracking for <13, parental-consent flows, age-gate, content moderation, limited data collection, explicit launch-blocking COPPA review gate.
+    - Transcription/writing/dev-tools enterprise surfaces (185-186, 187-191): SSO/SCIM, audit logs, secrets redaction, subprocessor list, "all participants consent" disclosure for meeting capture.
+  - Blocker marking: every blocked flow listed in Manual verification blockers must have a named owner (e.g., "billing owner", "safety/security lead", "accessibility owner") and an acceptance-test blocker or feature-flag path before launch, mirroring the pattern in `001-chatgpt.md`.
+  - Validation:
+    - `awk` H1 count: exactly 1 per file.
+    - `grep` canonical sections: all 18 present per file.
+    - No remaining "Source discovery — pending exact URL verification" strings in any Research Sources row.
+    - Every `Readiness status` line reads `Readiness status: Implementation-ready for a lawful public-source V1 clone as of YYYY-MM-DD.`
+    - Spot-check three files per category (one dating, one finance, one telehealth, one kids) for category-risk coverage parity with batch-01 exemplars.
+  - Commit strategy: one commit per batch — `feat(specs): implementation-ready batch-06 (IDs 101-120)` … `feat(specs): implementation-ready batch-10 (IDs 181-200)`. Depending on volume, finer-grained per-subcategory commits are acceptable (e.g., dating subset, real-estate subset).
+  - Post-land updates:
+    - `specs/README.md`: flip Readiness column for batches 06-10 from "Draft 1 canonical" to "Implementation-ready V1"; bump metadata/overview/test plan/acceptance criteria to reflect 200 implementation-ready specs.
+    - `tasks/spec-quality-audit.md`: resolve the "Implementation-Readiness Gap For IDs 101-200" finding; bump implementation-ready count from 100 to 200; refresh metrics summary; restate remaining gap as "hands-on verification remains blocked" only (matches the existing 001-100 residual).
+    - `tasks/implementation-readiness.md`: if the file enumerates implementation-ready apps, append the 100 new rows.
+  - Execution profile: fan out across 5 batch-scoped subagents (one per batch-06…batch-10) in parallel — same pattern used in Step 7.2. Each subagent needs a canonical reference (`specs/batch-01/001-chatgpt.md`) plus a category-coherent adjacent Draft 1 (e.g., `specs/batch-06/101-tinder.md` for the Step 7.3 dating upgrades). Expect each subagent to touch 20 files and take 1-2 usage-limit rounds.
+
+  ### Ship-One-Step Handoff Contract (for Step 7.3)
 
   The next clear-context session should:
-  1. Implement **only Step 7.2** (rewrite all 100 IDs 101-200 placeholders into canonical Draft 1; update `specs/README.md` readiness column; update `tasks/spec-quality-audit.md`).
-  2. Validate via the rules listed above (one H1 per file, all 18 sections, no TODOs left, `Readiness status: Draft 1` everywhere).
-  3. Check Step 7.2 off in `tasks/todo.md`; append a Step 7.2 entry to `tasks/history.md`.
-  4. `/commit-and-push-by-feature` onto `main` (one commit per batch is fine).
+  1. Implement **only Step 7.3** (upgrade all 100 IDs 101-200 Draft 1 specs to implementation-ready public-source V1; update `specs/README.md` readiness column; update `tasks/spec-quality-audit.md`; update `tasks/implementation-readiness.md` if it tracks per-app rows).
+  2. Validate via the rules listed above (one H1 per file, all 18 sections, no residual discovery-URL placeholders, `Readiness status: Implementation-ready …` in every metadata block, exact-URL source rows present).
+  3. Check Step 7.3 off in `tasks/todo.md`; append a Step 7.3 entry to `tasks/history.md`.
+  4. `/commit-and-push-by-feature` onto `main` (one commit per batch or per subcategory is fine).
   5. No deploy contract applies — skip deploy.
-  6. Write Step 7.3's plan into `tasks/todo.md`.
-  7. Ensure `.claude/settings.local.json` has `"showClearContextOnPlanAccept": true` and `"defaultMode": "acceptEdits"` (already present).
+  6. Write Step 7.4's plan into `tasks/todo.md` (extend Phase 5 plan queue and repo-seeding manifest to 200 rows).
+  7. Ensure `.claude/settings.local.json` still has `"showClearContextOnPlanAccept": true` and `"defaultMode": "acceptEdits"`.
   8. Call `EnterPlanMode`, write a brief pass-through plan referencing `tasks/todo.md`, call `ExitPlanMode`, and stop.
-
-- [ ] Step 7.3: Implementation-readiness upgrades for IDs 101-200
-  - Files: modify all 100 new spec files; update `tasks/implementation-readiness.md`
-  - Replace any discovery links with exact first-party URLs.
-  - Distinguish verified vs inferred behavior. Enumerate screens, entities, API routes, permissions, subscription states, edge cases, analytics events, test matrix, build-plan phases.
-  - Add category risk notes (dating/finance/health/kids categories are heavily represented — flag child-directed and health-adjacent apps for category-specific risk review).
-  - Mark blocked flows with owner/path.
-  - Commit in batches (one commit per batch-06…batch-10 recommended): `feat(specs): implementation-ready batch-NN (IDs XXX-YYY)`.
 
 - [ ] Step 7.4: Extend Phase 5 plan queue and repo-seeding manifest
   - Files: modify `tasks/roadmap.md`, `tasks/repo-seeding.md`
