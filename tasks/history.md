@@ -253,7 +253,16 @@
 - With ID 075 reconciled, the Phase 6 acceptance criterion `All 100 downstream repos exist or have explicit blocker notes in tasks/repo-seeding.md` now holds with the stronger statement: 100 of 100 downstream repos seeded private.
 - Checked off Phase 6 Step 6.8a in `tasks/todo.md`.
 
+## 2026-04-20 - Step 6.9 Pre-Publication Re-Audit (Publication Blocked Pending Approval)
+
+- Ran the Step 6.9 ship-one-step handoff. Verified `gh auth status` (active `GeorgeQLe`, keyring, `repo`+`workflow` scopes) and confirmed `GeorgeQLe/mobile-ideas` visibility remained `PRIVATE` via `gh repo view --json visibility,isPrivate,nameWithOwner`.
+- Re-audited the `## Open-Source Spec Store Checklist` in `tasks/repo-seeding.md`: license (root `LICENSE`, CC BY 4.0 with third-party-mark exclusions), public-reader `README.md`, non-affiliation language, `CONTRIBUTING.md`, `SECURITY.md`, and content-audit for secrets/accounts/assets/screenshots/proprietary-copy/private-APIs/ambiguous-affiliation all still accurate and checked. Re-ran a case-insensitive secret-pattern grep; no real secrets found (matches were prose, source-spec concept references, or template placeholder examples).
+- Confirmed downstream privacy intact: Step 6.8 and Step 6.8a evidence shows 100 of 100 downstream repos `PRIVATE`; no downstream repo drifted to non-`PRIVATE` since Step 6.8.
+- Approval gate status: `tasks/manual-todo.md` line 16 approval task remains `[ ]` (unchecked). Per the Step 6.9 ship-one-step handoff contract, did NOT run `gh repo edit GeorgeQLe/mobile-ideas --visibility public --accept-visibility-change-consequences`; `GeorgeQLe/mobile-ideas` remains `PRIVATE`.
+- Recorded the re-audit under a new `### Step 6.9 Pre-Publication Re-Audit - 2026-04-20` evidence subsection in `tasks/repo-seeding.md`, and added a new `Step 6.9 publication blocker (open, 2026-04-20)` entry to the `### Failures And Blockers` section documenting that the visibility change is deferred until the manual approval task is checked.
+- Step 6.9 in `tasks/todo.md` remains unchecked; the final Phase 6 acceptance criterion (`This spec-store repo is made public only after the open-source checklist is complete and explicitly approved.`) remains unchecked; the Milestone `On Completion` block is unchanged (Phase 6 not yet closed).
+
 ## Next Steps
 
-- Begin Phase 6 Step 6.9: complete the public-release checklist for `GeorgeQLe/mobile-ideas` and make it public only after the manual approval task is checked; record the approval evidence, command used, resulting visibility, and any follow-up blocker notes. The Letterboxd ID 075 blocker was resolved in Step 6.8a and is no longer a follow-up.
+- Clear the Step 6.9 publication blocker: the user re-reads the `## Open-Source Spec Store Checklist` and the `### Step 6.9 Pre-Publication Re-Audit - 2026-04-20` subsection, checks the manual approval task in `tasks/manual-todo.md`, and re-runs the Step 6.9 ship-one-step handoff to execute `gh repo edit GeorgeQLe/mobile-ideas --visibility public --accept-visibility-change-consequences`, capture the post-change `gh repo view --json visibility,isPrivate` response, check the final Phase 6 acceptance criterion and Step 6.9 in `tasks/todo.md`, record the Step 6.9 Spec Store Publication evidence in `tasks/repo-seeding.md`, and record Phase 6 completion in the Milestone `On Completion` block.
 - Keep all downstream repos and this spec store private until the applicable legal/name/license/content review and explicit public-release approval are complete.
