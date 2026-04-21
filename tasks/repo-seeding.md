@@ -91,7 +91,7 @@ Guardrails:
 - [x] Seed Batch 05 repos with `gh repo create`, docs scaffolds, source specs, commits, and push.
 - [x] Verify all 100 target repos exist and link back to this spec store.
 - [x] Seed Batch 06 repos (IDs 101-120) private with rate-limit-aware serial execution.
-- [ ] Seed Batch 07 repos (IDs 121-140) private with rate-limit-aware serial execution.
+- [x] Seed Batch 07 repos (IDs 121-140) private with rate-limit-aware serial execution.
 - [ ] Continue IDs 141-1000 only in controlled private batches after each prior batch verifies cleanly.
 
 ## Execution Status And Evidence Log
@@ -424,6 +424,36 @@ Guardrails:
 - Todoist reconciliation: completed 2026-04-20; `GeorgeQLe/todoist-mobile-clone` aligned at commit `ffcdbc0`, pre-template Todoist scaffold preserved as `keep-with-note`.
 - Step 6.7 batch seeding: completed 2026-04-20; 97 of 98 remaining downstream repos created private and seeded. Batch 01 (IDs 001-020), 02 (021-040), 03 (041-060), 04 (061-080), 05 (081-100 minus 090 and 093) all complete except ID 075 Letterboxd, recorded as an explicit blocker (repo created but clone-after-create failed on GitHub propagation; left unseeded per stop-on-failure contract). Letterboxd blocker resolved 2026-04-20 in Step 6.8a (re-seed at downstream commit `6851ac9`).
 
+### Batch 121-140 Seeding Evidence - 2026-04-21T15:43:23.448Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4790,"reset":1776785705,"used":210},"graphql":{"limit":5000,"remaining":4920,"reset":1776787799,"used":80},"search":{"limit":30,"remaining":30,"reset":1776785034,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4997,"reset":1776789798,"used":3},"graphql":{"limit":5000,"remaining":4838,"reset":1776787799,"used":162},"search":{"limit":30,"remaining":30,"reset":1776786263,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 121 | `GeorgeQLe/wattpad-mobile-clone` | PRIVATE | seeded |
+| 122 | `GeorgeQLe/webtoon-mobile-clone` | PRIVATE | seeded |
+| 123 | `GeorgeQLe/goodreads-mobile-clone` | PRIVATE | seeded |
+| 124 | `GeorgeQLe/kindle-mobile-clone` | PRIVATE | seeded |
+| 125 | `GeorgeQLe/libby-mobile-clone` | PRIVATE | seeded |
+| 126 | `GeorgeQLe/apple-books-mobile-clone` | PRIVATE | seeded |
+| 127 | `GeorgeQLe/scribd-mobile-clone` | PRIVATE | seeded |
+| 128 | `GeorgeQLe/readwise-mobile-clone` | PRIVATE | seeded |
+| 129 | `GeorgeQLe/pocket-mobile-clone` | PRIVATE | seeded |
+| 130 | `GeorgeQLe/instapaper-mobile-clone` | PRIVATE | seeded |
+| 131 | `GeorgeQLe/feedly-mobile-clone` | PRIVATE | seeded |
+| 132 | `GeorgeQLe/apple-news-mobile-clone` | PRIVATE | seeded |
+| 133 | `GeorgeQLe/the-new-york-times-mobile-clone` | PRIVATE | seeded |
+| 134 | `GeorgeQLe/flipboard-mobile-clone` | PRIVATE | seeded |
+| 135 | `GeorgeQLe/smartnews-mobile-clone` | PRIVATE | seeded |
+| 136 | `GeorgeQLe/ground-news-mobile-clone` | PRIVATE | seeded |
+| 137 | `GeorgeQLe/bloomberg-mobile-clone` | PRIVATE | seeded |
+| 138 | `GeorgeQLe/yahoo-finance-mobile-clone` | PRIVATE | seeded |
+| 139 | `GeorgeQLe/stocktwits-mobile-clone` | PRIVATE | seeded |
+| 140 | `GeorgeQLe/public-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
 
 - No Step 6.1 manifest, source-spec, or checked-row blockers found.
@@ -563,26 +593,26 @@ Guardrails:
 | [x] | 118 | Eventbrite | `GeorgeQLe/eventbrite-mobile-clone` | `specs/batch-06/118-eventbrite.md` |
 | [x] | 119 | Medium | `GeorgeQLe/medium-mobile-clone` | `specs/batch-06/119-medium.md` |
 | [x] | 120 | Substack | `GeorgeQLe/substack-mobile-clone` | `specs/batch-06/120-substack.md` |
-| [ ] | 121 | Wattpad | `GeorgeQLe/wattpad-mobile-clone` | `specs/batch-07/121-wattpad.md` |
-| [ ] | 122 | Webtoon | `GeorgeQLe/webtoon-mobile-clone` | `specs/batch-07/122-webtoon.md` |
-| [ ] | 123 | Goodreads | `GeorgeQLe/goodreads-mobile-clone` | `specs/batch-07/123-goodreads.md` |
-| [ ] | 124 | Kindle | `GeorgeQLe/kindle-mobile-clone` | `specs/batch-07/124-kindle.md` |
-| [ ] | 125 | Libby | `GeorgeQLe/libby-mobile-clone` | `specs/batch-07/125-libby.md` |
-| [ ] | 126 | Apple Books | `GeorgeQLe/apple-books-mobile-clone` | `specs/batch-07/126-apple-books.md` |
-| [ ] | 127 | Scribd | `GeorgeQLe/scribd-mobile-clone` | `specs/batch-07/127-scribd.md` |
-| [ ] | 128 | Readwise | `GeorgeQLe/readwise-mobile-clone` | `specs/batch-07/128-readwise.md` |
-| [ ] | 129 | Pocket | `GeorgeQLe/pocket-mobile-clone` | `specs/batch-07/129-pocket.md` |
-| [ ] | 130 | Instapaper | `GeorgeQLe/instapaper-mobile-clone` | `specs/batch-07/130-instapaper.md` |
-| [ ] | 131 | Feedly | `GeorgeQLe/feedly-mobile-clone` | `specs/batch-07/131-feedly.md` |
-| [ ] | 132 | Apple News | `GeorgeQLe/apple-news-mobile-clone` | `specs/batch-07/132-apple-news.md` |
-| [ ] | 133 | The New York Times | `GeorgeQLe/the-new-york-times-mobile-clone` | `specs/batch-07/133-new-york-times.md` |
-| [ ] | 134 | Flipboard | `GeorgeQLe/flipboard-mobile-clone` | `specs/batch-07/134-flipboard.md` |
-| [ ] | 135 | SmartNews | `GeorgeQLe/smartnews-mobile-clone` | `specs/batch-07/135-smartnews.md` |
-| [ ] | 136 | Ground News | `GeorgeQLe/ground-news-mobile-clone` | `specs/batch-07/136-ground-news.md` |
-| [ ] | 137 | Bloomberg | `GeorgeQLe/bloomberg-mobile-clone` | `specs/batch-07/137-bloomberg.md` |
-| [ ] | 138 | Yahoo Finance | `GeorgeQLe/yahoo-finance-mobile-clone` | `specs/batch-07/138-yahoo-finance.md` |
-| [ ] | 139 | Stocktwits | `GeorgeQLe/stocktwits-mobile-clone` | `specs/batch-07/139-stocktwits.md` |
-| [ ] | 140 | Public | `GeorgeQLe/public-mobile-clone` | `specs/batch-07/140-public.md` |
+| [x] | 121 | Wattpad | `GeorgeQLe/wattpad-mobile-clone` | `specs/batch-07/121-wattpad.md` |
+| [x] | 122 | Webtoon | `GeorgeQLe/webtoon-mobile-clone` | `specs/batch-07/122-webtoon.md` |
+| [x] | 123 | Goodreads | `GeorgeQLe/goodreads-mobile-clone` | `specs/batch-07/123-goodreads.md` |
+| [x] | 124 | Kindle | `GeorgeQLe/kindle-mobile-clone` | `specs/batch-07/124-kindle.md` |
+| [x] | 125 | Libby | `GeorgeQLe/libby-mobile-clone` | `specs/batch-07/125-libby.md` |
+| [x] | 126 | Apple Books | `GeorgeQLe/apple-books-mobile-clone` | `specs/batch-07/126-apple-books.md` |
+| [x] | 127 | Scribd | `GeorgeQLe/scribd-mobile-clone` | `specs/batch-07/127-scribd.md` |
+| [x] | 128 | Readwise | `GeorgeQLe/readwise-mobile-clone` | `specs/batch-07/128-readwise.md` |
+| [x] | 129 | Pocket | `GeorgeQLe/pocket-mobile-clone` | `specs/batch-07/129-pocket.md` |
+| [x] | 130 | Instapaper | `GeorgeQLe/instapaper-mobile-clone` | `specs/batch-07/130-instapaper.md` |
+| [x] | 131 | Feedly | `GeorgeQLe/feedly-mobile-clone` | `specs/batch-07/131-feedly.md` |
+| [x] | 132 | Apple News | `GeorgeQLe/apple-news-mobile-clone` | `specs/batch-07/132-apple-news.md` |
+| [x] | 133 | The New York Times | `GeorgeQLe/the-new-york-times-mobile-clone` | `specs/batch-07/133-new-york-times.md` |
+| [x] | 134 | Flipboard | `GeorgeQLe/flipboard-mobile-clone` | `specs/batch-07/134-flipboard.md` |
+| [x] | 135 | SmartNews | `GeorgeQLe/smartnews-mobile-clone` | `specs/batch-07/135-smartnews.md` |
+| [x] | 136 | Ground News | `GeorgeQLe/ground-news-mobile-clone` | `specs/batch-07/136-ground-news.md` |
+| [x] | 137 | Bloomberg | `GeorgeQLe/bloomberg-mobile-clone` | `specs/batch-07/137-bloomberg.md` |
+| [x] | 138 | Yahoo Finance | `GeorgeQLe/yahoo-finance-mobile-clone` | `specs/batch-07/138-yahoo-finance.md` |
+| [x] | 139 | Stocktwits | `GeorgeQLe/stocktwits-mobile-clone` | `specs/batch-07/139-stocktwits.md` |
+| [x] | 140 | Public | `GeorgeQLe/public-mobile-clone` | `specs/batch-07/140-public.md` |
 | [ ] | 141 | Acorns | `GeorgeQLe/acorns-mobile-clone` | `specs/batch-08/141-acorns.md` |
 | [ ] | 142 | Stash | `GeorgeQLe/stash-mobile-clone` | `specs/batch-08/142-stash.md` |
 | [ ] | 143 | Wealthfront | `GeorgeQLe/wealthfront-mobile-clone` | `specs/batch-08/143-wealthfront.md` |
