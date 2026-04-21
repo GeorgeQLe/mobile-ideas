@@ -544,7 +544,36 @@ Guardrails:
 | 199 | `GeorgeQLe/day-one-mobile-clone` | PRIVATE | seeded |
 | 200 | `GeorgeQLe/alltrails-mobile-clone` | PRIVATE | seeded |
 
+### Batch 201-216 Partial Seeding Evidence - 2026-04-21T19:28:23Z
+
+- Execution mode: serial private seeding with 15 successful repo(s), followed by single-target reconciliation for ID 216 after GitHub clone propagation lag.
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4936,"reset":1776801506,"used":64},"graphql":{"limit":5000,"remaining":4970,"reset":1776802278,"used":30},"search":{"limit":30,"remaining":30,"reset":1776799096,"used":0}}`
+- Post-reconciliation rate limit: `{"core":{"limit":5000,"remaining":4888,"reset":1776801506,"used":112},"graphql":{"limit":5000,"remaining":4902,"reset":1776802278,"used":98},"search":{"limit":30,"remaining":30,"reset":1776799753,"used":0}}`
+- Verification: IDs 201-216 returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+- Stop/reconcile note: the original batch stopped at ID 216 when the just-created private repo had not propagated to `gh repo clone`; `GeorgeQLe/quillbot-mobile-clone` was then verified as PRIVATE and empty, re-seeded with `--reconcile-existing`, and verified. IDs 217-220 were not attempted in this run.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 201 | `GeorgeQLe/poe-mobile-clone` | PRIVATE | seeded |
+| 202 | `GeorgeQLe/gemini-mobile-clone` | PRIVATE | seeded |
+| 203 | `GeorgeQLe/microsoft-copilot-mobile-clone` | PRIVATE | seeded |
+| 204 | `GeorgeQLe/grok-mobile-clone` | PRIVATE | seeded |
+| 205 | `GeorgeQLe/deepseek-mobile-clone` | PRIVATE | seeded |
+| 206 | `GeorgeQLe/meta-ai-mobile-clone` | PRIVATE | seeded |
+| 207 | `GeorgeQLe/you-com-mobile-clone` | PRIVATE | seeded |
+| 208 | `GeorgeQLe/pi-mobile-clone` | PRIVATE | seeded |
+| 209 | `GeorgeQLe/phind-mobile-clone` | PRIVATE | seeded |
+| 210 | `GeorgeQLe/huggingchat-mobile-clone` | PRIVATE | seeded |
+| 211 | `GeorgeQLe/wysa-mobile-clone` | PRIVATE | seeded |
+| 212 | `GeorgeQLe/elsa-speak-mobile-clone` | PRIVATE | seeded |
+| 213 | `GeorgeQLe/otterpilot-mobile-clone` | PRIVATE | seeded |
+| 214 | `GeorgeQLe/grammarly-keyboard-mobile-clone` | PRIVATE | seeded |
+| 215 | `GeorgeQLe/wordtune-mobile-clone` | PRIVATE | seeded |
+| 216 | `GeorgeQLe/quillbot-mobile-clone` | PRIVATE | seeded via reconcile |
+
 ### Failures And Blockers
+
+- Step 6.3 blocker (2026-04-21T19:26:15.427Z, RESOLVED 2026-04-21 in `### Batch 201-216 Partial Seeding Evidence - 2026-04-21T19:28:23Z`) for GeorgeQLe/quillbot-mobile-clone: `gh repo create` returned the private repo URL, but the immediately-following `gh repo clone GeorgeQLe/quillbot-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/quillbot-mobile-clone` failed with `GraphQL: Could not resolve to a Repository with the name 'GeorgeQLe/quillbot-mobile-clone'. (repository)`. The remote was verified as PRIVATE and empty, then seeded with `--reconcile-existing` at downstream commit `f6e5265`.
 
 - No Step 6.1 manifest, source-spec, or checked-row blockers found.
 - No Step 6.3 local dry-run blockers found.
@@ -763,22 +792,22 @@ Guardrails:
 | [x] | 198 | Bear | `GeorgeQLe/bear-mobile-clone` | `specs/batch-10/198-bear.md` |
 | [x] | 199 | Day One | `GeorgeQLe/day-one-mobile-clone` | `specs/batch-10/199-day-one.md` |
 | [x] | 200 | AllTrails | `GeorgeQLe/alltrails-mobile-clone` | `specs/batch-10/200-alltrails.md` |
-| [ ] | 201 | Poe | `GeorgeQLe/poe-mobile-clone` | `specs/batch-11/201-poe.md` |
-| [ ] | 202 | Gemini | `GeorgeQLe/gemini-mobile-clone` | `specs/batch-11/202-gemini.md` |
-| [ ] | 203 | Microsoft Copilot | `GeorgeQLe/microsoft-copilot-mobile-clone` | `specs/batch-11/203-microsoft-copilot.md` |
-| [ ] | 204 | Grok | `GeorgeQLe/grok-mobile-clone` | `specs/batch-11/204-grok.md` |
-| [ ] | 205 | DeepSeek | `GeorgeQLe/deepseek-mobile-clone` | `specs/batch-11/205-deepseek.md` |
-| [ ] | 206 | Meta AI | `GeorgeQLe/meta-ai-mobile-clone` | `specs/batch-11/206-meta-ai.md` |
-| [ ] | 207 | You.com | `GeorgeQLe/you-com-mobile-clone` | `specs/batch-11/207-you-com.md` |
-| [ ] | 208 | Pi | `GeorgeQLe/pi-mobile-clone` | `specs/batch-11/208-pi.md` |
-| [ ] | 209 | Phind | `GeorgeQLe/phind-mobile-clone` | `specs/batch-11/209-phind.md` |
-| [ ] | 210 | HuggingChat | `GeorgeQLe/huggingchat-mobile-clone` | `specs/batch-11/210-huggingchat.md` |
-| [ ] | 211 | Wysa | `GeorgeQLe/wysa-mobile-clone` | `specs/batch-11/211-wysa.md` |
-| [ ] | 212 | ELSA Speak | `GeorgeQLe/elsa-speak-mobile-clone` | `specs/batch-11/212-elsa-speak.md` |
-| [ ] | 213 | OtterPilot | `GeorgeQLe/otterpilot-mobile-clone` | `specs/batch-11/213-otterpilot.md` |
-| [ ] | 214 | Grammarly Keyboard | `GeorgeQLe/grammarly-keyboard-mobile-clone` | `specs/batch-11/214-grammarly-keyboard.md` |
-| [ ] | 215 | Wordtune | `GeorgeQLe/wordtune-mobile-clone` | `specs/batch-11/215-wordtune.md` |
-| [ ] | 216 | QuillBot | `GeorgeQLe/quillbot-mobile-clone` | `specs/batch-11/216-quillbot.md` |
+| [x] | 201 | Poe | `GeorgeQLe/poe-mobile-clone` | `specs/batch-11/201-poe.md` |
+| [x] | 202 | Gemini | `GeorgeQLe/gemini-mobile-clone` | `specs/batch-11/202-gemini.md` |
+| [x] | 203 | Microsoft Copilot | `GeorgeQLe/microsoft-copilot-mobile-clone` | `specs/batch-11/203-microsoft-copilot.md` |
+| [x] | 204 | Grok | `GeorgeQLe/grok-mobile-clone` | `specs/batch-11/204-grok.md` |
+| [x] | 205 | DeepSeek | `GeorgeQLe/deepseek-mobile-clone` | `specs/batch-11/205-deepseek.md` |
+| [x] | 206 | Meta AI | `GeorgeQLe/meta-ai-mobile-clone` | `specs/batch-11/206-meta-ai.md` |
+| [x] | 207 | You.com | `GeorgeQLe/you-com-mobile-clone` | `specs/batch-11/207-you-com.md` |
+| [x] | 208 | Pi | `GeorgeQLe/pi-mobile-clone` | `specs/batch-11/208-pi.md` |
+| [x] | 209 | Phind | `GeorgeQLe/phind-mobile-clone` | `specs/batch-11/209-phind.md` |
+| [x] | 210 | HuggingChat | `GeorgeQLe/huggingchat-mobile-clone` | `specs/batch-11/210-huggingchat.md` |
+| [x] | 211 | Wysa | `GeorgeQLe/wysa-mobile-clone` | `specs/batch-11/211-wysa.md` |
+| [x] | 212 | ELSA Speak | `GeorgeQLe/elsa-speak-mobile-clone` | `specs/batch-11/212-elsa-speak.md` |
+| [x] | 213 | OtterPilot | `GeorgeQLe/otterpilot-mobile-clone` | `specs/batch-11/213-otterpilot.md` |
+| [x] | 214 | Grammarly Keyboard | `GeorgeQLe/grammarly-keyboard-mobile-clone` | `specs/batch-11/214-grammarly-keyboard.md` |
+| [x] | 215 | Wordtune | `GeorgeQLe/wordtune-mobile-clone` | `specs/batch-11/215-wordtune.md` |
+| [x] | 216 | QuillBot | `GeorgeQLe/quillbot-mobile-clone` | `specs/batch-11/216-quillbot.md` |
 | [ ] | 217 | Ask AI | `GeorgeQLe/ask-ai-mobile-clone` | `specs/batch-11/217-ask-ai.md` |
 | [ ] | 218 | Genie | `GeorgeQLe/genie-mobile-clone` | `specs/batch-11/218-genie.md` |
 | [ ] | 219 | Monica | `GeorgeQLe/monica-mobile-clone` | `specs/batch-11/219-monica.md` |
