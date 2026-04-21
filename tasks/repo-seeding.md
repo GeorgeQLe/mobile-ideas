@@ -90,7 +90,7 @@ Guardrails:
 - [x] Seed Batch 04 repos with `gh repo create`, docs scaffolds, source specs, commits, and push.
 - [x] Seed Batch 05 repos with `gh repo create`, docs scaffolds, source specs, commits, and push.
 - [x] Verify all 100 target repos exist and link back to this spec store.
-- [ ] Seed Batch 06 repos (IDs 101-120) private with rate-limit-aware serial execution.
+- [x] Seed Batch 06 repos (IDs 101-120) private with rate-limit-aware serial execution.
 - [ ] Seed Batch 07 repos (IDs 121-140) private with rate-limit-aware serial execution.
 - [ ] Continue IDs 141-1000 only in controlled private batches after each prior batch verifies cleanly.
 
@@ -344,6 +344,36 @@ Guardrails:
 - Content-audit statement: no proprietary logos, screenshots, marketing copy, private APIs, credentials, or real user data exist in any inspected repo. Each non-blocker downstream repo contains only the shared template files plus a verbatim copy of its source spec from this spec store.
 - New blockers observed: none.
 
+### Batch 101-120 Seeding Evidence - 2026-04-21T15:21:26.126Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4850,"reset":1776785705,"used":150},"graphql":{"limit":5000,"remaining":5000,"reset":1776787798,"used":0},"search":{"limit":30,"remaining":30,"reset":1776784258,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4790,"reset":1776785705,"used":210},"graphql":{"limit":5000,"remaining":4920,"reset":1776787799,"used":80},"search":{"limit":30,"remaining":30,"reset":1776784945,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 101 | `GeorgeQLe/tinder-mobile-clone` | PRIVATE | seeded |
+| 102 | `GeorgeQLe/bumble-mobile-clone` | PRIVATE | seeded |
+| 103 | `GeorgeQLe/hinge-mobile-clone` | PRIVATE | seeded |
+| 104 | `GeorgeQLe/grindr-mobile-clone` | PRIVATE | seeded |
+| 105 | `GeorgeQLe/match-mobile-clone` | PRIVATE | seeded |
+| 106 | `GeorgeQLe/coffee-meets-bagel-mobile-clone` | PRIVATE | seeded |
+| 107 | `GeorgeQLe/linkedin-mobile-clone` | PRIVATE | seeded |
+| 108 | `GeorgeQLe/indeed-mobile-clone` | PRIVATE | seeded |
+| 109 | `GeorgeQLe/glassdoor-mobile-clone` | PRIVATE | seeded |
+| 110 | `GeorgeQLe/ziprecruiter-mobile-clone` | PRIVATE | seeded |
+| 111 | `GeorgeQLe/zillow-mobile-clone` | PRIVATE | seeded |
+| 112 | `GeorgeQLe/redfin-mobile-clone` | PRIVATE | seeded |
+| 113 | `GeorgeQLe/realtor-com-mobile-clone` | PRIVATE | seeded |
+| 114 | `GeorgeQLe/apartments-com-mobile-clone` | PRIVATE | seeded |
+| 115 | `GeorgeQLe/zumper-mobile-clone` | PRIVATE | seeded |
+| 116 | `GeorgeQLe/nextdoor-mobile-clone` | PRIVATE | seeded |
+| 117 | `GeorgeQLe/meetup-mobile-clone` | PRIVATE | seeded |
+| 118 | `GeorgeQLe/eventbrite-mobile-clone` | PRIVATE | seeded |
+| 119 | `GeorgeQLe/medium-mobile-clone` | PRIVATE | seeded |
+| 120 | `GeorgeQLe/substack-mobile-clone` | PRIVATE | seeded |
+
 ### Step 6.8a Letterboxd Re-Seed - 2026-04-20
 
 - Auth evidence: `gh auth status` shows active account `GeorgeQLe` via keyring with `repo`, `workflow`, `gist`, `read:org`, `write:packages` scopes.
@@ -513,26 +543,26 @@ Guardrails:
 | [x] | 098 | Lightroom | `GeorgeQLe/lightroom-mobile-clone` | `specs/batch-05/098-lightroom.md` |
 | [x] | 099 | Google Photos | `GeorgeQLe/google-photos-mobile-clone` | `specs/batch-05/099-google-photos.md` |
 | [x] | 100 | Ring | `GeorgeQLe/ring-mobile-clone` | `specs/batch-05/100-ring.md` |
-| [ ] | 101 | Tinder | `GeorgeQLe/tinder-mobile-clone` | `specs/batch-06/101-tinder.md` |
-| [ ] | 102 | Bumble | `GeorgeQLe/bumble-mobile-clone` | `specs/batch-06/102-bumble.md` |
-| [ ] | 103 | Hinge | `GeorgeQLe/hinge-mobile-clone` | `specs/batch-06/103-hinge.md` |
-| [ ] | 104 | Grindr | `GeorgeQLe/grindr-mobile-clone` | `specs/batch-06/104-grindr.md` |
-| [ ] | 105 | Match | `GeorgeQLe/match-mobile-clone` | `specs/batch-06/105-match.md` |
-| [ ] | 106 | Coffee Meets Bagel | `GeorgeQLe/coffee-meets-bagel-mobile-clone` | `specs/batch-06/106-coffee-meets-bagel.md` |
-| [ ] | 107 | LinkedIn | `GeorgeQLe/linkedin-mobile-clone` | `specs/batch-06/107-linkedin.md` |
-| [ ] | 108 | Indeed | `GeorgeQLe/indeed-mobile-clone` | `specs/batch-06/108-indeed.md` |
-| [ ] | 109 | Glassdoor | `GeorgeQLe/glassdoor-mobile-clone` | `specs/batch-06/109-glassdoor.md` |
-| [ ] | 110 | ZipRecruiter | `GeorgeQLe/ziprecruiter-mobile-clone` | `specs/batch-06/110-ziprecruiter.md` |
-| [ ] | 111 | Zillow | `GeorgeQLe/zillow-mobile-clone` | `specs/batch-06/111-zillow.md` |
-| [ ] | 112 | Redfin | `GeorgeQLe/redfin-mobile-clone` | `specs/batch-06/112-redfin.md` |
-| [ ] | 113 | Realtor.com | `GeorgeQLe/realtor-com-mobile-clone` | `specs/batch-06/113-realtor.md` |
-| [ ] | 114 | Apartments.com | `GeorgeQLe/apartments-com-mobile-clone` | `specs/batch-06/114-apartments.md` |
-| [ ] | 115 | Zumper | `GeorgeQLe/zumper-mobile-clone` | `specs/batch-06/115-zumper.md` |
-| [ ] | 116 | Nextdoor | `GeorgeQLe/nextdoor-mobile-clone` | `specs/batch-06/116-nextdoor.md` |
-| [ ] | 117 | Meetup | `GeorgeQLe/meetup-mobile-clone` | `specs/batch-06/117-meetup.md` |
-| [ ] | 118 | Eventbrite | `GeorgeQLe/eventbrite-mobile-clone` | `specs/batch-06/118-eventbrite.md` |
-| [ ] | 119 | Medium | `GeorgeQLe/medium-mobile-clone` | `specs/batch-06/119-medium.md` |
-| [ ] | 120 | Substack | `GeorgeQLe/substack-mobile-clone` | `specs/batch-06/120-substack.md` |
+| [x] | 101 | Tinder | `GeorgeQLe/tinder-mobile-clone` | `specs/batch-06/101-tinder.md` |
+| [x] | 102 | Bumble | `GeorgeQLe/bumble-mobile-clone` | `specs/batch-06/102-bumble.md` |
+| [x] | 103 | Hinge | `GeorgeQLe/hinge-mobile-clone` | `specs/batch-06/103-hinge.md` |
+| [x] | 104 | Grindr | `GeorgeQLe/grindr-mobile-clone` | `specs/batch-06/104-grindr.md` |
+| [x] | 105 | Match | `GeorgeQLe/match-mobile-clone` | `specs/batch-06/105-match.md` |
+| [x] | 106 | Coffee Meets Bagel | `GeorgeQLe/coffee-meets-bagel-mobile-clone` | `specs/batch-06/106-coffee-meets-bagel.md` |
+| [x] | 107 | LinkedIn | `GeorgeQLe/linkedin-mobile-clone` | `specs/batch-06/107-linkedin.md` |
+| [x] | 108 | Indeed | `GeorgeQLe/indeed-mobile-clone` | `specs/batch-06/108-indeed.md` |
+| [x] | 109 | Glassdoor | `GeorgeQLe/glassdoor-mobile-clone` | `specs/batch-06/109-glassdoor.md` |
+| [x] | 110 | ZipRecruiter | `GeorgeQLe/ziprecruiter-mobile-clone` | `specs/batch-06/110-ziprecruiter.md` |
+| [x] | 111 | Zillow | `GeorgeQLe/zillow-mobile-clone` | `specs/batch-06/111-zillow.md` |
+| [x] | 112 | Redfin | `GeorgeQLe/redfin-mobile-clone` | `specs/batch-06/112-redfin.md` |
+| [x] | 113 | Realtor.com | `GeorgeQLe/realtor-com-mobile-clone` | `specs/batch-06/113-realtor.md` |
+| [x] | 114 | Apartments.com | `GeorgeQLe/apartments-com-mobile-clone` | `specs/batch-06/114-apartments.md` |
+| [x] | 115 | Zumper | `GeorgeQLe/zumper-mobile-clone` | `specs/batch-06/115-zumper.md` |
+| [x] | 116 | Nextdoor | `GeorgeQLe/nextdoor-mobile-clone` | `specs/batch-06/116-nextdoor.md` |
+| [x] | 117 | Meetup | `GeorgeQLe/meetup-mobile-clone` | `specs/batch-06/117-meetup.md` |
+| [x] | 118 | Eventbrite | `GeorgeQLe/eventbrite-mobile-clone` | `specs/batch-06/118-eventbrite.md` |
+| [x] | 119 | Medium | `GeorgeQLe/medium-mobile-clone` | `specs/batch-06/119-medium.md` |
+| [x] | 120 | Substack | `GeorgeQLe/substack-mobile-clone` | `specs/batch-06/120-substack.md` |
 | [ ] | 121 | Wattpad | `GeorgeQLe/wattpad-mobile-clone` | `specs/batch-07/121-wattpad.md` |
 | [ ] | 122 | Webtoon | `GeorgeQLe/webtoon-mobile-clone` | `specs/batch-07/122-webtoon.md` |
 | [ ] | 123 | Goodreads | `GeorgeQLe/goodreads-mobile-clone` | `specs/batch-07/123-goodreads.md` |

@@ -126,9 +126,10 @@ function markDone(row) {
 function appendEvidence(from, to, seeded, preRate, postRate, dryRun) {
   if (dryRun) return;
   const markdown = fs.readFileSync(manifestPath, "utf8");
-  const marker = "### Failures And Blockers";
-  const index = markdown.indexOf(marker);
-  if (index === -1) throw new Error("Missing Failures And Blockers marker");
+  const lines = markdown.split("\n");
+  const markerLine = lines.findIndex((line) => line.trim() === "### Failures And Blockers");
+  if (markerLine === -1) throw new Error("Missing Failures And Blockers marker");
+  const index = lines.slice(0, markerLine).join("\n").length + (markerLine === 0 ? 0 : 1);
   const now = new Date().toISOString();
   const rows = seeded.map((row) => `| ${row.idText} | \`${row.targetRepo}\` | PRIVATE | seeded |`).join("\n");
   const section = [
