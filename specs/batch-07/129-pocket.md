@@ -1,80 +1,197 @@
 # Pocket-Style Clone Spec
 
-> Inspiration: Pocket
-> Category: Read-later
-> Readiness status: Draft 0
-> Legal scope: functional parity only — original code, original brand, original assets, lawful data sources; no proprietary logos, screenshots, copy, private APIs, or paywalled content.
-
-This is a Draft 0 placeholder generated for ID 129 (Pocket) from `tasks/ideas.md`. Section bodies are TODO placeholders; Phase 7 Step 7.2 will rewrite this file into the canonical Draft 1 structure used across batches 01-05.
+> Metadata
+> - Inspiration app: Pocket
+> - Category: Read-later with offline reading and TTS
+> - Readiness status: Draft 1
+> - Verification basis: public marketplace listings and public help pages observed during source discovery.
+> - Manual verification blockers: native capture, share-extension ingest, TTS voices, subscription purchase/restore, and push payloads require a test device/account.
+> - Legal scope: functional parity only; use original code, brand, copy, iconography, and UX. Article content is retrieved from user-specified URLs under fair-use/reader-mode norms; no republishing.
 
 ## Overview
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 129 for the inspiration brief.
+Build an original mobile read-later app inspired by Pocket: save articles via share sheet, fetch clean reader content, organize with tags and favorites, sync across devices, read offline, and listen via TTS.
+
+The clone must not copy Pocket branding, copy, private APIs, or partner-licensed content beyond user-directed URL fetches.
+
+This spec is implementation-ready for a V1. Feature-flag anything unverified.
 
 ## Goals
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 129 for the inspiration brief.
+- Ingest URLs via share sheet, paste, email forward, and API.
+- Render a clean article reader with typography and image support.
+- Organize with tags, favorites, archive, and trash.
+- Support offline reading with eviction policy.
+- Provide TTS listening with voice/speed controls.
+- Produce concrete routes, entities, contracts, offline rules, analytics, and tests.
 
 ## Non-Goals
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 129 for the inspiration brief.
+- Do not build a Pocket-branded app or imply Mozilla affiliation.
+- Do not scrape Pocket or reuse private APIs.
+- Do not store full pages that violate publisher terms; support publisher opt-outs.
+- Do not include paid publisher content by default; require user authentication at publisher when relevant.
+- Do not claim parity until manual verification.
 
 ## Research Sources
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 129 for the inspiration brief.
+| Source | Exact URL | Evidence Used | Status |
+|---|---|---|---|
+| Apple App Store | https://apps.apple.com/us/app/pocket-save-read-grow/id309601447 | Source discovery — pending exact URL verification | Pending |
+| Google Play | https://play.google.com/store/apps/details?id=com.ideashower.readitlater.pro | Source discovery — pending exact URL verification | Pending |
+| Pocket Help | https://help.getpocket.com/ | Source discovery — pending exact URL verification | Pending |
+| Reader Mode Patterns | https://en.wikipedia.org/wiki/Reader_mode | Source discovery — pending exact URL verification | Pending |
+| Schema.org Article | https://schema.org/Article | Source discovery — pending exact URL verification | Pending |
 
 ## Detailed Design
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 129 for the inspiration brief.
+### Source-Backed Product Requirements
+
+- Ingest sources: share-sheet, paste, email forward, in-app browser, API.
+- Reader extracts main content with images and attribution to source.
+- Tags, favorites, archive, and trash are first-class states.
+- Offline cache with user-controlled storage limits and eviction.
+- TTS plays article text with voice and rate controls.
+- Full-text search over saved content.
+- Sync across devices with last-writer-wins resolution.
+- Publisher opt-outs honored.
 
 ## Core User Journeys
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 129 for the inspiration brief.
+- User installs extension, shares an article, and sees it saved.
+- User opens reader, adjusts typography, and finishes reading.
+- User tags and favorites an article.
+- User listens via TTS on a commute.
+- User archives finished articles.
+- User searches for a topic across saves.
+- User exports their list as JSON/CSV.
+- User subscribes to premium for unlimited TTS voices or enhanced search.
+- User deletes account or requests data export.
 
 ## Screen Inventory
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 129 for the inspiration brief.
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
+|---|---|---|---|---|
+| Welcome/Auth | Entry and consent | email/social auth | new, returning | region block |
+| Home/List | Saved articles | filter, sort, tap | empty, loaded | sync error |
+| Reader | Article reading | scroll, menu, select | online, offline | extraction fail |
+| Tag List | Browse by tag | tap | empty, loaded | rename conflict |
+| Favorites | Starred items | tap, unstar | empty, loaded | sync conflict |
+| Archive/Trash | Archived or deleted | restore, purge | empty, loaded | restore fail |
+| Search | Full-text search | text, filters | empty, results | index building |
+| Share Extension | Ingest URL from OS | OS share | saving, saved | extraction fail |
+| TTS Player | Listen to article | play/pause, voice, rate | idle, playing | engine fail |
+| Subscription | Plan management | manage, restore | free, paid | platform mismatch |
+| Export | Export data | format select | idle, exporting, done | size cap |
+| Settings | Account, storage, TTS | toggles | loaded, signed-out | managed |
 
 ## Data Model
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 129 for the inspiration brief.
+- `User`: identity, locale, consent, subscription summary.
+- `SavedItem`: user, url, canonical url, title, excerpt, author, added-at, state (unread/archive/trash).
+- `ArticleContent`: extracted HTML, image refs, lang, word count, reading time.
+- `Tag`: user, label.
+- `Favorite`: user, saved-item, starred-at.
+- `ReadingProgress`: saved-item, scroll/time position.
+- `OfflineBundle`: saved-item, asset refs, expiry.
+- `TTSSession`: saved-item, voice, rate, position.
+- `SearchIndex`: per-user token references.
+- `Subscription`: plan, platform, state.
+- `Export`: user, format, status.
+- `AuditEvent`: append-only changes.
 
 ## API And Backend Contracts
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 129 for the inspiration brief.
+- `POST /auth/session`, `DELETE /auth/session`.
+- `POST /items`: save URL with optional tags; idempotent by canonical URL.
+- `GET /items?state=&tag=&cursor=&q=`.
+- `GET /items/:id`: metadata and content ref.
+- `GET /items/:id/content`: extracted article content.
+- `PATCH /items/:id`: archive, trash, unstar, retag.
+- `POST /items/:id/favorite`, `DELETE /items/:id/favorite`.
+- `GET /tags`, `POST /tags`, `PATCH /tags/:id`, `DELETE /tags/:id`.
+- `GET /search?q=`.
+- `POST /tts/session`, `PATCH /tts/session/:id`.
+- `GET /subscription`, `POST /checkout/session`, `POST /billing/restore`, `POST /billing/webhook`.
+- `POST /exports`, `GET /exports/:id`.
+- `POST /data-export`, `DELETE /account`.
 
-## Realtime/Push/Offline Behavior
+## Realtime, Push, And Offline Behavior
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 129 for the inspiration brief.
+- Share-sheet saves are queued on device and pushed on reconnect.
+- Reader content cached per item; purged on archive/trash if user opts in.
+- Sync uses last-writer-wins with conflict surfacing.
+- Push for "new save processed", weekly digest opt-in, premium events.
+- TTS engine is on-device where possible; fallback remote for premium voices.
+- Publisher opt-outs checked on ingest; fallback to link-only.
 
-## Permissions/Privacy/Safety
+## Permissions, Privacy, And Safety
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 129 for the inspiration brief.
+- Notifications opt-in.
+- Analytics exclude raw article content, tags, queries, and URLs.
+- Credentials for publisher auth (when used) stored in OS secure storage.
+- Content policy blocks malware/phishing links via URL reputation checks.
+- Minors: parental controls optional; adult-content filter default on for minors.
+- Publisher-opt-out must be respected; extracted content purged on publisher request.
+- Support tooling redacts URLs and excerpts.
+- Accessibility: TTS, dynamic type, screen reader, contrast.
+- Launch owner: product/privacy lead, legal for publisher terms, accessibility owner.
 
 ## Analytics And Monetization
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 129 for the inspiration brief.
+- Privacy-safe events: save ingested, reader opened, tag added, archive, TTS started, subscription state changed.
+- Monetization via original subscription tier for premium voices/search.
+- Paywall clarity: blocked feature, state, restore path, platform, support.
+- Webhook reconciliation across platforms.
 
 ## Edge Cases
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 129 for the inspiration brief.
+- Extraction fails (JS-heavy site); fall back to original link.
+- URL redirects; canonicalize and dedupe.
+- Paywalled article; save link-only with paywall badge.
+- Offline bundle exceeds quota; eviction prompt.
+- Share-sheet duplicate saves; dedupe by canonical URL.
+- Publisher requests takedown; purge and blocklist URL.
+- TTS interrupted by call; resume.
+- Account deletion with active export.
 
 ## Test Plan
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 129 for the inspiration brief.
+- Unit tests for extraction, canonicalization, dedupe, sync, TTS session.
+- Contract tests for items, tags, search, TTS, subscription, exports.
+- Integration tests for share-save-read, tag-search, archive-restore, TTS playback.
+- Publisher opt-out tests.
+- Privacy tests for analytics redaction and minor defaults.
+- Accessibility tests for reader, TTS, dynamic type.
+- Manual verification: native screenshots, share extension, purchase/restore, push.
 
 ## Acceptance Criteria
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 129 for the inspiration brief.
+- Exact source links verified before implementation.
+- V1 honors publisher terms and blocks known malware.
+- Users can save, read, organize, search, and TTS-listen offline.
+- Sync/subscription flows deterministic.
+- Manual verification blockers resolved or feature-flagged.
 
 ## Open Questions
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 129 for the inspiration brief.
+- Which extraction engine in V1 (open-source or custom)?
+- Will V1 include "Discover" recommendations? If so, licensing model?
+- Highlighting and annotation in V1 or deferred?
+- Family sharing in V1?
+- Browser companion extension scope?
 
 ## Build Plan
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 129 for the inspiration brief.
+- Phase 1: scaffold app, auth, save ingest, reader.
+- Phase 2: tags, favorites, archive, search.
+- Phase 3: TTS, offline bundles.
+- Phase 4: share extension, subscription, entitlements, webhooks.
+- Phase 5: publisher opt-outs, export, push.
+- Phase 6: accessibility, manual verification, regression.
 
 ## Next Steps
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 129 for the inspiration brief.
+- Resolve source URLs and extraction engine choice.
+- Design original reader chrome and TTS surface.
+- Stand up downstream implementation repo.

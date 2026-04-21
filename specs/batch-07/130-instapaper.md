@@ -1,80 +1,192 @@
 # Instapaper-Style Clone Spec
 
-> Inspiration: Instapaper
-> Category: Read-later
-> Readiness status: Draft 0
-> Legal scope: functional parity only — original code, original brand, original assets, lawful data sources; no proprietary logos, screenshots, copy, private APIs, or paywalled content.
-
-This is a Draft 0 placeholder generated for ID 130 (Instapaper) from `tasks/ideas.md`. Section bodies are TODO placeholders; Phase 7 Step 7.2 will rewrite this file into the canonical Draft 1 structure used across batches 01-05.
+> Metadata
+> - Inspiration app: Instapaper
+> - Category: Minimalist read-later with highlights, notes, and folders
+> - Readiness status: Draft 1
+> - Verification basis: public marketplace listings and public help/blog pages observed during source discovery.
+> - Manual verification blockers: native capture, share-extension ingest, speed-reading mode, subscription purchase/restore, and push payloads require a test device/account.
+> - Legal scope: functional parity only; use original code, brand, copy, iconography, and UX. Article content retrieved from user-specified URLs under reader-mode norms.
 
 ## Overview
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 130 for the inspiration brief.
+Build an original mobile read-later app inspired by Instapaper: save URLs, present an uncluttered typographic reader, highlight passages and attach notes, organize with folders, and export.
+
+The clone must not copy Instapaper branding, copy, private APIs, or trademarked speed-reading names.
+
+This spec is implementation-ready for a V1. Feature-flag anything unverified.
 
 ## Goals
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 130 for the inspiration brief.
+- Ingest URLs and render clean article content with first-class typography.
+- Support highlights with notes, private by default.
+- Provide folders (including "Archive" and "Liked") plus a main list.
+- Provide search across saves including highlights.
+- Support export to common formats.
+- Produce concrete routes, entities, contracts, offline rules, analytics, and tests.
 
 ## Non-Goals
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 130 for the inspiration brief.
+- Do not build an Instapaper-branded app or imply affiliation.
+- Do not scrape Instapaper or reuse private APIs.
+- Do not include paid publisher content bypass.
+- Do not ship ads in V1.
+- Do not claim parity until manual verification.
 
 ## Research Sources
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 130 for the inspiration brief.
+| Source | Exact URL | Evidence Used | Status |
+|---|---|---|---|
+| Apple App Store | https://apps.apple.com/us/app/instapaper/id288545208 | Source discovery — pending exact URL verification | Pending |
+| Google Play | https://play.google.com/store/apps/details?id=com.instapaper.android | Source discovery — pending exact URL verification | Pending |
+| Instapaper Help | https://www.instapaper.com/help | Source discovery — pending exact URL verification | Pending |
+| Reader Mode Patterns | https://en.wikipedia.org/wiki/Reader_mode | Source discovery — pending exact URL verification | Pending |
+| Schema.org Article | https://schema.org/Article | Source discovery — pending exact URL verification | Pending |
 
 ## Detailed Design
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 130 for the inspiration brief.
+### Source-Backed Product Requirements
+
+- Reader emphasizes typography, margins, and dark/sepia/light themes.
+- Highlights anchor to stable content ranges and support notes.
+- Folders organize saves beyond the default list.
+- Optional speed-reading mode (generic "fast-reading") with word-by-word display and configurable WPM.
+- Export to plain text, Markdown, HTML, CSV.
+- Full-text search over saves and highlights.
+- Share extension ingests URLs.
+- Optional subscription for premium features (unlimited notes, speed-reading, full-text search).
 
 ## Core User Journeys
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 130 for the inspiration brief.
+- User installs extension, saves an article, and opens reader.
+- User adjusts typography and theme.
+- User highlights a passage and attaches a note.
+- User organizes saves into folders.
+- User searches across saves and highlights.
+- User enters speed-reading mode for a commute read.
+- User exports their library.
+- User subscribes to premium.
+- User deletes account or exports data.
 
 ## Screen Inventory
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 130 for the inspiration brief.
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
+|---|---|---|---|---|
+| Welcome/Auth | Entry and consent | email/social auth | new, returning | region block |
+| Home/List | Saved articles | tap, swipe | empty, loaded | sync error |
+| Reader | Typographic article | scroll, select, menu | online, offline | extraction fail |
+| Highlight Composer | Add note to highlight | text | saved, edited | conflict |
+| Folders | Organize saves | create, move, rename | empty, loaded | conflict |
+| Search | Query saves/highlights | text, filters | empty, results | index building |
+| Speed-Read Mode | Fast word display | play/pause, WPM | idle, playing | size cap |
+| Share Extension | Ingest URL | OS share | saving, saved | extraction fail |
+| Subscription | Plan management | manage, restore | free, paid | platform mismatch |
+| Export | Export library | format select | idle, exporting, done | size cap |
+| Settings | Account, typography, privacy | toggles | loaded, signed-out | managed |
+| Liked/Favorites | Starred saves | tap, unstar | empty, loaded | sync conflict |
 
 ## Data Model
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 130 for the inspiration brief.
+- `User`: identity, locale, consent, subscription summary.
+- `SavedItem`: user, url, canonical url, title, author, added-at, folder.
+- `ArticleContent`: extracted content, image refs, lang.
+- `Folder`: user, name, default flags (archive/liked).
+- `Highlight`: user, item, start/end anchors, text.
+- `Note`: user, highlight, text.
+- `ReadingProgress`: item, position.
+- `SpeedReadSession`: item, wpm, position.
+- `SearchIndex`: per-user token refs including highlights.
+- `Subscription`: plan, platform, state.
+- `Export`: user, format, status.
+- `AuditEvent`: append-only changes.
 
 ## API And Backend Contracts
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 130 for the inspiration brief.
+- `POST /auth/session`, `DELETE /auth/session`.
+- `POST /items`, `GET /items?folder=&q=&cursor=`, `GET /items/:id`, `GET /items/:id/content`.
+- `PATCH /items/:id`: move folder, star, archive.
+- `POST /highlights`, `PATCH /highlights/:id`, `DELETE /highlights/:id`.
+- `GET /highlights?itemId=`: list.
+- `POST /notes`, `PATCH /notes/:id`.
+- `GET /folders`, `POST /folders`, `PATCH /folders/:id`.
+- `GET /search?q=&scope=items|highlights`.
+- `POST /speed-read/session`, `PATCH /speed-read/session/:id`.
+- `GET /subscription`, `POST /checkout/session`, `POST /billing/restore`, `POST /billing/webhook`.
+- `POST /exports`, `GET /exports/:id`.
+- `POST /data-export`, `DELETE /account`.
 
-## Realtime/Push/Offline Behavior
+## Realtime, Push, And Offline Behavior
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 130 for the inspiration brief.
+- Share-sheet saves queued offline.
+- Offline reading per item with user quota.
+- Highlights/notes sync last-writer-wins per anchor.
+- Push for save-processed and weekly digest opt-in.
+- Search index built/updated server-side; client has minimal cache.
 
-## Permissions/Privacy/Safety
+## Permissions, Privacy, And Safety
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 130 for the inspiration brief.
+- Notifications opt-in.
+- Analytics exclude raw content, highlights, notes, and URLs.
+- Publisher opt-out honored; purge on request.
+- Minors: standard defaults.
+- Accessibility: dynamic type, screen reader, contrast, reduced motion (speed-read mode must offer pause-for-accessibility).
+- Support tooling redacts user content.
+- Launch owner: product/privacy lead, legal for publisher terms, accessibility owner.
 
 ## Analytics And Monetization
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 130 for the inspiration brief.
+- Privacy-safe events: save, reader opened, highlight created, note added, folder created, speed-read used, subscription state changed.
+- Monetization via original subscription tier.
+- Paywall clarity: feature, state, restore path, platform, support.
+- Webhook reconciliation across platforms.
 
 ## Edge Cases
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 130 for the inspiration brief.
+- Extraction fails on JS-heavy page; fallback to web view.
+- Highlight anchor drift after content update; graceful "approximate" label.
+- Duplicate save via canonicalization.
+- Folder rename conflict with default names.
+- Speed-read mode mid-article with connectivity loss.
+- Publisher takedown purges cached content.
+- Account deletion with active export.
+- Subscription downgrade past feature usage.
 
 ## Test Plan
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 130 for the inspiration brief.
+- Unit tests for extraction, anchor drift, search indexing, speed-read session, folder rules.
+- Contract tests for items, highlights, notes, folders, search, subscription, exports.
+- Integration tests for share-save-read, highlight-note, search-across, speed-read.
+- Privacy tests for analytics redaction and publisher takedown.
+- Accessibility tests for reader, speed-read pause, dynamic type.
+- Manual verification: native screenshots, share extension, purchase/restore, push.
 
 ## Acceptance Criteria
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 130 for the inspiration brief.
+- Exact source links verified before implementation.
+- V1 honors publisher opt-outs.
+- Users can save, read, highlight, note, organize, search, export.
+- Sync/subscription flows deterministic.
+- Manual verification blockers resolved or feature-flagged.
 
 ## Open Questions
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 130 for the inspiration brief.
+- Which extraction engine in V1?
+- TTS in V1 or later?
+- Community/public highlights in V1 (default off for privacy)?
+- Family sharing in V1?
+- Speed-read configuration defaults?
 
 ## Build Plan
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 130 for the inspiration brief.
+- Phase 1: scaffold app, auth, save ingest, reader.
+- Phase 2: highlights, notes, folders.
+- Phase 3: search, speed-read mode.
+- Phase 4: subscription, entitlements, webhooks.
+- Phase 5: share extension, export, push.
+- Phase 6: accessibility, manual verification, regression.
 
 ## Next Steps
 
-TODO — Draft 1 (Step 7.2) will populate this section. See `tasks/ideas.md` row 130 for the inspiration brief.
+- Resolve source URLs and extraction engine.
+- Design original typographic presets.
+- Stand up downstream implementation repo.
