@@ -1,19 +1,22 @@
 # Spec Quality Audit
 
 Created: 2026-04-16
-Updated: 2026-04-19
+Updated: 2026-04-20
 
 ## Verdict
 
-The 100 technical specs pass the Draft 1 structural and public-source V1 depth gate. Phase 3 implementation-readiness upgrades have now replaced discovery sources with exact first-party URLs for all 100 specs.
+The 100 technical specs for IDs 001-100 pass the Draft 1 structural and public-source V1 depth gate. Phase 3 implementation-readiness upgrades have replaced discovery sources with exact first-party URLs for all 100 of those specs.
 
-The specs are not final one-for-one clone specs because hands-on verification remains blocked for native, paid, account, hardware, support, and regional flows. The implementation-ready public-source V1 set now covers `001-chatgpt.md` through `100-ring.md`.
+Phase 7 Step 7.1 added 100 new Draft 0 placeholder specs for IDs 101-200 across `specs/batch-06/` through `specs/batch-10/`. Those placeholders meet the Draft 0 structural gate (exactly one H1, metadata block, canonical section headings present) but explicitly do NOT yet meet the Draft 1 depth gate, the implementation-readiness gate, or the exact-first-party-source gate. Step 7.2 will normalize them to canonical Draft 1; Step 7.3 will upgrade them to implementation-ready public-source V1.
+
+The IDs 001-100 specs are not final one-for-one clone specs because hands-on verification remains blocked for native, paid, account, hardware, support, and regional flows.
 
 ## Audit Scope
 
-- Reviewed `tasks/ideas.md`.
+- Reviewed `tasks/ideas.md` (now 200 rows after the 2026-04-20 extension).
 - Reviewed `specs/README.md`.
-- Reviewed all 100 numbered specs under `specs/batch-01/` through `specs/batch-05/`.
+- Reviewed all 100 implementation-ready specs under `specs/batch-01/` through `specs/batch-05/`.
+- Reviewed all 100 Draft 0 placeholder specs under `specs/batch-06/` through `specs/batch-10/` (added Phase 7 Step 7.1, 2026-04-20).
 - Checked lifecycle docs required by hygiene.
 - Ran a structural metrics pass over all numbered spec files.
 
@@ -28,15 +31,15 @@ A Draft 1 or public-source V1 spec must meet these minimums:
 
 ## Metrics Summary
 
-- Numbered app specs present: 100.
-- Missing numeric IDs from `001` through `100`: 0.
-- Specs with exactly one H1: 100.
-- Specs with all canonical sections: 100.
-- Specs passing Draft 1 depth metrics: 100.
-- Specs failing Draft 1 depth metrics: 0.
-- Specs with exact first-party source URLs replacing discovery links: 100.
+- Numbered app specs present: 200 (100 implementation-ready + 100 Draft 0 placeholders).
+- Missing numeric IDs from `001` through `200`: 0.
+- Specs with exactly one H1: 200.
+- Specs with all canonical section headings present: 200.
+- Specs passing Draft 1 depth metrics: 100 (IDs 001-100); 0 of the Draft 0 placeholders (IDs 101-200) yet.
+- Specs failing Draft 1 depth metrics by intent (Draft 0 placeholders): 100 (IDs 101-200).
+- Specs with exact first-party source URLs replacing discovery links: 100 (IDs 001-100); 0 (IDs 101-200) — placeholder Research Sources section is still TODO.
 - Specs with hands-on app behavior fully verified: 0.
-- Specs upgraded to implementation-ready public-source V1: 100.
+- Specs upgraded to implementation-ready public-source V1: 100 (IDs 001-100).
 
 ## Resolved Findings
 
@@ -114,6 +117,18 @@ All numbered specs now use the same canonical structure and pass the same depth 
 
 ## Remaining Findings
 
+### High: Draft 0 Gap For IDs 101-200 (Phase 7 Step 7.1)
+
+Phase 7 Step 7.1 added 100 Draft 0 placeholder specs for IDs 101-200 across `specs/batch-06/` through `specs/batch-10/`. Each file has exactly one H1, the `> Inspiration / > Category / > Readiness status: Draft 0 / > Legal scope` metadata block, and all canonical section headings. Section bodies are TODO placeholders pointing back at `tasks/ideas.md` for the inspiration brief.
+
+These specs do NOT yet meet the Draft 1 depth gate, do NOT have exact first-party source URLs, do NOT enumerate screens/data/API/edge-cases, and do NOT carry manual verification blockers. They are explicitly placeholder scaffolds, mirroring the original 001-100 Draft 0 gap that was later closed by the canonical Draft 1 normalization.
+
+Impact: IDs 101-200 cannot be considered for downstream implementation candidate selection until they reach implementation-ready public-source V1 status (Phase 7 Step 7.3).
+
+Recommended fix:
+- Phase 7 Step 7.2: rewrite each placeholder into the canonical Draft 1 structure used by IDs 001-100. Include the full metadata block (Inspiration, Category, Readiness status, Verification basis, Manual verification blockers, Legal scope) and populate every section, even where content is still inferred-only.
+- Phase 7 Step 7.3: replace any discovery links with exact first-party URLs, distinguish verified vs inferred behavior, enumerate concrete screens/entities/API routes/permissions/subscription states/edge cases/analytics events/test matrix/build-plan phases, add category risk notes (dating/finance/health/kids categories are heavily represented — flag child-directed and health-adjacent apps for category-specific risk review), and mark blocked flows with owner/path.
+
 ### High: Hands-On Verification Remains Blocked
 
 All specs still have hands-on account/device verification incomplete. Implementation-ready specs list manual native/parity blockers explicitly rather than treating them as generic unresolved research.
@@ -135,5 +150,6 @@ Recommended fix: Use lawful test accounts/devices to verify reachable flows. Mar
 
 ## Next Steps
 
-- Produce downstream implementation planning for `specs/batch-05/090-todoist.md`.
+- Phase 7 Step 7.2: normalize the 100 IDs 101-200 Draft 0 placeholders into canonical Draft 1 specs.
+- Phase 7 Step 7.3: upgrade IDs 101-200 to implementation-ready public-source V1 with exact first-party sources and explicit blockers.
 - Complete hands-on verification where lawful and feasible.
