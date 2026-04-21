@@ -208,7 +208,7 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
     - Any implementation code inside downstream repos.
   - Ship-one-step handoff contract: implement only Step 6.8, validate it, mark Step 6.8 done in `tasks/todo.md`, update `tasks/history.md`, commit and push the completed work to this repo's `main`, deploy only when an explicit manual deploy contract exists (none currently — skip), write the Step 6.9 plan into `tasks/todo.md`, ensure `.claude/settings.local.json` keeps `"showClearContextOnPlanAccept": true` and `"defaultMode": "acceptEdits"`, start the approval UI for Step 6.9 by calling `EnterPlanMode` first, write a brief pass-through plan in plan mode, call `ExitPlanMode`, and stop before implementing Step 6.9. Do not call `ExitPlanMode` from normal mode.
 
-- Step 6.8a: Re-seed the Letterboxd downstream repo (follow-up to the Step 6.7 Letterboxd blocker)
+- [x] Step 6.8a: Re-seed the Letterboxd downstream repo (follow-up to the Step 6.7 Letterboxd blocker)
   - Files: modify `tasks/repo-seeding.md` (consolidate the ID 075 blocker into a resolution entry and check the manifest row); downstream repo `GeorgeQLe/letterboxd-mobile-clone` gets its first commit (separate clone directory outside this repo).
   - Execution profile: serial, main agent, medium conflict risk (single remote repo transitioning from empty to seeded; no batch interleave), no subagent lanes, test strategy `none` (docs-only repo).
   - Prerequisites:

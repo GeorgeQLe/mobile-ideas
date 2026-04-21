@@ -240,7 +240,20 @@
 - Updated `tasks/repo-seeding.md` with a new `### Step 6.8 Full Manifest Verification - 2026-04-20` evidence section and checked the `Verify all 100 target repos exist and link back to this spec store.` item under `## Batch Execution Todo`.
 - Checked off Phase 6 Step 6.8 in `tasks/todo.md`.
 
+## 2026-04-20 - Letterboxd Downstream Re-Seed (Step 6.8a)
+
+- Reconciled the Step 6.7 Batch 04 Letterboxd blocker by re-seeding the previously empty `GeorgeQLe/letterboxd-mobile-clone` remote via the seeding utility's `--reconcile-existing` path, without recreating the repo or changing its visibility.
+- Pre-re-seed state: `gh repo view GeorgeQLe/letterboxd-mobile-clone --json visibility,isEmpty,defaultBranchRef` returned `PRIVATE` / `isEmpty=true` / empty `defaultBranchRef`.
+- Preview: `node scripts/seed-downstream-repos.mjs --target 075 --dry-run --preview-dir /tmp/mobile-ideas-letterboxd-reseed-preview` rendered the six template files with no unresolved `{{...}}` placeholders.
+- Execute: `node scripts/seed-downstream-repos.mjs --target 075 --execute --reconcile-existing --clone-dir /tmp/letterboxd-mobile-clone-reseed` skipped `gh repo create`, cloned the empty remote, committed and pushed the seed as downstream root commit `6851ac9` (6 files, 495 insertions).
+- Post-verify: `gh repo view ... --json visibility,isEmpty,defaultBranchRef` returned `PRIVATE` / `isEmpty=false` / `defaultBranchRef.name=main`; `gh api repos/.../contents/docs/source-specs --jq '.[].name'` returned `075-letterboxd.md`; `gh api repos/.../readme --jq .name` returned `README.md`.
+- Privacy: `GeorgeQLe/letterboxd-mobile-clone` remained `PRIVATE`; no visibility change on any repo.
+- Content-audit: no proprietary Letterboxd logos, screenshots, marketing copy, film metadata, private APIs, credentials, or real user data were added; only the shared template files and a verbatim copy of `specs/batch-04/075-letterboxd.md`.
+- Updated `tasks/repo-seeding.md` with a `### Step 6.8a Letterboxd Re-Seed - 2026-04-20` evidence section, flipped ID 075 to `[x]` in the `Per-Repo Checklist`, updated the Step 6.7 Batch 04 per-repo table row for ID 075 with the new commit SHA, cross-linked the Step 6.7 `### Failures And Blockers` Letterboxd entry to the Step 6.8a section marked RESOLVED, and updated the Step 6.7 `Batch Progress` summary line to note the blocker is resolved.
+- With ID 075 reconciled, the Phase 6 acceptance criterion `All 100 downstream repos exist or have explicit blocker notes in tasks/repo-seeding.md` now holds with the stronger statement: 100 of 100 downstream repos seeded private.
+- Checked off Phase 6 Step 6.8a in `tasks/todo.md`.
+
 ## Next Steps
 
-- Begin Phase 6 Step 6.9: complete the public-release checklist for `GeorgeQLe/mobile-ideas` and make it public only after the manual approval task is checked; record the approval evidence, command used, resulting visibility, and any follow-up blocker notes. The Letterboxd ID 075 seeding blocker remains a follow-up to reconcile in a later step.
+- Begin Phase 6 Step 6.9: complete the public-release checklist for `GeorgeQLe/mobile-ideas` and make it public only after the manual approval task is checked; record the approval evidence, command used, resulting visibility, and any follow-up blocker notes. The Letterboxd ID 075 blocker was resolved in Step 6.8a and is no longer a follow-up.
 - Keep all downstream repos and this spec store private until the applicable legal/name/license/content review and explicit public-release approval are complete.

@@ -281,7 +281,7 @@ Guardrails:
 | 072 | `GeorgeQLe/netflix-mobile-clone` | `d61bbf4` | PRIVATE | seeded |
 | 073 | `GeorgeQLe/youtube-mobile-clone` | `375c7a4` | PRIVATE | seeded |
 | 074 | `GeorgeQLe/twitch-mobile-clone` | `6b90f3b` | PRIVATE | seeded |
-| 075 | `GeorgeQLe/letterboxd-mobile-clone` | — | PRIVATE (empty) | blocker: repo created but clone-after-create failed (GitHub propagation lag); left unseeded per stop-on-failure contract |
+| 075 | `GeorgeQLe/letterboxd-mobile-clone` | `6851ac9` | PRIVATE | seeded (re-seed 2026-04-20, see Step 6.8a) |
 | 076 | `GeorgeQLe/imdb-mobile-clone` | `67d3f48` | PRIVATE | seeded (batch resumed) |
 | 077 | `GeorgeQLe/duolingo-mobile-clone` | `d02d06d` | PRIVATE | seeded (batch resumed) |
 | 078 | `GeorgeQLe/khan-academy-mobile-clone` | `866c020` | PRIVATE | seeded (batch resumed) |
@@ -329,6 +329,20 @@ Guardrails:
 - Content-audit statement: no proprietary logos, screenshots, marketing copy, private APIs, credentials, or real user data exist in any inspected repo. Each non-blocker downstream repo contains only the shared template files plus a verbatim copy of its source spec from this spec store.
 - New blockers observed: none.
 
+### Step 6.8a Letterboxd Re-Seed - 2026-04-20
+
+- Auth evidence: `gh auth status` shows active account `GeorgeQLe` via keyring with `repo`, `workflow`, `gist`, `read:org`, `write:packages` scopes.
+- Pre-re-seed remote state: `gh repo view GeorgeQLe/letterboxd-mobile-clone --json visibility,isEmpty,defaultBranchRef` returned `{"defaultBranchRef":{"name":""},"isEmpty":true,"visibility":"PRIVATE"}` — Step 6.7 blocker state reconfirmed, eligible for `--reconcile-existing` re-seed.
+- Preview evidence: `node scripts/seed-downstream-repos.mjs --target 075 --dry-run --preview-dir /tmp/mobile-ideas-letterboxd-reseed-preview` rendered the six template files (`.gitignore`, `README.md`, `docs/plans/README.md`, `docs/source-specs/075-letterboxd.md`, `tasks/roadmap.md`, `tasks/todo.md`); `rg "\{\{[A-Z0-9_]+\}\}" /tmp/mobile-ideas-letterboxd-reseed-preview` returned no matches (no unresolved placeholders).
+- Execute command: `node scripts/seed-downstream-repos.mjs --target 075 --execute --reconcile-existing --clone-dir /tmp/letterboxd-mobile-clone-reseed`. Utility skipped `gh repo create` (reconcile path), cloned the empty remote, committed, and pushed.
+- Seeded files: `.gitignore`, `README.md`, `docs/plans/README.md`, `docs/source-specs/075-letterboxd.md`, `tasks/roadmap.md`, `tasks/todo.md` (6 files, 495 insertions).
+- Downstream commit SHA: `6851ac9` (root commit, branch `main`, pushed to `GeorgeQLe/letterboxd-mobile-clone`).
+- Privacy status: `GeorgeQLe/letterboxd-mobile-clone` remained `PRIVATE` throughout; no visibility change occurred on any repo.
+- Post-verify evidence: `gh repo view GeorgeQLe/letterboxd-mobile-clone --json visibility,isEmpty,defaultBranchRef` returned `{"defaultBranchRef":{"name":"main"},"isEmpty":false,"visibility":"PRIVATE"}`; `gh api repos/GeorgeQLe/letterboxd-mobile-clone/contents/docs/source-specs --jq '.[].name'` returned `075-letterboxd.md`; `gh api repos/GeorgeQLe/letterboxd-mobile-clone/readme --jq .name` returned `README.md`.
+- Content-audit statement: no proprietary Letterboxd logos, screenshots, marketing copy, film metadata, private APIs, credentials, or real user data were introduced. The seeded repo contains only the shared downstream template files and a verbatim copy of `specs/batch-04/075-letterboxd.md` from this spec store.
+- Manifest impact: ID 075 `Per-Repo Checklist` row flipped from `[ ]` to `[x]`; Step 6.7 Batch 04 per-repo table row for ID 075 updated with the new commit SHA; Step 6.7 Failures And Blockers entry marked resolved and cross-linked here. Phase 6 acceptance criterion `All 100 downstream repos exist or have explicit blocker notes in tasks/repo-seeding.md` now holds with the stronger statement: 100 of 100 downstream repos seeded.
+- New blockers observed: none.
+
 ### Batch Progress
 
 - Dry-run target selected: `GeorgeQLe/evernote-mobile-clone`.
@@ -337,14 +351,14 @@ Guardrails:
 - Public-release review docs: ready for review; publication still blocked pending explicit approval.
 - Remote dry-run execution: completed 2026-04-20; private `GeorgeQLe/evernote-mobile-clone` seeded at commit `278b06d`.
 - Todoist reconciliation: completed 2026-04-20; `GeorgeQLe/todoist-mobile-clone` aligned at commit `ffcdbc0`, pre-template Todoist scaffold preserved as `keep-with-note`.
-- Step 6.7 batch seeding: completed 2026-04-20; 97 of 98 remaining downstream repos created private and seeded. Batch 01 (IDs 001-020), 02 (021-040), 03 (041-060), 04 (061-080), 05 (081-100 minus 090 and 093) all complete except ID 075 Letterboxd, recorded as an explicit blocker (repo created but clone-after-create failed on GitHub propagation; left unseeded per stop-on-failure contract).
+- Step 6.7 batch seeding: completed 2026-04-20; 97 of 98 remaining downstream repos created private and seeded. Batch 01 (IDs 001-020), 02 (021-040), 03 (041-060), 04 (061-080), 05 (081-100 minus 090 and 093) all complete except ID 075 Letterboxd, recorded as an explicit blocker (repo created but clone-after-create failed on GitHub propagation; left unseeded per stop-on-failure contract). Letterboxd blocker resolved 2026-04-20 in Step 6.8a (re-seed at downstream commit `6851ac9`).
 
 ### Failures And Blockers
 
 - No Step 6.1 manifest, source-spec, or checked-row blockers found.
 - No Step 6.3 local dry-run blockers found.
 - Step 6.5 blocker (resolved 2026-04-20): the seeding utility's internal `gh auth status` check had failed twice for `GeorgeQLe/evernote-mobile-clone` with an invalid default token. Re-authentication via `gh auth login` (manual task) restored keyring-backed credentials; the rerun succeeded and seeded the private repo at commit `278b06d`.
-- Step 6.7 blocker (2026-04-20) for ID 075 `GeorgeQLe/letterboxd-mobile-clone`: `gh repo create` succeeded (private repo visible via `gh repo view --json visibility` → `PRIVATE`, created 2026-04-20T18:44:21Z), but the immediately-following `gh repo clone GeorgeQLe/letterboxd-mobile-clone /Users/georgele/projects/mobile/dev/letterboxd-mobile-clone` failed with `GraphQL: Could not resolve to a Repository with the name 'GeorgeQLe/letterboxd-mobile-clone'. (repository)` — a GitHub API propagation lag between create and clone. Per the Step 6.7 stop-on-failure contract, no retry was attempted; the created remote repo remains unseeded (no README/source-spec/tasks pushed) and the manifest row 075 stays unchecked until a future reconciliation pass seeds it. The previously-written "Step 6.3 blocker" line for this event (auto-labelled by the seeding utility) has been consolidated into this Step 6.7 blocker entry.
+- Step 6.7 blocker (2026-04-20, RESOLVED 2026-04-20 in Step 6.8a — see `### Step 6.8a Letterboxd Re-Seed - 2026-04-20`) for ID 075 `GeorgeQLe/letterboxd-mobile-clone`: `gh repo create` succeeded (private repo visible via `gh repo view --json visibility` → `PRIVATE`, created 2026-04-20T18:44:21Z), but the immediately-following `gh repo clone GeorgeQLe/letterboxd-mobile-clone /Users/georgele/projects/mobile/dev/letterboxd-mobile-clone` failed with `GraphQL: Could not resolve to a Repository with the name 'GeorgeQLe/letterboxd-mobile-clone'. (repository)` — a GitHub API propagation lag between create and clone. Per the Step 6.7 stop-on-failure contract, no retry was attempted; the created remote repo remained unseeded (no README/source-spec/tasks pushed) and the manifest row 075 stayed unchecked until Step 6.8a re-seeded it via `--reconcile-existing` at downstream commit `6851ac9`. The previously-written "Step 6.3 blocker" line for this event (auto-labelled by the seeding utility) has been consolidated into this Step 6.7 blocker entry.
 - Human review may still be needed for repo-name or visibility questions recorded during later automated runs.
 
 ### Explicit Private-Repo Decisions
@@ -431,7 +445,7 @@ Guardrails:
 | [x] | 072 | Netflix | `GeorgeQLe/netflix-mobile-clone` | `specs/batch-04/072-netflix.md` |
 | [x] | 073 | YouTube | `GeorgeQLe/youtube-mobile-clone` | `specs/batch-04/073-youtube.md` |
 | [x] | 074 | Twitch | `GeorgeQLe/twitch-mobile-clone` | `specs/batch-04/074-twitch.md` |
-| [ ] | 075 | Letterboxd | `GeorgeQLe/letterboxd-mobile-clone` | `specs/batch-04/075-letterboxd.md` |
+| [x] | 075 | Letterboxd | `GeorgeQLe/letterboxd-mobile-clone` | `specs/batch-04/075-letterboxd.md` |
 | [x] | 076 | IMDb | `GeorgeQLe/imdb-mobile-clone` | `specs/batch-04/076-imdb.md` |
 | [x] | 077 | Duolingo | `GeorgeQLe/duolingo-mobile-clone` | `specs/batch-04/077-duolingo.md` |
 | [x] | 078 | Khan Academy | `GeorgeQLe/khan-academy-mobile-clone` | `specs/batch-04/078-khan-academy.md` |
