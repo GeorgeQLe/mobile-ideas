@@ -190,13 +190,13 @@ function parseManifest() {
     if (!doneMatch) {
       throw new SeedError(`Manifest row ${i + 1} has invalid Done value: ${record.Done}`);
     }
-    if (!/^\d{3}$/.test(record.ID)) {
+    if (!/^\d{3,4}$/.test(record.ID)) {
       throw new SeedError(`Manifest row ${i + 1} has invalid ID: ${record.ID}`);
     }
     const targetRepo = stripBackticks(record["Target Repo"]);
     const sourceSpec = stripBackticks(record["Source Spec"]);
     validateRepo(targetRepo, record);
-    if (!/^specs\/batch-\d{2}\/\d{3}-[a-z0-9-]+\.md$/.test(sourceSpec)) {
+    if (!/^specs\/batch-\d{2}\/\d{3,4}-[a-z0-9-]+\.md$/.test(sourceSpec)) {
       throw new SeedError(`Manifest row ${i + 1} has invalid source spec path: ${sourceSpec}`, {
         row: record,
       });
@@ -211,8 +211,8 @@ function parseManifest() {
     });
   }
 
-  if (rows.length !== 100) {
-    throw new SeedError(`Manifest must contain exactly 100 target rows; found ${rows.length}.`);
+  if (rows.length < 1) {
+    throw new SeedError("Manifest must contain at least one target row.");
   }
 
   return { markdown, rows };
