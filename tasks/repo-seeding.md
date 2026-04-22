@@ -645,7 +645,51 @@ Guardrails:
 | 259 | `GeorgeQLe/gopro-quik-mobile-clone` | PRIVATE | seeded |
 | 260 | `GeorgeQLe/vivavideo-mobile-clone` | PRIVATE | seeded |
 
+### Batch 261-272 Repaired Seeding Evidence - 2026-04-22T02:59:32Z
+
+- Execution mode: serial private seeding with interrupted continuations and one `--reconcile-existing` repair.
+- Recovery path: IDs 261-263 seeded before a GitHub GraphQL timeout at 264; IDs 264-271 seeded after retry; ID 272 was created private and then repaired with `scripts/seed-downstream-repos.mjs --target 272 --execute --reconcile-existing`.
+- Post-repair rate limit check: `{"core":{"limit":5000,"remaining":4943,"reset":1776828807,"used":57},"graphql":{"limit":5000,"remaining":4926,"reset":1776827963,"used":74},"search":{"limit":30,"remaining":30,"reset":1776826918,"used":0}}`
+- Verification: repaired blockers were rechecked on GitHub as private repos with `main` default branches, root `README.md` files, and copied source specs at `docs/source-specs/264-descript.md` and `docs/source-specs/272-deezer.md`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 261 | `GeorgeQLe/videoshow-mobile-clone` | PRIVATE | seeded |
+| 262 | `GeorgeQLe/powerdirector-mobile-clone` | PRIVATE | seeded |
+| 263 | `GeorgeQLe/adobe-premiere-rush-mobile-clone` | PRIVATE | seeded |
+| 264 | `GeorgeQLe/descript-mobile-clone` | PRIVATE | seeded after retry |
+| 265 | `GeorgeQLe/captions-mobile-clone` | PRIVATE | seeded |
+| 266 | `GeorgeQLe/opusclip-mobile-clone` | PRIVATE | seeded |
+| 267 | `GeorgeQLe/veed-mobile-clone` | PRIVATE | seeded |
+| 268 | `GeorgeQLe/tiktok-studio-mobile-clone` | PRIVATE | seeded |
+| 269 | `GeorgeQLe/youtube-create-mobile-clone` | PRIVATE | seeded |
+| 270 | `GeorgeQLe/shazam-mobile-clone` | PRIVATE | seeded |
+| 271 | `GeorgeQLe/bandcamp-mobile-clone` | PRIVATE | seeded |
+| 272 | `GeorgeQLe/deezer-mobile-clone` | PRIVATE | seeded after reconcile-existing |
+
+### Batch 273-280 Seeding Evidence - 2026-04-22T02:59:32.867Z
+
+- Execution mode: serial private seeding with 8 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4975,"reset":1776828807,"used":25},"graphql":{"limit":5000,"remaining":4958,"reset":1776827963,"used":42},"search":{"limit":30,"remaining":30,"reset":1776825927,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4951,"reset":1776828807,"used":49},"graphql":{"limit":5000,"remaining":4926,"reset":1776827963,"used":74},"search":{"limit":30,"remaining":30,"reset":1776826832,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 273 | `GeorgeQLe/tidal-mobile-clone` | PRIVATE | seeded |
+| 274 | `GeorgeQLe/pandora-mobile-clone` | PRIVATE | seeded |
+| 275 | `GeorgeQLe/iheartradio-mobile-clone` | PRIVATE | seeded |
+| 276 | `GeorgeQLe/siriusxm-mobile-clone` | PRIVATE | seeded |
+| 277 | `GeorgeQLe/tunein-radio-mobile-clone` | PRIVATE | seeded |
+| 278 | `GeorgeQLe/amazon-music-mobile-clone` | PRIVATE | seeded |
+| 279 | `GeorgeQLe/qobuz-mobile-clone` | PRIVATE | seeded |
+| 280 | `GeorgeQLe/anghami-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
+
+- Step 6.3 blocker (2026-04-22T02:43:52.819Z, RESOLVED 2026-04-22 in `### Batch 261-272 Repaired Seeding Evidence - 2026-04-22T02:59:32Z`) for GeorgeQLe/deezer-mobile-clone: `gh repo clone GeorgeQLe/deezer-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/deezer-mobile-clone` failed after the repo was created private. The remote was verified as PRIVATE and then seeded with `--reconcile-existing`.
+
+- Step 6.3 blocker (2026-04-22T02:05:52.452Z, RESOLVED 2026-04-22 in `### Batch 261-272 Repaired Seeding Evidence - 2026-04-22T02:59:32Z`) for GeorgeQLe/descript-mobile-clone: target repo existence check failed with a GitHub GraphQL timeout before repo creation. The retry created and seeded the repo as PRIVATE with README and copied source spec verified.
 
 - Step 6.3 blocker (2026-04-21T19:26:15.427Z, RESOLVED 2026-04-21 in `### Batch 201-216 Partial Seeding Evidence - 2026-04-21T19:28:23Z`) for GeorgeQLe/quillbot-mobile-clone: `gh repo create` returned the private repo URL, but the immediately-following `gh repo clone GeorgeQLe/quillbot-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/quillbot-mobile-clone` failed with `GraphQL: Could not resolve to a Repository with the name 'GeorgeQLe/quillbot-mobile-clone'. (repository)`. The remote was verified as PRIVATE and empty, then seeded with `--reconcile-existing` at downstream commit `f6e5265`.
 
@@ -926,26 +970,26 @@ Guardrails:
 | [x] | 258 | Magisto | `GeorgeQLe/magisto-mobile-clone` | `specs/batch-13/258-magisto.md` |
 | [x] | 259 | GoPro Quik | `GeorgeQLe/gopro-quik-mobile-clone` | `specs/batch-13/259-gopro-quik.md` |
 | [x] | 260 | VivaVideo | `GeorgeQLe/vivavideo-mobile-clone` | `specs/batch-13/260-vivavideo.md` |
-| [ ] | 261 | VideoShow | `GeorgeQLe/videoshow-mobile-clone` | `specs/batch-14/261-videoshow.md` |
-| [ ] | 262 | PowerDirector | `GeorgeQLe/powerdirector-mobile-clone` | `specs/batch-14/262-powerdirector.md` |
-| [ ] | 263 | Adobe Premiere Rush | `GeorgeQLe/adobe-premiere-rush-mobile-clone` | `specs/batch-14/263-adobe-premiere-rush.md` |
-| [ ] | 264 | Descript | `GeorgeQLe/descript-mobile-clone` | `specs/batch-14/264-descript.md` |
-| [ ] | 265 | Captions | `GeorgeQLe/captions-mobile-clone` | `specs/batch-14/265-captions.md` |
-| [ ] | 266 | OpusClip | `GeorgeQLe/opusclip-mobile-clone` | `specs/batch-14/266-opusclip.md` |
-| [ ] | 267 | VEED | `GeorgeQLe/veed-mobile-clone` | `specs/batch-14/267-veed.md` |
-| [ ] | 268 | TikTok Studio | `GeorgeQLe/tiktok-studio-mobile-clone` | `specs/batch-14/268-tiktok-studio.md` |
-| [ ] | 269 | YouTube Create | `GeorgeQLe/youtube-create-mobile-clone` | `specs/batch-14/269-youtube-create.md` |
-| [ ] | 270 | Shazam | `GeorgeQLe/shazam-mobile-clone` | `specs/batch-14/270-shazam.md` |
-| [ ] | 271 | Bandcamp | `GeorgeQLe/bandcamp-mobile-clone` | `specs/batch-14/271-bandcamp.md` |
-| [ ] | 272 | Deezer | `GeorgeQLe/deezer-mobile-clone` | `specs/batch-14/272-deezer.md` |
-| [ ] | 273 | TIDAL | `GeorgeQLe/tidal-mobile-clone` | `specs/batch-14/273-tidal.md` |
-| [ ] | 274 | Pandora | `GeorgeQLe/pandora-mobile-clone` | `specs/batch-14/274-pandora.md` |
-| [ ] | 275 | iHeartRadio | `GeorgeQLe/iheartradio-mobile-clone` | `specs/batch-14/275-iheartradio.md` |
-| [ ] | 276 | SiriusXM | `GeorgeQLe/siriusxm-mobile-clone` | `specs/batch-14/276-siriusxm.md` |
-| [ ] | 277 | TuneIn Radio | `GeorgeQLe/tunein-radio-mobile-clone` | `specs/batch-14/277-tunein-radio.md` |
-| [ ] | 278 | Amazon Music | `GeorgeQLe/amazon-music-mobile-clone` | `specs/batch-14/278-amazon-music.md` |
-| [ ] | 279 | Qobuz | `GeorgeQLe/qobuz-mobile-clone` | `specs/batch-14/279-qobuz.md` |
-| [ ] | 280 | Anghami | `GeorgeQLe/anghami-mobile-clone` | `specs/batch-14/280-anghami.md` |
+| [x] | 261 | VideoShow | `GeorgeQLe/videoshow-mobile-clone` | `specs/batch-14/261-videoshow.md` |
+| [x] | 262 | PowerDirector | `GeorgeQLe/powerdirector-mobile-clone` | `specs/batch-14/262-powerdirector.md` |
+| [x] | 263 | Adobe Premiere Rush | `GeorgeQLe/adobe-premiere-rush-mobile-clone` | `specs/batch-14/263-adobe-premiere-rush.md` |
+| [x] | 264 | Descript | `GeorgeQLe/descript-mobile-clone` | `specs/batch-14/264-descript.md` |
+| [x] | 265 | Captions | `GeorgeQLe/captions-mobile-clone` | `specs/batch-14/265-captions.md` |
+| [x] | 266 | OpusClip | `GeorgeQLe/opusclip-mobile-clone` | `specs/batch-14/266-opusclip.md` |
+| [x] | 267 | VEED | `GeorgeQLe/veed-mobile-clone` | `specs/batch-14/267-veed.md` |
+| [x] | 268 | TikTok Studio | `GeorgeQLe/tiktok-studio-mobile-clone` | `specs/batch-14/268-tiktok-studio.md` |
+| [x] | 269 | YouTube Create | `GeorgeQLe/youtube-create-mobile-clone` | `specs/batch-14/269-youtube-create.md` |
+| [x] | 270 | Shazam | `GeorgeQLe/shazam-mobile-clone` | `specs/batch-14/270-shazam.md` |
+| [x] | 271 | Bandcamp | `GeorgeQLe/bandcamp-mobile-clone` | `specs/batch-14/271-bandcamp.md` |
+| [x] | 272 | Deezer | `GeorgeQLe/deezer-mobile-clone` | `specs/batch-14/272-deezer.md` |
+| [x] | 273 | TIDAL | `GeorgeQLe/tidal-mobile-clone` | `specs/batch-14/273-tidal.md` |
+| [x] | 274 | Pandora | `GeorgeQLe/pandora-mobile-clone` | `specs/batch-14/274-pandora.md` |
+| [x] | 275 | iHeartRadio | `GeorgeQLe/iheartradio-mobile-clone` | `specs/batch-14/275-iheartradio.md` |
+| [x] | 276 | SiriusXM | `GeorgeQLe/siriusxm-mobile-clone` | `specs/batch-14/276-siriusxm.md` |
+| [x] | 277 | TuneIn Radio | `GeorgeQLe/tunein-radio-mobile-clone` | `specs/batch-14/277-tunein-radio.md` |
+| [x] | 278 | Amazon Music | `GeorgeQLe/amazon-music-mobile-clone` | `specs/batch-14/278-amazon-music.md` |
+| [x] | 279 | Qobuz | `GeorgeQLe/qobuz-mobile-clone` | `specs/batch-14/279-qobuz.md` |
+| [x] | 280 | Anghami | `GeorgeQLe/anghami-mobile-clone` | `specs/batch-14/280-anghami.md` |
 | [ ] | 281 | Musixmatch | `GeorgeQLe/musixmatch-mobile-clone` | `specs/batch-15/281-musixmatch.md` |
 | [ ] | 282 | GarageBand | `GeorgeQLe/garageband-mobile-clone` | `specs/batch-15/282-garageband.md` |
 | [ ] | 283 | BandLab | `GeorgeQLe/bandlab-mobile-clone` | `specs/batch-15/283-bandlab.md` |
