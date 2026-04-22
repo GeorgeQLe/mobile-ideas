@@ -906,6 +906,36 @@ Guardrails:
 | 419 | `GeorgeQLe/gopuff-mobile-clone` | PRIVATE | seeded |
 | 420 | `GeorgeQLe/deliveroo-mobile-clone` | PRIVATE | seeded |
 
+### Batch 421-440 Seeding Evidence - 2026-04-22T17:12:00.274Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4826,"reset":1776877576,"used":174},"graphql":{"limit":5000,"remaining":4953,"reset":1776878168,"used":47},"search":{"limit":30,"remaining":30,"reset":1776877230,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4916,"reset":1776881189,"used":84},"graphql":{"limit":5000,"remaining":4872,"reset":1776878168,"used":128},"search":{"limit":30,"remaining":30,"reset":1776877980,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 421 | `GeorgeQLe/just-eat-mobile-clone` | PRIVATE | seeded |
+| 422 | `GeorgeQLe/glovo-mobile-clone` | PRIVATE | seeded |
+| 423 | `GeorgeQLe/bolt-food-mobile-clone` | PRIVATE | seeded |
+| 424 | `GeorgeQLe/foodpanda-mobile-clone` | PRIVATE | seeded |
+| 425 | `GeorgeQLe/swiggy-mobile-clone` | PRIVATE | seeded |
+| 426 | `GeorgeQLe/zomato-mobile-clone` | PRIVATE | seeded |
+| 427 | `GeorgeQLe/rappi-mobile-clone` | PRIVATE | seeded |
+| 428 | `GeorgeQLe/grab-mobile-clone` | PRIVATE | seeded |
+| 429 | `GeorgeQLe/gojek-mobile-clone` | PRIVATE | seeded |
+| 430 | `GeorgeQLe/didi-food-mobile-clone` | PRIVATE | seeded |
+| 431 | `GeorgeQLe/meituan-mobile-clone` | PRIVATE | seeded |
+| 432 | `GeorgeQLe/ele-me-mobile-clone` | PRIVATE | seeded |
+| 433 | `GeorgeQLe/deliveroo-rider-mobile-clone` | PRIVATE | seeded |
+| 434 | `GeorgeQLe/doordash-dasher-mobile-clone` | PRIVATE | seeded |
+| 435 | `GeorgeQLe/uber-driver-mobile-clone` | PRIVATE | seeded |
+| 436 | `GeorgeQLe/instacart-shopper-mobile-clone` | PRIVATE | seeded |
+| 437 | `GeorgeQLe/shipt-mobile-clone` | PRIVATE | seeded |
+| 438 | `GeorgeQLe/favor-mobile-clone` | PRIVATE | seeded |
+| 439 | `GeorgeQLe/skipthedishes-mobile-clone` | PRIVATE | seeded |
+| 440 | `GeorgeQLe/talabat-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
 
 - Step 6.3 blocker (2026-04-22T03:22:40.628Z, RESOLVED 2026-04-22 in `### Batch 281-290 Repaired Seeding Evidence - 2026-04-22T03:28:27Z`) for GeorgeQLe/jbl-portable-mobile-clone: `gh repo clone GeorgeQLe/jbl-portable-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/jbl-portable-mobile-clone` failed after the repo was created private. The remote was verified as PRIVATE and then seeded with `--reconcile-existing`.
@@ -1355,26 +1385,26 @@ Guardrails:
 | [x] | 418 | Grubhub | `GeorgeQLe/grubhub-mobile-clone` | `specs/batch-21/418-grubhub.md` |
 | [x] | 419 | Gopuff | `GeorgeQLe/gopuff-mobile-clone` | `specs/batch-21/419-gopuff.md` |
 | [x] | 420 | Deliveroo | `GeorgeQLe/deliveroo-mobile-clone` | `specs/batch-21/420-deliveroo.md` |
-| [ ] | 421 | Just Eat | `GeorgeQLe/just-eat-mobile-clone` | `specs/batch-22/421-just-eat.md` |
-| [ ] | 422 | Glovo | `GeorgeQLe/glovo-mobile-clone` | `specs/batch-22/422-glovo.md` |
-| [ ] | 423 | Bolt Food | `GeorgeQLe/bolt-food-mobile-clone` | `specs/batch-22/423-bolt-food.md` |
-| [ ] | 424 | foodpanda | `GeorgeQLe/foodpanda-mobile-clone` | `specs/batch-22/424-foodpanda.md` |
-| [ ] | 425 | Swiggy | `GeorgeQLe/swiggy-mobile-clone` | `specs/batch-22/425-swiggy.md` |
-| [ ] | 426 | Zomato | `GeorgeQLe/zomato-mobile-clone` | `specs/batch-22/426-zomato.md` |
-| [ ] | 427 | Rappi | `GeorgeQLe/rappi-mobile-clone` | `specs/batch-22/427-rappi.md` |
-| [ ] | 428 | Grab | `GeorgeQLe/grab-mobile-clone` | `specs/batch-22/428-grab.md` |
-| [ ] | 429 | Gojek | `GeorgeQLe/gojek-mobile-clone` | `specs/batch-22/429-gojek.md` |
-| [ ] | 430 | DiDi Food | `GeorgeQLe/didi-food-mobile-clone` | `specs/batch-22/430-didi-food.md` |
-| [ ] | 431 | Meituan | `GeorgeQLe/meituan-mobile-clone` | `specs/batch-22/431-meituan.md` |
-| [ ] | 432 | Ele.me | `GeorgeQLe/ele-me-mobile-clone` | `specs/batch-22/432-ele-me.md` |
-| [ ] | 433 | Deliveroo Rider | `GeorgeQLe/deliveroo-rider-mobile-clone` | `specs/batch-22/433-deliveroo-rider.md` |
-| [ ] | 434 | DoorDash Dasher | `GeorgeQLe/doordash-dasher-mobile-clone` | `specs/batch-22/434-doordash-dasher.md` |
-| [ ] | 435 | Uber Driver | `GeorgeQLe/uber-driver-mobile-clone` | `specs/batch-22/435-uber-driver.md` |
-| [ ] | 436 | Instacart Shopper | `GeorgeQLe/instacart-shopper-mobile-clone` | `specs/batch-22/436-instacart-shopper.md` |
-| [ ] | 437 | Shipt | `GeorgeQLe/shipt-mobile-clone` | `specs/batch-22/437-shipt.md` |
-| [ ] | 438 | Favor | `GeorgeQLe/favor-mobile-clone` | `specs/batch-22/438-favor.md` |
-| [ ] | 439 | SkipTheDishes | `GeorgeQLe/skipthedishes-mobile-clone` | `specs/batch-22/439-skipthedishes.md` |
-| [ ] | 440 | Talabat | `GeorgeQLe/talabat-mobile-clone` | `specs/batch-22/440-talabat.md` |
+| [x] | 421 | Just Eat | `GeorgeQLe/just-eat-mobile-clone` | `specs/batch-22/421-just-eat.md` |
+| [x] | 422 | Glovo | `GeorgeQLe/glovo-mobile-clone` | `specs/batch-22/422-glovo.md` |
+| [x] | 423 | Bolt Food | `GeorgeQLe/bolt-food-mobile-clone` | `specs/batch-22/423-bolt-food.md` |
+| [x] | 424 | foodpanda | `GeorgeQLe/foodpanda-mobile-clone` | `specs/batch-22/424-foodpanda.md` |
+| [x] | 425 | Swiggy | `GeorgeQLe/swiggy-mobile-clone` | `specs/batch-22/425-swiggy.md` |
+| [x] | 426 | Zomato | `GeorgeQLe/zomato-mobile-clone` | `specs/batch-22/426-zomato.md` |
+| [x] | 427 | Rappi | `GeorgeQLe/rappi-mobile-clone` | `specs/batch-22/427-rappi.md` |
+| [x] | 428 | Grab | `GeorgeQLe/grab-mobile-clone` | `specs/batch-22/428-grab.md` |
+| [x] | 429 | Gojek | `GeorgeQLe/gojek-mobile-clone` | `specs/batch-22/429-gojek.md` |
+| [x] | 430 | DiDi Food | `GeorgeQLe/didi-food-mobile-clone` | `specs/batch-22/430-didi-food.md` |
+| [x] | 431 | Meituan | `GeorgeQLe/meituan-mobile-clone` | `specs/batch-22/431-meituan.md` |
+| [x] | 432 | Ele.me | `GeorgeQLe/ele-me-mobile-clone` | `specs/batch-22/432-ele-me.md` |
+| [x] | 433 | Deliveroo Rider | `GeorgeQLe/deliveroo-rider-mobile-clone` | `specs/batch-22/433-deliveroo-rider.md` |
+| [x] | 434 | DoorDash Dasher | `GeorgeQLe/doordash-dasher-mobile-clone` | `specs/batch-22/434-doordash-dasher.md` |
+| [x] | 435 | Uber Driver | `GeorgeQLe/uber-driver-mobile-clone` | `specs/batch-22/435-uber-driver.md` |
+| [x] | 436 | Instacart Shopper | `GeorgeQLe/instacart-shopper-mobile-clone` | `specs/batch-22/436-instacart-shopper.md` |
+| [x] | 437 | Shipt | `GeorgeQLe/shipt-mobile-clone` | `specs/batch-22/437-shipt.md` |
+| [x] | 438 | Favor | `GeorgeQLe/favor-mobile-clone` | `specs/batch-22/438-favor.md` |
+| [x] | 439 | SkipTheDishes | `GeorgeQLe/skipthedishes-mobile-clone` | `specs/batch-22/439-skipthedishes.md` |
+| [x] | 440 | Talabat | `GeorgeQLe/talabat-mobile-clone` | `specs/batch-22/440-talabat.md` |
 | [ ] | 441 | Mr D Food | `GeorgeQLe/mr-d-food-mobile-clone` | `specs/batch-23/441-mr-d-food.md` |
 | [ ] | 442 | Best Buy | `GeorgeQLe/best-buy-mobile-clone` | `specs/batch-23/442-best-buy.md` |
 | [ ] | 443 | Home Depot | `GeorgeQLe/home-depot-mobile-clone` | `specs/batch-23/443-home-depot.md` |
