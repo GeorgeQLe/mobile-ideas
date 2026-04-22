@@ -615,6 +615,36 @@ Guardrails:
 | 239 | `GeorgeQLe/photoroom-mobile-clone` | PRIVATE | seeded |
 | 240 | `GeorgeQLe/pixelcut-mobile-clone` | PRIVATE | seeded |
 
+### Batch 241-260 Seeding Evidence - 2026-04-22T00:15:33.255Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":5000,"reset":1776819856,"used":0},"graphql":{"limit":5000,"remaining":4998,"reset":1776818882,"used":2},"search":{"limit":30,"remaining":30,"reset":1776816316,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4940,"reset":1776819856,"used":60},"graphql":{"limit":5000,"remaining":4905,"reset":1776818882,"used":95},"search":{"limit":30,"remaining":30,"reset":1776816993,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 241 | `GeorgeQLe/lensa-mobile-clone` | PRIVATE | seeded |
+| 242 | `GeorgeQLe/remini-mobile-clone` | PRIVATE | seeded |
+| 243 | `GeorgeQLe/piccollage-mobile-clone` | PRIVATE | seeded |
+| 244 | `GeorgeQLe/layout-mobile-clone` | PRIVATE | seeded |
+| 245 | `GeorgeQLe/hypic-mobile-clone` | PRIVATE | seeded |
+| 246 | `GeorgeQLe/tezza-mobile-clone` | PRIVATE | seeded |
+| 247 | `GeorgeQLe/unfold-mobile-clone` | PRIVATE | seeded |
+| 248 | `GeorgeQLe/inshot-mobile-clone` | PRIVATE | seeded |
+| 249 | `GeorgeQLe/vn-video-editor-mobile-clone` | PRIVATE | seeded |
+| 250 | `GeorgeQLe/kinemaster-mobile-clone` | PRIVATE | seeded |
+| 251 | `GeorgeQLe/splice-mobile-clone` | PRIVATE | seeded |
+| 252 | `GeorgeQLe/lumafusion-mobile-clone` | PRIVATE | seeded |
+| 253 | `GeorgeQLe/videoleap-mobile-clone` | PRIVATE | seeded |
+| 254 | `GeorgeQLe/filmora-mobile-clone` | PRIVATE | seeded |
+| 255 | `GeorgeQLe/alight-motion-mobile-clone` | PRIVATE | seeded |
+| 256 | `GeorgeQLe/mojo-mobile-clone` | PRIVATE | seeded |
+| 257 | `GeorgeQLe/apple-clips-mobile-clone` | PRIVATE | seeded |
+| 258 | `GeorgeQLe/magisto-mobile-clone` | PRIVATE | seeded |
+| 259 | `GeorgeQLe/gopro-quik-mobile-clone` | PRIVATE | seeded |
+| 260 | `GeorgeQLe/vivavideo-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
 
 - Step 6.3 blocker (2026-04-21T19:26:15.427Z, RESOLVED 2026-04-21 in `### Batch 201-216 Partial Seeding Evidence - 2026-04-21T19:28:23Z`) for GeorgeQLe/quillbot-mobile-clone: `gh repo create` returned the private repo URL, but the immediately-following `gh repo clone GeorgeQLe/quillbot-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/quillbot-mobile-clone` failed with `GraphQL: Could not resolve to a Repository with the name 'GeorgeQLe/quillbot-mobile-clone'. (repository)`. The remote was verified as PRIVATE and empty, then seeded with `--reconcile-existing` at downstream commit `f6e5265`.
@@ -876,26 +906,26 @@ Guardrails:
 | [x] | 238 | Polish | `GeorgeQLe/polish-mobile-clone` | `specs/batch-12/238-polish.md` |
 | [x] | 239 | PhotoRoom | `GeorgeQLe/photoroom-mobile-clone` | `specs/batch-12/239-photoroom.md` |
 | [x] | 240 | Pixelcut | `GeorgeQLe/pixelcut-mobile-clone` | `specs/batch-12/240-pixelcut.md` |
-| [ ] | 241 | Lensa | `GeorgeQLe/lensa-mobile-clone` | `specs/batch-13/241-lensa.md` |
-| [ ] | 242 | Remini | `GeorgeQLe/remini-mobile-clone` | `specs/batch-13/242-remini.md` |
-| [ ] | 243 | PicCollage | `GeorgeQLe/piccollage-mobile-clone` | `specs/batch-13/243-piccollage.md` |
-| [ ] | 244 | Layout | `GeorgeQLe/layout-mobile-clone` | `specs/batch-13/244-layout.md` |
-| [ ] | 245 | Hypic | `GeorgeQLe/hypic-mobile-clone` | `specs/batch-13/245-hypic.md` |
-| [ ] | 246 | Tezza | `GeorgeQLe/tezza-mobile-clone` | `specs/batch-13/246-tezza.md` |
-| [ ] | 247 | Unfold | `GeorgeQLe/unfold-mobile-clone` | `specs/batch-13/247-unfold.md` |
-| [ ] | 248 | InShot | `GeorgeQLe/inshot-mobile-clone` | `specs/batch-13/248-inshot.md` |
-| [ ] | 249 | VN Video Editor | `GeorgeQLe/vn-video-editor-mobile-clone` | `specs/batch-13/249-vn-video-editor.md` |
-| [ ] | 250 | KineMaster | `GeorgeQLe/kinemaster-mobile-clone` | `specs/batch-13/250-kinemaster.md` |
-| [ ] | 251 | Splice | `GeorgeQLe/splice-mobile-clone` | `specs/batch-13/251-splice.md` |
-| [ ] | 252 | LumaFusion | `GeorgeQLe/lumafusion-mobile-clone` | `specs/batch-13/252-lumafusion.md` |
-| [ ] | 253 | Videoleap | `GeorgeQLe/videoleap-mobile-clone` | `specs/batch-13/253-videoleap.md` |
-| [ ] | 254 | Filmora | `GeorgeQLe/filmora-mobile-clone` | `specs/batch-13/254-filmora.md` |
-| [ ] | 255 | Alight Motion | `GeorgeQLe/alight-motion-mobile-clone` | `specs/batch-13/255-alight-motion.md` |
-| [ ] | 256 | Mojo | `GeorgeQLe/mojo-mobile-clone` | `specs/batch-13/256-mojo.md` |
-| [ ] | 257 | Apple Clips | `GeorgeQLe/apple-clips-mobile-clone` | `specs/batch-13/257-apple-clips.md` |
-| [ ] | 258 | Magisto | `GeorgeQLe/magisto-mobile-clone` | `specs/batch-13/258-magisto.md` |
-| [ ] | 259 | GoPro Quik | `GeorgeQLe/gopro-quik-mobile-clone` | `specs/batch-13/259-gopro-quik.md` |
-| [ ] | 260 | VivaVideo | `GeorgeQLe/vivavideo-mobile-clone` | `specs/batch-13/260-vivavideo.md` |
+| [x] | 241 | Lensa | `GeorgeQLe/lensa-mobile-clone` | `specs/batch-13/241-lensa.md` |
+| [x] | 242 | Remini | `GeorgeQLe/remini-mobile-clone` | `specs/batch-13/242-remini.md` |
+| [x] | 243 | PicCollage | `GeorgeQLe/piccollage-mobile-clone` | `specs/batch-13/243-piccollage.md` |
+| [x] | 244 | Layout | `GeorgeQLe/layout-mobile-clone` | `specs/batch-13/244-layout.md` |
+| [x] | 245 | Hypic | `GeorgeQLe/hypic-mobile-clone` | `specs/batch-13/245-hypic.md` |
+| [x] | 246 | Tezza | `GeorgeQLe/tezza-mobile-clone` | `specs/batch-13/246-tezza.md` |
+| [x] | 247 | Unfold | `GeorgeQLe/unfold-mobile-clone` | `specs/batch-13/247-unfold.md` |
+| [x] | 248 | InShot | `GeorgeQLe/inshot-mobile-clone` | `specs/batch-13/248-inshot.md` |
+| [x] | 249 | VN Video Editor | `GeorgeQLe/vn-video-editor-mobile-clone` | `specs/batch-13/249-vn-video-editor.md` |
+| [x] | 250 | KineMaster | `GeorgeQLe/kinemaster-mobile-clone` | `specs/batch-13/250-kinemaster.md` |
+| [x] | 251 | Splice | `GeorgeQLe/splice-mobile-clone` | `specs/batch-13/251-splice.md` |
+| [x] | 252 | LumaFusion | `GeorgeQLe/lumafusion-mobile-clone` | `specs/batch-13/252-lumafusion.md` |
+| [x] | 253 | Videoleap | `GeorgeQLe/videoleap-mobile-clone` | `specs/batch-13/253-videoleap.md` |
+| [x] | 254 | Filmora | `GeorgeQLe/filmora-mobile-clone` | `specs/batch-13/254-filmora.md` |
+| [x] | 255 | Alight Motion | `GeorgeQLe/alight-motion-mobile-clone` | `specs/batch-13/255-alight-motion.md` |
+| [x] | 256 | Mojo | `GeorgeQLe/mojo-mobile-clone` | `specs/batch-13/256-mojo.md` |
+| [x] | 257 | Apple Clips | `GeorgeQLe/apple-clips-mobile-clone` | `specs/batch-13/257-apple-clips.md` |
+| [x] | 258 | Magisto | `GeorgeQLe/magisto-mobile-clone` | `specs/batch-13/258-magisto.md` |
+| [x] | 259 | GoPro Quik | `GeorgeQLe/gopro-quik-mobile-clone` | `specs/batch-13/259-gopro-quik.md` |
+| [x] | 260 | VivaVideo | `GeorgeQLe/vivavideo-mobile-clone` | `specs/batch-13/260-vivavideo.md` |
 | [ ] | 261 | VideoShow | `GeorgeQLe/videoshow-mobile-clone` | `specs/batch-14/261-videoshow.md` |
 | [ ] | 262 | PowerDirector | `GeorgeQLe/powerdirector-mobile-clone` | `specs/batch-14/262-powerdirector.md` |
 | [ ] | 263 | Adobe Premiere Rush | `GeorgeQLe/adobe-premiere-rush-mobile-clone` | `specs/batch-14/263-adobe-premiere-rush.md` |
