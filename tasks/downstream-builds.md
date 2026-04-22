@@ -20,7 +20,7 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 - [x] 181-200 - Build planning pushed.
 - [x] 201-220 - Build planning pushed.
 - [x] 221-240 - Build planning pushed.
-- [ ] 241-260 - Ready for serial build-planning push after 221-240.
+- [x] 241-260 - Build planning pushed.
 
 ## Evidence
 
@@ -371,3 +371,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 238 | Polish | `GeorgeQLe/polish-mobile-clone` | build planning started |
 | 239 | PhotoRoom | `GeorgeQLe/photoroom-mobile-clone` | build planning started |
 | 240 | Pixelcut | `GeorgeQLe/pixelcut-mobile-clone` | build planning started |
+
+### Batch 241-260 Build Planning - 2026-04-22T00:56:14.353Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 241 | Lensa | `GeorgeQLe/lensa-mobile-clone` | build planning started |
+| 242 | Remini | `GeorgeQLe/remini-mobile-clone` | build planning started |
+| 243 | PicCollage | `GeorgeQLe/piccollage-mobile-clone` | build planning started |
+| 244 | Layout | `GeorgeQLe/layout-mobile-clone` | build planning started |
+| 245 | Hypic | `GeorgeQLe/hypic-mobile-clone` | build planning started |
+| 246 | Tezza | `GeorgeQLe/tezza-mobile-clone` | build planning started |
+| 247 | Unfold | `GeorgeQLe/unfold-mobile-clone` | build planning started |
+| 248 | InShot | `GeorgeQLe/inshot-mobile-clone` | build planning started |
+| 249 | VN Video Editor | `GeorgeQLe/vn-video-editor-mobile-clone` | build planning started |
+| 250 | KineMaster | `GeorgeQLe/kinemaster-mobile-clone` | build planning started |
+| 251 | Splice | `GeorgeQLe/splice-mobile-clone` | build planning started |
+| 252 | LumaFusion | `GeorgeQLe/lumafusion-mobile-clone` | build planning started |
+| 253 | Videoleap | `GeorgeQLe/videoleap-mobile-clone` | build planning started |
+| 254 | Filmora | `GeorgeQLe/filmora-mobile-clone` | build planning started |
+| 255 | Alight Motion | `GeorgeQLe/alight-motion-mobile-clone` | build planning started |
+| 256 | Mojo | `GeorgeQLe/mojo-mobile-clone` | build planning started |
+| 257 | Apple Clips | `GeorgeQLe/apple-clips-mobile-clone` | build planning started |
+| 258 | Magisto | `GeorgeQLe/magisto-mobile-clone` | build planning started |
+| 259 | GoPro Quik | `GeorgeQLe/gopro-quik-mobile-clone` | build planning started |
+| 260 | VivaVideo | `GeorgeQLe/vivavideo-mobile-clone` | build planning started |
