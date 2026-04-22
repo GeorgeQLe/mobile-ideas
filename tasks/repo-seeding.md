@@ -876,6 +876,36 @@ Guardrails:
 | 399 | `GeorgeQLe/albertsons-mobile-clone` | PRIVATE | seeded |
 | 400 | `GeorgeQLe/whole-foods-market-mobile-clone` | PRIVATE | seeded |
 
+### Batch 401-420 Seeding Evidence - 2026-04-22T16:16:12.560Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4706,"reset":1776873595,"used":294},"graphql":{"limit":5000,"remaining":4854,"reset":1776874543,"used":146},"search":{"limit":30,"remaining":30,"reset":1776873565,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4946,"reset":1776877576,"used":54},"graphql":{"limit":5000,"remaining":4996,"reset":1776878168,"used":4},"search":{"limit":30,"remaining":30,"reset":1776874632,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 401 | `GeorgeQLe/publix-mobile-clone` | PRIVATE | seeded |
+| 402 | `GeorgeQLe/h-e-b-mobile-clone` | PRIVATE | seeded |
+| 403 | `GeorgeQLe/meijer-mobile-clone` | PRIVATE | seeded |
+| 404 | `GeorgeQLe/aldi-mobile-clone` | PRIVATE | seeded |
+| 405 | `GeorgeQLe/lidl-mobile-clone` | PRIVATE | seeded |
+| 406 | `GeorgeQLe/wegmans-mobile-clone` | PRIVATE | seeded |
+| 407 | `GeorgeQLe/food-lion-mobile-clone` | PRIVATE | seeded |
+| 408 | `GeorgeQLe/giant-eagle-mobile-clone` | PRIVATE | seeded |
+| 409 | `GeorgeQLe/stop-and-shop-mobile-clone` | PRIVATE | seeded |
+| 410 | `GeorgeQLe/shoprite-mobile-clone` | PRIVATE | seeded |
+| 411 | `GeorgeQLe/freshdirect-mobile-clone` | PRIVATE | seeded |
+| 412 | `GeorgeQLe/misfits-market-mobile-clone` | PRIVATE | seeded |
+| 413 | `GeorgeQLe/thrive-market-mobile-clone` | PRIVATE | seeded |
+| 414 | `GeorgeQLe/ocado-mobile-clone` | PRIVATE | seeded |
+| 415 | `GeorgeQLe/carrefour-mobile-clone` | PRIVATE | seeded |
+| 416 | `GeorgeQLe/tesco-mobile-clone` | PRIVATE | seeded |
+| 417 | `GeorgeQLe/sainsbury-s-mobile-clone` | PRIVATE | seeded |
+| 418 | `GeorgeQLe/grubhub-mobile-clone` | PRIVATE | seeded |
+| 419 | `GeorgeQLe/gopuff-mobile-clone` | PRIVATE | seeded |
+| 420 | `GeorgeQLe/deliveroo-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
 
 - Step 6.3 blocker (2026-04-22T03:22:40.628Z, RESOLVED 2026-04-22 in `### Batch 281-290 Repaired Seeding Evidence - 2026-04-22T03:28:27Z`) for GeorgeQLe/jbl-portable-mobile-clone: `gh repo clone GeorgeQLe/jbl-portable-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/jbl-portable-mobile-clone` failed after the repo was created private. The remote was verified as PRIVATE and then seeded with `--reconcile-existing`.
@@ -1305,26 +1335,26 @@ Guardrails:
 | [x] | 398 | Safeway | `GeorgeQLe/safeway-mobile-clone` | `specs/batch-20/398-safeway.md` |
 | [x] | 399 | Albertsons | `GeorgeQLe/albertsons-mobile-clone` | `specs/batch-20/399-albertsons.md` |
 | [x] | 400 | Whole Foods Market | `GeorgeQLe/whole-foods-market-mobile-clone` | `specs/batch-20/400-whole-foods-market.md` |
-| [ ] | 401 | Publix | `GeorgeQLe/publix-mobile-clone` | `specs/batch-21/401-publix.md` |
-| [ ] | 402 | H-E-B | `GeorgeQLe/h-e-b-mobile-clone` | `specs/batch-21/402-h-e-b.md` |
-| [ ] | 403 | Meijer | `GeorgeQLe/meijer-mobile-clone` | `specs/batch-21/403-meijer.md` |
-| [ ] | 404 | Aldi | `GeorgeQLe/aldi-mobile-clone` | `specs/batch-21/404-aldi.md` |
-| [ ] | 405 | Lidl | `GeorgeQLe/lidl-mobile-clone` | `specs/batch-21/405-lidl.md` |
-| [ ] | 406 | Wegmans | `GeorgeQLe/wegmans-mobile-clone` | `specs/batch-21/406-wegmans.md` |
-| [ ] | 407 | Food Lion | `GeorgeQLe/food-lion-mobile-clone` | `specs/batch-21/407-food-lion.md` |
-| [ ] | 408 | Giant Eagle | `GeorgeQLe/giant-eagle-mobile-clone` | `specs/batch-21/408-giant-eagle.md` |
-| [ ] | 409 | Stop & Shop | `GeorgeQLe/stop-and-shop-mobile-clone` | `specs/batch-21/409-stop-and-shop.md` |
-| [ ] | 410 | ShopRite | `GeorgeQLe/shoprite-mobile-clone` | `specs/batch-21/410-shoprite.md` |
-| [ ] | 411 | FreshDirect | `GeorgeQLe/freshdirect-mobile-clone` | `specs/batch-21/411-freshdirect.md` |
-| [ ] | 412 | Misfits Market | `GeorgeQLe/misfits-market-mobile-clone` | `specs/batch-21/412-misfits-market.md` |
-| [ ] | 413 | Thrive Market | `GeorgeQLe/thrive-market-mobile-clone` | `specs/batch-21/413-thrive-market.md` |
-| [ ] | 414 | Ocado | `GeorgeQLe/ocado-mobile-clone` | `specs/batch-21/414-ocado.md` |
-| [ ] | 415 | Carrefour | `GeorgeQLe/carrefour-mobile-clone` | `specs/batch-21/415-carrefour.md` |
-| [ ] | 416 | Tesco | `GeorgeQLe/tesco-mobile-clone` | `specs/batch-21/416-tesco.md` |
-| [ ] | 417 | Sainsbury's | `GeorgeQLe/sainsbury-s-mobile-clone` | `specs/batch-21/417-sainsbury-s.md` |
-| [ ] | 418 | Grubhub | `GeorgeQLe/grubhub-mobile-clone` | `specs/batch-21/418-grubhub.md` |
-| [ ] | 419 | Gopuff | `GeorgeQLe/gopuff-mobile-clone` | `specs/batch-21/419-gopuff.md` |
-| [ ] | 420 | Deliveroo | `GeorgeQLe/deliveroo-mobile-clone` | `specs/batch-21/420-deliveroo.md` |
+| [x] | 401 | Publix | `GeorgeQLe/publix-mobile-clone` | `specs/batch-21/401-publix.md` |
+| [x] | 402 | H-E-B | `GeorgeQLe/h-e-b-mobile-clone` | `specs/batch-21/402-h-e-b.md` |
+| [x] | 403 | Meijer | `GeorgeQLe/meijer-mobile-clone` | `specs/batch-21/403-meijer.md` |
+| [x] | 404 | Aldi | `GeorgeQLe/aldi-mobile-clone` | `specs/batch-21/404-aldi.md` |
+| [x] | 405 | Lidl | `GeorgeQLe/lidl-mobile-clone` | `specs/batch-21/405-lidl.md` |
+| [x] | 406 | Wegmans | `GeorgeQLe/wegmans-mobile-clone` | `specs/batch-21/406-wegmans.md` |
+| [x] | 407 | Food Lion | `GeorgeQLe/food-lion-mobile-clone` | `specs/batch-21/407-food-lion.md` |
+| [x] | 408 | Giant Eagle | `GeorgeQLe/giant-eagle-mobile-clone` | `specs/batch-21/408-giant-eagle.md` |
+| [x] | 409 | Stop & Shop | `GeorgeQLe/stop-and-shop-mobile-clone` | `specs/batch-21/409-stop-and-shop.md` |
+| [x] | 410 | ShopRite | `GeorgeQLe/shoprite-mobile-clone` | `specs/batch-21/410-shoprite.md` |
+| [x] | 411 | FreshDirect | `GeorgeQLe/freshdirect-mobile-clone` | `specs/batch-21/411-freshdirect.md` |
+| [x] | 412 | Misfits Market | `GeorgeQLe/misfits-market-mobile-clone` | `specs/batch-21/412-misfits-market.md` |
+| [x] | 413 | Thrive Market | `GeorgeQLe/thrive-market-mobile-clone` | `specs/batch-21/413-thrive-market.md` |
+| [x] | 414 | Ocado | `GeorgeQLe/ocado-mobile-clone` | `specs/batch-21/414-ocado.md` |
+| [x] | 415 | Carrefour | `GeorgeQLe/carrefour-mobile-clone` | `specs/batch-21/415-carrefour.md` |
+| [x] | 416 | Tesco | `GeorgeQLe/tesco-mobile-clone` | `specs/batch-21/416-tesco.md` |
+| [x] | 417 | Sainsbury's | `GeorgeQLe/sainsbury-s-mobile-clone` | `specs/batch-21/417-sainsbury-s.md` |
+| [x] | 418 | Grubhub | `GeorgeQLe/grubhub-mobile-clone` | `specs/batch-21/418-grubhub.md` |
+| [x] | 419 | Gopuff | `GeorgeQLe/gopuff-mobile-clone` | `specs/batch-21/419-gopuff.md` |
+| [x] | 420 | Deliveroo | `GeorgeQLe/deliveroo-mobile-clone` | `specs/batch-21/420-deliveroo.md` |
 | [ ] | 421 | Just Eat | `GeorgeQLe/just-eat-mobile-clone` | `specs/batch-22/421-just-eat.md` |
 | [ ] | 422 | Glovo | `GeorgeQLe/glovo-mobile-clone` | `specs/batch-22/422-glovo.md` |
 | [ ] | 423 | Bolt Food | `GeorgeQLe/bolt-food-mobile-clone` | `specs/batch-22/423-bolt-food.md` |
