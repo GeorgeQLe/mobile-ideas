@@ -429,3 +429,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 278 | Amazon Music | `GeorgeQLe/amazon-music-mobile-clone` | build planning started |
 | 279 | Qobuz | `GeorgeQLe/qobuz-mobile-clone` | build planning started |
 | 280 | Anghami | `GeorgeQLe/anghami-mobile-clone` | build planning started |
+
+### Batch 281-300 Build Planning - 2026-04-22T03:31:41.748Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 281 | Musixmatch | `GeorgeQLe/musixmatch-mobile-clone` | build planning started |
+| 282 | GarageBand | `GeorgeQLe/garageband-mobile-clone` | build planning started |
+| 283 | BandLab | `GeorgeQLe/bandlab-mobile-clone` | build planning started |
+| 284 | Voloco | `GeorgeQLe/voloco-mobile-clone` | build planning started |
+| 285 | Smule | `GeorgeQLe/smule-mobile-clone` | build planning started |
+| 286 | StarMaker | `GeorgeQLe/starmaker-mobile-clone` | build planning started |
+| 287 | SoundHound | `GeorgeQLe/soundhound-mobile-clone` | build planning started |
+| 288 | Sonos | `GeorgeQLe/sonos-mobile-clone` | build planning started |
+| 289 | Bose Music | `GeorgeQLe/bose-music-mobile-clone` | build planning started |
+| 290 | JBL Portable | `GeorgeQLe/jbl-portable-mobile-clone` | build planning started |
+| 291 | Endel | `GeorgeQLe/endel-mobile-clone` | build planning started |
+| 292 | Brain.fm | `GeorgeQLe/brain-fm-mobile-clone` | build planning started |
+| 293 | Overcast | `GeorgeQLe/overcast-mobile-clone` | build planning started |
+| 294 | Castro | `GeorgeQLe/castro-mobile-clone` | build planning started |
+| 295 | Podbean | `GeorgeQLe/podbean-mobile-clone` | build planning started |
+| 296 | Spotify for Podcasters | `GeorgeQLe/spotify-for-podcasters-mobile-clone` | build planning started |
+| 297 | Anchor | `GeorgeQLe/anchor-mobile-clone` | build planning started |
+| 298 | Podcast Addict | `GeorgeQLe/podcast-addict-mobile-clone` | build planning started |
+| 299 | Podimo | `GeorgeQLe/podimo-mobile-clone` | build planning started |
+| 300 | Acast | `GeorgeQLe/acast-mobile-clone` | build planning started |
