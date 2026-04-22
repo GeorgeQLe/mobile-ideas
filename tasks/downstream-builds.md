@@ -487,3 +487,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 318 | Prime Video | `GeorgeQLe/prime-video-mobile-clone` | build planning started |
 | 319 | Crunchyroll | `GeorgeQLe/crunchyroll-mobile-clone` | build planning started |
 | 320 | Plex | `GeorgeQLe/plex-mobile-clone` | build planning started |
+
+### Batch 321-340 Build Planning - 2026-04-22T13:24:05.493Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 321 | Tubi | `GeorgeQLe/tubi-mobile-clone` | build planning started |
+| 322 | Pluto TV | `GeorgeQLe/pluto-tv-mobile-clone` | build planning started |
+| 323 | Roku | `GeorgeQLe/roku-mobile-clone` | build planning started |
+| 324 | Fandango at Home | `GeorgeQLe/fandango-at-home-mobile-clone` | build planning started |
+| 325 | Vudu | `GeorgeQLe/vudu-mobile-clone` | build planning started |
+| 326 | MUBI | `GeorgeQLe/mubi-mobile-clone` | build planning started |
+| 327 | The Criterion Channel | `GeorgeQLe/the-criterion-channel-mobile-clone` | build planning started |
+| 328 | Kanopy | `GeorgeQLe/kanopy-mobile-clone` | build planning started |
+| 329 | Hoopla | `GeorgeQLe/hoopla-mobile-clone` | build planning started |
+| 330 | Nebula | `GeorgeQLe/nebula-mobile-clone` | build planning started |
+| 331 | Curiosity Stream | `GeorgeQLe/curiosity-stream-mobile-clone` | build planning started |
+| 332 | Gaia | `GeorgeQLe/gaia-mobile-clone` | build planning started |
+| 333 | Dropout | `GeorgeQLe/dropout-mobile-clone` | build planning started |
+| 334 | BritBox | `GeorgeQLe/britbox-mobile-clone` | build planning started |
+| 335 | Acorn TV | `GeorgeQLe/acorn-tv-mobile-clone` | build planning started |
+| 336 | YouTube TV | `GeorgeQLe/youtube-tv-mobile-clone` | build planning started |
+| 337 | Sling TV | `GeorgeQLe/sling-tv-mobile-clone` | build planning started |
+| 338 | ESPN | `GeorgeQLe/espn-mobile-clone` | build planning started |
+| 339 | The Athletic | `GeorgeQLe/the-athletic-mobile-clone` | build planning started |
+| 340 | Bleacher Report | `GeorgeQLe/bleacher-report-mobile-clone` | build planning started |
