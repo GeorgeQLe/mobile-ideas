@@ -6,6 +6,22 @@ Track downstream repositories that have moved from seed-only planning scaffolds 
 
 Build-start evidence means the downstream repo has an app-specific implementation plan, stack decision, updated todo, and history entry. It does not mean runtime code exists or that implementation-ready parity has been verified.
 
+## Build Queue
+
+- [x] 001-020 - Build planning pushed.
+- [x] 021-040 - Build planning pushed.
+- [x] 041-060 - Build planning pushed.
+- [x] 061-080 - Build planning pushed.
+- [ ] 081-100 - Ready for serial build-planning push after 061-080.
+- [ ] 101-120 - Ready for serial build-planning push after 081-100.
+- [ ] 121-140 - Ready for serial build-planning push after 101-120.
+- [ ] 141-160 - Ready for serial build-planning push after 121-140.
+- [ ] 161-180 - Ready for serial build-planning push after 141-160.
+- [ ] 181-200 - Ready for serial build-planning push after 161-180.
+- [ ] 201-220 - Ready for serial build-planning push after 181-200.
+- [ ] 221-240 - Ready for serial build-planning push after 201-220.
+- [ ] 241-260 - Ready for serial build-planning push after 221-240.
+
 ## Evidence
 
 ### Batch 001-020 Build Planning - 2026-04-22T00:28:17.000Z
@@ -94,3 +110,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 058 | PayPal | `GeorgeQLe/paypal-mobile-clone` | build planning started |
 | 059 | Zelle | `GeorgeQLe/zelle-mobile-clone` | build planning started |
 | 060 | Robinhood | `GeorgeQLe/robinhood-mobile-clone` | build planning started |
+
+### Batch 061-080 Build Planning - 2026-04-22T00:39:11.885Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 061 | Coinbase | `GeorgeQLe/coinbase-mobile-clone` | build planning started |
+| 062 | Mint/Credit Karma | `GeorgeQLe/mint-credit-karma-mobile-clone` | build planning started |
+| 063 | YNAB | `GeorgeQLe/ynab-mobile-clone` | build planning started |
+| 064 | Rocket Money | `GeorgeQLe/rocket-money-mobile-clone` | build planning started |
+| 065 | Apple Wallet | `GeorgeQLe/apple-wallet-mobile-clone` | build planning started |
+| 066 | Spotify | `GeorgeQLe/spotify-mobile-clone` | build planning started |
+| 067 | Apple Music | `GeorgeQLe/apple-music-mobile-clone` | build planning started |
+| 068 | YouTube Music | `GeorgeQLe/youtube-music-mobile-clone` | build planning started |
+| 069 | SoundCloud | `GeorgeQLe/soundcloud-mobile-clone` | build planning started |
+| 070 | Audible | `GeorgeQLe/audible-mobile-clone` | build planning started |
+| 071 | Pocket Casts | `GeorgeQLe/pocket-casts-mobile-clone` | build planning started |
+| 072 | Netflix | `GeorgeQLe/netflix-mobile-clone` | build planning started |
+| 073 | YouTube | `GeorgeQLe/youtube-mobile-clone` | build planning started |
+| 074 | Twitch | `GeorgeQLe/twitch-mobile-clone` | build planning started |
+| 075 | Letterboxd | `GeorgeQLe/letterboxd-mobile-clone` | build planning started |
+| 076 | IMDb | `GeorgeQLe/imdb-mobile-clone` | build planning started |
+| 077 | Duolingo | `GeorgeQLe/duolingo-mobile-clone` | build planning started |
+| 078 | Khan Academy | `GeorgeQLe/khan-academy-mobile-clone` | build planning started |
+| 079 | Quizlet | `GeorgeQLe/quizlet-mobile-clone` | build planning started |
+| 080 | Coursera | `GeorgeQLe/coursera-mobile-clone` | build planning started |
