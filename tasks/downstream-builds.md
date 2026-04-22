@@ -545,3 +545,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 358 | Garmin Connect | `GeorgeQLe/garmin-connect-mobile-clone` | build planning started |
 | 359 | Nike Training Club | `GeorgeQLe/nike-training-club-mobile-clone` | build planning started |
 | 360 | Fitbod | `GeorgeQLe/fitbod-mobile-clone` | build planning started |
+
+### Batch 361-380 Build Planning - 2026-04-22T14:54:33.334Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 361 | Strong | `GeorgeQLe/strong-mobile-clone` | build planning started |
+| 362 | Hevy | `GeorgeQLe/hevy-mobile-clone` | build planning started |
+| 363 | Runkeeper | `GeorgeQLe/runkeeper-mobile-clone` | build planning started |
+| 364 | MapMyRun | `GeorgeQLe/mapmyrun-mobile-clone` | build planning started |
+| 365 | Komoot | `GeorgeQLe/komoot-mobile-clone` | build planning started |
+| 366 | Relive | `GeorgeQLe/relive-mobile-clone` | build planning started |
+| 367 | TrainerRoad | `GeorgeQLe/trainerroad-mobile-clone` | build planning started |
+| 368 | TrainingPeaks | `GeorgeQLe/trainingpeaks-mobile-clone` | build planning started |
+| 369 | Chick-fil-A | `GeorgeQLe/chick-fil-a-mobile-clone` | build planning started |
+| 370 | Dunkin' | `GeorgeQLe/dunkin-mobile-clone` | build planning started |
+| 371 | Chipotle | `GeorgeQLe/chipotle-mobile-clone` | build planning started |
+| 372 | Taco Bell | `GeorgeQLe/taco-bell-mobile-clone` | build planning started |
+| 373 | Subway | `GeorgeQLe/subway-mobile-clone` | build planning started |
+| 374 | Panera Bread | `GeorgeQLe/panera-bread-mobile-clone` | build planning started |
+| 375 | Wendy's | `GeorgeQLe/wendy-s-mobile-clone` | build planning started |
+| 376 | Burger King | `GeorgeQLe/burger-king-mobile-clone` | build planning started |
+| 377 | Domino's | `GeorgeQLe/domino-s-mobile-clone` | build planning started |
+| 378 | Pizza Hut | `GeorgeQLe/pizza-hut-mobile-clone` | build planning started |
+| 379 | Papa Johns | `GeorgeQLe/papa-johns-mobile-clone` | build planning started |
+| 380 | Little Caesars | `GeorgeQLe/little-caesars-mobile-clone` | build planning started |
