@@ -603,3 +603,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 398 | Safeway | `GeorgeQLe/safeway-mobile-clone` | build planning started |
 | 399 | Albertsons | `GeorgeQLe/albertsons-mobile-clone` | build planning started |
 | 400 | Whole Foods Market | `GeorgeQLe/whole-foods-market-mobile-clone` | build planning started |
+
+### Batch 401-420 Build Planning - 2026-04-22T16:17:56.821Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 401 | Publix | `GeorgeQLe/publix-mobile-clone` | build planning started |
+| 402 | H-E-B | `GeorgeQLe/h-e-b-mobile-clone` | build planning started |
+| 403 | Meijer | `GeorgeQLe/meijer-mobile-clone` | build planning started |
+| 404 | Aldi | `GeorgeQLe/aldi-mobile-clone` | build planning started |
+| 405 | Lidl | `GeorgeQLe/lidl-mobile-clone` | build planning started |
+| 406 | Wegmans | `GeorgeQLe/wegmans-mobile-clone` | build planning started |
+| 407 | Food Lion | `GeorgeQLe/food-lion-mobile-clone` | build planning started |
+| 408 | Giant Eagle | `GeorgeQLe/giant-eagle-mobile-clone` | build planning started |
+| 409 | Stop & Shop | `GeorgeQLe/stop-and-shop-mobile-clone` | build planning started |
+| 410 | ShopRite | `GeorgeQLe/shoprite-mobile-clone` | build planning started |
+| 411 | FreshDirect | `GeorgeQLe/freshdirect-mobile-clone` | build planning started |
+| 412 | Misfits Market | `GeorgeQLe/misfits-market-mobile-clone` | build planning started |
+| 413 | Thrive Market | `GeorgeQLe/thrive-market-mobile-clone` | build planning started |
+| 414 | Ocado | `GeorgeQLe/ocado-mobile-clone` | build planning started |
+| 415 | Carrefour | `GeorgeQLe/carrefour-mobile-clone` | build planning started |
+| 416 | Tesco | `GeorgeQLe/tesco-mobile-clone` | build planning started |
+| 417 | Sainsbury's | `GeorgeQLe/sainsbury-s-mobile-clone` | build planning started |
+| 418 | Grubhub | `GeorgeQLe/grubhub-mobile-clone` | build planning started |
+| 419 | Gopuff | `GeorgeQLe/gopuff-mobile-clone` | build planning started |
+| 420 | Deliveroo | `GeorgeQLe/deliveroo-mobile-clone` | build planning started |
