@@ -13,7 +13,7 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 - [x] 041-060 - Build planning pushed.
 - [x] 061-080 - Build planning pushed.
 - [x] 081-100 - Build planning pushed.
-- [ ] 101-120 - Ready for serial build-planning push after 081-100.
+- [x] 101-120 - Build planning pushed.
 - [ ] 121-140 - Ready for serial build-planning push after 101-120.
 - [ ] 141-160 - Ready for serial build-planning push after 121-140.
 - [ ] 161-180 - Ready for serial build-planning push after 141-160.
@@ -168,3 +168,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 098 | Lightroom | `GeorgeQLe/lightroom-mobile-clone` | build planning started |
 | 099 | Google Photos | `GeorgeQLe/google-photos-mobile-clone` | build planning started |
 | 100 | Ring | `GeorgeQLe/ring-mobile-clone` | build planning started |
+
+### Batch 101-120 Build Planning - 2026-04-22T00:43:04.074Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 101 | Tinder | `GeorgeQLe/tinder-mobile-clone` | build planning started |
+| 102 | Bumble | `GeorgeQLe/bumble-mobile-clone` | build planning started |
+| 103 | Hinge | `GeorgeQLe/hinge-mobile-clone` | build planning started |
+| 104 | Grindr | `GeorgeQLe/grindr-mobile-clone` | build planning started |
+| 105 | Match | `GeorgeQLe/match-mobile-clone` | build planning started |
+| 106 | Coffee Meets Bagel | `GeorgeQLe/coffee-meets-bagel-mobile-clone` | build planning started |
+| 107 | LinkedIn | `GeorgeQLe/linkedin-mobile-clone` | build planning started |
+| 108 | Indeed | `GeorgeQLe/indeed-mobile-clone` | build planning started |
+| 109 | Glassdoor | `GeorgeQLe/glassdoor-mobile-clone` | build planning started |
+| 110 | ZipRecruiter | `GeorgeQLe/ziprecruiter-mobile-clone` | build planning started |
+| 111 | Zillow | `GeorgeQLe/zillow-mobile-clone` | build planning started |
+| 112 | Redfin | `GeorgeQLe/redfin-mobile-clone` | build planning started |
+| 113 | Realtor.com | `GeorgeQLe/realtor-com-mobile-clone` | build planning started |
+| 114 | Apartments.com | `GeorgeQLe/apartments-com-mobile-clone` | build planning started |
+| 115 | Zumper | `GeorgeQLe/zumper-mobile-clone` | build planning started |
+| 116 | Nextdoor | `GeorgeQLe/nextdoor-mobile-clone` | build planning started |
+| 117 | Meetup | `GeorgeQLe/meetup-mobile-clone` | build planning started |
+| 118 | Eventbrite | `GeorgeQLe/eventbrite-mobile-clone` | build planning started |
+| 119 | Medium | `GeorgeQLe/medium-mobile-clone` | build planning started |
+| 120 | Substack | `GeorgeQLe/substack-mobile-clone` | build planning started |
