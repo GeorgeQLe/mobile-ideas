@@ -516,3 +516,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 338 | ESPN | `GeorgeQLe/espn-mobile-clone` | build planning started |
 | 339 | The Athletic | `GeorgeQLe/the-athletic-mobile-clone` | build planning started |
 | 340 | Bleacher Report | `GeorgeQLe/bleacher-report-mobile-clone` | build planning started |
+
+### Batch 341-360 Build Planning - 2026-04-22T14:40:29.323Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 341 | Yahoo Sports | `GeorgeQLe/yahoo-sports-mobile-clone` | build planning started |
+| 342 | CBS Sports | `GeorgeQLe/cbs-sports-mobile-clone` | build planning started |
+| 343 | FOX Sports | `GeorgeQLe/fox-sports-mobile-clone` | build planning started |
+| 344 | NBA | `GeorgeQLe/nba-mobile-clone` | build planning started |
+| 345 | NFL | `GeorgeQLe/nfl-mobile-clone` | build planning started |
+| 346 | MLB | `GeorgeQLe/mlb-mobile-clone` | build planning started |
+| 347 | NHL | `GeorgeQLe/nhl-mobile-clone` | build planning started |
+| 348 | FIFA | `GeorgeQLe/fifa-mobile-clone` | build planning started |
+| 349 | Fubo | `GeorgeQLe/fubo-mobile-clone` | build planning started |
+| 350 | DAZN | `GeorgeQLe/dazn-mobile-clone` | build planning started |
+| 351 | FanDuel Sportsbook | `GeorgeQLe/fanduel-sportsbook-mobile-clone` | build planning started |
+| 352 | DraftKings Sportsbook | `GeorgeQLe/draftkings-sportsbook-mobile-clone` | build planning started |
+| 353 | Sleeper | `GeorgeQLe/sleeper-mobile-clone` | build planning started |
+| 354 | ESPN Fantasy Sports | `GeorgeQLe/espn-fantasy-sports-mobile-clone` | build planning started |
+| 355 | Yahoo Fantasy Sports | `GeorgeQLe/yahoo-fantasy-sports-mobile-clone` | build planning started |
+| 356 | Peloton | `GeorgeQLe/peloton-mobile-clone` | build planning started |
+| 357 | Zwift | `GeorgeQLe/zwift-mobile-clone` | build planning started |
+| 358 | Garmin Connect | `GeorgeQLe/garmin-connect-mobile-clone` | build planning started |
+| 359 | Nike Training Club | `GeorgeQLe/nike-training-club-mobile-clone` | build planning started |
+| 360 | Fitbod | `GeorgeQLe/fitbod-mobile-clone` | build planning started |
