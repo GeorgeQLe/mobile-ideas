@@ -574,3 +574,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 378 | Pizza Hut | `GeorgeQLe/pizza-hut-mobile-clone` | build planning started |
 | 379 | Papa Johns | `GeorgeQLe/papa-johns-mobile-clone` | build planning started |
 | 380 | Little Caesars | `GeorgeQLe/little-caesars-mobile-clone` | build planning started |
+
+### Batch 381-400 Build Planning - 2026-04-22T15:57:38.494Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 381 | KFC | `GeorgeQLe/kfc-mobile-clone` | build planning started |
+| 382 | Popeyes | `GeorgeQLe/popeyes-mobile-clone` | build planning started |
+| 383 | Sonic Drive-In | `GeorgeQLe/sonic-drive-in-mobile-clone` | build planning started |
+| 384 | Shake Shack | `GeorgeQLe/shake-shack-mobile-clone` | build planning started |
+| 385 | Sweetgreen | `GeorgeQLe/sweetgreen-mobile-clone` | build planning started |
+| 386 | Cava | `GeorgeQLe/cava-mobile-clone` | build planning started |
+| 387 | Wingstop | `GeorgeQLe/wingstop-mobile-clone` | build planning started |
+| 388 | Dairy Queen | `GeorgeQLe/dairy-queen-mobile-clone` | build planning started |
+| 389 | Dutch Bros | `GeorgeQLe/dutch-bros-mobile-clone` | build planning started |
+| 390 | 7-Eleven | `GeorgeQLe/7-eleven-mobile-clone` | build planning started |
+| 391 | Krispy Kreme | `GeorgeQLe/krispy-kreme-mobile-clone` | build planning started |
+| 392 | Jamba | `GeorgeQLe/jamba-mobile-clone` | build planning started |
+| 393 | Walmart | `GeorgeQLe/walmart-mobile-clone` | build planning started |
+| 394 | Target | `GeorgeQLe/target-mobile-clone` | build planning started |
+| 395 | Costco | `GeorgeQLe/costco-mobile-clone` | build planning started |
+| 396 | Sam's Club | `GeorgeQLe/sam-s-club-mobile-clone` | build planning started |
+| 397 | Kroger | `GeorgeQLe/kroger-mobile-clone` | build planning started |
+| 398 | Safeway | `GeorgeQLe/safeway-mobile-clone` | build planning started |
+| 399 | Albertsons | `GeorgeQLe/albertsons-mobile-clone` | build planning started |
+| 400 | Whole Foods Market | `GeorgeQLe/whole-foods-market-mobile-clone` | build planning started |
