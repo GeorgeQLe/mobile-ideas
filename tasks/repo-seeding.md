@@ -816,6 +816,36 @@ Guardrails:
 | 359 | `GeorgeQLe/nike-training-club-mobile-clone` | PRIVATE | seeded |
 | 360 | `GeorgeQLe/fitbod-mobile-clone` | PRIVATE | seeded |
 
+### Batch 361-380 Seeding Evidence - 2026-04-22T14:52:25.243Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4360,"reset":1776869863,"used":640},"graphql":{"limit":5000,"remaining":4873,"reset":1776870325,"used":127},"search":{"limit":30,"remaining":30,"reset":1776868935,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":3814,"reset":1776869863,"used":1186},"graphql":{"limit":5000,"remaining":4786,"reset":1776870325,"used":214},"search":{"limit":30,"remaining":30,"reset":1776869605,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 361 | `GeorgeQLe/strong-mobile-clone` | PRIVATE | seeded |
+| 362 | `GeorgeQLe/hevy-mobile-clone` | PRIVATE | seeded |
+| 363 | `GeorgeQLe/runkeeper-mobile-clone` | PRIVATE | seeded |
+| 364 | `GeorgeQLe/mapmyrun-mobile-clone` | PRIVATE | seeded |
+| 365 | `GeorgeQLe/komoot-mobile-clone` | PRIVATE | seeded |
+| 366 | `GeorgeQLe/relive-mobile-clone` | PRIVATE | seeded |
+| 367 | `GeorgeQLe/trainerroad-mobile-clone` | PRIVATE | seeded |
+| 368 | `GeorgeQLe/trainingpeaks-mobile-clone` | PRIVATE | seeded |
+| 369 | `GeorgeQLe/chick-fil-a-mobile-clone` | PRIVATE | seeded |
+| 370 | `GeorgeQLe/dunkin-mobile-clone` | PRIVATE | seeded |
+| 371 | `GeorgeQLe/chipotle-mobile-clone` | PRIVATE | seeded |
+| 372 | `GeorgeQLe/taco-bell-mobile-clone` | PRIVATE | seeded |
+| 373 | `GeorgeQLe/subway-mobile-clone` | PRIVATE | seeded |
+| 374 | `GeorgeQLe/panera-bread-mobile-clone` | PRIVATE | seeded |
+| 375 | `GeorgeQLe/wendy-s-mobile-clone` | PRIVATE | seeded |
+| 376 | `GeorgeQLe/burger-king-mobile-clone` | PRIVATE | seeded |
+| 377 | `GeorgeQLe/domino-s-mobile-clone` | PRIVATE | seeded |
+| 378 | `GeorgeQLe/pizza-hut-mobile-clone` | PRIVATE | seeded |
+| 379 | `GeorgeQLe/papa-johns-mobile-clone` | PRIVATE | seeded |
+| 380 | `GeorgeQLe/little-caesars-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
 
 - Step 6.3 blocker (2026-04-22T03:22:40.628Z, RESOLVED 2026-04-22 in `### Batch 281-290 Repaired Seeding Evidence - 2026-04-22T03:28:27Z`) for GeorgeQLe/jbl-portable-mobile-clone: `gh repo clone GeorgeQLe/jbl-portable-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/jbl-portable-mobile-clone` failed after the repo was created private. The remote was verified as PRIVATE and then seeded with `--reconcile-existing`.
@@ -1205,26 +1235,26 @@ Guardrails:
 | [x] | 358 | Garmin Connect | `GeorgeQLe/garmin-connect-mobile-clone` | `specs/batch-18/358-garmin-connect.md` |
 | [x] | 359 | Nike Training Club | `GeorgeQLe/nike-training-club-mobile-clone` | `specs/batch-18/359-nike-training-club.md` |
 | [x] | 360 | Fitbod | `GeorgeQLe/fitbod-mobile-clone` | `specs/batch-18/360-fitbod.md` |
-| [ ] | 361 | Strong | `GeorgeQLe/strong-mobile-clone` | `specs/batch-19/361-strong.md` |
-| [ ] | 362 | Hevy | `GeorgeQLe/hevy-mobile-clone` | `specs/batch-19/362-hevy.md` |
-| [ ] | 363 | Runkeeper | `GeorgeQLe/runkeeper-mobile-clone` | `specs/batch-19/363-runkeeper.md` |
-| [ ] | 364 | MapMyRun | `GeorgeQLe/mapmyrun-mobile-clone` | `specs/batch-19/364-mapmyrun.md` |
-| [ ] | 365 | Komoot | `GeorgeQLe/komoot-mobile-clone` | `specs/batch-19/365-komoot.md` |
-| [ ] | 366 | Relive | `GeorgeQLe/relive-mobile-clone` | `specs/batch-19/366-relive.md` |
-| [ ] | 367 | TrainerRoad | `GeorgeQLe/trainerroad-mobile-clone` | `specs/batch-19/367-trainerroad.md` |
-| [ ] | 368 | TrainingPeaks | `GeorgeQLe/trainingpeaks-mobile-clone` | `specs/batch-19/368-trainingpeaks.md` |
-| [ ] | 369 | Chick-fil-A | `GeorgeQLe/chick-fil-a-mobile-clone` | `specs/batch-19/369-chick-fil-a.md` |
-| [ ] | 370 | Dunkin' | `GeorgeQLe/dunkin-mobile-clone` | `specs/batch-19/370-dunkin.md` |
-| [ ] | 371 | Chipotle | `GeorgeQLe/chipotle-mobile-clone` | `specs/batch-19/371-chipotle.md` |
-| [ ] | 372 | Taco Bell | `GeorgeQLe/taco-bell-mobile-clone` | `specs/batch-19/372-taco-bell.md` |
-| [ ] | 373 | Subway | `GeorgeQLe/subway-mobile-clone` | `specs/batch-19/373-subway.md` |
-| [ ] | 374 | Panera Bread | `GeorgeQLe/panera-bread-mobile-clone` | `specs/batch-19/374-panera-bread.md` |
-| [ ] | 375 | Wendy's | `GeorgeQLe/wendy-s-mobile-clone` | `specs/batch-19/375-wendy-s.md` |
-| [ ] | 376 | Burger King | `GeorgeQLe/burger-king-mobile-clone` | `specs/batch-19/376-burger-king.md` |
-| [ ] | 377 | Domino's | `GeorgeQLe/domino-s-mobile-clone` | `specs/batch-19/377-domino-s.md` |
-| [ ] | 378 | Pizza Hut | `GeorgeQLe/pizza-hut-mobile-clone` | `specs/batch-19/378-pizza-hut.md` |
-| [ ] | 379 | Papa Johns | `GeorgeQLe/papa-johns-mobile-clone` | `specs/batch-19/379-papa-johns.md` |
-| [ ] | 380 | Little Caesars | `GeorgeQLe/little-caesars-mobile-clone` | `specs/batch-19/380-little-caesars.md` |
+| [x] | 361 | Strong | `GeorgeQLe/strong-mobile-clone` | `specs/batch-19/361-strong.md` |
+| [x] | 362 | Hevy | `GeorgeQLe/hevy-mobile-clone` | `specs/batch-19/362-hevy.md` |
+| [x] | 363 | Runkeeper | `GeorgeQLe/runkeeper-mobile-clone` | `specs/batch-19/363-runkeeper.md` |
+| [x] | 364 | MapMyRun | `GeorgeQLe/mapmyrun-mobile-clone` | `specs/batch-19/364-mapmyrun.md` |
+| [x] | 365 | Komoot | `GeorgeQLe/komoot-mobile-clone` | `specs/batch-19/365-komoot.md` |
+| [x] | 366 | Relive | `GeorgeQLe/relive-mobile-clone` | `specs/batch-19/366-relive.md` |
+| [x] | 367 | TrainerRoad | `GeorgeQLe/trainerroad-mobile-clone` | `specs/batch-19/367-trainerroad.md` |
+| [x] | 368 | TrainingPeaks | `GeorgeQLe/trainingpeaks-mobile-clone` | `specs/batch-19/368-trainingpeaks.md` |
+| [x] | 369 | Chick-fil-A | `GeorgeQLe/chick-fil-a-mobile-clone` | `specs/batch-19/369-chick-fil-a.md` |
+| [x] | 370 | Dunkin' | `GeorgeQLe/dunkin-mobile-clone` | `specs/batch-19/370-dunkin.md` |
+| [x] | 371 | Chipotle | `GeorgeQLe/chipotle-mobile-clone` | `specs/batch-19/371-chipotle.md` |
+| [x] | 372 | Taco Bell | `GeorgeQLe/taco-bell-mobile-clone` | `specs/batch-19/372-taco-bell.md` |
+| [x] | 373 | Subway | `GeorgeQLe/subway-mobile-clone` | `specs/batch-19/373-subway.md` |
+| [x] | 374 | Panera Bread | `GeorgeQLe/panera-bread-mobile-clone` | `specs/batch-19/374-panera-bread.md` |
+| [x] | 375 | Wendy's | `GeorgeQLe/wendy-s-mobile-clone` | `specs/batch-19/375-wendy-s.md` |
+| [x] | 376 | Burger King | `GeorgeQLe/burger-king-mobile-clone` | `specs/batch-19/376-burger-king.md` |
+| [x] | 377 | Domino's | `GeorgeQLe/domino-s-mobile-clone` | `specs/batch-19/377-domino-s.md` |
+| [x] | 378 | Pizza Hut | `GeorgeQLe/pizza-hut-mobile-clone` | `specs/batch-19/378-pizza-hut.md` |
+| [x] | 379 | Papa Johns | `GeorgeQLe/papa-johns-mobile-clone` | `specs/batch-19/379-papa-johns.md` |
+| [x] | 380 | Little Caesars | `GeorgeQLe/little-caesars-mobile-clone` | `specs/batch-19/380-little-caesars.md` |
 | [ ] | 381 | KFC | `GeorgeQLe/kfc-mobile-clone` | `specs/batch-20/381-kfc.md` |
 | [ ] | 382 | Popeyes | `GeorgeQLe/popeyes-mobile-clone` | `specs/batch-20/382-popeyes.md` |
 | [ ] | 383 | Sonic Drive-In | `GeorgeQLe/sonic-drive-in-mobile-clone` | `specs/batch-20/383-sonic-drive-in.md` |
