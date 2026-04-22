@@ -685,7 +685,52 @@ Guardrails:
 | 279 | `GeorgeQLe/qobuz-mobile-clone` | PRIVATE | seeded |
 | 280 | `GeorgeQLe/anghami-mobile-clone` | PRIVATE | seeded |
 
+### Batch 281-290 Repaired Seeding Evidence - 2026-04-22T03:28:27Z
+
+- Execution mode: serial private seeding with interrupted continuations and two `--reconcile-existing` repairs.
+- Recovery path: IDs 281-282 seeded before a GitHub clone propagation failure at 283; ID 283 was verified private/empty and repaired with `--reconcile-existing`; IDs 284-289 seeded before a second clone propagation failure at 290; ID 290 was verified private/empty and repaired with `--reconcile-existing`.
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4943,"reset":1776828807,"used":57},"graphql":{"limit":5000,"remaining":4885,"reset":1776827963,"used":115},"search":{"limit":30,"remaining":30,"reset":1776827903,"used":0}}`
+- Post-repair rate limit check: `{"core":{"limit":5000,"remaining":4758,"reset":1776828807,"used":242},"graphql":{"limit":5000,"remaining":4934,"reset":1776831583,"used":66},"search":{"limit":30,"remaining":30,"reset":1776828596,"used":0}}`
+- Verification: repaired blockers were rechecked on GitHub as private repos with root `README.md` files and copied source specs at `docs/source-specs/283-bandlab.md` and `docs/source-specs/290-jbl-portable.md`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 281 | `GeorgeQLe/musixmatch-mobile-clone` | PRIVATE | seeded |
+| 282 | `GeorgeQLe/garageband-mobile-clone` | PRIVATE | seeded |
+| 283 | `GeorgeQLe/bandlab-mobile-clone` | PRIVATE | seeded after reconcile-existing |
+| 284 | `GeorgeQLe/voloco-mobile-clone` | PRIVATE | seeded |
+| 285 | `GeorgeQLe/smule-mobile-clone` | PRIVATE | seeded |
+| 286 | `GeorgeQLe/starmaker-mobile-clone` | PRIVATE | seeded |
+| 287 | `GeorgeQLe/soundhound-mobile-clone` | PRIVATE | seeded |
+| 288 | `GeorgeQLe/sonos-mobile-clone` | PRIVATE | seeded |
+| 289 | `GeorgeQLe/bose-music-mobile-clone` | PRIVATE | seeded |
+| 290 | `GeorgeQLe/jbl-portable-mobile-clone` | PRIVATE | seeded after reconcile-existing |
+
+### Batch 291-300 Seeding Evidence - 2026-04-22T03:28:27.949Z
+
+- Execution mode: serial private seeding with 10 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4855,"reset":1776828807,"used":145},"graphql":{"limit":5000,"remaining":4974,"reset":1776831583,"used":26},"search":{"limit":30,"remaining":30,"reset":1776828250,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4762,"reset":1776828807,"used":238},"graphql":{"limit":5000,"remaining":4934,"reset":1776831583,"used":66},"search":{"limit":30,"remaining":30,"reset":1776828567,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 291 | `GeorgeQLe/endel-mobile-clone` | PRIVATE | seeded |
+| 292 | `GeorgeQLe/brain-fm-mobile-clone` | PRIVATE | seeded |
+| 293 | `GeorgeQLe/overcast-mobile-clone` | PRIVATE | seeded |
+| 294 | `GeorgeQLe/castro-mobile-clone` | PRIVATE | seeded |
+| 295 | `GeorgeQLe/podbean-mobile-clone` | PRIVATE | seeded |
+| 296 | `GeorgeQLe/spotify-for-podcasters-mobile-clone` | PRIVATE | seeded |
+| 297 | `GeorgeQLe/anchor-mobile-clone` | PRIVATE | seeded |
+| 298 | `GeorgeQLe/podcast-addict-mobile-clone` | PRIVATE | seeded |
+| 299 | `GeorgeQLe/podimo-mobile-clone` | PRIVATE | seeded |
+| 300 | `GeorgeQLe/acast-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
+
+- Step 6.3 blocker (2026-04-22T03:22:40.628Z, RESOLVED 2026-04-22 in `### Batch 281-290 Repaired Seeding Evidence - 2026-04-22T03:28:27Z`) for GeorgeQLe/jbl-portable-mobile-clone: `gh repo clone GeorgeQLe/jbl-portable-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/jbl-portable-mobile-clone` failed after the repo was created private. The remote was verified as PRIVATE and then seeded with `--reconcile-existing`.
+
+- Step 6.3 blocker (2026-04-22T03:18:36.061Z, RESOLVED 2026-04-22 in `### Batch 281-290 Repaired Seeding Evidence - 2026-04-22T03:28:27Z`) for GeorgeQLe/bandlab-mobile-clone: `gh repo clone GeorgeQLe/bandlab-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/bandlab-mobile-clone` failed after the repo was created private. The remote was verified as PRIVATE and then seeded with `--reconcile-existing`.
 
 - Step 6.3 blocker (2026-04-22T02:43:52.819Z, RESOLVED 2026-04-22 in `### Batch 261-272 Repaired Seeding Evidence - 2026-04-22T02:59:32Z`) for GeorgeQLe/deezer-mobile-clone: `gh repo clone GeorgeQLe/deezer-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/deezer-mobile-clone` failed after the repo was created private. The remote was verified as PRIVATE and then seeded with `--reconcile-existing`.
 
@@ -990,26 +1035,26 @@ Guardrails:
 | [x] | 278 | Amazon Music | `GeorgeQLe/amazon-music-mobile-clone` | `specs/batch-14/278-amazon-music.md` |
 | [x] | 279 | Qobuz | `GeorgeQLe/qobuz-mobile-clone` | `specs/batch-14/279-qobuz.md` |
 | [x] | 280 | Anghami | `GeorgeQLe/anghami-mobile-clone` | `specs/batch-14/280-anghami.md` |
-| [ ] | 281 | Musixmatch | `GeorgeQLe/musixmatch-mobile-clone` | `specs/batch-15/281-musixmatch.md` |
-| [ ] | 282 | GarageBand | `GeorgeQLe/garageband-mobile-clone` | `specs/batch-15/282-garageband.md` |
-| [ ] | 283 | BandLab | `GeorgeQLe/bandlab-mobile-clone` | `specs/batch-15/283-bandlab.md` |
-| [ ] | 284 | Voloco | `GeorgeQLe/voloco-mobile-clone` | `specs/batch-15/284-voloco.md` |
-| [ ] | 285 | Smule | `GeorgeQLe/smule-mobile-clone` | `specs/batch-15/285-smule.md` |
-| [ ] | 286 | StarMaker | `GeorgeQLe/starmaker-mobile-clone` | `specs/batch-15/286-starmaker.md` |
-| [ ] | 287 | SoundHound | `GeorgeQLe/soundhound-mobile-clone` | `specs/batch-15/287-soundhound.md` |
-| [ ] | 288 | Sonos | `GeorgeQLe/sonos-mobile-clone` | `specs/batch-15/288-sonos.md` |
-| [ ] | 289 | Bose Music | `GeorgeQLe/bose-music-mobile-clone` | `specs/batch-15/289-bose-music.md` |
-| [ ] | 290 | JBL Portable | `GeorgeQLe/jbl-portable-mobile-clone` | `specs/batch-15/290-jbl-portable.md` |
-| [ ] | 291 | Endel | `GeorgeQLe/endel-mobile-clone` | `specs/batch-15/291-endel.md` |
-| [ ] | 292 | Brain.fm | `GeorgeQLe/brain-fm-mobile-clone` | `specs/batch-15/292-brain-fm.md` |
-| [ ] | 293 | Overcast | `GeorgeQLe/overcast-mobile-clone` | `specs/batch-15/293-overcast.md` |
-| [ ] | 294 | Castro | `GeorgeQLe/castro-mobile-clone` | `specs/batch-15/294-castro.md` |
-| [ ] | 295 | Podbean | `GeorgeQLe/podbean-mobile-clone` | `specs/batch-15/295-podbean.md` |
-| [ ] | 296 | Spotify for Podcasters | `GeorgeQLe/spotify-for-podcasters-mobile-clone` | `specs/batch-15/296-spotify-for-podcasters.md` |
-| [ ] | 297 | Anchor | `GeorgeQLe/anchor-mobile-clone` | `specs/batch-15/297-anchor.md` |
-| [ ] | 298 | Podcast Addict | `GeorgeQLe/podcast-addict-mobile-clone` | `specs/batch-15/298-podcast-addict.md` |
-| [ ] | 299 | Podimo | `GeorgeQLe/podimo-mobile-clone` | `specs/batch-15/299-podimo.md` |
-| [ ] | 300 | Acast | `GeorgeQLe/acast-mobile-clone` | `specs/batch-15/300-acast.md` |
+| [x] | 281 | Musixmatch | `GeorgeQLe/musixmatch-mobile-clone` | `specs/batch-15/281-musixmatch.md` |
+| [x] | 282 | GarageBand | `GeorgeQLe/garageband-mobile-clone` | `specs/batch-15/282-garageband.md` |
+| [x] | 283 | BandLab | `GeorgeQLe/bandlab-mobile-clone` | `specs/batch-15/283-bandlab.md` |
+| [x] | 284 | Voloco | `GeorgeQLe/voloco-mobile-clone` | `specs/batch-15/284-voloco.md` |
+| [x] | 285 | Smule | `GeorgeQLe/smule-mobile-clone` | `specs/batch-15/285-smule.md` |
+| [x] | 286 | StarMaker | `GeorgeQLe/starmaker-mobile-clone` | `specs/batch-15/286-starmaker.md` |
+| [x] | 287 | SoundHound | `GeorgeQLe/soundhound-mobile-clone` | `specs/batch-15/287-soundhound.md` |
+| [x] | 288 | Sonos | `GeorgeQLe/sonos-mobile-clone` | `specs/batch-15/288-sonos.md` |
+| [x] | 289 | Bose Music | `GeorgeQLe/bose-music-mobile-clone` | `specs/batch-15/289-bose-music.md` |
+| [x] | 290 | JBL Portable | `GeorgeQLe/jbl-portable-mobile-clone` | `specs/batch-15/290-jbl-portable.md` |
+| [x] | 291 | Endel | `GeorgeQLe/endel-mobile-clone` | `specs/batch-15/291-endel.md` |
+| [x] | 292 | Brain.fm | `GeorgeQLe/brain-fm-mobile-clone` | `specs/batch-15/292-brain-fm.md` |
+| [x] | 293 | Overcast | `GeorgeQLe/overcast-mobile-clone` | `specs/batch-15/293-overcast.md` |
+| [x] | 294 | Castro | `GeorgeQLe/castro-mobile-clone` | `specs/batch-15/294-castro.md` |
+| [x] | 295 | Podbean | `GeorgeQLe/podbean-mobile-clone` | `specs/batch-15/295-podbean.md` |
+| [x] | 296 | Spotify for Podcasters | `GeorgeQLe/spotify-for-podcasters-mobile-clone` | `specs/batch-15/296-spotify-for-podcasters.md` |
+| [x] | 297 | Anchor | `GeorgeQLe/anchor-mobile-clone` | `specs/batch-15/297-anchor.md` |
+| [x] | 298 | Podcast Addict | `GeorgeQLe/podcast-addict-mobile-clone` | `specs/batch-15/298-podcast-addict.md` |
+| [x] | 299 | Podimo | `GeorgeQLe/podimo-mobile-clone` | `specs/batch-15/299-podimo.md` |
+| [x] | 300 | Acast | `GeorgeQLe/acast-mobile-clone` | `specs/batch-15/300-acast.md` |
 | [ ] | 301 | Player FM | `GeorgeQLe/player-fm-mobile-clone` | `specs/batch-16/301-player-fm.md` |
 | [ ] | 302 | Castbox | `GeorgeQLe/castbox-mobile-clone` | `specs/batch-16/302-castbox.md` |
 | [ ] | 303 | RadioPublic | `GeorgeQLe/radiopublic-mobile-clone` | `specs/batch-16/303-radiopublic.md` |
