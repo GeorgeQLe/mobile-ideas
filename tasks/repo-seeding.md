@@ -756,6 +756,36 @@ Guardrails:
 | 319 | `GeorgeQLe/crunchyroll-mobile-clone` | PRIVATE | seeded |
 | 320 | `GeorgeQLe/plex-mobile-clone` | PRIVATE | seeded |
 
+### Batch 321-340 Seeding Evidence - 2026-04-22T13:22:13.120Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4607,"reset":1776866114,"used":393},"graphql":{"limit":5000,"remaining":4877,"reset":1776865780,"used":123},"search":{"limit":30,"remaining":30,"reset":1776863521,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4367,"reset":1776866114,"used":633},"graphql":{"limit":5000,"remaining":4797,"reset":1776865780,"used":203},"search":{"limit":30,"remaining":30,"reset":1776864193,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 321 | `GeorgeQLe/tubi-mobile-clone` | PRIVATE | seeded |
+| 322 | `GeorgeQLe/pluto-tv-mobile-clone` | PRIVATE | seeded |
+| 323 | `GeorgeQLe/roku-mobile-clone` | PRIVATE | seeded |
+| 324 | `GeorgeQLe/fandango-at-home-mobile-clone` | PRIVATE | seeded |
+| 325 | `GeorgeQLe/vudu-mobile-clone` | PRIVATE | seeded |
+| 326 | `GeorgeQLe/mubi-mobile-clone` | PRIVATE | seeded |
+| 327 | `GeorgeQLe/the-criterion-channel-mobile-clone` | PRIVATE | seeded |
+| 328 | `GeorgeQLe/kanopy-mobile-clone` | PRIVATE | seeded |
+| 329 | `GeorgeQLe/hoopla-mobile-clone` | PRIVATE | seeded |
+| 330 | `GeorgeQLe/nebula-mobile-clone` | PRIVATE | seeded |
+| 331 | `GeorgeQLe/curiosity-stream-mobile-clone` | PRIVATE | seeded |
+| 332 | `GeorgeQLe/gaia-mobile-clone` | PRIVATE | seeded |
+| 333 | `GeorgeQLe/dropout-mobile-clone` | PRIVATE | seeded |
+| 334 | `GeorgeQLe/britbox-mobile-clone` | PRIVATE | seeded |
+| 335 | `GeorgeQLe/acorn-tv-mobile-clone` | PRIVATE | seeded |
+| 336 | `GeorgeQLe/youtube-tv-mobile-clone` | PRIVATE | seeded |
+| 337 | `GeorgeQLe/sling-tv-mobile-clone` | PRIVATE | seeded |
+| 338 | `GeorgeQLe/espn-mobile-clone` | PRIVATE | seeded |
+| 339 | `GeorgeQLe/the-athletic-mobile-clone` | PRIVATE | seeded |
+| 340 | `GeorgeQLe/bleacher-report-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
 
 - Step 6.3 blocker (2026-04-22T03:22:40.628Z, RESOLVED 2026-04-22 in `### Batch 281-290 Repaired Seeding Evidence - 2026-04-22T03:28:27Z`) for GeorgeQLe/jbl-portable-mobile-clone: `gh repo clone GeorgeQLe/jbl-portable-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/jbl-portable-mobile-clone` failed after the repo was created private. The remote was verified as PRIVATE and then seeded with `--reconcile-existing`.
@@ -1105,26 +1135,26 @@ Guardrails:
 | [x] | 318 | Prime Video | `GeorgeQLe/prime-video-mobile-clone` | `specs/batch-16/318-prime-video.md` |
 | [x] | 319 | Crunchyroll | `GeorgeQLe/crunchyroll-mobile-clone` | `specs/batch-16/319-crunchyroll.md` |
 | [x] | 320 | Plex | `GeorgeQLe/plex-mobile-clone` | `specs/batch-16/320-plex.md` |
-| [ ] | 321 | Tubi | `GeorgeQLe/tubi-mobile-clone` | `specs/batch-17/321-tubi.md` |
-| [ ] | 322 | Pluto TV | `GeorgeQLe/pluto-tv-mobile-clone` | `specs/batch-17/322-pluto-tv.md` |
-| [ ] | 323 | Roku | `GeorgeQLe/roku-mobile-clone` | `specs/batch-17/323-roku.md` |
-| [ ] | 324 | Fandango at Home | `GeorgeQLe/fandango-at-home-mobile-clone` | `specs/batch-17/324-fandango-at-home.md` |
-| [ ] | 325 | Vudu | `GeorgeQLe/vudu-mobile-clone` | `specs/batch-17/325-vudu.md` |
-| [ ] | 326 | MUBI | `GeorgeQLe/mubi-mobile-clone` | `specs/batch-17/326-mubi.md` |
-| [ ] | 327 | The Criterion Channel | `GeorgeQLe/the-criterion-channel-mobile-clone` | `specs/batch-17/327-the-criterion-channel.md` |
-| [ ] | 328 | Kanopy | `GeorgeQLe/kanopy-mobile-clone` | `specs/batch-17/328-kanopy.md` |
-| [ ] | 329 | Hoopla | `GeorgeQLe/hoopla-mobile-clone` | `specs/batch-17/329-hoopla.md` |
-| [ ] | 330 | Nebula | `GeorgeQLe/nebula-mobile-clone` | `specs/batch-17/330-nebula.md` |
-| [ ] | 331 | Curiosity Stream | `GeorgeQLe/curiosity-stream-mobile-clone` | `specs/batch-17/331-curiosity-stream.md` |
-| [ ] | 332 | Gaia | `GeorgeQLe/gaia-mobile-clone` | `specs/batch-17/332-gaia.md` |
-| [ ] | 333 | Dropout | `GeorgeQLe/dropout-mobile-clone` | `specs/batch-17/333-dropout.md` |
-| [ ] | 334 | BritBox | `GeorgeQLe/britbox-mobile-clone` | `specs/batch-17/334-britbox.md` |
-| [ ] | 335 | Acorn TV | `GeorgeQLe/acorn-tv-mobile-clone` | `specs/batch-17/335-acorn-tv.md` |
-| [ ] | 336 | YouTube TV | `GeorgeQLe/youtube-tv-mobile-clone` | `specs/batch-17/336-youtube-tv.md` |
-| [ ] | 337 | Sling TV | `GeorgeQLe/sling-tv-mobile-clone` | `specs/batch-17/337-sling-tv.md` |
-| [ ] | 338 | ESPN | `GeorgeQLe/espn-mobile-clone` | `specs/batch-17/338-espn.md` |
-| [ ] | 339 | The Athletic | `GeorgeQLe/the-athletic-mobile-clone` | `specs/batch-17/339-the-athletic.md` |
-| [ ] | 340 | Bleacher Report | `GeorgeQLe/bleacher-report-mobile-clone` | `specs/batch-17/340-bleacher-report.md` |
+| [x] | 321 | Tubi | `GeorgeQLe/tubi-mobile-clone` | `specs/batch-17/321-tubi.md` |
+| [x] | 322 | Pluto TV | `GeorgeQLe/pluto-tv-mobile-clone` | `specs/batch-17/322-pluto-tv.md` |
+| [x] | 323 | Roku | `GeorgeQLe/roku-mobile-clone` | `specs/batch-17/323-roku.md` |
+| [x] | 324 | Fandango at Home | `GeorgeQLe/fandango-at-home-mobile-clone` | `specs/batch-17/324-fandango-at-home.md` |
+| [x] | 325 | Vudu | `GeorgeQLe/vudu-mobile-clone` | `specs/batch-17/325-vudu.md` |
+| [x] | 326 | MUBI | `GeorgeQLe/mubi-mobile-clone` | `specs/batch-17/326-mubi.md` |
+| [x] | 327 | The Criterion Channel | `GeorgeQLe/the-criterion-channel-mobile-clone` | `specs/batch-17/327-the-criterion-channel.md` |
+| [x] | 328 | Kanopy | `GeorgeQLe/kanopy-mobile-clone` | `specs/batch-17/328-kanopy.md` |
+| [x] | 329 | Hoopla | `GeorgeQLe/hoopla-mobile-clone` | `specs/batch-17/329-hoopla.md` |
+| [x] | 330 | Nebula | `GeorgeQLe/nebula-mobile-clone` | `specs/batch-17/330-nebula.md` |
+| [x] | 331 | Curiosity Stream | `GeorgeQLe/curiosity-stream-mobile-clone` | `specs/batch-17/331-curiosity-stream.md` |
+| [x] | 332 | Gaia | `GeorgeQLe/gaia-mobile-clone` | `specs/batch-17/332-gaia.md` |
+| [x] | 333 | Dropout | `GeorgeQLe/dropout-mobile-clone` | `specs/batch-17/333-dropout.md` |
+| [x] | 334 | BritBox | `GeorgeQLe/britbox-mobile-clone` | `specs/batch-17/334-britbox.md` |
+| [x] | 335 | Acorn TV | `GeorgeQLe/acorn-tv-mobile-clone` | `specs/batch-17/335-acorn-tv.md` |
+| [x] | 336 | YouTube TV | `GeorgeQLe/youtube-tv-mobile-clone` | `specs/batch-17/336-youtube-tv.md` |
+| [x] | 337 | Sling TV | `GeorgeQLe/sling-tv-mobile-clone` | `specs/batch-17/337-sling-tv.md` |
+| [x] | 338 | ESPN | `GeorgeQLe/espn-mobile-clone` | `specs/batch-17/338-espn.md` |
+| [x] | 339 | The Athletic | `GeorgeQLe/the-athletic-mobile-clone` | `specs/batch-17/339-the-athletic.md` |
+| [x] | 340 | Bleacher Report | `GeorgeQLe/bleacher-report-mobile-clone` | `specs/batch-17/340-bleacher-report.md` |
 | [ ] | 341 | Yahoo Sports | `GeorgeQLe/yahoo-sports-mobile-clone` | `specs/batch-18/341-yahoo-sports.md` |
 | [ ] | 342 | CBS Sports | `GeorgeQLe/cbs-sports-mobile-clone` | `specs/batch-18/342-cbs-sports.md` |
 | [ ] | 343 | FOX Sports | `GeorgeQLe/fox-sports-mobile-clone` | `specs/batch-18/343-fox-sports.md` |
