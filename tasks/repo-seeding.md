@@ -707,7 +707,7 @@ Guardrails:
 | [x] | 039 | Uber Eats | `GeorgeQLe/uber-eats-mobile-clone` | `specs/batch-02/039-uber-eats.md` |
 | [x] | 040 | Instacart | `GeorgeQLe/instacart-mobile-clone` | `specs/batch-02/040-instacart.md` |
 | [x] | 041 | Starbucks | `GeorgeQLe/starbucks-mobile-clone` | `specs/batch-03/041-starbucks.md` |
-| [x] | 042 | McDonald's | `GeorgeQLe/mcdonald-s-mobile-clone` | `specs/batch-03/042-mcdonalds.md` |
+| [x] | 042 | McDonald's | `GeorgeQLe/mcdonalds-mobile-clone` | `specs/batch-03/042-mcdonalds.md` |
 | [x] | 043 | OpenTable | `GeorgeQLe/opentable-mobile-clone` | `specs/batch-03/043-opentable.md` |
 | [x] | 044 | Yelp | `GeorgeQLe/yelp-mobile-clone` | `specs/batch-03/044-yelp.md` |
 | [x] | 045 | Too Good To Go | `GeorgeQLe/too-good-to-go-mobile-clone` | `specs/batch-03/045-too-good-to-go.md` |

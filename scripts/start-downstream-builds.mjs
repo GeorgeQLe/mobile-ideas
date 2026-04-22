@@ -341,7 +341,7 @@ if (targets.length === 0) {
 
 console.log(`Selected ${targets.length} completed target(s): ${targets.map((row) => row.idText).join(", ")}`);
 mkdirSync(CLONE_ROOT, { recursive: true });
-const pushed = [];
+const completed = [];
 
 for (let index = 0; index < targets.length; index += 1) {
   const row = targets[index];
@@ -371,6 +371,7 @@ for (let index = 0; index < targets.length; index += 1) {
   const status = run(["git", "status", "--short"], { cwd: workDir, capture: true }).stdout.trim();
   if (!status) {
     console.log("No build-baseline changes needed.");
+    completed.push(row);
     rmSync(workDir, { recursive: true, force: true });
     continue;
   }
@@ -379,10 +380,10 @@ for (let index = 0; index < targets.length; index += 1) {
   run(["git", "commit", "-m", `chore: start ${row.app} build planning`], { cwd: workDir });
   run(["git", "push", "origin", "HEAD"], { cwd: workDir });
   console.log(`Pushed build planning baseline for ${row.targetRepo}.`);
-  pushed.push(row);
+  completed.push(row);
   rmSync(workDir, { recursive: true, force: true });
   if (index < targets.length - 1) sleep(args.delayMs);
 }
 
-if (args.execute) appendBuildEvidence(args.from, args.to, pushed);
+if (args.execute) appendBuildEvidence(args.from, args.to, completed);
 console.log(`Completed ${args.execute ? "build planning" : "dry run"} for ${targets.length} target(s).`);

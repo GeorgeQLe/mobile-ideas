@@ -65,3 +65,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 038 | DoorDash | `GeorgeQLe/doordash-mobile-clone` | build planning started |
 | 039 | Uber Eats | `GeorgeQLe/uber-eats-mobile-clone` | build planning started |
 | 040 | Instacart | `GeorgeQLe/instacart-mobile-clone` | build planning started |
+
+### Batch 041-060 Build Planning - 2026-04-22T00:35:12.434Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 041 | Starbucks | `GeorgeQLe/starbucks-mobile-clone` | build planning started |
+| 042 | McDonald's | `GeorgeQLe/mcdonalds-mobile-clone` | build planning started |
+| 043 | OpenTable | `GeorgeQLe/opentable-mobile-clone` | build planning started |
+| 044 | Yelp | `GeorgeQLe/yelp-mobile-clone` | build planning started |
+| 045 | Too Good To Go | `GeorgeQLe/too-good-to-go-mobile-clone` | build planning started |
+| 046 | Amazon | `GeorgeQLe/amazon-mobile-clone` | build planning started |
+| 047 | Temu | `GeorgeQLe/temu-mobile-clone` | build planning started |
+| 048 | SHEIN | `GeorgeQLe/shein-mobile-clone` | build planning started |
+| 049 | Etsy | `GeorgeQLe/etsy-mobile-clone` | build planning started |
+| 050 | eBay | `GeorgeQLe/ebay-mobile-clone` | build planning started |
+| 051 | Facebook Marketplace | `GeorgeQLe/facebook-marketplace-mobile-clone` | build planning started |
+| 052 | Poshmark | `GeorgeQLe/poshmark-mobile-clone` | build planning started |
+| 053 | Depop | `GeorgeQLe/depop-mobile-clone` | build planning started |
+| 054 | StockX | `GeorgeQLe/stockx-mobile-clone` | build planning started |
+| 055 | Shop | `GeorgeQLe/shop-mobile-clone` | build planning started |
+| 056 | Cash App | `GeorgeQLe/cash-app-mobile-clone` | build planning started |
+| 057 | Venmo | `GeorgeQLe/venmo-mobile-clone` | build planning started |
+| 058 | PayPal | `GeorgeQLe/paypal-mobile-clone` | build planning started |
+| 059 | Zelle | `GeorgeQLe/zelle-mobile-clone` | build planning started |
+| 060 | Robinhood | `GeorgeQLe/robinhood-mobile-clone` | build planning started |
