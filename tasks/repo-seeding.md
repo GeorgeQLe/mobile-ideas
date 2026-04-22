@@ -786,6 +786,36 @@ Guardrails:
 | 339 | `GeorgeQLe/the-athletic-mobile-clone` | PRIVATE | seeded |
 | 340 | `GeorgeQLe/bleacher-report-mobile-clone` | PRIVATE | seeded |
 
+### Batch 341-360 Seeding Evidence - 2026-04-22T14:38:30.156Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4667,"reset":1776869863,"used":333},"graphql":{"limit":5000,"remaining":4998,"reset":1776870325,"used":2},"search":{"limit":30,"remaining":30,"reset":1776867936,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4420,"reset":1776869863,"used":580},"graphql":{"limit":5000,"remaining":4915,"reset":1776870325,"used":85},"search":{"limit":30,"remaining":30,"reset":1776868770,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 341 | `GeorgeQLe/yahoo-sports-mobile-clone` | PRIVATE | seeded |
+| 342 | `GeorgeQLe/cbs-sports-mobile-clone` | PRIVATE | seeded |
+| 343 | `GeorgeQLe/fox-sports-mobile-clone` | PRIVATE | seeded |
+| 344 | `GeorgeQLe/nba-mobile-clone` | PRIVATE | seeded |
+| 345 | `GeorgeQLe/nfl-mobile-clone` | PRIVATE | seeded |
+| 346 | `GeorgeQLe/mlb-mobile-clone` | PRIVATE | seeded |
+| 347 | `GeorgeQLe/nhl-mobile-clone` | PRIVATE | seeded |
+| 348 | `GeorgeQLe/fifa-mobile-clone` | PRIVATE | seeded |
+| 349 | `GeorgeQLe/fubo-mobile-clone` | PRIVATE | seeded |
+| 350 | `GeorgeQLe/dazn-mobile-clone` | PRIVATE | seeded |
+| 351 | `GeorgeQLe/fanduel-sportsbook-mobile-clone` | PRIVATE | seeded |
+| 352 | `GeorgeQLe/draftkings-sportsbook-mobile-clone` | PRIVATE | seeded |
+| 353 | `GeorgeQLe/sleeper-mobile-clone` | PRIVATE | seeded |
+| 354 | `GeorgeQLe/espn-fantasy-sports-mobile-clone` | PRIVATE | seeded |
+| 355 | `GeorgeQLe/yahoo-fantasy-sports-mobile-clone` | PRIVATE | seeded |
+| 356 | `GeorgeQLe/peloton-mobile-clone` | PRIVATE | seeded |
+| 357 | `GeorgeQLe/zwift-mobile-clone` | PRIVATE | seeded |
+| 358 | `GeorgeQLe/garmin-connect-mobile-clone` | PRIVATE | seeded |
+| 359 | `GeorgeQLe/nike-training-club-mobile-clone` | PRIVATE | seeded |
+| 360 | `GeorgeQLe/fitbod-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
 
 - Step 6.3 blocker (2026-04-22T03:22:40.628Z, RESOLVED 2026-04-22 in `### Batch 281-290 Repaired Seeding Evidence - 2026-04-22T03:28:27Z`) for GeorgeQLe/jbl-portable-mobile-clone: `gh repo clone GeorgeQLe/jbl-portable-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/jbl-portable-mobile-clone` failed after the repo was created private. The remote was verified as PRIVATE and then seeded with `--reconcile-existing`.
@@ -1155,26 +1185,26 @@ Guardrails:
 | [x] | 338 | ESPN | `GeorgeQLe/espn-mobile-clone` | `specs/batch-17/338-espn.md` |
 | [x] | 339 | The Athletic | `GeorgeQLe/the-athletic-mobile-clone` | `specs/batch-17/339-the-athletic.md` |
 | [x] | 340 | Bleacher Report | `GeorgeQLe/bleacher-report-mobile-clone` | `specs/batch-17/340-bleacher-report.md` |
-| [ ] | 341 | Yahoo Sports | `GeorgeQLe/yahoo-sports-mobile-clone` | `specs/batch-18/341-yahoo-sports.md` |
-| [ ] | 342 | CBS Sports | `GeorgeQLe/cbs-sports-mobile-clone` | `specs/batch-18/342-cbs-sports.md` |
-| [ ] | 343 | FOX Sports | `GeorgeQLe/fox-sports-mobile-clone` | `specs/batch-18/343-fox-sports.md` |
-| [ ] | 344 | NBA | `GeorgeQLe/nba-mobile-clone` | `specs/batch-18/344-nba.md` |
-| [ ] | 345 | NFL | `GeorgeQLe/nfl-mobile-clone` | `specs/batch-18/345-nfl.md` |
-| [ ] | 346 | MLB | `GeorgeQLe/mlb-mobile-clone` | `specs/batch-18/346-mlb.md` |
-| [ ] | 347 | NHL | `GeorgeQLe/nhl-mobile-clone` | `specs/batch-18/347-nhl.md` |
-| [ ] | 348 | FIFA | `GeorgeQLe/fifa-mobile-clone` | `specs/batch-18/348-fifa.md` |
-| [ ] | 349 | Fubo | `GeorgeQLe/fubo-mobile-clone` | `specs/batch-18/349-fubo.md` |
-| [ ] | 350 | DAZN | `GeorgeQLe/dazn-mobile-clone` | `specs/batch-18/350-dazn.md` |
-| [ ] | 351 | FanDuel Sportsbook | `GeorgeQLe/fanduel-sportsbook-mobile-clone` | `specs/batch-18/351-fanduel-sportsbook.md` |
-| [ ] | 352 | DraftKings Sportsbook | `GeorgeQLe/draftkings-sportsbook-mobile-clone` | `specs/batch-18/352-draftkings-sportsbook.md` |
-| [ ] | 353 | Sleeper | `GeorgeQLe/sleeper-mobile-clone` | `specs/batch-18/353-sleeper.md` |
-| [ ] | 354 | ESPN Fantasy Sports | `GeorgeQLe/espn-fantasy-sports-mobile-clone` | `specs/batch-18/354-espn-fantasy-sports.md` |
-| [ ] | 355 | Yahoo Fantasy Sports | `GeorgeQLe/yahoo-fantasy-sports-mobile-clone` | `specs/batch-18/355-yahoo-fantasy-sports.md` |
-| [ ] | 356 | Peloton | `GeorgeQLe/peloton-mobile-clone` | `specs/batch-18/356-peloton.md` |
-| [ ] | 357 | Zwift | `GeorgeQLe/zwift-mobile-clone` | `specs/batch-18/357-zwift.md` |
-| [ ] | 358 | Garmin Connect | `GeorgeQLe/garmin-connect-mobile-clone` | `specs/batch-18/358-garmin-connect.md` |
-| [ ] | 359 | Nike Training Club | `GeorgeQLe/nike-training-club-mobile-clone` | `specs/batch-18/359-nike-training-club.md` |
-| [ ] | 360 | Fitbod | `GeorgeQLe/fitbod-mobile-clone` | `specs/batch-18/360-fitbod.md` |
+| [x] | 341 | Yahoo Sports | `GeorgeQLe/yahoo-sports-mobile-clone` | `specs/batch-18/341-yahoo-sports.md` |
+| [x] | 342 | CBS Sports | `GeorgeQLe/cbs-sports-mobile-clone` | `specs/batch-18/342-cbs-sports.md` |
+| [x] | 343 | FOX Sports | `GeorgeQLe/fox-sports-mobile-clone` | `specs/batch-18/343-fox-sports.md` |
+| [x] | 344 | NBA | `GeorgeQLe/nba-mobile-clone` | `specs/batch-18/344-nba.md` |
+| [x] | 345 | NFL | `GeorgeQLe/nfl-mobile-clone` | `specs/batch-18/345-nfl.md` |
+| [x] | 346 | MLB | `GeorgeQLe/mlb-mobile-clone` | `specs/batch-18/346-mlb.md` |
+| [x] | 347 | NHL | `GeorgeQLe/nhl-mobile-clone` | `specs/batch-18/347-nhl.md` |
+| [x] | 348 | FIFA | `GeorgeQLe/fifa-mobile-clone` | `specs/batch-18/348-fifa.md` |
+| [x] | 349 | Fubo | `GeorgeQLe/fubo-mobile-clone` | `specs/batch-18/349-fubo.md` |
+| [x] | 350 | DAZN | `GeorgeQLe/dazn-mobile-clone` | `specs/batch-18/350-dazn.md` |
+| [x] | 351 | FanDuel Sportsbook | `GeorgeQLe/fanduel-sportsbook-mobile-clone` | `specs/batch-18/351-fanduel-sportsbook.md` |
+| [x] | 352 | DraftKings Sportsbook | `GeorgeQLe/draftkings-sportsbook-mobile-clone` | `specs/batch-18/352-draftkings-sportsbook.md` |
+| [x] | 353 | Sleeper | `GeorgeQLe/sleeper-mobile-clone` | `specs/batch-18/353-sleeper.md` |
+| [x] | 354 | ESPN Fantasy Sports | `GeorgeQLe/espn-fantasy-sports-mobile-clone` | `specs/batch-18/354-espn-fantasy-sports.md` |
+| [x] | 355 | Yahoo Fantasy Sports | `GeorgeQLe/yahoo-fantasy-sports-mobile-clone` | `specs/batch-18/355-yahoo-fantasy-sports.md` |
+| [x] | 356 | Peloton | `GeorgeQLe/peloton-mobile-clone` | `specs/batch-18/356-peloton.md` |
+| [x] | 357 | Zwift | `GeorgeQLe/zwift-mobile-clone` | `specs/batch-18/357-zwift.md` |
+| [x] | 358 | Garmin Connect | `GeorgeQLe/garmin-connect-mobile-clone` | `specs/batch-18/358-garmin-connect.md` |
+| [x] | 359 | Nike Training Club | `GeorgeQLe/nike-training-club-mobile-clone` | `specs/batch-18/359-nike-training-club.md` |
+| [x] | 360 | Fitbod | `GeorgeQLe/fitbod-mobile-clone` | `specs/batch-18/360-fitbod.md` |
 | [ ] | 361 | Strong | `GeorgeQLe/strong-mobile-clone` | `specs/batch-19/361-strong.md` |
 | [ ] | 362 | Hevy | `GeorgeQLe/hevy-mobile-clone` | `specs/batch-19/362-hevy.md` |
 | [ ] | 363 | Runkeeper | `GeorgeQLe/runkeeper-mobile-clone` | `specs/batch-19/363-runkeeper.md` |
