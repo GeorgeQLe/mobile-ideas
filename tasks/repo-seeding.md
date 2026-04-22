@@ -726,6 +726,36 @@ Guardrails:
 | 299 | `GeorgeQLe/podimo-mobile-clone` | PRIVATE | seeded |
 | 300 | `GeorgeQLe/acast-mobile-clone` | PRIVATE | seeded |
 
+### Batch 301-320 Seeding Evidence - 2026-04-22T13:08:28.514Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":5000,"reset":1776866113,"used":0},"graphql":{"limit":5000,"remaining":4997,"reset":1776865780,"used":3},"search":{"limit":30,"remaining":30,"reset":1776862573,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4790,"reset":1776866114,"used":210},"graphql":{"limit":5000,"remaining":4917,"reset":1776865780,"used":83},"search":{"limit":30,"remaining":30,"reset":1776863368,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 301 | `GeorgeQLe/player-fm-mobile-clone` | PRIVATE | seeded |
+| 302 | `GeorgeQLe/castbox-mobile-clone` | PRIVATE | seeded |
+| 303 | `GeorgeQLe/radiopublic-mobile-clone` | PRIVATE | seeded |
+| 304 | `GeorgeQLe/npr-one-mobile-clone` | PRIVATE | seeded |
+| 305 | `GeorgeQLe/bbc-sounds-mobile-clone` | PRIVATE | seeded |
+| 306 | `GeorgeQLe/libsyn-mobile-clone` | PRIVATE | seeded |
+| 307 | `GeorgeQLe/podchaser-mobile-clone` | PRIVATE | seeded |
+| 308 | `GeorgeQLe/pocket-fm-mobile-clone` | PRIVATE | seeded |
+| 309 | `GeorgeQLe/storytel-mobile-clone` | PRIVATE | seeded |
+| 310 | `GeorgeQLe/audacy-mobile-clone` | PRIVATE | seeded |
+| 311 | `GeorgeQLe/ivoox-mobile-clone` | PRIVATE | seeded |
+| 312 | `GeorgeQLe/goodpods-mobile-clone` | PRIVATE | seeded |
+| 313 | `GeorgeQLe/hulu-mobile-clone` | PRIVATE | seeded |
+| 314 | `GeorgeQLe/disney-plus-mobile-clone` | PRIVATE | seeded |
+| 315 | `GeorgeQLe/max-mobile-clone` | PRIVATE | seeded |
+| 316 | `GeorgeQLe/peacock-tv-mobile-clone` | PRIVATE | seeded |
+| 317 | `GeorgeQLe/paramount-plus-mobile-clone` | PRIVATE | seeded |
+| 318 | `GeorgeQLe/prime-video-mobile-clone` | PRIVATE | seeded |
+| 319 | `GeorgeQLe/crunchyroll-mobile-clone` | PRIVATE | seeded |
+| 320 | `GeorgeQLe/plex-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
 
 - Step 6.3 blocker (2026-04-22T03:22:40.628Z, RESOLVED 2026-04-22 in `### Batch 281-290 Repaired Seeding Evidence - 2026-04-22T03:28:27Z`) for GeorgeQLe/jbl-portable-mobile-clone: `gh repo clone GeorgeQLe/jbl-portable-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/jbl-portable-mobile-clone` failed after the repo was created private. The remote was verified as PRIVATE and then seeded with `--reconcile-existing`.
@@ -1055,26 +1085,26 @@ Guardrails:
 | [x] | 298 | Podcast Addict | `GeorgeQLe/podcast-addict-mobile-clone` | `specs/batch-15/298-podcast-addict.md` |
 | [x] | 299 | Podimo | `GeorgeQLe/podimo-mobile-clone` | `specs/batch-15/299-podimo.md` |
 | [x] | 300 | Acast | `GeorgeQLe/acast-mobile-clone` | `specs/batch-15/300-acast.md` |
-| [ ] | 301 | Player FM | `GeorgeQLe/player-fm-mobile-clone` | `specs/batch-16/301-player-fm.md` |
-| [ ] | 302 | Castbox | `GeorgeQLe/castbox-mobile-clone` | `specs/batch-16/302-castbox.md` |
-| [ ] | 303 | RadioPublic | `GeorgeQLe/radiopublic-mobile-clone` | `specs/batch-16/303-radiopublic.md` |
-| [ ] | 304 | NPR One | `GeorgeQLe/npr-one-mobile-clone` | `specs/batch-16/304-npr-one.md` |
-| [ ] | 305 | BBC Sounds | `GeorgeQLe/bbc-sounds-mobile-clone` | `specs/batch-16/305-bbc-sounds.md` |
-| [ ] | 306 | Libsyn | `GeorgeQLe/libsyn-mobile-clone` | `specs/batch-16/306-libsyn.md` |
-| [ ] | 307 | Podchaser | `GeorgeQLe/podchaser-mobile-clone` | `specs/batch-16/307-podchaser.md` |
-| [ ] | 308 | Pocket FM | `GeorgeQLe/pocket-fm-mobile-clone` | `specs/batch-16/308-pocket-fm.md` |
-| [ ] | 309 | Storytel | `GeorgeQLe/storytel-mobile-clone` | `specs/batch-16/309-storytel.md` |
-| [ ] | 310 | Audacy | `GeorgeQLe/audacy-mobile-clone` | `specs/batch-16/310-audacy.md` |
-| [ ] | 311 | iVoox | `GeorgeQLe/ivoox-mobile-clone` | `specs/batch-16/311-ivoox.md` |
-| [ ] | 312 | Goodpods | `GeorgeQLe/goodpods-mobile-clone` | `specs/batch-16/312-goodpods.md` |
-| [ ] | 313 | Hulu | `GeorgeQLe/hulu-mobile-clone` | `specs/batch-16/313-hulu.md` |
-| [ ] | 314 | Disney+ | `GeorgeQLe/disney-plus-mobile-clone` | `specs/batch-16/314-disney-plus.md` |
-| [ ] | 315 | Max | `GeorgeQLe/max-mobile-clone` | `specs/batch-16/315-max.md` |
-| [ ] | 316 | Peacock TV | `GeorgeQLe/peacock-tv-mobile-clone` | `specs/batch-16/316-peacock-tv.md` |
-| [ ] | 317 | Paramount+ | `GeorgeQLe/paramount-plus-mobile-clone` | `specs/batch-16/317-paramount-plus.md` |
-| [ ] | 318 | Prime Video | `GeorgeQLe/prime-video-mobile-clone` | `specs/batch-16/318-prime-video.md` |
-| [ ] | 319 | Crunchyroll | `GeorgeQLe/crunchyroll-mobile-clone` | `specs/batch-16/319-crunchyroll.md` |
-| [ ] | 320 | Plex | `GeorgeQLe/plex-mobile-clone` | `specs/batch-16/320-plex.md` |
+| [x] | 301 | Player FM | `GeorgeQLe/player-fm-mobile-clone` | `specs/batch-16/301-player-fm.md` |
+| [x] | 302 | Castbox | `GeorgeQLe/castbox-mobile-clone` | `specs/batch-16/302-castbox.md` |
+| [x] | 303 | RadioPublic | `GeorgeQLe/radiopublic-mobile-clone` | `specs/batch-16/303-radiopublic.md` |
+| [x] | 304 | NPR One | `GeorgeQLe/npr-one-mobile-clone` | `specs/batch-16/304-npr-one.md` |
+| [x] | 305 | BBC Sounds | `GeorgeQLe/bbc-sounds-mobile-clone` | `specs/batch-16/305-bbc-sounds.md` |
+| [x] | 306 | Libsyn | `GeorgeQLe/libsyn-mobile-clone` | `specs/batch-16/306-libsyn.md` |
+| [x] | 307 | Podchaser | `GeorgeQLe/podchaser-mobile-clone` | `specs/batch-16/307-podchaser.md` |
+| [x] | 308 | Pocket FM | `GeorgeQLe/pocket-fm-mobile-clone` | `specs/batch-16/308-pocket-fm.md` |
+| [x] | 309 | Storytel | `GeorgeQLe/storytel-mobile-clone` | `specs/batch-16/309-storytel.md` |
+| [x] | 310 | Audacy | `GeorgeQLe/audacy-mobile-clone` | `specs/batch-16/310-audacy.md` |
+| [x] | 311 | iVoox | `GeorgeQLe/ivoox-mobile-clone` | `specs/batch-16/311-ivoox.md` |
+| [x] | 312 | Goodpods | `GeorgeQLe/goodpods-mobile-clone` | `specs/batch-16/312-goodpods.md` |
+| [x] | 313 | Hulu | `GeorgeQLe/hulu-mobile-clone` | `specs/batch-16/313-hulu.md` |
+| [x] | 314 | Disney+ | `GeorgeQLe/disney-plus-mobile-clone` | `specs/batch-16/314-disney-plus.md` |
+| [x] | 315 | Max | `GeorgeQLe/max-mobile-clone` | `specs/batch-16/315-max.md` |
+| [x] | 316 | Peacock TV | `GeorgeQLe/peacock-tv-mobile-clone` | `specs/batch-16/316-peacock-tv.md` |
+| [x] | 317 | Paramount+ | `GeorgeQLe/paramount-plus-mobile-clone` | `specs/batch-16/317-paramount-plus.md` |
+| [x] | 318 | Prime Video | `GeorgeQLe/prime-video-mobile-clone` | `specs/batch-16/318-prime-video.md` |
+| [x] | 319 | Crunchyroll | `GeorgeQLe/crunchyroll-mobile-clone` | `specs/batch-16/319-crunchyroll.md` |
+| [x] | 320 | Plex | `GeorgeQLe/plex-mobile-clone` | `specs/batch-16/320-plex.md` |
 | [ ] | 321 | Tubi | `GeorgeQLe/tubi-mobile-clone` | `specs/batch-17/321-tubi.md` |
 | [ ] | 322 | Pluto TV | `GeorgeQLe/pluto-tv-mobile-clone` | `specs/batch-17/322-pluto-tv.md` |
 | [ ] | 323 | Roku | `GeorgeQLe/roku-mobile-clone` | `specs/batch-17/323-roku.md` |
