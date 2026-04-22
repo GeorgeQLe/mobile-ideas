@@ -14,7 +14,7 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 - [x] 061-080 - Build planning pushed.
 - [x] 081-100 - Build planning pushed.
 - [x] 101-120 - Build planning pushed.
-- [ ] 121-140 - Ready for serial build-planning push after 101-120.
+- [x] 121-140 - Build planning pushed.
 - [ ] 141-160 - Ready for serial build-planning push after 121-140.
 - [ ] 161-180 - Ready for serial build-planning push after 141-160.
 - [ ] 181-200 - Ready for serial build-planning push after 161-180.
@@ -197,3 +197,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 118 | Eventbrite | `GeorgeQLe/eventbrite-mobile-clone` | build planning started |
 | 119 | Medium | `GeorgeQLe/medium-mobile-clone` | build planning started |
 | 120 | Substack | `GeorgeQLe/substack-mobile-clone` | build planning started |
+
+### Batch 121-140 Build Planning - 2026-04-22T00:44:58.487Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 121 | Wattpad | `GeorgeQLe/wattpad-mobile-clone` | build planning started |
+| 122 | Webtoon | `GeorgeQLe/webtoon-mobile-clone` | build planning started |
+| 123 | Goodreads | `GeorgeQLe/goodreads-mobile-clone` | build planning started |
+| 124 | Kindle | `GeorgeQLe/kindle-mobile-clone` | build planning started |
+| 125 | Libby | `GeorgeQLe/libby-mobile-clone` | build planning started |
+| 126 | Apple Books | `GeorgeQLe/apple-books-mobile-clone` | build planning started |
+| 127 | Scribd | `GeorgeQLe/scribd-mobile-clone` | build planning started |
+| 128 | Readwise | `GeorgeQLe/readwise-mobile-clone` | build planning started |
+| 129 | Pocket | `GeorgeQLe/pocket-mobile-clone` | build planning started |
+| 130 | Instapaper | `GeorgeQLe/instapaper-mobile-clone` | build planning started |
+| 131 | Feedly | `GeorgeQLe/feedly-mobile-clone` | build planning started |
+| 132 | Apple News | `GeorgeQLe/apple-news-mobile-clone` | build planning started |
+| 133 | The New York Times | `GeorgeQLe/the-new-york-times-mobile-clone` | build planning started |
+| 134 | Flipboard | `GeorgeQLe/flipboard-mobile-clone` | build planning started |
+| 135 | SmartNews | `GeorgeQLe/smartnews-mobile-clone` | build planning started |
+| 136 | Ground News | `GeorgeQLe/ground-news-mobile-clone` | build planning started |
+| 137 | Bloomberg | `GeorgeQLe/bloomberg-mobile-clone` | build planning started |
+| 138 | Yahoo Finance | `GeorgeQLe/yahoo-finance-mobile-clone` | build planning started |
+| 139 | Stocktwits | `GeorgeQLe/stocktwits-mobile-clone` | build planning started |
+| 140 | Public | `GeorgeQLe/public-mobile-clone` | build planning started |
