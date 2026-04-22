@@ -846,6 +846,36 @@ Guardrails:
 | 379 | `GeorgeQLe/papa-johns-mobile-clone` | PRIVATE | seeded |
 | 380 | `GeorgeQLe/little-caesars-mobile-clone` | PRIVATE | seeded |
 
+### Batch 381-400 Seeding Evidence - 2026-04-22T15:55:45.962Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4904,"reset":1776873595,"used":96},"graphql":{"limit":5000,"remaining":4987,"reset":1776874543,"used":13},"search":{"limit":30,"remaining":30,"reset":1776872737,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4706,"reset":1776873595,"used":294},"graphql":{"limit":5000,"remaining":4895,"reset":1776874543,"used":105},"search":{"limit":30,"remaining":30,"reset":1776873405,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 381 | `GeorgeQLe/kfc-mobile-clone` | PRIVATE | seeded |
+| 382 | `GeorgeQLe/popeyes-mobile-clone` | PRIVATE | seeded |
+| 383 | `GeorgeQLe/sonic-drive-in-mobile-clone` | PRIVATE | seeded |
+| 384 | `GeorgeQLe/shake-shack-mobile-clone` | PRIVATE | seeded |
+| 385 | `GeorgeQLe/sweetgreen-mobile-clone` | PRIVATE | seeded |
+| 386 | `GeorgeQLe/cava-mobile-clone` | PRIVATE | seeded |
+| 387 | `GeorgeQLe/wingstop-mobile-clone` | PRIVATE | seeded |
+| 388 | `GeorgeQLe/dairy-queen-mobile-clone` | PRIVATE | seeded |
+| 389 | `GeorgeQLe/dutch-bros-mobile-clone` | PRIVATE | seeded |
+| 390 | `GeorgeQLe/7-eleven-mobile-clone` | PRIVATE | seeded |
+| 391 | `GeorgeQLe/krispy-kreme-mobile-clone` | PRIVATE | seeded |
+| 392 | `GeorgeQLe/jamba-mobile-clone` | PRIVATE | seeded |
+| 393 | `GeorgeQLe/walmart-mobile-clone` | PRIVATE | seeded |
+| 394 | `GeorgeQLe/target-mobile-clone` | PRIVATE | seeded |
+| 395 | `GeorgeQLe/costco-mobile-clone` | PRIVATE | seeded |
+| 396 | `GeorgeQLe/sam-s-club-mobile-clone` | PRIVATE | seeded |
+| 397 | `GeorgeQLe/kroger-mobile-clone` | PRIVATE | seeded |
+| 398 | `GeorgeQLe/safeway-mobile-clone` | PRIVATE | seeded |
+| 399 | `GeorgeQLe/albertsons-mobile-clone` | PRIVATE | seeded |
+| 400 | `GeorgeQLe/whole-foods-market-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
 
 - Step 6.3 blocker (2026-04-22T03:22:40.628Z, RESOLVED 2026-04-22 in `### Batch 281-290 Repaired Seeding Evidence - 2026-04-22T03:28:27Z`) for GeorgeQLe/jbl-portable-mobile-clone: `gh repo clone GeorgeQLe/jbl-portable-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/jbl-portable-mobile-clone` failed after the repo was created private. The remote was verified as PRIVATE and then seeded with `--reconcile-existing`.
@@ -1255,26 +1285,26 @@ Guardrails:
 | [x] | 378 | Pizza Hut | `GeorgeQLe/pizza-hut-mobile-clone` | `specs/batch-19/378-pizza-hut.md` |
 | [x] | 379 | Papa Johns | `GeorgeQLe/papa-johns-mobile-clone` | `specs/batch-19/379-papa-johns.md` |
 | [x] | 380 | Little Caesars | `GeorgeQLe/little-caesars-mobile-clone` | `specs/batch-19/380-little-caesars.md` |
-| [ ] | 381 | KFC | `GeorgeQLe/kfc-mobile-clone` | `specs/batch-20/381-kfc.md` |
-| [ ] | 382 | Popeyes | `GeorgeQLe/popeyes-mobile-clone` | `specs/batch-20/382-popeyes.md` |
-| [ ] | 383 | Sonic Drive-In | `GeorgeQLe/sonic-drive-in-mobile-clone` | `specs/batch-20/383-sonic-drive-in.md` |
-| [ ] | 384 | Shake Shack | `GeorgeQLe/shake-shack-mobile-clone` | `specs/batch-20/384-shake-shack.md` |
-| [ ] | 385 | Sweetgreen | `GeorgeQLe/sweetgreen-mobile-clone` | `specs/batch-20/385-sweetgreen.md` |
-| [ ] | 386 | Cava | `GeorgeQLe/cava-mobile-clone` | `specs/batch-20/386-cava.md` |
-| [ ] | 387 | Wingstop | `GeorgeQLe/wingstop-mobile-clone` | `specs/batch-20/387-wingstop.md` |
-| [ ] | 388 | Dairy Queen | `GeorgeQLe/dairy-queen-mobile-clone` | `specs/batch-20/388-dairy-queen.md` |
-| [ ] | 389 | Dutch Bros | `GeorgeQLe/dutch-bros-mobile-clone` | `specs/batch-20/389-dutch-bros.md` |
-| [ ] | 390 | 7-Eleven | `GeorgeQLe/7-eleven-mobile-clone` | `specs/batch-20/390-7-eleven.md` |
-| [ ] | 391 | Krispy Kreme | `GeorgeQLe/krispy-kreme-mobile-clone` | `specs/batch-20/391-krispy-kreme.md` |
-| [ ] | 392 | Jamba | `GeorgeQLe/jamba-mobile-clone` | `specs/batch-20/392-jamba.md` |
-| [ ] | 393 | Walmart | `GeorgeQLe/walmart-mobile-clone` | `specs/batch-20/393-walmart.md` |
-| [ ] | 394 | Target | `GeorgeQLe/target-mobile-clone` | `specs/batch-20/394-target.md` |
-| [ ] | 395 | Costco | `GeorgeQLe/costco-mobile-clone` | `specs/batch-20/395-costco.md` |
-| [ ] | 396 | Sam's Club | `GeorgeQLe/sam-s-club-mobile-clone` | `specs/batch-20/396-sam-s-club.md` |
-| [ ] | 397 | Kroger | `GeorgeQLe/kroger-mobile-clone` | `specs/batch-20/397-kroger.md` |
-| [ ] | 398 | Safeway | `GeorgeQLe/safeway-mobile-clone` | `specs/batch-20/398-safeway.md` |
-| [ ] | 399 | Albertsons | `GeorgeQLe/albertsons-mobile-clone` | `specs/batch-20/399-albertsons.md` |
-| [ ] | 400 | Whole Foods Market | `GeorgeQLe/whole-foods-market-mobile-clone` | `specs/batch-20/400-whole-foods-market.md` |
+| [x] | 381 | KFC | `GeorgeQLe/kfc-mobile-clone` | `specs/batch-20/381-kfc.md` |
+| [x] | 382 | Popeyes | `GeorgeQLe/popeyes-mobile-clone` | `specs/batch-20/382-popeyes.md` |
+| [x] | 383 | Sonic Drive-In | `GeorgeQLe/sonic-drive-in-mobile-clone` | `specs/batch-20/383-sonic-drive-in.md` |
+| [x] | 384 | Shake Shack | `GeorgeQLe/shake-shack-mobile-clone` | `specs/batch-20/384-shake-shack.md` |
+| [x] | 385 | Sweetgreen | `GeorgeQLe/sweetgreen-mobile-clone` | `specs/batch-20/385-sweetgreen.md` |
+| [x] | 386 | Cava | `GeorgeQLe/cava-mobile-clone` | `specs/batch-20/386-cava.md` |
+| [x] | 387 | Wingstop | `GeorgeQLe/wingstop-mobile-clone` | `specs/batch-20/387-wingstop.md` |
+| [x] | 388 | Dairy Queen | `GeorgeQLe/dairy-queen-mobile-clone` | `specs/batch-20/388-dairy-queen.md` |
+| [x] | 389 | Dutch Bros | `GeorgeQLe/dutch-bros-mobile-clone` | `specs/batch-20/389-dutch-bros.md` |
+| [x] | 390 | 7-Eleven | `GeorgeQLe/7-eleven-mobile-clone` | `specs/batch-20/390-7-eleven.md` |
+| [x] | 391 | Krispy Kreme | `GeorgeQLe/krispy-kreme-mobile-clone` | `specs/batch-20/391-krispy-kreme.md` |
+| [x] | 392 | Jamba | `GeorgeQLe/jamba-mobile-clone` | `specs/batch-20/392-jamba.md` |
+| [x] | 393 | Walmart | `GeorgeQLe/walmart-mobile-clone` | `specs/batch-20/393-walmart.md` |
+| [x] | 394 | Target | `GeorgeQLe/target-mobile-clone` | `specs/batch-20/394-target.md` |
+| [x] | 395 | Costco | `GeorgeQLe/costco-mobile-clone` | `specs/batch-20/395-costco.md` |
+| [x] | 396 | Sam's Club | `GeorgeQLe/sam-s-club-mobile-clone` | `specs/batch-20/396-sam-s-club.md` |
+| [x] | 397 | Kroger | `GeorgeQLe/kroger-mobile-clone` | `specs/batch-20/397-kroger.md` |
+| [x] | 398 | Safeway | `GeorgeQLe/safeway-mobile-clone` | `specs/batch-20/398-safeway.md` |
+| [x] | 399 | Albertsons | `GeorgeQLe/albertsons-mobile-clone` | `specs/batch-20/399-albertsons.md` |
+| [x] | 400 | Whole Foods Market | `GeorgeQLe/whole-foods-market-mobile-clone` | `specs/batch-20/400-whole-foods-market.md` |
 | [ ] | 401 | Publix | `GeorgeQLe/publix-mobile-clone` | `specs/batch-21/401-publix.md` |
 | [ ] | 402 | H-E-B | `GeorgeQLe/h-e-b-mobile-clone` | `specs/batch-21/402-h-e-b.md` |
 | [ ] | 403 | Meijer | `GeorgeQLe/meijer-mobile-clone` | `specs/batch-21/403-meijer.md` |
