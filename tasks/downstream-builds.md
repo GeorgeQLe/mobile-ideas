@@ -16,7 +16,7 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 - [x] 101-120 - Build planning pushed.
 - [x] 121-140 - Build planning pushed.
 - [x] 141-160 - Build planning pushed.
-- [ ] 161-180 - Ready for serial build-planning push after 141-160.
+- [x] 161-180 - Build planning pushed.
 - [ ] 181-200 - Ready for serial build-planning push after 161-180.
 - [ ] 201-220 - Ready for serial build-planning push after 181-200.
 - [ ] 221-240 - Ready for serial build-planning push after 201-220.
@@ -255,3 +255,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 158 | Oura | `GeorgeQLe/oura-mobile-clone` | build planning started |
 | 159 | Whoop | `GeorgeQLe/whoop-mobile-clone` | build planning started |
 | 160 | Sleep Cycle | `GeorgeQLe/sleep-cycle-mobile-clone` | build planning started |
+
+### Batch 161-180 Build Planning - 2026-04-22T00:48:40.121Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 161 | Clue | `GeorgeQLe/clue-mobile-clone` | build planning started |
+| 162 | Ovia | `GeorgeQLe/ovia-mobile-clone` | build planning started |
+| 163 | BabyCenter | `GeorgeQLe/babycenter-mobile-clone` | build planning started |
+| 164 | Huckleberry | `GeorgeQLe/huckleberry-mobile-clone` | build planning started |
+| 165 | Cozi | `GeorgeQLe/cozi-mobile-clone` | build planning started |
+| 166 | Life360 | `GeorgeQLe/life360-mobile-clone` | build planning started |
+| 167 | Bark | `GeorgeQLe/bark-mobile-clone` | build planning started |
+| 168 | Qustodio | `GeorgeQLe/qustodio-mobile-clone` | build planning started |
+| 169 | Google Family Link | `GeorgeQLe/google-family-link-mobile-clone` | build planning started |
+| 170 | ClassDojo | `GeorgeQLe/classdojo-mobile-clone` | build planning started |
+| 171 | Remind | `GeorgeQLe/remind-mobile-clone` | build planning started |
+| 172 | Canvas Student | `GeorgeQLe/canvas-student-mobile-clone` | build planning started |
+| 173 | Google Classroom | `GeorgeQLe/google-classroom-mobile-clone` | build planning started |
+| 174 | ScratchJr | `GeorgeQLe/scratchjr-mobile-clone` | build planning started |
+| 175 | ABCmouse | `GeorgeQLe/abcmouse-mobile-clone` | build planning started |
+| 176 | Khan Academy Kids | `GeorgeQLe/khan-academy-kids-mobile-clone` | build planning started |
+| 177 | Epic! | `GeorgeQLe/epic-mobile-clone` | build planning started |
+| 178 | YouTube Kids | `GeorgeQLe/youtube-kids-mobile-clone` | build planning started |
+| 179 | PBS Kids | `GeorgeQLe/pbs-kids-mobile-clone` | build planning started |
+| 180 | Babbel | `GeorgeQLe/babbel-mobile-clone` | build planning started |
