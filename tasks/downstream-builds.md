@@ -17,7 +17,7 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 - [x] 121-140 - Build planning pushed.
 - [x] 141-160 - Build planning pushed.
 - [x] 161-180 - Build planning pushed.
-- [ ] 181-200 - Ready for serial build-planning push after 161-180.
+- [x] 181-200 - Build planning pushed.
 - [ ] 201-220 - Ready for serial build-planning push after 181-200.
 - [ ] 221-240 - Ready for serial build-planning push after 201-220.
 - [ ] 241-260 - Ready for serial build-planning push after 221-240.
@@ -284,3 +284,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 178 | YouTube Kids | `GeorgeQLe/youtube-kids-mobile-clone` | build planning started |
 | 179 | PBS Kids | `GeorgeQLe/pbs-kids-mobile-clone` | build planning started |
 | 180 | Babbel | `GeorgeQLe/babbel-mobile-clone` | build planning started |
+
+### Batch 181-200 Build Planning - 2026-04-22T00:50:49.528Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 181 | Rosetta Stone | `GeorgeQLe/rosetta-stone-mobile-clone` | build planning started |
+| 182 | Busuu | `GeorgeQLe/busuu-mobile-clone` | build planning started |
+| 183 | Google Translate | `GeorgeQLe/google-translate-mobile-clone` | build planning started |
+| 184 | DeepL | `GeorgeQLe/deepl-mobile-clone` | build planning started |
+| 185 | Otter.ai | `GeorgeQLe/otter-ai-mobile-clone` | build planning started |
+| 186 | Grammarly | `GeorgeQLe/grammarly-mobile-clone` | build planning started |
+| 187 | GitHub Mobile | `GeorgeQLe/github-mobile-mobile-clone` | build planning started |
+| 188 | Linear | `GeorgeQLe/linear-mobile-clone` | build planning started |
+| 189 | Jira | `GeorgeQLe/jira-mobile-clone` | build planning started |
+| 190 | Asana | `GeorgeQLe/asana-mobile-clone` | build planning started |
+| 191 | ClickUp | `GeorgeQLe/clickup-mobile-clone` | build planning started |
+| 192 | Figma | `GeorgeQLe/figma-mobile-clone` | build planning started |
+| 193 | Miro | `GeorgeQLe/miro-mobile-clone` | build planning started |
+| 194 | Calendly | `GeorgeQLe/calendly-mobile-clone` | build planning started |
+| 195 | Fantastical | `GeorgeQLe/fantastical-mobile-clone` | build planning started |
+| 196 | Things 3 | `GeorgeQLe/things-3-mobile-clone` | build planning started |
+| 197 | Obsidian | `GeorgeQLe/obsidian-mobile-clone` | build planning started |
+| 198 | Bear | `GeorgeQLe/bear-mobile-clone` | build planning started |
+| 199 | Day One | `GeorgeQLe/day-one-mobile-clone` | build planning started |
+| 200 | AllTrails | `GeorgeQLe/alltrails-mobile-clone` | build planning started |
