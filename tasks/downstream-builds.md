@@ -19,7 +19,7 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 - [x] 161-180 - Build planning pushed.
 - [x] 181-200 - Build planning pushed.
 - [x] 201-220 - Build planning pushed.
-- [ ] 221-240 - Ready for serial build-planning push after 201-220.
+- [x] 221-240 - Build planning pushed.
 - [ ] 241-260 - Ready for serial build-planning push after 221-240.
 
 ## Evidence
@@ -342,3 +342,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 218 | Genie | `GeorgeQLe/genie-mobile-clone` | build planning started |
 | 219 | Monica | `GeorgeQLe/monica-mobile-clone` | build planning started |
 | 220 | Notion AI | `GeorgeQLe/notion-ai-mobile-clone` | build planning started |
+
+### Batch 221-240 Build Planning - 2026-04-22T00:54:28.996Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 221 | Forefront AI | `GeorgeQLe/forefront-ai-mobile-clone` | build planning started |
+| 222 | Consensus | `GeorgeQLe/consensus-mobile-clone` | build planning started |
+| 223 | Picsart | `GeorgeQLe/picsart-mobile-clone` | build planning started |
+| 224 | VSCO | `GeorgeQLe/vsco-mobile-clone` | build planning started |
+| 225 | Snapseed | `GeorgeQLe/snapseed-mobile-clone` | build planning started |
+| 226 | Adobe Express | `GeorgeQLe/adobe-express-mobile-clone` | build planning started |
+| 227 | Photoshop Express | `GeorgeQLe/photoshop-express-mobile-clone` | build planning started |
+| 228 | Procreate Pocket | `GeorgeQLe/procreate-pocket-mobile-clone` | build planning started |
+| 229 | Sketchbook | `GeorgeQLe/sketchbook-mobile-clone` | build planning started |
+| 230 | ibis Paint X | `GeorgeQLe/ibis-paint-x-mobile-clone` | build planning started |
+| 231 | Clip Studio Paint | `GeorgeQLe/clip-studio-paint-mobile-clone` | build planning started |
+| 232 | Bazaart | `GeorgeQLe/bazaart-mobile-clone` | build planning started |
+| 233 | Prequel | `GeorgeQLe/prequel-mobile-clone` | build planning started |
+| 234 | Facetune | `GeorgeQLe/facetune-mobile-clone` | build planning started |
+| 235 | BeautyPlus | `GeorgeQLe/beautyplus-mobile-clone` | build planning started |
+| 236 | SNOW | `GeorgeQLe/snow-mobile-clone` | build planning started |
+| 237 | Meitu | `GeorgeQLe/meitu-mobile-clone` | build planning started |
+| 238 | Polish | `GeorgeQLe/polish-mobile-clone` | build planning started |
+| 239 | PhotoRoom | `GeorgeQLe/photoroom-mobile-clone` | build planning started |
+| 240 | Pixelcut | `GeorgeQLe/pixelcut-mobile-clone` | build planning started |
