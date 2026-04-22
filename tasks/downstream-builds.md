@@ -12,7 +12,7 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 - [x] 021-040 - Build planning pushed.
 - [x] 041-060 - Build planning pushed.
 - [x] 061-080 - Build planning pushed.
-- [ ] 081-100 - Ready for serial build-planning push after 061-080.
+- [x] 081-100 - Build planning pushed.
 - [ ] 101-120 - Ready for serial build-planning push after 081-100.
 - [ ] 121-140 - Ready for serial build-planning push after 101-120.
 - [ ] 141-160 - Ready for serial build-planning push after 121-140.
@@ -139,3 +139,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 078 | Khan Academy | `GeorgeQLe/khan-academy-mobile-clone` | build planning started |
 | 079 | Quizlet | `GeorgeQLe/quizlet-mobile-clone` | build planning started |
 | 080 | Coursera | `GeorgeQLe/coursera-mobile-clone` | build planning started |
+
+### Batch 081-100 Build Planning - 2026-04-22T00:41:09.203Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 081 | Photomath | `GeorgeQLe/photomath-mobile-clone` | build planning started |
+| 082 | Headspace | `GeorgeQLe/headspace-mobile-clone` | build planning started |
+| 083 | Calm | `GeorgeQLe/calm-mobile-clone` | build planning started |
+| 084 | Strava | `GeorgeQLe/strava-mobile-clone` | build planning started |
+| 085 | Nike Run Club | `GeorgeQLe/nike-run-club-mobile-clone` | build planning started |
+| 086 | MyFitnessPal | `GeorgeQLe/myfitnesspal-mobile-clone` | build planning started |
+| 087 | Fitbit | `GeorgeQLe/fitbit-mobile-clone` | build planning started |
+| 088 | Flo | `GeorgeQLe/flo-mobile-clone` | build planning started |
+| 089 | Notion | `GeorgeQLe/notion-mobile-clone` | build planning started |
+| 090 | Todoist | `GeorgeQLe/todoist-mobile-clone` | build planning started |
+| 091 | Trello | `GeorgeQLe/trello-mobile-clone` | build planning started |
+| 092 | Google Calendar | `GeorgeQLe/google-calendar-mobile-clone` | build planning started |
+| 093 | Evernote | `GeorgeQLe/evernote-mobile-clone` | build planning started |
+| 094 | Dropbox | `GeorgeQLe/dropbox-mobile-clone` | build planning started |
+| 095 | Google Drive | `GeorgeQLe/google-drive-mobile-clone` | build planning started |
+| 096 | CapCut | `GeorgeQLe/capcut-mobile-clone` | build planning started |
+| 097 | Canva | `GeorgeQLe/canva-mobile-clone` | build planning started |
+| 098 | Lightroom | `GeorgeQLe/lightroom-mobile-clone` | build planning started |
+| 099 | Google Photos | `GeorgeQLe/google-photos-mobile-clone` | build planning started |
+| 100 | Ring | `GeorgeQLe/ring-mobile-clone` | build planning started |
