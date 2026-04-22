@@ -400,3 +400,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 258 | Magisto | `GeorgeQLe/magisto-mobile-clone` | build planning started |
 | 259 | GoPro Quik | `GeorgeQLe/gopro-quik-mobile-clone` | build planning started |
 | 260 | VivaVideo | `GeorgeQLe/vivavideo-mobile-clone` | build planning started |
+
+### Batch 261-280 Build Planning - 2026-04-22T03:08:47.831Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 261 | VideoShow | `GeorgeQLe/videoshow-mobile-clone` | build planning started |
+| 262 | PowerDirector | `GeorgeQLe/powerdirector-mobile-clone` | build planning started |
+| 263 | Adobe Premiere Rush | `GeorgeQLe/adobe-premiere-rush-mobile-clone` | build planning started |
+| 264 | Descript | `GeorgeQLe/descript-mobile-clone` | build planning started |
+| 265 | Captions | `GeorgeQLe/captions-mobile-clone` | build planning started |
+| 266 | OpusClip | `GeorgeQLe/opusclip-mobile-clone` | build planning started |
+| 267 | VEED | `GeorgeQLe/veed-mobile-clone` | build planning started |
+| 268 | TikTok Studio | `GeorgeQLe/tiktok-studio-mobile-clone` | build planning started |
+| 269 | YouTube Create | `GeorgeQLe/youtube-create-mobile-clone` | build planning started |
+| 270 | Shazam | `GeorgeQLe/shazam-mobile-clone` | build planning started |
+| 271 | Bandcamp | `GeorgeQLe/bandcamp-mobile-clone` | build planning started |
+| 272 | Deezer | `GeorgeQLe/deezer-mobile-clone` | build planning started |
+| 273 | TIDAL | `GeorgeQLe/tidal-mobile-clone` | build planning started |
+| 274 | Pandora | `GeorgeQLe/pandora-mobile-clone` | build planning started |
+| 275 | iHeartRadio | `GeorgeQLe/iheartradio-mobile-clone` | build planning started |
+| 276 | SiriusXM | `GeorgeQLe/siriusxm-mobile-clone` | build planning started |
+| 277 | TuneIn Radio | `GeorgeQLe/tunein-radio-mobile-clone` | build planning started |
+| 278 | Amazon Music | `GeorgeQLe/amazon-music-mobile-clone` | build planning started |
+| 279 | Qobuz | `GeorgeQLe/qobuz-mobile-clone` | build planning started |
+| 280 | Anghami | `GeorgeQLe/anghami-mobile-clone` | build planning started |
