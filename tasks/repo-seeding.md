@@ -936,6 +936,36 @@ Guardrails:
 | 439 | `GeorgeQLe/skipthedishes-mobile-clone` | PRIVATE | seeded |
 | 440 | `GeorgeQLe/talabat-mobile-clone` | PRIVATE | seeded |
 
+### Batch 441-460 Seeding Evidence - 2026-04-22T17:30:41.137Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4796,"reset":1776881189,"used":204},"graphql":{"limit":5000,"remaining":4998,"reset":1776881868,"used":2},"search":{"limit":30,"remaining":30,"reset":1776878437,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4154,"reset":1776881189,"used":846},"graphql":{"limit":5000,"remaining":4913,"reset":1776881868,"used":87},"search":{"limit":30,"remaining":30,"reset":1776879101,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 441 | `GeorgeQLe/mr-d-food-mobile-clone` | PRIVATE | seeded |
+| 442 | `GeorgeQLe/best-buy-mobile-clone` | PRIVATE | seeded |
+| 443 | `GeorgeQLe/home-depot-mobile-clone` | PRIVATE | seeded |
+| 444 | `GeorgeQLe/lowe-s-mobile-clone` | PRIVATE | seeded |
+| 445 | `GeorgeQLe/ikea-mobile-clone` | PRIVATE | seeded |
+| 446 | `GeorgeQLe/wayfair-mobile-clone` | PRIVATE | seeded |
+| 447 | `GeorgeQLe/kohl-s-mobile-clone` | PRIVATE | seeded |
+| 448 | `GeorgeQLe/macy-s-mobile-clone` | PRIVATE | seeded |
+| 449 | `GeorgeQLe/nordstrom-mobile-clone` | PRIVATE | seeded |
+| 450 | `GeorgeQLe/sephora-mobile-clone` | PRIVATE | seeded |
+| 451 | `GeorgeQLe/ulta-beauty-mobile-clone` | PRIVATE | seeded |
+| 452 | `GeorgeQLe/nike-mobile-clone` | PRIVATE | seeded |
+| 453 | `GeorgeQLe/adidas-mobile-clone` | PRIVATE | seeded |
+| 454 | `GeorgeQLe/zara-mobile-clone` | PRIVATE | seeded |
+| 455 | `GeorgeQLe/handm-mobile-clone` | PRIVATE | seeded |
+| 456 | `GeorgeQLe/uniqlo-mobile-clone` | PRIVATE | seeded |
+| 457 | `GeorgeQLe/lululemon-mobile-clone` | PRIVATE | seeded |
+| 458 | `GeorgeQLe/goat-mobile-clone` | PRIVATE | seeded |
+| 459 | `GeorgeQLe/grailed-mobile-clone` | PRIVATE | seeded |
+| 460 | `GeorgeQLe/mercari-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
 
 - Step 6.3 blocker (2026-04-22T03:22:40.628Z, RESOLVED 2026-04-22 in `### Batch 281-290 Repaired Seeding Evidence - 2026-04-22T03:28:27Z`) for GeorgeQLe/jbl-portable-mobile-clone: `gh repo clone GeorgeQLe/jbl-portable-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/jbl-portable-mobile-clone` failed after the repo was created private. The remote was verified as PRIVATE and then seeded with `--reconcile-existing`.
@@ -1405,26 +1435,26 @@ Guardrails:
 | [x] | 438 | Favor | `GeorgeQLe/favor-mobile-clone` | `specs/batch-22/438-favor.md` |
 | [x] | 439 | SkipTheDishes | `GeorgeQLe/skipthedishes-mobile-clone` | `specs/batch-22/439-skipthedishes.md` |
 | [x] | 440 | Talabat | `GeorgeQLe/talabat-mobile-clone` | `specs/batch-22/440-talabat.md` |
-| [ ] | 441 | Mr D Food | `GeorgeQLe/mr-d-food-mobile-clone` | `specs/batch-23/441-mr-d-food.md` |
-| [ ] | 442 | Best Buy | `GeorgeQLe/best-buy-mobile-clone` | `specs/batch-23/442-best-buy.md` |
-| [ ] | 443 | Home Depot | `GeorgeQLe/home-depot-mobile-clone` | `specs/batch-23/443-home-depot.md` |
-| [ ] | 444 | Lowe's | `GeorgeQLe/lowe-s-mobile-clone` | `specs/batch-23/444-lowe-s.md` |
-| [ ] | 445 | IKEA | `GeorgeQLe/ikea-mobile-clone` | `specs/batch-23/445-ikea.md` |
-| [ ] | 446 | Wayfair | `GeorgeQLe/wayfair-mobile-clone` | `specs/batch-23/446-wayfair.md` |
-| [ ] | 447 | Kohl's | `GeorgeQLe/kohl-s-mobile-clone` | `specs/batch-23/447-kohl-s.md` |
-| [ ] | 448 | Macy's | `GeorgeQLe/macy-s-mobile-clone` | `specs/batch-23/448-macy-s.md` |
-| [ ] | 449 | Nordstrom | `GeorgeQLe/nordstrom-mobile-clone` | `specs/batch-23/449-nordstrom.md` |
-| [ ] | 450 | Sephora | `GeorgeQLe/sephora-mobile-clone` | `specs/batch-23/450-sephora.md` |
-| [ ] | 451 | Ulta Beauty | `GeorgeQLe/ulta-beauty-mobile-clone` | `specs/batch-23/451-ulta-beauty.md` |
-| [ ] | 452 | Nike | `GeorgeQLe/nike-mobile-clone` | `specs/batch-23/452-nike.md` |
-| [ ] | 453 | Adidas | `GeorgeQLe/adidas-mobile-clone` | `specs/batch-23/453-adidas.md` |
-| [ ] | 454 | Zara | `GeorgeQLe/zara-mobile-clone` | `specs/batch-23/454-zara.md` |
-| [ ] | 455 | H&M | `GeorgeQLe/handm-mobile-clone` | `specs/batch-23/455-handm.md` |
-| [ ] | 456 | Uniqlo | `GeorgeQLe/uniqlo-mobile-clone` | `specs/batch-23/456-uniqlo.md` |
-| [ ] | 457 | Lululemon | `GeorgeQLe/lululemon-mobile-clone` | `specs/batch-23/457-lululemon.md` |
-| [ ] | 458 | GOAT | `GeorgeQLe/goat-mobile-clone` | `specs/batch-23/458-goat.md` |
-| [ ] | 459 | Grailed | `GeorgeQLe/grailed-mobile-clone` | `specs/batch-23/459-grailed.md` |
-| [ ] | 460 | Mercari | `GeorgeQLe/mercari-mobile-clone` | `specs/batch-23/460-mercari.md` |
+| [x] | 441 | Mr D Food | `GeorgeQLe/mr-d-food-mobile-clone` | `specs/batch-23/441-mr-d-food.md` |
+| [x] | 442 | Best Buy | `GeorgeQLe/best-buy-mobile-clone` | `specs/batch-23/442-best-buy.md` |
+| [x] | 443 | Home Depot | `GeorgeQLe/home-depot-mobile-clone` | `specs/batch-23/443-home-depot.md` |
+| [x] | 444 | Lowe's | `GeorgeQLe/lowe-s-mobile-clone` | `specs/batch-23/444-lowe-s.md` |
+| [x] | 445 | IKEA | `GeorgeQLe/ikea-mobile-clone` | `specs/batch-23/445-ikea.md` |
+| [x] | 446 | Wayfair | `GeorgeQLe/wayfair-mobile-clone` | `specs/batch-23/446-wayfair.md` |
+| [x] | 447 | Kohl's | `GeorgeQLe/kohl-s-mobile-clone` | `specs/batch-23/447-kohl-s.md` |
+| [x] | 448 | Macy's | `GeorgeQLe/macy-s-mobile-clone` | `specs/batch-23/448-macy-s.md` |
+| [x] | 449 | Nordstrom | `GeorgeQLe/nordstrom-mobile-clone` | `specs/batch-23/449-nordstrom.md` |
+| [x] | 450 | Sephora | `GeorgeQLe/sephora-mobile-clone` | `specs/batch-23/450-sephora.md` |
+| [x] | 451 | Ulta Beauty | `GeorgeQLe/ulta-beauty-mobile-clone` | `specs/batch-23/451-ulta-beauty.md` |
+| [x] | 452 | Nike | `GeorgeQLe/nike-mobile-clone` | `specs/batch-23/452-nike.md` |
+| [x] | 453 | Adidas | `GeorgeQLe/adidas-mobile-clone` | `specs/batch-23/453-adidas.md` |
+| [x] | 454 | Zara | `GeorgeQLe/zara-mobile-clone` | `specs/batch-23/454-zara.md` |
+| [x] | 455 | H&M | `GeorgeQLe/handm-mobile-clone` | `specs/batch-23/455-handm.md` |
+| [x] | 456 | Uniqlo | `GeorgeQLe/uniqlo-mobile-clone` | `specs/batch-23/456-uniqlo.md` |
+| [x] | 457 | Lululemon | `GeorgeQLe/lululemon-mobile-clone` | `specs/batch-23/457-lululemon.md` |
+| [x] | 458 | GOAT | `GeorgeQLe/goat-mobile-clone` | `specs/batch-23/458-goat.md` |
+| [x] | 459 | Grailed | `GeorgeQLe/grailed-mobile-clone` | `specs/batch-23/459-grailed.md` |
+| [x] | 460 | Mercari | `GeorgeQLe/mercari-mobile-clone` | `specs/batch-23/460-mercari.md` |
 | [ ] | 461 | Vinted | `GeorgeQLe/vinted-mobile-clone` | `specs/batch-24/461-vinted.md` |
 | [ ] | 462 | OfferUp | `GeorgeQLe/offerup-mobile-clone` | `specs/batch-24/462-offerup.md` |
 | [ ] | 463 | Craigslist | `GeorgeQLe/craigslist-mobile-clone` | `specs/batch-24/463-craigslist.md` |
