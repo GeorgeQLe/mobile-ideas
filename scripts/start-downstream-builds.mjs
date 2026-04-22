@@ -295,7 +295,7 @@ function appendBuildEvidence(startId, endId, pushed) {
     "",
     "- Execution mode: serial downstream build-planning baseline.",
     "- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.",
-    "- Scope: docs/plans, docs/decisions/stack.md, tasks/todo.md, and tasks/history.md only; no runtime code or parity claim was added.",
+    "- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.",
     "",
     "| ID | App | Repo | Status |",
     "|---:|---|---|---|",

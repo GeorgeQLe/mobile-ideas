@@ -36,3 +36,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 018 | Signal | `GeorgeQLe/signal-mobile-clone` | build planning started |
 | 019 | Discord | `GeorgeQLe/discord-mobile-clone` | build planning started |
 | 020 | Slack | `GeorgeQLe/slack-mobile-clone` | build planning started |
+
+### Batch 021-040 Build Planning - 2026-04-22T00:30:22.622Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 021 | Messenger | `GeorgeQLe/messenger-mobile-clone` | build planning started |
+| 022 | FaceTime | `GeorgeQLe/facetime-mobile-clone` | build planning started |
+| 023 | Zoom | `GeorgeQLe/zoom-mobile-clone` | build planning started |
+| 024 | Gmail | `GeorgeQLe/gmail-mobile-clone` | build planning started |
+| 025 | Outlook | `GeorgeQLe/outlook-mobile-clone` | build planning started |
+| 026 | Google Maps | `GeorgeQLe/google-maps-mobile-clone` | build planning started |
+| 027 | Apple Maps | `GeorgeQLe/apple-maps-mobile-clone` | build planning started |
+| 028 | Waze | `GeorgeQLe/waze-mobile-clone` | build planning started |
+| 029 | Uber | `GeorgeQLe/uber-mobile-clone` | build planning started |
+| 030 | Lyft | `GeorgeQLe/lyft-mobile-clone` | build planning started |
+| 031 | Lime | `GeorgeQLe/lime-mobile-clone` | build planning started |
+| 032 | Turo | `GeorgeQLe/turo-mobile-clone` | build planning started |
+| 033 | Airbnb | `GeorgeQLe/airbnb-mobile-clone` | build planning started |
+| 034 | Booking.com | `GeorgeQLe/booking-com-mobile-clone` | build planning started |
+| 035 | Expedia | `GeorgeQLe/expedia-mobile-clone` | build planning started |
+| 036 | Hopper | `GeorgeQLe/hopper-mobile-clone` | build planning started |
+| 037 | TripIt | `GeorgeQLe/tripit-mobile-clone` | build planning started |
+| 038 | DoorDash | `GeorgeQLe/doordash-mobile-clone` | build planning started |
+| 039 | Uber Eats | `GeorgeQLe/uber-eats-mobile-clone` | build planning started |
+| 040 | Instacart | `GeorgeQLe/instacart-mobile-clone` | build planning started |
