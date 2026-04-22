@@ -15,6 +15,7 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const MANIFEST_PATH = join(ROOT, "tasks", "repo-seeding.md");
+const BUILD_LOG_PATH = join(ROOT, "tasks", "downstream-builds.md");
 const CLONE_ROOT = join(tmpdir(), "mobile-ideas-downstream-builds");
 
 function usage() {
@@ -267,6 +268,44 @@ function historyEntry(row) {
 `;
 }
 
+function appendBuildEvidence(startId, endId, pushed) {
+  if (pushed.length === 0) return;
+  if (!existsSync(BUILD_LOG_PATH)) {
+    writeFileSync(
+      BUILD_LOG_PATH,
+      [
+        "# Downstream Build Start Log",
+        "",
+        "## Purpose",
+        "",
+        "Track downstream repositories that have moved from seed-only planning scaffolds into build planning.",
+        "",
+        "Build-start evidence means the downstream repo has an app-specific implementation plan, stack decision, updated todo, and history entry. It does not mean runtime code exists or that implementation-ready parity has been verified.",
+        "",
+        "## Evidence",
+        "",
+      ].join("\n"),
+      "utf8"
+    );
+  }
+  const now = new Date().toISOString();
+  const rows = pushed.map((row) => `| ${row.idText} | ${row.app} | \`${row.targetRepo}\` | build planning started |`).join("\n");
+  const section = [
+    `### Batch ${String(startId).padStart(3, "0")}-${String(endId).padStart(3, "0")} Build Planning - ${now}`,
+    "",
+    "- Execution mode: serial downstream build-planning baseline.",
+    "- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.",
+    "- Scope: docs/plans, docs/decisions/stack.md, tasks/todo.md, and tasks/history.md only; no runtime code or parity claim was added.",
+    "",
+    "| ID | App | Repo | Status |",
+    "|---:|---|---|---|",
+    rows,
+    "",
+    "",
+  ].join("\n");
+  writeFileSync(BUILD_LOG_PATH, `${readFileSync(BUILD_LOG_PATH, "utf8")}${section}`, "utf8");
+}
+
 function writeBuildBaseline(repoDir, row) {
   const decisionsDir = join(repoDir, "docs", "decisions");
   mkdirSync(decisionsDir, { recursive: true });
@@ -302,6 +341,7 @@ if (targets.length === 0) {
 
 console.log(`Selected ${targets.length} completed target(s): ${targets.map((row) => row.idText).join(", ")}`);
 mkdirSync(CLONE_ROOT, { recursive: true });
+const pushed = [];
 
 for (let index = 0; index < targets.length; index += 1) {
   const row = targets[index];
@@ -339,8 +379,10 @@ for (let index = 0; index < targets.length; index += 1) {
   run(["git", "commit", "-m", `chore: start ${row.app} build planning`], { cwd: workDir });
   run(["git", "push", "origin", "HEAD"], { cwd: workDir });
   console.log(`Pushed build planning baseline for ${row.targetRepo}.`);
+  pushed.push(row);
   rmSync(workDir, { recursive: true, force: true });
   if (index < targets.length - 1) sleep(args.delayMs);
 }
 
+if (args.execute) appendBuildEvidence(args.from, args.to, pushed);
 console.log(`Completed ${args.execute ? "build planning" : "dry run"} for ${targets.length} target(s).`);
