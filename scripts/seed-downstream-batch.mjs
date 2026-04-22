@@ -159,13 +159,21 @@ function parseCompletedBatchEvents(markdown) {
   const lines = markdown.split("\n");
   const events = [];
   for (let index = 0; index < lines.length; index += 1) {
-    const heading = lines[index].match(/^### Batch \d{3,4}-\d{3,4} Seeding Evidence - (.+)$/);
+    const heading = lines[index].match(/^### Batch \d{3,4}-\d{3,4} (?:Repaired )?Seeding Evidence - (.+)$/);
     if (!heading) continue;
     const timestamp = Date.parse(heading[1]);
     if (Number.isNaN(timestamp)) continue;
+
+    let count = 0;
+    for (let rowIndex = index + 1; rowIndex < lines.length; rowIndex += 1) {
+      if (lines[rowIndex].startsWith("### ")) break;
+      if (/^\| \d{1,4} \| `[^`]+` \| PRIVATE \|/.test(lines[rowIndex])) count += 1;
+    }
+
     const execution = lines[index + 2]?.match(/with (\d+) successful repo\(s\)\./);
-    if (!execution) continue;
-    events.push({ timestamp, count: Number(execution[1]) });
+    if (count === 0 && execution) count = Number(execution[1]);
+    if (count === 0) continue;
+    events.push({ timestamp, count });
   }
   return events;
 }
