@@ -661,3 +661,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 438 | Favor | `GeorgeQLe/favor-mobile-clone` | build planning started |
 | 439 | SkipTheDishes | `GeorgeQLe/skipthedishes-mobile-clone` | build planning started |
 | 440 | Talabat | `GeorgeQLe/talabat-mobile-clone` | build planning started |
+
+### Batch 441-460 Build Planning - 2026-04-22T17:32:35.539Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 441 | Mr D Food | `GeorgeQLe/mr-d-food-mobile-clone` | build planning started |
+| 442 | Best Buy | `GeorgeQLe/best-buy-mobile-clone` | build planning started |
+| 443 | Home Depot | `GeorgeQLe/home-depot-mobile-clone` | build planning started |
+| 444 | Lowe's | `GeorgeQLe/lowe-s-mobile-clone` | build planning started |
+| 445 | IKEA | `GeorgeQLe/ikea-mobile-clone` | build planning started |
+| 446 | Wayfair | `GeorgeQLe/wayfair-mobile-clone` | build planning started |
+| 447 | Kohl's | `GeorgeQLe/kohl-s-mobile-clone` | build planning started |
+| 448 | Macy's | `GeorgeQLe/macy-s-mobile-clone` | build planning started |
+| 449 | Nordstrom | `GeorgeQLe/nordstrom-mobile-clone` | build planning started |
+| 450 | Sephora | `GeorgeQLe/sephora-mobile-clone` | build planning started |
+| 451 | Ulta Beauty | `GeorgeQLe/ulta-beauty-mobile-clone` | build planning started |
+| 452 | Nike | `GeorgeQLe/nike-mobile-clone` | build planning started |
+| 453 | Adidas | `GeorgeQLe/adidas-mobile-clone` | build planning started |
+| 454 | Zara | `GeorgeQLe/zara-mobile-clone` | build planning started |
+| 455 | H&M | `GeorgeQLe/handm-mobile-clone` | build planning started |
+| 456 | Uniqlo | `GeorgeQLe/uniqlo-mobile-clone` | build planning started |
+| 457 | Lululemon | `GeorgeQLe/lululemon-mobile-clone` | build planning started |
+| 458 | GOAT | `GeorgeQLe/goat-mobile-clone` | build planning started |
+| 459 | Grailed | `GeorgeQLe/grailed-mobile-clone` | build planning started |
+| 460 | Mercari | `GeorgeQLe/mercari-mobile-clone` | build planning started |
