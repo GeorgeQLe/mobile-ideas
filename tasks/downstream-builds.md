@@ -632,3 +632,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 418 | Grubhub | `GeorgeQLe/grubhub-mobile-clone` | build planning started |
 | 419 | Gopuff | `GeorgeQLe/gopuff-mobile-clone` | build planning started |
 | 420 | Deliveroo | `GeorgeQLe/deliveroo-mobile-clone` | build planning started |
+
+### Batch 421-440 Build Planning - 2026-04-22T17:14:01.401Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 421 | Just Eat | `GeorgeQLe/just-eat-mobile-clone` | build planning started |
+| 422 | Glovo | `GeorgeQLe/glovo-mobile-clone` | build planning started |
+| 423 | Bolt Food | `GeorgeQLe/bolt-food-mobile-clone` | build planning started |
+| 424 | foodpanda | `GeorgeQLe/foodpanda-mobile-clone` | build planning started |
+| 425 | Swiggy | `GeorgeQLe/swiggy-mobile-clone` | build planning started |
+| 426 | Zomato | `GeorgeQLe/zomato-mobile-clone` | build planning started |
+| 427 | Rappi | `GeorgeQLe/rappi-mobile-clone` | build planning started |
+| 428 | Grab | `GeorgeQLe/grab-mobile-clone` | build planning started |
+| 429 | Gojek | `GeorgeQLe/gojek-mobile-clone` | build planning started |
+| 430 | DiDi Food | `GeorgeQLe/didi-food-mobile-clone` | build planning started |
+| 431 | Meituan | `GeorgeQLe/meituan-mobile-clone` | build planning started |
+| 432 | Ele.me | `GeorgeQLe/ele-me-mobile-clone` | build planning started |
+| 433 | Deliveroo Rider | `GeorgeQLe/deliveroo-rider-mobile-clone` | build planning started |
+| 434 | DoorDash Dasher | `GeorgeQLe/doordash-dasher-mobile-clone` | build planning started |
+| 435 | Uber Driver | `GeorgeQLe/uber-driver-mobile-clone` | build planning started |
+| 436 | Instacart Shopper | `GeorgeQLe/instacart-shopper-mobile-clone` | build planning started |
+| 437 | Shipt | `GeorgeQLe/shipt-mobile-clone` | build planning started |
+| 438 | Favor | `GeorgeQLe/favor-mobile-clone` | build planning started |
+| 439 | SkipTheDishes | `GeorgeQLe/skipthedishes-mobile-clone` | build planning started |
+| 440 | Talabat | `GeorgeQLe/talabat-mobile-clone` | build planning started |
