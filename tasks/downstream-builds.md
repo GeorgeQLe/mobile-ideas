@@ -15,7 +15,7 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 - [x] 081-100 - Build planning pushed.
 - [x] 101-120 - Build planning pushed.
 - [x] 121-140 - Build planning pushed.
-- [ ] 141-160 - Ready for serial build-planning push after 121-140.
+- [x] 141-160 - Build planning pushed.
 - [ ] 161-180 - Ready for serial build-planning push after 141-160.
 - [ ] 181-200 - Ready for serial build-planning push after 161-180.
 - [ ] 201-220 - Ready for serial build-planning push after 181-200.
@@ -226,3 +226,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 138 | Yahoo Finance | `GeorgeQLe/yahoo-finance-mobile-clone` | build planning started |
 | 139 | Stocktwits | `GeorgeQLe/stocktwits-mobile-clone` | build planning started |
 | 140 | Public | `GeorgeQLe/public-mobile-clone` | build planning started |
+
+### Batch 141-160 Build Planning - 2026-04-22T00:46:48.546Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 141 | Acorns | `GeorgeQLe/acorns-mobile-clone` | build planning started |
+| 142 | Stash | `GeorgeQLe/stash-mobile-clone` | build planning started |
+| 143 | Wealthfront | `GeorgeQLe/wealthfront-mobile-clone` | build planning started |
+| 144 | Betterment | `GeorgeQLe/betterment-mobile-clone` | build planning started |
+| 145 | Chime | `GeorgeQLe/chime-mobile-clone` | build planning started |
+| 146 | Revolut | `GeorgeQLe/revolut-mobile-clone` | build planning started |
+| 147 | Wise | `GeorgeQLe/wise-mobile-clone` | build planning started |
+| 148 | Greenlight | `GeorgeQLe/greenlight-mobile-clone` | build planning started |
+| 149 | Step | `GeorgeQLe/step-mobile-clone` | build planning started |
+| 150 | GoodRx | `GeorgeQLe/goodrx-mobile-clone` | build planning started |
+| 151 | Walgreens | `GeorgeQLe/walgreens-mobile-clone` | build planning started |
+| 152 | Zocdoc | `GeorgeQLe/zocdoc-mobile-clone` | build planning started |
+| 153 | Teladoc | `GeorgeQLe/teladoc-mobile-clone` | build planning started |
+| 154 | BetterHelp | `GeorgeQLe/betterhelp-mobile-clone` | build planning started |
+| 155 | Talkspace | `GeorgeQLe/talkspace-mobile-clone` | build planning started |
+| 156 | Hims & Hers | `GeorgeQLe/hims-and-hers-mobile-clone` | build planning started |
+| 157 | Ro | `GeorgeQLe/ro-mobile-clone` | build planning started |
+| 158 | Oura | `GeorgeQLe/oura-mobile-clone` | build planning started |
+| 159 | Whoop | `GeorgeQLe/whoop-mobile-clone` | build planning started |
+| 160 | Sleep Cycle | `GeorgeQLe/sleep-cycle-mobile-clone` | build planning started |
