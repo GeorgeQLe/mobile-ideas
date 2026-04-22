@@ -458,3 +458,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 298 | Podcast Addict | `GeorgeQLe/podcast-addict-mobile-clone` | build planning started |
 | 299 | Podimo | `GeorgeQLe/podimo-mobile-clone` | build planning started |
 | 300 | Acast | `GeorgeQLe/acast-mobile-clone` | build planning started |
+
+### Batch 301-320 Build Planning - 2026-04-22T13:10:14.761Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 301 | Player FM | `GeorgeQLe/player-fm-mobile-clone` | build planning started |
+| 302 | Castbox | `GeorgeQLe/castbox-mobile-clone` | build planning started |
+| 303 | RadioPublic | `GeorgeQLe/radiopublic-mobile-clone` | build planning started |
+| 304 | NPR One | `GeorgeQLe/npr-one-mobile-clone` | build planning started |
+| 305 | BBC Sounds | `GeorgeQLe/bbc-sounds-mobile-clone` | build planning started |
+| 306 | Libsyn | `GeorgeQLe/libsyn-mobile-clone` | build planning started |
+| 307 | Podchaser | `GeorgeQLe/podchaser-mobile-clone` | build planning started |
+| 308 | Pocket FM | `GeorgeQLe/pocket-fm-mobile-clone` | build planning started |
+| 309 | Storytel | `GeorgeQLe/storytel-mobile-clone` | build planning started |
+| 310 | Audacy | `GeorgeQLe/audacy-mobile-clone` | build planning started |
+| 311 | iVoox | `GeorgeQLe/ivoox-mobile-clone` | build planning started |
+| 312 | Goodpods | `GeorgeQLe/goodpods-mobile-clone` | build planning started |
+| 313 | Hulu | `GeorgeQLe/hulu-mobile-clone` | build planning started |
+| 314 | Disney+ | `GeorgeQLe/disney-plus-mobile-clone` | build planning started |
+| 315 | Max | `GeorgeQLe/max-mobile-clone` | build planning started |
+| 316 | Peacock TV | `GeorgeQLe/peacock-tv-mobile-clone` | build planning started |
+| 317 | Paramount+ | `GeorgeQLe/paramount-plus-mobile-clone` | build planning started |
+| 318 | Prime Video | `GeorgeQLe/prime-video-mobile-clone` | build planning started |
+| 319 | Crunchyroll | `GeorgeQLe/crunchyroll-mobile-clone` | build planning started |
+| 320 | Plex | `GeorgeQLe/plex-mobile-clone` | build planning started |
