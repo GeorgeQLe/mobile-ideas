@@ -982,6 +982,36 @@ Guardrails:
 | 479 | `GeorgeQLe/u-s-bank-mobile-clone` | PRIVATE | seeded |
 | 480 | `GeorgeQLe/pnc-mobile-mobile-clone` | PRIVATE | seeded |
 
+### Batch 481-500 Seeding Evidence - 2026-04-23T19:04:54.158Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4655,"reset":1776970530,"used":345},"graphql":{"limit":5000,"remaining":4982,"reset":1776971897,"used":18},"search":{"limit":30,"remaining":30,"reset":1776970489,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4760,"reset":1776974133,"used":240},"graphql":{"limit":5000,"remaining":4893,"reset":1776971897,"used":107},"search":{"limit":30,"remaining":30,"reset":1776971154,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 481 | `GeorgeQLe/td-bank-mobile-clone` | PRIVATE | seeded |
+| 482 | `GeorgeQLe/truist-mobile-clone` | PRIVATE | seeded |
+| 483 | `GeorgeQLe/usaa-mobile-clone` | PRIVATE | seeded |
+| 484 | `GeorgeQLe/navy-federal-credit-union-mobile-clone` | PRIVATE | seeded |
+| 485 | `GeorgeQLe/sofi-mobile-clone` | PRIVATE | seeded |
+| 486 | `GeorgeQLe/ally-mobile-clone` | PRIVATE | seeded |
+| 487 | `GeorgeQLe/marcus-mobile-clone` | PRIVATE | seeded |
+| 488 | `GeorgeQLe/fidelity-mobile-clone` | PRIVATE | seeded |
+| 489 | `GeorgeQLe/schwab-mobile-mobile-clone` | PRIVATE | seeded |
+| 490 | `GeorgeQLe/e-trade-mobile-clone` | PRIVATE | seeded |
+| 491 | `GeorgeQLe/webull-mobile-clone` | PRIVATE | seeded |
+| 492 | `GeorgeQLe/moomoo-mobile-clone` | PRIVATE | seeded |
+| 493 | `GeorgeQLe/interactive-brokers-mobile-clone` | PRIVATE | seeded |
+| 494 | `GeorgeQLe/vanguard-mobile-clone` | PRIVATE | seeded |
+| 495 | `GeorgeQLe/monzo-mobile-clone` | PRIVATE | seeded |
+| 496 | `GeorgeQLe/n26-mobile-clone` | PRIVATE | seeded |
+| 497 | `GeorgeQLe/starling-bank-mobile-clone` | PRIVATE | seeded |
+| 498 | `GeorgeQLe/skrill-mobile-clone` | PRIVATE | seeded |
+| 499 | `GeorgeQLe/neteller-mobile-clone` | PRIVATE | seeded |
+| 500 | `GeorgeQLe/remitly-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
 
 - Step 6.3 blocker (2026-04-23T16:51:56.337Z) for GeorgeQLe/wells-fargo-mobile-mobile-clone: git -C /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/wells-fargo-mobile-mobile-clone push origin HEAD failed
@@ -1501,26 +1531,26 @@ Guardrails:
 | [x] | 478 | Discover Mobile | `GeorgeQLe/discover-mobile-mobile-clone` | `specs/batch-24/478-discover-mobile.md` |
 | [x] | 479 | U.S. Bank | `GeorgeQLe/u-s-bank-mobile-clone` | `specs/batch-24/479-u-s-bank.md` |
 | [x] | 480 | PNC Mobile | `GeorgeQLe/pnc-mobile-mobile-clone` | `specs/batch-24/480-pnc-mobile.md` |
-| [ ] | 481 | TD Bank | `GeorgeQLe/td-bank-mobile-clone` | `specs/batch-25/481-td-bank.md` |
-| [ ] | 482 | Truist | `GeorgeQLe/truist-mobile-clone` | `specs/batch-25/482-truist.md` |
-| [ ] | 483 | USAA | `GeorgeQLe/usaa-mobile-clone` | `specs/batch-25/483-usaa.md` |
-| [ ] | 484 | Navy Federal Credit Union | `GeorgeQLe/navy-federal-credit-union-mobile-clone` | `specs/batch-25/484-navy-federal-credit-union.md` |
-| [ ] | 485 | SoFi | `GeorgeQLe/sofi-mobile-clone` | `specs/batch-25/485-sofi.md` |
-| [ ] | 486 | Ally | `GeorgeQLe/ally-mobile-clone` | `specs/batch-25/486-ally.md` |
-| [ ] | 487 | Marcus | `GeorgeQLe/marcus-mobile-clone` | `specs/batch-25/487-marcus.md` |
-| [ ] | 488 | Fidelity | `GeorgeQLe/fidelity-mobile-clone` | `specs/batch-25/488-fidelity.md` |
-| [ ] | 489 | Schwab Mobile | `GeorgeQLe/schwab-mobile-mobile-clone` | `specs/batch-25/489-schwab-mobile.md` |
-| [ ] | 490 | E*TRADE | `GeorgeQLe/e-trade-mobile-clone` | `specs/batch-25/490-e-trade.md` |
-| [ ] | 491 | Webull | `GeorgeQLe/webull-mobile-clone` | `specs/batch-25/491-webull.md` |
-| [ ] | 492 | moomoo | `GeorgeQLe/moomoo-mobile-clone` | `specs/batch-25/492-moomoo.md` |
-| [ ] | 493 | Interactive Brokers | `GeorgeQLe/interactive-brokers-mobile-clone` | `specs/batch-25/493-interactive-brokers.md` |
-| [ ] | 494 | Vanguard | `GeorgeQLe/vanguard-mobile-clone` | `specs/batch-25/494-vanguard.md` |
-| [ ] | 495 | Monzo | `GeorgeQLe/monzo-mobile-clone` | `specs/batch-25/495-monzo.md` |
-| [ ] | 496 | N26 | `GeorgeQLe/n26-mobile-clone` | `specs/batch-25/496-n26.md` |
-| [ ] | 497 | Starling Bank | `GeorgeQLe/starling-bank-mobile-clone` | `specs/batch-25/497-starling-bank.md` |
-| [ ] | 498 | Skrill | `GeorgeQLe/skrill-mobile-clone` | `specs/batch-25/498-skrill.md` |
-| [ ] | 499 | Neteller | `GeorgeQLe/neteller-mobile-clone` | `specs/batch-25/499-neteller.md` |
-| [ ] | 500 | Remitly | `GeorgeQLe/remitly-mobile-clone` | `specs/batch-25/500-remitly.md` |
+| [x] | 481 | TD Bank | `GeorgeQLe/td-bank-mobile-clone` | `specs/batch-25/481-td-bank.md` |
+| [x] | 482 | Truist | `GeorgeQLe/truist-mobile-clone` | `specs/batch-25/482-truist.md` |
+| [x] | 483 | USAA | `GeorgeQLe/usaa-mobile-clone` | `specs/batch-25/483-usaa.md` |
+| [x] | 484 | Navy Federal Credit Union | `GeorgeQLe/navy-federal-credit-union-mobile-clone` | `specs/batch-25/484-navy-federal-credit-union.md` |
+| [x] | 485 | SoFi | `GeorgeQLe/sofi-mobile-clone` | `specs/batch-25/485-sofi.md` |
+| [x] | 486 | Ally | `GeorgeQLe/ally-mobile-clone` | `specs/batch-25/486-ally.md` |
+| [x] | 487 | Marcus | `GeorgeQLe/marcus-mobile-clone` | `specs/batch-25/487-marcus.md` |
+| [x] | 488 | Fidelity | `GeorgeQLe/fidelity-mobile-clone` | `specs/batch-25/488-fidelity.md` |
+| [x] | 489 | Schwab Mobile | `GeorgeQLe/schwab-mobile-mobile-clone` | `specs/batch-25/489-schwab-mobile.md` |
+| [x] | 490 | E*TRADE | `GeorgeQLe/e-trade-mobile-clone` | `specs/batch-25/490-e-trade.md` |
+| [x] | 491 | Webull | `GeorgeQLe/webull-mobile-clone` | `specs/batch-25/491-webull.md` |
+| [x] | 492 | moomoo | `GeorgeQLe/moomoo-mobile-clone` | `specs/batch-25/492-moomoo.md` |
+| [x] | 493 | Interactive Brokers | `GeorgeQLe/interactive-brokers-mobile-clone` | `specs/batch-25/493-interactive-brokers.md` |
+| [x] | 494 | Vanguard | `GeorgeQLe/vanguard-mobile-clone` | `specs/batch-25/494-vanguard.md` |
+| [x] | 495 | Monzo | `GeorgeQLe/monzo-mobile-clone` | `specs/batch-25/495-monzo.md` |
+| [x] | 496 | N26 | `GeorgeQLe/n26-mobile-clone` | `specs/batch-25/496-n26.md` |
+| [x] | 497 | Starling Bank | `GeorgeQLe/starling-bank-mobile-clone` | `specs/batch-25/497-starling-bank.md` |
+| [x] | 498 | Skrill | `GeorgeQLe/skrill-mobile-clone` | `specs/batch-25/498-skrill.md` |
+| [x] | 499 | Neteller | `GeorgeQLe/neteller-mobile-clone` | `specs/batch-25/499-neteller.md` |
+| [x] | 500 | Remitly | `GeorgeQLe/remitly-mobile-clone` | `specs/batch-25/500-remitly.md` |
 | [ ] | 501 | WorldRemit | `GeorgeQLe/worldremit-mobile-clone` | `specs/batch-26/501-worldremit.md` |
 | [ ] | 502 | Western Union | `GeorgeQLe/western-union-mobile-clone` | `specs/batch-26/502-western-union.md` |
 | [ ] | 503 | MoneyGram | `GeorgeQLe/moneygram-mobile-clone` | `specs/batch-26/503-moneygram.md` |

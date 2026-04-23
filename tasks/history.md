@@ -1,5 +1,14 @@
 # History
 
+## 2026-04-23 - Downstream Repo Seeding Batch 481-500
+
+- Seeded private downstream repos for IDs 481-500 via `scripts/seed-downstream-batch.mjs --from 481 --to 500 --execute` (serial, ≥30s cadence, ≤20/hour cap).
+- All 20 repos verified PRIVATE, non-empty, with README + `docs/source-specs/NNN-<slug>.md` and a root commit; manifest rows flipped to `[x]` in `tasks/repo-seeding.md`.
+- `### Batch 481-500 Seeding Evidence - 2026-04-23T19:04:54.158Z` section appended to `tasks/repo-seeding.md` with pre/post rate-limit snapshots and per-repo visibility/status rows.
+- Post-batch core rate-limit remaining: 4760/5000. No 403/429/secondary-limit hits.
+- Category note: batch is finance-dense (banks, brokerages, fintech). Downstream repos remain scaffold-only at Draft 1 per CLAUDE.md:41 — no implementation-ready parity claim until Step 8.3 verifies exact sources and completes category risk review.
+- Next batch: 501-520.
+
 ## 2026-04-23 - Phase 7 Closed
 
 - Verified 100/100 downstream repos for IDs 101-200 seeded PRIVATE + non-empty per `tasks/repo-seeding.md`.
