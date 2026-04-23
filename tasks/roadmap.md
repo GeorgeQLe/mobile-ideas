@@ -14,7 +14,7 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 | Phase 4 | Complete | Per-app implementation planning in downstream repos. |
 | Phase 5 | Complete | High-level downstream implementation plan queue for all 100 specs. |
 | Phase 6 | Complete | Seeded 100 private downstream repos; spec store published public 2026-04-20. |
-| Phase 7 | Active | Backlog extension pipeline for IDs 101-200 (Draft 0 -> readiness -> seeding). |
+| Phase 7 | Complete | Backlog extension pipeline for IDs 101-200 (Draft 0 -> readiness -> seeding). |
 | Phase 8 | Active | Backlog and Draft 1 scaffold extension for IDs 201-1000. |
 
 ## Phase 1: Initial Backlog And Draft 0 Specs
@@ -321,7 +321,7 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
 - [ ] Step 7.3: Implementation-readiness upgrades for IDs 101-200. **Absorbed into Phase 8 Step 8.3** on 2026-04-23 — same operation applied across IDs 101-1000 at once (CLAUDE.md allows scaffold seeding at Draft 1 without implementation-ready parity claims).
 - [x] Step 7.4: Extend `tasks/roadmap.md` Phase 5 plan queue and `tasks/repo-seeding.md` manifest to 200 rows. Superseded by `cd54fcf feat(specs): extend mobile ideas to 1000` which took the manifest directly to 1000 rows.
 - [x] Step 7.5: Seed 100 new private downstream repos via `scripts/seed-downstream-repos.mjs`. IDs 101-200 all verified PRIVATE + non-empty in `tasks/repo-seeding.md`.
-- [ ] Step 7.6: Close Phase 7 after verification.
+- [x] Step 7.6: Close Phase 7 after verification.
 
 ### Acceptance Criteria
 

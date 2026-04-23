@@ -1,5 +1,16 @@
 # History
 
+## 2026-04-23 - Phase 7 Closed
+
+- Verified 100/100 downstream repos for IDs 101-200 seeded PRIVATE + non-empty per `tasks/repo-seeding.md`.
+- No downstream repo public.
+- Step 7.3 absorbed into Phase 8 Step 8.3 per the 2026-04-23 reconciliation (CLAUDE.md allows scaffold-only seeding at Draft 1).
+- Phase 7 status flipped `Active` → `Complete` in `tasks/roadmap.md`; Step 7.6 checked off in `tasks/todo.md` and roadmap milestones.
+- Archived Phase 7 todo snapshot to `tasks/phases/phase-7.md`.
+- Replaced `tasks/todo.md` content with Phase 8 plan; next concrete action recorded as Step 8.6 batch 481-500.
+- Removed stale `tasks/manual-todo.md` (was scoped to Phase 6 with one unchecked non-blocking `_(after: Step 6.1)_` item; Phase 8 has no manual tasks defined in `tasks/roadmap.md`).
+- Active phase shifts to Phase 8.
+
 ## 2026-04-23 - `/reconcile-dev-docs` Fix Pass
 
 - Corrected `tasks/todo.md` phase counter from "7 of 7" to "7 of 8" (Phase 8 opened 2026-04-21).
