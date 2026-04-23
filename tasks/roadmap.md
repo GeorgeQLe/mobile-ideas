@@ -12,7 +12,7 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 | Phase 2 | Complete | Hygiene and Draft 1 spec remediation. |
 | Phase 3 | Complete | App-by-app implementation-readiness upgrades. |
 | Phase 4 | Complete | Per-app implementation planning in downstream repos. |
-| Phase 5 | Active | High-level downstream implementation plan queue for all 100 specs. |
+| Phase 5 | Complete | High-level downstream implementation plan queue for all 100 specs. |
 | Phase 6 | Complete | Seeded 100 private downstream repos; spec store published public 2026-04-20. |
 | Phase 7 | Active | Backlog extension pipeline for IDs 101-200 (Draft 0 -> readiness -> seeding). |
 | Phase 8 | Active | Backlog and Draft 1 scaffold extension for IDs 201-1000. |
@@ -334,8 +334,8 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
 
 ### Milestones
 
-- [ ] Step 7.1: Draft 0 placeholder specs for all 100 new ideas under `specs/batch-06/` through `specs/batch-10/`.
-- [ ] Step 7.2: Draft 1 canonical normalization for IDs 101-200.
+- [x] Step 7.1: Draft 0 placeholder specs for all 100 new ideas under `specs/batch-06/` through `specs/batch-10/`.
+- [x] Step 7.2: Draft 1 canonical normalization for IDs 101-200.
 - [ ] Step 7.3: Implementation-readiness upgrades for IDs 101-200.
 - [ ] Step 7.4: Extend `tasks/roadmap.md` Phase 5 plan queue and `tasks/repo-seeding.md` manifest to 200 rows.
 - [ ] Step 7.5: Seed 100 new private downstream repos via `scripts/seed-downstream-repos.mjs`.

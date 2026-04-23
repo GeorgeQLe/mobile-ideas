@@ -1,5 +1,27 @@
 # History
 
+## 2026-04-23 - `/reconcile-dev-docs` Fix Pass
+
+- Corrected `tasks/todo.md` phase counter from "7 of 7" to "7 of 8" (Phase 8 opened 2026-04-21).
+- Marked `tasks/roadmap.md` Phase 5 status `Active` → `Complete` (all acceptance criteria were `[x]`).
+- Marked Phase 7 Steps 7.1 and 7.2 `[x]` in the roadmap milestones (completed 2026-04-20 and 2026-04-21 per history).
+- Created `tasks/phases/phase-5.md` archive.
+- Appended factual aggregate history entries below for the undocumented 2026-04-21 through 2026-04-23 seeding + build-tracking workstream (30 commits).
+- Surfaced unresolved ambiguities in `tasks/todo.md` under `## Development Docs Reconciliation`.
+- Wrote `tasks/reconciliation-report.md`.
+
+## 2026-04-22 - Downstream Repo Seeding Batches 261-460 + Build Tracking 281-460
+
+- Seeded 200 additional private downstream repos in 20-ID batches (IDs 261-460) via `scripts/seed-downstream-batch.mjs` with the rolling hourly cap enabled. Commits: `da227b3` (261-280), `2dcdae2` (281-300), `0d32292` (301-320), `a94bff5` (321-340), `7dc5ee8` (341-360), `4472e8d` (361-380), `8b60ed6` (381-400), `da8e95f` (401-420), `cf964d3` (421-440), `4f478e2` (441-460). Every repo verified PRIVATE, non-empty, with root commit before manifest checkmark per CLAUDE.md contract.
+- Pushed downstream build-planning baselines for IDs 281-460 in matching 20-ID batches. Commits: `69c3d5b` (261-280), `bd388f3` (281-300), `50c8af2` (301-320), `284c9e2` (321-340), `aec393d` (341-360), `931cd0d` (361-380), `ec04d93` (381-400), `d610f54` (401-420), `55b0313` (421-440), `b654012` (441-460). Each build push added `docs/decisions/stack.md`, expanded `docs/plans/README.md`, and updated `tasks/todo.md` + `tasks/history.md` in the downstream repo.
+- Fix committed: `b3e8885 fix(seeding): count repaired batches in hourly guard`.
+- Ordering deviation: this workstream effectively executed Phase 7 Step 7.4 (extend manifest to 1000 rows — done earlier under `cd54fcf feat(specs): extend mobile ideas to 1000`) and Step 7.5 (seeding) in parallel, while Step 7.3 (implementation-readiness upgrades for IDs 101-200) remains undone. The specs seeded for IDs 101-460 use Draft 1 canonical content with `Source discovery — pending exact URL verification` placeholders; downstream repos therefore cannot claim implementation-ready parity until Step 7.3 (and its equivalent for IDs 201-460) lands.
+
+## 2026-04-21 - Build Planning Batches 021-260 + Automation
+
+- Added downstream build-start automation (`424122b feat(builds): add downstream build-start automation`, `00220e9 feat(builds): track downstream build starts`).
+- Recorded build-planning batches for IDs 021-260 via `chore(builds): record build planning batch NNN-MMM` commits (`cd91084` 021-040 … `834e9ec` 241-260; twelve commits total).
+
 ## 2026-04-23 - Doc Reconciliation Note + Batch 461-480 Seeding/Builds
 
 - Reconciliation note: since the 2026-04-21 entry, an undocumented rolling workstream seeded private downstream repos and tracked downstream build starts in 20-ID increments from 261-460, interleaved with build-planning batches 081-260. That work was committed directly (see `git log` 2dcdae2..b654012) but was not reflected in `tasks/history.md`, `tasks/todo.md`, or `tasks/roadmap.md`. Phase 7 Step 7.3 (implementation-readiness upgrades for IDs 101-200) remains undone; the seeding track effectively absorbed Step 7.4-7.5 outputs. A full `/reconcile-dev-docs` pass is deferred.

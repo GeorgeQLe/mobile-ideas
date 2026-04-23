@@ -1,6 +1,6 @@
 # Todo — Mobile Ideas
 
-> Current phase: 7 of 7 — Backlog Extension Pipeline (IDs 101-200)
+> Current phase: 7 of 8 — Backlog Extension Pipeline (IDs 101-200)
 > Source roadmap: `tasks/roadmap.md`
 > Test strategy: none
 
@@ -143,3 +143,13 @@ Extend the canonical spec store from 200 to 1000 mobile app clone ideas. IDs 201
 ### Next Concrete Action
 
 Promote batches 11-50 from Draft 1 scaffold to implementation-ready public-source V1 in controlled category batches. Do not begin remote downstream seeding for IDs 201-1000 until exact-source verification and manifest extension are complete.
+
+## Development Docs Reconciliation
+
+Surfaced by `/reconcile-dev-docs` on 2026-04-23. These items require a human decision before an automated `fix` pass can resolve them:
+
+- **Step 7.3 ordering violation.** Todo.md calls Step 7.3 (implementation-readiness upgrades for IDs 101-200) the "next concrete action," but the project has already executed Steps 7.4 and 7.5 (manifest extension and seeding) for IDs 101-480 without it. Decide: (a) revive Step 7.3 before further seeding batches, (b) formally defer Step 7.3 and renumber / re-scope, or (c) absorb it into Phase 8 Step 8.3 (same operation applied at 1000-row scale).
+- **Phase 6 Complete vs continued seeding.** Roadmap marks Phase 6 Complete (original scope: 100 repos). 380 additional repos have since been seeded (IDs 101-480). The post-100 seeding is not accounted for under any labeled phase. Decide whether to extend Phase 7 scope, open a new phase, or retroactively adjust Phase 6 acceptance criteria.
+- **Duplicate Phase 6 content in `tasks/roadmap.md`.** Lines ~300-330 appear to hold a duplicate/older copy of the Phase 6 Scope + Acceptance Criteria block with stale unchecked items. Confirm intent (template artifact vs. intentional milestone restatement) before collapsing.
+- **`tasks/todoist-downstream-build-plan.md`.** File exists but is not referenced from `tasks/todo.md` or `tasks/roadmap.md`. Confirm whether it is current guidance, a Phase 4 pilot artifact to archive, or stale.
+- **`tasks/implementation-readiness.md` counts.** Likely still reflects 100 implementation-ready specs. Update when Step 7.3 and Phase 8 Step 8.3 land; flag sooner if downstream decisions depend on it.
