@@ -966,7 +966,25 @@ Guardrails:
 | 459 | `GeorgeQLe/grailed-mobile-clone` | PRIVATE | seeded |
 | 460 | `GeorgeQLe/mercari-mobile-clone` | PRIVATE | seeded |
 
+### Batch 475-480 Seeding Evidence - 2026-04-23T17:00:42.993Z
+
+- Execution mode: serial private seeding with 6 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4960,"reset":1776965480,"used":40},"graphql":{"limit":5000,"remaining":4943,"reset":1776965189,"used":57},"search":{"limit":30,"remaining":30,"reset":1776963226,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4942,"reset":1776965480,"used":58},"graphql":{"limit":5000,"remaining":4918,"reset":1776965189,"used":82},"search":{"limit":30,"remaining":30,"reset":1776963702,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 475 | `GeorgeQLe/citi-mobile-mobile-clone` | PRIVATE | seeded |
+| 476 | `GeorgeQLe/capital-one-mobile-mobile-clone` | PRIVATE | seeded |
+| 477 | `GeorgeQLe/american-express-mobile-clone` | PRIVATE | seeded |
+| 478 | `GeorgeQLe/discover-mobile-mobile-clone` | PRIVATE | seeded |
+| 479 | `GeorgeQLe/u-s-bank-mobile-clone` | PRIVATE | seeded |
+| 480 | `GeorgeQLe/pnc-mobile-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
+
+- Step 6.3 blocker (2026-04-23T16:51:56.337Z) for GeorgeQLe/wells-fargo-mobile-mobile-clone: git -C /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/wells-fargo-mobile-mobile-clone push origin HEAD failed
 
 - Step 6.3 blocker (2026-04-23T16:32:36.198Z) for GeorgeQLe/chase-mobile-mobile-clone: git -C /Users/georgele/projects/mobile/dev/chase-mobile-mobile-clone push origin HEAD failed
 
@@ -1474,15 +1492,15 @@ Guardrails:
 | [x] | 469 | Myntra | `GeorgeQLe/myntra-mobile-clone` | `specs/batch-24/469-myntra.md` |
 | [x] | 470 | Rakuten | `GeorgeQLe/rakuten-mobile-clone` | `specs/batch-24/470-rakuten.md` |
 | [x] | 471 | Newegg | `GeorgeQLe/newegg-mobile-clone` | `specs/batch-24/471-newegg.md` |
-| [ ] | 472 | Chase Mobile | `GeorgeQLe/chase-mobile-mobile-clone` | `specs/batch-24/472-chase-mobile.md` |
-| [ ] | 473 | Bank of America Mobile Banking | `GeorgeQLe/bank-of-america-mobile-banking-mobile-clone` | `specs/batch-24/473-bank-of-america-mobile-banking.md` |
-| [ ] | 474 | Wells Fargo Mobile | `GeorgeQLe/wells-fargo-mobile-mobile-clone` | `specs/batch-24/474-wells-fargo-mobile.md` |
-| [ ] | 475 | Citi Mobile | `GeorgeQLe/citi-mobile-mobile-clone` | `specs/batch-24/475-citi-mobile.md` |
-| [ ] | 476 | Capital One Mobile | `GeorgeQLe/capital-one-mobile-mobile-clone` | `specs/batch-24/476-capital-one-mobile.md` |
-| [ ] | 477 | American Express | `GeorgeQLe/american-express-mobile-clone` | `specs/batch-24/477-american-express.md` |
-| [ ] | 478 | Discover Mobile | `GeorgeQLe/discover-mobile-mobile-clone` | `specs/batch-24/478-discover-mobile.md` |
-| [ ] | 479 | U.S. Bank | `GeorgeQLe/u-s-bank-mobile-clone` | `specs/batch-24/479-u-s-bank.md` |
-| [ ] | 480 | PNC Mobile | `GeorgeQLe/pnc-mobile-mobile-clone` | `specs/batch-24/480-pnc-mobile.md` |
+| [x] | 472 | Chase Mobile | `GeorgeQLe/chase-mobile-mobile-clone` | `specs/batch-24/472-chase-mobile.md` |
+| [x] | 473 | Bank of America Mobile Banking | `GeorgeQLe/bank-of-america-mobile-banking-mobile-clone` | `specs/batch-24/473-bank-of-america-mobile-banking.md` |
+| [x] | 474 | Wells Fargo Mobile | `GeorgeQLe/wells-fargo-mobile-mobile-clone` | `specs/batch-24/474-wells-fargo-mobile.md` |
+| [x] | 475 | Citi Mobile | `GeorgeQLe/citi-mobile-mobile-clone` | `specs/batch-24/475-citi-mobile.md` |
+| [x] | 476 | Capital One Mobile | `GeorgeQLe/capital-one-mobile-mobile-clone` | `specs/batch-24/476-capital-one-mobile.md` |
+| [x] | 477 | American Express | `GeorgeQLe/american-express-mobile-clone` | `specs/batch-24/477-american-express.md` |
+| [x] | 478 | Discover Mobile | `GeorgeQLe/discover-mobile-mobile-clone` | `specs/batch-24/478-discover-mobile.md` |
+| [x] | 479 | U.S. Bank | `GeorgeQLe/u-s-bank-mobile-clone` | `specs/batch-24/479-u-s-bank.md` |
+| [x] | 480 | PNC Mobile | `GeorgeQLe/pnc-mobile-mobile-clone` | `specs/batch-24/480-pnc-mobile.md` |
 | [ ] | 481 | TD Bank | `GeorgeQLe/td-bank-mobile-clone` | `specs/batch-25/481-td-bank.md` |
 | [ ] | 482 | Truist | `GeorgeQLe/truist-mobile-clone` | `specs/batch-25/482-truist.md` |
 | [ ] | 483 | USAA | `GeorgeQLe/usaa-mobile-clone` | `specs/batch-25/483-usaa.md` |

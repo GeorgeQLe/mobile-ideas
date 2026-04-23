@@ -1,5 +1,12 @@
 # History
 
+## 2026-04-23 - Doc Reconciliation Note + Batch 461-480 Seeding/Builds
+
+- Reconciliation note: since the 2026-04-21 entry, an undocumented rolling workstream seeded private downstream repos and tracked downstream build starts in 20-ID increments from 261-460, interleaved with build-planning batches 081-260. That work was committed directly (see `git log` 2dcdae2..b654012) but was not reflected in `tasks/history.md`, `tasks/todo.md`, or `tasks/roadmap.md`. Phase 7 Step 7.3 (implementation-readiness upgrades for IDs 101-200) remains undone; the seeding track effectively absorbed Step 7.4-7.5 outputs. A full `/reconcile-dev-docs` pass is deferred.
+- This session: executed Option A (continue active workstream) for batch 461-480 — seeded 20 private downstream repos and pushed build-planning baselines for all 20.
+- Incidents: local disk hit 100% mid-run (cleared 34.56 GiB Docker prune + 32 GiB loadoutworks `.turbo` / `.next`; fixed `loadoutworks turbo.json` to exclude `.next/dev/**` from build outputs — unrelated to mobile-ideas but blocking). GitHub partial system outage caused intermittent 500s on clone (463) and push (472, 474); all three were recovered via retry / manual manifest update (verified PRIVATE + non-empty); blocker entries appended to `tasks/repo-seeding.md`.
+- Rate limit healthy: pre-batch 4940/5000, post-batch 4942/5000 core.
+
 ## 2026-04-16
 
 - Created `tasks/ideas.md` with 100 mobile app clone ideas.
