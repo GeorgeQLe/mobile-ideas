@@ -968,6 +968,14 @@ Guardrails:
 
 ### Failures And Blockers
 
+- Step 6.3 blocker (2026-04-23T16:32:36.198Z) for GeorgeQLe/chase-mobile-mobile-clone: git -C /Users/georgele/projects/mobile/dev/chase-mobile-mobile-clone push origin HEAD failed
+
+- Step 6.3 blocker (2026-04-23T16:32:06.833Z) for GeorgeQLe/chase-mobile-mobile-clone: git -C /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/chase-mobile-mobile-clone push origin HEAD failed
+
+- Step 6.3 blocker (2026-04-23T16:26:46.153Z) for GeorgeQLe/craigslist-mobile-clone: Target repo already exists: GeorgeQLe/craigslist-mobile-clone. Re-run with --reconcile-existing to seed or reconcile it.
+
+- Step 6.3 blocker (2026-04-23T16:20:31.410Z) for GeorgeQLe/craigslist-mobile-clone: gh repo clone GeorgeQLe/craigslist-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/craigslist-mobile-clone failed
+
 - Step 6.3 blocker (2026-04-22T03:22:40.628Z, RESOLVED 2026-04-22 in `### Batch 281-290 Repaired Seeding Evidence - 2026-04-22T03:28:27Z`) for GeorgeQLe/jbl-portable-mobile-clone: `gh repo clone GeorgeQLe/jbl-portable-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/jbl-portable-mobile-clone` failed after the repo was created private. The remote was verified as PRIVATE and then seeded with `--reconcile-existing`.
 
 - Step 6.3 blocker (2026-04-22T03:18:36.061Z, RESOLVED 2026-04-22 in `### Batch 281-290 Repaired Seeding Evidence - 2026-04-22T03:28:27Z`) for GeorgeQLe/bandlab-mobile-clone: `gh repo clone GeorgeQLe/bandlab-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/bandlab-mobile-clone` failed after the repo was created private. The remote was verified as PRIVATE and then seeded with `--reconcile-existing`.
@@ -1455,17 +1463,17 @@ Guardrails:
 | [x] | 458 | GOAT | `GeorgeQLe/goat-mobile-clone` | `specs/batch-23/458-goat.md` |
 | [x] | 459 | Grailed | `GeorgeQLe/grailed-mobile-clone` | `specs/batch-23/459-grailed.md` |
 | [x] | 460 | Mercari | `GeorgeQLe/mercari-mobile-clone` | `specs/batch-23/460-mercari.md` |
-| [ ] | 461 | Vinted | `GeorgeQLe/vinted-mobile-clone` | `specs/batch-24/461-vinted.md` |
-| [ ] | 462 | OfferUp | `GeorgeQLe/offerup-mobile-clone` | `specs/batch-24/462-offerup.md` |
-| [ ] | 463 | Craigslist | `GeorgeQLe/craigslist-mobile-clone` | `specs/batch-24/463-craigslist.md` |
-| [ ] | 464 | AliExpress | `GeorgeQLe/aliexpress-mobile-clone` | `specs/batch-24/464-aliexpress.md` |
-| [ ] | 465 | Wish | `GeorgeQLe/wish-mobile-clone` | `specs/batch-24/465-wish.md` |
-| [ ] | 466 | Lazada | `GeorgeQLe/lazada-mobile-clone` | `specs/batch-24/466-lazada.md` |
-| [ ] | 467 | Shopee | `GeorgeQLe/shopee-mobile-clone` | `specs/batch-24/467-shopee.md` |
-| [ ] | 468 | Flipkart | `GeorgeQLe/flipkart-mobile-clone` | `specs/batch-24/468-flipkart.md` |
-| [ ] | 469 | Myntra | `GeorgeQLe/myntra-mobile-clone` | `specs/batch-24/469-myntra.md` |
-| [ ] | 470 | Rakuten | `GeorgeQLe/rakuten-mobile-clone` | `specs/batch-24/470-rakuten.md` |
-| [ ] | 471 | Newegg | `GeorgeQLe/newegg-mobile-clone` | `specs/batch-24/471-newegg.md` |
+| [x] | 461 | Vinted | `GeorgeQLe/vinted-mobile-clone` | `specs/batch-24/461-vinted.md` |
+| [x] | 462 | OfferUp | `GeorgeQLe/offerup-mobile-clone` | `specs/batch-24/462-offerup.md` |
+| [x] | 463 | Craigslist | `GeorgeQLe/craigslist-mobile-clone` | `specs/batch-24/463-craigslist.md` |
+| [x] | 464 | AliExpress | `GeorgeQLe/aliexpress-mobile-clone` | `specs/batch-24/464-aliexpress.md` |
+| [x] | 465 | Wish | `GeorgeQLe/wish-mobile-clone` | `specs/batch-24/465-wish.md` |
+| [x] | 466 | Lazada | `GeorgeQLe/lazada-mobile-clone` | `specs/batch-24/466-lazada.md` |
+| [x] | 467 | Shopee | `GeorgeQLe/shopee-mobile-clone` | `specs/batch-24/467-shopee.md` |
+| [x] | 468 | Flipkart | `GeorgeQLe/flipkart-mobile-clone` | `specs/batch-24/468-flipkart.md` |
+| [x] | 469 | Myntra | `GeorgeQLe/myntra-mobile-clone` | `specs/batch-24/469-myntra.md` |
+| [x] | 470 | Rakuten | `GeorgeQLe/rakuten-mobile-clone` | `specs/batch-24/470-rakuten.md` |
+| [x] | 471 | Newegg | `GeorgeQLe/newegg-mobile-clone` | `specs/batch-24/471-newegg.md` |
 | [ ] | 472 | Chase Mobile | `GeorgeQLe/chase-mobile-mobile-clone` | `specs/batch-24/472-chase-mobile.md` |
 | [ ] | 473 | Bank of America Mobile Banking | `GeorgeQLe/bank-of-america-mobile-banking-mobile-clone` | `specs/batch-24/473-bank-of-america-mobile-banking.md` |
 | [ ] | 474 | Wells Fargo Mobile | `GeorgeQLe/wells-fargo-mobile-mobile-clone` | `specs/batch-24/474-wells-fargo-mobile.md` |
