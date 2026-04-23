@@ -690,3 +690,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 458 | GOAT | `GeorgeQLe/goat-mobile-clone` | build planning started |
 | 459 | Grailed | `GeorgeQLe/grailed-mobile-clone` | build planning started |
 | 460 | Mercari | `GeorgeQLe/mercari-mobile-clone` | build planning started |
+### Batch 461-480 Build Planning - 2026-04-23T17:03:10.459Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 461 | Vinted | `GeorgeQLe/vinted-mobile-clone` | build planning started |
+| 462 | OfferUp | `GeorgeQLe/offerup-mobile-clone` | build planning started |
+| 463 | Craigslist | `GeorgeQLe/craigslist-mobile-clone` | build planning started |
+| 464 | AliExpress | `GeorgeQLe/aliexpress-mobile-clone` | build planning started |
+| 465 | Wish | `GeorgeQLe/wish-mobile-clone` | build planning started |
+| 466 | Lazada | `GeorgeQLe/lazada-mobile-clone` | build planning started |
+| 467 | Shopee | `GeorgeQLe/shopee-mobile-clone` | build planning started |
+| 468 | Flipkart | `GeorgeQLe/flipkart-mobile-clone` | build planning started |
+| 469 | Myntra | `GeorgeQLe/myntra-mobile-clone` | build planning started |
+| 470 | Rakuten | `GeorgeQLe/rakuten-mobile-clone` | build planning started |
+| 471 | Newegg | `GeorgeQLe/newegg-mobile-clone` | build planning started |
+| 472 | Chase Mobile | `GeorgeQLe/chase-mobile-mobile-clone` | build planning started |
+| 473 | Bank of America Mobile Banking | `GeorgeQLe/bank-of-america-mobile-banking-mobile-clone` | build planning started |
+| 474 | Wells Fargo Mobile | `GeorgeQLe/wells-fargo-mobile-mobile-clone` | build planning started |
+| 475 | Citi Mobile | `GeorgeQLe/citi-mobile-mobile-clone` | build planning started |
+| 476 | Capital One Mobile | `GeorgeQLe/capital-one-mobile-mobile-clone` | build planning started |
+| 477 | American Express | `GeorgeQLe/american-express-mobile-clone` | build planning started |
+| 478 | Discover Mobile | `GeorgeQLe/discover-mobile-mobile-clone` | build planning started |
+| 479 | U.S. Bank | `GeorgeQLe/u-s-bank-mobile-clone` | build planning started |
+| 480 | PNC Mobile | `GeorgeQLe/pnc-mobile-mobile-clone` | build planning started |
+
