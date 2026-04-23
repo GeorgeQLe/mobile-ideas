@@ -304,24 +304,6 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
   - After the manual approval task is checked off, run the visibility change for `GeorgeQLe/mobile-ideas`.
   - Record the approval evidence, command used, resulting visibility, and any follow-up blocker notes.
 
-### Milestone: Phase 6 Downstream Repository Seeding And Spec Store Publication
-
-**Acceptance Criteria:**
-
-- [x] `tasks/repo-seeding.md` lists all 100 target repos and source specs.
-- [x] A reusable `gh` seeding command pattern exists.
-- [ ] The `gh` seeding command pattern has been tested on one non-Todoist repo.
-- [ ] Existing `GeorgeQLe/todoist-mobile-clone` is reconciled with the same seed structure used for the other repos.
-- [ ] All 100 downstream repos exist or have explicit blocker notes in `tasks/repo-seeding.md`.
-- [ ] This spec-store repo has a public-release checklist covering license, README, contribution policy, legal scope, attribution/non-affiliation language, and content audit.
-- [ ] This spec-store repo is made public only after the open-source checklist is complete and explicitly approved.
-
-**On Completion**
-
-- Deviations from plan: none recorded yet.
-- Tech debt / follow-ups: none recorded yet.
-- Ready for next phase: no.
-
 ## Cross-Phase Concerns
 
 - Legal scope must remain functional parity only.
@@ -336,9 +318,9 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
 
 - [x] Step 7.1: Draft 0 placeholder specs for all 100 new ideas under `specs/batch-06/` through `specs/batch-10/`.
 - [x] Step 7.2: Draft 1 canonical normalization for IDs 101-200.
-- [ ] Step 7.3: Implementation-readiness upgrades for IDs 101-200.
-- [ ] Step 7.4: Extend `tasks/roadmap.md` Phase 5 plan queue and `tasks/repo-seeding.md` manifest to 200 rows.
-- [ ] Step 7.5: Seed 100 new private downstream repos via `scripts/seed-downstream-repos.mjs`.
+- [ ] Step 7.3: Implementation-readiness upgrades for IDs 101-200. **Absorbed into Phase 8 Step 8.3** on 2026-04-23 — same operation applied across IDs 101-1000 at once (CLAUDE.md allows scaffold seeding at Draft 1 without implementation-ready parity claims).
+- [x] Step 7.4: Extend `tasks/roadmap.md` Phase 5 plan queue and `tasks/repo-seeding.md` manifest to 200 rows. Superseded by `cd54fcf feat(specs): extend mobile ideas to 1000` which took the manifest directly to 1000 rows.
+- [x] Step 7.5: Seed 100 new private downstream repos via `scripts/seed-downstream-repos.mjs`. IDs 101-200 all verified PRIVATE + non-empty in `tasks/repo-seeding.md`.
 - [ ] Step 7.6: Close Phase 7 after verification.
 
 ### Acceptance Criteria
@@ -358,7 +340,7 @@ Full step-level plan lives in `tasks/todo.md` Phase 7.
 
 - [x] Step 8.1: Add 800 backlog rows for IDs 201-1000 in `tasks/ideas.md`.
 - [x] Step 8.2: Create canonical Draft 1 scaffold specs under `specs/batch-11/` through `specs/batch-50/`.
-- [ ] Step 8.3: Replace source-discovery links with exact first-party URLs and promote IDs 201-1000 to implementation-ready public-source V1.
+- [ ] Step 8.3: Replace source-discovery links with exact first-party URLs and promote IDs 101-1000 to implementation-ready public-source V1 (absorbs Phase 7 Step 7.3; scope now 900 specs rather than 800).
 - [ ] Step 8.4: Extend Phase 5 implementation-plan queue to 1000 rows.
 - [ ] Step 8.5: Extend `tasks/repo-seeding.md` manifest to 1000 rows after readiness upgrades.
 - [ ] Step 8.6: Seed downstream private repos only with explicit approval and batch-level controls.

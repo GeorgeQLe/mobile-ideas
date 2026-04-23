@@ -55,7 +55,7 @@ Extend the canonical spec store with a second 100 clone-spec ideas (IDs 101-200)
   - Commits: `feat(specs): canonical Draft 1 for batch-06 (IDs 101-120)` … `feat(specs): canonical Draft 1 for batch-10 (IDs 181-200)` (five commits).
   - Updated `specs/README.md` (Readiness column flipped to "Draft 1 canonical" for batches 06-10; metadata, overview, test plan, acceptance criteria refreshed) and `tasks/spec-quality-audit.md` (resolved Draft 0 Gap finding; opened Implementation-Readiness Gap finding for Step 7.3).
 
-- [ ] Step 7.3: Implementation-readiness upgrades for IDs 101-200 (next concrete action)
+- [~] Step 7.3: Implementation-readiness upgrades for IDs 101-200 — **absorbed into Phase 8 Step 8.3 on 2026-04-23**. Same operation (exact-URL replacement + depth expansion + category risk review) will be applied across IDs 101-1000 in one pass, in category batches. CLAUDE.md:41 explicitly allows scaffold-only seeding at Draft 1; downstream repos for IDs 101-480 exist as planning scaffolds and cannot claim implementation-ready parity until 8.3 lands. The detailed step spec below is preserved for when 8.3 executes.
   - Files: modify all 100 Draft 1 spec files under `specs/batch-06/` through `specs/batch-10/`; update `tasks/implementation-readiness.md` metrics; optionally archive Draft 1 copies under `specs/archive/` if that convention is in use.
   - Goal: upgrade each spec from canonical Draft 1 (Step 7.2) to implementation-ready public-source V1, matching the quality bar of IDs 001-100 in batches 01-05.
   - Exact-URL replacement: In each spec's Research Sources table, replace every "Source discovery — pending exact URL verification" row with the exact first-party URL (Apple App Store listing with canonical bundle id, Google Play listing with canonical package id, company help/support articles that back specific feature claims, privacy policy, terms of use, usage/safety/community policies, developer/API docs where applicable). Include at least 6-12 exact-URL source rows per spec, matching the `specs/batch-01/001-chatgpt.md` pattern (11 source rows).
@@ -99,13 +99,13 @@ Extend the canonical spec store with a second 100 clone-spec ideas (IDs 101-200)
   7. Ensure `.claude/settings.local.json` still has `"showClearContextOnPlanAccept": true` and `"defaultMode": "acceptEdits"`.
   8. Call `EnterPlanMode`, write a brief pass-through plan referencing `tasks/todo.md`, call `ExitPlanMode`, and stop.
 
-- [ ] Step 7.4: Extend Phase 5 plan queue and repo-seeding manifest
+- [x] Step 7.4: Extend Phase 5 plan queue and repo-seeding manifest — superseded by `cd54fcf feat(specs): extend mobile ideas to 1000` which took the manifest to 1000 rows directly; the 200-row intermediate state was skipped.
   - Files: modify `tasks/roadmap.md`, `tasks/repo-seeding.md`
   - Append 100 rows to the Phase 5 table (ID | App | Source Spec | High-Level Implementation Plan).
   - Append 100 rows to `tasks/repo-seeding.md` Per-Repo Checklist table: `| [ ] | NNN | <App> | GeorgeQLe/<slug>-mobile-clone | specs/batch-XX/NNN-<slug>.md |`.
   - Commit as `feat(seeding): extend Phase 5 queue and repo-seeding manifest to IDs 101-200`.
 
-- [ ] Step 7.5: Seed downstream private repos for IDs 101-200
+- [x] Step 7.5: Seed downstream private repos for IDs 101-200 — 100 repos seeded PRIVATE + non-empty (verified in `tasks/repo-seeding.md`). Seeding continued past 200 under Phase 8 Step 8.6.
   - Run `scripts/seed-downstream-repos.mjs` one target at a time (batch tool is intentionally single-target).
   - Stop on any auth/permission/naming/rate-limit/template failure; record blockers.
   - Every repo created `--private`; refuse any public flag.
@@ -146,10 +146,14 @@ Promote batches 11-50 from Draft 1 scaffold to implementation-ready public-sourc
 
 ## Development Docs Reconciliation
 
-Surfaced by `/reconcile-dev-docs` on 2026-04-23. These items require a human decision before an automated `fix` pass can resolve them:
+Resolved 2026-04-23 following `/reconcile-dev-docs`:
 
-- **Step 7.3 ordering violation.** Todo.md calls Step 7.3 (implementation-readiness upgrades for IDs 101-200) the "next concrete action," but the project has already executed Steps 7.4 and 7.5 (manifest extension and seeding) for IDs 101-480 without it. Decide: (a) revive Step 7.3 before further seeding batches, (b) formally defer Step 7.3 and renumber / re-scope, or (c) absorb it into Phase 8 Step 8.3 (same operation applied at 1000-row scale).
-- **Phase 6 Complete vs continued seeding.** Roadmap marks Phase 6 Complete (original scope: 100 repos). 380 additional repos have since been seeded (IDs 101-480). The post-100 seeding is not accounted for under any labeled phase. Decide whether to extend Phase 7 scope, open a new phase, or retroactively adjust Phase 6 acceptance criteria.
-- **Duplicate Phase 6 content in `tasks/roadmap.md`.** Lines ~300-330 appear to hold a duplicate/older copy of the Phase 6 Scope + Acceptance Criteria block with stale unchecked items. Confirm intent (template artifact vs. intentional milestone restatement) before collapsing.
-- **`tasks/todoist-downstream-build-plan.md`.** File exists but is not referenced from `tasks/todo.md` or `tasks/roadmap.md`. Confirm whether it is current guidance, a Phase 4 pilot artifact to archive, or stale.
-- **`tasks/implementation-readiness.md` counts.** Likely still reflects 100 implementation-ready specs. Update when Step 7.3 and Phase 8 Step 8.3 land; flag sooner if downstream decisions depend on it.
+- **Step 7.3 absorbed into Phase 8 Step 8.3.** CLAUDE.md:41 allows planning/scaffold seeding at Draft 1; downstream repos for IDs 101-1000 do not claim implementation-ready parity. Step 8.3 now covers IDs 101-1000 (900 specs) in one pass rather than splitting the same operation across Step 7.3 (200 specs) and Step 8.3 (800 specs).
+- **Phase 6 stays Complete (original 100-repo scope).** Post-100 seeding is accounted for under Phase 7 Step 7.5 (IDs 101-200, done) and Phase 8 Step 8.6 (IDs 201-1000, in progress at 480/1000 as of 2026-04-23). No new phase opened.
+- **Duplicate Phase 6 block in `tasks/roadmap.md` collapsed** — the stale `### Milestone: Phase 6 …` restatement with unchecked items was deleted; canonical Phase 6 section remains at lines ~220-295.
+- **`tasks/todoist-downstream-build-plan.md` kept as Phase 4 pilot artifact** with a header note; per-repo build plans now live in each downstream repo's `docs/plans/README.md`.
+
+Remaining open:
+
+- **`tasks/implementation-readiness.md` counts.** Refresh when Step 8.3 lands in category batches; currently no downstream decision depends on it being current.
+- **Phase 8 Step 8.6 progress tracking.** Todo.md should carry the current seeding head (`IDs 201-480 seeded, next batch 481-500`) so future `/run` invocations have an accurate "next concrete action" for the seeding workstream without re-deriving it from `git log`.
