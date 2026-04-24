@@ -1042,6 +1042,36 @@ Guardrails:
 | 519 | `GeorgeQLe/earnin-mobile-clone` | PRIVATE | seeded |
 | 520 | `GeorgeQLe/klarna-mobile-clone` | PRIVATE | seeded |
 
+### Batch 521-540 Seeding Evidence - 2026-04-24T15:08:38.049Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":5000,"reset":1777046263,"used":0},"graphql":{"limit":5000,"remaining":4997,"reset":1777045693,"used":3},"search":{"limit":30,"remaining":30,"reset":1777042723,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4940,"reset":1777046264,"used":60},"graphql":{"limit":5000,"remaining":4913,"reset":1777045693,"used":87},"search":{"limit":30,"remaining":30,"reset":1777043378,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 521 | `GeorgeQLe/afterpay-mobile-clone` | PRIVATE | seeded |
+| 522 | `GeorgeQLe/affirm-mobile-clone` | PRIVATE | seeded |
+| 523 | `GeorgeQLe/delta-mobile-clone` | PRIVATE | seeded |
+| 524 | `GeorgeQLe/united-airlines-mobile-clone` | PRIVATE | seeded |
+| 525 | `GeorgeQLe/american-airlines-mobile-clone` | PRIVATE | seeded |
+| 526 | `GeorgeQLe/southwest-airlines-mobile-clone` | PRIVATE | seeded |
+| 527 | `GeorgeQLe/jetblue-mobile-clone` | PRIVATE | seeded |
+| 528 | `GeorgeQLe/alaska-airlines-mobile-clone` | PRIVATE | seeded |
+| 529 | `GeorgeQLe/spirit-airlines-mobile-clone` | PRIVATE | seeded |
+| 530 | `GeorgeQLe/frontier-airlines-mobile-clone` | PRIVATE | seeded |
+| 531 | `GeorgeQLe/hawaiian-airlines-mobile-clone` | PRIVATE | seeded |
+| 532 | `GeorgeQLe/air-canada-mobile-clone` | PRIVATE | seeded |
+| 533 | `GeorgeQLe/british-airways-mobile-clone` | PRIVATE | seeded |
+| 534 | `GeorgeQLe/lufthansa-mobile-clone` | PRIVATE | seeded |
+| 535 | `GeorgeQLe/air-france-mobile-clone` | PRIVATE | seeded |
+| 536 | `GeorgeQLe/klm-mobile-clone` | PRIVATE | seeded |
+| 537 | `GeorgeQLe/emirates-mobile-clone` | PRIVATE | seeded |
+| 538 | `GeorgeQLe/qatar-airways-mobile-clone` | PRIVATE | seeded |
+| 539 | `GeorgeQLe/singapore-airlines-mobile-clone` | PRIVATE | seeded |
+| 540 | `GeorgeQLe/turkish-airlines-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
 
 - Step 6.3 blocker (2026-04-23T16:51:56.337Z) for GeorgeQLe/wells-fargo-mobile-mobile-clone: git -C /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/wells-fargo-mobile-mobile-clone push origin HEAD failed
@@ -1601,26 +1631,26 @@ Guardrails:
 | [x] | 518 | Empower | `GeorgeQLe/empower-mobile-clone` | `specs/batch-26/518-empower.md` |
 | [x] | 519 | EarnIn | `GeorgeQLe/earnin-mobile-clone` | `specs/batch-26/519-earnin.md` |
 | [x] | 520 | Klarna | `GeorgeQLe/klarna-mobile-clone` | `specs/batch-26/520-klarna.md` |
-| [ ] | 521 | Afterpay | `GeorgeQLe/afterpay-mobile-clone` | `specs/batch-27/521-afterpay.md` |
-| [ ] | 522 | Affirm | `GeorgeQLe/affirm-mobile-clone` | `specs/batch-27/522-affirm.md` |
-| [ ] | 523 | Delta | `GeorgeQLe/delta-mobile-clone` | `specs/batch-27/523-delta.md` |
-| [ ] | 524 | United Airlines | `GeorgeQLe/united-airlines-mobile-clone` | `specs/batch-27/524-united-airlines.md` |
-| [ ] | 525 | American Airlines | `GeorgeQLe/american-airlines-mobile-clone` | `specs/batch-27/525-american-airlines.md` |
-| [ ] | 526 | Southwest Airlines | `GeorgeQLe/southwest-airlines-mobile-clone` | `specs/batch-27/526-southwest-airlines.md` |
-| [ ] | 527 | JetBlue | `GeorgeQLe/jetblue-mobile-clone` | `specs/batch-27/527-jetblue.md` |
-| [ ] | 528 | Alaska Airlines | `GeorgeQLe/alaska-airlines-mobile-clone` | `specs/batch-27/528-alaska-airlines.md` |
-| [ ] | 529 | Spirit Airlines | `GeorgeQLe/spirit-airlines-mobile-clone` | `specs/batch-27/529-spirit-airlines.md` |
-| [ ] | 530 | Frontier Airlines | `GeorgeQLe/frontier-airlines-mobile-clone` | `specs/batch-27/530-frontier-airlines.md` |
-| [ ] | 531 | Hawaiian Airlines | `GeorgeQLe/hawaiian-airlines-mobile-clone` | `specs/batch-27/531-hawaiian-airlines.md` |
-| [ ] | 532 | Air Canada | `GeorgeQLe/air-canada-mobile-clone` | `specs/batch-27/532-air-canada.md` |
-| [ ] | 533 | British Airways | `GeorgeQLe/british-airways-mobile-clone` | `specs/batch-27/533-british-airways.md` |
-| [ ] | 534 | Lufthansa | `GeorgeQLe/lufthansa-mobile-clone` | `specs/batch-27/534-lufthansa.md` |
-| [ ] | 535 | Air France | `GeorgeQLe/air-france-mobile-clone` | `specs/batch-27/535-air-france.md` |
-| [ ] | 536 | KLM | `GeorgeQLe/klm-mobile-clone` | `specs/batch-27/536-klm.md` |
-| [ ] | 537 | Emirates | `GeorgeQLe/emirates-mobile-clone` | `specs/batch-27/537-emirates.md` |
-| [ ] | 538 | Qatar Airways | `GeorgeQLe/qatar-airways-mobile-clone` | `specs/batch-27/538-qatar-airways.md` |
-| [ ] | 539 | Singapore Airlines | `GeorgeQLe/singapore-airlines-mobile-clone` | `specs/batch-27/539-singapore-airlines.md` |
-| [ ] | 540 | Turkish Airlines | `GeorgeQLe/turkish-airlines-mobile-clone` | `specs/batch-27/540-turkish-airlines.md` |
+| [x] | 521 | Afterpay | `GeorgeQLe/afterpay-mobile-clone` | `specs/batch-27/521-afterpay.md` |
+| [x] | 522 | Affirm | `GeorgeQLe/affirm-mobile-clone` | `specs/batch-27/522-affirm.md` |
+| [x] | 523 | Delta | `GeorgeQLe/delta-mobile-clone` | `specs/batch-27/523-delta.md` |
+| [x] | 524 | United Airlines | `GeorgeQLe/united-airlines-mobile-clone` | `specs/batch-27/524-united-airlines.md` |
+| [x] | 525 | American Airlines | `GeorgeQLe/american-airlines-mobile-clone` | `specs/batch-27/525-american-airlines.md` |
+| [x] | 526 | Southwest Airlines | `GeorgeQLe/southwest-airlines-mobile-clone` | `specs/batch-27/526-southwest-airlines.md` |
+| [x] | 527 | JetBlue | `GeorgeQLe/jetblue-mobile-clone` | `specs/batch-27/527-jetblue.md` |
+| [x] | 528 | Alaska Airlines | `GeorgeQLe/alaska-airlines-mobile-clone` | `specs/batch-27/528-alaska-airlines.md` |
+| [x] | 529 | Spirit Airlines | `GeorgeQLe/spirit-airlines-mobile-clone` | `specs/batch-27/529-spirit-airlines.md` |
+| [x] | 530 | Frontier Airlines | `GeorgeQLe/frontier-airlines-mobile-clone` | `specs/batch-27/530-frontier-airlines.md` |
+| [x] | 531 | Hawaiian Airlines | `GeorgeQLe/hawaiian-airlines-mobile-clone` | `specs/batch-27/531-hawaiian-airlines.md` |
+| [x] | 532 | Air Canada | `GeorgeQLe/air-canada-mobile-clone` | `specs/batch-27/532-air-canada.md` |
+| [x] | 533 | British Airways | `GeorgeQLe/british-airways-mobile-clone` | `specs/batch-27/533-british-airways.md` |
+| [x] | 534 | Lufthansa | `GeorgeQLe/lufthansa-mobile-clone` | `specs/batch-27/534-lufthansa.md` |
+| [x] | 535 | Air France | `GeorgeQLe/air-france-mobile-clone` | `specs/batch-27/535-air-france.md` |
+| [x] | 536 | KLM | `GeorgeQLe/klm-mobile-clone` | `specs/batch-27/536-klm.md` |
+| [x] | 537 | Emirates | `GeorgeQLe/emirates-mobile-clone` | `specs/batch-27/537-emirates.md` |
+| [x] | 538 | Qatar Airways | `GeorgeQLe/qatar-airways-mobile-clone` | `specs/batch-27/538-qatar-airways.md` |
+| [x] | 539 | Singapore Airlines | `GeorgeQLe/singapore-airlines-mobile-clone` | `specs/batch-27/539-singapore-airlines.md` |
+| [x] | 540 | Turkish Airlines | `GeorgeQLe/turkish-airlines-mobile-clone` | `specs/batch-27/540-turkish-airlines.md` |
 | [ ] | 541 | Ryanair | `GeorgeQLe/ryanair-mobile-clone` | `specs/batch-28/541-ryanair.md` |
 | [ ] | 542 | easyJet | `GeorgeQLe/easyjet-mobile-clone` | `specs/batch-28/542-easyjet.md` |
 | [ ] | 543 | Wizz Air | `GeorgeQLe/wizz-air-mobile-clone` | `specs/batch-28/543-wizz-air.md` |
