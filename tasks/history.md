@@ -1,5 +1,13 @@
 # History
 
+## 2026-04-24 - Downstream Repo Seeding Batch 521-540
+
+- Seeded private downstream repos for IDs 521-540 via `scripts/seed-downstream-batch.mjs --from 521 --to 540 --execute` (serial, ≥30s cadence, ≤20/hour cap).
+- All 20 repos verified PRIVATE with README.md, source spec under `docs/source-specs/`, and root commit present.
+- Pre-batch rate limit: 4571/5000 remaining. Post-batch: 4940/5000 remaining.
+- Batch evidence recorded in `tasks/repo-seeding.md` under `### Batch 521-540 Seeding Evidence`.
+- Updated `tasks/todo.md` next-batch pointer to 541-560. Total seeded: IDs 201-540 (340 repos).
+
 ## 2026-04-24 - Downstream Repo Seeding Batch 501-520
 
 - Seeded private downstream repos for IDs 501-520 via `scripts/seed-downstream-batch.mjs --from 501 --to 520 --execute` (serial, ≥30s cadence, ≤20/hour cap).

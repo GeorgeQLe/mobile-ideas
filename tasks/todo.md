@@ -52,12 +52,12 @@ Extend the canonical spec store from 200 to 1000 mobile app clone ideas. IDs 201
   #### Next concrete action: seed batch 541-560
 
   - Pre-batch: `gh api rate_limit` and record in `tasks/repo-seeding.md`.
-  - Run `node scripts/seed-downstream-batch.mjs --from 521 --to 540 --execute` with the rolling hourly cap enabled (script enforces ≥30s between repo seeds and ≤20 repos/hour by default, ≤40/hour after two clean batches).
+  - Run `node scripts/seed-downstream-batch.mjs --from 541 --to 560 --execute` with the rolling hourly cap enabled (script enforces ≥30s between repo seeds and ≤20 repos/hour by default, ≤40/hour after two clean batches).
   - For each repo, the script must verify: created `--private`, `visibility == PRIVATE`, `README.md` present, `docs/source-specs/NNN-<slug>.md` present, root commit exists. Mark the manifest row `[x]` only after all checks pass.
   - On any GitHub `403`, `429`, secondary-rate-limit, auth/permission/naming/clone-propagation/template-placeholder/non-private result: stop immediately; obey `retry-after` / `x-ratelimit-reset`; otherwise wait ≥1 minute with exponential backoff. Record blockers in `tasks/repo-seeding.md` under `### Failures And Blockers`.
-  - Post-batch: `gh api rate_limit` and record. Append `### Batch 521-540 Seeding Evidence - <ISO timestamp>` section to `tasks/repo-seeding.md` with per-repo URL and root commit SHA.
-  - Commit pattern: `feat(seeding): seed private batch 521-540` plus a paired `feat(builds): track downstream build starts 521-540` if the build-tracking workstream continues alongside seeding (see prior history entries).
-  - Acceptance: `grep -cE "^\| \[x\] \| (52[0-9]|53[0-9]|540) " tasks/repo-seeding.md` reflects 20 completions for the 521-540 range; no new public repos.
+  - Post-batch: `gh api rate_limit` and record. Append `### Batch 541-560 Seeding Evidence - <ISO timestamp>` section to `tasks/repo-seeding.md` with per-repo URL and root commit SHA.
+  - Commit pattern: `feat(seeding): seed private batch 541-560`.
+  - Acceptance: `grep -cE "^\| \[x\] \| (54[1-9]|55[0-9]|560) " tasks/repo-seeding.md` reflects 20 completions for the 541-560 range; no new public repos.
 
 ### Reference
 
