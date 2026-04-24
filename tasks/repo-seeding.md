@@ -1012,6 +1012,36 @@ Guardrails:
 | 499 | `GeorgeQLe/neteller-mobile-clone` | PRIVATE | seeded |
 | 500 | `GeorgeQLe/remitly-mobile-clone` | PRIVATE | seeded |
 
+### Batch 501-520 Seeding Evidence - 2026-04-24T13:55:57.467Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":5000,"reset":1777041892,"used":0},"graphql":{"limit":5000,"remaining":4997,"reset":1777038378,"used":3},"search":{"limit":30,"remaining":30,"reset":1777038352,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4789,"reset":1777041893,"used":211},"graphql":{"limit":5000,"remaining":4927,"reset":1777041996,"used":73},"search":{"limit":30,"remaining":30,"reset":1777039017,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 501 | `GeorgeQLe/worldremit-mobile-clone` | PRIVATE | seeded |
+| 502 | `GeorgeQLe/western-union-mobile-clone` | PRIVATE | seeded |
+| 503 | `GeorgeQLe/moneygram-mobile-clone` | PRIVATE | seeded |
+| 504 | `GeorgeQLe/xoom-mobile-clone` | PRIVATE | seeded |
+| 505 | `GeorgeQLe/crypto-com-mobile-clone` | PRIVATE | seeded |
+| 506 | `GeorgeQLe/binance-mobile-clone` | PRIVATE | seeded |
+| 507 | `GeorgeQLe/kraken-mobile-clone` | PRIVATE | seeded |
+| 508 | `GeorgeQLe/gemini-crypto-mobile-clone` | PRIVATE | seeded |
+| 509 | `GeorgeQLe/phantom-mobile-clone` | PRIVATE | seeded |
+| 510 | `GeorgeQLe/metamask-mobile-clone` | PRIVATE | seeded |
+| 511 | `GeorgeQLe/trust-wallet-mobile-clone` | PRIVATE | seeded |
+| 512 | `GeorgeQLe/exodus-mobile-clone` | PRIVATE | seeded |
+| 513 | `GeorgeQLe/ledger-live-mobile-clone` | PRIVATE | seeded |
+| 514 | `GeorgeQLe/moonpay-mobile-clone` | PRIVATE | seeded |
+| 515 | `GeorgeQLe/strike-mobile-clone` | PRIVATE | seeded |
+| 516 | `GeorgeQLe/current-mobile-clone` | PRIVATE | seeded |
+| 517 | `GeorgeQLe/dave-mobile-clone` | PRIVATE | seeded |
+| 518 | `GeorgeQLe/empower-mobile-clone` | PRIVATE | seeded |
+| 519 | `GeorgeQLe/earnin-mobile-clone` | PRIVATE | seeded |
+| 520 | `GeorgeQLe/klarna-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
 
 - Step 6.3 blocker (2026-04-23T16:51:56.337Z) for GeorgeQLe/wells-fargo-mobile-mobile-clone: git -C /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/wells-fargo-mobile-mobile-clone push origin HEAD failed
@@ -1551,26 +1581,26 @@ Guardrails:
 | [x] | 498 | Skrill | `GeorgeQLe/skrill-mobile-clone` | `specs/batch-25/498-skrill.md` |
 | [x] | 499 | Neteller | `GeorgeQLe/neteller-mobile-clone` | `specs/batch-25/499-neteller.md` |
 | [x] | 500 | Remitly | `GeorgeQLe/remitly-mobile-clone` | `specs/batch-25/500-remitly.md` |
-| [ ] | 501 | WorldRemit | `GeorgeQLe/worldremit-mobile-clone` | `specs/batch-26/501-worldremit.md` |
-| [ ] | 502 | Western Union | `GeorgeQLe/western-union-mobile-clone` | `specs/batch-26/502-western-union.md` |
-| [ ] | 503 | MoneyGram | `GeorgeQLe/moneygram-mobile-clone` | `specs/batch-26/503-moneygram.md` |
-| [ ] | 504 | Xoom | `GeorgeQLe/xoom-mobile-clone` | `specs/batch-26/504-xoom.md` |
-| [ ] | 505 | Crypto.com | `GeorgeQLe/crypto-com-mobile-clone` | `specs/batch-26/505-crypto-com.md` |
-| [ ] | 506 | Binance | `GeorgeQLe/binance-mobile-clone` | `specs/batch-26/506-binance.md` |
-| [ ] | 507 | Kraken | `GeorgeQLe/kraken-mobile-clone` | `specs/batch-26/507-kraken.md` |
-| [ ] | 508 | Gemini Crypto | `GeorgeQLe/gemini-crypto-mobile-clone` | `specs/batch-26/508-gemini-crypto.md` |
-| [ ] | 509 | Phantom | `GeorgeQLe/phantom-mobile-clone` | `specs/batch-26/509-phantom.md` |
-| [ ] | 510 | MetaMask | `GeorgeQLe/metamask-mobile-clone` | `specs/batch-26/510-metamask.md` |
-| [ ] | 511 | Trust Wallet | `GeorgeQLe/trust-wallet-mobile-clone` | `specs/batch-26/511-trust-wallet.md` |
-| [ ] | 512 | Exodus | `GeorgeQLe/exodus-mobile-clone` | `specs/batch-26/512-exodus.md` |
-| [ ] | 513 | Ledger Live | `GeorgeQLe/ledger-live-mobile-clone` | `specs/batch-26/513-ledger-live.md` |
-| [ ] | 514 | MoonPay | `GeorgeQLe/moonpay-mobile-clone` | `specs/batch-26/514-moonpay.md` |
-| [ ] | 515 | Strike | `GeorgeQLe/strike-mobile-clone` | `specs/batch-26/515-strike.md` |
-| [ ] | 516 | Current | `GeorgeQLe/current-mobile-clone` | `specs/batch-26/516-current.md` |
-| [ ] | 517 | Dave | `GeorgeQLe/dave-mobile-clone` | `specs/batch-26/517-dave.md` |
-| [ ] | 518 | Empower | `GeorgeQLe/empower-mobile-clone` | `specs/batch-26/518-empower.md` |
-| [ ] | 519 | EarnIn | `GeorgeQLe/earnin-mobile-clone` | `specs/batch-26/519-earnin.md` |
-| [ ] | 520 | Klarna | `GeorgeQLe/klarna-mobile-clone` | `specs/batch-26/520-klarna.md` |
+| [x] | 501 | WorldRemit | `GeorgeQLe/worldremit-mobile-clone` | `specs/batch-26/501-worldremit.md` |
+| [x] | 502 | Western Union | `GeorgeQLe/western-union-mobile-clone` | `specs/batch-26/502-western-union.md` |
+| [x] | 503 | MoneyGram | `GeorgeQLe/moneygram-mobile-clone` | `specs/batch-26/503-moneygram.md` |
+| [x] | 504 | Xoom | `GeorgeQLe/xoom-mobile-clone` | `specs/batch-26/504-xoom.md` |
+| [x] | 505 | Crypto.com | `GeorgeQLe/crypto-com-mobile-clone` | `specs/batch-26/505-crypto-com.md` |
+| [x] | 506 | Binance | `GeorgeQLe/binance-mobile-clone` | `specs/batch-26/506-binance.md` |
+| [x] | 507 | Kraken | `GeorgeQLe/kraken-mobile-clone` | `specs/batch-26/507-kraken.md` |
+| [x] | 508 | Gemini Crypto | `GeorgeQLe/gemini-crypto-mobile-clone` | `specs/batch-26/508-gemini-crypto.md` |
+| [x] | 509 | Phantom | `GeorgeQLe/phantom-mobile-clone` | `specs/batch-26/509-phantom.md` |
+| [x] | 510 | MetaMask | `GeorgeQLe/metamask-mobile-clone` | `specs/batch-26/510-metamask.md` |
+| [x] | 511 | Trust Wallet | `GeorgeQLe/trust-wallet-mobile-clone` | `specs/batch-26/511-trust-wallet.md` |
+| [x] | 512 | Exodus | `GeorgeQLe/exodus-mobile-clone` | `specs/batch-26/512-exodus.md` |
+| [x] | 513 | Ledger Live | `GeorgeQLe/ledger-live-mobile-clone` | `specs/batch-26/513-ledger-live.md` |
+| [x] | 514 | MoonPay | `GeorgeQLe/moonpay-mobile-clone` | `specs/batch-26/514-moonpay.md` |
+| [x] | 515 | Strike | `GeorgeQLe/strike-mobile-clone` | `specs/batch-26/515-strike.md` |
+| [x] | 516 | Current | `GeorgeQLe/current-mobile-clone` | `specs/batch-26/516-current.md` |
+| [x] | 517 | Dave | `GeorgeQLe/dave-mobile-clone` | `specs/batch-26/517-dave.md` |
+| [x] | 518 | Empower | `GeorgeQLe/empower-mobile-clone` | `specs/batch-26/518-empower.md` |
+| [x] | 519 | EarnIn | `GeorgeQLe/earnin-mobile-clone` | `specs/batch-26/519-earnin.md` |
+| [x] | 520 | Klarna | `GeorgeQLe/klarna-mobile-clone` | `specs/batch-26/520-klarna.md` |
 | [ ] | 521 | Afterpay | `GeorgeQLe/afterpay-mobile-clone` | `specs/batch-27/521-afterpay.md` |
 | [ ] | 522 | Affirm | `GeorgeQLe/affirm-mobile-clone` | `specs/batch-27/522-affirm.md` |
 | [ ] | 523 | Delta | `GeorgeQLe/delta-mobile-clone` | `specs/batch-27/523-delta.md` |

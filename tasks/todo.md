@@ -47,17 +47,17 @@ Extend the canonical spec store from 200 to 1000 mobile app clone ideas. IDs 201
 
 - [ ] Step 8.5: Extend `tasks/repo-seeding.md` Per-Repo Checklist manifest to 1000 rows. Already extended past 1000 implicitly during the 480-repo seeding; verify the manifest matches reality. Audit after Step 8.3 lands to update Source Spec column to point at implementation-ready specs.
 
-- [~] Step 8.6: Seed downstream private scaffold repos for IDs 201-1000 in serial 20-ID batches via `scripts/seed-downstream-batch.mjs`. **Progress: IDs 201-500 seeded (PRIVATE + non-empty verified per `tasks/repo-seeding.md` Batch evidence sections). Next batch: 501-520.**
+- [~] Step 8.6: Seed downstream private scaffold repos for IDs 201-1000 in serial 20-ID batches via `scripts/seed-downstream-batch.mjs`. **Progress: IDs 201-520 seeded (PRIVATE + non-empty verified per `tasks/repo-seeding.md` Batch evidence sections). Next batch: 521-540.**
 
-  #### Next concrete action: seed batch 501-520
+  #### Next concrete action: seed batch 521-540
 
   - Pre-batch: `gh api rate_limit` and record in `tasks/repo-seeding.md`.
-  - Run `node scripts/seed-downstream-batch.mjs --from 501 --to 520 --execute` with the rolling hourly cap enabled (script enforces ≥30s between repo seeds and ≤20 repos/hour by default, ≤40/hour after two clean batches).
+  - Run `node scripts/seed-downstream-batch.mjs --from 521 --to 540 --execute` with the rolling hourly cap enabled (script enforces ≥30s between repo seeds and ≤20 repos/hour by default, ≤40/hour after two clean batches).
   - For each repo, the script must verify: created `--private`, `visibility == PRIVATE`, `README.md` present, `docs/source-specs/NNN-<slug>.md` present, root commit exists. Mark the manifest row `[x]` only after all checks pass.
   - On any GitHub `403`, `429`, secondary-rate-limit, auth/permission/naming/clone-propagation/template-placeholder/non-private result: stop immediately; obey `retry-after` / `x-ratelimit-reset`; otherwise wait ≥1 minute with exponential backoff. Record blockers in `tasks/repo-seeding.md` under `### Failures And Blockers`.
-  - Post-batch: `gh api rate_limit` and record. Append `### Batch 501-520 Seeding Evidence - <ISO timestamp>` section to `tasks/repo-seeding.md` with per-repo URL and root commit SHA.
-  - Commit pattern: `feat(seeding): seed private batch 501-520` plus a paired `feat(builds): track downstream build starts 501-520` if the build-tracking workstream continues alongside seeding (see prior history entries).
-  - Acceptance: `grep -cE "^\| \[x\] \| (50[0-9]|51[0-9]|520) " tasks/repo-seeding.md` reflects 20 completions for the 501-520 range; no new public repos.
+  - Post-batch: `gh api rate_limit` and record. Append `### Batch 521-540 Seeding Evidence - <ISO timestamp>` section to `tasks/repo-seeding.md` with per-repo URL and root commit SHA.
+  - Commit pattern: `feat(seeding): seed private batch 521-540` plus a paired `feat(builds): track downstream build starts 521-540` if the build-tracking workstream continues alongside seeding (see prior history entries).
+  - Acceptance: `grep -cE "^\| \[x\] \| (52[0-9]|53[0-9]|540) " tasks/repo-seeding.md` reflects 20 completions for the 521-540 range; no new public repos.
 
 ### Reference
 
@@ -79,4 +79,4 @@ Resolved 2026-04-23 following `/reconcile-dev-docs`:
 Remaining open:
 
 - **`tasks/implementation-readiness.md` counts.** Refresh when Step 8.3 lands in category batches.
-- **Phase 8 Step 8.6 progress tracking.** Carried in this todo.md (`Next batch: 501-520`).
+- **Phase 8 Step 8.6 progress tracking.** Carried in this todo.md (`Next batch: 521-540`).
