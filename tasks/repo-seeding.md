@@ -1164,7 +1164,23 @@ Guardrails:
 | 595 | `GeorgeQLe/bmw-mobile-clone` | `f516d7f` | PRIVATE | seeded |
 | 596 | `GeorgeQLe/mercedes-me-mobile-clone` | n/a | not created | blocker - auth/keyring timeout before create |
 
+### Batch 596-615 Partial Seeding Evidence - 2026-04-25T20:27:00Z
+
+- Execution mode: serial private seeding with stop-on-failure behavior.
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":5000,"reset":1777152341,"used":0},"graphql":{"limit":5000,"remaining":4989,"reset":1777150135,"used":11},"search":{"limit":30,"remaining":30,"reset":1777148801,"used":0}}`
+- Post-failure rate limit: `{"core":{"limit":5000,"remaining":4996,"reset":1777152342,"used":4},"graphql":{"limit":5000,"remaining":4982,"reset":1777150135,"used":18},"search":{"limit":30,"remaining":30,"reset":1777148849,"used":0}}`
+- Seeded before stop: ID 596 `GeorgeQLe/mercedes-me-mobile-clone` was created private, committed as `3274aab`, pushed to `main`, verified by the batch utility, and marked done in the manifest.
+- Stop point: ID 597 `GeorgeQLe/gaia-gps-mobile-clone` was created private, but the immediately following `gh repo clone` failed with GitHub repository propagation resolution error. Per stop-on-failure contract, IDs 598-615 were not attempted.
+- Verification: ID 597 post-failure `gh repo view` returned `visibility=PRIVATE`, `isEmpty=true`, and empty `defaultBranchRef`; README lookup returned 404; copied source spec lookup returned 404 (`This repository is empty.`). Next repair path is `--reconcile-existing` after the rolling-cap window allows it.
+
+| ID | Repo | Commit SHA | Visibility | Status |
+|---:|---|---|---|---|
+| 596 | `GeorgeQLe/mercedes-me-mobile-clone` | `3274aab` | PRIVATE | seeded |
+| 597 | `GeorgeQLe/gaia-gps-mobile-clone` | n/a | PRIVATE | blocker - empty after clone propagation failure |
+
 ### Failures And Blockers
+
+- Step 6.3 blocker (2026-04-25T20:26:17.922Z) for GeorgeQLe/gaia-gps-mobile-clone: `gh repo create` returned the private repo URL, but the immediately-following `gh repo clone GeorgeQLe/gaia-gps-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/gaia-gps-mobile-clone` failed with `GraphQL: Could not resolve to a Repository with the name 'GeorgeQLe/gaia-gps-mobile-clone'. (repository)`. Stop-state verification on 2026-04-25T20:27:00Z returned `visibility=PRIVATE`, `isEmpty=true`, and empty `defaultBranchRef`; README lookup returned 404; copied source spec lookup returned 404 (`This repository is empty.`). Post-failure rate limit: `{"core":{"limit":5000,"remaining":4996,"reset":1777152342,"used":4},"graphql":{"limit":5000,"remaining":4982,"reset":1777150135,"used":18},"search":{"limit":30,"remaining":30,"reset":1777148849,"used":0}}`. Per stop-on-failure contract, no further seeding was attempted; next repair path is `--reconcile-existing`.
 
 - Step 6.3 blocker (2026-04-25T16:58:59.183Z) for GeorgeQLe/mercedes-me-mobile-clone: gh auth status failed. Stop-state verification on 2026-04-25T16:59:30Z found no remote repo (`GraphQL: Could not resolve to a Repository with the name 'GeorgeQLe/mercedes-me-mobile-clone'`). Post-failure rate limit: `{"core":{"limit":5000,"remaining":3458,"reset":1777136941,"used":1542},"graphql":{"limit":5000,"remaining":4928,"reset":1777138853,"used":72},"search":{"limit":30,"remaining":30,"reset":1777136418,"used":0}}`. A follow-up `gh auth status` succeeded for account `GeorgeQLe`; per stop-on-failure contract, no further seeding was attempted.
 
@@ -1842,7 +1858,7 @@ Guardrails:
 | [x] | 593 | Toyota | `GeorgeQLe/toyota-mobile-clone` | `specs/batch-30/593-toyota.md` |
 | [x] | 594 | Hyundai Bluelink | `GeorgeQLe/hyundai-bluelink-mobile-clone` | `specs/batch-30/594-hyundai-bluelink.md` |
 | [x] | 595 | BMW | `GeorgeQLe/bmw-mobile-clone` | `specs/batch-30/595-bmw.md` |
-| [ ] | 596 | Mercedes me | `GeorgeQLe/mercedes-me-mobile-clone` | `specs/batch-30/596-mercedes-me.md` |
+| [x] | 596 | Mercedes me | `GeorgeQLe/mercedes-me-mobile-clone` | `specs/batch-30/596-mercedes-me.md` |
 | [ ] | 597 | Gaia GPS | `GeorgeQLe/gaia-gps-mobile-clone` | `specs/batch-30/597-gaia-gps.md` |
 | [ ] | 598 | onX Hunt | `GeorgeQLe/onx-hunt-mobile-clone` | `specs/batch-30/598-onx-hunt.md` |
 | [ ] | 599 | Trailforks | `GeorgeQLe/trailforks-mobile-clone` | `specs/batch-30/599-trailforks.md` |
