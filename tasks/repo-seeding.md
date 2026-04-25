@@ -1072,7 +1072,143 @@ Guardrails:
 | 539 | `GeorgeQLe/singapore-airlines-mobile-clone` | PRIVATE | seeded |
 | 540 | `GeorgeQLe/turkish-airlines-mobile-clone` | PRIVATE | seeded |
 
+### Batch 541-560 Seeding Evidence - 2026-04-24T16:23:02.578Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":5000,"reset":1777050728,"used":0},"graphql":{"limit":5000,"remaining":4989,"reset":1777049369,"used":11},"search":{"limit":30,"remaining":30,"reset":1777047188,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4940,"reset":1777050728,"used":60},"graphql":{"limit":5000,"remaining":4909,"reset":1777049369,"used":91},"search":{"limit":30,"remaining":30,"reset":1777047842,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 541 | `GeorgeQLe/ryanair-mobile-clone` | PRIVATE | seeded |
+| 542 | `GeorgeQLe/easyjet-mobile-clone` | PRIVATE | seeded |
+| 543 | `GeorgeQLe/wizz-air-mobile-clone` | PRIVATE | seeded |
+| 544 | `GeorgeQLe/ana-mobile-clone` | PRIVATE | seeded |
+| 545 | `GeorgeQLe/jal-mobile-clone` | PRIVATE | seeded |
+| 546 | `GeorgeQLe/cathay-pacific-mobile-clone` | PRIVATE | seeded |
+| 547 | `GeorgeQLe/marriott-bonvoy-mobile-clone` | PRIVATE | seeded |
+| 548 | `GeorgeQLe/hilton-honors-mobile-clone` | PRIVATE | seeded |
+| 549 | `GeorgeQLe/hyatt-mobile-clone` | PRIVATE | seeded |
+| 550 | `GeorgeQLe/ihg-one-rewards-mobile-clone` | PRIVATE | seeded |
+| 551 | `GeorgeQLe/wyndham-hotels-mobile-clone` | PRIVATE | seeded |
+| 552 | `GeorgeQLe/choice-hotels-mobile-clone` | PRIVATE | seeded |
+| 553 | `GeorgeQLe/accor-all-mobile-clone` | PRIVATE | seeded |
+| 554 | `GeorgeQLe/hotels-com-mobile-clone` | PRIVATE | seeded |
+| 555 | `GeorgeQLe/vrbo-mobile-clone` | PRIVATE | seeded |
+| 556 | `GeorgeQLe/hostelworld-mobile-clone` | PRIVATE | seeded |
+| 557 | `GeorgeQLe/couchsurfing-mobile-clone` | PRIVATE | seeded |
+| 558 | `GeorgeQLe/klook-mobile-clone` | PRIVATE | seeded |
+| 559 | `GeorgeQLe/getyourguide-mobile-clone` | PRIVATE | seeded |
+| 560 | `GeorgeQLe/viator-mobile-clone` | PRIVATE | seeded |
+
+### Batch 580-580 Seeding Evidence - 2026-04-25T15:34:50.372Z
+
+- Execution mode: serial private seeding with 1 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4227,"reset":1777133315,"used":773},"graphql":{"limit":5000,"remaining":4826,"reset":1777131421,"used":174},"search":{"limit":30,"remaining":30,"reset":1777131341,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4224,"reset":1777133315,"used":776},"graphql":{"limit":5000,"remaining":4822,"reset":1777131421,"used":178},"search":{"limit":30,"remaining":30,"reset":1777131350,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 580 | `GeorgeQLe/getaround-mobile-clone` | PRIVATE | seeded |
+
+### Batch 581-588 Partial Seeding Evidence - 2026-04-25T16:46:00Z
+
+- Execution mode: serial private seeding with stop-on-failure behavior.
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":3815,"reset":1777136941,"used":1185},"graphql":{"limit":5000,"remaining":5000,"reset":1777138849,"used":0},"search":{"limit":30,"remaining":30,"reset":1777135309,"used":0}}`
+- Post-failure rate limit: `{"core":{"limit":5000,"remaining":3673,"reset":1777136941,"used":1327},"graphql":{"limit":5000,"remaining":4966,"reset":1777138853,"used":34},"search":{"limit":30,"remaining":30,"reset":1777135616,"used":0}}`
+- Seeded before stop: IDs 581-587 were created private, committed, pushed to `main`, verified by the batch utility, and marked done in the manifest.
+- Stop point: ID 588 `GeorgeQLe/chargepoint-mobile-clone` was created private, but the immediately following `gh repo clone` failed with GitHub repository propagation resolution error. Per stop-on-failure contract, IDs 589-600 were not attempted.
+- Verification: ID 588 post-failure `gh repo view` returned `visibility=PRIVATE`, `isEmpty=true`, and no default branch; README lookup returned 404. Next repair path is `--reconcile-existing` after the rolling-cap window allows it.
+
+| ID | Repo | Commit SHA | Visibility | Status |
+|---:|---|---|---|---|
+| 581 | `GeorgeQLe/enterprise-rent-a-car-mobile-clone` | `f22ec40` | PRIVATE | seeded |
+| 582 | `GeorgeQLe/hertz-mobile-clone` | `9d9f577` | PRIVATE | seeded |
+| 583 | `GeorgeQLe/avis-mobile-clone` | `ead6ca6` | PRIVATE | seeded |
+| 584 | `GeorgeQLe/spothero-mobile-clone` | `c7f6500` | PRIVATE | seeded |
+| 585 | `GeorgeQLe/parkmobile-mobile-clone` | `25d7338` | PRIVATE | seeded |
+| 586 | `GeorgeQLe/passport-parking-mobile-clone` | `c20baa6` | PRIVATE | seeded |
+| 587 | `GeorgeQLe/plugshare-mobile-clone` | `4e0fef4` | PRIVATE | seeded |
+| 588 | `GeorgeQLe/chargepoint-mobile-clone` | n/a | PRIVATE | blocker - empty after clone propagation failure |
+
+### Batch 588-588 Seeding Evidence - 2026-04-25T16:51:37.067Z
+
+- Execution mode: serial private seeding with 1 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":3544,"reset":1777136941,"used":1456},"graphql":{"limit":5000,"remaining":4962,"reset":1777138853,"used":38},"search":{"limit":30,"remaining":30,"reset":1777135931,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":3542,"reset":1777136941,"used":1458},"graphql":{"limit":5000,"remaining":4959,"reset":1777138853,"used":41},"search":{"limit":30,"remaining":30,"reset":1777135957,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 588 | `GeorgeQLe/chargepoint-mobile-clone` | PRIVATE | seeded |
+
+### Batch 589-607 Partial Seeding Evidence - 2026-04-25T16:59:30Z
+
+- Execution mode: serial private seeding with stop-on-failure behavior.
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":3542,"reset":1777136941,"used":1458},"graphql":{"limit":5000,"remaining":4959,"reset":1777138853,"used":41},"search":{"limit":30,"remaining":30,"reset":1777135963,"used":0}}`
+- Post-failure rate limit: `{"core":{"limit":5000,"remaining":3458,"reset":1777136941,"used":1542},"graphql":{"limit":5000,"remaining":4928,"reset":1777138853,"used":72},"search":{"limit":30,"remaining":30,"reset":1777136418,"used":0}}`
+- Seeded before stop: IDs 589-595 were created private, committed, pushed to `main`, verified by the batch utility, and marked done in the manifest.
+- Stop point: ID 596 `GeorgeQLe/mercedes-me-mobile-clone` stopped before repo creation because `gh auth status` timed out against the keyring. Per stop-on-failure contract, IDs 596-607 were not attempted after the stop.
+- Verification: ID 596 post-failure `gh repo view` returned `GraphQL: Could not resolve to a Repository with the name 'GeorgeQLe/mercedes-me-mobile-clone'`; a follow-up `gh auth status` succeeded for account `GeorgeQLe`, confirming the stop was a transient auth/keyring failure but still a hard stop for this batch.
+
+| ID | Repo | Commit SHA | Visibility | Status |
+|---:|---|---|---|---|
+| 589 | `GeorgeQLe/electrify-america-mobile-clone` | `3974650` | PRIVATE | seeded |
+| 590 | `GeorgeQLe/tesla-mobile-clone` | `4d8fba3` | PRIVATE | seeded |
+| 591 | `GeorgeQLe/fordpass-mobile-clone` | `de45488` | PRIVATE | seeded |
+| 592 | `GeorgeQLe/mychevrolet-mobile-clone` | `a33707d` | PRIVATE | seeded |
+| 593 | `GeorgeQLe/toyota-mobile-clone` | `a539201` | PRIVATE | seeded |
+| 594 | `GeorgeQLe/hyundai-bluelink-mobile-clone` | `a98e2f1` | PRIVATE | seeded |
+| 595 | `GeorgeQLe/bmw-mobile-clone` | `f516d7f` | PRIVATE | seeded |
+| 596 | `GeorgeQLe/mercedes-me-mobile-clone` | n/a | not created | blocker - auth/keyring timeout before create |
+
 ### Failures And Blockers
+
+- Step 6.3 blocker (2026-04-25T16:58:59.183Z) for GeorgeQLe/mercedes-me-mobile-clone: gh auth status failed. Stop-state verification on 2026-04-25T16:59:30Z found no remote repo (`GraphQL: Could not resolve to a Repository with the name 'GeorgeQLe/mercedes-me-mobile-clone'`). Post-failure rate limit: `{"core":{"limit":5000,"remaining":3458,"reset":1777136941,"used":1542},"graphql":{"limit":5000,"remaining":4928,"reset":1777138853,"used":72},"search":{"limit":30,"remaining":30,"reset":1777136418,"used":0}}`. A follow-up `gh auth status` succeeded for account `GeorgeQLe`; per stop-on-failure contract, no further seeding was attempted.
+
+- Step 6.3 blocker (2026-04-25T16:48:43.559Z) for GeorgeQLe/chargepoint-mobile-clone: Target repo already exists: GeorgeQLe/chargepoint-mobile-clone. Re-run with --reconcile-existing to seed or reconcile it. Stop-state verification on 2026-04-25T16:49:00Z returned `visibility=PRIVATE`, `isEmpty=true`, and no default branch; README lookup returned 404; copied source spec lookup returned 404 (`This repository is empty.`). Post-failure rate limit: `{"core":{"limit":5000,"remaining":3608,"reset":1777136941,"used":1392},"graphql":{"limit":5000,"remaining":4964,"reset":1777138853,"used":36},"search":{"limit":30,"remaining":30,"reset":1777135800,"used":0}}`. Per stop-on-failure contract, no further seeding was attempted; next repair path is `--reconcile-existing`.
+
+- Step 6.3 blocker (2026-04-25T16:45:45.016Z) for GeorgeQLe/chargepoint-mobile-clone: gh repo clone GeorgeQLe/chargepoint-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/chargepoint-mobile-clone failed
+
+- Step 6.3 blocker (2026-04-25T15:31:58.520Z) for GeorgeQLe/zipcar-mobile-clone: gh repo clone GeorgeQLe/zipcar-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/zipcar-mobile-clone failed
+
+### Batch 570-571 Partial Seeding Evidence - 2026-04-25T15:22:00Z
+
+- Execution mode: serial private seeding with stop-on-failure behavior.
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4679,"reset":1777133315,"used":321},"graphql":{"limit":5000,"remaining":4929,"reset":1777131421,"used":71},"search":{"limit":30,"remaining":30,"reset":1777130417,"used":0}}`
+- Post-failure rate limit: `{"core":{"limit":5000,"remaining":4645,"reset":1777133315,"used":355},"graphql":{"limit":5000,"remaining":4917,"reset":1777131421,"used":83},"search":{"limit":30,"remaining":30,"reset":1777130474,"used":0}}`
+- Seeded before stop: ID 570 `GeorgeQLe/roadtrippers-mobile-clone` was created private, committed as `d75cc10`, pushed to `main`, and marked done by the batch utility.
+- Stop point: ID 571 `GeorgeQLe/transit-mobile-clone` was created private but clone failed during GitHub repository propagation; the repo remains empty and the manifest row remains unchecked.
+- Verification: ID 571 post-failure `gh repo view` returned `visibility=PRIVATE`, `isEmpty=true`, and no default branch; README lookup returned 404.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 570 | `GeorgeQLe/roadtrippers-mobile-clone` | PRIVATE | seeded |
+| 571 | `GeorgeQLe/transit-mobile-clone` | PRIVATE | blocker - empty after clone propagation failure |
+
+- Step 6.3 blocker (2026-04-25T15:19:59.949Z) for GeorgeQLe/transit-mobile-clone: Target repo already exists: GeorgeQLe/transit-mobile-clone. Re-run with --reconcile-existing to seed or reconcile it.
+
+- Step 6.3 blocker (2026-04-25T15:19:57.750Z) for GeorgeQLe/transit-mobile-clone: `gh repo create` returned the private repo URL, but the immediately-following `gh repo clone GeorgeQLe/transit-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/transit-mobile-clone` failed with `GraphQL: Could not resolve to a Repository with the name 'GeorgeQLe/transit-mobile-clone'. (repository)`. Stop-state verification on 2026-04-25: `gh repo view` returned `visibility=PRIVATE`, `isEmpty=true`, and no default branch; `gh api repos/GeorgeQLe/transit-mobile-clone/readme` returned 404. Post-failure rate limit: `{"core":{"limit":5000,"remaining":4645,"reset":1777133315,"used":355},"graphql":{"limit":5000,"remaining":4917,"reset":1777131421,"used":83},"search":{"limit":30,"remaining":30,"reset":1777130474,"used":0}}`. Per stop-on-failure contract, no further seeding was attempted; next repair path is `--reconcile-existing`.
+
+- Step 6.3 blocker resolved (2026-04-25T15:35:00Z) for GeorgeQLe/transit-mobile-clone: the already-private empty repo was reconciled with `node scripts/seed-downstream-repos.mjs --target 571 --execute --reconcile-existing --clone-dir /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/transit-mobile-clone`; root commit `77961fc` pushed to `main`. Post-repair verification returned `visibility=PRIVATE`, `isEmpty=false`, default branch `main`, README `README.md`, and copied source spec `docs/source-specs/571-transit.md`.
+
+- Step 6.3 blocker resolved (2026-04-25T15:40:00Z) for GeorgeQLe/zipcar-mobile-clone: the already-private empty repo was reconciled with `node scripts/seed-downstream-repos.mjs --target 579 --execute --reconcile-existing --clone-dir /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/zipcar-mobile-clone`; root commit `a758906` pushed to `main`. Post-repair verification returned `visibility=PRIVATE`, `isEmpty=false`, default branch `main`, README `README.md`, and copied source spec `docs/source-specs/579-zipcar.md`.
+
+- Step 6.3 blocker (2026-04-25T15:14:18.858Z) for GeorgeQLe/hoteltonight-mobile-clone: gh repo clone GeorgeQLe/hoteltonight-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/hoteltonight-mobile-clone failed
+
+- Step 6.3 blocker (2026-04-25T15:10:55.690Z) for GeorgeQLe/trivago-mobile-clone: gh repo clone GeorgeQLe/trivago-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/trivago-mobile-clone failed
+
+- Step 6.3 blocker resolved (2026-04-25T15:12:00Z) for GeorgeQLe/priceline-mobile-clone: the already-private empty repo was reconciled with `node scripts/seed-downstream-repos.mjs --target 566 --execute --reconcile-existing --clone-dir /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/priceline-mobile-clone`; root commit `27d25f8` pushed to `main`. Post-repair verification returned `visibility=PRIVATE`, `isEmpty=false`, default branch `main`, README `README.md`, and copied source spec `docs/source-specs/566-priceline.md`.
+
+- Step 6.3 blocker resolved (2026-04-25T15:20:00Z) for GeorgeQLe/trivago-mobile-clone: the already-private empty repo was reconciled with `node scripts/seed-downstream-repos.mjs --target 568 --execute --reconcile-existing --clone-dir /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/trivago-mobile-clone`; root commit `13e63b7` pushed to `main`. Post-repair verification returned `visibility=PRIVATE`, `isEmpty=false`, default branch `main`, README `README.md`, and copied source spec `docs/source-specs/568-trivago.md`.
+
+- Step 6.3 blocker resolved (2026-04-25T15:25:00Z) for GeorgeQLe/hoteltonight-mobile-clone: the already-private empty repo was reconciled with `node scripts/seed-downstream-repos.mjs --target 569 --execute --reconcile-existing --clone-dir /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/hoteltonight-mobile-clone`; root commit `253838b` pushed to `main`. Post-repair verification returned `visibility=PRIVATE`, `isEmpty=false`, default branch `main`, README `README.md`, and copied source spec `docs/source-specs/569-hoteltonight.md`.
+
+- Step 6.3 blocker (2026-04-25T15:08:19.238Z, RESOLVED 2026-04-25 in `Step 6.3 blocker resolved (2026-04-25T15:12:00Z)`) for GeorgeQLe/priceline-mobile-clone: Target repo already existed before reconcile. Stop-state verification before repair: `gh repo view` returned `visibility=PRIVATE`, `isEmpty=true`, and no default branch; `gh api repos/GeorgeQLe/priceline-mobile-clone/readme` returned 404; `gh api repos/GeorgeQLe/priceline-mobile-clone/contents/docs/source-specs/566-priceline.md` returned 404 (`This repository is empty`). Post-failure rate limit: `{"core":{"limit":5000,"remaining":4998,"reset":1777133315,"used":2},"graphql":{"limit":5000,"remaining":4993,"reset":1777131421,"used":7},"search":{"limit":30,"remaining":30,"reset":1777129786,"used":0}}`.
+
+- Step 6.3 blocker (2026-04-24T17:44:28.390Z, RESOLVED 2026-04-25 in `Step 6.3 blocker resolved (2026-04-25T15:12:00Z)`) for GeorgeQLe/priceline-mobile-clone: Target repo already existed before reconcile.
 
 - Step 6.3 blocker (2026-04-23T16:51:56.337Z) for GeorgeQLe/wells-fargo-mobile-mobile-clone: git -C /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/wells-fargo-mobile-mobile-clone push origin HEAD failed
 
@@ -1651,61 +1787,61 @@ Guardrails:
 | [x] | 538 | Qatar Airways | `GeorgeQLe/qatar-airways-mobile-clone` | `specs/batch-27/538-qatar-airways.md` |
 | [x] | 539 | Singapore Airlines | `GeorgeQLe/singapore-airlines-mobile-clone` | `specs/batch-27/539-singapore-airlines.md` |
 | [x] | 540 | Turkish Airlines | `GeorgeQLe/turkish-airlines-mobile-clone` | `specs/batch-27/540-turkish-airlines.md` |
-| [ ] | 541 | Ryanair | `GeorgeQLe/ryanair-mobile-clone` | `specs/batch-28/541-ryanair.md` |
-| [ ] | 542 | easyJet | `GeorgeQLe/easyjet-mobile-clone` | `specs/batch-28/542-easyjet.md` |
-| [ ] | 543 | Wizz Air | `GeorgeQLe/wizz-air-mobile-clone` | `specs/batch-28/543-wizz-air.md` |
-| [ ] | 544 | ANA | `GeorgeQLe/ana-mobile-clone` | `specs/batch-28/544-ana.md` |
-| [ ] | 545 | JAL | `GeorgeQLe/jal-mobile-clone` | `specs/batch-28/545-jal.md` |
-| [ ] | 546 | Cathay Pacific | `GeorgeQLe/cathay-pacific-mobile-clone` | `specs/batch-28/546-cathay-pacific.md` |
-| [ ] | 547 | Marriott Bonvoy | `GeorgeQLe/marriott-bonvoy-mobile-clone` | `specs/batch-28/547-marriott-bonvoy.md` |
-| [ ] | 548 | Hilton Honors | `GeorgeQLe/hilton-honors-mobile-clone` | `specs/batch-28/548-hilton-honors.md` |
-| [ ] | 549 | Hyatt | `GeorgeQLe/hyatt-mobile-clone` | `specs/batch-28/549-hyatt.md` |
-| [ ] | 550 | IHG One Rewards | `GeorgeQLe/ihg-one-rewards-mobile-clone` | `specs/batch-28/550-ihg-one-rewards.md` |
-| [ ] | 551 | Wyndham Hotels | `GeorgeQLe/wyndham-hotels-mobile-clone` | `specs/batch-28/551-wyndham-hotels.md` |
-| [ ] | 552 | Choice Hotels | `GeorgeQLe/choice-hotels-mobile-clone` | `specs/batch-28/552-choice-hotels.md` |
-| [ ] | 553 | Accor ALL | `GeorgeQLe/accor-all-mobile-clone` | `specs/batch-28/553-accor-all.md` |
-| [ ] | 554 | Hotels.com | `GeorgeQLe/hotels-com-mobile-clone` | `specs/batch-28/554-hotels-com.md` |
-| [ ] | 555 | Vrbo | `GeorgeQLe/vrbo-mobile-clone` | `specs/batch-28/555-vrbo.md` |
-| [ ] | 556 | Hostelworld | `GeorgeQLe/hostelworld-mobile-clone` | `specs/batch-28/556-hostelworld.md` |
-| [ ] | 557 | Couchsurfing | `GeorgeQLe/couchsurfing-mobile-clone` | `specs/batch-28/557-couchsurfing.md` |
-| [ ] | 558 | Klook | `GeorgeQLe/klook-mobile-clone` | `specs/batch-28/558-klook.md` |
-| [ ] | 559 | GetYourGuide | `GeorgeQLe/getyourguide-mobile-clone` | `specs/batch-28/559-getyourguide.md` |
-| [ ] | 560 | Viator | `GeorgeQLe/viator-mobile-clone` | `specs/batch-28/560-viator.md` |
-| [ ] | 561 | Tripadvisor | `GeorgeQLe/tripadvisor-mobile-clone` | `specs/batch-29/561-tripadvisor.md` |
-| [ ] | 562 | Rome2Rio | `GeorgeQLe/rome2rio-mobile-clone` | `specs/batch-29/562-rome2rio.md` |
-| [ ] | 563 | Skyscanner | `GeorgeQLe/skyscanner-mobile-clone` | `specs/batch-29/563-skyscanner.md` |
-| [ ] | 564 | KAYAK | `GeorgeQLe/kayak-mobile-clone` | `specs/batch-29/564-kayak.md` |
-| [ ] | 565 | momondo | `GeorgeQLe/momondo-mobile-clone` | `specs/batch-29/565-momondo.md` |
-| [ ] | 566 | Priceline | `GeorgeQLe/priceline-mobile-clone` | `specs/batch-29/566-priceline.md` |
-| [ ] | 567 | Agoda | `GeorgeQLe/agoda-mobile-clone` | `specs/batch-29/567-agoda.md` |
-| [ ] | 568 | trivago | `GeorgeQLe/trivago-mobile-clone` | `specs/batch-29/568-trivago.md` |
-| [ ] | 569 | HotelTonight | `GeorgeQLe/hoteltonight-mobile-clone` | `specs/batch-29/569-hoteltonight.md` |
-| [ ] | 570 | Roadtrippers | `GeorgeQLe/roadtrippers-mobile-clone` | `specs/batch-29/570-roadtrippers.md` |
-| [ ] | 571 | Transit | `GeorgeQLe/transit-mobile-clone` | `specs/batch-29/571-transit.md` |
-| [ ] | 572 | Citymapper | `GeorgeQLe/citymapper-mobile-clone` | `specs/batch-29/572-citymapper.md` |
-| [ ] | 573 | Moovit | `GeorgeQLe/moovit-mobile-clone` | `specs/batch-29/573-moovit.md` |
-| [ ] | 574 | Curb | `GeorgeQLe/curb-mobile-clone` | `specs/batch-29/574-curb.md` |
-| [ ] | 575 | Via | `GeorgeQLe/via-mobile-clone` | `specs/batch-29/575-via.md` |
-| [ ] | 576 | Bolt | `GeorgeQLe/bolt-mobile-clone` | `specs/batch-29/576-bolt.md` |
-| [ ] | 577 | FREE NOW | `GeorgeQLe/free-now-mobile-clone` | `specs/batch-29/577-free-now.md` |
-| [ ] | 578 | BlaBlaCar | `GeorgeQLe/blablacar-mobile-clone` | `specs/batch-29/578-blablacar.md` |
-| [ ] | 579 | Zipcar | `GeorgeQLe/zipcar-mobile-clone` | `specs/batch-29/579-zipcar.md` |
-| [ ] | 580 | Getaround | `GeorgeQLe/getaround-mobile-clone` | `specs/batch-29/580-getaround.md` |
-| [ ] | 581 | Enterprise Rent-A-Car | `GeorgeQLe/enterprise-rent-a-car-mobile-clone` | `specs/batch-30/581-enterprise-rent-a-car.md` |
-| [ ] | 582 | Hertz | `GeorgeQLe/hertz-mobile-clone` | `specs/batch-30/582-hertz.md` |
-| [ ] | 583 | Avis | `GeorgeQLe/avis-mobile-clone` | `specs/batch-30/583-avis.md` |
-| [ ] | 584 | SpotHero | `GeorgeQLe/spothero-mobile-clone` | `specs/batch-30/584-spothero.md` |
-| [ ] | 585 | ParkMobile | `GeorgeQLe/parkmobile-mobile-clone` | `specs/batch-30/585-parkmobile.md` |
-| [ ] | 586 | Passport Parking | `GeorgeQLe/passport-parking-mobile-clone` | `specs/batch-30/586-passport-parking.md` |
-| [ ] | 587 | PlugShare | `GeorgeQLe/plugshare-mobile-clone` | `specs/batch-30/587-plugshare.md` |
-| [ ] | 588 | ChargePoint | `GeorgeQLe/chargepoint-mobile-clone` | `specs/batch-30/588-chargepoint.md` |
-| [ ] | 589 | Electrify America | `GeorgeQLe/electrify-america-mobile-clone` | `specs/batch-30/589-electrify-america.md` |
-| [ ] | 590 | Tesla | `GeorgeQLe/tesla-mobile-clone` | `specs/batch-30/590-tesla.md` |
-| [ ] | 591 | FordPass | `GeorgeQLe/fordpass-mobile-clone` | `specs/batch-30/591-fordpass.md` |
-| [ ] | 592 | myChevrolet | `GeorgeQLe/mychevrolet-mobile-clone` | `specs/batch-30/592-mychevrolet.md` |
-| [ ] | 593 | Toyota | `GeorgeQLe/toyota-mobile-clone` | `specs/batch-30/593-toyota.md` |
-| [ ] | 594 | Hyundai Bluelink | `GeorgeQLe/hyundai-bluelink-mobile-clone` | `specs/batch-30/594-hyundai-bluelink.md` |
-| [ ] | 595 | BMW | `GeorgeQLe/bmw-mobile-clone` | `specs/batch-30/595-bmw.md` |
+| [x] | 541 | Ryanair | `GeorgeQLe/ryanair-mobile-clone` | `specs/batch-28/541-ryanair.md` |
+| [x] | 542 | easyJet | `GeorgeQLe/easyjet-mobile-clone` | `specs/batch-28/542-easyjet.md` |
+| [x] | 543 | Wizz Air | `GeorgeQLe/wizz-air-mobile-clone` | `specs/batch-28/543-wizz-air.md` |
+| [x] | 544 | ANA | `GeorgeQLe/ana-mobile-clone` | `specs/batch-28/544-ana.md` |
+| [x] | 545 | JAL | `GeorgeQLe/jal-mobile-clone` | `specs/batch-28/545-jal.md` |
+| [x] | 546 | Cathay Pacific | `GeorgeQLe/cathay-pacific-mobile-clone` | `specs/batch-28/546-cathay-pacific.md` |
+| [x] | 547 | Marriott Bonvoy | `GeorgeQLe/marriott-bonvoy-mobile-clone` | `specs/batch-28/547-marriott-bonvoy.md` |
+| [x] | 548 | Hilton Honors | `GeorgeQLe/hilton-honors-mobile-clone` | `specs/batch-28/548-hilton-honors.md` |
+| [x] | 549 | Hyatt | `GeorgeQLe/hyatt-mobile-clone` | `specs/batch-28/549-hyatt.md` |
+| [x] | 550 | IHG One Rewards | `GeorgeQLe/ihg-one-rewards-mobile-clone` | `specs/batch-28/550-ihg-one-rewards.md` |
+| [x] | 551 | Wyndham Hotels | `GeorgeQLe/wyndham-hotels-mobile-clone` | `specs/batch-28/551-wyndham-hotels.md` |
+| [x] | 552 | Choice Hotels | `GeorgeQLe/choice-hotels-mobile-clone` | `specs/batch-28/552-choice-hotels.md` |
+| [x] | 553 | Accor ALL | `GeorgeQLe/accor-all-mobile-clone` | `specs/batch-28/553-accor-all.md` |
+| [x] | 554 | Hotels.com | `GeorgeQLe/hotels-com-mobile-clone` | `specs/batch-28/554-hotels-com.md` |
+| [x] | 555 | Vrbo | `GeorgeQLe/vrbo-mobile-clone` | `specs/batch-28/555-vrbo.md` |
+| [x] | 556 | Hostelworld | `GeorgeQLe/hostelworld-mobile-clone` | `specs/batch-28/556-hostelworld.md` |
+| [x] | 557 | Couchsurfing | `GeorgeQLe/couchsurfing-mobile-clone` | `specs/batch-28/557-couchsurfing.md` |
+| [x] | 558 | Klook | `GeorgeQLe/klook-mobile-clone` | `specs/batch-28/558-klook.md` |
+| [x] | 559 | GetYourGuide | `GeorgeQLe/getyourguide-mobile-clone` | `specs/batch-28/559-getyourguide.md` |
+| [x] | 560 | Viator | `GeorgeQLe/viator-mobile-clone` | `specs/batch-28/560-viator.md` |
+| [x] | 561 | Tripadvisor | `GeorgeQLe/tripadvisor-mobile-clone` | `specs/batch-29/561-tripadvisor.md` |
+| [x] | 562 | Rome2Rio | `GeorgeQLe/rome2rio-mobile-clone` | `specs/batch-29/562-rome2rio.md` |
+| [x] | 563 | Skyscanner | `GeorgeQLe/skyscanner-mobile-clone` | `specs/batch-29/563-skyscanner.md` |
+| [x] | 564 | KAYAK | `GeorgeQLe/kayak-mobile-clone` | `specs/batch-29/564-kayak.md` |
+| [x] | 565 | momondo | `GeorgeQLe/momondo-mobile-clone` | `specs/batch-29/565-momondo.md` |
+| [x] | 566 | Priceline | `GeorgeQLe/priceline-mobile-clone` | `specs/batch-29/566-priceline.md` |
+| [x] | 567 | Agoda | `GeorgeQLe/agoda-mobile-clone` | `specs/batch-29/567-agoda.md` |
+| [x] | 568 | trivago | `GeorgeQLe/trivago-mobile-clone` | `specs/batch-29/568-trivago.md` |
+| [x] | 569 | HotelTonight | `GeorgeQLe/hoteltonight-mobile-clone` | `specs/batch-29/569-hoteltonight.md` |
+| [x] | 570 | Roadtrippers | `GeorgeQLe/roadtrippers-mobile-clone` | `specs/batch-29/570-roadtrippers.md` |
+| [x] | 571 | Transit | `GeorgeQLe/transit-mobile-clone` | `specs/batch-29/571-transit.md` |
+| [x] | 572 | Citymapper | `GeorgeQLe/citymapper-mobile-clone` | `specs/batch-29/572-citymapper.md` |
+| [x] | 573 | Moovit | `GeorgeQLe/moovit-mobile-clone` | `specs/batch-29/573-moovit.md` |
+| [x] | 574 | Curb | `GeorgeQLe/curb-mobile-clone` | `specs/batch-29/574-curb.md` |
+| [x] | 575 | Via | `GeorgeQLe/via-mobile-clone` | `specs/batch-29/575-via.md` |
+| [x] | 576 | Bolt | `GeorgeQLe/bolt-mobile-clone` | `specs/batch-29/576-bolt.md` |
+| [x] | 577 | FREE NOW | `GeorgeQLe/free-now-mobile-clone` | `specs/batch-29/577-free-now.md` |
+| [x] | 578 | BlaBlaCar | `GeorgeQLe/blablacar-mobile-clone` | `specs/batch-29/578-blablacar.md` |
+| [x] | 579 | Zipcar | `GeorgeQLe/zipcar-mobile-clone` | `specs/batch-29/579-zipcar.md` |
+| [x] | 580 | Getaround | `GeorgeQLe/getaround-mobile-clone` | `specs/batch-29/580-getaround.md` |
+| [x] | 581 | Enterprise Rent-A-Car | `GeorgeQLe/enterprise-rent-a-car-mobile-clone` | `specs/batch-30/581-enterprise-rent-a-car.md` |
+| [x] | 582 | Hertz | `GeorgeQLe/hertz-mobile-clone` | `specs/batch-30/582-hertz.md` |
+| [x] | 583 | Avis | `GeorgeQLe/avis-mobile-clone` | `specs/batch-30/583-avis.md` |
+| [x] | 584 | SpotHero | `GeorgeQLe/spothero-mobile-clone` | `specs/batch-30/584-spothero.md` |
+| [x] | 585 | ParkMobile | `GeorgeQLe/parkmobile-mobile-clone` | `specs/batch-30/585-parkmobile.md` |
+| [x] | 586 | Passport Parking | `GeorgeQLe/passport-parking-mobile-clone` | `specs/batch-30/586-passport-parking.md` |
+| [x] | 587 | PlugShare | `GeorgeQLe/plugshare-mobile-clone` | `specs/batch-30/587-plugshare.md` |
+| [x] | 588 | ChargePoint | `GeorgeQLe/chargepoint-mobile-clone` | `specs/batch-30/588-chargepoint.md` |
+| [x] | 589 | Electrify America | `GeorgeQLe/electrify-america-mobile-clone` | `specs/batch-30/589-electrify-america.md` |
+| [x] | 590 | Tesla | `GeorgeQLe/tesla-mobile-clone` | `specs/batch-30/590-tesla.md` |
+| [x] | 591 | FordPass | `GeorgeQLe/fordpass-mobile-clone` | `specs/batch-30/591-fordpass.md` |
+| [x] | 592 | myChevrolet | `GeorgeQLe/mychevrolet-mobile-clone` | `specs/batch-30/592-mychevrolet.md` |
+| [x] | 593 | Toyota | `GeorgeQLe/toyota-mobile-clone` | `specs/batch-30/593-toyota.md` |
+| [x] | 594 | Hyundai Bluelink | `GeorgeQLe/hyundai-bluelink-mobile-clone` | `specs/batch-30/594-hyundai-bluelink.md` |
+| [x] | 595 | BMW | `GeorgeQLe/bmw-mobile-clone` | `specs/batch-30/595-bmw.md` |
 | [ ] | 596 | Mercedes me | `GeorgeQLe/mercedes-me-mobile-clone` | `specs/batch-30/596-mercedes-me.md` |
 | [ ] | 597 | Gaia GPS | `GeorgeQLe/gaia-gps-mobile-clone` | `specs/batch-30/597-gaia-gps.md` |
 | [ ] | 598 | onX Hunt | `GeorgeQLe/onx-hunt-mobile-clone` | `specs/batch-30/598-onx-hunt.md` |

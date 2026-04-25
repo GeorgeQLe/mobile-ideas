@@ -11,7 +11,7 @@ const cloneRoot = path.join(tmpdir(), "mobile-ideas-downstream-seeds");
 
 function usage() {
   return `Usage:
-  node scripts/seed-downstream-batch.mjs --from <id> --to <id> --execute [--delay-ms 30000] [--limit 20] [--repos-per-hour 20]
+  node scripts/seed-downstream-batch.mjs --from <id> --to <id> --execute [--delay-ms 30000] [--limit 20] [--repos-per-hour 20] [--reconcile-existing]
   node scripts/seed-downstream-batch.mjs --from <id> --to <id> --dry-run [--limit 20]
 
 Guardrails:
@@ -20,11 +20,21 @@ Guardrails:
   - Default limit is 20 repos per run.
   - Default rolling cap is 20 repos/hour; maximum allowed cap is 40 repos/hour.
   - Default execute delay is 30000ms between repo seeds.
-  - Stops on first failure.`;
+  - Stops on first failure.
+  - --reconcile-existing is for already-private empty repos left by a prior stopped seed.`;
 }
 
 function parseArgs(argv) {
-  const args = { from: null, to: null, execute: false, dryRun: false, delayMs: 30000, limit: 20, reposPerHour: 20 };
+  const args = {
+    from: null,
+    to: null,
+    execute: false,
+    dryRun: false,
+    delayMs: 30000,
+    limit: 20,
+    reposPerHour: 20,
+    reconcileExisting: false,
+  };
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
     if (arg === "--help" || arg === "-h") {
@@ -38,6 +48,7 @@ function parseArgs(argv) {
     else if (arg === "--delay-ms") args.delayMs = Number(argv[++i]);
     else if (arg === "--limit") args.limit = Number(argv[++i]);
     else if (arg === "--repos-per-hour") args.reposPerHour = Number(argv[++i]);
+    else if (arg === "--reconcile-existing") args.reconcileExisting = true;
     else throw new Error(`Unknown arg: ${arg}`);
   }
   if (!Number.isInteger(args.from) || !Number.isInteger(args.to) || args.from < 1 || args.to < args.from) {
@@ -245,6 +256,7 @@ for (let index = 0; index < targets.length; index += 1) {
 
   const mode = args.execute ? "--execute" : "--dry-run";
   const command = ["node", "scripts/seed-downstream-repos.mjs", "--target", row.idText, mode, "--clone-dir", cloneDir];
+  if (args.execute && args.reconcileExisting) command.push("--reconcile-existing");
   console.log(`\n[${index + 1}/${targets.length}] ${row.idText} ${row.app} -> ${row.targetRepo}`);
   run(command);
 

@@ -24,6 +24,30 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 
 ## Evidence
 
+### Phase 2 Planning Scope Updates - 2026-04-25T15:16:00Z
+
+- Execution mode: serial downstream planning updates after pulling latest.
+- Scope: `tasks/roadmap.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code, source specs, proprietary assets, production data, credentials, or parity claims were added.
+- Verification: each repo remained on `main`, pushed separately, and preserved private-repo, non-affiliation, original-assets, synthetic-data-only, and manual-verification blockers.
+
+| App | Repo | Commit SHA | Status |
+|---|---|---|---|
+| Dropbox | `GeorgeQLe/dropbox-mobile-clone` | `fe5bfbd` | Phase 1 Step 1.4 complete; Phase 2 Step 2.1 queued |
+| Google Drive | `GeorgeQLe/google-drive-mobile-clone` | `3b8bd35` | Phase 1 Step 1.4 complete; Phase 2 Step 2.1 queued |
+| Notion | `GeorgeQLe/notion-mobile-clone` | `75e2c83` | Phase 1 Step 1.4 complete; Phase 2 Step 2.1 queued |
+
+### Phase 2 Planning Scope Updates - 2026-04-25T15:22:00Z
+
+- Execution mode: serial downstream planning updates after pulling latest.
+- Scope: `tasks/roadmap.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code, source specs, proprietary assets, production data, credentials, or parity claims were added.
+- Verification: each repo remained on `main`, pushed separately, and preserved private-repo, non-affiliation, original-assets, synthetic-data-only, and manual-verification blockers.
+
+| App | Repo | Commit SHA | Status |
+|---|---|---|---|
+| Canva | `GeorgeQLe/canva-mobile-clone` | `4815aca` | Phase 1 Step 1.4 complete; Phase 2 Step 2.1 queued |
+| Google Photos | `GeorgeQLe/google-photos-mobile-clone` | `c1b7f2f` | Phase 1 Step 1.4 complete; Phase 2 Step 2.1 queued |
+| Evernote | `GeorgeQLe/evernote-mobile-clone` | `769bebf` | Phase 1 Step 1.4 complete; Phase 2 Step 2.1 queued |
+
 ### Batch 001-020 Build Planning - 2026-04-22T00:28:17.000Z
 
 - Execution mode: serial downstream build-planning baseline.
@@ -719,3 +743,175 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 479 | U.S. Bank | `GeorgeQLe/u-s-bank-mobile-clone` | build planning started |
 | 480 | PNC Mobile | `GeorgeQLe/pnc-mobile-mobile-clone` | build planning started |
 
+### Batch 481-500 Build Planning - 2026-04-24T16:28:26.765Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 481 | TD Bank | `GeorgeQLe/td-bank-mobile-clone` | build planning started |
+| 482 | Truist | `GeorgeQLe/truist-mobile-clone` | build planning started |
+| 483 | USAA | `GeorgeQLe/usaa-mobile-clone` | build planning started |
+| 484 | Navy Federal Credit Union | `GeorgeQLe/navy-federal-credit-union-mobile-clone` | build planning started |
+| 485 | SoFi | `GeorgeQLe/sofi-mobile-clone` | build planning started |
+| 486 | Ally | `GeorgeQLe/ally-mobile-clone` | build planning started |
+| 487 | Marcus | `GeorgeQLe/marcus-mobile-clone` | build planning started |
+| 488 | Fidelity | `GeorgeQLe/fidelity-mobile-clone` | build planning started |
+| 489 | Schwab Mobile | `GeorgeQLe/schwab-mobile-mobile-clone` | build planning started |
+| 490 | E*TRADE | `GeorgeQLe/e-trade-mobile-clone` | build planning started |
+| 491 | Webull | `GeorgeQLe/webull-mobile-clone` | build planning started |
+| 492 | moomoo | `GeorgeQLe/moomoo-mobile-clone` | build planning started |
+| 493 | Interactive Brokers | `GeorgeQLe/interactive-brokers-mobile-clone` | build planning started |
+| 494 | Vanguard | `GeorgeQLe/vanguard-mobile-clone` | build planning started |
+| 495 | Monzo | `GeorgeQLe/monzo-mobile-clone` | build planning started |
+| 496 | N26 | `GeorgeQLe/n26-mobile-clone` | build planning started |
+| 497 | Starling Bank | `GeorgeQLe/starling-bank-mobile-clone` | build planning started |
+| 498 | Skrill | `GeorgeQLe/skrill-mobile-clone` | build planning started |
+| 499 | Neteller | `GeorgeQLe/neteller-mobile-clone` | build planning started |
+| 500 | Remitly | `GeorgeQLe/remitly-mobile-clone` | build planning started |
+
+### Batch 501-520 Build Planning - 2026-04-24T16:30:39.354Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 501 | WorldRemit | `GeorgeQLe/worldremit-mobile-clone` | build planning started |
+| 502 | Western Union | `GeorgeQLe/western-union-mobile-clone` | build planning started |
+| 503 | MoneyGram | `GeorgeQLe/moneygram-mobile-clone` | build planning started |
+| 504 | Xoom | `GeorgeQLe/xoom-mobile-clone` | build planning started |
+| 505 | Crypto.com | `GeorgeQLe/crypto-com-mobile-clone` | build planning started |
+| 506 | Binance | `GeorgeQLe/binance-mobile-clone` | build planning started |
+| 507 | Kraken | `GeorgeQLe/kraken-mobile-clone` | build planning started |
+| 508 | Gemini Crypto | `GeorgeQLe/gemini-crypto-mobile-clone` | build planning started |
+| 509 | Phantom | `GeorgeQLe/phantom-mobile-clone` | build planning started |
+| 510 | MetaMask | `GeorgeQLe/metamask-mobile-clone` | build planning started |
+| 511 | Trust Wallet | `GeorgeQLe/trust-wallet-mobile-clone` | build planning started |
+| 512 | Exodus | `GeorgeQLe/exodus-mobile-clone` | build planning started |
+| 513 | Ledger Live | `GeorgeQLe/ledger-live-mobile-clone` | build planning started |
+| 514 | MoonPay | `GeorgeQLe/moonpay-mobile-clone` | build planning started |
+| 515 | Strike | `GeorgeQLe/strike-mobile-clone` | build planning started |
+| 516 | Current | `GeorgeQLe/current-mobile-clone` | build planning started |
+| 517 | Dave | `GeorgeQLe/dave-mobile-clone` | build planning started |
+| 518 | Empower | `GeorgeQLe/empower-mobile-clone` | build planning started |
+| 519 | EarnIn | `GeorgeQLe/earnin-mobile-clone` | build planning started |
+| 520 | Klarna | `GeorgeQLe/klarna-mobile-clone` | build planning started |
+
+### Batch 521-540 Build Planning - 2026-04-24T16:32:50.829Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 521 | Afterpay | `GeorgeQLe/afterpay-mobile-clone` | build planning started |
+| 522 | Affirm | `GeorgeQLe/affirm-mobile-clone` | build planning started |
+| 523 | Delta | `GeorgeQLe/delta-mobile-clone` | build planning started |
+| 524 | United Airlines | `GeorgeQLe/united-airlines-mobile-clone` | build planning started |
+| 525 | American Airlines | `GeorgeQLe/american-airlines-mobile-clone` | build planning started |
+| 526 | Southwest Airlines | `GeorgeQLe/southwest-airlines-mobile-clone` | build planning started |
+| 527 | JetBlue | `GeorgeQLe/jetblue-mobile-clone` | build planning started |
+| 528 | Alaska Airlines | `GeorgeQLe/alaska-airlines-mobile-clone` | build planning started |
+| 529 | Spirit Airlines | `GeorgeQLe/spirit-airlines-mobile-clone` | build planning started |
+| 530 | Frontier Airlines | `GeorgeQLe/frontier-airlines-mobile-clone` | build planning started |
+| 531 | Hawaiian Airlines | `GeorgeQLe/hawaiian-airlines-mobile-clone` | build planning started |
+| 532 | Air Canada | `GeorgeQLe/air-canada-mobile-clone` | build planning started |
+| 533 | British Airways | `GeorgeQLe/british-airways-mobile-clone` | build planning started |
+| 534 | Lufthansa | `GeorgeQLe/lufthansa-mobile-clone` | build planning started |
+| 535 | Air France | `GeorgeQLe/air-france-mobile-clone` | build planning started |
+| 536 | KLM | `GeorgeQLe/klm-mobile-clone` | build planning started |
+| 537 | Emirates | `GeorgeQLe/emirates-mobile-clone` | build planning started |
+| 538 | Qatar Airways | `GeorgeQLe/qatar-airways-mobile-clone` | build planning started |
+| 539 | Singapore Airlines | `GeorgeQLe/singapore-airlines-mobile-clone` | build planning started |
+| 540 | Turkish Airlines | `GeorgeQLe/turkish-airlines-mobile-clone` | build planning started |
+
+### Batch 541-560 Build Planning - 2026-04-24T16:35:03.697Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 541 | Ryanair | `GeorgeQLe/ryanair-mobile-clone` | build planning started |
+| 542 | easyJet | `GeorgeQLe/easyjet-mobile-clone` | build planning started |
+| 543 | Wizz Air | `GeorgeQLe/wizz-air-mobile-clone` | build planning started |
+| 544 | ANA | `GeorgeQLe/ana-mobile-clone` | build planning started |
+| 545 | JAL | `GeorgeQLe/jal-mobile-clone` | build planning started |
+| 546 | Cathay Pacific | `GeorgeQLe/cathay-pacific-mobile-clone` | build planning started |
+| 547 | Marriott Bonvoy | `GeorgeQLe/marriott-bonvoy-mobile-clone` | build planning started |
+| 548 | Hilton Honors | `GeorgeQLe/hilton-honors-mobile-clone` | build planning started |
+| 549 | Hyatt | `GeorgeQLe/hyatt-mobile-clone` | build planning started |
+| 550 | IHG One Rewards | `GeorgeQLe/ihg-one-rewards-mobile-clone` | build planning started |
+| 551 | Wyndham Hotels | `GeorgeQLe/wyndham-hotels-mobile-clone` | build planning started |
+| 552 | Choice Hotels | `GeorgeQLe/choice-hotels-mobile-clone` | build planning started |
+| 553 | Accor ALL | `GeorgeQLe/accor-all-mobile-clone` | build planning started |
+| 554 | Hotels.com | `GeorgeQLe/hotels-com-mobile-clone` | build planning started |
+| 555 | Vrbo | `GeorgeQLe/vrbo-mobile-clone` | build planning started |
+| 556 | Hostelworld | `GeorgeQLe/hostelworld-mobile-clone` | build planning started |
+| 557 | Couchsurfing | `GeorgeQLe/couchsurfing-mobile-clone` | build planning started |
+| 558 | Klook | `GeorgeQLe/klook-mobile-clone` | build planning started |
+| 559 | GetYourGuide | `GeorgeQLe/getyourguide-mobile-clone` | build planning started |
+| 560 | Viator | `GeorgeQLe/viator-mobile-clone` | build planning started |
+### Batch 261-280 Build Planning - 2026-04-25T15:19:36.631Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 261 | VideoShow | `GeorgeQLe/videoshow-mobile-clone` | build planning started |
+| 262 | PowerDirector | `GeorgeQLe/powerdirector-mobile-clone` | build planning started |
+| 263 | Adobe Premiere Rush | `GeorgeQLe/adobe-premiere-rush-mobile-clone` | build planning started |
+| 264 | Descript | `GeorgeQLe/descript-mobile-clone` | build planning started |
+| 265 | Captions | `GeorgeQLe/captions-mobile-clone` | build planning started |
+| 266 | OpusClip | `GeorgeQLe/opusclip-mobile-clone` | build planning started |
+| 267 | VEED | `GeorgeQLe/veed-mobile-clone` | build planning started |
+| 268 | TikTok Studio | `GeorgeQLe/tiktok-studio-mobile-clone` | build planning started |
+| 269 | YouTube Create | `GeorgeQLe/youtube-create-mobile-clone` | build planning started |
+| 270 | Shazam | `GeorgeQLe/shazam-mobile-clone` | build planning started |
+| 271 | Bandcamp | `GeorgeQLe/bandcamp-mobile-clone` | build planning started |
+| 272 | Deezer | `GeorgeQLe/deezer-mobile-clone` | build planning started |
+| 273 | TIDAL | `GeorgeQLe/tidal-mobile-clone` | build planning started |
+| 274 | Pandora | `GeorgeQLe/pandora-mobile-clone` | build planning started |
+| 275 | iHeartRadio | `GeorgeQLe/iheartradio-mobile-clone` | build planning started |
+| 276 | SiriusXM | `GeorgeQLe/siriusxm-mobile-clone` | build planning started |
+| 277 | TuneIn Radio | `GeorgeQLe/tunein-radio-mobile-clone` | build planning started |
+| 278 | Amazon Music | `GeorgeQLe/amazon-music-mobile-clone` | build planning started |
+| 279 | Qobuz | `GeorgeQLe/qobuz-mobile-clone` | build planning started |
+| 280 | Anghami | `GeorgeQLe/anghami-mobile-clone` | build planning started |
+
+### Batch 281-300 Build Planning - 2026-04-25T15:25:44.190Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 281 | Musixmatch | `GeorgeQLe/musixmatch-mobile-clone` | build planning started |
+| 282 | GarageBand | `GeorgeQLe/garageband-mobile-clone` | build planning started |
+| 283 | BandLab | `GeorgeQLe/bandlab-mobile-clone` | build planning started |
+| 284 | Voloco | `GeorgeQLe/voloco-mobile-clone` | build planning started |
+| 285 | Smule | `GeorgeQLe/smule-mobile-clone` | build planning started |
+| 286 | StarMaker | `GeorgeQLe/starmaker-mobile-clone` | build planning started |
+| 287 | SoundHound | `GeorgeQLe/soundhound-mobile-clone` | build planning started |
+| 288 | Sonos | `GeorgeQLe/sonos-mobile-clone` | build planning started |
+| 289 | Bose Music | `GeorgeQLe/bose-music-mobile-clone` | build planning started |
+| 290 | JBL Portable | `GeorgeQLe/jbl-portable-mobile-clone` | build planning started |
+| 291 | Endel | `GeorgeQLe/endel-mobile-clone` | build planning started |
+| 292 | Brain.fm | `GeorgeQLe/brain-fm-mobile-clone` | build planning started |
+| 293 | Overcast | `GeorgeQLe/overcast-mobile-clone` | build planning started |
+| 294 | Castro | `GeorgeQLe/castro-mobile-clone` | build planning started |
+| 295 | Podbean | `GeorgeQLe/podbean-mobile-clone` | build planning started |
+| 296 | Spotify for Podcasters | `GeorgeQLe/spotify-for-podcasters-mobile-clone` | build planning started |
+| 297 | Anchor | `GeorgeQLe/anchor-mobile-clone` | build planning started |
+| 298 | Podcast Addict | `GeorgeQLe/podcast-addict-mobile-clone` | build planning started |
+| 299 | Podimo | `GeorgeQLe/podimo-mobile-clone` | build planning started |
+| 300 | Acast | `GeorgeQLe/acast-mobile-clone` | build planning started |
