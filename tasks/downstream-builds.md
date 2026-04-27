@@ -24,6 +24,37 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 
 ## Evidence
 
+### Phase 1 Contract Update - 2026-04-27T19:33:30Z
+
+- Execution mode: single downstream planning update after pulling latest.
+- Scope: `docs/plans/README.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code, source specs, proprietary assets, production data, credentials, copied lesson content, private APIs, or parity claims were added.
+- Verification: repo remained on `main`, pushed separately, and preserved private-repo, non-affiliation, original-assets, synthetic-data-only, classroom/privacy, social, subscription, and manual-verification blockers.
+
+| App | Repo | Commit SHA | Status |
+|---|---|---|---|
+| Duolingo | `GeorgeQLe/duolingo-mobile-clone` | `9a556f1` | Phase 1 Step 1.3 complete; Step 1.4 queued |
+
+### Phase 1 Contract Update - 2026-04-27T19:00:04Z
+
+- Execution mode: single downstream planning update after pulling latest.
+- Scope: `docs/plans/README.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code, source specs, proprietary assets, production data, credentials, copied curriculum content, private APIs, or parity claims were added.
+- Verification: repo remained on `main`, pushed separately, and preserved private-repo, non-affiliation, original-assets, synthetic-data-only, child/privacy, classroom, and manual-verification blockers.
+
+| App | Repo | Commit SHA | Status |
+|---|---|---|---|
+| Khan Academy | `GeorgeQLe/khan-academy-mobile-clone` | `b049dc4` | Phase 1 Step 1.3 complete; Step 1.4 queued |
+
+### Phase 1 Contract Update - 2026-04-27T04:00:00Z
+
+- Execution mode: single downstream planning update after pulling latest.
+- Scope: `docs/plans/README.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code, source specs, proprietary assets, production data, credentials, copied course content, copied credentials, private APIs, or parity claims were added.
+- Verification: repo remained on `main`, pushed separately, and preserved private-repo, non-affiliation, original-assets, synthetic-data-only, and manual-verification blockers.
+
+| App | Repo | Commit SHA | Status |
+|---|---|---|---|
+| Coursera | `GeorgeQLe/coursera-mobile-clone` | `42b3b0b` | Phase 1 Step 1.3 complete; Step 1.4 queued |
+| Quizlet | `GeorgeQLe/quizlet-mobile-clone` | `2acd037` | Phase 1 Step 1.3 complete; Step 1.4 queued |
+
 ### Phase 2 Planning Scope Updates - 2026-04-25T15:16:00Z
 
 - Execution mode: serial downstream planning updates after pulling latest.

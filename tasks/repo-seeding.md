@@ -1178,7 +1178,158 @@ Guardrails:
 | 596 | `GeorgeQLe/mercedes-me-mobile-clone` | `3274aab` | PRIVATE | seeded |
 | 597 | `GeorgeQLe/gaia-gps-mobile-clone` | n/a | PRIVATE | blocker - empty after clone propagation failure |
 
+### Batch 597-616 Repaired Seeding Evidence - 2026-04-27T03:57:30Z
+
+- Execution mode: serial private seeding with `--reconcile-existing` repairs for empty private repos created by GitHub clone propagation failures.
+- Pre-repair rate-limit snapshots were captured at each stopped segment: 597-616, 601-616, 604-616, 608-616, and 616-only.
+- Post-repair rate limit: `{"core":{"limit":5000,"remaining":4877,"reset":1777264421,"used":123},"graphql":{"limit":5000,"remaining":4903,"reset":1777264411,"used":97},"search":{"limit":30,"remaining":30,"reset":1777262253,"used":0}}`
+- Verification: every repo below returned `visibility=PRIVATE`, `isEmpty=false`, `defaultBranchRef=main`, root commit on `main`, `README.md`, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 597 | `GeorgeQLe/gaia-gps-mobile-clone` | PRIVATE | repaired/seeded `248de07` |
+| 598 | `GeorgeQLe/onx-hunt-mobile-clone` | PRIVATE | seeded `258724b` |
+| 599 | `GeorgeQLe/trailforks-mobile-clone` | PRIVATE | seeded `d1968dd` |
+| 600 | `GeorgeQLe/wikiloc-mobile-clone` | PRIVATE | seeded `19c6cc9` |
+| 601 | `GeorgeQLe/peakvisor-mobile-clone` | PRIVATE | repaired/seeded `e8bec72` |
+| 602 | `GeorgeQLe/windy-mobile-clone` | PRIVATE | seeded `cdc5450` |
+| 603 | `GeorgeQLe/the-weather-channel-mobile-clone` | PRIVATE | seeded `f436cf9` |
+| 604 | `GeorgeQLe/accuweather-mobile-clone` | PRIVATE | repaired/seeded `1cd5aff` |
+| 605 | `GeorgeQLe/weatherbug-mobile-clone` | PRIVATE | seeded `dc5753d` |
+| 606 | `GeorgeQLe/carrot-weather-mobile-clone` | PRIVATE | seeded `435e581` |
+| 607 | `GeorgeQLe/myradar-mobile-clone` | PRIVATE | seeded `79d5821` |
+| 608 | `GeorgeQLe/noaa-weather-radar-mobile-clone` | PRIVATE | repaired/seeded `5b44b67` |
+| 609 | `GeorgeQLe/ventusky-mobile-clone` | PRIVATE | seeded `bf7459b` |
+| 610 | `GeorgeQLe/surfline-mobile-clone` | PRIVATE | seeded `c9f0a2c` |
+| 611 | `GeorgeQLe/fishbrain-mobile-clone` | PRIVATE | seeded `c348435` |
+| 612 | `GeorgeQLe/navionics-mobile-clone` | PRIVATE | seeded `4e1c52d` |
+| 613 | `GeorgeQLe/marinetraffic-mobile-clone` | PRIVATE | seeded `6586cb9` |
+| 614 | `GeorgeQLe/flightradar24-mobile-clone` | PRIVATE | seeded `f7d4dcb` |
+| 615 | `GeorgeQLe/flightaware-mobile-clone` | PRIVATE | seeded `c7093a7` |
+| 616 | `GeorgeQLe/gasbuddy-mobile-clone` | PRIVATE | repaired/seeded `17b39ca` |
+
+### Batch 616-616 Seeding Evidence - 2026-04-27T03:56:33.242Z
+
+- Execution mode: serial private seeding with 1 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4879,"reset":1777264421,"used":121},"graphql":{"limit":5000,"remaining":4906,"reset":1777264411,"used":94},"search":{"limit":30,"remaining":30,"reset":1777262249,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4877,"reset":1777264421,"used":123},"graphql":{"limit":5000,"remaining":4903,"reset":1777264411,"used":97},"search":{"limit":30,"remaining":30,"reset":1777262253,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 616 | `GeorgeQLe/gasbuddy-mobile-clone` | PRIVATE | seeded |
+
+### Batch 617-636 Seeding Evidence - 2026-04-27T18:03:43.995Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4970,"reset":1777315835,"used":30},"graphql":{"limit":5000,"remaining":4995,"reset":1777312820,"used":5},"search":{"limit":30,"remaining":30,"reset":1777312411,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4910,"reset":1777315835,"used":90},"graphql":{"limit":5000,"remaining":4975,"reset":1777316442,"used":25},"search":{"limit":30,"remaining":30,"reset":1777313083,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 617 | `GeorgeQLe/homes-com-mobile-clone` | PRIVATE | seeded |
+| 618 | `GeorgeQLe/trulia-mobile-clone` | PRIVATE | seeded |
+| 619 | `GeorgeQLe/hotpads-mobile-clone` | PRIVATE | seeded |
+| 620 | `GeorgeQLe/rent-com-mobile-clone` | PRIVATE | seeded |
+| 621 | `GeorgeQLe/apartment-list-mobile-clone` | PRIVATE | seeded |
+| 622 | `GeorgeQLe/streeteasy-mobile-clone` | PRIVATE | seeded |
+| 623 | `GeorgeQLe/loopnet-mobile-clone` | PRIVATE | seeded |
+| 624 | `GeorgeQLe/redfin-rentals-mobile-clone` | PRIVATE | seeded |
+| 625 | `GeorgeQLe/zillow-rentals-mobile-clone` | PRIVATE | seeded |
+| 626 | `GeorgeQLe/houzz-mobile-clone` | PRIVATE | seeded |
+| 627 | `GeorgeQLe/angi-mobile-clone` | PRIVATE | seeded |
+| 628 | `GeorgeQLe/thumbtack-mobile-clone` | PRIVATE | seeded |
+| 629 | `GeorgeQLe/taskrabbit-mobile-clone` | PRIVATE | seeded |
+| 630 | `GeorgeQLe/handy-mobile-clone` | PRIVATE | seeded |
+| 631 | `GeorgeQLe/thumbtack-pro-mobile-clone` | PRIVATE | seeded |
+| 632 | `GeorgeQLe/porch-mobile-clone` | PRIVATE | seeded |
+| 633 | `GeorgeQLe/build-com-mobile-clone` | PRIVATE | seeded |
+| 634 | `GeorgeQLe/floor-and-decor-mobile-clone` | PRIVATE | seeded |
+| 635 | `GeorgeQLe/google-home-mobile-clone` | PRIVATE | seeded |
+| 636 | `GeorgeQLe/amazon-alexa-mobile-clone` | PRIVATE | seeded |
+
+### Batch 637-650 Partial Seeding Evidence - 2026-04-27T19:12:53Z
+
+- Execution mode: serial private seeding with stop-on-failure behavior.
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4937,"reset":1777319792,"used":63},"graphql":{"limit":5000,"remaining":5000,"reset":1777320253,"used":0},"search":{"limit":30,"remaining":30,"reset":1777316713,"used":0}}`
+- Post-failure rate limit: `{"core":{"limit":5000,"remaining":4740,"reset":1777319792,"used":260},"graphql":{"limit":5000,"remaining":4938,"reset":1777320254,"used":62},"search":{"limit":30,"remaining":30,"reset":1777317248,"used":0}}`
+- Seeded before stop: IDs 637-650 were created private, verified non-empty with default branch `main`, and marked done by the batch utility.
+- Spot-check verification: `GeorgeQLe/apple-home-mobile-clone` returned `visibility=PRIVATE`, `isEmpty=false`, default branch `main`; README lookup returned `README.md`; copied source spec lookup returned `637-apple-home.md`.
+- Stop point: ID 651 `GeorgeQLe/ecobee-mobile-clone` was created private and committed locally, but `git push origin HEAD` failed with `remote: fatal error in commit_refs`, so the repo remains empty and the manifest row stays unchecked.
+- Failure verification: post-stop `gh repo view GeorgeQLe/ecobee-mobile-clone --json visibility,isEmpty,defaultBranchRef` returned `visibility=PRIVATE`, `isEmpty=true`, and empty `defaultBranchRef`; README lookup returned 404.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 637 | `GeorgeQLe/apple-home-mobile-clone` | PRIVATE | seeded |
+| 638 | `GeorgeQLe/samsung-smartthings-mobile-clone` | PRIVATE | seeded |
+| 639 | `GeorgeQLe/philips-hue-mobile-clone` | PRIVATE | seeded |
+| 640 | `GeorgeQLe/wyze-mobile-clone` | PRIVATE | seeded |
+| 641 | `GeorgeQLe/arlo-secure-mobile-clone` | PRIVATE | seeded |
+| 642 | `GeorgeQLe/nest-mobile-clone` | PRIVATE | seeded |
+| 643 | `GeorgeQLe/eufy-security-mobile-clone` | PRIVATE | seeded |
+| 644 | `GeorgeQLe/tp-link-tapo-mobile-clone` | PRIVATE | seeded |
+| 645 | `GeorgeQLe/kasa-smart-mobile-clone` | PRIVATE | seeded |
+| 646 | `GeorgeQLe/smart-life-mobile-clone` | PRIVATE | seeded |
+| 647 | `GeorgeQLe/tuya-smart-mobile-clone` | PRIVATE | seeded |
+| 648 | `GeorgeQLe/ewelink-mobile-clone` | PRIVATE | seeded |
+| 649 | `GeorgeQLe/august-home-mobile-clone` | PRIVATE | seeded |
+| 650 | `GeorgeQLe/yale-access-mobile-clone` | PRIVATE | seeded |
+| 651 | `GeorgeQLe/ecobee-mobile-clone` | PRIVATE | blocker - remote rejected root push; repo empty |
+
+### Batch 651-651 Seeding Evidence - 2026-04-27T19:16:26.184Z
+
+- Execution mode: serial private seeding with 1 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4736,"reset":1777319792,"used":264},"graphql":{"limit":5000,"remaining":4935,"reset":1777320254,"used":65},"search":{"limit":30,"remaining":30,"reset":1777317442,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4734,"reset":1777319792,"used":266},"graphql":{"limit":5000,"remaining":4932,"reset":1777320254,"used":68},"search":{"limit":30,"remaining":30,"reset":1777317446,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 651 | `GeorgeQLe/ecobee-mobile-clone` | PRIVATE | seeded |
+
+### Batch 652-670 Seeding Evidence - 2026-04-27T19:27:07.112Z
+
+- Execution mode: serial private seeding with 19 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4734,"reset":1777319792,"used":266},"graphql":{"limit":5000,"remaining":4932,"reset":1777320254,"used":68},"search":{"limit":30,"remaining":30,"reset":1777317453,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4617,"reset":1777319792,"used":383},"graphql":{"limit":5000,"remaining":4853,"reset":1777320254,"used":147},"search":{"limit":30,"remaining":30,"reset":1777318087,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 652 | `GeorgeQLe/honeywell-home-mobile-clone` | PRIVATE | seeded |
+| 653 | `GeorgeQLe/myq-mobile-clone` | PRIVATE | seeded |
+| 654 | `GeorgeQLe/simplisafe-mobile-clone` | PRIVATE | seeded |
+| 655 | `GeorgeQLe/adt-control-mobile-clone` | PRIVATE | seeded |
+| 656 | `GeorgeQLe/vivint-mobile-clone` | PRIVATE | seeded |
+| 657 | `GeorgeQLe/blink-home-monitor-mobile-clone` | PRIVATE | seeded |
+| 658 | `GeorgeQLe/mychart-mobile-clone` | PRIVATE | seeded |
+| 659 | `GeorgeQLe/doximity-mobile-clone` | PRIVATE | seeded |
+| 660 | `GeorgeQLe/cvs-health-mobile-clone` | PRIVATE | seeded |
+| 661 | `GeorgeQLe/express-scripts-mobile-clone` | PRIVATE | seeded |
+| 662 | `GeorgeQLe/amwell-mobile-clone` | PRIVATE | seeded |
+| 663 | `GeorgeQLe/mdlive-mobile-clone` | PRIVATE | seeded |
+| 664 | `GeorgeQLe/doctor-on-demand-mobile-clone` | PRIVATE | seeded |
+| 665 | `GeorgeQLe/healthtap-mobile-clone` | PRIVATE | seeded |
+| 666 | `GeorgeQLe/one-medical-mobile-clone` | PRIVATE | seeded |
+| 667 | `GeorgeQLe/carbon-health-mobile-clone` | PRIVATE | seeded |
+| 668 | `GeorgeQLe/nurx-mobile-clone` | PRIVATE | seeded |
+| 669 | `GeorgeQLe/maven-clinic-mobile-clone` | PRIVATE | seeded |
+| 670 | `GeorgeQLe/noom-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
+
+- Step 6.3 blocker (2026-04-27T19:12:34.859Z) for GeorgeQLe/ecobee-mobile-clone: `git -C /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/ecobee-mobile-clone push origin HEAD` failed with remote rejection `failure` / `remote: fatal error in commit_refs`. Stop-state verification on 2026-04-27T19:12:53Z returned `visibility=PRIVATE`, `isEmpty=true`, and empty `defaultBranchRef`; README lookup returned 404. Per stop-on-failure contract, IDs 652-656 were not attempted in this run; next repair path should reconcile or retry only after confirming the remote accepts a root push.
+
+- Step 6.3 blocker (2026-04-27T03:56:06.225Z) for GeorgeQLe/gasbuddy-mobile-clone: `gh repo create` returned the private repo URL, but the immediately following `gh repo clone GeorgeQLe/gasbuddy-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/gasbuddy-mobile-clone` failed with GitHub repository propagation resolution error. Stop-state verification on 2026-04-27T03:56Z returned `visibility=PRIVATE`, `isEmpty=true`, and empty `defaultBranchRef`; README lookup returned 404; copied source spec lookup returned 404 (`This repository is empty.`). Next repair path is `--reconcile-existing`.
+
+- Step 6.3 blocker (2026-04-27T03:50:59.975Z) for GeorgeQLe/noaa-weather-radar-mobile-clone: `gh repo create` returned the private repo URL, but the immediately following `gh repo clone GeorgeQLe/noaa-weather-radar-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/noaa-weather-radar-mobile-clone` failed with GitHub repository propagation resolution error. Stop-state verification on 2026-04-27T03:51Z returned `visibility=PRIVATE`, `isEmpty=true`, and empty `defaultBranchRef`; README lookup returned 404; copied source spec lookup returned 404 (`This repository is empty.`). Per stop-on-failure contract, IDs 609-616 were not attempted in that run; next repair path is `--reconcile-existing`.
+
+- Step 6.3 blocker (2026-04-27T03:43:16.118Z) for GeorgeQLe/accuweather-mobile-clone: `gh repo create` returned the private repo URL, but the immediately following `gh repo clone GeorgeQLe/accuweather-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/accuweather-mobile-clone` failed with GitHub repository propagation resolution error. Stop-state verification on 2026-04-27T03:43Z returned `visibility=PRIVATE`, `isEmpty=true`, and empty `defaultBranchRef`; README lookup returned 404; copied source spec lookup returned 404 (`This repository is empty.`). Per stop-on-failure contract, IDs 605-616 were not attempted in that run; next repair path is `--reconcile-existing`.
+
+- Step 6.3 blocker (2026-04-27T03:39:04.413Z) for GeorgeQLe/peakvisor-mobile-clone: `gh repo create` returned the private repo URL, but the immediately following `gh repo clone GeorgeQLe/peakvisor-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/peakvisor-mobile-clone` failed with GitHub repository propagation resolution error. Stop-state verification on 2026-04-27T03:39Z returned `visibility=PRIVATE`, `isEmpty=true`, and empty `defaultBranchRef`; README lookup returned 404; copied source spec lookup returned 404 (`This repository is empty.`). Per stop-on-failure contract, IDs 602-616 were not attempted in that run; next repair path is `--reconcile-existing`.
+
+- Step 6.3 blocker (2026-04-27T03:34:08.902Z) for GeorgeQLe/gaia-gps-mobile-clone: Target repo already exists: GeorgeQLe/gaia-gps-mobile-clone. Stop-state verification on 2026-04-27T03:34Z returned `visibility=PRIVATE`, `isEmpty=true`, and empty `defaultBranchRef`; README lookup returned 404; copied source spec lookup returned 404 (`This repository is empty.`). Pre-failure rate limit: `{"core":{"limit":5000,"remaining":4993,"reset":1777264421,"used":7},"graphql":{"limit":5000,"remaining":4998,"reset":1777264411,"used":2},"search":{"limit":30,"remaining":30,"reset":1777260908,"used":0}}`. Re-run with `--reconcile-existing` in a later controlled repair batch; per stop-on-failure contract, no further seeding was attempted.
 
 - Step 6.3 blocker (2026-04-25T20:26:17.922Z) for GeorgeQLe/gaia-gps-mobile-clone: `gh repo create` returned the private repo URL, but the immediately-following `gh repo clone GeorgeQLe/gaia-gps-mobile-clone /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/gaia-gps-mobile-clone` failed with `GraphQL: Could not resolve to a Repository with the name 'GeorgeQLe/gaia-gps-mobile-clone'. (repository)`. Stop-state verification on 2026-04-25T20:27:00Z returned `visibility=PRIVATE`, `isEmpty=true`, and empty `defaultBranchRef`; README lookup returned 404; copied source spec lookup returned 404 (`This repository is empty.`). Post-failure rate limit: `{"core":{"limit":5000,"remaining":4996,"reset":1777152342,"used":4},"graphql":{"limit":5000,"remaining":4982,"reset":1777150135,"used":18},"search":{"limit":30,"remaining":30,"reset":1777148849,"used":0}}`. Per stop-on-failure contract, no further seeding was attempted; next repair path is `--reconcile-existing`.
 
@@ -1859,80 +2010,80 @@ Guardrails:
 | [x] | 594 | Hyundai Bluelink | `GeorgeQLe/hyundai-bluelink-mobile-clone` | `specs/batch-30/594-hyundai-bluelink.md` |
 | [x] | 595 | BMW | `GeorgeQLe/bmw-mobile-clone` | `specs/batch-30/595-bmw.md` |
 | [x] | 596 | Mercedes me | `GeorgeQLe/mercedes-me-mobile-clone` | `specs/batch-30/596-mercedes-me.md` |
-| [ ] | 597 | Gaia GPS | `GeorgeQLe/gaia-gps-mobile-clone` | `specs/batch-30/597-gaia-gps.md` |
-| [ ] | 598 | onX Hunt | `GeorgeQLe/onx-hunt-mobile-clone` | `specs/batch-30/598-onx-hunt.md` |
-| [ ] | 599 | Trailforks | `GeorgeQLe/trailforks-mobile-clone` | `specs/batch-30/599-trailforks.md` |
-| [ ] | 600 | Wikiloc | `GeorgeQLe/wikiloc-mobile-clone` | `specs/batch-30/600-wikiloc.md` |
-| [ ] | 601 | PeakVisor | `GeorgeQLe/peakvisor-mobile-clone` | `specs/batch-31/601-peakvisor.md` |
-| [ ] | 602 | Windy | `GeorgeQLe/windy-mobile-clone` | `specs/batch-31/602-windy.md` |
-| [ ] | 603 | The Weather Channel | `GeorgeQLe/the-weather-channel-mobile-clone` | `specs/batch-31/603-the-weather-channel.md` |
-| [ ] | 604 | AccuWeather | `GeorgeQLe/accuweather-mobile-clone` | `specs/batch-31/604-accuweather.md` |
-| [ ] | 605 | WeatherBug | `GeorgeQLe/weatherbug-mobile-clone` | `specs/batch-31/605-weatherbug.md` |
-| [ ] | 606 | CARROT Weather | `GeorgeQLe/carrot-weather-mobile-clone` | `specs/batch-31/606-carrot-weather.md` |
-| [ ] | 607 | MyRadar | `GeorgeQLe/myradar-mobile-clone` | `specs/batch-31/607-myradar.md` |
-| [ ] | 608 | NOAA Weather Radar | `GeorgeQLe/noaa-weather-radar-mobile-clone` | `specs/batch-31/608-noaa-weather-radar.md` |
-| [ ] | 609 | Ventusky | `GeorgeQLe/ventusky-mobile-clone` | `specs/batch-31/609-ventusky.md` |
-| [ ] | 610 | Surfline | `GeorgeQLe/surfline-mobile-clone` | `specs/batch-31/610-surfline.md` |
-| [ ] | 611 | Fishbrain | `GeorgeQLe/fishbrain-mobile-clone` | `specs/batch-31/611-fishbrain.md` |
-| [ ] | 612 | Navionics | `GeorgeQLe/navionics-mobile-clone` | `specs/batch-31/612-navionics.md` |
-| [ ] | 613 | MarineTraffic | `GeorgeQLe/marinetraffic-mobile-clone` | `specs/batch-31/613-marinetraffic.md` |
-| [ ] | 614 | Flightradar24 | `GeorgeQLe/flightradar24-mobile-clone` | `specs/batch-31/614-flightradar24.md` |
-| [ ] | 615 | FlightAware | `GeorgeQLe/flightaware-mobile-clone` | `specs/batch-31/615-flightaware.md` |
-| [ ] | 616 | GasBuddy | `GeorgeQLe/gasbuddy-mobile-clone` | `specs/batch-31/616-gasbuddy.md` |
-| [ ] | 617 | Homes.com | `GeorgeQLe/homes-com-mobile-clone` | `specs/batch-31/617-homes-com.md` |
-| [ ] | 618 | Trulia | `GeorgeQLe/trulia-mobile-clone` | `specs/batch-31/618-trulia.md` |
-| [ ] | 619 | HotPads | `GeorgeQLe/hotpads-mobile-clone` | `specs/batch-31/619-hotpads.md` |
-| [ ] | 620 | Rent.com | `GeorgeQLe/rent-com-mobile-clone` | `specs/batch-31/620-rent-com.md` |
-| [ ] | 621 | Apartment List | `GeorgeQLe/apartment-list-mobile-clone` | `specs/batch-32/621-apartment-list.md` |
-| [ ] | 622 | StreetEasy | `GeorgeQLe/streeteasy-mobile-clone` | `specs/batch-32/622-streeteasy.md` |
-| [ ] | 623 | LoopNet | `GeorgeQLe/loopnet-mobile-clone` | `specs/batch-32/623-loopnet.md` |
-| [ ] | 624 | Redfin Rentals | `GeorgeQLe/redfin-rentals-mobile-clone` | `specs/batch-32/624-redfin-rentals.md` |
-| [ ] | 625 | Zillow Rentals | `GeorgeQLe/zillow-rentals-mobile-clone` | `specs/batch-32/625-zillow-rentals.md` |
-| [ ] | 626 | Houzz | `GeorgeQLe/houzz-mobile-clone` | `specs/batch-32/626-houzz.md` |
-| [ ] | 627 | Angi | `GeorgeQLe/angi-mobile-clone` | `specs/batch-32/627-angi.md` |
-| [ ] | 628 | Thumbtack | `GeorgeQLe/thumbtack-mobile-clone` | `specs/batch-32/628-thumbtack.md` |
-| [ ] | 629 | Taskrabbit | `GeorgeQLe/taskrabbit-mobile-clone` | `specs/batch-32/629-taskrabbit.md` |
-| [ ] | 630 | Handy | `GeorgeQLe/handy-mobile-clone` | `specs/batch-32/630-handy.md` |
-| [ ] | 631 | Thumbtack Pro | `GeorgeQLe/thumbtack-pro-mobile-clone` | `specs/batch-32/631-thumbtack-pro.md` |
-| [ ] | 632 | Porch | `GeorgeQLe/porch-mobile-clone` | `specs/batch-32/632-porch.md` |
-| [ ] | 633 | Build.com | `GeorgeQLe/build-com-mobile-clone` | `specs/batch-32/633-build-com.md` |
-| [ ] | 634 | Floor & Decor | `GeorgeQLe/floor-and-decor-mobile-clone` | `specs/batch-32/634-floor-and-decor.md` |
-| [ ] | 635 | Google Home | `GeorgeQLe/google-home-mobile-clone` | `specs/batch-32/635-google-home.md` |
-| [ ] | 636 | Amazon Alexa | `GeorgeQLe/amazon-alexa-mobile-clone` | `specs/batch-32/636-amazon-alexa.md` |
-| [ ] | 637 | Apple Home | `GeorgeQLe/apple-home-mobile-clone` | `specs/batch-32/637-apple-home.md` |
-| [ ] | 638 | Samsung SmartThings | `GeorgeQLe/samsung-smartthings-mobile-clone` | `specs/batch-32/638-samsung-smartthings.md` |
-| [ ] | 639 | Philips Hue | `GeorgeQLe/philips-hue-mobile-clone` | `specs/batch-32/639-philips-hue.md` |
-| [ ] | 640 | Wyze | `GeorgeQLe/wyze-mobile-clone` | `specs/batch-32/640-wyze.md` |
-| [ ] | 641 | Arlo Secure | `GeorgeQLe/arlo-secure-mobile-clone` | `specs/batch-33/641-arlo-secure.md` |
-| [ ] | 642 | Nest | `GeorgeQLe/nest-mobile-clone` | `specs/batch-33/642-nest.md` |
-| [ ] | 643 | Eufy Security | `GeorgeQLe/eufy-security-mobile-clone` | `specs/batch-33/643-eufy-security.md` |
-| [ ] | 644 | TP-Link Tapo | `GeorgeQLe/tp-link-tapo-mobile-clone` | `specs/batch-33/644-tp-link-tapo.md` |
-| [ ] | 645 | Kasa Smart | `GeorgeQLe/kasa-smart-mobile-clone` | `specs/batch-33/645-kasa-smart.md` |
-| [ ] | 646 | Smart Life | `GeorgeQLe/smart-life-mobile-clone` | `specs/batch-33/646-smart-life.md` |
-| [ ] | 647 | Tuya Smart | `GeorgeQLe/tuya-smart-mobile-clone` | `specs/batch-33/647-tuya-smart.md` |
-| [ ] | 648 | eWeLink | `GeorgeQLe/ewelink-mobile-clone` | `specs/batch-33/648-ewelink.md` |
-| [ ] | 649 | August Home | `GeorgeQLe/august-home-mobile-clone` | `specs/batch-33/649-august-home.md` |
-| [ ] | 650 | Yale Access | `GeorgeQLe/yale-access-mobile-clone` | `specs/batch-33/650-yale-access.md` |
-| [ ] | 651 | Ecobee | `GeorgeQLe/ecobee-mobile-clone` | `specs/batch-33/651-ecobee.md` |
-| [ ] | 652 | Honeywell Home | `GeorgeQLe/honeywell-home-mobile-clone` | `specs/batch-33/652-honeywell-home.md` |
-| [ ] | 653 | myQ | `GeorgeQLe/myq-mobile-clone` | `specs/batch-33/653-myq.md` |
-| [ ] | 654 | SimpliSafe | `GeorgeQLe/simplisafe-mobile-clone` | `specs/batch-33/654-simplisafe.md` |
-| [ ] | 655 | ADT Control | `GeorgeQLe/adt-control-mobile-clone` | `specs/batch-33/655-adt-control.md` |
-| [ ] | 656 | Vivint | `GeorgeQLe/vivint-mobile-clone` | `specs/batch-33/656-vivint.md` |
-| [ ] | 657 | Blink Home Monitor | `GeorgeQLe/blink-home-monitor-mobile-clone` | `specs/batch-33/657-blink-home-monitor.md` |
-| [ ] | 658 | MyChart | `GeorgeQLe/mychart-mobile-clone` | `specs/batch-33/658-mychart.md` |
-| [ ] | 659 | Doximity | `GeorgeQLe/doximity-mobile-clone` | `specs/batch-33/659-doximity.md` |
-| [ ] | 660 | CVS Health | `GeorgeQLe/cvs-health-mobile-clone` | `specs/batch-33/660-cvs-health.md` |
-| [ ] | 661 | Express Scripts | `GeorgeQLe/express-scripts-mobile-clone` | `specs/batch-34/661-express-scripts.md` |
-| [ ] | 662 | Amwell | `GeorgeQLe/amwell-mobile-clone` | `specs/batch-34/662-amwell.md` |
-| [ ] | 663 | MDLIVE | `GeorgeQLe/mdlive-mobile-clone` | `specs/batch-34/663-mdlive.md` |
-| [ ] | 664 | Doctor On Demand | `GeorgeQLe/doctor-on-demand-mobile-clone` | `specs/batch-34/664-doctor-on-demand.md` |
-| [ ] | 665 | HealthTap | `GeorgeQLe/healthtap-mobile-clone` | `specs/batch-34/665-healthtap.md` |
-| [ ] | 666 | One Medical | `GeorgeQLe/one-medical-mobile-clone` | `specs/batch-34/666-one-medical.md` |
-| [ ] | 667 | Carbon Health | `GeorgeQLe/carbon-health-mobile-clone` | `specs/batch-34/667-carbon-health.md` |
-| [ ] | 668 | Nurx | `GeorgeQLe/nurx-mobile-clone` | `specs/batch-34/668-nurx.md` |
-| [ ] | 669 | Maven Clinic | `GeorgeQLe/maven-clinic-mobile-clone` | `specs/batch-34/669-maven-clinic.md` |
-| [ ] | 670 | Noom | `GeorgeQLe/noom-mobile-clone` | `specs/batch-34/670-noom.md` |
+| [x] | 597 | Gaia GPS | `GeorgeQLe/gaia-gps-mobile-clone` | `specs/batch-30/597-gaia-gps.md` |
+| [x] | 598 | onX Hunt | `GeorgeQLe/onx-hunt-mobile-clone` | `specs/batch-30/598-onx-hunt.md` |
+| [x] | 599 | Trailforks | `GeorgeQLe/trailforks-mobile-clone` | `specs/batch-30/599-trailforks.md` |
+| [x] | 600 | Wikiloc | `GeorgeQLe/wikiloc-mobile-clone` | `specs/batch-30/600-wikiloc.md` |
+| [x] | 601 | PeakVisor | `GeorgeQLe/peakvisor-mobile-clone` | `specs/batch-31/601-peakvisor.md` |
+| [x] | 602 | Windy | `GeorgeQLe/windy-mobile-clone` | `specs/batch-31/602-windy.md` |
+| [x] | 603 | The Weather Channel | `GeorgeQLe/the-weather-channel-mobile-clone` | `specs/batch-31/603-the-weather-channel.md` |
+| [x] | 604 | AccuWeather | `GeorgeQLe/accuweather-mobile-clone` | `specs/batch-31/604-accuweather.md` |
+| [x] | 605 | WeatherBug | `GeorgeQLe/weatherbug-mobile-clone` | `specs/batch-31/605-weatherbug.md` |
+| [x] | 606 | CARROT Weather | `GeorgeQLe/carrot-weather-mobile-clone` | `specs/batch-31/606-carrot-weather.md` |
+| [x] | 607 | MyRadar | `GeorgeQLe/myradar-mobile-clone` | `specs/batch-31/607-myradar.md` |
+| [x] | 608 | NOAA Weather Radar | `GeorgeQLe/noaa-weather-radar-mobile-clone` | `specs/batch-31/608-noaa-weather-radar.md` |
+| [x] | 609 | Ventusky | `GeorgeQLe/ventusky-mobile-clone` | `specs/batch-31/609-ventusky.md` |
+| [x] | 610 | Surfline | `GeorgeQLe/surfline-mobile-clone` | `specs/batch-31/610-surfline.md` |
+| [x] | 611 | Fishbrain | `GeorgeQLe/fishbrain-mobile-clone` | `specs/batch-31/611-fishbrain.md` |
+| [x] | 612 | Navionics | `GeorgeQLe/navionics-mobile-clone` | `specs/batch-31/612-navionics.md` |
+| [x] | 613 | MarineTraffic | `GeorgeQLe/marinetraffic-mobile-clone` | `specs/batch-31/613-marinetraffic.md` |
+| [x] | 614 | Flightradar24 | `GeorgeQLe/flightradar24-mobile-clone` | `specs/batch-31/614-flightradar24.md` |
+| [x] | 615 | FlightAware | `GeorgeQLe/flightaware-mobile-clone` | `specs/batch-31/615-flightaware.md` |
+| [x] | 616 | GasBuddy | `GeorgeQLe/gasbuddy-mobile-clone` | `specs/batch-31/616-gasbuddy.md` |
+| [x] | 617 | Homes.com | `GeorgeQLe/homes-com-mobile-clone` | `specs/batch-31/617-homes-com.md` |
+| [x] | 618 | Trulia | `GeorgeQLe/trulia-mobile-clone` | `specs/batch-31/618-trulia.md` |
+| [x] | 619 | HotPads | `GeorgeQLe/hotpads-mobile-clone` | `specs/batch-31/619-hotpads.md` |
+| [x] | 620 | Rent.com | `GeorgeQLe/rent-com-mobile-clone` | `specs/batch-31/620-rent-com.md` |
+| [x] | 621 | Apartment List | `GeorgeQLe/apartment-list-mobile-clone` | `specs/batch-32/621-apartment-list.md` |
+| [x] | 622 | StreetEasy | `GeorgeQLe/streeteasy-mobile-clone` | `specs/batch-32/622-streeteasy.md` |
+| [x] | 623 | LoopNet | `GeorgeQLe/loopnet-mobile-clone` | `specs/batch-32/623-loopnet.md` |
+| [x] | 624 | Redfin Rentals | `GeorgeQLe/redfin-rentals-mobile-clone` | `specs/batch-32/624-redfin-rentals.md` |
+| [x] | 625 | Zillow Rentals | `GeorgeQLe/zillow-rentals-mobile-clone` | `specs/batch-32/625-zillow-rentals.md` |
+| [x] | 626 | Houzz | `GeorgeQLe/houzz-mobile-clone` | `specs/batch-32/626-houzz.md` |
+| [x] | 627 | Angi | `GeorgeQLe/angi-mobile-clone` | `specs/batch-32/627-angi.md` |
+| [x] | 628 | Thumbtack | `GeorgeQLe/thumbtack-mobile-clone` | `specs/batch-32/628-thumbtack.md` |
+| [x] | 629 | Taskrabbit | `GeorgeQLe/taskrabbit-mobile-clone` | `specs/batch-32/629-taskrabbit.md` |
+| [x] | 630 | Handy | `GeorgeQLe/handy-mobile-clone` | `specs/batch-32/630-handy.md` |
+| [x] | 631 | Thumbtack Pro | `GeorgeQLe/thumbtack-pro-mobile-clone` | `specs/batch-32/631-thumbtack-pro.md` |
+| [x] | 632 | Porch | `GeorgeQLe/porch-mobile-clone` | `specs/batch-32/632-porch.md` |
+| [x] | 633 | Build.com | `GeorgeQLe/build-com-mobile-clone` | `specs/batch-32/633-build-com.md` |
+| [x] | 634 | Floor & Decor | `GeorgeQLe/floor-and-decor-mobile-clone` | `specs/batch-32/634-floor-and-decor.md` |
+| [x] | 635 | Google Home | `GeorgeQLe/google-home-mobile-clone` | `specs/batch-32/635-google-home.md` |
+| [x] | 636 | Amazon Alexa | `GeorgeQLe/amazon-alexa-mobile-clone` | `specs/batch-32/636-amazon-alexa.md` |
+| [x] | 637 | Apple Home | `GeorgeQLe/apple-home-mobile-clone` | `specs/batch-32/637-apple-home.md` |
+| [x] | 638 | Samsung SmartThings | `GeorgeQLe/samsung-smartthings-mobile-clone` | `specs/batch-32/638-samsung-smartthings.md` |
+| [x] | 639 | Philips Hue | `GeorgeQLe/philips-hue-mobile-clone` | `specs/batch-32/639-philips-hue.md` |
+| [x] | 640 | Wyze | `GeorgeQLe/wyze-mobile-clone` | `specs/batch-32/640-wyze.md` |
+| [x] | 641 | Arlo Secure | `GeorgeQLe/arlo-secure-mobile-clone` | `specs/batch-33/641-arlo-secure.md` |
+| [x] | 642 | Nest | `GeorgeQLe/nest-mobile-clone` | `specs/batch-33/642-nest.md` |
+| [x] | 643 | Eufy Security | `GeorgeQLe/eufy-security-mobile-clone` | `specs/batch-33/643-eufy-security.md` |
+| [x] | 644 | TP-Link Tapo | `GeorgeQLe/tp-link-tapo-mobile-clone` | `specs/batch-33/644-tp-link-tapo.md` |
+| [x] | 645 | Kasa Smart | `GeorgeQLe/kasa-smart-mobile-clone` | `specs/batch-33/645-kasa-smart.md` |
+| [x] | 646 | Smart Life | `GeorgeQLe/smart-life-mobile-clone` | `specs/batch-33/646-smart-life.md` |
+| [x] | 647 | Tuya Smart | `GeorgeQLe/tuya-smart-mobile-clone` | `specs/batch-33/647-tuya-smart.md` |
+| [x] | 648 | eWeLink | `GeorgeQLe/ewelink-mobile-clone` | `specs/batch-33/648-ewelink.md` |
+| [x] | 649 | August Home | `GeorgeQLe/august-home-mobile-clone` | `specs/batch-33/649-august-home.md` |
+| [x] | 650 | Yale Access | `GeorgeQLe/yale-access-mobile-clone` | `specs/batch-33/650-yale-access.md` |
+| [x] | 651 | Ecobee | `GeorgeQLe/ecobee-mobile-clone` | `specs/batch-33/651-ecobee.md` |
+| [x] | 652 | Honeywell Home | `GeorgeQLe/honeywell-home-mobile-clone` | `specs/batch-33/652-honeywell-home.md` |
+| [x] | 653 | myQ | `GeorgeQLe/myq-mobile-clone` | `specs/batch-33/653-myq.md` |
+| [x] | 654 | SimpliSafe | `GeorgeQLe/simplisafe-mobile-clone` | `specs/batch-33/654-simplisafe.md` |
+| [x] | 655 | ADT Control | `GeorgeQLe/adt-control-mobile-clone` | `specs/batch-33/655-adt-control.md` |
+| [x] | 656 | Vivint | `GeorgeQLe/vivint-mobile-clone` | `specs/batch-33/656-vivint.md` |
+| [x] | 657 | Blink Home Monitor | `GeorgeQLe/blink-home-monitor-mobile-clone` | `specs/batch-33/657-blink-home-monitor.md` |
+| [x] | 658 | MyChart | `GeorgeQLe/mychart-mobile-clone` | `specs/batch-33/658-mychart.md` |
+| [x] | 659 | Doximity | `GeorgeQLe/doximity-mobile-clone` | `specs/batch-33/659-doximity.md` |
+| [x] | 660 | CVS Health | `GeorgeQLe/cvs-health-mobile-clone` | `specs/batch-33/660-cvs-health.md` |
+| [x] | 661 | Express Scripts | `GeorgeQLe/express-scripts-mobile-clone` | `specs/batch-34/661-express-scripts.md` |
+| [x] | 662 | Amwell | `GeorgeQLe/amwell-mobile-clone` | `specs/batch-34/662-amwell.md` |
+| [x] | 663 | MDLIVE | `GeorgeQLe/mdlive-mobile-clone` | `specs/batch-34/663-mdlive.md` |
+| [x] | 664 | Doctor On Demand | `GeorgeQLe/doctor-on-demand-mobile-clone` | `specs/batch-34/664-doctor-on-demand.md` |
+| [x] | 665 | HealthTap | `GeorgeQLe/healthtap-mobile-clone` | `specs/batch-34/665-healthtap.md` |
+| [x] | 666 | One Medical | `GeorgeQLe/one-medical-mobile-clone` | `specs/batch-34/666-one-medical.md` |
+| [x] | 667 | Carbon Health | `GeorgeQLe/carbon-health-mobile-clone` | `specs/batch-34/667-carbon-health.md` |
+| [x] | 668 | Nurx | `GeorgeQLe/nurx-mobile-clone` | `specs/batch-34/668-nurx.md` |
+| [x] | 669 | Maven Clinic | `GeorgeQLe/maven-clinic-mobile-clone` | `specs/batch-34/669-maven-clinic.md` |
+| [x] | 670 | Noom | `GeorgeQLe/noom-mobile-clone` | `specs/batch-34/670-noom.md` |
 | [ ] | 671 | Lose It! | `GeorgeQLe/lose-it-mobile-clone` | `specs/batch-34/671-lose-it.md` |
 | [ ] | 672 | Cronometer | `GeorgeQLe/cronometer-mobile-clone` | `specs/batch-34/672-cronometer.md` |
 | [ ] | 673 | Lifesum | `GeorgeQLe/lifesum-mobile-clone` | `specs/batch-34/673-lifesum.md` |
