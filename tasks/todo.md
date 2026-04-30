@@ -47,17 +47,17 @@ Extend the canonical spec store from 200 to 1000 mobile app clone ideas. IDs 201
 
 - [ ] Step 8.5: Extend `tasks/repo-seeding.md` Per-Repo Checklist manifest to 1000 rows. Already extended past 1000 implicitly during the 480-repo seeding; verify the manifest matches reality. Audit after Step 8.3 lands to update Source Spec column to point at implementation-ready specs.
 
-- [~] Step 8.6: Seed downstream private scaffold repos for IDs 201-1000 in serial 20-ID batches via `scripts/seed-downstream-batch.mjs`. **Progress: IDs 201-540 seeded (PRIVATE + non-empty verified per `tasks/repo-seeding.md` Batch evidence sections). Next batch: 541-560.**
+- [~] Step 8.6: Seed downstream private scaffold repos for IDs 201-1000 in serial 20-ID batches via `scripts/seed-downstream-batch.mjs`. **Progress: IDs 201-970 seeded (PRIVATE + non-empty verified per `tasks/repo-seeding.md` Batch evidence sections). Next batch: 971-990.**
 
-  #### Next concrete action: seed batch 541-560
+  #### Next concrete action: seed batch 971-990
 
   - Pre-batch: `gh api rate_limit` and record in `tasks/repo-seeding.md`.
-  - Run `node scripts/seed-downstream-batch.mjs --from 541 --to 560 --execute` with the rolling hourly cap enabled (script enforces ≥30s between repo seeds and ≤20 repos/hour by default, ≤40/hour after two clean batches).
+  - Run `node scripts/seed-downstream-batch.mjs --from 971 --to 990 --execute` with the rolling hourly cap enabled (script enforces ≥30s between repo seeds and ≤20 repos/hour by default, ≤40/hour after two clean batches).
   - For each repo, the script must verify: created `--private`, `visibility == PRIVATE`, `README.md` present, `docs/source-specs/NNN-<slug>.md` present, root commit exists. Mark the manifest row `[x]` only after all checks pass.
   - On any GitHub `403`, `429`, secondary-rate-limit, auth/permission/naming/clone-propagation/template-placeholder/non-private result: stop immediately; obey `retry-after` / `x-ratelimit-reset`; otherwise wait ≥1 minute with exponential backoff. Record blockers in `tasks/repo-seeding.md` under `### Failures And Blockers`.
-  - Post-batch: `gh api rate_limit` and record. Append `### Batch 541-560 Seeding Evidence - <ISO timestamp>` section to `tasks/repo-seeding.md` with per-repo URL and root commit SHA.
-  - Commit pattern: `feat(seeding): seed private batch 541-560`.
-  - Acceptance: `grep -cE "^\| \[x\] \| (54[1-9]|55[0-9]|560) " tasks/repo-seeding.md` reflects 20 completions for the 541-560 range; no new public repos.
+  - Post-batch: `gh api rate_limit` and record. Append `### Batch 971-990 Seeding Evidence - <ISO timestamp>` section to `tasks/repo-seeding.md` with per-repo URL and root commit SHA.
+  - Commit pattern: `feat(seeding): seed private batch 971-990`.
+  - Acceptance: `grep -cE "^\| \[x\] \| (97[1-9]|98[0-9]|990) " tasks/repo-seeding.md` reflects 20 completions for the 971-990 range; no new public repos.
 
 ### Reference
 
@@ -72,11 +72,11 @@ Extend the canonical spec store from 200 to 1000 mobile app clone ideas. IDs 201
 Resolved 2026-04-23 following `/reconcile-dev-docs`:
 
 - **Step 7.3 absorbed into Phase 8 Step 8.3.** CLAUDE.md:41 allows planning/scaffold seeding at Draft 1; downstream repos for IDs 101-1000 do not claim implementation-ready parity. Step 8.3 now covers IDs 101-1000 (900 specs) in one pass.
-- **Phase 6 stays Complete** (original 100-repo scope). Post-100 seeding accounted for under Phase 7 Step 7.5 (101-200, done) and Phase 8 Step 8.6 (201-1000, in progress at 480/1000 as of 2026-04-23).
+- **Phase 6 stays Complete** (original 100-repo scope). Post-100 seeding accounted for under Phase 7 Step 7.5 (101-200, done) and Phase 8 Step 8.6 (201-1000, in progress at 970/1000 as of 2026-04-30).
 - **Duplicate Phase 6 block in `tasks/roadmap.md` collapsed.**
 - **`tasks/todoist-downstream-build-plan.md` kept as Phase 4 pilot artifact**; per-repo build plans live in each downstream repo's `docs/plans/README.md`.
 
 Remaining open:
 
 - **`tasks/implementation-readiness.md` counts.** Refresh when Step 8.3 lands in category batches.
-- **Phase 8 Step 8.6 progress tracking.** Carried in this todo.md (`Next batch: 541-560`).
+- **Phase 8 Step 8.6 progress tracking.** Carried in this todo.md (`Next batch: 971-990`).

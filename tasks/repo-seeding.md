@@ -1317,6 +1317,464 @@ Guardrails:
 | 669 | `GeorgeQLe/maven-clinic-mobile-clone` | PRIVATE | seeded |
 | 670 | `GeorgeQLe/noom-mobile-clone` | PRIVATE | seeded |
 
+### Batch 671-690 Seeding Evidence - 2026-04-27T20:39:09.186Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4970,"reset":1777324952,"used":30},"graphql":{"limit":5000,"remaining":4991,"reset":1777323891,"used":9},"search":{"limit":30,"remaining":30,"reset":1777321739,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4910,"reset":1777324952,"used":90},"graphql":{"limit":5000,"remaining":4907,"reset":1777323891,"used":93},"search":{"limit":30,"remaining":30,"reset":1777322409,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 671 | `GeorgeQLe/lose-it-mobile-clone` | PRIVATE | seeded |
+| 672 | `GeorgeQLe/cronometer-mobile-clone` | PRIVATE | seeded |
+| 673 | `GeorgeQLe/lifesum-mobile-clone` | PRIVATE | seeded |
+| 674 | `GeorgeQLe/waterminder-mobile-clone` | PRIVATE | seeded |
+| 675 | `GeorgeQLe/pillow-mobile-clone` | PRIVATE | seeded |
+| 676 | `GeorgeQLe/autosleep-mobile-clone` | PRIVATE | seeded |
+| 677 | `GeorgeQLe/sleepscore-mobile-clone` | PRIVATE | seeded |
+| 678 | `GeorgeQLe/withings-health-mate-mobile-clone` | PRIVATE | seeded |
+| 679 | `GeorgeQLe/samsung-health-mobile-clone` | PRIVATE | seeded |
+| 680 | `GeorgeQLe/apple-health-mobile-clone` | PRIVATE | seeded |
+| 681 | `GeorgeQLe/google-fit-mobile-clone` | PRIVATE | seeded |
+| 682 | `GeorgeQLe/athlytic-mobile-clone` | PRIVATE | seeded |
+| 683 | `GeorgeQLe/welltory-mobile-clone` | PRIVATE | seeded |
+| 684 | `GeorgeQLe/rise-sleep-mobile-clone` | PRIVATE | seeded |
+| 685 | `GeorgeQLe/pzizz-mobile-clone` | PRIVATE | seeded |
+| 686 | `GeorgeQLe/the-bump-mobile-clone` | PRIVATE | seeded |
+| 687 | `GeorgeQLe/what-to-expect-mobile-clone` | PRIVATE | seeded |
+| 688 | `GeorgeQLe/peanut-mobile-clone` | PRIVATE | seeded |
+| 689 | `GeorgeQLe/find-my-kids-mobile-clone` | PRIVATE | seeded |
+| 690 | `GeorgeQLe/family-link-mobile-clone` | PRIVATE | seeded |
+
+### Batch 691-710 Seeding Evidence - 2026-04-28T03:55:04.766Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":5000,"reset":1777351353,"used":0},"graphql":{"limit":5000,"remaining":4995,"reset":1777348564,"used":5},"search":{"limit":30,"remaining":30,"reset":1777347813,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4940,"reset":1777351354,"used":60},"graphql":{"limit":5000,"remaining":4913,"reset":1777348564,"used":87},"search":{"limit":30,"remaining":30,"reset":1777348564,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 691 | `GeorgeQLe/ourpact-mobile-clone` | PRIVATE | seeded |
+| 692 | `GeorgeQLe/circle-parental-controls-mobile-clone` | PRIVATE | seeded |
+| 693 | `GeorgeQLe/famcal-mobile-clone` | PRIVATE | seeded |
+| 694 | `GeorgeQLe/winnie-mobile-clone` | PRIVATE | seeded |
+| 695 | `GeorgeQLe/kinedu-mobile-clone` | PRIVATE | seeded |
+| 696 | `GeorgeQLe/sprout-baby-mobile-clone` | PRIVATE | seeded |
+| 697 | `GeorgeQLe/familyalbum-mobile-clone` | PRIVATE | seeded |
+| 698 | `GeorgeQLe/blackboard-learn-mobile-clone` | PRIVATE | seeded |
+| 699 | `GeorgeQLe/moodle-mobile-clone` | PRIVATE | seeded |
+| 700 | `GeorgeQLe/schoology-mobile-clone` | PRIVATE | seeded |
+| 701 | `GeorgeQLe/seesaw-mobile-clone` | PRIVATE | seeded |
+| 702 | `GeorgeQLe/brainly-mobile-clone` | PRIVATE | seeded |
+| 703 | `GeorgeQLe/chegg-study-mobile-clone` | PRIVATE | seeded |
+| 704 | `GeorgeQLe/symbolab-mobile-clone` | PRIVATE | seeded |
+| 705 | `GeorgeQLe/wolframalpha-mobile-clone` | PRIVATE | seeded |
+| 706 | `GeorgeQLe/brilliant-mobile-clone` | PRIVATE | seeded |
+| 707 | `GeorgeQLe/udemy-mobile-clone` | PRIVATE | seeded |
+| 708 | `GeorgeQLe/edx-mobile-clone` | PRIVATE | seeded |
+| 709 | `GeorgeQLe/codecademy-go-mobile-clone` | PRIVATE | seeded |
+| 710 | `GeorgeQLe/sololearn-mobile-clone` | PRIVATE | seeded |
+
+### Batch 711-730 Seeding Evidence - 2026-04-28T14:44:49.700Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":5000,"reset":1777390372,"used":0},"graphql":{"limit":5000,"remaining":4996,"reset":1777387135,"used":4},"search":{"limit":30,"remaining":30,"reset":1777386832,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4910,"reset":1777390375,"used":90},"graphql":{"limit":5000,"remaining":4959,"reset":1777390754,"used":41},"search":{"limit":30,"remaining":30,"reset":1777387549,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 711 | `GeorgeQLe/mimo-mobile-clone` | PRIVATE | seeded |
+| 712 | `GeorgeQLe/homer-mobile-clone` | PRIVATE | seeded |
+| 713 | `GeorgeQLe/lingokids-mobile-clone` | PRIVATE | seeded |
+| 714 | `GeorgeQLe/duolingo-abc-mobile-clone` | PRIVATE | seeded |
+| 715 | `GeorgeQLe/drops-mobile-clone` | PRIVATE | seeded |
+| 716 | `GeorgeQLe/mondly-mobile-clone` | PRIVATE | seeded |
+| 717 | `GeorgeQLe/memrise-mobile-clone` | PRIVATE | seeded |
+| 718 | `GeorgeQLe/lingq-mobile-clone` | PRIVATE | seeded |
+| 719 | `GeorgeQLe/pimsleur-mobile-clone` | PRIVATE | seeded |
+| 720 | `GeorgeQLe/microsoft-365-mobile-clone` | PRIVATE | seeded |
+| 721 | `GeorgeQLe/google-docs-mobile-clone` | PRIVATE | seeded |
+| 722 | `GeorgeQLe/google-sheets-mobile-clone` | PRIVATE | seeded |
+| 723 | `GeorgeQLe/google-slides-mobile-clone` | PRIVATE | seeded |
+| 724 | `GeorgeQLe/microsoft-word-mobile-clone` | PRIVATE | seeded |
+| 725 | `GeorgeQLe/microsoft-excel-mobile-clone` | PRIVATE | seeded |
+| 726 | `GeorgeQLe/microsoft-powerpoint-mobile-clone` | PRIVATE | seeded |
+| 727 | `GeorgeQLe/onenote-mobile-clone` | PRIVATE | seeded |
+| 728 | `GeorgeQLe/apple-pages-mobile-clone` | PRIVATE | seeded |
+| 729 | `GeorgeQLe/apple-numbers-mobile-clone` | PRIVATE | seeded |
+| 730 | `GeorgeQLe/apple-keynote-mobile-clone` | PRIVATE | seeded |
+
+### Batch 731-750 Seeding Evidence - 2026-04-28T16:26:45.826Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":5000,"reset":1777396507,"used":0},"graphql":{"limit":5000,"remaining":4997,"reset":1777394506,"used":3},"search":{"limit":30,"remaining":30,"reset":1777392967,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4940,"reset":1777396508,"used":60},"graphql":{"limit":5000,"remaining":4917,"reset":1777394506,"used":83},"search":{"limit":30,"remaining":30,"reset":1777393665,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 731 | `GeorgeQLe/ia-writer-mobile-clone` | PRIVATE | seeded |
+| 732 | `GeorgeQLe/ulysses-mobile-clone` | PRIVATE | seeded |
+| 733 | `GeorgeQLe/craft-mobile-clone` | PRIVATE | seeded |
+| 734 | `GeorgeQLe/roam-research-mobile-clone` | PRIVATE | seeded |
+| 735 | `GeorgeQLe/logseq-mobile-clone` | PRIVATE | seeded |
+| 736 | `GeorgeQLe/standard-notes-mobile-clone` | PRIVATE | seeded |
+| 737 | `GeorgeQLe/joplin-mobile-clone` | PRIVATE | seeded |
+| 738 | `GeorgeQLe/simplenote-mobile-clone` | PRIVATE | seeded |
+| 739 | `GeorgeQLe/notesnook-mobile-clone` | PRIVATE | seeded |
+| 740 | `GeorgeQLe/anytype-mobile-clone` | PRIVATE | seeded |
+| 741 | `GeorgeQLe/coda-mobile-clone` | PRIVATE | seeded |
+| 742 | `GeorgeQLe/airtable-mobile-clone` | PRIVATE | seeded |
+| 743 | `GeorgeQLe/monday-com-mobile-clone` | PRIVATE | seeded |
+| 744 | `GeorgeQLe/basecamp-mobile-clone` | PRIVATE | seeded |
+| 745 | `GeorgeQLe/wrike-mobile-clone` | PRIVATE | seeded |
+| 746 | `GeorgeQLe/smartsheet-mobile-clone` | PRIVATE | seeded |
+| 747 | `GeorgeQLe/microsoft-planner-mobile-clone` | PRIVATE | seeded |
+| 748 | `GeorgeQLe/microsoft-to-do-mobile-clone` | PRIVATE | seeded |
+| 749 | `GeorgeQLe/ticktick-mobile-clone` | PRIVATE | seeded |
+| 750 | `GeorgeQLe/omnifocus-mobile-clone` | PRIVATE | seeded |
+
+### Batch 751-1000 Seeding Evidence - 2026-04-28T18:08:45.936Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4820,"reset":1777402236,"used":180},"graphql":{"limit":5000,"remaining":4999,"reset":1777402230,"used":1},"search":{"limit":30,"remaining":30,"reset":1777399088,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4760,"reset":1777402236,"used":240},"graphql":{"limit":5000,"remaining":4919,"reset":1777402230,"used":81},"search":{"limit":30,"remaining":30,"reset":1777399785,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 751 | `GeorgeQLe/any-do-mobile-clone` | PRIVATE | seeded |
+| 752 | `GeorgeQLe/remember-the-milk-mobile-clone` | PRIVATE | seeded |
+| 753 | `GeorgeQLe/habitica-mobile-clone` | PRIVATE | seeded |
+| 754 | `GeorgeQLe/habitify-mobile-clone` | PRIVATE | seeded |
+| 755 | `GeorgeQLe/streaks-mobile-clone` | PRIVATE | seeded |
+| 756 | `GeorgeQLe/forest-mobile-clone` | PRIVATE | seeded |
+| 757 | `GeorgeQLe/structured-mobile-clone` | PRIVATE | seeded |
+| 758 | `GeorgeQLe/sunsama-mobile-clone` | PRIVATE | seeded |
+| 759 | `GeorgeQLe/akiflow-mobile-clone` | PRIVATE | seeded |
+| 760 | `GeorgeQLe/motion-mobile-clone` | PRIVATE | seeded |
+| 761 | `GeorgeQLe/reclaim-ai-mobile-clone` | PRIVATE | seeded |
+| 762 | `GeorgeQLe/doodle-mobile-clone` | PRIVATE | seeded |
+| 763 | `GeorgeQLe/busycal-mobile-clone` | PRIVATE | seeded |
+| 764 | `GeorgeQLe/timepage-mobile-clone` | PRIVATE | seeded |
+| 765 | `GeorgeQLe/calendars-by-readdle-mobile-clone` | PRIVATE | seeded |
+| 766 | `GeorgeQLe/proton-calendar-mobile-clone` | PRIVATE | seeded |
+| 767 | `GeorgeQLe/cal-com-mobile-clone` | PRIVATE | seeded |
+| 768 | `GeorgeQLe/savvycal-mobile-clone` | PRIVATE | seeded |
+| 769 | `GeorgeQLe/acuity-scheduling-mobile-clone` | PRIVATE | seeded |
+| 770 | `GeorgeQLe/square-appointments-mobile-clone` | PRIVATE | seeded |
+
+### Batch 771-1000 Seeding Evidence - 2026-04-28T19:20:48.603Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":5000,"reset":1777406963,"used":0},"graphql":{"limit":5000,"remaining":5000,"reset":1777406963,"used":0},"search":{"limit":30,"remaining":30,"reset":1777403423,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4940,"reset":1777406964,"used":60},"graphql":{"limit":5000,"remaining":4919,"reset":1777406964,"used":81},"search":{"limit":30,"remaining":30,"reset":1777404108,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 771 | `GeorgeQLe/vagaro-mobile-clone` | PRIVATE | seeded |
+| 772 | `GeorgeQLe/mindbody-mobile-clone` | PRIVATE | seeded |
+| 773 | `GeorgeQLe/fresha-mobile-clone` | PRIVATE | seeded |
+| 774 | `GeorgeQLe/booksy-mobile-clone` | PRIVATE | seeded |
+| 775 | `GeorgeQLe/styleseat-mobile-clone` | PRIVATE | seeded |
+| 776 | `GeorgeQLe/schedulicity-mobile-clone` | PRIVATE | seeded |
+| 777 | `GeorgeQLe/setmore-mobile-clone` | PRIVATE | seeded |
+| 778 | `GeorgeQLe/box-mobile-clone` | PRIVATE | seeded |
+| 779 | `GeorgeQLe/onedrive-mobile-clone` | PRIVATE | seeded |
+| 780 | `GeorgeQLe/icloud-drive-mobile-clone` | PRIVATE | seeded |
+| 781 | `GeorgeQLe/mega-mobile-clone` | PRIVATE | seeded |
+| 782 | `GeorgeQLe/pcloud-mobile-clone` | PRIVATE | seeded |
+| 783 | `GeorgeQLe/sync-com-mobile-clone` | PRIVATE | seeded |
+| 784 | `GeorgeQLe/wetransfer-mobile-clone` | PRIVATE | seeded |
+| 785 | `GeorgeQLe/adobe-acrobat-reader-mobile-clone` | PRIVATE | seeded |
+| 786 | `GeorgeQLe/camscanner-mobile-clone` | PRIVATE | seeded |
+| 787 | `GeorgeQLe/genius-scan-mobile-clone` | PRIVATE | seeded |
+| 788 | `GeorgeQLe/scanner-pro-mobile-clone` | PRIVATE | seeded |
+| 789 | `GeorgeQLe/docusign-mobile-clone` | PRIVATE | seeded |
+| 790 | `GeorgeQLe/adobe-scan-mobile-clone` | PRIVATE | seeded |
+
+### Batch 791-1000 Seeding Evidence - 2026-04-29T13:05:02.298Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":5000,"reset":1777470816,"used":0},"graphql":{"limit":5000,"remaining":4994,"reset":1777467831,"used":6},"search":{"limit":30,"remaining":30,"reset":1777467276,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4914,"reset":1777470817,"used":86},"graphql":{"limit":5000,"remaining":4992,"reset":1777471460,"used":8},"search":{"limit":30,"remaining":30,"reset":1777467962,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 791 | `GeorgeQLe/microsoft-lens-mobile-clone` | PRIVATE | seeded |
+| 792 | `GeorgeQLe/1password-mobile-clone` | PRIVATE | seeded |
+| 793 | `GeorgeQLe/lastpass-mobile-clone` | PRIVATE | seeded |
+| 794 | `GeorgeQLe/bitwarden-mobile-clone` | PRIVATE | seeded |
+| 795 | `GeorgeQLe/dashlane-mobile-clone` | PRIVATE | seeded |
+| 796 | `GeorgeQLe/keeper-mobile-clone` | PRIVATE | seeded |
+| 797 | `GeorgeQLe/nordpass-mobile-clone` | PRIVATE | seeded |
+| 798 | `GeorgeQLe/proton-pass-mobile-clone` | PRIVATE | seeded |
+| 799 | `GeorgeQLe/authy-mobile-clone` | PRIVATE | seeded |
+| 800 | `GeorgeQLe/google-authenticator-mobile-clone` | PRIVATE | seeded |
+| 801 | `GeorgeQLe/microsoft-authenticator-mobile-clone` | PRIVATE | seeded |
+| 802 | `GeorgeQLe/okta-verify-mobile-clone` | PRIVATE | seeded |
+| 803 | `GeorgeQLe/duo-mobile-mobile-clone` | PRIVATE | seeded |
+| 804 | `GeorgeQLe/nordvpn-mobile-clone` | PRIVATE | seeded |
+| 805 | `GeorgeQLe/expressvpn-mobile-clone` | PRIVATE | seeded |
+| 806 | `GeorgeQLe/surfshark-mobile-clone` | PRIVATE | seeded |
+| 807 | `GeorgeQLe/proton-vpn-mobile-clone` | PRIVATE | seeded |
+| 808 | `GeorgeQLe/mullvad-vpn-mobile-clone` | PRIVATE | seeded |
+| 809 | `GeorgeQLe/tunnelbear-mobile-clone` | PRIVATE | seeded |
+| 810 | `GeorgeQLe/windscribe-mobile-clone` | PRIVATE | seeded |
+
+### Batch 811-1000 Seeding Evidence - 2026-04-29T14:34:43.601Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4998,"reset":1777476011,"used":2},"graphql":{"limit":5000,"remaining":4998,"reset":1777475268,"used":2},"search":{"limit":30,"remaining":30,"reset":1777472604,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4932,"reset":1777476011,"used":68},"graphql":{"limit":5000,"remaining":4917,"reset":1777475268,"used":83},"search":{"limit":30,"remaining":30,"reset":1777473343,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 811 | `GeorgeQLe/cloudflare-warp-mobile-clone` | PRIVATE | seeded |
+| 812 | `GeorgeQLe/malwarebytes-mobile-clone` | PRIVATE | seeded |
+| 813 | `GeorgeQLe/norton-360-mobile-clone` | PRIVATE | seeded |
+| 814 | `GeorgeQLe/mcafee-security-mobile-clone` | PRIVATE | seeded |
+| 815 | `GeorgeQLe/avast-one-mobile-clone` | PRIVATE | seeded |
+| 816 | `GeorgeQLe/bitdefender-mobile-security-mobile-clone` | PRIVATE | seeded |
+| 817 | `GeorgeQLe/2fas-mobile-clone` | PRIVATE | seeded |
+| 818 | `GeorgeQLe/yubico-authenticator-mobile-clone` | PRIVATE | seeded |
+| 819 | `GeorgeQLe/salesforce-mobile-clone` | PRIVATE | seeded |
+| 820 | `GeorgeQLe/hubspot-mobile-clone` | PRIVATE | seeded |
+| 821 | `GeorgeQLe/zendesk-mobile-clone` | PRIVATE | seeded |
+| 822 | `GeorgeQLe/intercom-mobile-clone` | PRIVATE | seeded |
+| 823 | `GeorgeQLe/freshdesk-mobile-clone` | PRIVATE | seeded |
+| 824 | `GeorgeQLe/servicenow-mobile-clone` | PRIVATE | seeded |
+| 825 | `GeorgeQLe/workday-mobile-clone` | PRIVATE | seeded |
+| 826 | `GeorgeQLe/bamboohr-mobile-clone` | PRIVATE | seeded |
+| 827 | `GeorgeQLe/adp-mobile-mobile-clone` | PRIVATE | seeded |
+| 828 | `GeorgeQLe/gusto-wallet-mobile-clone` | PRIVATE | seeded |
+| 829 | `GeorgeQLe/rippling-mobile-clone` | PRIVATE | seeded |
+| 830 | `GeorgeQLe/deel-mobile-clone` | PRIVATE | seeded |
+
+### Batch 831-1000 Seeding Evidence - 2026-04-29T15:49:25.943Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":5000,"reset":1777480521,"used":0},"graphql":{"limit":5000,"remaining":4998,"reset":1777480267,"used":2},"search":{"limit":30,"remaining":30,"reset":1777476981,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4940,"reset":1777480521,"used":60},"graphql":{"limit":5000,"remaining":4916,"reset":1777480267,"used":84},"search":{"limit":30,"remaining":30,"reset":1777477825,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 831 | `GeorgeQLe/expensify-mobile-clone` | PRIVATE | seeded |
+| 832 | `GeorgeQLe/sap-concur-mobile-clone` | PRIVATE | seeded |
+| 833 | `GeorgeQLe/quickbooks-mobile-clone` | PRIVATE | seeded |
+| 834 | `GeorgeQLe/xero-mobile-clone` | PRIVATE | seeded |
+| 835 | `GeorgeQLe/square-pos-mobile-clone` | PRIVATE | seeded |
+| 836 | `GeorgeQLe/shopify-mobile-clone` | PRIVATE | seeded |
+| 837 | `GeorgeQLe/shopify-inbox-mobile-clone` | PRIVATE | seeded |
+| 838 | `GeorgeQLe/stripe-dashboard-mobile-clone` | PRIVATE | seeded |
+| 839 | `GeorgeQLe/paypal-business-mobile-clone` | PRIVATE | seeded |
+| 840 | `GeorgeQLe/mailchimp-mobile-clone` | PRIVATE | seeded |
+| 841 | `GeorgeQLe/hootsuite-mobile-clone` | PRIVATE | seeded |
+| 842 | `GeorgeQLe/buffer-mobile-clone` | PRIVATE | seeded |
+| 843 | `GeorgeQLe/sprout-social-mobile-clone` | PRIVATE | seeded |
+| 844 | `GeorgeQLe/later-mobile-clone` | PRIVATE | seeded |
+| 845 | `GeorgeQLe/gitlab-mobile-clone` | PRIVATE | seeded |
+| 846 | `GeorgeQLe/bitbucket-mobile-clone` | PRIVATE | seeded |
+| 847 | `GeorgeQLe/postman-mobile-clone` | PRIVATE | seeded |
+| 848 | `GeorgeQLe/codesandbox-mobile-clone` | PRIVATE | seeded |
+| 849 | `GeorgeQLe/stack-overflow-mobile-clone` | PRIVATE | seeded |
+| 850 | `GeorgeQLe/dev-community-mobile-clone` | PRIVATE | seeded |
+
+### Batch 851-870 Seeding Evidence - 2026-04-29T17:07:02.609Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":5000,"reset":1777484991,"used":0},"graphql":{"limit":5000,"remaining":4997,"reset":1777484034,"used":3},"search":{"limit":30,"remaining":30,"reset":1777481451,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4940,"reset":1777484991,"used":60},"graphql":{"limit":5000,"remaining":4917,"reset":1777484034,"used":83},"search":{"limit":30,"remaining":30,"reset":1777482482,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 851 | `GeorgeQLe/hashnode-mobile-clone` | PRIVATE | seeded |
+| 852 | `GeorgeQLe/product-hunt-mobile-clone` | PRIVATE | seeded |
+| 853 | `GeorgeQLe/hacker-news-mobile-clone` | PRIVATE | seeded |
+| 854 | `GeorgeQLe/digitalocean-mobile-clone` | PRIVATE | seeded |
+| 855 | `GeorgeQLe/aws-console-mobile-clone` | PRIVATE | seeded |
+| 856 | `GeorgeQLe/google-cloud-mobile-clone` | PRIVATE | seeded |
+| 857 | `GeorgeQLe/microsoft-azure-mobile-clone` | PRIVATE | seeded |
+| 858 | `GeorgeQLe/cloudflare-mobile-clone` | PRIVATE | seeded |
+| 859 | `GeorgeQLe/vercel-mobile-clone` | PRIVATE | seeded |
+| 860 | `GeorgeQLe/netlify-mobile-clone` | PRIVATE | seeded |
+| 861 | `GeorgeQLe/sentry-mobile-clone` | PRIVATE | seeded |
+| 862 | `GeorgeQLe/datadog-mobile-clone` | PRIVATE | seeded |
+| 863 | `GeorgeQLe/pagerduty-mobile-clone` | PRIVATE | seeded |
+| 864 | `GeorgeQLe/opsgenie-mobile-clone` | PRIVATE | seeded |
+| 865 | `GeorgeQLe/grafana-mobile-clone` | PRIVATE | seeded |
+| 866 | `GeorgeQLe/new-relic-mobile-clone` | PRIVATE | seeded |
+| 867 | `GeorgeQLe/expo-go-mobile-clone` | PRIVATE | seeded |
+| 868 | `GeorgeQLe/termius-mobile-clone` | PRIVATE | seeded |
+| 869 | `GeorgeQLe/blink-shell-mobile-clone` | PRIVATE | seeded |
+| 870 | `GeorgeQLe/working-copy-mobile-clone` | PRIVATE | seeded |
+
+### Batch 871-890 Seeding Evidence - 2026-04-29T18:18:40.160Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4970,"reset":1777489330,"used":30},"graphql":{"limit":5000,"remaining":4990,"reset":1777487717,"used":10},"search":{"limit":30,"remaining":30,"reset":1777486110,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4820,"reset":1777489330,"used":180},"graphql":{"limit":5000,"remaining":4901,"reset":1777487717,"used":99},"search":{"limit":30,"remaining":30,"reset":1777486780,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 871 | `GeorgeQLe/code-app-mobile-clone` | PRIVATE | seeded |
+| 872 | `GeorgeQLe/cnn-mobile-clone` | PRIVATE | seeded |
+| 873 | `GeorgeQLe/bbc-news-mobile-clone` | PRIVATE | seeded |
+| 874 | `GeorgeQLe/the-guardian-mobile-clone` | PRIVATE | seeded |
+| 875 | `GeorgeQLe/reuters-mobile-clone` | PRIVATE | seeded |
+| 876 | `GeorgeQLe/ap-news-mobile-clone` | PRIVATE | seeded |
+| 877 | `GeorgeQLe/npr-mobile-clone` | PRIVATE | seeded |
+| 878 | `GeorgeQLe/the-wall-street-journal-mobile-clone` | PRIVATE | seeded |
+| 879 | `GeorgeQLe/financial-times-mobile-clone` | PRIVATE | seeded |
+| 880 | `GeorgeQLe/the-washington-post-mobile-clone` | PRIVATE | seeded |
+| 881 | `GeorgeQLe/usa-today-mobile-clone` | PRIVATE | seeded |
+| 882 | `GeorgeQLe/fox-news-mobile-clone` | PRIVATE | seeded |
+| 883 | `GeorgeQLe/nbc-news-mobile-clone` | PRIVATE | seeded |
+| 884 | `GeorgeQLe/cbs-news-mobile-clone` | PRIVATE | seeded |
+| 885 | `GeorgeQLe/abc-news-mobile-clone` | PRIVATE | seeded |
+| 886 | `GeorgeQLe/al-jazeera-mobile-clone` | PRIVATE | seeded |
+| 887 | `GeorgeQLe/the-economist-mobile-clone` | PRIVATE | seeded |
+| 888 | `GeorgeQLe/politico-mobile-clone` | PRIVATE | seeded |
+| 889 | `GeorgeQLe/axios-mobile-clone` | PRIVATE | seeded |
+| 890 | `GeorgeQLe/semafor-mobile-clone` | PRIVATE | seeded |
+
+### Batch 891-910 Seeding Evidence - 2026-04-30T13:34:42.590Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":5000,"reset":1777558980,"used":0},"graphql":{"limit":5000,"remaining":4999,"reset":1777557661,"used":1},"search":{"limit":30,"remaining":30,"reset":1777555440,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4940,"reset":1777558981,"used":60},"graphql":{"limit":5000,"remaining":4914,"reset":1777557661,"used":86},"search":{"limit":30,"remaining":30,"reset":1777556142,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 891 | `GeorgeQLe/vox-mobile-clone` | PRIVATE | seeded |
+| 892 | `GeorgeQLe/the-verge-mobile-clone` | PRIVATE | seeded |
+| 893 | `GeorgeQLe/engadget-mobile-clone` | PRIVATE | seeded |
+| 894 | `GeorgeQLe/techcrunch-mobile-clone` | PRIVATE | seeded |
+| 895 | `GeorgeQLe/ars-technica-mobile-clone` | PRIVATE | seeded |
+| 896 | `GeorgeQLe/wired-mobile-clone` | PRIVATE | seeded |
+| 897 | `GeorgeQLe/kobo-books-mobile-clone` | PRIVATE | seeded |
+| 898 | `GeorgeQLe/google-play-books-mobile-clone` | PRIVATE | seeded |
+| 899 | `GeorgeQLe/nook-mobile-clone` | PRIVATE | seeded |
+| 900 | `GeorgeQLe/the-storygraph-mobile-clone` | PRIVATE | seeded |
+| 901 | `GeorgeQLe/bookmate-mobile-clone` | PRIVATE | seeded |
+| 902 | `GeorgeQLe/blinkist-mobile-clone` | PRIVATE | seeded |
+| 903 | `GeorgeQLe/headway-mobile-clone` | PRIVATE | seeded |
+| 904 | `GeorgeQLe/serial-reader-mobile-clone` | PRIVATE | seeded |
+| 905 | `GeorgeQLe/inkitt-mobile-clone` | PRIVATE | seeded |
+| 906 | `GeorgeQLe/dreame-mobile-clone` | PRIVATE | seeded |
+| 907 | `GeorgeQLe/tapas-mobile-clone` | PRIVATE | seeded |
+| 908 | `GeorgeQLe/radish-mobile-clone` | PRIVATE | seeded |
+| 909 | `GeorgeQLe/webnovel-mobile-clone` | PRIVATE | seeded |
+| 910 | `GeorgeQLe/manga-plus-mobile-clone` | PRIVATE | seeded |
+
+### Batch 911-930 Seeding Evidence - 2026-04-30T14:46:50.702Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":5000,"reset":1777563319,"used":0},"graphql":{"limit":5000,"remaining":4548,"reset":1777561408,"used":452},"search":{"limit":30,"remaining":30,"reset":1777559779,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4940,"reset":1777563320,"used":60},"graphql":{"limit":5000,"remaining":4374,"reset":1777561408,"used":626},"search":{"limit":30,"remaining":30,"reset":1777560470,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 911 | `GeorgeQLe/shonen-jump-mobile-clone` | PRIVATE | seeded |
+| 912 | `GeorgeQLe/viz-manga-mobile-clone` | PRIVATE | seeded |
+| 913 | `GeorgeQLe/marvel-unlimited-mobile-clone` | PRIVATE | seeded |
+| 914 | `GeorgeQLe/dc-universe-infinite-mobile-clone` | PRIVATE | seeded |
+| 915 | `GeorgeQLe/mastodon-mobile-clone` | PRIVATE | seeded |
+| 916 | `GeorgeQLe/tumblr-mobile-clone` | PRIVATE | seeded |
+| 917 | `GeorgeQLe/flickr-mobile-clone` | PRIVATE | seeded |
+| 918 | `GeorgeQLe/500px-mobile-clone` | PRIVATE | seeded |
+| 919 | `GeorgeQLe/clubhouse-mobile-clone` | PRIVATE | seeded |
+| 920 | `GeorgeQLe/amino-mobile-clone` | PRIVATE | seeded |
+| 921 | `GeorgeQLe/weverse-mobile-clone` | PRIVATE | seeded |
+| 922 | `GeorgeQLe/patreon-mobile-clone` | PRIVATE | seeded |
+| 923 | `GeorgeQLe/buy-me-a-coffee-mobile-clone` | PRIVATE | seeded |
+| 924 | `GeorgeQLe/ko-fi-mobile-clone` | PRIVATE | seeded |
+| 925 | `GeorgeQLe/cameo-mobile-clone` | PRIVATE | seeded |
+| 926 | `GeorgeQLe/guilded-mobile-clone` | PRIVATE | seeded |
+| 927 | `GeorgeQLe/geneva-mobile-clone` | PRIVATE | seeded |
+| 928 | `GeorgeQLe/fizz-mobile-clone` | PRIVATE | seeded |
+| 929 | `GeorgeQLe/yubo-mobile-clone` | PRIVATE | seeded |
+| 930 | `GeorgeQLe/poparazzi-mobile-clone` | PRIVATE | seeded |
+
+### Batch 931-950 Seeding Evidence - 2026-04-30T16:48:15.064Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":5000,"reset":1777569742,"used":0},"graphql":{"limit":5000,"remaining":4999,"reset":1777568968,"used":1},"search":{"limit":30,"remaining":30,"reset":1777566202,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4940,"reset":1777569742,"used":60},"graphql":{"limit":5000,"remaining":4817,"reset":1777568968,"used":183},"search":{"limit":30,"remaining":30,"reset":1777567755,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 931 | `GeorgeQLe/ngl-mobile-clone` | PRIVATE | seeded |
+| 932 | `GeorgeQLe/tellonym-mobile-clone` | PRIVATE | seeded |
+| 933 | `GeorgeQLe/rumble-mobile-clone` | PRIVATE | seeded |
+| 934 | `GeorgeQLe/truth-social-mobile-clone` | PRIVATE | seeded |
+| 935 | `GeorgeQLe/viber-mobile-clone` | PRIVATE | seeded |
+| 936 | `GeorgeQLe/wechat-mobile-clone` | PRIVATE | seeded |
+| 937 | `GeorgeQLe/line-mobile-clone` | PRIVATE | seeded |
+| 938 | `GeorgeQLe/kakaotalk-mobile-clone` | PRIVATE | seeded |
+| 939 | `GeorgeQLe/skype-mobile-clone` | PRIVATE | seeded |
+| 940 | `GeorgeQLe/google-voice-mobile-clone` | PRIVATE | seeded |
+| 941 | `GeorgeQLe/textnow-mobile-clone` | PRIVATE | seeded |
+| 942 | `GeorgeQLe/textfree-mobile-clone` | PRIVATE | seeded |
+| 943 | `GeorgeQLe/groupme-mobile-clone` | PRIVATE | seeded |
+| 944 | `GeorgeQLe/marco-polo-mobile-clone` | PRIVATE | seeded |
+| 945 | `GeorgeQLe/voxer-mobile-clone` | PRIVATE | seeded |
+| 946 | `GeorgeQLe/microsoft-teams-mobile-clone` | PRIVATE | seeded |
+| 947 | `GeorgeQLe/cisco-webex-mobile-clone` | PRIVATE | seeded |
+| 948 | `GeorgeQLe/google-meet-mobile-clone` | PRIVATE | seeded |
+| 949 | `GeorgeQLe/goto-mobile-clone` | PRIVATE | seeded |
+| 950 | `GeorgeQLe/bluejeans-mobile-clone` | PRIVATE | seeded |
+
+### Batch 951-970 Dry-Run Prep - 2026-04-30T16:51:00Z
+
+- Execution attempt: `node scripts/seed-downstream-batch.mjs --from 951 --to 970 --execute`.
+- Guard result: rolling GitHub creation cap blocked execution because 20 repos were recorded in the last hour; eligible retry time reported as `2026-04-30T17:48:16.064Z`.
+- Dry-run command: `node scripts/seed-downstream-batch.mjs --from 951 --to 970 --dry-run`.
+- Dry-run result: selected 20 targets, IDs 951-970, and rendered the expected seed files for every target without running remote `gh` or `git` commands.
+- Next execution command after the cap clears: `node scripts/seed-downstream-batch.mjs --from 951 --to 970 --execute`.
+
+### Batch 951-970 Seeding Evidence - 2026-04-30T18:00:55.313Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4968,"reset":1777573795,"used":32},"graphql":{"limit":5000,"remaining":4999,"reset":1777573766,"used":1},"search":{"limit":30,"remaining":30,"reset":1777571436,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4908,"reset":1777573795,"used":92},"graphql":{"limit":5000,"remaining":4918,"reset":1777573766,"used":82},"search":{"limit":30,"remaining":30,"reset":1777572115,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 951 | `GeorgeQLe/jitsi-meet-mobile-clone` | PRIVATE | seeded |
+| 952 | `GeorgeQLe/proton-mail-mobile-clone` | PRIVATE | seeded |
+| 953 | `GeorgeQLe/yahoo-mail-mobile-clone` | PRIVATE | seeded |
+| 954 | `GeorgeQLe/aol-mail-mobile-clone` | PRIVATE | seeded |
+| 955 | `GeorgeQLe/spark-mail-mobile-clone` | PRIVATE | seeded |
+| 956 | `GeorgeQLe/edison-mail-mobile-clone` | PRIVATE | seeded |
+| 957 | `GeorgeQLe/bluemail-mobile-clone` | PRIVATE | seeded |
+| 958 | `GeorgeQLe/canary-mail-mobile-clone` | PRIVATE | seeded |
+| 959 | `GeorgeQLe/fastmail-mobile-clone` | PRIVATE | seeded |
+| 960 | `GeorgeQLe/hey-mobile-clone` | PRIVATE | seeded |
+| 961 | `GeorgeQLe/tuta-mail-mobile-clone` | PRIVATE | seeded |
+| 962 | `GeorgeQLe/zoho-mail-mobile-clone` | PRIVATE | seeded |
+| 963 | `GeorgeQLe/spike-mobile-clone` | PRIVATE | seeded |
+| 964 | `GeorgeQLe/superhuman-mobile-clone` | PRIVATE | seeded |
+| 965 | `GeorgeQLe/shortwave-mobile-clone` | PRIVATE | seeded |
+| 966 | `GeorgeQLe/clean-email-mobile-clone` | PRIVATE | seeded |
+| 967 | `GeorgeQLe/unroll-me-mobile-clone` | PRIVATE | seeded |
+| 968 | `GeorgeQLe/letgo-mobile-clone` | PRIVATE | seeded |
+| 969 | `GeorgeQLe/varagesale-mobile-clone` | PRIVATE | seeded |
+| 970 | `GeorgeQLe/kijiji-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
 
 - Step 6.3 blocker (2026-04-27T19:12:34.859Z) for GeorgeQLe/ecobee-mobile-clone: `git -C /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/ecobee-mobile-clone push origin HEAD` failed with remote rejection `failure` / `remote: fatal error in commit_refs`. Stop-state verification on 2026-04-27T19:12:53Z returned `visibility=PRIVATE`, `isEmpty=true`, and empty `defaultBranchRef`; README lookup returned 404. Per stop-on-failure contract, IDs 652-656 were not attempted in this run; next repair path should reconcile or retry only after confirming the remote accepts a root push.
@@ -2084,306 +2542,306 @@ Guardrails:
 | [x] | 668 | Nurx | `GeorgeQLe/nurx-mobile-clone` | `specs/batch-34/668-nurx.md` |
 | [x] | 669 | Maven Clinic | `GeorgeQLe/maven-clinic-mobile-clone` | `specs/batch-34/669-maven-clinic.md` |
 | [x] | 670 | Noom | `GeorgeQLe/noom-mobile-clone` | `specs/batch-34/670-noom.md` |
-| [ ] | 671 | Lose It! | `GeorgeQLe/lose-it-mobile-clone` | `specs/batch-34/671-lose-it.md` |
-| [ ] | 672 | Cronometer | `GeorgeQLe/cronometer-mobile-clone` | `specs/batch-34/672-cronometer.md` |
-| [ ] | 673 | Lifesum | `GeorgeQLe/lifesum-mobile-clone` | `specs/batch-34/673-lifesum.md` |
-| [ ] | 674 | WaterMinder | `GeorgeQLe/waterminder-mobile-clone` | `specs/batch-34/674-waterminder.md` |
-| [ ] | 675 | Pillow | `GeorgeQLe/pillow-mobile-clone` | `specs/batch-34/675-pillow.md` |
-| [ ] | 676 | AutoSleep | `GeorgeQLe/autosleep-mobile-clone` | `specs/batch-34/676-autosleep.md` |
-| [ ] | 677 | SleepScore | `GeorgeQLe/sleepscore-mobile-clone` | `specs/batch-34/677-sleepscore.md` |
-| [ ] | 678 | Withings Health Mate | `GeorgeQLe/withings-health-mate-mobile-clone` | `specs/batch-34/678-withings-health-mate.md` |
-| [ ] | 679 | Samsung Health | `GeorgeQLe/samsung-health-mobile-clone` | `specs/batch-34/679-samsung-health.md` |
-| [ ] | 680 | Apple Health | `GeorgeQLe/apple-health-mobile-clone` | `specs/batch-34/680-apple-health.md` |
-| [ ] | 681 | Google Fit | `GeorgeQLe/google-fit-mobile-clone` | `specs/batch-35/681-google-fit.md` |
-| [ ] | 682 | Athlytic | `GeorgeQLe/athlytic-mobile-clone` | `specs/batch-35/682-athlytic.md` |
-| [ ] | 683 | Welltory | `GeorgeQLe/welltory-mobile-clone` | `specs/batch-35/683-welltory.md` |
-| [ ] | 684 | Rise Sleep | `GeorgeQLe/rise-sleep-mobile-clone` | `specs/batch-35/684-rise-sleep.md` |
-| [ ] | 685 | Pzizz | `GeorgeQLe/pzizz-mobile-clone` | `specs/batch-35/685-pzizz.md` |
-| [ ] | 686 | The Bump | `GeorgeQLe/the-bump-mobile-clone` | `specs/batch-35/686-the-bump.md` |
-| [ ] | 687 | What to Expect | `GeorgeQLe/what-to-expect-mobile-clone` | `specs/batch-35/687-what-to-expect.md` |
-| [ ] | 688 | Peanut | `GeorgeQLe/peanut-mobile-clone` | `specs/batch-35/688-peanut.md` |
-| [ ] | 689 | Find My Kids | `GeorgeQLe/find-my-kids-mobile-clone` | `specs/batch-35/689-find-my-kids.md` |
-| [ ] | 690 | Family Link | `GeorgeQLe/family-link-mobile-clone` | `specs/batch-35/690-family-link.md` |
-| [ ] | 691 | OurPact | `GeorgeQLe/ourpact-mobile-clone` | `specs/batch-35/691-ourpact.md` |
-| [ ] | 692 | Circle Parental Controls | `GeorgeQLe/circle-parental-controls-mobile-clone` | `specs/batch-35/692-circle-parental-controls.md` |
-| [ ] | 693 | FamCal | `GeorgeQLe/famcal-mobile-clone` | `specs/batch-35/693-famcal.md` |
-| [ ] | 694 | Winnie | `GeorgeQLe/winnie-mobile-clone` | `specs/batch-35/694-winnie.md` |
-| [ ] | 695 | Kinedu | `GeorgeQLe/kinedu-mobile-clone` | `specs/batch-35/695-kinedu.md` |
-| [ ] | 696 | Sprout Baby | `GeorgeQLe/sprout-baby-mobile-clone` | `specs/batch-35/696-sprout-baby.md` |
-| [ ] | 697 | FamilyAlbum | `GeorgeQLe/familyalbum-mobile-clone` | `specs/batch-35/697-familyalbum.md` |
-| [ ] | 698 | Blackboard Learn | `GeorgeQLe/blackboard-learn-mobile-clone` | `specs/batch-35/698-blackboard-learn.md` |
-| [ ] | 699 | Moodle | `GeorgeQLe/moodle-mobile-clone` | `specs/batch-35/699-moodle.md` |
-| [ ] | 700 | Schoology | `GeorgeQLe/schoology-mobile-clone` | `specs/batch-35/700-schoology.md` |
-| [ ] | 701 | Seesaw | `GeorgeQLe/seesaw-mobile-clone` | `specs/batch-36/701-seesaw.md` |
-| [ ] | 702 | Brainly | `GeorgeQLe/brainly-mobile-clone` | `specs/batch-36/702-brainly.md` |
-| [ ] | 703 | Chegg Study | `GeorgeQLe/chegg-study-mobile-clone` | `specs/batch-36/703-chegg-study.md` |
-| [ ] | 704 | Symbolab | `GeorgeQLe/symbolab-mobile-clone` | `specs/batch-36/704-symbolab.md` |
-| [ ] | 705 | WolframAlpha | `GeorgeQLe/wolframalpha-mobile-clone` | `specs/batch-36/705-wolframalpha.md` |
-| [ ] | 706 | Brilliant | `GeorgeQLe/brilliant-mobile-clone` | `specs/batch-36/706-brilliant.md` |
-| [ ] | 707 | Udemy | `GeorgeQLe/udemy-mobile-clone` | `specs/batch-36/707-udemy.md` |
-| [ ] | 708 | edX | `GeorgeQLe/edx-mobile-clone` | `specs/batch-36/708-edx.md` |
-| [ ] | 709 | Codecademy Go | `GeorgeQLe/codecademy-go-mobile-clone` | `specs/batch-36/709-codecademy-go.md` |
-| [ ] | 710 | Sololearn | `GeorgeQLe/sololearn-mobile-clone` | `specs/batch-36/710-sololearn.md` |
-| [ ] | 711 | Mimo | `GeorgeQLe/mimo-mobile-clone` | `specs/batch-36/711-mimo.md` |
-| [ ] | 712 | HOMER | `GeorgeQLe/homer-mobile-clone` | `specs/batch-36/712-homer.md` |
-| [ ] | 713 | Lingokids | `GeorgeQLe/lingokids-mobile-clone` | `specs/batch-36/713-lingokids.md` |
-| [ ] | 714 | Duolingo ABC | `GeorgeQLe/duolingo-abc-mobile-clone` | `specs/batch-36/714-duolingo-abc.md` |
-| [ ] | 715 | Drops | `GeorgeQLe/drops-mobile-clone` | `specs/batch-36/715-drops.md` |
-| [ ] | 716 | Mondly | `GeorgeQLe/mondly-mobile-clone` | `specs/batch-36/716-mondly.md` |
-| [ ] | 717 | Memrise | `GeorgeQLe/memrise-mobile-clone` | `specs/batch-36/717-memrise.md` |
-| [ ] | 718 | LingQ | `GeorgeQLe/lingq-mobile-clone` | `specs/batch-36/718-lingq.md` |
-| [ ] | 719 | Pimsleur | `GeorgeQLe/pimsleur-mobile-clone` | `specs/batch-36/719-pimsleur.md` |
-| [ ] | 720 | Microsoft 365 | `GeorgeQLe/microsoft-365-mobile-clone` | `specs/batch-36/720-microsoft-365.md` |
-| [ ] | 721 | Google Docs | `GeorgeQLe/google-docs-mobile-clone` | `specs/batch-37/721-google-docs.md` |
-| [ ] | 722 | Google Sheets | `GeorgeQLe/google-sheets-mobile-clone` | `specs/batch-37/722-google-sheets.md` |
-| [ ] | 723 | Google Slides | `GeorgeQLe/google-slides-mobile-clone` | `specs/batch-37/723-google-slides.md` |
-| [ ] | 724 | Microsoft Word | `GeorgeQLe/microsoft-word-mobile-clone` | `specs/batch-37/724-microsoft-word.md` |
-| [ ] | 725 | Microsoft Excel | `GeorgeQLe/microsoft-excel-mobile-clone` | `specs/batch-37/725-microsoft-excel.md` |
-| [ ] | 726 | Microsoft PowerPoint | `GeorgeQLe/microsoft-powerpoint-mobile-clone` | `specs/batch-37/726-microsoft-powerpoint.md` |
-| [ ] | 727 | OneNote | `GeorgeQLe/onenote-mobile-clone` | `specs/batch-37/727-onenote.md` |
-| [ ] | 728 | Apple Pages | `GeorgeQLe/apple-pages-mobile-clone` | `specs/batch-37/728-apple-pages.md` |
-| [ ] | 729 | Apple Numbers | `GeorgeQLe/apple-numbers-mobile-clone` | `specs/batch-37/729-apple-numbers.md` |
-| [ ] | 730 | Apple Keynote | `GeorgeQLe/apple-keynote-mobile-clone` | `specs/batch-37/730-apple-keynote.md` |
-| [ ] | 731 | iA Writer | `GeorgeQLe/ia-writer-mobile-clone` | `specs/batch-37/731-ia-writer.md` |
-| [ ] | 732 | Ulysses | `GeorgeQLe/ulysses-mobile-clone` | `specs/batch-37/732-ulysses.md` |
-| [ ] | 733 | Craft | `GeorgeQLe/craft-mobile-clone` | `specs/batch-37/733-craft.md` |
-| [ ] | 734 | Roam Research | `GeorgeQLe/roam-research-mobile-clone` | `specs/batch-37/734-roam-research.md` |
-| [ ] | 735 | Logseq | `GeorgeQLe/logseq-mobile-clone` | `specs/batch-37/735-logseq.md` |
-| [ ] | 736 | Standard Notes | `GeorgeQLe/standard-notes-mobile-clone` | `specs/batch-37/736-standard-notes.md` |
-| [ ] | 737 | Joplin | `GeorgeQLe/joplin-mobile-clone` | `specs/batch-37/737-joplin.md` |
-| [ ] | 738 | Simplenote | `GeorgeQLe/simplenote-mobile-clone` | `specs/batch-37/738-simplenote.md` |
-| [ ] | 739 | Notesnook | `GeorgeQLe/notesnook-mobile-clone` | `specs/batch-37/739-notesnook.md` |
-| [ ] | 740 | Anytype | `GeorgeQLe/anytype-mobile-clone` | `specs/batch-37/740-anytype.md` |
-| [ ] | 741 | Coda | `GeorgeQLe/coda-mobile-clone` | `specs/batch-38/741-coda.md` |
-| [ ] | 742 | Airtable | `GeorgeQLe/airtable-mobile-clone` | `specs/batch-38/742-airtable.md` |
-| [ ] | 743 | Monday.com | `GeorgeQLe/monday-com-mobile-clone` | `specs/batch-38/743-monday-com.md` |
-| [ ] | 744 | Basecamp | `GeorgeQLe/basecamp-mobile-clone` | `specs/batch-38/744-basecamp.md` |
-| [ ] | 745 | Wrike | `GeorgeQLe/wrike-mobile-clone` | `specs/batch-38/745-wrike.md` |
-| [ ] | 746 | Smartsheet | `GeorgeQLe/smartsheet-mobile-clone` | `specs/batch-38/746-smartsheet.md` |
-| [ ] | 747 | Microsoft Planner | `GeorgeQLe/microsoft-planner-mobile-clone` | `specs/batch-38/747-microsoft-planner.md` |
-| [ ] | 748 | Microsoft To Do | `GeorgeQLe/microsoft-to-do-mobile-clone` | `specs/batch-38/748-microsoft-to-do.md` |
-| [ ] | 749 | TickTick | `GeorgeQLe/ticktick-mobile-clone` | `specs/batch-38/749-ticktick.md` |
-| [ ] | 750 | OmniFocus | `GeorgeQLe/omnifocus-mobile-clone` | `specs/batch-38/750-omnifocus.md` |
-| [ ] | 751 | Any.do | `GeorgeQLe/any-do-mobile-clone` | `specs/batch-38/751-any-do.md` |
-| [ ] | 752 | Remember The Milk | `GeorgeQLe/remember-the-milk-mobile-clone` | `specs/batch-38/752-remember-the-milk.md` |
-| [ ] | 753 | Habitica | `GeorgeQLe/habitica-mobile-clone` | `specs/batch-38/753-habitica.md` |
-| [ ] | 754 | Habitify | `GeorgeQLe/habitify-mobile-clone` | `specs/batch-38/754-habitify.md` |
-| [ ] | 755 | Streaks | `GeorgeQLe/streaks-mobile-clone` | `specs/batch-38/755-streaks.md` |
-| [ ] | 756 | Forest | `GeorgeQLe/forest-mobile-clone` | `specs/batch-38/756-forest.md` |
-| [ ] | 757 | Structured | `GeorgeQLe/structured-mobile-clone` | `specs/batch-38/757-structured.md` |
-| [ ] | 758 | Sunsama | `GeorgeQLe/sunsama-mobile-clone` | `specs/batch-38/758-sunsama.md` |
-| [ ] | 759 | Akiflow | `GeorgeQLe/akiflow-mobile-clone` | `specs/batch-38/759-akiflow.md` |
-| [ ] | 760 | Motion | `GeorgeQLe/motion-mobile-clone` | `specs/batch-38/760-motion.md` |
-| [ ] | 761 | Reclaim.ai | `GeorgeQLe/reclaim-ai-mobile-clone` | `specs/batch-39/761-reclaim-ai.md` |
-| [ ] | 762 | Doodle | `GeorgeQLe/doodle-mobile-clone` | `specs/batch-39/762-doodle.md` |
-| [ ] | 763 | BusyCal | `GeorgeQLe/busycal-mobile-clone` | `specs/batch-39/763-busycal.md` |
-| [ ] | 764 | Timepage | `GeorgeQLe/timepage-mobile-clone` | `specs/batch-39/764-timepage.md` |
-| [ ] | 765 | Calendars by Readdle | `GeorgeQLe/calendars-by-readdle-mobile-clone` | `specs/batch-39/765-calendars-by-readdle.md` |
-| [ ] | 766 | Proton Calendar | `GeorgeQLe/proton-calendar-mobile-clone` | `specs/batch-39/766-proton-calendar.md` |
-| [ ] | 767 | Cal.com | `GeorgeQLe/cal-com-mobile-clone` | `specs/batch-39/767-cal-com.md` |
-| [ ] | 768 | SavvyCal | `GeorgeQLe/savvycal-mobile-clone` | `specs/batch-39/768-savvycal.md` |
-| [ ] | 769 | Acuity Scheduling | `GeorgeQLe/acuity-scheduling-mobile-clone` | `specs/batch-39/769-acuity-scheduling.md` |
-| [ ] | 770 | Square Appointments | `GeorgeQLe/square-appointments-mobile-clone` | `specs/batch-39/770-square-appointments.md` |
-| [ ] | 771 | Vagaro | `GeorgeQLe/vagaro-mobile-clone` | `specs/batch-39/771-vagaro.md` |
-| [ ] | 772 | Mindbody | `GeorgeQLe/mindbody-mobile-clone` | `specs/batch-39/772-mindbody.md` |
-| [ ] | 773 | Fresha | `GeorgeQLe/fresha-mobile-clone` | `specs/batch-39/773-fresha.md` |
-| [ ] | 774 | Booksy | `GeorgeQLe/booksy-mobile-clone` | `specs/batch-39/774-booksy.md` |
-| [ ] | 775 | StyleSeat | `GeorgeQLe/styleseat-mobile-clone` | `specs/batch-39/775-styleseat.md` |
-| [ ] | 776 | Schedulicity | `GeorgeQLe/schedulicity-mobile-clone` | `specs/batch-39/776-schedulicity.md` |
-| [ ] | 777 | Setmore | `GeorgeQLe/setmore-mobile-clone` | `specs/batch-39/777-setmore.md` |
-| [ ] | 778 | Box | `GeorgeQLe/box-mobile-clone` | `specs/batch-39/778-box.md` |
-| [ ] | 779 | OneDrive | `GeorgeQLe/onedrive-mobile-clone` | `specs/batch-39/779-onedrive.md` |
-| [ ] | 780 | iCloud Drive | `GeorgeQLe/icloud-drive-mobile-clone` | `specs/batch-39/780-icloud-drive.md` |
-| [ ] | 781 | MEGA | `GeorgeQLe/mega-mobile-clone` | `specs/batch-40/781-mega.md` |
-| [ ] | 782 | pCloud | `GeorgeQLe/pcloud-mobile-clone` | `specs/batch-40/782-pcloud.md` |
-| [ ] | 783 | Sync.com | `GeorgeQLe/sync-com-mobile-clone` | `specs/batch-40/783-sync-com.md` |
-| [ ] | 784 | WeTransfer | `GeorgeQLe/wetransfer-mobile-clone` | `specs/batch-40/784-wetransfer.md` |
-| [ ] | 785 | Adobe Acrobat Reader | `GeorgeQLe/adobe-acrobat-reader-mobile-clone` | `specs/batch-40/785-adobe-acrobat-reader.md` |
-| [ ] | 786 | CamScanner | `GeorgeQLe/camscanner-mobile-clone` | `specs/batch-40/786-camscanner.md` |
-| [ ] | 787 | Genius Scan | `GeorgeQLe/genius-scan-mobile-clone` | `specs/batch-40/787-genius-scan.md` |
-| [ ] | 788 | Scanner Pro | `GeorgeQLe/scanner-pro-mobile-clone` | `specs/batch-40/788-scanner-pro.md` |
-| [ ] | 789 | DocuSign | `GeorgeQLe/docusign-mobile-clone` | `specs/batch-40/789-docusign.md` |
-| [ ] | 790 | Adobe Scan | `GeorgeQLe/adobe-scan-mobile-clone` | `specs/batch-40/790-adobe-scan.md` |
-| [ ] | 791 | Microsoft Lens | `GeorgeQLe/microsoft-lens-mobile-clone` | `specs/batch-40/791-microsoft-lens.md` |
-| [ ] | 792 | 1Password | `GeorgeQLe/1password-mobile-clone` | `specs/batch-40/792-1password.md` |
-| [ ] | 793 | LastPass | `GeorgeQLe/lastpass-mobile-clone` | `specs/batch-40/793-lastpass.md` |
-| [ ] | 794 | Bitwarden | `GeorgeQLe/bitwarden-mobile-clone` | `specs/batch-40/794-bitwarden.md` |
-| [ ] | 795 | Dashlane | `GeorgeQLe/dashlane-mobile-clone` | `specs/batch-40/795-dashlane.md` |
-| [ ] | 796 | Keeper | `GeorgeQLe/keeper-mobile-clone` | `specs/batch-40/796-keeper.md` |
-| [ ] | 797 | NordPass | `GeorgeQLe/nordpass-mobile-clone` | `specs/batch-40/797-nordpass.md` |
-| [ ] | 798 | Proton Pass | `GeorgeQLe/proton-pass-mobile-clone` | `specs/batch-40/798-proton-pass.md` |
-| [ ] | 799 | Authy | `GeorgeQLe/authy-mobile-clone` | `specs/batch-40/799-authy.md` |
-| [ ] | 800 | Google Authenticator | `GeorgeQLe/google-authenticator-mobile-clone` | `specs/batch-40/800-google-authenticator.md` |
-| [ ] | 801 | Microsoft Authenticator | `GeorgeQLe/microsoft-authenticator-mobile-clone` | `specs/batch-41/801-microsoft-authenticator.md` |
-| [ ] | 802 | Okta Verify | `GeorgeQLe/okta-verify-mobile-clone` | `specs/batch-41/802-okta-verify.md` |
-| [ ] | 803 | Duo Mobile | `GeorgeQLe/duo-mobile-mobile-clone` | `specs/batch-41/803-duo-mobile.md` |
-| [ ] | 804 | NordVPN | `GeorgeQLe/nordvpn-mobile-clone` | `specs/batch-41/804-nordvpn.md` |
-| [ ] | 805 | ExpressVPN | `GeorgeQLe/expressvpn-mobile-clone` | `specs/batch-41/805-expressvpn.md` |
-| [ ] | 806 | Surfshark | `GeorgeQLe/surfshark-mobile-clone` | `specs/batch-41/806-surfshark.md` |
-| [ ] | 807 | Proton VPN | `GeorgeQLe/proton-vpn-mobile-clone` | `specs/batch-41/807-proton-vpn.md` |
-| [ ] | 808 | Mullvad VPN | `GeorgeQLe/mullvad-vpn-mobile-clone` | `specs/batch-41/808-mullvad-vpn.md` |
-| [ ] | 809 | TunnelBear | `GeorgeQLe/tunnelbear-mobile-clone` | `specs/batch-41/809-tunnelbear.md` |
-| [ ] | 810 | Windscribe | `GeorgeQLe/windscribe-mobile-clone` | `specs/batch-41/810-windscribe.md` |
-| [ ] | 811 | Cloudflare WARP | `GeorgeQLe/cloudflare-warp-mobile-clone` | `specs/batch-41/811-cloudflare-warp.md` |
-| [ ] | 812 | Malwarebytes | `GeorgeQLe/malwarebytes-mobile-clone` | `specs/batch-41/812-malwarebytes.md` |
-| [ ] | 813 | Norton 360 | `GeorgeQLe/norton-360-mobile-clone` | `specs/batch-41/813-norton-360.md` |
-| [ ] | 814 | McAfee Security | `GeorgeQLe/mcafee-security-mobile-clone` | `specs/batch-41/814-mcafee-security.md` |
-| [ ] | 815 | Avast One | `GeorgeQLe/avast-one-mobile-clone` | `specs/batch-41/815-avast-one.md` |
-| [ ] | 816 | Bitdefender Mobile Security | `GeorgeQLe/bitdefender-mobile-security-mobile-clone` | `specs/batch-41/816-bitdefender-mobile-security.md` |
-| [ ] | 817 | 2FAS | `GeorgeQLe/2fas-mobile-clone` | `specs/batch-41/817-2fas.md` |
-| [ ] | 818 | Yubico Authenticator | `GeorgeQLe/yubico-authenticator-mobile-clone` | `specs/batch-41/818-yubico-authenticator.md` |
-| [ ] | 819 | Salesforce | `GeorgeQLe/salesforce-mobile-clone` | `specs/batch-41/819-salesforce.md` |
-| [ ] | 820 | HubSpot | `GeorgeQLe/hubspot-mobile-clone` | `specs/batch-41/820-hubspot.md` |
-| [ ] | 821 | Zendesk | `GeorgeQLe/zendesk-mobile-clone` | `specs/batch-42/821-zendesk.md` |
-| [ ] | 822 | Intercom | `GeorgeQLe/intercom-mobile-clone` | `specs/batch-42/822-intercom.md` |
-| [ ] | 823 | Freshdesk | `GeorgeQLe/freshdesk-mobile-clone` | `specs/batch-42/823-freshdesk.md` |
-| [ ] | 824 | ServiceNow | `GeorgeQLe/servicenow-mobile-clone` | `specs/batch-42/824-servicenow.md` |
-| [ ] | 825 | Workday | `GeorgeQLe/workday-mobile-clone` | `specs/batch-42/825-workday.md` |
-| [ ] | 826 | BambooHR | `GeorgeQLe/bamboohr-mobile-clone` | `specs/batch-42/826-bamboohr.md` |
-| [ ] | 827 | ADP Mobile | `GeorgeQLe/adp-mobile-mobile-clone` | `specs/batch-42/827-adp-mobile.md` |
-| [ ] | 828 | Gusto Wallet | `GeorgeQLe/gusto-wallet-mobile-clone` | `specs/batch-42/828-gusto-wallet.md` |
-| [ ] | 829 | Rippling | `GeorgeQLe/rippling-mobile-clone` | `specs/batch-42/829-rippling.md` |
-| [ ] | 830 | Deel | `GeorgeQLe/deel-mobile-clone` | `specs/batch-42/830-deel.md` |
-| [ ] | 831 | Expensify | `GeorgeQLe/expensify-mobile-clone` | `specs/batch-42/831-expensify.md` |
-| [ ] | 832 | SAP Concur | `GeorgeQLe/sap-concur-mobile-clone` | `specs/batch-42/832-sap-concur.md` |
-| [ ] | 833 | QuickBooks | `GeorgeQLe/quickbooks-mobile-clone` | `specs/batch-42/833-quickbooks.md` |
-| [ ] | 834 | Xero | `GeorgeQLe/xero-mobile-clone` | `specs/batch-42/834-xero.md` |
-| [ ] | 835 | Square POS | `GeorgeQLe/square-pos-mobile-clone` | `specs/batch-42/835-square-pos.md` |
-| [ ] | 836 | Shopify | `GeorgeQLe/shopify-mobile-clone` | `specs/batch-42/836-shopify.md` |
-| [ ] | 837 | Shopify Inbox | `GeorgeQLe/shopify-inbox-mobile-clone` | `specs/batch-42/837-shopify-inbox.md` |
-| [ ] | 838 | Stripe Dashboard | `GeorgeQLe/stripe-dashboard-mobile-clone` | `specs/batch-42/838-stripe-dashboard.md` |
-| [ ] | 839 | PayPal Business | `GeorgeQLe/paypal-business-mobile-clone` | `specs/batch-42/839-paypal-business.md` |
-| [ ] | 840 | Mailchimp | `GeorgeQLe/mailchimp-mobile-clone` | `specs/batch-42/840-mailchimp.md` |
-| [ ] | 841 | Hootsuite | `GeorgeQLe/hootsuite-mobile-clone` | `specs/batch-43/841-hootsuite.md` |
-| [ ] | 842 | Buffer | `GeorgeQLe/buffer-mobile-clone` | `specs/batch-43/842-buffer.md` |
-| [ ] | 843 | Sprout Social | `GeorgeQLe/sprout-social-mobile-clone` | `specs/batch-43/843-sprout-social.md` |
-| [ ] | 844 | Later | `GeorgeQLe/later-mobile-clone` | `specs/batch-43/844-later.md` |
-| [ ] | 845 | GitLab | `GeorgeQLe/gitlab-mobile-clone` | `specs/batch-43/845-gitlab.md` |
-| [ ] | 846 | Bitbucket | `GeorgeQLe/bitbucket-mobile-clone` | `specs/batch-43/846-bitbucket.md` |
-| [ ] | 847 | Postman | `GeorgeQLe/postman-mobile-clone` | `specs/batch-43/847-postman.md` |
-| [ ] | 848 | CodeSandbox | `GeorgeQLe/codesandbox-mobile-clone` | `specs/batch-43/848-codesandbox.md` |
-| [ ] | 849 | Stack Overflow | `GeorgeQLe/stack-overflow-mobile-clone` | `specs/batch-43/849-stack-overflow.md` |
-| [ ] | 850 | DEV Community | `GeorgeQLe/dev-community-mobile-clone` | `specs/batch-43/850-dev-community.md` |
-| [ ] | 851 | Hashnode | `GeorgeQLe/hashnode-mobile-clone` | `specs/batch-43/851-hashnode.md` |
-| [ ] | 852 | Product Hunt | `GeorgeQLe/product-hunt-mobile-clone` | `specs/batch-43/852-product-hunt.md` |
-| [ ] | 853 | Hacker News | `GeorgeQLe/hacker-news-mobile-clone` | `specs/batch-43/853-hacker-news.md` |
-| [ ] | 854 | DigitalOcean | `GeorgeQLe/digitalocean-mobile-clone` | `specs/batch-43/854-digitalocean.md` |
-| [ ] | 855 | AWS Console | `GeorgeQLe/aws-console-mobile-clone` | `specs/batch-43/855-aws-console.md` |
-| [ ] | 856 | Google Cloud | `GeorgeQLe/google-cloud-mobile-clone` | `specs/batch-43/856-google-cloud.md` |
-| [ ] | 857 | Microsoft Azure | `GeorgeQLe/microsoft-azure-mobile-clone` | `specs/batch-43/857-microsoft-azure.md` |
-| [ ] | 858 | Cloudflare | `GeorgeQLe/cloudflare-mobile-clone` | `specs/batch-43/858-cloudflare.md` |
-| [ ] | 859 | Vercel | `GeorgeQLe/vercel-mobile-clone` | `specs/batch-43/859-vercel.md` |
-| [ ] | 860 | Netlify | `GeorgeQLe/netlify-mobile-clone` | `specs/batch-43/860-netlify.md` |
-| [ ] | 861 | Sentry | `GeorgeQLe/sentry-mobile-clone` | `specs/batch-44/861-sentry.md` |
-| [ ] | 862 | Datadog | `GeorgeQLe/datadog-mobile-clone` | `specs/batch-44/862-datadog.md` |
-| [ ] | 863 | PagerDuty | `GeorgeQLe/pagerduty-mobile-clone` | `specs/batch-44/863-pagerduty.md` |
-| [ ] | 864 | Opsgenie | `GeorgeQLe/opsgenie-mobile-clone` | `specs/batch-44/864-opsgenie.md` |
-| [ ] | 865 | Grafana | `GeorgeQLe/grafana-mobile-clone` | `specs/batch-44/865-grafana.md` |
-| [ ] | 866 | New Relic | `GeorgeQLe/new-relic-mobile-clone` | `specs/batch-44/866-new-relic.md` |
-| [ ] | 867 | Expo Go | `GeorgeQLe/expo-go-mobile-clone` | `specs/batch-44/867-expo-go.md` |
-| [ ] | 868 | Termius | `GeorgeQLe/termius-mobile-clone` | `specs/batch-44/868-termius.md` |
-| [ ] | 869 | Blink Shell | `GeorgeQLe/blink-shell-mobile-clone` | `specs/batch-44/869-blink-shell.md` |
-| [ ] | 870 | Working Copy | `GeorgeQLe/working-copy-mobile-clone` | `specs/batch-44/870-working-copy.md` |
-| [ ] | 871 | Code App | `GeorgeQLe/code-app-mobile-clone` | `specs/batch-44/871-code-app.md` |
-| [ ] | 872 | CNN | `GeorgeQLe/cnn-mobile-clone` | `specs/batch-44/872-cnn.md` |
-| [ ] | 873 | BBC News | `GeorgeQLe/bbc-news-mobile-clone` | `specs/batch-44/873-bbc-news.md` |
-| [ ] | 874 | The Guardian | `GeorgeQLe/the-guardian-mobile-clone` | `specs/batch-44/874-the-guardian.md` |
-| [ ] | 875 | Reuters | `GeorgeQLe/reuters-mobile-clone` | `specs/batch-44/875-reuters.md` |
-| [ ] | 876 | AP News | `GeorgeQLe/ap-news-mobile-clone` | `specs/batch-44/876-ap-news.md` |
-| [ ] | 877 | NPR | `GeorgeQLe/npr-mobile-clone` | `specs/batch-44/877-npr.md` |
-| [ ] | 878 | The Wall Street Journal | `GeorgeQLe/the-wall-street-journal-mobile-clone` | `specs/batch-44/878-the-wall-street-journal.md` |
-| [ ] | 879 | Financial Times | `GeorgeQLe/financial-times-mobile-clone` | `specs/batch-44/879-financial-times.md` |
-| [ ] | 880 | The Washington Post | `GeorgeQLe/the-washington-post-mobile-clone` | `specs/batch-44/880-the-washington-post.md` |
-| [ ] | 881 | USA Today | `GeorgeQLe/usa-today-mobile-clone` | `specs/batch-45/881-usa-today.md` |
-| [ ] | 882 | Fox News | `GeorgeQLe/fox-news-mobile-clone` | `specs/batch-45/882-fox-news.md` |
-| [ ] | 883 | NBC News | `GeorgeQLe/nbc-news-mobile-clone` | `specs/batch-45/883-nbc-news.md` |
-| [ ] | 884 | CBS News | `GeorgeQLe/cbs-news-mobile-clone` | `specs/batch-45/884-cbs-news.md` |
-| [ ] | 885 | ABC News | `GeorgeQLe/abc-news-mobile-clone` | `specs/batch-45/885-abc-news.md` |
-| [ ] | 886 | Al Jazeera | `GeorgeQLe/al-jazeera-mobile-clone` | `specs/batch-45/886-al-jazeera.md` |
-| [ ] | 887 | The Economist | `GeorgeQLe/the-economist-mobile-clone` | `specs/batch-45/887-the-economist.md` |
-| [ ] | 888 | Politico | `GeorgeQLe/politico-mobile-clone` | `specs/batch-45/888-politico.md` |
-| [ ] | 889 | Axios | `GeorgeQLe/axios-mobile-clone` | `specs/batch-45/889-axios.md` |
-| [ ] | 890 | Semafor | `GeorgeQLe/semafor-mobile-clone` | `specs/batch-45/890-semafor.md` |
-| [ ] | 891 | Vox | `GeorgeQLe/vox-mobile-clone` | `specs/batch-45/891-vox.md` |
-| [ ] | 892 | The Verge | `GeorgeQLe/the-verge-mobile-clone` | `specs/batch-45/892-the-verge.md` |
-| [ ] | 893 | Engadget | `GeorgeQLe/engadget-mobile-clone` | `specs/batch-45/893-engadget.md` |
-| [ ] | 894 | TechCrunch | `GeorgeQLe/techcrunch-mobile-clone` | `specs/batch-45/894-techcrunch.md` |
-| [ ] | 895 | Ars Technica | `GeorgeQLe/ars-technica-mobile-clone` | `specs/batch-45/895-ars-technica.md` |
-| [ ] | 896 | Wired | `GeorgeQLe/wired-mobile-clone` | `specs/batch-45/896-wired.md` |
-| [ ] | 897 | Kobo Books | `GeorgeQLe/kobo-books-mobile-clone` | `specs/batch-45/897-kobo-books.md` |
-| [ ] | 898 | Google Play Books | `GeorgeQLe/google-play-books-mobile-clone` | `specs/batch-45/898-google-play-books.md` |
-| [ ] | 899 | Nook | `GeorgeQLe/nook-mobile-clone` | `specs/batch-45/899-nook.md` |
-| [ ] | 900 | The StoryGraph | `GeorgeQLe/the-storygraph-mobile-clone` | `specs/batch-45/900-the-storygraph.md` |
-| [ ] | 901 | Bookmate | `GeorgeQLe/bookmate-mobile-clone` | `specs/batch-46/901-bookmate.md` |
-| [ ] | 902 | Blinkist | `GeorgeQLe/blinkist-mobile-clone` | `specs/batch-46/902-blinkist.md` |
-| [ ] | 903 | Headway | `GeorgeQLe/headway-mobile-clone` | `specs/batch-46/903-headway.md` |
-| [ ] | 904 | Serial Reader | `GeorgeQLe/serial-reader-mobile-clone` | `specs/batch-46/904-serial-reader.md` |
-| [ ] | 905 | Inkitt | `GeorgeQLe/inkitt-mobile-clone` | `specs/batch-46/905-inkitt.md` |
-| [ ] | 906 | Dreame | `GeorgeQLe/dreame-mobile-clone` | `specs/batch-46/906-dreame.md` |
-| [ ] | 907 | Tapas | `GeorgeQLe/tapas-mobile-clone` | `specs/batch-46/907-tapas.md` |
-| [ ] | 908 | Radish | `GeorgeQLe/radish-mobile-clone` | `specs/batch-46/908-radish.md` |
-| [ ] | 909 | Webnovel | `GeorgeQLe/webnovel-mobile-clone` | `specs/batch-46/909-webnovel.md` |
-| [ ] | 910 | MANGA Plus | `GeorgeQLe/manga-plus-mobile-clone` | `specs/batch-46/910-manga-plus.md` |
-| [ ] | 911 | Shonen Jump | `GeorgeQLe/shonen-jump-mobile-clone` | `specs/batch-46/911-shonen-jump.md` |
-| [ ] | 912 | VIZ Manga | `GeorgeQLe/viz-manga-mobile-clone` | `specs/batch-46/912-viz-manga.md` |
-| [ ] | 913 | Marvel Unlimited | `GeorgeQLe/marvel-unlimited-mobile-clone` | `specs/batch-46/913-marvel-unlimited.md` |
-| [ ] | 914 | DC Universe Infinite | `GeorgeQLe/dc-universe-infinite-mobile-clone` | `specs/batch-46/914-dc-universe-infinite.md` |
-| [ ] | 915 | Mastodon | `GeorgeQLe/mastodon-mobile-clone` | `specs/batch-46/915-mastodon.md` |
-| [ ] | 916 | Tumblr | `GeorgeQLe/tumblr-mobile-clone` | `specs/batch-46/916-tumblr.md` |
-| [ ] | 917 | Flickr | `GeorgeQLe/flickr-mobile-clone` | `specs/batch-46/917-flickr.md` |
-| [ ] | 918 | 500px | `GeorgeQLe/500px-mobile-clone` | `specs/batch-46/918-500px.md` |
-| [ ] | 919 | Clubhouse | `GeorgeQLe/clubhouse-mobile-clone` | `specs/batch-46/919-clubhouse.md` |
-| [ ] | 920 | Amino | `GeorgeQLe/amino-mobile-clone` | `specs/batch-46/920-amino.md` |
-| [ ] | 921 | Weverse | `GeorgeQLe/weverse-mobile-clone` | `specs/batch-47/921-weverse.md` |
-| [ ] | 922 | Patreon | `GeorgeQLe/patreon-mobile-clone` | `specs/batch-47/922-patreon.md` |
-| [ ] | 923 | Buy Me a Coffee | `GeorgeQLe/buy-me-a-coffee-mobile-clone` | `specs/batch-47/923-buy-me-a-coffee.md` |
-| [ ] | 924 | Ko-fi | `GeorgeQLe/ko-fi-mobile-clone` | `specs/batch-47/924-ko-fi.md` |
-| [ ] | 925 | Cameo | `GeorgeQLe/cameo-mobile-clone` | `specs/batch-47/925-cameo.md` |
-| [ ] | 926 | Guilded | `GeorgeQLe/guilded-mobile-clone` | `specs/batch-47/926-guilded.md` |
-| [ ] | 927 | Geneva | `GeorgeQLe/geneva-mobile-clone` | `specs/batch-47/927-geneva.md` |
-| [ ] | 928 | Fizz | `GeorgeQLe/fizz-mobile-clone` | `specs/batch-47/928-fizz.md` |
-| [ ] | 929 | Yubo | `GeorgeQLe/yubo-mobile-clone` | `specs/batch-47/929-yubo.md` |
-| [ ] | 930 | Poparazzi | `GeorgeQLe/poparazzi-mobile-clone` | `specs/batch-47/930-poparazzi.md` |
-| [ ] | 931 | NGL | `GeorgeQLe/ngl-mobile-clone` | `specs/batch-47/931-ngl.md` |
-| [ ] | 932 | Tellonym | `GeorgeQLe/tellonym-mobile-clone` | `specs/batch-47/932-tellonym.md` |
-| [ ] | 933 | Rumble | `GeorgeQLe/rumble-mobile-clone` | `specs/batch-47/933-rumble.md` |
-| [ ] | 934 | Truth Social | `GeorgeQLe/truth-social-mobile-clone` | `specs/batch-47/934-truth-social.md` |
-| [ ] | 935 | Viber | `GeorgeQLe/viber-mobile-clone` | `specs/batch-47/935-viber.md` |
-| [ ] | 936 | WeChat | `GeorgeQLe/wechat-mobile-clone` | `specs/batch-47/936-wechat.md` |
-| [ ] | 937 | LINE | `GeorgeQLe/line-mobile-clone` | `specs/batch-47/937-line.md` |
-| [ ] | 938 | KakaoTalk | `GeorgeQLe/kakaotalk-mobile-clone` | `specs/batch-47/938-kakaotalk.md` |
-| [ ] | 939 | Skype | `GeorgeQLe/skype-mobile-clone` | `specs/batch-47/939-skype.md` |
-| [ ] | 940 | Google Voice | `GeorgeQLe/google-voice-mobile-clone` | `specs/batch-47/940-google-voice.md` |
-| [ ] | 941 | TextNow | `GeorgeQLe/textnow-mobile-clone` | `specs/batch-48/941-textnow.md` |
-| [ ] | 942 | TextFree | `GeorgeQLe/textfree-mobile-clone` | `specs/batch-48/942-textfree.md` |
-| [ ] | 943 | GroupMe | `GeorgeQLe/groupme-mobile-clone` | `specs/batch-48/943-groupme.md` |
-| [ ] | 944 | Marco Polo | `GeorgeQLe/marco-polo-mobile-clone` | `specs/batch-48/944-marco-polo.md` |
-| [ ] | 945 | Voxer | `GeorgeQLe/voxer-mobile-clone` | `specs/batch-48/945-voxer.md` |
-| [ ] | 946 | Microsoft Teams | `GeorgeQLe/microsoft-teams-mobile-clone` | `specs/batch-48/946-microsoft-teams.md` |
-| [ ] | 947 | Cisco Webex | `GeorgeQLe/cisco-webex-mobile-clone` | `specs/batch-48/947-cisco-webex.md` |
-| [ ] | 948 | Google Meet | `GeorgeQLe/google-meet-mobile-clone` | `specs/batch-48/948-google-meet.md` |
-| [ ] | 949 | GoTo | `GeorgeQLe/goto-mobile-clone` | `specs/batch-48/949-goto.md` |
-| [ ] | 950 | BlueJeans | `GeorgeQLe/bluejeans-mobile-clone` | `specs/batch-48/950-bluejeans.md` |
-| [ ] | 951 | Jitsi Meet | `GeorgeQLe/jitsi-meet-mobile-clone` | `specs/batch-48/951-jitsi-meet.md` |
-| [ ] | 952 | Proton Mail | `GeorgeQLe/proton-mail-mobile-clone` | `specs/batch-48/952-proton-mail.md` |
-| [ ] | 953 | Yahoo Mail | `GeorgeQLe/yahoo-mail-mobile-clone` | `specs/batch-48/953-yahoo-mail.md` |
-| [ ] | 954 | AOL Mail | `GeorgeQLe/aol-mail-mobile-clone` | `specs/batch-48/954-aol-mail.md` |
-| [ ] | 955 | Spark Mail | `GeorgeQLe/spark-mail-mobile-clone` | `specs/batch-48/955-spark-mail.md` |
-| [ ] | 956 | Edison Mail | `GeorgeQLe/edison-mail-mobile-clone` | `specs/batch-48/956-edison-mail.md` |
-| [ ] | 957 | BlueMail | `GeorgeQLe/bluemail-mobile-clone` | `specs/batch-48/957-bluemail.md` |
-| [ ] | 958 | Canary Mail | `GeorgeQLe/canary-mail-mobile-clone` | `specs/batch-48/958-canary-mail.md` |
-| [ ] | 959 | Fastmail | `GeorgeQLe/fastmail-mobile-clone` | `specs/batch-48/959-fastmail.md` |
-| [ ] | 960 | HEY | `GeorgeQLe/hey-mobile-clone` | `specs/batch-48/960-hey.md` |
-| [ ] | 961 | Tuta Mail | `GeorgeQLe/tuta-mail-mobile-clone` | `specs/batch-49/961-tuta-mail.md` |
-| [ ] | 962 | Zoho Mail | `GeorgeQLe/zoho-mail-mobile-clone` | `specs/batch-49/962-zoho-mail.md` |
-| [ ] | 963 | Spike | `GeorgeQLe/spike-mobile-clone` | `specs/batch-49/963-spike.md` |
-| [ ] | 964 | Superhuman | `GeorgeQLe/superhuman-mobile-clone` | `specs/batch-49/964-superhuman.md` |
-| [ ] | 965 | Shortwave | `GeorgeQLe/shortwave-mobile-clone` | `specs/batch-49/965-shortwave.md` |
-| [ ] | 966 | Clean Email | `GeorgeQLe/clean-email-mobile-clone` | `specs/batch-49/966-clean-email.md` |
-| [ ] | 967 | Unroll.Me | `GeorgeQLe/unroll-me-mobile-clone` | `specs/batch-49/967-unroll-me.md` |
-| [ ] | 968 | letgo | `GeorgeQLe/letgo-mobile-clone` | `specs/batch-49/968-letgo.md` |
-| [ ] | 969 | VarageSale | `GeorgeQLe/varagesale-mobile-clone` | `specs/batch-49/969-varagesale.md` |
-| [ ] | 970 | Kijiji | `GeorgeQLe/kijiji-mobile-clone` | `specs/batch-49/970-kijiji.md` |
+| [x] | 671 | Lose It! | `GeorgeQLe/lose-it-mobile-clone` | `specs/batch-34/671-lose-it.md` |
+| [x] | 672 | Cronometer | `GeorgeQLe/cronometer-mobile-clone` | `specs/batch-34/672-cronometer.md` |
+| [x] | 673 | Lifesum | `GeorgeQLe/lifesum-mobile-clone` | `specs/batch-34/673-lifesum.md` |
+| [x] | 674 | WaterMinder | `GeorgeQLe/waterminder-mobile-clone` | `specs/batch-34/674-waterminder.md` |
+| [x] | 675 | Pillow | `GeorgeQLe/pillow-mobile-clone` | `specs/batch-34/675-pillow.md` |
+| [x] | 676 | AutoSleep | `GeorgeQLe/autosleep-mobile-clone` | `specs/batch-34/676-autosleep.md` |
+| [x] | 677 | SleepScore | `GeorgeQLe/sleepscore-mobile-clone` | `specs/batch-34/677-sleepscore.md` |
+| [x] | 678 | Withings Health Mate | `GeorgeQLe/withings-health-mate-mobile-clone` | `specs/batch-34/678-withings-health-mate.md` |
+| [x] | 679 | Samsung Health | `GeorgeQLe/samsung-health-mobile-clone` | `specs/batch-34/679-samsung-health.md` |
+| [x] | 680 | Apple Health | `GeorgeQLe/apple-health-mobile-clone` | `specs/batch-34/680-apple-health.md` |
+| [x] | 681 | Google Fit | `GeorgeQLe/google-fit-mobile-clone` | `specs/batch-35/681-google-fit.md` |
+| [x] | 682 | Athlytic | `GeorgeQLe/athlytic-mobile-clone` | `specs/batch-35/682-athlytic.md` |
+| [x] | 683 | Welltory | `GeorgeQLe/welltory-mobile-clone` | `specs/batch-35/683-welltory.md` |
+| [x] | 684 | Rise Sleep | `GeorgeQLe/rise-sleep-mobile-clone` | `specs/batch-35/684-rise-sleep.md` |
+| [x] | 685 | Pzizz | `GeorgeQLe/pzizz-mobile-clone` | `specs/batch-35/685-pzizz.md` |
+| [x] | 686 | The Bump | `GeorgeQLe/the-bump-mobile-clone` | `specs/batch-35/686-the-bump.md` |
+| [x] | 687 | What to Expect | `GeorgeQLe/what-to-expect-mobile-clone` | `specs/batch-35/687-what-to-expect.md` |
+| [x] | 688 | Peanut | `GeorgeQLe/peanut-mobile-clone` | `specs/batch-35/688-peanut.md` |
+| [x] | 689 | Find My Kids | `GeorgeQLe/find-my-kids-mobile-clone` | `specs/batch-35/689-find-my-kids.md` |
+| [x] | 690 | Family Link | `GeorgeQLe/family-link-mobile-clone` | `specs/batch-35/690-family-link.md` |
+| [x] | 691 | OurPact | `GeorgeQLe/ourpact-mobile-clone` | `specs/batch-35/691-ourpact.md` |
+| [x] | 692 | Circle Parental Controls | `GeorgeQLe/circle-parental-controls-mobile-clone` | `specs/batch-35/692-circle-parental-controls.md` |
+| [x] | 693 | FamCal | `GeorgeQLe/famcal-mobile-clone` | `specs/batch-35/693-famcal.md` |
+| [x] | 694 | Winnie | `GeorgeQLe/winnie-mobile-clone` | `specs/batch-35/694-winnie.md` |
+| [x] | 695 | Kinedu | `GeorgeQLe/kinedu-mobile-clone` | `specs/batch-35/695-kinedu.md` |
+| [x] | 696 | Sprout Baby | `GeorgeQLe/sprout-baby-mobile-clone` | `specs/batch-35/696-sprout-baby.md` |
+| [x] | 697 | FamilyAlbum | `GeorgeQLe/familyalbum-mobile-clone` | `specs/batch-35/697-familyalbum.md` |
+| [x] | 698 | Blackboard Learn | `GeorgeQLe/blackboard-learn-mobile-clone` | `specs/batch-35/698-blackboard-learn.md` |
+| [x] | 699 | Moodle | `GeorgeQLe/moodle-mobile-clone` | `specs/batch-35/699-moodle.md` |
+| [x] | 700 | Schoology | `GeorgeQLe/schoology-mobile-clone` | `specs/batch-35/700-schoology.md` |
+| [x] | 701 | Seesaw | `GeorgeQLe/seesaw-mobile-clone` | `specs/batch-36/701-seesaw.md` |
+| [x] | 702 | Brainly | `GeorgeQLe/brainly-mobile-clone` | `specs/batch-36/702-brainly.md` |
+| [x] | 703 | Chegg Study | `GeorgeQLe/chegg-study-mobile-clone` | `specs/batch-36/703-chegg-study.md` |
+| [x] | 704 | Symbolab | `GeorgeQLe/symbolab-mobile-clone` | `specs/batch-36/704-symbolab.md` |
+| [x] | 705 | WolframAlpha | `GeorgeQLe/wolframalpha-mobile-clone` | `specs/batch-36/705-wolframalpha.md` |
+| [x] | 706 | Brilliant | `GeorgeQLe/brilliant-mobile-clone` | `specs/batch-36/706-brilliant.md` |
+| [x] | 707 | Udemy | `GeorgeQLe/udemy-mobile-clone` | `specs/batch-36/707-udemy.md` |
+| [x] | 708 | edX | `GeorgeQLe/edx-mobile-clone` | `specs/batch-36/708-edx.md` |
+| [x] | 709 | Codecademy Go | `GeorgeQLe/codecademy-go-mobile-clone` | `specs/batch-36/709-codecademy-go.md` |
+| [x] | 710 | Sololearn | `GeorgeQLe/sololearn-mobile-clone` | `specs/batch-36/710-sololearn.md` |
+| [x] | 711 | Mimo | `GeorgeQLe/mimo-mobile-clone` | `specs/batch-36/711-mimo.md` |
+| [x] | 712 | HOMER | `GeorgeQLe/homer-mobile-clone` | `specs/batch-36/712-homer.md` |
+| [x] | 713 | Lingokids | `GeorgeQLe/lingokids-mobile-clone` | `specs/batch-36/713-lingokids.md` |
+| [x] | 714 | Duolingo ABC | `GeorgeQLe/duolingo-abc-mobile-clone` | `specs/batch-36/714-duolingo-abc.md` |
+| [x] | 715 | Drops | `GeorgeQLe/drops-mobile-clone` | `specs/batch-36/715-drops.md` |
+| [x] | 716 | Mondly | `GeorgeQLe/mondly-mobile-clone` | `specs/batch-36/716-mondly.md` |
+| [x] | 717 | Memrise | `GeorgeQLe/memrise-mobile-clone` | `specs/batch-36/717-memrise.md` |
+| [x] | 718 | LingQ | `GeorgeQLe/lingq-mobile-clone` | `specs/batch-36/718-lingq.md` |
+| [x] | 719 | Pimsleur | `GeorgeQLe/pimsleur-mobile-clone` | `specs/batch-36/719-pimsleur.md` |
+| [x] | 720 | Microsoft 365 | `GeorgeQLe/microsoft-365-mobile-clone` | `specs/batch-36/720-microsoft-365.md` |
+| [x] | 721 | Google Docs | `GeorgeQLe/google-docs-mobile-clone` | `specs/batch-37/721-google-docs.md` |
+| [x] | 722 | Google Sheets | `GeorgeQLe/google-sheets-mobile-clone` | `specs/batch-37/722-google-sheets.md` |
+| [x] | 723 | Google Slides | `GeorgeQLe/google-slides-mobile-clone` | `specs/batch-37/723-google-slides.md` |
+| [x] | 724 | Microsoft Word | `GeorgeQLe/microsoft-word-mobile-clone` | `specs/batch-37/724-microsoft-word.md` |
+| [x] | 725 | Microsoft Excel | `GeorgeQLe/microsoft-excel-mobile-clone` | `specs/batch-37/725-microsoft-excel.md` |
+| [x] | 726 | Microsoft PowerPoint | `GeorgeQLe/microsoft-powerpoint-mobile-clone` | `specs/batch-37/726-microsoft-powerpoint.md` |
+| [x] | 727 | OneNote | `GeorgeQLe/onenote-mobile-clone` | `specs/batch-37/727-onenote.md` |
+| [x] | 728 | Apple Pages | `GeorgeQLe/apple-pages-mobile-clone` | `specs/batch-37/728-apple-pages.md` |
+| [x] | 729 | Apple Numbers | `GeorgeQLe/apple-numbers-mobile-clone` | `specs/batch-37/729-apple-numbers.md` |
+| [x] | 730 | Apple Keynote | `GeorgeQLe/apple-keynote-mobile-clone` | `specs/batch-37/730-apple-keynote.md` |
+| [x] | 731 | iA Writer | `GeorgeQLe/ia-writer-mobile-clone` | `specs/batch-37/731-ia-writer.md` |
+| [x] | 732 | Ulysses | `GeorgeQLe/ulysses-mobile-clone` | `specs/batch-37/732-ulysses.md` |
+| [x] | 733 | Craft | `GeorgeQLe/craft-mobile-clone` | `specs/batch-37/733-craft.md` |
+| [x] | 734 | Roam Research | `GeorgeQLe/roam-research-mobile-clone` | `specs/batch-37/734-roam-research.md` |
+| [x] | 735 | Logseq | `GeorgeQLe/logseq-mobile-clone` | `specs/batch-37/735-logseq.md` |
+| [x] | 736 | Standard Notes | `GeorgeQLe/standard-notes-mobile-clone` | `specs/batch-37/736-standard-notes.md` |
+| [x] | 737 | Joplin | `GeorgeQLe/joplin-mobile-clone` | `specs/batch-37/737-joplin.md` |
+| [x] | 738 | Simplenote | `GeorgeQLe/simplenote-mobile-clone` | `specs/batch-37/738-simplenote.md` |
+| [x] | 739 | Notesnook | `GeorgeQLe/notesnook-mobile-clone` | `specs/batch-37/739-notesnook.md` |
+| [x] | 740 | Anytype | `GeorgeQLe/anytype-mobile-clone` | `specs/batch-37/740-anytype.md` |
+| [x] | 741 | Coda | `GeorgeQLe/coda-mobile-clone` | `specs/batch-38/741-coda.md` |
+| [x] | 742 | Airtable | `GeorgeQLe/airtable-mobile-clone` | `specs/batch-38/742-airtable.md` |
+| [x] | 743 | Monday.com | `GeorgeQLe/monday-com-mobile-clone` | `specs/batch-38/743-monday-com.md` |
+| [x] | 744 | Basecamp | `GeorgeQLe/basecamp-mobile-clone` | `specs/batch-38/744-basecamp.md` |
+| [x] | 745 | Wrike | `GeorgeQLe/wrike-mobile-clone` | `specs/batch-38/745-wrike.md` |
+| [x] | 746 | Smartsheet | `GeorgeQLe/smartsheet-mobile-clone` | `specs/batch-38/746-smartsheet.md` |
+| [x] | 747 | Microsoft Planner | `GeorgeQLe/microsoft-planner-mobile-clone` | `specs/batch-38/747-microsoft-planner.md` |
+| [x] | 748 | Microsoft To Do | `GeorgeQLe/microsoft-to-do-mobile-clone` | `specs/batch-38/748-microsoft-to-do.md` |
+| [x] | 749 | TickTick | `GeorgeQLe/ticktick-mobile-clone` | `specs/batch-38/749-ticktick.md` |
+| [x] | 750 | OmniFocus | `GeorgeQLe/omnifocus-mobile-clone` | `specs/batch-38/750-omnifocus.md` |
+| [x] | 751 | Any.do | `GeorgeQLe/any-do-mobile-clone` | `specs/batch-38/751-any-do.md` |
+| [x] | 752 | Remember The Milk | `GeorgeQLe/remember-the-milk-mobile-clone` | `specs/batch-38/752-remember-the-milk.md` |
+| [x] | 753 | Habitica | `GeorgeQLe/habitica-mobile-clone` | `specs/batch-38/753-habitica.md` |
+| [x] | 754 | Habitify | `GeorgeQLe/habitify-mobile-clone` | `specs/batch-38/754-habitify.md` |
+| [x] | 755 | Streaks | `GeorgeQLe/streaks-mobile-clone` | `specs/batch-38/755-streaks.md` |
+| [x] | 756 | Forest | `GeorgeQLe/forest-mobile-clone` | `specs/batch-38/756-forest.md` |
+| [x] | 757 | Structured | `GeorgeQLe/structured-mobile-clone` | `specs/batch-38/757-structured.md` |
+| [x] | 758 | Sunsama | `GeorgeQLe/sunsama-mobile-clone` | `specs/batch-38/758-sunsama.md` |
+| [x] | 759 | Akiflow | `GeorgeQLe/akiflow-mobile-clone` | `specs/batch-38/759-akiflow.md` |
+| [x] | 760 | Motion | `GeorgeQLe/motion-mobile-clone` | `specs/batch-38/760-motion.md` |
+| [x] | 761 | Reclaim.ai | `GeorgeQLe/reclaim-ai-mobile-clone` | `specs/batch-39/761-reclaim-ai.md` |
+| [x] | 762 | Doodle | `GeorgeQLe/doodle-mobile-clone` | `specs/batch-39/762-doodle.md` |
+| [x] | 763 | BusyCal | `GeorgeQLe/busycal-mobile-clone` | `specs/batch-39/763-busycal.md` |
+| [x] | 764 | Timepage | `GeorgeQLe/timepage-mobile-clone` | `specs/batch-39/764-timepage.md` |
+| [x] | 765 | Calendars by Readdle | `GeorgeQLe/calendars-by-readdle-mobile-clone` | `specs/batch-39/765-calendars-by-readdle.md` |
+| [x] | 766 | Proton Calendar | `GeorgeQLe/proton-calendar-mobile-clone` | `specs/batch-39/766-proton-calendar.md` |
+| [x] | 767 | Cal.com | `GeorgeQLe/cal-com-mobile-clone` | `specs/batch-39/767-cal-com.md` |
+| [x] | 768 | SavvyCal | `GeorgeQLe/savvycal-mobile-clone` | `specs/batch-39/768-savvycal.md` |
+| [x] | 769 | Acuity Scheduling | `GeorgeQLe/acuity-scheduling-mobile-clone` | `specs/batch-39/769-acuity-scheduling.md` |
+| [x] | 770 | Square Appointments | `GeorgeQLe/square-appointments-mobile-clone` | `specs/batch-39/770-square-appointments.md` |
+| [x] | 771 | Vagaro | `GeorgeQLe/vagaro-mobile-clone` | `specs/batch-39/771-vagaro.md` |
+| [x] | 772 | Mindbody | `GeorgeQLe/mindbody-mobile-clone` | `specs/batch-39/772-mindbody.md` |
+| [x] | 773 | Fresha | `GeorgeQLe/fresha-mobile-clone` | `specs/batch-39/773-fresha.md` |
+| [x] | 774 | Booksy | `GeorgeQLe/booksy-mobile-clone` | `specs/batch-39/774-booksy.md` |
+| [x] | 775 | StyleSeat | `GeorgeQLe/styleseat-mobile-clone` | `specs/batch-39/775-styleseat.md` |
+| [x] | 776 | Schedulicity | `GeorgeQLe/schedulicity-mobile-clone` | `specs/batch-39/776-schedulicity.md` |
+| [x] | 777 | Setmore | `GeorgeQLe/setmore-mobile-clone` | `specs/batch-39/777-setmore.md` |
+| [x] | 778 | Box | `GeorgeQLe/box-mobile-clone` | `specs/batch-39/778-box.md` |
+| [x] | 779 | OneDrive | `GeorgeQLe/onedrive-mobile-clone` | `specs/batch-39/779-onedrive.md` |
+| [x] | 780 | iCloud Drive | `GeorgeQLe/icloud-drive-mobile-clone` | `specs/batch-39/780-icloud-drive.md` |
+| [x] | 781 | MEGA | `GeorgeQLe/mega-mobile-clone` | `specs/batch-40/781-mega.md` |
+| [x] | 782 | pCloud | `GeorgeQLe/pcloud-mobile-clone` | `specs/batch-40/782-pcloud.md` |
+| [x] | 783 | Sync.com | `GeorgeQLe/sync-com-mobile-clone` | `specs/batch-40/783-sync-com.md` |
+| [x] | 784 | WeTransfer | `GeorgeQLe/wetransfer-mobile-clone` | `specs/batch-40/784-wetransfer.md` |
+| [x] | 785 | Adobe Acrobat Reader | `GeorgeQLe/adobe-acrobat-reader-mobile-clone` | `specs/batch-40/785-adobe-acrobat-reader.md` |
+| [x] | 786 | CamScanner | `GeorgeQLe/camscanner-mobile-clone` | `specs/batch-40/786-camscanner.md` |
+| [x] | 787 | Genius Scan | `GeorgeQLe/genius-scan-mobile-clone` | `specs/batch-40/787-genius-scan.md` |
+| [x] | 788 | Scanner Pro | `GeorgeQLe/scanner-pro-mobile-clone` | `specs/batch-40/788-scanner-pro.md` |
+| [x] | 789 | DocuSign | `GeorgeQLe/docusign-mobile-clone` | `specs/batch-40/789-docusign.md` |
+| [x] | 790 | Adobe Scan | `GeorgeQLe/adobe-scan-mobile-clone` | `specs/batch-40/790-adobe-scan.md` |
+| [x] | 791 | Microsoft Lens | `GeorgeQLe/microsoft-lens-mobile-clone` | `specs/batch-40/791-microsoft-lens.md` |
+| [x] | 792 | 1Password | `GeorgeQLe/1password-mobile-clone` | `specs/batch-40/792-1password.md` |
+| [x] | 793 | LastPass | `GeorgeQLe/lastpass-mobile-clone` | `specs/batch-40/793-lastpass.md` |
+| [x] | 794 | Bitwarden | `GeorgeQLe/bitwarden-mobile-clone` | `specs/batch-40/794-bitwarden.md` |
+| [x] | 795 | Dashlane | `GeorgeQLe/dashlane-mobile-clone` | `specs/batch-40/795-dashlane.md` |
+| [x] | 796 | Keeper | `GeorgeQLe/keeper-mobile-clone` | `specs/batch-40/796-keeper.md` |
+| [x] | 797 | NordPass | `GeorgeQLe/nordpass-mobile-clone` | `specs/batch-40/797-nordpass.md` |
+| [x] | 798 | Proton Pass | `GeorgeQLe/proton-pass-mobile-clone` | `specs/batch-40/798-proton-pass.md` |
+| [x] | 799 | Authy | `GeorgeQLe/authy-mobile-clone` | `specs/batch-40/799-authy.md` |
+| [x] | 800 | Google Authenticator | `GeorgeQLe/google-authenticator-mobile-clone` | `specs/batch-40/800-google-authenticator.md` |
+| [x] | 801 | Microsoft Authenticator | `GeorgeQLe/microsoft-authenticator-mobile-clone` | `specs/batch-41/801-microsoft-authenticator.md` |
+| [x] | 802 | Okta Verify | `GeorgeQLe/okta-verify-mobile-clone` | `specs/batch-41/802-okta-verify.md` |
+| [x] | 803 | Duo Mobile | `GeorgeQLe/duo-mobile-mobile-clone` | `specs/batch-41/803-duo-mobile.md` |
+| [x] | 804 | NordVPN | `GeorgeQLe/nordvpn-mobile-clone` | `specs/batch-41/804-nordvpn.md` |
+| [x] | 805 | ExpressVPN | `GeorgeQLe/expressvpn-mobile-clone` | `specs/batch-41/805-expressvpn.md` |
+| [x] | 806 | Surfshark | `GeorgeQLe/surfshark-mobile-clone` | `specs/batch-41/806-surfshark.md` |
+| [x] | 807 | Proton VPN | `GeorgeQLe/proton-vpn-mobile-clone` | `specs/batch-41/807-proton-vpn.md` |
+| [x] | 808 | Mullvad VPN | `GeorgeQLe/mullvad-vpn-mobile-clone` | `specs/batch-41/808-mullvad-vpn.md` |
+| [x] | 809 | TunnelBear | `GeorgeQLe/tunnelbear-mobile-clone` | `specs/batch-41/809-tunnelbear.md` |
+| [x] | 810 | Windscribe | `GeorgeQLe/windscribe-mobile-clone` | `specs/batch-41/810-windscribe.md` |
+| [x] | 811 | Cloudflare WARP | `GeorgeQLe/cloudflare-warp-mobile-clone` | `specs/batch-41/811-cloudflare-warp.md` |
+| [x] | 812 | Malwarebytes | `GeorgeQLe/malwarebytes-mobile-clone` | `specs/batch-41/812-malwarebytes.md` |
+| [x] | 813 | Norton 360 | `GeorgeQLe/norton-360-mobile-clone` | `specs/batch-41/813-norton-360.md` |
+| [x] | 814 | McAfee Security | `GeorgeQLe/mcafee-security-mobile-clone` | `specs/batch-41/814-mcafee-security.md` |
+| [x] | 815 | Avast One | `GeorgeQLe/avast-one-mobile-clone` | `specs/batch-41/815-avast-one.md` |
+| [x] | 816 | Bitdefender Mobile Security | `GeorgeQLe/bitdefender-mobile-security-mobile-clone` | `specs/batch-41/816-bitdefender-mobile-security.md` |
+| [x] | 817 | 2FAS | `GeorgeQLe/2fas-mobile-clone` | `specs/batch-41/817-2fas.md` |
+| [x] | 818 | Yubico Authenticator | `GeorgeQLe/yubico-authenticator-mobile-clone` | `specs/batch-41/818-yubico-authenticator.md` |
+| [x] | 819 | Salesforce | `GeorgeQLe/salesforce-mobile-clone` | `specs/batch-41/819-salesforce.md` |
+| [x] | 820 | HubSpot | `GeorgeQLe/hubspot-mobile-clone` | `specs/batch-41/820-hubspot.md` |
+| [x] | 821 | Zendesk | `GeorgeQLe/zendesk-mobile-clone` | `specs/batch-42/821-zendesk.md` |
+| [x] | 822 | Intercom | `GeorgeQLe/intercom-mobile-clone` | `specs/batch-42/822-intercom.md` |
+| [x] | 823 | Freshdesk | `GeorgeQLe/freshdesk-mobile-clone` | `specs/batch-42/823-freshdesk.md` |
+| [x] | 824 | ServiceNow | `GeorgeQLe/servicenow-mobile-clone` | `specs/batch-42/824-servicenow.md` |
+| [x] | 825 | Workday | `GeorgeQLe/workday-mobile-clone` | `specs/batch-42/825-workday.md` |
+| [x] | 826 | BambooHR | `GeorgeQLe/bamboohr-mobile-clone` | `specs/batch-42/826-bamboohr.md` |
+| [x] | 827 | ADP Mobile | `GeorgeQLe/adp-mobile-mobile-clone` | `specs/batch-42/827-adp-mobile.md` |
+| [x] | 828 | Gusto Wallet | `GeorgeQLe/gusto-wallet-mobile-clone` | `specs/batch-42/828-gusto-wallet.md` |
+| [x] | 829 | Rippling | `GeorgeQLe/rippling-mobile-clone` | `specs/batch-42/829-rippling.md` |
+| [x] | 830 | Deel | `GeorgeQLe/deel-mobile-clone` | `specs/batch-42/830-deel.md` |
+| [x] | 831 | Expensify | `GeorgeQLe/expensify-mobile-clone` | `specs/batch-42/831-expensify.md` |
+| [x] | 832 | SAP Concur | `GeorgeQLe/sap-concur-mobile-clone` | `specs/batch-42/832-sap-concur.md` |
+| [x] | 833 | QuickBooks | `GeorgeQLe/quickbooks-mobile-clone` | `specs/batch-42/833-quickbooks.md` |
+| [x] | 834 | Xero | `GeorgeQLe/xero-mobile-clone` | `specs/batch-42/834-xero.md` |
+| [x] | 835 | Square POS | `GeorgeQLe/square-pos-mobile-clone` | `specs/batch-42/835-square-pos.md` |
+| [x] | 836 | Shopify | `GeorgeQLe/shopify-mobile-clone` | `specs/batch-42/836-shopify.md` |
+| [x] | 837 | Shopify Inbox | `GeorgeQLe/shopify-inbox-mobile-clone` | `specs/batch-42/837-shopify-inbox.md` |
+| [x] | 838 | Stripe Dashboard | `GeorgeQLe/stripe-dashboard-mobile-clone` | `specs/batch-42/838-stripe-dashboard.md` |
+| [x] | 839 | PayPal Business | `GeorgeQLe/paypal-business-mobile-clone` | `specs/batch-42/839-paypal-business.md` |
+| [x] | 840 | Mailchimp | `GeorgeQLe/mailchimp-mobile-clone` | `specs/batch-42/840-mailchimp.md` |
+| [x] | 841 | Hootsuite | `GeorgeQLe/hootsuite-mobile-clone` | `specs/batch-43/841-hootsuite.md` |
+| [x] | 842 | Buffer | `GeorgeQLe/buffer-mobile-clone` | `specs/batch-43/842-buffer.md` |
+| [x] | 843 | Sprout Social | `GeorgeQLe/sprout-social-mobile-clone` | `specs/batch-43/843-sprout-social.md` |
+| [x] | 844 | Later | `GeorgeQLe/later-mobile-clone` | `specs/batch-43/844-later.md` |
+| [x] | 845 | GitLab | `GeorgeQLe/gitlab-mobile-clone` | `specs/batch-43/845-gitlab.md` |
+| [x] | 846 | Bitbucket | `GeorgeQLe/bitbucket-mobile-clone` | `specs/batch-43/846-bitbucket.md` |
+| [x] | 847 | Postman | `GeorgeQLe/postman-mobile-clone` | `specs/batch-43/847-postman.md` |
+| [x] | 848 | CodeSandbox | `GeorgeQLe/codesandbox-mobile-clone` | `specs/batch-43/848-codesandbox.md` |
+| [x] | 849 | Stack Overflow | `GeorgeQLe/stack-overflow-mobile-clone` | `specs/batch-43/849-stack-overflow.md` |
+| [x] | 850 | DEV Community | `GeorgeQLe/dev-community-mobile-clone` | `specs/batch-43/850-dev-community.md` |
+| [x] | 851 | Hashnode | `GeorgeQLe/hashnode-mobile-clone` | `specs/batch-43/851-hashnode.md` |
+| [x] | 852 | Product Hunt | `GeorgeQLe/product-hunt-mobile-clone` | `specs/batch-43/852-product-hunt.md` |
+| [x] | 853 | Hacker News | `GeorgeQLe/hacker-news-mobile-clone` | `specs/batch-43/853-hacker-news.md` |
+| [x] | 854 | DigitalOcean | `GeorgeQLe/digitalocean-mobile-clone` | `specs/batch-43/854-digitalocean.md` |
+| [x] | 855 | AWS Console | `GeorgeQLe/aws-console-mobile-clone` | `specs/batch-43/855-aws-console.md` |
+| [x] | 856 | Google Cloud | `GeorgeQLe/google-cloud-mobile-clone` | `specs/batch-43/856-google-cloud.md` |
+| [x] | 857 | Microsoft Azure | `GeorgeQLe/microsoft-azure-mobile-clone` | `specs/batch-43/857-microsoft-azure.md` |
+| [x] | 858 | Cloudflare | `GeorgeQLe/cloudflare-mobile-clone` | `specs/batch-43/858-cloudflare.md` |
+| [x] | 859 | Vercel | `GeorgeQLe/vercel-mobile-clone` | `specs/batch-43/859-vercel.md` |
+| [x] | 860 | Netlify | `GeorgeQLe/netlify-mobile-clone` | `specs/batch-43/860-netlify.md` |
+| [x] | 861 | Sentry | `GeorgeQLe/sentry-mobile-clone` | `specs/batch-44/861-sentry.md` |
+| [x] | 862 | Datadog | `GeorgeQLe/datadog-mobile-clone` | `specs/batch-44/862-datadog.md` |
+| [x] | 863 | PagerDuty | `GeorgeQLe/pagerduty-mobile-clone` | `specs/batch-44/863-pagerduty.md` |
+| [x] | 864 | Opsgenie | `GeorgeQLe/opsgenie-mobile-clone` | `specs/batch-44/864-opsgenie.md` |
+| [x] | 865 | Grafana | `GeorgeQLe/grafana-mobile-clone` | `specs/batch-44/865-grafana.md` |
+| [x] | 866 | New Relic | `GeorgeQLe/new-relic-mobile-clone` | `specs/batch-44/866-new-relic.md` |
+| [x] | 867 | Expo Go | `GeorgeQLe/expo-go-mobile-clone` | `specs/batch-44/867-expo-go.md` |
+| [x] | 868 | Termius | `GeorgeQLe/termius-mobile-clone` | `specs/batch-44/868-termius.md` |
+| [x] | 869 | Blink Shell | `GeorgeQLe/blink-shell-mobile-clone` | `specs/batch-44/869-blink-shell.md` |
+| [x] | 870 | Working Copy | `GeorgeQLe/working-copy-mobile-clone` | `specs/batch-44/870-working-copy.md` |
+| [x] | 871 | Code App | `GeorgeQLe/code-app-mobile-clone` | `specs/batch-44/871-code-app.md` |
+| [x] | 872 | CNN | `GeorgeQLe/cnn-mobile-clone` | `specs/batch-44/872-cnn.md` |
+| [x] | 873 | BBC News | `GeorgeQLe/bbc-news-mobile-clone` | `specs/batch-44/873-bbc-news.md` |
+| [x] | 874 | The Guardian | `GeorgeQLe/the-guardian-mobile-clone` | `specs/batch-44/874-the-guardian.md` |
+| [x] | 875 | Reuters | `GeorgeQLe/reuters-mobile-clone` | `specs/batch-44/875-reuters.md` |
+| [x] | 876 | AP News | `GeorgeQLe/ap-news-mobile-clone` | `specs/batch-44/876-ap-news.md` |
+| [x] | 877 | NPR | `GeorgeQLe/npr-mobile-clone` | `specs/batch-44/877-npr.md` |
+| [x] | 878 | The Wall Street Journal | `GeorgeQLe/the-wall-street-journal-mobile-clone` | `specs/batch-44/878-the-wall-street-journal.md` |
+| [x] | 879 | Financial Times | `GeorgeQLe/financial-times-mobile-clone` | `specs/batch-44/879-financial-times.md` |
+| [x] | 880 | The Washington Post | `GeorgeQLe/the-washington-post-mobile-clone` | `specs/batch-44/880-the-washington-post.md` |
+| [x] | 881 | USA Today | `GeorgeQLe/usa-today-mobile-clone` | `specs/batch-45/881-usa-today.md` |
+| [x] | 882 | Fox News | `GeorgeQLe/fox-news-mobile-clone` | `specs/batch-45/882-fox-news.md` |
+| [x] | 883 | NBC News | `GeorgeQLe/nbc-news-mobile-clone` | `specs/batch-45/883-nbc-news.md` |
+| [x] | 884 | CBS News | `GeorgeQLe/cbs-news-mobile-clone` | `specs/batch-45/884-cbs-news.md` |
+| [x] | 885 | ABC News | `GeorgeQLe/abc-news-mobile-clone` | `specs/batch-45/885-abc-news.md` |
+| [x] | 886 | Al Jazeera | `GeorgeQLe/al-jazeera-mobile-clone` | `specs/batch-45/886-al-jazeera.md` |
+| [x] | 887 | The Economist | `GeorgeQLe/the-economist-mobile-clone` | `specs/batch-45/887-the-economist.md` |
+| [x] | 888 | Politico | `GeorgeQLe/politico-mobile-clone` | `specs/batch-45/888-politico.md` |
+| [x] | 889 | Axios | `GeorgeQLe/axios-mobile-clone` | `specs/batch-45/889-axios.md` |
+| [x] | 890 | Semafor | `GeorgeQLe/semafor-mobile-clone` | `specs/batch-45/890-semafor.md` |
+| [x] | 891 | Vox | `GeorgeQLe/vox-mobile-clone` | `specs/batch-45/891-vox.md` |
+| [x] | 892 | The Verge | `GeorgeQLe/the-verge-mobile-clone` | `specs/batch-45/892-the-verge.md` |
+| [x] | 893 | Engadget | `GeorgeQLe/engadget-mobile-clone` | `specs/batch-45/893-engadget.md` |
+| [x] | 894 | TechCrunch | `GeorgeQLe/techcrunch-mobile-clone` | `specs/batch-45/894-techcrunch.md` |
+| [x] | 895 | Ars Technica | `GeorgeQLe/ars-technica-mobile-clone` | `specs/batch-45/895-ars-technica.md` |
+| [x] | 896 | Wired | `GeorgeQLe/wired-mobile-clone` | `specs/batch-45/896-wired.md` |
+| [x] | 897 | Kobo Books | `GeorgeQLe/kobo-books-mobile-clone` | `specs/batch-45/897-kobo-books.md` |
+| [x] | 898 | Google Play Books | `GeorgeQLe/google-play-books-mobile-clone` | `specs/batch-45/898-google-play-books.md` |
+| [x] | 899 | Nook | `GeorgeQLe/nook-mobile-clone` | `specs/batch-45/899-nook.md` |
+| [x] | 900 | The StoryGraph | `GeorgeQLe/the-storygraph-mobile-clone` | `specs/batch-45/900-the-storygraph.md` |
+| [x] | 901 | Bookmate | `GeorgeQLe/bookmate-mobile-clone` | `specs/batch-46/901-bookmate.md` |
+| [x] | 902 | Blinkist | `GeorgeQLe/blinkist-mobile-clone` | `specs/batch-46/902-blinkist.md` |
+| [x] | 903 | Headway | `GeorgeQLe/headway-mobile-clone` | `specs/batch-46/903-headway.md` |
+| [x] | 904 | Serial Reader | `GeorgeQLe/serial-reader-mobile-clone` | `specs/batch-46/904-serial-reader.md` |
+| [x] | 905 | Inkitt | `GeorgeQLe/inkitt-mobile-clone` | `specs/batch-46/905-inkitt.md` |
+| [x] | 906 | Dreame | `GeorgeQLe/dreame-mobile-clone` | `specs/batch-46/906-dreame.md` |
+| [x] | 907 | Tapas | `GeorgeQLe/tapas-mobile-clone` | `specs/batch-46/907-tapas.md` |
+| [x] | 908 | Radish | `GeorgeQLe/radish-mobile-clone` | `specs/batch-46/908-radish.md` |
+| [x] | 909 | Webnovel | `GeorgeQLe/webnovel-mobile-clone` | `specs/batch-46/909-webnovel.md` |
+| [x] | 910 | MANGA Plus | `GeorgeQLe/manga-plus-mobile-clone` | `specs/batch-46/910-manga-plus.md` |
+| [x] | 911 | Shonen Jump | `GeorgeQLe/shonen-jump-mobile-clone` | `specs/batch-46/911-shonen-jump.md` |
+| [x] | 912 | VIZ Manga | `GeorgeQLe/viz-manga-mobile-clone` | `specs/batch-46/912-viz-manga.md` |
+| [x] | 913 | Marvel Unlimited | `GeorgeQLe/marvel-unlimited-mobile-clone` | `specs/batch-46/913-marvel-unlimited.md` |
+| [x] | 914 | DC Universe Infinite | `GeorgeQLe/dc-universe-infinite-mobile-clone` | `specs/batch-46/914-dc-universe-infinite.md` |
+| [x] | 915 | Mastodon | `GeorgeQLe/mastodon-mobile-clone` | `specs/batch-46/915-mastodon.md` |
+| [x] | 916 | Tumblr | `GeorgeQLe/tumblr-mobile-clone` | `specs/batch-46/916-tumblr.md` |
+| [x] | 917 | Flickr | `GeorgeQLe/flickr-mobile-clone` | `specs/batch-46/917-flickr.md` |
+| [x] | 918 | 500px | `GeorgeQLe/500px-mobile-clone` | `specs/batch-46/918-500px.md` |
+| [x] | 919 | Clubhouse | `GeorgeQLe/clubhouse-mobile-clone` | `specs/batch-46/919-clubhouse.md` |
+| [x] | 920 | Amino | `GeorgeQLe/amino-mobile-clone` | `specs/batch-46/920-amino.md` |
+| [x] | 921 | Weverse | `GeorgeQLe/weverse-mobile-clone` | `specs/batch-47/921-weverse.md` |
+| [x] | 922 | Patreon | `GeorgeQLe/patreon-mobile-clone` | `specs/batch-47/922-patreon.md` |
+| [x] | 923 | Buy Me a Coffee | `GeorgeQLe/buy-me-a-coffee-mobile-clone` | `specs/batch-47/923-buy-me-a-coffee.md` |
+| [x] | 924 | Ko-fi | `GeorgeQLe/ko-fi-mobile-clone` | `specs/batch-47/924-ko-fi.md` |
+| [x] | 925 | Cameo | `GeorgeQLe/cameo-mobile-clone` | `specs/batch-47/925-cameo.md` |
+| [x] | 926 | Guilded | `GeorgeQLe/guilded-mobile-clone` | `specs/batch-47/926-guilded.md` |
+| [x] | 927 | Geneva | `GeorgeQLe/geneva-mobile-clone` | `specs/batch-47/927-geneva.md` |
+| [x] | 928 | Fizz | `GeorgeQLe/fizz-mobile-clone` | `specs/batch-47/928-fizz.md` |
+| [x] | 929 | Yubo | `GeorgeQLe/yubo-mobile-clone` | `specs/batch-47/929-yubo.md` |
+| [x] | 930 | Poparazzi | `GeorgeQLe/poparazzi-mobile-clone` | `specs/batch-47/930-poparazzi.md` |
+| [x] | 931 | NGL | `GeorgeQLe/ngl-mobile-clone` | `specs/batch-47/931-ngl.md` |
+| [x] | 932 | Tellonym | `GeorgeQLe/tellonym-mobile-clone` | `specs/batch-47/932-tellonym.md` |
+| [x] | 933 | Rumble | `GeorgeQLe/rumble-mobile-clone` | `specs/batch-47/933-rumble.md` |
+| [x] | 934 | Truth Social | `GeorgeQLe/truth-social-mobile-clone` | `specs/batch-47/934-truth-social.md` |
+| [x] | 935 | Viber | `GeorgeQLe/viber-mobile-clone` | `specs/batch-47/935-viber.md` |
+| [x] | 936 | WeChat | `GeorgeQLe/wechat-mobile-clone` | `specs/batch-47/936-wechat.md` |
+| [x] | 937 | LINE | `GeorgeQLe/line-mobile-clone` | `specs/batch-47/937-line.md` |
+| [x] | 938 | KakaoTalk | `GeorgeQLe/kakaotalk-mobile-clone` | `specs/batch-47/938-kakaotalk.md` |
+| [x] | 939 | Skype | `GeorgeQLe/skype-mobile-clone` | `specs/batch-47/939-skype.md` |
+| [x] | 940 | Google Voice | `GeorgeQLe/google-voice-mobile-clone` | `specs/batch-47/940-google-voice.md` |
+| [x] | 941 | TextNow | `GeorgeQLe/textnow-mobile-clone` | `specs/batch-48/941-textnow.md` |
+| [x] | 942 | TextFree | `GeorgeQLe/textfree-mobile-clone` | `specs/batch-48/942-textfree.md` |
+| [x] | 943 | GroupMe | `GeorgeQLe/groupme-mobile-clone` | `specs/batch-48/943-groupme.md` |
+| [x] | 944 | Marco Polo | `GeorgeQLe/marco-polo-mobile-clone` | `specs/batch-48/944-marco-polo.md` |
+| [x] | 945 | Voxer | `GeorgeQLe/voxer-mobile-clone` | `specs/batch-48/945-voxer.md` |
+| [x] | 946 | Microsoft Teams | `GeorgeQLe/microsoft-teams-mobile-clone` | `specs/batch-48/946-microsoft-teams.md` |
+| [x] | 947 | Cisco Webex | `GeorgeQLe/cisco-webex-mobile-clone` | `specs/batch-48/947-cisco-webex.md` |
+| [x] | 948 | Google Meet | `GeorgeQLe/google-meet-mobile-clone` | `specs/batch-48/948-google-meet.md` |
+| [x] | 949 | GoTo | `GeorgeQLe/goto-mobile-clone` | `specs/batch-48/949-goto.md` |
+| [x] | 950 | BlueJeans | `GeorgeQLe/bluejeans-mobile-clone` | `specs/batch-48/950-bluejeans.md` |
+| [x] | 951 | Jitsi Meet | `GeorgeQLe/jitsi-meet-mobile-clone` | `specs/batch-48/951-jitsi-meet.md` |
+| [x] | 952 | Proton Mail | `GeorgeQLe/proton-mail-mobile-clone` | `specs/batch-48/952-proton-mail.md` |
+| [x] | 953 | Yahoo Mail | `GeorgeQLe/yahoo-mail-mobile-clone` | `specs/batch-48/953-yahoo-mail.md` |
+| [x] | 954 | AOL Mail | `GeorgeQLe/aol-mail-mobile-clone` | `specs/batch-48/954-aol-mail.md` |
+| [x] | 955 | Spark Mail | `GeorgeQLe/spark-mail-mobile-clone` | `specs/batch-48/955-spark-mail.md` |
+| [x] | 956 | Edison Mail | `GeorgeQLe/edison-mail-mobile-clone` | `specs/batch-48/956-edison-mail.md` |
+| [x] | 957 | BlueMail | `GeorgeQLe/bluemail-mobile-clone` | `specs/batch-48/957-bluemail.md` |
+| [x] | 958 | Canary Mail | `GeorgeQLe/canary-mail-mobile-clone` | `specs/batch-48/958-canary-mail.md` |
+| [x] | 959 | Fastmail | `GeorgeQLe/fastmail-mobile-clone` | `specs/batch-48/959-fastmail.md` |
+| [x] | 960 | HEY | `GeorgeQLe/hey-mobile-clone` | `specs/batch-48/960-hey.md` |
+| [x] | 961 | Tuta Mail | `GeorgeQLe/tuta-mail-mobile-clone` | `specs/batch-49/961-tuta-mail.md` |
+| [x] | 962 | Zoho Mail | `GeorgeQLe/zoho-mail-mobile-clone` | `specs/batch-49/962-zoho-mail.md` |
+| [x] | 963 | Spike | `GeorgeQLe/spike-mobile-clone` | `specs/batch-49/963-spike.md` |
+| [x] | 964 | Superhuman | `GeorgeQLe/superhuman-mobile-clone` | `specs/batch-49/964-superhuman.md` |
+| [x] | 965 | Shortwave | `GeorgeQLe/shortwave-mobile-clone` | `specs/batch-49/965-shortwave.md` |
+| [x] | 966 | Clean Email | `GeorgeQLe/clean-email-mobile-clone` | `specs/batch-49/966-clean-email.md` |
+| [x] | 967 | Unroll.Me | `GeorgeQLe/unroll-me-mobile-clone` | `specs/batch-49/967-unroll-me.md` |
+| [x] | 968 | letgo | `GeorgeQLe/letgo-mobile-clone` | `specs/batch-49/968-letgo.md` |
+| [x] | 969 | VarageSale | `GeorgeQLe/varagesale-mobile-clone` | `specs/batch-49/969-varagesale.md` |
+| [x] | 970 | Kijiji | `GeorgeQLe/kijiji-mobile-clone` | `specs/batch-49/970-kijiji.md` |
 | [ ] | 971 | Gumtree | `GeorgeQLe/gumtree-mobile-clone` | `specs/batch-49/971-gumtree.md` |
 | [ ] | 972 | CarGurus | `GeorgeQLe/cargurus-mobile-clone` | `specs/batch-49/972-cargurus.md` |
 | [ ] | 973 | AutoTrader | `GeorgeQLe/autotrader-mobile-clone` | `specs/batch-49/973-autotrader.md` |
