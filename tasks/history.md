@@ -1,5 +1,12 @@
 # History
 
+## 2026-05-01 - Downstream Seeding Completion Verification
+
+- Verified `tasks/repo-seeding.md` has 1000 checked downstream manifest rows and 0 unchecked rows.
+- Confirmed Phase 8 Step 8.6 is complete: IDs 201-1000 have private, non-empty scaffold downstream repos with README and copied source specs recorded before manifest completion.
+- Updated `tasks/todo.md`, `tasks/roadmap.md`, `tasks/reconciliation-report.md`, and `tasks/phases/phase-7.md` to remove stale in-progress / next-batch language.
+- Remaining Phase 8 work is not seeding: promote IDs 101-1000 to implementation-ready public-source V1 and reconcile the Phase 5 implementation-plan queue.
+
 ## 2026-04-24 - Downstream Repo Seeding Batch 521-540
 
 - Seeded private downstream repos for IDs 521-540 via `scripts/seed-downstream-batch.mjs --from 521 --to 540 --execute` (serial, ≥30s cadence, ≤20/hour cap).
@@ -324,9 +331,9 @@
 - Ran the Step 6.9 ship-one-step handoff. Verified `gh auth status` (active `GeorgeQLe`, keyring, `repo`+`workflow` scopes) and confirmed `GeorgeQLe/mobile-ideas` visibility remained `PRIVATE` via `gh repo view --json visibility,isPrivate,nameWithOwner`.
 - Re-audited the `## Open-Source Spec Store Checklist` in `tasks/repo-seeding.md`: license (root `LICENSE`, CC BY 4.0 with third-party-mark exclusions), public-reader `README.md`, non-affiliation language, `CONTRIBUTING.md`, `SECURITY.md`, and content-audit for secrets/accounts/assets/screenshots/proprietary-copy/private-APIs/ambiguous-affiliation all still accurate and checked. Re-ran a case-insensitive secret-pattern grep; no real secrets found (matches were prose, source-spec concept references, or template placeholder examples).
 - Confirmed downstream privacy intact: Step 6.8 and Step 6.8a evidence shows 100 of 100 downstream repos `PRIVATE`; no downstream repo drifted to non-`PRIVATE` since Step 6.8.
-- Approval gate status: `tasks/manual-todo.md` line 16 approval task remains `[ ]` (unchecked). Per the Step 6.9 ship-one-step handoff contract, did NOT run `gh repo edit GeorgeQLe/mobile-ideas --visibility public --accept-visibility-change-consequences`; `GeorgeQLe/mobile-ideas` remains `PRIVATE`.
+- Approval gate status in this pre-publication pass: `tasks/manual-todo.md` line 16 approval task was `[ ]` (unchecked). Per the Step 6.9 ship-one-step handoff contract, did NOT run `gh repo edit GeorgeQLe/mobile-ideas --visibility public --accept-visibility-change-consequences`; `GeorgeQLe/mobile-ideas` was still `PRIVATE` at this point.
 - Recorded the re-audit under a new `### Step 6.9 Pre-Publication Re-Audit - 2026-04-20` evidence subsection in `tasks/repo-seeding.md`, and added a new `Step 6.9 publication blocker (open, 2026-04-20)` entry to the `### Failures And Blockers` section documenting that the visibility change is deferred until the manual approval task is checked.
-- Step 6.9 in `tasks/todo.md` remains unchecked; the final Phase 6 acceptance criterion (`This spec-store repo is made public only after the open-source checklist is complete and explicitly approved.`) remains unchecked; the Milestone `On Completion` block is unchanged (Phase 6 not yet closed).
+- Step 6.9 in `tasks/todo.md` was unchecked in this pre-publication pass; the final Phase 6 acceptance criterion (`This spec-store repo is made public only after the open-source checklist is complete and explicitly approved.`) was unchecked; the Milestone `On Completion` block was unchanged (Phase 6 not yet closed at this point).
 
 ## 2026-04-20 - Spec Store Published; Phase 6 Closed (Step 6.9)
 

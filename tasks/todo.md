@@ -8,13 +8,13 @@
 
 ### Goal
 
-Extend the canonical spec store from 200 to 1000 mobile app clone ideas. IDs 201-1000 have backlog rows and canonical Draft 1 scaffold specs. Future work promotes them to implementation-ready public-source V1 and extends downstream planning/seeding manifests. In parallel, scaffold-only downstream private repos continue to seed in serial 20-ID batches per CLAUDE.md cadence (allowed at Draft 1 per CLAUDE.md:41).
+Extend the canonical spec store from 200 to 1000 mobile app clone ideas. IDs 201-1000 have backlog rows, canonical Draft 1 scaffold specs, and private scaffold downstream repos. Future work promotes specs to implementation-ready public-source V1 and reconciles planning queues without claiming implementation-ready parity from scaffold-only repos.
 
 ### Scope
 
 - IDs 201-1000 in `tasks/ideas.md` (already appended).
 - Spec batches: `specs/batch-11/` through `specs/batch-50/` (Draft 1 scaffolds present).
-- Extend `tasks/roadmap.md` Phase 5 plan queue and `tasks/repo-seeding.md` manifest to 1000 rows after readiness upgrades.
+- Extend `tasks/roadmap.md` Phase 5 plan queue after readiness upgrades; keep the already-extended 1000-row `tasks/repo-seeding.md` manifest aligned with source-spec updates.
 - Keep all downstream repos PRIVATE; scaffold seeding allowed at Draft 1 with no implementation-ready parity claim until Step 8.3 lands.
 - Same lawful functional-parity guardrails.
 
@@ -26,8 +26,8 @@ Extend the canonical spec store from 200 to 1000 mobile app clone ideas. IDs 201
 - [ ] IDs 101-1000 replace source-discovery links with exact first-party URLs.
 - [ ] IDs 101-1000 pass implementation-readiness gate.
 - [ ] Phase 5 implementation-plan queue grows to 1000 rows.
-- [ ] `tasks/repo-seeding.md` manifest grows to 1000 rows after readiness upgrades.
-- [ ] No downstream repo is made public; no proprietary assets introduced.
+- [x] `tasks/repo-seeding.md` manifest has 1000 checked rows, each verified PRIVATE + non-empty with README and copied source spec.
+- [x] No downstream repo is made public during scaffold seeding; no proprietary assets introduced.
 
 ### Execution Profile
 
@@ -45,7 +45,7 @@ Extend the canonical spec store from 200 to 1000 mobile app clone ideas. IDs 201
 
 - [ ] Step 8.4: Extend `tasks/roadmap.md` Phase 5 plan queue to 1000 rows. Append 800 rows for IDs 201-1000 (ID | App | Source Spec | High-Level Implementation Plan). Land only after Step 8.3 lands for the corresponding ID range.
 
-- [ ] Step 8.5: Extend `tasks/repo-seeding.md` Per-Repo Checklist manifest to 1000 rows. Already extended past 1000 implicitly during the 480-repo seeding; verify the manifest matches reality. Audit after Step 8.3 lands to update Source Spec column to point at implementation-ready specs.
+- [x] Step 8.5: Extend and verify `tasks/repo-seeding.md` Per-Repo Checklist manifest to 1000 rows. Verified 2026-05-01: 1000 checked rows, 0 unchecked rows. Audit again after Step 8.3 lands only if source spec paths or readiness labels change.
 
 - [x] Step 8.6: Seed downstream private scaffold repos for IDs 201-1000 in serial 20-ID batches via `scripts/seed-downstream-batch.mjs`. **Complete as of 2026-05-01: IDs 201-1000 seeded (PRIVATE + non-empty verified per `tasks/repo-seeding.md` Batch evidence sections).**
 

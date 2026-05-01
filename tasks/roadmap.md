@@ -230,11 +230,11 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
 
 - [x] `tasks/repo-seeding.md` lists all 100 target repos and source specs.
 - [x] A reusable `gh` seeding command pattern exists.
-- [ ] The `gh` seeding command pattern has been tested on one non-Todoist repo.
-- [ ] Existing `GeorgeQLe/todoist-mobile-clone` is reconciled with the same seed structure used for the other repos.
-- [ ] All 100 downstream repos exist or have explicit blocker notes in `tasks/repo-seeding.md`.
-- [ ] This spec-store repo has a public-release checklist covering license, README, contribution policy, legal scope, attribution/non-affiliation language, and content audit.
-- [ ] This spec-store repo is made public only after the open-source checklist is complete and explicitly approved.
+- [x] The `gh` seeding command pattern has been tested on one non-Todoist repo.
+- [x] Existing `GeorgeQLe/todoist-mobile-clone` is reconciled with the same seed structure used for the other repos.
+- [x] All 100 downstream repos exist or have explicit blocker notes in `tasks/repo-seeding.md`.
+- [x] This spec-store repo has a public-release checklist covering license, README, contribution policy, legal scope, attribution/non-affiliation language, and content audit.
+- [x] This spec-store repo is made public only after the open-source checklist is complete and explicitly approved.
 
 **Parallelization:** implementation-safe
 **Coordination Notes:** Repo creation can run by batch after the manifest and command template are reviewed. The spec-store publication task should remain serial because it changes project visibility and legal posture.
@@ -342,19 +342,22 @@ Full step-level plan lives in `tasks/todo.md` Phase 7.
 - [x] Step 8.2: Create canonical Draft 1 scaffold specs under `specs/batch-11/` through `specs/batch-50/`.
 - [ ] Step 8.3: Replace source-discovery links with exact first-party URLs and promote IDs 101-1000 to implementation-ready public-source V1 (absorbs Phase 7 Step 7.3; scope now 900 specs rather than 800).
 - [ ] Step 8.4: Extend Phase 5 implementation-plan queue to 1000 rows.
-- [ ] Step 8.5: Extend `tasks/repo-seeding.md` manifest to 1000 rows after readiness upgrades.
-- [ ] Step 8.6: Seed downstream private repos only with explicit approval and batch-level controls.
+- [x] Step 8.5: Extend and verify `tasks/repo-seeding.md` manifest to 1000 rows.
+- [x] Step 8.6: Seed downstream private scaffold repos for IDs 201-1000 with explicit approval and batch-level controls.
 
 ### Acceptance Criteria
 
 - 1000 total spec files exist with canonical sections.
 - All 1000 IDs are represented in `tasks/ideas.md` and `specs/batch-*`.
+- `tasks/repo-seeding.md` has 1000 checked downstream rows and zero unchecked rows.
+- Downstream scaffold repos are PRIVATE, non-empty, and verified with README plus copied source specs before being marked done.
 - IDs 201-1000 remain clearly marked Draft 1 scaffold until exact first-party source replacement and category-risk review are complete.
 - No downstream repo is made public during the extension.
 
 ## Next Steps
 
-- Complete Phase 7 Step 7.3 for IDs 101-200 and Phase 8 Step 8.3 for IDs 201-1000 before downstream seeding.
+- Complete Phase 8 Step 8.3 for IDs 101-1000 before any downstream repo claims implementation-ready parity.
+- Reconcile Phase 5 implementation-plan queue coverage after Step 8.3 lands.
 - Continue implementation planning and scaffolding in `https://github.com/GeorgeQLe/todoist-mobile-clone` for Phase 5 plan `090`.
 - Select the next Phase 5 plan row when ready, then expand that app into detailed downstream implementation phases from its source spec.
 - Keep all manual verification blockers deferred until lawful hands-on verification evidence exists.

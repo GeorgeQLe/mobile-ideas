@@ -26,7 +26,7 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
 - [x] Existing `GeorgeQLe/todoist-mobile-clone` is reconciled with the same seed structure used for the other repos.
 - [x] All 100 downstream repos exist or have explicit blocker notes in `tasks/repo-seeding.md`.
 - [x] This spec-store repo has a public-release checklist covering license, README, contribution policy, legal scope, attribution/non-affiliation language, and content audit.
-- [ ] This spec-store repo is made public only after the open-source checklist is complete and explicitly approved.
+- [x] This spec-store repo is made public only after the open-source checklist is complete and explicitly approved.
 
 ### Execution Profile
 
