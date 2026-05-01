@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Apple News
 > - Category: News aggregator with topic follows and publisher subscriptions
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listing (iOS), public publisher program pages, and public help observed during source discovery.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, official help/support pages, official legal/privacy pages, and public standards where needed for lawful replacement infrastructure.
 > - Manual verification blockers: native iOS capture, News+-equivalent bundle subscription purchase/restore, publication landing pages, widgets, and push payloads require a test device/account.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, and UX. Publisher content must come through licensed partner agreements.
 
@@ -37,11 +37,11 @@ This spec is implementation-ready for a V1. Feature-flag anything unverified.
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/apple-news/id1066498020 | Source discovery — pending exact URL verification | Pending |
-| Apple News Publishers | https://www.apple.com/apple-news/ | Source discovery — pending exact URL verification | Pending |
-| Apple News for Publishers | https://developer.apple.com/news-publisher/ | Source discovery — pending exact URL verification | Pending |
-| WebWidgetKit | https://developer.apple.com/widgetkit/ | Source discovery — pending exact URL verification | Pending |
-| Editorial Independence Standards | https://www.spj.org/ethicscode.asp | Source discovery — pending exact URL verification | Pending |
+| Apple News App Store Preview | https://apps.apple.com/us/app/apple-news/id1066498020 | iOS app identity, news feed, channels, News+, audio/puzzles where available, privacy labels | Verified 2026-05-01 |
+| Apple News Product Page | https://www.apple.com/apple-news/ | News, News+, personalization, local news, audio, magazines, and privacy positioning | Verified 2026-05-01 |
+| Apple News Publisher Guide | https://developer.apple.com/news-publisher/ | Publisher onboarding, content delivery, channels, analytics, and article format | Verified 2026-05-01 |
+| Apple News Format Reference | https://developer.apple.com/documentation/apple_news | Article package, metadata, components, and publishing contract concepts | Verified 2026-05-01 |
+| Apple Media Services Terms | https://www.apple.com/legal/internet-services/itunes/ | Subscriptions, purchases, family sharing, and service terms | Verified 2026-05-01 |
 
 ## Detailed Design
 

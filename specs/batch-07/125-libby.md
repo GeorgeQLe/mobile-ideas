@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Libby
 > - Category: Public-library e-book and audiobook borrowing
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, public help pages, and public library-integration documentation observed during source discovery.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, official help/support pages, official legal/privacy pages, and public standards where needed for lawful replacement infrastructure.
 > - Manual verification blockers: native capture, library card validation against real library partners, hold/checkout lifecycle, audiobook playback, and push payloads require a test device/account and partner integration.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, and UX. Library content and loan mechanics must use licensed partner APIs (e.g., OverDrive-equivalent) and library-consented integrations.
 
@@ -36,11 +36,11 @@ This spec is implementation-ready for a V1 that targets documented public behavi
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/libby-by-overdrive/id1076402606 | Source discovery — pending exact URL verification | Pending |
-| Google Play | https://play.google.com/store/apps/details?id=com.overdrive.mobile.android.libby | Source discovery — pending exact URL verification | Pending |
-| Libby Help | https://help.libbyapp.com/en-us/index.htm | Source discovery — pending exact URL verification | Pending |
-| OverDrive Partners | https://company.overdrive.com/partners/ | Source discovery — pending exact URL verification | Pending |
-| EPUB 3 Specification | https://www.w3.org/publishing/epub3/ | Source discovery — pending exact URL verification | Pending |
+| Apple App Store | https://apps.apple.com/us/app/libby-by-overdrive/id1076402606 | iOS listing, library cards, loans, holds, offline reading/listening, privacy labels | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.overdrive.mobile.android.libby | Android listing, public-library borrowing, ebooks/audiobooks/magazines, data safety | Verified 2026-05-01 |
+| Libby Help | https://help.libbyapp.com/en-us/index.htm | Cards, loans, holds, tags, shelf, downloads, return/renew, and troubleshooting | Verified 2026-05-01 |
+| OverDrive Privacy Policy | https://company.overdrive.com/privacy-policy/ | Library data, account data, privacy rights, and partner/library handling | Verified 2026-05-01 |
+| OverDrive Partners | https://company.overdrive.com/partners/ | Library and publisher partner model informing lawful V1 constraints | Verified 2026-05-01 |
 
 ## Detailed Design
 

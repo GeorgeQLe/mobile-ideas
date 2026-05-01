@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Wattpad
 > - Category: Serialized fiction reader and writer community
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, public help-center articles, and public creator-program pages observed during source discovery.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, official help/support pages, official legal/privacy pages, and public standards where needed for lawful replacement infrastructure.
 > - Manual verification blockers: native iOS/Android capture, paid-story coin purchase/restore, creator-program eligibility walkthrough, mature-content gating, and push notification payload inspection still require a test device/account.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, cover art, sample stories, tag taxonomies, and recommendation logic.
 
@@ -36,11 +36,11 @@ This spec is implementation-ready for a V1 that targets the documented public be
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/wattpad-read-write-stories/id306096942 | Source discovery — pending exact URL verification | Pending |
-| Google Play | https://play.google.com/store/apps/details?id=wp.wattpad | Source discovery — pending exact URL verification | Pending |
-| Wattpad Support Center | https://support.wattpad.com/ | Source discovery — pending exact URL verification | Pending |
-| Wattpad Content Guidelines | https://support.wattpad.com/hc/en-us/categories/content-guidelines | Source discovery — pending exact URL verification | Pending |
-| Wattpad Creators Program | https://creators.wattpad.com/ | Source discovery — pending exact URL verification | Pending |
+| Apple App Store | https://apps.apple.com/us/app/wattpad-read-write-stories/id306310789 | iOS listing, privacy labels, in-app purchases, reader/writer positioning, offline/library/social feature claims | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=wp.wattpad | Android listing, ads/in-app purchases, downloads, reading/writing, offline, comments, alerts, data safety | Verified 2026-05-01 |
+| Wattpad Support Center | https://support.wattpad.com/ | Account, reading, writing, notifications, billing, and safety support orientation | Verified 2026-05-01 |
+| Wattpad Content Guidelines | https://policies.wattpad.com/content/ | Mature content, prohibited content, reports, and enforcement scope | Verified 2026-05-01 |
+| Wattpad Creators | https://creators.wattpad.com/ | Creator-program and author growth surfaces that remain manually gated for exact parity | Verified 2026-05-01 |
 
 ## Detailed Design
 
@@ -177,7 +177,7 @@ This spec is implementation-ready for a V1 that targets the documented public be
 
 ## Acceptance Criteria
 
-- Exact source links are refreshed before implementation starts.
+- Exact source links are verified and refreshed before implementation kickoff.
 - A downstream team can build V1 without proprietary Wattpad assets, stories, or private APIs.
 - Readers can discover, read, comment, follow, list, download, and resume stories.
 - Writers can draft, schedule, publish, and moderate their works.
@@ -204,6 +204,6 @@ This spec is implementation-ready for a V1 that targets the documented public be
 
 ## Next Steps
 
-- Resolve source-discovery URLs with exact first-party links.
+- Keep exact first-party source URLs current before implementation kickoff.
 - Draft original tag taxonomy, maturity rubric, and moderation playbook.
 - Stand up a downstream implementation repo when Phase 1 is ready.

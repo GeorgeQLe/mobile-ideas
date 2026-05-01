@@ -1,5 +1,13 @@
 # History
 
+## 2026-05-01 - Step 8.3 Reading News Readiness Slice
+
+- Promoted the next Phase 8 Step 8.3 slice, IDs 121-136 (`Wattpad` through `Ground News`), from Draft 1 to implementation-ready public-source V1.
+- Replaced their Research Sources placeholder rows with exact public marketplace, official help/support, legal/privacy, methodology, API, and open-standard URLs as applicable. Every promoted source row is marked `Verified 2026-05-01`.
+- Preserved manual blockers for native capture, paid purchases/restores, gated account behavior, publisher/creator workflows, push payloads, and methodology/subscription rendering where hands-on access is still required.
+- Updated `specs/README.md` and `tasks/todo.md` to reflect 136 implementation-ready specs and the next Step 8.3 slice: IDs 137-149 finance/investing/banking.
+- Validation: `node scripts/check-implementation-readiness.mjs` reports 136 implementation-ready specs and 2,702 remaining source-discovery placeholder rows across 864 unpromoted files. The command exits nonzero by design until all IDs 101-1000 are promoted.
+
 ## 2026-05-01 - Step 8.3 Professional Jobs Real Estate Events Publishing Slice
 
 - Promoted the next Phase 8 Step 8.3 slice, IDs 107-120 (`LinkedIn` through `Substack`), from Draft 1 to implementation-ready public-source V1.

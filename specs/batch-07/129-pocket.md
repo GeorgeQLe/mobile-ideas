@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Pocket
 > - Category: Read-later with offline reading and TTS
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings and public help pages observed during source discovery.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, official help/support pages, official legal/privacy pages, and public standards where needed for lawful replacement infrastructure.
 > - Manual verification blockers: native capture, share-extension ingest, TTS voices, subscription purchase/restore, and push payloads require a test device/account.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, and UX. Article content is retrieved from user-specified URLs under fair-use/reader-mode norms; no republishing.
 
@@ -37,11 +37,11 @@ This spec is implementation-ready for a V1. Feature-flag anything unverified.
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/pocket-save-read-grow/id309601447 | Source discovery — pending exact URL verification | Pending |
-| Google Play | https://play.google.com/store/apps/details?id=com.ideashower.readitlater.pro | Source discovery — pending exact URL verification | Pending |
-| Pocket Help | https://help.getpocket.com/ | Source discovery — pending exact URL verification | Pending |
-| Reader Mode Patterns | https://en.wikipedia.org/wiki/Reader_mode | Source discovery — pending exact URL verification | Pending |
-| Schema.org Article | https://schema.org/Article | Source discovery — pending exact URL verification | Pending |
+| Apple App Store | https://apps.apple.com/us/app/pocket-save-read-grow/id309601447 | iOS listing, save/read/listen, offline access, recommendations, privacy labels | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.ideashower.readitlater.pro | Android listing, save-for-later, offline, listen, data safety | Verified 2026-05-01 |
+| Pocket Help | https://support.mozilla.org/products/pocket | Save, list, archive, tags, reading, listening, account, and support flows | Verified 2026-05-01 |
+| Pocket API | https://getpocket.com/developer/docs/overview | Public API shape for lawful save/list/read-state integration | Verified 2026-05-01 |
+| Mozilla Privacy Policy | https://www.mozilla.org/privacy/ | Account, telemetry, saved content, and privacy-rights baseline | Verified 2026-05-01 |
 
 ## Detailed Design
 

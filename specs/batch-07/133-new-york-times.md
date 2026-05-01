@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: The New York Times
 > - Category: Premium news publication with sections, saved articles, games, and audio
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, public help pages, and publisher site observed during source discovery.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, official help/support pages, official legal/privacy pages, and public standards where needed for lawful replacement infrastructure.
 > - Manual verification blockers: native capture, subscription purchase/restore, audio-article playback, games entry, and push payloads require a test device/account.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, and UX. This is a template for a premium news publisher app — the operator must own or license all editorial content; no copying of NYT articles, logos, photography, or marketing copy.
 
@@ -38,11 +38,11 @@ This spec is implementation-ready for a V1. Feature-flag anything unverified.
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/the-new-york-times/id284862083 | Source discovery — pending exact URL verification | Pending |
-| Google Play | https://play.google.com/store/apps/details?id=com.nytimes.android | Source discovery — pending exact URL verification | Pending |
-| NYT Help | https://help.nytimes.com/ | Source discovery — pending exact URL verification | Pending |
-| Society of Professional Journalists Code | https://www.spj.org/ethicscode.asp | Source discovery — pending exact URL verification | Pending |
-| Apple StoreKit Docs | https://developer.apple.com/storekit/ | Source discovery — pending exact URL verification | Pending |
+| Apple App Store | https://apps.apple.com/us/app/the-new-york-times/id284862083 | iOS listing, news app, live coverage, puzzles/audio/cooking cross-sell, privacy labels | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.nytimes.android | Android listing, journalism, alerts, saved articles, data safety | Verified 2026-05-01 |
+| NYTimes Help Center | https://help.nytimes.com/ | Account, subscription, app, newsletters, saved articles, and support flows | Verified 2026-05-01 |
+| NYTimes Privacy Policy | https://help.nytimes.com/hc/en-us/articles/10940941449492-The-New-York-Times-Company-Privacy-Policy | Data collection, personalization, advertising, subscriptions, and privacy rights | Verified 2026-05-01 |
+| NYTimes Terms of Service | https://help.nytimes.com/hc/en-us/articles/115014893428-Terms-of-Service | Subscription, content use, accounts, acceptable use, and cancellation terms | Verified 2026-05-01 |
 
 ## Detailed Design
 

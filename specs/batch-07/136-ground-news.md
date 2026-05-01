@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Ground News
 > - Category: Bias-rated news aggregation and source comparison
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, public methodology pages, and publisher relations pages observed during source discovery.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, official help/support pages, official legal/privacy pages, and public standards where needed for lawful replacement infrastructure.
 > - Manual verification blockers: native capture, subscription purchase/restore, blindspot feed, factuality metric rendering, and push payloads require a test device/account.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, and UX. Bias ratings must be from licensed or original methodology; publisher content via licensed partner feeds.
 
@@ -36,11 +36,11 @@ This spec is implementation-ready for a V1. Feature-flag anything unverified.
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/ground-news/id1517598916 | Source discovery — pending exact URL verification | Pending |
-| Google Play | https://play.google.com/store/apps/details?id=com.ground.news | Source discovery — pending exact URL verification | Pending |
-| Ground News Methodology | https://ground.news/rating-system | Source discovery — pending exact URL verification | Pending |
-| AllSides Media Bias Chart | https://www.allsides.com/media-bias/ratings | Source discovery — pending exact URL verification | Pending |
-| Ad Fontes Media | https://adfontesmedia.com/ | Source discovery — pending exact URL verification | Pending |
+| Apple App Store | https://apps.apple.com/us/app/ground-news/id1324203419 | iOS listing, bias comparison, blindspot, ownership/factuality context, privacy labels | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.checkitt | Android listing, news comparison, bias/factuality, subscription features, data safety | Verified 2026-05-01 |
+| Ground News Rating System | https://ground.news/rating-system | Bias, factuality, ownership, and source-rating methodology | Verified 2026-05-01 |
+| Ground News Blindspot | https://ground.news/blindspot | Blindspot product concept and political-spectrum comparison surface | Verified 2026-05-01 |
+| Ground News Terms of Use | https://ground.news/terms-and-conditions | Subscription, acceptable use, account, content, and service terms | Verified 2026-05-01 |
 
 ## Detailed Design
 

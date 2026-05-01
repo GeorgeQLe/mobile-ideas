@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Feedly
 > - Category: RSS reader with source organization and smart filters
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings and public help/developer pages observed during source discovery.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, official help/support pages, official legal/privacy pages, and public standards where needed for lawful replacement infrastructure.
 > - Manual verification blockers: native capture, OPML import, AI-based filter outputs, subscription purchase/restore, and push payloads require a test device/account.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, and UX. Feed content comes from publisher-published RSS/Atom with honored robots/rate-limit rules.
 
@@ -37,11 +37,11 @@ This spec is implementation-ready for a V1. Feature-flag anything unverified.
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/feedly/id396069556 | Source discovery — pending exact URL verification | Pending |
-| Google Play | https://play.google.com/store/apps/details?id=com.devhd.feedly | Source discovery — pending exact URL verification | Pending |
-| Feedly Help | https://feedly.com/i/welcome | Source discovery — pending exact URL verification | Pending |
-| RSS 2.0 Specification | https://www.rssboard.org/rss-specification | Source discovery — pending exact URL verification | Pending |
-| Atom Syndication Format | https://tools.ietf.org/html/rfc4287 | Source discovery — pending exact URL verification | Pending |
+| Apple App Store | https://apps.apple.com/us/app/feedly-smart-news-reader/id396069556 | iOS listing, RSS/news reader, boards, AI assistant, privacy labels | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.devhd.feedly | Android listing, feeds, sources, boards, data safety | Verified 2026-05-01 |
+| Feedly Help Center | https://docs.feedly.com/ | Feeds, boards, sources, Leo, teams, and account help | Verified 2026-05-01 |
+| Feedly API Documentation | https://developers.feedly.com/ | Public API/feed model for lawful integration contracts | Verified 2026-05-01 |
+| RSS 2.0 Specification | https://www.rssboard.org/rss-specification | Open feed standard for downstream source ingestion | Verified 2026-05-01 |
 
 ## Detailed Design
 

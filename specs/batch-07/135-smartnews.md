@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: SmartNews
 > - Category: News aggregator with topic channels and offline news
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings and public help/publisher pages observed during source discovery.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, official help/support pages, official legal/privacy pages, and public standards where needed for lawful replacement infrastructure.
 > - Manual verification blockers: native capture, publisher integrations, offline-news prefetch behavior, push payloads, and balanced-source views require a test device/account.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, and UX. Publisher content must come through licensed partner feeds with honored opt-outs.
 
@@ -36,11 +36,11 @@ This spec is implementation-ready for a V1. Feature-flag anything unverified.
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/smartnews/id579581125 | Source discovery — pending exact URL verification | Pending |
-| Google Play | https://play.google.com/store/apps/details?id=jp.gocro.smartnews.android | Source discovery — pending exact URL verification | Pending |
-| SmartNews Press | https://www.smartnews.com/en/press-and-news/ | Source discovery — pending exact URL verification | Pending |
-| Society of Professional Journalists Code | https://www.spj.org/ethicscode.asp | Source discovery — pending exact URL verification | Pending |
-| Newsroom Terms Example | https://www.nytco.com/press/terms/ | Source discovery — pending exact URL verification | Pending |
+| Apple App Store | https://apps.apple.com/us/app/smartnews-local-breaking-news/id579581125 | iOS listing, local/breaking news, channels, notifications, privacy labels | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=jp.gocro.smartnews.android | Android listing, local/breaking news, channels, alerts, data safety | Verified 2026-05-01 |
+| SmartNews About | https://www.smartnews.com/en/about/ | Company/product positioning, news discovery mission, and publisher ecosystem | Verified 2026-05-01 |
+| SmartNews Privacy Policy | https://www.smartnews.com/en/privacy/ | Personalization, location, ads, account data, privacy rights, and retention | Verified 2026-05-01 |
+| SmartNews Terms of Service | https://www.smartnews.com/en/terms/ | Content use, account, ads, acceptable use, and service terms | Verified 2026-05-01 |
 
 ## Detailed Design
 

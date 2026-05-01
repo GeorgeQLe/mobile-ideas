@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Flipboard
 > - Category: Magazine-style news aggregator with user-curated smart magazines
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings and public help/publisher pages observed during source discovery.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, official help/support pages, official legal/privacy pages, and public standards where needed for lawful replacement infrastructure.
 > - Manual verification basis: native capture, page-flip animations, publisher integrations, purchase/restore, and push require a test device/account.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, and UX. Publisher content must be sourced via licensed partners or public RSS/Atom with honored terms.
 
@@ -37,11 +37,11 @@ This spec is implementation-ready for a V1. Feature-flag anything unverified.
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/flipboard/id358801284 | Source discovery — pending exact URL verification | Pending |
-| Google Play | https://play.google.com/store/apps/details?id=flipboard.app | Source discovery — pending exact URL verification | Pending |
-| Flipboard Support | https://about.flipboard.com/support/ | Source discovery — pending exact URL verification | Pending |
-| RSS 2.0 Specification | https://www.rssboard.org/rss-specification | Source discovery — pending exact URL verification | Pending |
-| Atom Syndication Format | https://tools.ietf.org/html/rfc4287 | Source discovery — pending exact URL verification | Pending |
+| Apple App Store | https://apps.apple.com/us/app/flipboard-the-social-magazine/id358801284 | iOS listing, social magazine, topics, curators, magazines, privacy labels | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=flipboard.app | Android listing, news aggregation, topics, magazines, data safety | Verified 2026-05-01 |
+| Flipboard Support | https://about.flipboard.com/support/ | Account, magazines, feeds, publisher, and troubleshooting help | Verified 2026-05-01 |
+| Flipboard Terms of Use | https://about.flipboard.com/terms/ | User content, publisher content, acceptable use, and account terms | Verified 2026-05-01 |
+| Flipboard Privacy Policy | https://about.flipboard.com/privacy/ | Personalization, saved content, account data, ads, and privacy rights | Verified 2026-05-01 |
 
 ## Detailed Design
 

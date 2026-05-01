@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Instapaper
 > - Category: Minimalist read-later with highlights, notes, and folders
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings and public help/blog pages observed during source discovery.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, official help/support pages, official legal/privacy pages, and public standards where needed for lawful replacement infrastructure.
 > - Manual verification blockers: native capture, share-extension ingest, speed-reading mode, subscription purchase/restore, and push payloads require a test device/account.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, and UX. Article content retrieved from user-specified URLs under reader-mode norms.
 
@@ -37,11 +37,11 @@ This spec is implementation-ready for a V1. Feature-flag anything unverified.
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/instapaper/id288545208 | Source discovery — pending exact URL verification | Pending |
-| Google Play | https://play.google.com/store/apps/details?id=com.instapaper.android | Source discovery — pending exact URL verification | Pending |
-| Instapaper Help | https://www.instapaper.com/help | Source discovery — pending exact URL verification | Pending |
-| Reader Mode Patterns | https://en.wikipedia.org/wiki/Reader_mode | Source discovery — pending exact URL verification | Pending |
-| Schema.org Article | https://schema.org/Article | Source discovery — pending exact URL verification | Pending |
+| Apple App Store | https://apps.apple.com/us/app/instapaper/id288545208 | iOS listing, save/read, highlights, notes, offline, privacy labels | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.instapaper.android | Android listing, offline reader, folders, highlights, data safety | Verified 2026-05-01 |
+| Instapaper Help | https://www.instapaper.com/help | Save, read, folders, highlights, search, account, and support flows | Verified 2026-05-01 |
+| Instapaper API | https://www.instapaper.com/api | Public API shape for lawful save/list/archive/read integration | Verified 2026-05-01 |
+| Instapaper Privacy Policy | https://www.instapaper.com/privacy | Saved article/account data, cookies, retention, and privacy rights | Verified 2026-05-01 |
 
 ## Detailed Design
 

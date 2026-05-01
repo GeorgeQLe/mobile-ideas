@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Readwise
 > - Category: Highlight sync and spaced-repetition review
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, public help pages, and public integration docs observed during source discovery.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, official help/support pages, official legal/privacy pages, and public standards where needed for lawful replacement infrastructure.
 > - Manual verification blockers: native capture, subscription purchase/restore, third-party integration flows (Kindle-like, Instapaper-like, Pocket-like), and push payload inspection require a test device/account.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, and UX. Imported highlights remain owned by the user; third-party integrations must honor each partner's terms.
 
@@ -37,11 +37,11 @@ This spec is implementation-ready for a V1. Feature-flag anything unverified.
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/readwise/id1388926410 | Source discovery — pending exact URL verification | Pending |
-| Google Play | https://play.google.com/store/apps/details?id=io.readwise.readwise | Source discovery — pending exact URL verification | Pending |
-| Readwise Help | https://help.readwise.io/ | Source discovery — pending exact URL verification | Pending |
-| Spaced Repetition Overview | https://en.wikipedia.org/wiki/Spaced_repetition | Source discovery — pending exact URL verification | Pending |
-| Open API Standards | https://www.openapis.org/ | Source discovery — pending exact URL verification | Pending |
+| Apple App Store | https://apps.apple.com/us/app/readwise/id1388926410 | iOS listing, highlight review, sync, spaced repetition, privacy labels | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=io.readwise | Android listing, highlights, review, integrations, data safety | Verified 2026-05-01 |
+| Readwise Help | https://help.readwise.io/ | Import, review, daily highlights, integrations, export, and account help | Verified 2026-05-01 |
+| Readwise API Docs | https://readwise.io/api_deets | Public API contracts for lawful highlight import/export integration | Verified 2026-05-01 |
+| Readwise Privacy Policy | https://readwise.io/privacy | Highlight data, integrations, account data, retention, and privacy rights | Verified 2026-05-01 |
 
 ## Detailed Design
 

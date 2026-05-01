@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Scribd (Everand)
 > - Category: All-you-can-read subscription across books, audiobooks, and documents
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, public help pages, and public subscription-policy pages observed during source discovery.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, official help/support pages, official legal/privacy pages, and public standards where needed for lawful replacement infrastructure.
 > - Manual verification blockers: native capture, subscription purchase/restore, throttling/unlock behaviors, audiobook playback, and document rendering require a test device/account.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, and UX. Catalog content must come from licensed publishers.
 
@@ -36,11 +36,11 @@ This spec is implementation-ready for a V1 targeting documented public behavior.
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/everand/id542557212 | Source discovery — pending exact URL verification | Pending |
-| Google Play | https://play.google.com/store/apps/details?id=com.scribd.app.reader0 | Source discovery — pending exact URL verification | Pending |
-| Scribd Help | https://support.scribd.com/hc/en-us | Source discovery — pending exact URL verification | Pending |
-| Everand Help | https://help.everand.com/ | Source discovery — pending exact URL verification | Pending |
-| EPUB 3 Specification | https://www.w3.org/publishing/epub3/ | Source discovery — pending exact URL verification | Pending |
+| Apple App Store | https://apps.apple.com/us/app/everand-ebooks-audiobooks/id542557212 | iOS listing, ebooks, audiobooks, magazines, subscriptions, privacy labels | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.scribd.app.reader0 | Android listing, subscription reading/listening, downloads, data safety | Verified 2026-05-01 |
+| Scribd Support | https://support.scribd.com/hc/en-us | Account, documents, subscriptions, billing, copyright, and support flows | Verified 2026-05-01 |
+| Everand Help | https://help.everand.com/hc/en-us | Reading/listening, saved titles, downloads, subscription, and app help | Verified 2026-05-01 |
+| Scribd Terms of Use | https://www.scribd.com/terms | User content, subscriptions, copyright, acceptable use, and account terms | Verified 2026-05-01 |
 
 ## Detailed Design
 

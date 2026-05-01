@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Apple Books
 > - Category: E-reader and audiobook app with integrated store
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listing (iOS), public help pages, and publishing docs observed during source discovery.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, official help/support pages, official legal/privacy pages, and public standards where needed for lawful replacement infrastructure.
 > - Manual verification blockers: native iOS capture, iCloud-equivalent sync, purchase/restore, audiobook controls, and widgets require a test device/account.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, and UX. Book content must come from licensed distributors/publishers.
 
@@ -36,11 +36,11 @@ This spec is implementation-ready for a V1 that targets documented public behavi
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/apple-books/id364709193 | Source discovery — pending exact URL verification | Pending |
-| Apple Books Support | https://support.apple.com/books | Source discovery — pending exact URL verification | Pending |
-| Apple Books for Authors | https://authors.apple.com/ | Source discovery — pending exact URL verification | Pending |
-| EPUB 3 Specification | https://www.w3.org/publishing/epub3/ | Source discovery — pending exact URL verification | Pending |
-| Apple StoreKit Docs | https://developer.apple.com/storekit/ | Source discovery — pending exact URL verification | Pending |
+| Apple Books App Store Preview | https://apps.apple.com/us/app/apple-books/id364709193 | iOS app identity, reader/store/audiobook surface, platform scope | Verified 2026-05-01 |
+| Apple Books Support | https://support.apple.com/books | Reading, listening, purchases, library, sync, and account help | Verified 2026-05-01 |
+| Apple Books for Authors | https://authors.apple.com/ | Publisher/author distribution, asset, metadata, and sales orientation | Verified 2026-05-01 |
+| Apple Media Services Terms | https://www.apple.com/legal/internet-services/itunes/ | Purchases, subscriptions, refunds, family sharing, and service terms | Verified 2026-05-01 |
+| EPUB 3 Specification | https://www.w3.org/TR/epub-33/ | Open e-book format reference for original downstream reader implementation | Verified 2026-05-01 |
 
 ## Detailed Design
 

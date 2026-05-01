@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Goodreads
 > - Category: Book database and reading social network
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, public help pages, and public API/program pages observed during source discovery.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, official help/support pages, official legal/privacy pages, and public standards where needed for lawful replacement infrastructure.
 > - Manual verification blockers: native capture, reading-challenge lifecycle, scanning ISBN via camera, push notification payloads, and third-party book-data licensing require hands-on verification.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, taxonomies, and recommendation logic. Book metadata must be sourced from licensed providers or open catalogs.
 
@@ -36,11 +36,11 @@ This spec is implementation-ready for a V1 targeting documented public behavior.
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/goodreads/id355833469 | Source discovery — pending exact URL verification | Pending |
-| Google Play | https://play.google.com/store/apps/details?id=com.goodreads | Source discovery — pending exact URL verification | Pending |
-| Goodreads Help | https://help.goodreads.com/s/ | Source discovery — pending exact URL verification | Pending |
-| Open Library API | https://openlibrary.org/developers/api | Source discovery — pending exact URL verification | Pending |
-| Google Books API Terms | https://developers.google.com/books/terms | Source discovery — pending exact URL verification | Pending |
+| Apple App Store | https://apps.apple.com/us/app/goodreads-book-reviews/id355833469 | iOS listing, scanning, shelves, reviews, recommendations, privacy labels | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.goodreads | Android listing, reviews, shelves, barcode scan, recommendations, data safety | Verified 2026-05-01 |
+| Goodreads Help | https://help.goodreads.com/s/ | Account, shelves, reviews, friends, groups, privacy, and support flows | Verified 2026-05-01 |
+| Goodreads Terms of Use | https://www.goodreads.com/about/terms | User content, reviews, account, intellectual property, and acceptable-use terms | Verified 2026-05-01 |
+| Open Library API | https://openlibrary.org/developers/api | Lawful public bibliographic metadata alternative for downstream implementation | Verified 2026-05-01 |
 
 ## Detailed Design
 

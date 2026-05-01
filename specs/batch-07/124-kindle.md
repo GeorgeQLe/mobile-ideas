@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Kindle
 > - Category: Cross-device e-book reader with store
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, public help pages, and e-book format references observed during source discovery.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, official help/support pages, official legal/privacy pages, and public standards where needed for lawful replacement infrastructure.
 > - Manual verification blockers: native capture, store purchase/restore, DRM provider integration, sync-across-devices, text-to-speech, and push payloads require a test device/account.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, store surfaces, and reader chrome. All sold/loaned book content must come from licensed content providers with author/publisher consent.
 
@@ -36,11 +36,11 @@ This spec is implementation-ready for a V1 targeting documented public behavior.
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/amazon-kindle/id302584613 | Source discovery — pending exact URL verification | Pending |
-| Google Play | https://play.google.com/store/apps/details?id=com.amazon.kindle | Source discovery — pending exact URL verification | Pending |
-| Kindle Help | https://www.amazon.com/gp/help/customer/display.html?nodeId=GJUZAG5KBTXCZFWD | Source discovery — pending exact URL verification | Pending |
-| EPUB 3 Specification | https://www.w3.org/publishing/epub3/ | Source discovery — pending exact URL verification | Pending |
-| Apple StoreKit Docs | https://developer.apple.com/storekit/ | Source discovery — pending exact URL verification | Pending |
+| Apple App Store | https://apps.apple.com/us/app/amazon-kindle/id302584613 | iOS listing, e-book reading, samples, library sync, privacy labels | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.amazon.kindle | Android listing, books, magazines, comics, samples, sync, data safety | Verified 2026-05-01 |
+| Amazon Kindle Help | https://www.amazon.com/gp/help/customer/display.html?nodeId=GJUXNRAHSH6LX6FA | Kindle app/library management, reading, download, sync, and account help | Verified 2026-05-01 |
+| Amazon Conditions of Use | https://www.amazon.com/gp/help/customer/display.html?nodeId=GLSBYFE9MGKKQXXM | Account, digital content, payments, and service terms | Verified 2026-05-01 |
+| EPUB 3 Specification | https://www.w3.org/TR/epub-33/ | Open e-book format reference for original downstream reader implementation | Verified 2026-05-01 |
 
 ## Detailed Design
 

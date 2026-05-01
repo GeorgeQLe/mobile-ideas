@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Webtoon
 > - Category: Digital vertical-scroll comics reader
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, public help pages, and public creator-program pages observed during source discovery.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, official help/support pages, official legal/privacy pages, and public standards where needed for lawful replacement infrastructure.
 > - Manual verification blockers: native iOS/Android capture, coin purchase/restore, fast-pass/daily-pass unlock economics, creator upload flow, and push payload inspection still require a test device/account.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, series art, sample episodes, and recommendation logic.
 
@@ -36,11 +36,11 @@ This spec is implementation-ready for a V1 that targets the documented public be
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/webtoon/id991237008 | Source discovery — pending exact URL verification | Pending |
-| Google Play | https://play.google.com/store/apps/details?id=com.naver.linewebtoon | Source discovery — pending exact URL verification | Pending |
-| Webtoon Help Center | https://www.webtoons.com/en/help | Source discovery — pending exact URL verification | Pending |
-| Webtoon Content Policy | https://www.webtoons.com/en/terms/contentPolicy | Source discovery — pending exact URL verification | Pending |
-| Webtoon Creators | https://www.webtoons.com/en/creators101 | Source discovery — pending exact URL verification | Pending |
+| Apple App Store | https://apps.apple.com/us/app/webtoon-comics/id894546091 | iOS listing, genres, daily webcomic reading, creator/community positioning, privacy labels | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.naver.linewebtoon | Android listing, episodes, downloads, comments, subscriptions, data safety | Verified 2026-05-01 |
+| WEBTOON Help Center | https://help2.line.me/LINE_WEBTOON/ | Account, coins, reading, publishing, comments, and support flows | Verified 2026-05-01 |
+| WEBTOON Terms of Use | https://www.webtoons.com/en/terms | User content, subscriptions/coins, acceptable use, account, and platform rules | Verified 2026-05-01 |
+| WEBTOON Creators 101 | https://www.webtoons.com/en/creators101 | Creator onboarding, publishing concepts, and creator-program orientation | Verified 2026-05-01 |
 
 ## Detailed Design
 
