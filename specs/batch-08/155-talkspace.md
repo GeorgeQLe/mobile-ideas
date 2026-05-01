@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Talkspace
 > - Category: Online therapy and psychiatry
-> - Readiness status: Draft 1
-> - Verification basis: source discovery of public marketplace listings, help articles, and telehealth partner disclosures pending exact URL verification.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public App Store/Google Play listings, Talkspace help center, privacy policy, terms, therapy/psychiatry pages, and crisis-resource guidance.
 > - Manual verification blockers: state-licensed therapist and prescriber network, insurance claim submission, controlled-substance policy, crisis escalation flows, and minor-age gating require hands-on verification with a licensed clinical organization.
 > - Legal scope: lawful functional parity only; original code, brand, copy, and clinical/insurer partnerships. Operator is not a clinical provider; no medical advice.
 
@@ -12,7 +12,7 @@
 
 Build an original messaging-first therapy platform inspired by Talkspace: async text/voice/video messaging with a licensed therapist, optional psychiatry add-on, insurance or self-pay plans, and care-plan tooling. The clone requires a licensed clinical organization for therapists and psychiatrists.
 
-This spec is Draft 1: surfaces ready; state licensure orchestration, controlled-substance psychiatry prescribing, insurance claim submission, and crisis escalation remain behind compliance/clinical review.
+This spec is implementation-ready for a V1 that targets documented public behavior. Therapist/prescriber licensure, insurance, psychiatry prescribing, crisis escalation, minor support, and media-message retention remain clinical/manual verification blockers.
 
 ## Goals
 
@@ -34,11 +34,13 @@ This spec is Draft 1: surfaces ready; state licensure orchestration, controlled-
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store listing | https://apps.apple.com/us/app/talkspace-online-therapy/id661829386 | iOS feature list | Source discovery — pending exact URL verification |
-| Google Play listing | https://play.google.com/store/apps/details?id=com.talkspace.talkspaceapp | Android feature list | Source discovery — pending exact URL verification |
-| Help center | https://helpnow.talkspace.com/ | Messaging and session references | Source discovery — pending exact URL verification |
-| Privacy and terms | https://www.talkspace.com/public/privacy-policy | PHI handling references | Source discovery — pending exact URL verification |
-| Psychiatry scope page | https://www.talkspace.com/online-therapy/psychiatry | Scope references | Source discovery — pending exact URL verification |
+| Apple App Store listing | https://apps.apple.com/us/app/talkspace-therapy-counseling/id661829386 | iOS listing, online therapy, messaging, live sessions, privacy labels | Verified 2026-05-01 |
+| Google Play listing | https://play.google.com/store/apps/details?id=com.talkspace.talkspaceapp | Android listing, licensed-state matching, text/audio/video messages, insurance coverage, privacy reference | Verified 2026-05-01 |
+| Talkspace Help Center | https://help.talkspace.com/hc/en-us | Access, matching, messaging, live sessions, account, billing, safety support | Verified 2026-05-01 |
+| How Talkspace Works | https://help.talkspace.com/hc/en-us/articles/360057792572-How-Does-Talkspace-Work | Licensed provider by state, async messaging, live sessions, encrypted room | Verified 2026-05-01 |
+| Privacy Policy | https://www.talkspace.com/public/privacy-policy | Privacy, health data, communication, disclosures, user rights | Verified 2026-05-01 |
+| Psychiatry | https://www.talkspace.com/online-therapy/psychiatry | Psychiatry scope, medication-management orientation, prescriber visit behavior | Verified 2026-05-01 |
+| Crisis Resources | https://www.talkspace.com/emergency-resources | Emergency and crisis limitations, immediate-help routing | Verified 2026-05-01 |
 
 ## Detailed Design
 
@@ -51,6 +53,14 @@ This spec is Draft 1: surfaces ready; state licensure orchestration, controlled-
 - Insurance eligibility and claim submission; self-pay fallback.
 - Care plan with goals, check-ins, and progress.
 - Crisis escalation with one-tap hotline resources.
+- Matching must enforce state residence, provider license, plan/benefit eligibility, modality entitlement, capacity, and provider conflict checks.
+- Async therapy room must support text, voice, picture, and video messages with media size limits, encryption, deletion/retention policy, and clinician response-window labeling.
+- Live sessions must support video, phone, live chat, no-show, late provider, reschedule, and modality-switch states.
+- Psychiatry must be a distinct clinical workflow with prescriber license checks, medication history, pharmacy handoff, controlled-substance gates, and follow-up cadence.
+- Insurance workflows must support employer/plan entry, eligibility, claim submission, copay estimate, denial, EOB/claim summary, and self-pay fallback.
+- Care plans must support goals, check-ins, provider-updated progress, and patient-visible revisions.
+- Teen/minor flows must require guardian/legal review and a separately licensed provider pool.
+- Crisis indicators in messages, media, live sessions, or intake must route to immediate support and adverse-event workflow.
 
 ## Core User Journeys
 
@@ -148,6 +158,13 @@ This spec is Draft 1: surfaces ready; state licensure orchestration, controlled-
 - Minor across state lines; block and guide.
 - Medication adherence log privacy.
 - Partner outage; read-only mode with crisis resources intact.
+- Message media upload fails after therapist notification; reconcile or retract notification.
+- Provider response window is missed; escalate to support without promising clinical outcome.
+- Employer/insurance eligibility is revoked mid-treatment; convert to self-pay or pause care with disclosure.
+- Psychiatry prescribing is requested in an unsupported state or controlled-substance category; block and document.
+- Crisis signal appears in an async message outside business hours; trigger crisis protocol independent of therapist availability.
+- Teen patient reaches age-of-majority; re-consent and account ownership transition.
+- User switches therapist while media messages are pending review; freeze pending access until ownership resolves.
 
 ## Test Plan
 
@@ -161,6 +178,12 @@ This spec is Draft 1: surfaces ready; state licensure orchestration, controlled-
 - PHI redaction in analytics, logs, and support tooling.
 - Minor consent gating per state.
 - Accessibility across messaging and live sessions.
+- Messaging tests cover text, audio, picture, video, media limits, offline draft, upload retry, deletion/retention, and therapist response-window states.
+- Live-session tests cover video, phone, chat, no-show, late provider, reconnect, modality switch, and reschedule.
+- Psychiatry tests cover state license, prescriber matching, medication history, controlled-substance block, pharmacy handoff, and follow-up.
+- Insurance tests cover employer benefit, payer eligibility, copay estimate, claim submit/deny, self-pay fallback, and EOB download.
+- Crisis tests cover intake, message, media, live session, offline resources, and adverse-event audit.
+- Minor tests cover guardian consent, teen support, provider eligibility, age transition, and data access.
 
 ## Acceptance Criteria
 
@@ -169,6 +192,9 @@ This spec is Draft 1: surfaces ready; state licensure orchestration, controlled-
 - State-licensure routing correct for therapy and psychiatry.
 - Controlled-substance flows gated behind compliance flag.
 - Manual verification blockers resolved or feature-flagged.
+- Exact source links are current or refreshed before implementation starts.
+- Therapy, psychiatry, crisis, insurance, minor, and controlled-substance workflows have clinical/legal/compliance launch signoff.
+- Media-message retention and access controls are documented, tested, and visible to support/clinical operations.
 
 ## Open Questions
 
@@ -180,15 +206,16 @@ This spec is Draft 1: surfaces ready; state licensure orchestration, controlled-
 
 ## Build Plan
 
-- Phase 1: intake, matching, async messaging.
-- Phase 2: live sessions (video and phone).
-- Phase 3: psychiatry add-on and medication tracker.
-- Phase 4: insurance verification and claims.
-- Phase 5: care plans and progress.
-- Phase 6: crisis escalation, minor gating, audit logs, manual verification.
+- Phase 1: account, intake, eligibility, therapist matching, encrypted messaging room, response-window and crisis indicators.
+- Phase 2: text/audio/picture/video messaging, media upload/retention, live video/phone/chat sessions, reschedule/no-show.
+- Phase 3: psychiatry intake, prescriber matching, medication management, controlled-substance gates, pharmacy handoff.
+- Phase 4: insurance/employer benefits, claims, copay/self-pay states, claim-summary downloads, billing support.
+- Phase 5: care plans, progress check-ins, therapist switches, teen/minor gates, provider operations dashboard.
+- Phase 6: crisis/adverse-event workflow, privacy/security/access-control audit, accessibility, manual clinical verification, launch gate.
 
 ## Next Steps
 
 - Clinical organization and clearinghouse RFPs.
 - HIPAA, DEA, and state-licensure review.
-- Replace discovery URLs with exact first-party URLs before implementation.
+- Select clinical, prescriber, pharmacy, payer/clearinghouse, video/media, crisis-response, and billing partners.
+- Complete manual therapy, psychiatry, insurance, crisis, media, and minor verification before parity claims.

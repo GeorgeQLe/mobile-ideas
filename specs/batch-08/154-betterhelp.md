@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: BetterHelp
 > - Category: Online therapy
-> - Readiness status: Draft 1
-> - Verification basis: source discovery of public marketplace listings, help articles, and therapy-platform disclosures pending exact URL verification.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public App Store/Google Play listings, BetterHelp FAQ, privacy policy, terms, counseling scope pages, and public emergency-resource guidance.
 > - Manual verification blockers: state-licensed therapist matching, insurance billing policies, crisis escalation flows, and minor-age gating require hands-on verification with a licensed clinical organization.
 > - Legal scope: lawful functional parity only; original code, brand, copy, and clinical partnerships. Operator is not a clinical provider; no medical advice.
 
@@ -12,7 +12,7 @@
 
 Build an original therapy-matching platform inspired by BetterHelp: questionnaire-based therapist matching, recurring video/phone/chat sessions, journaling, and worksheets. The clone requires a licensed clinical organization to employ or contract therapists.
 
-This spec is Draft 1: surfaces ready; state licensure orchestration, crisis escalation, minor-age gating, and billing remain behind compliance/clinical review.
+This spec is implementation-ready for a V1 that targets documented public behavior. Therapist licensure, matching, crisis escalation, minor gating, clinical documentation, and subscription billing remain clinical/manual verification blockers.
 
 ## Goals
 
@@ -34,11 +34,12 @@ This spec is Draft 1: surfaces ready; state licensure orchestration, crisis esca
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store listing | https://apps.apple.com/us/app/betterhelp-therapy/id995252384 | iOS feature list | Source discovery — pending exact URL verification |
-| Google Play listing | https://play.google.com/store/apps/details?id=com.betterhelp | Android feature list | Source discovery — pending exact URL verification |
-| Help center | https://www.betterhelp.com/faq/ | Matching and session references | Source discovery — pending exact URL verification |
-| Privacy and terms | https://www.betterhelp.com/privacy/ | PHI handling references | Source discovery — pending exact URL verification |
-| Clinical scope pages | https://www.betterhelp.com/what-is-online-counseling/ | Scope references | Source discovery — pending exact URL verification |
+| Apple App Store listing | https://apps.apple.com/us/app/betterhelp-therapy/id995252384 | iOS listing, therapy access, sessions, messaging, privacy labels | Verified 2026-05-01 |
+| Google Play listing | https://play.google.com/store/apps/details?id=com.betterhelp | Android listing, licensed therapist matching, messaging, live sessions, webinars | Verified 2026-05-01 |
+| BetterHelp FAQ | https://www.betterhelp.com/faq/ | Matching, therapist credentials, communication modes, payment, insurance, privacy and security topics | Verified 2026-05-01 |
+| Privacy Policy | https://www.betterhelp.com/privacy/ | Personal information, health data, privacy controls, disclosures | Verified 2026-05-01 |
+| Terms and Conditions | https://www.betterhelp.com/terms/ | Service scope, crisis limitations, user obligations, subscription terms | Verified 2026-05-01 |
+| Online Counseling | https://www.betterhelp.com/what-is-online-counseling/ | Counseling scope, modality orientation, therapy expectations | Verified 2026-05-01 |
 
 ## Detailed Design
 
@@ -51,6 +52,14 @@ This spec is Draft 1: surfaces ready; state licensure orchestration, crisis esca
 - Journaling with private or shared-with-therapist mode.
 - Assigned worksheets and progress tracking.
 - Subscription billing with pause/cancel flows.
+- Therapist matching must enforce active license, supported state, modality fit, language, focus-area fit, capacity, and conflict checks.
+- Intake must surface emergency limitations and route crisis indicators to immediate resources before normal matching.
+- Sessions must support live video, live phone/audio, live chat, async messaging, no-show, late therapist, reschedule, and therapist-switch states.
+- Journals and worksheets must support private, shared, revoked-share, archived, export, and deletion states.
+- Subscription billing must include trial/promo, active, grace, paused, canceled, refund, app-store/web-managed, and account-deleted states.
+- Therapist switches must preserve user data boundaries and prevent unauthorized access by former therapists.
+- Minor/teen flows must require legal review, guardian consent where applicable, and separate therapist availability rules.
+- Group webinar or educational content must be clearly non-clinical or covered by the clinical partner's policy.
 
 ## Core User Journeys
 
@@ -147,6 +156,12 @@ This spec is Draft 1: surfaces ready; state licensure orchestration, crisis esca
 - Device mic/camera permission denied at session start.
 - Worksheet assignment after cancellation; read-only mode.
 - Cross-device session join collision.
+- User indicates self-harm during onboarding, journal, chat, or live session; crisis protocol activates before ordinary workflow.
+- Therapist becomes unlicensed/unavailable in the user's state; freeze scheduling and start rematch.
+- User moves states mid-treatment; revalidate license and consent before the next session.
+- Subscription cancellation occurs with a future session booked; cancel or preserve under policy and message clearly.
+- Journal entry is shared, then share is revoked; therapist access and audit logs must update.
+- User requests data deletion while clinical retention obligations apply; show retention exception and export path.
 
 ## Test Plan
 
@@ -160,6 +175,12 @@ This spec is Draft 1: surfaces ready; state licensure orchestration, crisis esca
 - Crisis escalation path and resource reachability.
 - PHI redaction in analytics, logs, and support tooling.
 - Accessibility across intake and session flows.
+- Crisis-flow tests cover intake, message, journal, live session, offline resources, support escalation, and audit log.
+- Matching tests cover state license, therapist capacity, language, focus area, modality, switch, therapist departure, and no-match state.
+- Billing tests cover trial, app-store/web ownership, pause, cancel, refund, grace, failed payment, and account deletion.
+- Journal/worksheet tests cover private, shared, revoked, exported, deleted, offline draft, and therapist assignment states.
+- Minor tests cover age gate, guardian consent, unsupported states, and therapist eligibility.
+- Privacy tests cover visitor-data/ad-tech boundaries, therapist access control, PHI redaction, and audit trails.
 
 ## Acceptance Criteria
 
@@ -168,6 +189,9 @@ This spec is Draft 1: surfaces ready; state licensure orchestration, crisis esca
 - No PHI in third-party telemetry.
 - Minor gating enforced per state policy.
 - Manual verification blockers resolved or feature-flagged.
+- Exact source links are current or refreshed before implementation starts.
+- Crisis, minor, therapist licensure, subscription, data-retention, and privacy/ad-tech risks have clinical/legal launch signoff.
+- Former therapists lose access immediately after switch, departure, or license block, except where lawful retention requires audited clinical records.
 
 ## Open Questions
 
@@ -179,15 +203,16 @@ This spec is Draft 1: surfaces ready; state licensure orchestration, crisis esca
 
 ## Build Plan
 
-- Phase 1: account, intake, matching, therapist profiles.
-- Phase 2: session room across video/phone/chat.
-- Phase 3: messaging, journaling, worksheets.
-- Phase 4: subscription billing and pause/cancel.
-- Phase 5: crisis escalation path and minor gating.
-- Phase 6: privacy audit, accessibility, manual verification.
+- Phase 1: account, emergency disclaimer, intake, license/capacity matching, therapist profiles, consent and audit model.
+- Phase 2: live video/audio/chat sessions, async messaging, schedule/reschedule/no-show, therapist switch and departure.
+- Phase 3: journal, worksheets, sharing controls, exports, therapist assignments, offline drafts with local encryption.
+- Phase 4: subscription billing, pause/cancel/refund, app-store/web ownership, support and deletion workflows.
+- Phase 5: crisis escalation, minor/teen gates, clinical operations dashboard, adverse-event and trust-and-safety processes.
+- Phase 6: privacy/security/access-control audit, accessibility, clinical/manual verification, launch gate.
 
 ## Next Steps
 
 - Clinical organization partnership RFP.
 - HIPAA and state-licensure review.
-- Replace discovery URLs with exact first-party URLs before implementation.
+- Select clinical organization, therapist credentialing, video/session, billing, crisis-response, and privacy-review partners.
+- Complete manual therapist matching, session, crisis, billing, minor, and data-deletion verification before parity claims.

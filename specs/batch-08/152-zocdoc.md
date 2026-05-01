@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Zocdoc
 > - Category: Doctor booking and provider search
-> - Readiness status: Draft 1
-> - Verification basis: source discovery of public marketplace listings, help articles, and provider marketplace disclosures pending exact URL verification.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public App Store/Google Play listings, Zocdoc patient help, privacy policy, terms, and public booking/review guidance.
 > - Manual verification blockers: insurance eligibility verification with clearinghouse partners, provider calendar integrations, digital intake forms, and review moderation flows require hands-on verification with real providers.
 > - Legal scope: lawful functional parity only; original code, brand, copy, and provider/insurer partnerships. Operator is not a provider; no medical advice.
 
@@ -12,7 +12,7 @@
 
 Build an original doctor-booking marketplace inspired by Zocdoc: search providers by specialty, insurance, and availability; book appointments; complete intake forms; and read patient reviews. The clone must use original copy and integrations. Provider onboarding, insurance eligibility verification, and review moderation require legal and compliance review.
 
-This spec is Draft 1: surfaces ready; clearinghouse insurance eligibility, provider calendar integrations, digital intake schemas, and review moderation policies remain behind compliance/partner review.
+This spec is implementation-ready for a V1 that targets documented public behavior. Insurance eligibility, provider calendars, intake-form routing, telehealth, and review moderation remain partner/manual verification blockers.
 
 ## Goals
 
@@ -34,11 +34,12 @@ This spec is Draft 1: surfaces ready; clearinghouse insurance eligibility, provi
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store listing | https://apps.apple.com/us/app/zocdoc-find-a-doctor/id391062219 | iOS feature list | Source discovery — pending exact URL verification |
-| Google Play listing | https://play.google.com/store/apps/details?id=com.zocdoc.android | Android feature list | Source discovery — pending exact URL verification |
-| Help center | https://www.zocdoc.com/faq | Booking and review policy | Source discovery — pending exact URL verification |
-| Privacy and terms | https://www.zocdoc.com/about/privacypolicy/ | PHI handling references | Source discovery — pending exact URL verification |
-| Review policy | https://www.zocdoc.com/about/guidelines/ | Review moderation references | Source discovery — pending exact URL verification |
+| Apple App Store listing | https://apps.apple.com/us/app/zocdoc-find-and-book-doctors/id391062219 | iOS listing, insurance/provider search, real-time availability, booking, reminders, forms, verified reviews | Verified 2026-05-01 |
+| Google Play listing | https://play.google.com/store/apps/details?id=com.zocdoc.android | Android listing, provider search, insurance filters, availability, in-person/telehealth booking | Verified 2026-05-01 |
+| Patient Help Center | https://www.zocdoc.com/patient-help/en/ | Booking, account, appointments, insurance, reviews, privacy support behavior | Verified 2026-05-01 |
+| Privacy Policy | https://www.zocdoc.com/about/privacypolicy | Personal data, PHI/business-associate distinctions, review/search/appointment data handling | Verified 2026-05-01 |
+| Terms of Use | https://www.zocdoc.com/about/terms | Marketplace scope, provider relationship, appointment and user obligations | Verified 2026-05-01 |
+| Review Guidelines | https://www.zocdoc.com/about/guidelines | Verified-visit review and moderation policy orientation | Verified 2026-05-01 |
 
 ## Detailed Design
 
@@ -51,6 +52,15 @@ This spec is Draft 1: surfaces ready; clearinghouse insurance eligibility, provi
 - Patient reviews filtered by verified visit; moderation queue for guideline violations.
 - Insurance eligibility verification via clearinghouse partner pre-booking.
 - Reminders with reschedule and cancel actions.
+- Search results must distinguish provider-declared insurance acceptance from verified eligibility; unsupported plans require clear disclosure before booking.
+- Slot inventory must use idempotent holds and confirmations to avoid double-booking.
+- Provider profiles must show credentials, location, visit type, accepted plans, languages, accessibility attributes, cancellation policy, and review summary.
+- Intake forms must be schema-versioned, provider-specific, resumable, and exportable to the provider system only with patient consent.
+- Telehealth booking must check state licensure, visit modality, device readiness, and emergency disclaimer before confirmation.
+- Reviews must be limited to verified visits, screened for PHI/defamation, and appealable by patients/providers.
+- Pediatric/minor bookings must support guardian consent and provider-specific age restrictions.
+- Provider and appointment notifications must avoid PHI in push/SMS/email payloads.
+- Provider-side no-show, cancellation fee, office reschedule, and provider departure states must be represented in the API contract.
 
 ## Core User Journeys
 
@@ -145,6 +155,13 @@ This spec is Draft 1: surfaces ready; clearinghouse insurance eligibility, provi
 - Minor patient booking; parental consent flow.
 - Provider leaves platform; appointment reassignment.
 - Clearinghouse outage; offline eligibility fallback.
+- Provider changes accepted insurance after a patient books; notify and require reconfirmation.
+- Slot is available in search but gone at confirmation; release hold and offer alternatives.
+- Patient submits intake to the wrong provider/location; quarantine and support escalation.
+- Review includes diagnosis or private medical details; redact or reject before publication.
+- Office cancels appointment after intake completion; preserve forms for rebooking only with consent.
+- Telehealth link provider fails at visit time; support reconnect, phone fallback, or reschedule.
+- Minor patient changes guardian account; revalidate consent and access scope.
 
 ## Test Plan
 
@@ -158,6 +175,11 @@ This spec is Draft 1: surfaces ready; clearinghouse insurance eligibility, provi
 - Minor-patient consent flows.
 - Accessibility across search and booking.
 - Manual verification with provider partners.
+- Calendar contract tests cover hold, confirm, cancel, reschedule, office-initiated change, stale cache, and race conditions.
+- Eligibility tests cover unsupported plan, clearinghouse outage, changed payer, expired card, and patient self-pay fallback.
+- Intake-form tests cover schema migration, partial save, provider export, wrong-provider quarantine, and deletion.
+- Review moderation tests cover verified visit, non-visit attempt, PHI leakage, defamatory content, appeal, and takedown.
+- Telehealth tests cover state licensure, unsupported modality, device permission denial, and emergency guidance.
 
 ## Acceptance Criteria
 
@@ -166,6 +188,9 @@ This spec is Draft 1: surfaces ready; clearinghouse insurance eligibility, provi
 - Reviews are gated to verified visits and moderated per policy.
 - "Not for emergencies" guidance surfaces on triage-adjacent screens.
 - Manual verification blockers resolved or feature-flagged.
+- Exact source links are current or refreshed before implementation starts.
+- Booking cannot publish a confirmed state until provider calendar confirmation succeeds or a partner-defined pending state is shown.
+- Review, intake, provider, and insurance data flows are covered by privacy and trust-and-safety launch signoff.
 
 ## Open Questions
 
@@ -177,15 +202,16 @@ This spec is Draft 1: surfaces ready; clearinghouse insurance eligibility, provi
 
 ## Build Plan
 
-- Phase 1: provider search, profile, booking (in-person only).
-- Phase 2: intake forms and reminders.
-- Phase 3: telehealth visits.
-- Phase 4: insurance eligibility verification.
-- Phase 5: reviews, moderation, and reporting.
-- Phase 6: privacy audit, accessibility, manual verification.
+- Phase 1: provider directory, specialty/insurance/location filters, profile pages, slot hold/confirm, in-person booking, reminders.
+- Phase 2: intake forms, appointment dashboard, reschedule/cancel, provider-office webhooks, no-show/cancellation policy states.
+- Phase 3: insurance card capture, clearinghouse eligibility, self-pay disclosure, payer-change reconciliation.
+- Phase 4: telehealth visit join, state/licensure checks, device readiness, emergency disclaimer, fallback/reschedule.
+- Phase 5: verified-visit reviews, moderation queue, provider reports, appeals, trust-and-safety audit trails.
+- Phase 6: partner calendar/manual booking verification, privacy review, accessibility, incident response, launch gate.
 
 ## Next Steps
 
 - Clearinghouse and telehealth partner RFPs.
 - Privacy/HIPAA counsel and trust and safety review.
-- Replace discovery URLs with exact first-party URLs before implementation.
+- Select provider-directory, calendar, clearinghouse, telehealth, moderation, and notification partners.
+- Complete manual provider booking, eligibility, intake, review, and telehealth verification before parity claims.

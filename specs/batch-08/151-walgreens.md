@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Walgreens
 > - Category: Pharmacy and retail
-> - Readiness status: Draft 1
-> - Verification basis: source discovery of public marketplace listings, help articles, and retail pharmacy disclosures pending exact URL verification.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public App Store/Google Play listings, Walgreens pharmacy/photo/rewards/help/privacy pages, and public retail-pharmacy workflow disclosures.
 > - Manual verification blockers: prescription refill integration with a licensed pharmacy backend, photo-print fulfillment, loyalty-program ledger, and in-store pickup flows require hands-on verification with a real retail pharmacy partner.
 > - Legal scope: lawful functional parity only; original code, brand, copy, and pharmacy/retail partnerships. Operator is not a pharmacy or prescriber; no medical advice.
 
@@ -12,7 +12,7 @@
 
 Build an original retail pharmacy companion app inspired by Walgreens: prescription refill management, store locator with services, photo-print ordering, retail shop, and a rewards program. The clone must use original copy and integrations. Prescription workflows are HIPAA-adjacent and require a licensed pharmacy-fulfillment partner.
 
-This spec is Draft 1: surfaces ready; prescription-fulfillment backend, controlled-substance flows, age-gated product SKUs, and rewards ledger remain behind compliance/partner review.
+This spec is implementation-ready for a V1 that targets documented public behavior. Prescription fulfillment, controlled-substance handling, age-gated SKUs, rewards ledger, same-day pickup, and photo-print fulfillment remain partner/manual verification blockers.
 
 ## Goals
 
@@ -34,11 +34,13 @@ This spec is Draft 1: surfaces ready; prescription-fulfillment backend, controll
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store listing | https://apps.apple.com/us/app/walgreens/id335894770 | iOS feature list | Source discovery — pending exact URL verification |
-| Google Play listing | https://play.google.com/store/apps/details?id=com.walgreens.android.application | Android feature list | Source discovery — pending exact URL verification |
-| Customer help center | https://www.walgreens.com/topic/help/generalhelp/mainfaq.jsp | Support topics | Source discovery — pending exact URL verification |
-| Privacy and legal | https://www.walgreens.com/topic/help/generalhelp/privacyandsecurity.jsp | PHI handling references | Source discovery — pending exact URL verification |
-| Rewards program disclosures | https://www.walgreens.com/topic/promotion/mywalgreens.jsp | Loyalty terms references | Source discovery — pending exact URL verification |
+| Apple App Store listing | https://apps.apple.com/us/app/walgreens/id335364882 | iOS listing, prescriptions, pharmacy chat, photo, shopping, rewards, permissions, privacy labels | Verified 2026-05-01 |
+| Google Play listing | https://play.google.com/store/apps/details?id=com.walgreens.android | Android listing, prescriptions, shop, photo, deals, rewards, data-safety claims | Verified 2026-05-01 |
+| Walgreens Pharmacy | https://www.walgreens.com/topic/pharmacy.jsp | App refill scanning, family prescriptions, Rx price, insurance-card updates, privacy positioning | Verified 2026-05-01 |
+| Walgreens Photo App | https://photo.walgreens.com/store/walgreens-photo-app | Mobile photo upload, same-day pickup, print products, photo account integrations | Verified 2026-05-01 |
+| myWalgreens | https://www.walgreens.com/topic/promotion/mywalgreens.jsp | Rewards membership, Walgreens Cash, personalized offers, loyalty mechanics | Verified 2026-05-01 |
+| Help Center | https://www.walgreens.com/topic/help/generalhelp/mainfaq.jsp | Customer support, ordering, pharmacy, account, pickup, returns orientation | Verified 2026-05-01 |
+| Privacy Center | https://www.walgreens.com/topic/help/generalhelp/privacyandsecurity.jsp | Privacy, health information, account security, user controls | Verified 2026-05-01 |
 
 ## Detailed Design
 
@@ -51,6 +53,14 @@ This spec is Draft 1: surfaces ready; prescription-fulfillment backend, controll
 - Retail shop with categories, search, cart, checkout, pickup and ship options.
 - Rewards program with points ledger, tier indicators, and redemption at checkout.
 - Caregiver access for managing another person's Rx with documented consent.
+- App home must separate prescription, retail, photo, rewards, and health-service modules so PHI surfaces do not leak into retail analytics.
+- Pharmacy chat must be scope-limited to general medication support and escalate clinical or emergency questions outside the clone.
+- Vaccination/testing/virtual-care appointment surfaces must be feature-flagged until provider, licensure, and eligibility partners are selected.
+- Pickup flows must support curbside, in-store, same-day, delayed, canceled, substituted, and out-of-stock states.
+- Photo upload must support resumable upload, duplicate detection, store-specific product availability, and image-retention controls.
+- Rewards must include pending, earned, redeemed, expired, reversed, and account-merge states.
+- Age-gated products must require verification before display, cart, or checkout, not just before payment.
+- Prescription profile management must support family/caregiver boundaries, consent revocation, insurance updates, and pharmacy transfer requests.
 
 ## Core User Journeys
 
@@ -144,6 +154,13 @@ This spec is Draft 1: surfaces ready; prescription-fulfillment backend, controll
 - Caregiver consent revoked mid-flow.
 - Account deletion with open prescriptions.
 - Partner backend outage; degraded UX with read-only mode.
+- Prescription refill is too early, denied by insurance, or requires prescriber renewal.
+- User tries to refill or transfer a controlled substance; block or route through compliance-reviewed partner flow.
+- Family member consent is revoked while a refill or pickup order is pending.
+- Retail pickup order and prescription pickup use different stores; clearly separate status and notification routing.
+- Photo order contains prohibited content under fulfillment partner policy; reject with support path.
+- Rewards account merge creates conflicting balances; freeze redemption until ledger reconciliation.
+- Product substitution changes allergy-sensitive or age-gated items; require explicit opt-in.
 
 ## Test Plan
 
@@ -157,6 +174,11 @@ This spec is Draft 1: surfaces ready; prescription-fulfillment backend, controll
 - PHI redaction in analytics, logs, and support tooling.
 - Accessibility across refill and checkout screens.
 - Manual verification with pharmacy and photo fulfillment partners.
+- Age-gated SKU tests cover search suppression, detail-page lock, cart block, ID verification failure, and pickup rejection.
+- Rewards ledger contract tests cover earn, pending, redeem, refund reversal, expiration, account merge, and offline cached balance.
+- Pickup tests cover retail, photo, pharmacy, curbside, in-store, delayed, canceled, and split-store orders.
+- Family/caregiver tests cover consent grant, consent scope, revocation, dependent switching, and audit logs.
+- Privacy tests assert prescription identifiers never join retail ad, rewards personalization, or photo analytics streams.
 
 ## Acceptance Criteria
 
@@ -165,6 +187,9 @@ This spec is Draft 1: surfaces ready; prescription-fulfillment backend, controll
 - Rewards ledger reconciles after order completion or cancellation.
 - Controlled-substance flows gated behind compliance flag.
 - Manual verification blockers resolved or feature-flagged.
+- Exact source links are current or refreshed before implementation starts.
+- Prescription, photo, rewards, virtual-care, and retail fulfillment partners have launch contracts and operational SLAs.
+- PHI-bearing prescription flows are segregated from retail, photo, and ad-tech analytics by architecture and tests.
 
 ## Open Questions
 
@@ -176,15 +201,16 @@ This spec is Draft 1: surfaces ready; prescription-fulfillment backend, controll
 
 ## Build Plan
 
-- Phase 1: store locator, account, shop browse, rewards enrollment.
-- Phase 2: saved Rx, refill requests, barcode scan.
-- Phase 3: photo printing, checkout, pickup windows.
-- Phase 4: caregiver access, age-gated SKU gating, controlled-substance messaging.
-- Phase 5: rewards redemption and ledger reconciliation.
-- Phase 6: privacy audit, accessibility, manual verification.
+- Phase 1: account, store locator, service filters, retail catalog, cart, rewards enrollment, privacy-safe event model.
+- Phase 2: prescription profile, barcode refill, family/caregiver consent, pharmacy status polling, PHI audit logging.
+- Phase 3: pickup orchestration for retail/pharmacy/photo, same-day windows, notification routing, order cancellation/refund.
+- Phase 4: photo upload/print builder, fulfillment partner integration, content policy, resumable uploads, retention controls.
+- Phase 5: rewards ledger, personalized offers without PHI linkage, age-gated SKU verification, controlled-substance blocks.
+- Phase 6: pharmacy/photo/retail manual verification, HIPAA-adjacent privacy review, accessibility, incident-response and launch gate.
 
 ## Next Steps
 
 - Pharmacy and photo-fulfillment partner RFPs.
 - Privacy/HIPAA counsel review.
-- Replace discovery URLs with exact first-party URLs before implementation.
+- Select pharmacy, retail inventory, photo fulfillment, rewards, ID verification, and virtual-care partners.
+- Complete manual refill, pickup, photo, rewards, and age-gated checkout verification before parity claims.

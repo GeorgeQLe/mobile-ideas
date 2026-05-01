@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Hims & Hers
 > - Category: Direct-to-consumer telehealth and wellness
-> - Readiness status: Draft 1
-> - Verification basis: source discovery of public marketplace listings, help articles, and telehealth partner disclosures pending exact URL verification.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public app/web listings, Hims and Hers help/privacy/terms pages, category pages, telehealth disclosures, and public program/shop descriptions.
 > - Manual verification blockers: state-by-state clinician licensure, async prescribing policies, subscription refill fulfillment via partner pharmacies, and category-specific compliance (sexual health, weight, mental health) require hands-on verification with a licensed clinical organization.
 > - Legal scope: lawful functional parity only; original code, brand, copy, and clinical/pharmacy partnerships. Operator is not a clinical provider; no medical advice.
 
@@ -12,7 +12,7 @@
 
 Build an original direct-to-consumer telehealth and wellness platform inspired by Hims & Hers: condition-based intake, async clinician review, prescription fulfillment via partner pharmacies on subscription, and a complementary wellness product shop.
 
-This spec is Draft 1: surfaces ready; state licensure orchestration, controlled-substance policy, insurance handling, and minor gating remain behind compliance/clinical review.
+This spec is implementation-ready for a V1 that targets documented public behavior. Clinician licensure, category protocols, prescribing, pharmacy fulfillment, mental-health/crisis routing, compounded/weight-loss medication rules, insurance, and minor gates remain clinical/manual verification blockers.
 
 ## Goals
 
@@ -34,11 +34,14 @@ This spec is Draft 1: surfaces ready; state licensure orchestration, controlled-
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store listing | https://apps.apple.com/us/app/hims-hers-health/id1478720487 | iOS feature list | Source discovery — pending exact URL verification |
-| Google Play listing | https://play.google.com/store/apps/details?id=com.himshers.app | Android feature list | Source discovery — pending exact URL verification |
-| Help center | https://www.hims.com/help | Visit and subscription references | Source discovery — pending exact URL verification |
-| Privacy and terms | https://www.hims.com/privacy-policy | PHI handling references | Source discovery — pending exact URL verification |
-| Condition category pages | https://www.hims.com/categories | Category scope | Source discovery — pending exact URL verification |
+| Hims App | https://app.hims.com/ | Care-team access, video/phone/chat, member shop, ordering, shipping, tracking, subscriptions | Verified 2026-05-01 |
+| Hims Google Play listing | https://play.google.com/store/apps/details?id=com.himshers.hims | Android listing, telehealth categories, licensed providers, weight loss, labs, data-safety claims | Verified 2026-05-01 |
+| Hers Google Play listing | https://play.google.com/store/apps/details?id=com.himshers.hers | Android listing, women-focused telehealth categories, care and fulfillment orientation | Verified 2026-05-01 |
+| Hims Help Center | https://support.hims.com/hc/en-us | Account, orders, subscriptions, medical visits, pharmacy, shipping support | Verified 2026-05-01 |
+| Hers Help Center | https://support.forhers.com/hc/en-us | Account, orders, subscriptions, medical visits, pharmacy, shipping support | Verified 2026-05-01 |
+| Privacy Policy | https://www.hims.com/privacy-policy | Personal and health information handling, disclosures, rights, sensitive-data handling | Verified 2026-05-01 |
+| Terms of Service | https://www.hims.com/terms-and-conditions | Telehealth service scope, subscriptions, medical relationship, user obligations | Verified 2026-05-01 |
+| Categories | https://www.hims.com/categories | Category scope for condition-oriented care and wellness products | Verified 2026-05-01 |
 
 ## Detailed Design
 
@@ -51,6 +54,15 @@ This spec is Draft 1: surfaces ready; state licensure orchestration, controlled-
 - Wellness shop separate from Rx catalog.
 - Progress check-ins and refill reminders.
 - Crisis resources for mental-health category.
+- Category routing must separate Rx, OTC/wellness, mental health, sexual health, dermatology, hair, weight, labs, and shop workflows.
+- Intake must include protocol version, contraindications, allergies, current meds, photos/labs where required, state eligibility, and age/category restrictions.
+- Clinician review must support approve, decline, ask follow-up, require video, require labs, and emergency/crisis escalation states.
+- Pharmacy fulfillment must support first fill, refill, shipment, pause, cancel, delay, adverse-event report, address change, and replacement shipment.
+- Weight-loss and compounded-medication flows must include eligibility criteria, contraindication review, drug-shortage/availability states, and clinician-only dose changes.
+- Mental-health flows must expose crisis resources and block emergencies before subscription or intake continuation.
+- Member shop must segregate wellness products from prescription and clinical data; ad-tech must not join Rx care data.
+- Subscription management must support category-specific cadence, shipment holds, refund policy, account deletion, and cross-platform support ownership.
+- Progress entries/photos must require consent, retention rules, clinician access controls, and deletion/export behavior.
 
 ## Core User Journeys
 
@@ -147,6 +159,14 @@ This spec is Draft 1: surfaces ready; state licensure orchestration, controlled-
 - Progress photo privacy; never shared without explicit consent.
 - Crisis indication in mental-health intake; escalation path activates.
 - Partner outage; fulfillment queue delay message.
+- Clinician declines treatment based on contraindications; explain non-medical operational result and support/refund path.
+- State becomes unsupported for a category after subscription starts; pause fulfillment and clinician review.
+- Weight-loss medication supply changes or dose escalation unavailable; show clinician-managed alternative plan state.
+- Mental-health intake suggests self-harm; activate crisis protocol and stop ordinary checkout.
+- Shipping address changes to unsupported state; block shipment and require review.
+- User orders wellness SKU and Rx subscription together; split privacy, fulfillment, returns, and support handling.
+- Progress photo includes another person or sensitive background; warn and allow deletion before upload.
+- Pharmacy recalls or shipment temperature issue; trigger notification and clinical/pharmacy workflow.
 
 ## Test Plan
 
@@ -160,6 +180,12 @@ This spec is Draft 1: surfaces ready; state licensure orchestration, controlled-
 - Crisis escalation path.
 - Accessibility across intake and messaging.
 - Manual verification with clinical and pharmacy partners.
+- Category intake tests cover contraindications, photos/labs, adult-only gating, state unsupported, crisis flag, and clinician follow-up.
+- Clinician-review tests cover approve, decline, request info, require video, require labs, adverse-event report, and audit trails.
+- Fulfillment tests cover first fill, refill, shipment delay, address change, pharmacy reject, recall, replacement, pause, cancel, and refund.
+- Weight-loss tests cover BMI/comorbidity eligibility, contraindications, dose changes, medication unavailable, compounded-drug disclosures, and lab requirements.
+- Mental-health tests cover crisis resources, emergency block, provider handoff, and PHI-safe notifications.
+- Shop tests assert wellness catalog analytics are separated from prescription and clinical care telemetry.
 
 ## Acceptance Criteria
 
@@ -168,6 +194,9 @@ This spec is Draft 1: surfaces ready; state licensure orchestration, controlled-
 - Controlled-substance flows gated behind compliance flag.
 - Crisis resources one-tap reachable on mental-health surfaces.
 - Manual verification blockers resolved or feature-flagged.
+- Exact source links are current or refreshed before implementation starts.
+- Every care category has clinical protocol ownership, licensure rules, prescribing policy, fulfillment policy, and privacy/compliance launch signoff.
+- Rx, mental-health, weight-loss, labs, shop, and subscription flows are separable by flags and tested independently.
 
 ## Open Questions
 
@@ -179,15 +208,16 @@ This spec is Draft 1: surfaces ready; state licensure orchestration, controlled-
 
 ## Build Plan
 
-- Phase 1: category select, intake, clinician review stub.
-- Phase 2: subscription and shipment, wellness shop.
-- Phase 3: messaging and video escalation.
-- Phase 4: progress tracking and refills cadence.
-- Phase 5: crisis escalation, minor gating, audit logging.
-- Phase 6: privacy audit, accessibility, manual verification.
+- Phase 1: account, category routing, protocol-versioned intake, eligibility gates, clinician-review workflow, privacy-safe analytics.
+- Phase 2: prescriptions, pharmacy fulfillment, subscriptions, shipment tracking, address/state checks, pause/cancel/refund.
+- Phase 3: care-team messaging, video/phone/chat escalation, follow-up requests, adverse-event and support workflows.
+- Phase 4: weight-loss/lab/progress modules, dose-change workflow, photos/logs, lab results, clinician access controls.
+- Phase 5: member shop, wellness checkout, category-specific marketing boundaries, crisis/minor/adult-only gates, operations dashboard.
+- Phase 6: HIPAA/security/privacy/compliance audit, pharmacy/manual category verification, accessibility, launch gate.
 
 ## Next Steps
 
 - Clinical and pharmacy partner RFPs.
 - HIPAA/DEA compliance review.
-- Replace discovery URLs with exact first-party URLs before implementation.
+- Select clinical, pharmacy, lab, fulfillment, video/chat, crisis-response, billing, and compliance partners.
+- Complete manual category, prescription, shipment, mental-health, weight-loss, shop, and deletion verification before parity claims.

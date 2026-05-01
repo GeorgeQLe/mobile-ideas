@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: GoodRx
 > - Category: Prescription price comparison and coupons
-> - Readiness status: Draft 1
-> - Verification basis: source discovery of public marketplace listings, help articles, and pharmacy-partnership disclosures pending exact URL verification.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public App Store/Google Play listings, GoodRx support/legal pages, GoodRx Care telehealth disclosures, and NCPDP public standards orientation.
 > - Manual verification blockers: pricing feed updates, coupon redemption at pharmacy POS, subscription (Gold-like) enrollment, and telehealth add-on flows require hands-on verification with a real pharmacy.
 > - Legal scope: lawful functional parity only; original code, brand, copy, and pharmacy/PBM/telehealth partnerships. Operator is not a pharmacy or prescriber; no medical advice.
 
@@ -14,7 +14,7 @@ Build an original prescription price-comparison and coupon app inspired by GoodR
 
 The clone must use original copy and integrations. It must handle prescription PHI carefully and avoid offering medical advice. Licensing and partnership agreements with PBMs/pharmacies are prerequisites.
 
-This spec is Draft 1: surfaces ready; PBM/pharmacy pricing feeds, coupon-at-POS redemption, and telehealth add-ons remain behind compliance/partner review.
+This spec is implementation-ready for a V1 that targets documented public behavior. PBM/pharmacy pricing feeds, coupon-at-POS redemption, and telehealth add-ons remain manual verification blockers and must ship behind partner, compliance, and launch-readiness flags until verified.
 
 ## Goals
 
@@ -36,11 +36,13 @@ This spec is Draft 1: surfaces ready; PBM/pharmacy pricing feeds, coupon-at-POS 
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store listing | https://apps.apple.com/us/app/goodrx-prescription-coupons/id449815601 | iOS features | Source discovery — pending exact URL verification |
-| Google Play listing | https://play.google.com/store/apps/details?id=com.goodrx | Android features | Source discovery — pending exact URL verification |
-| Product support | https://support.goodrx.com/ | Feature behavior | Source discovery — pending exact URL verification |
-| Legal & disclosures | https://www.goodrx.com/legal | Partnership disclosures references | Source discovery — pending exact URL verification |
-| NCPDP reference | https://www.ncpdp.org/ | BIN/PCN/GROUP structure education | Source discovery — pending exact URL verification |
+| Apple App Store listing | https://apps.apple.com/us/app/goodrx-prescription-coupons/id449815601 | iOS listing, coupon search, pharmacy prices, account, privacy labels | Verified 2026-05-01 |
+| Google Play listing | https://play.google.com/store/apps/details?id=com.goodrx | Android listing, prescription coupons, medication prices, reminders, app data-safety claims | Verified 2026-05-01 |
+| GoodRx Support | https://support.goodrx.com/hc/en-us | Coupon use, account, prices, Gold, Care, pharmacy and customer-support behavior | Verified 2026-05-01 |
+| GoodRx Terms of Use | https://support.goodrx.com/hc/en-us/articles/115005225563-GoodRx-Terms-of-Use | Service scope, third-party pharmacy fulfillment, telehealth consent, SMS, rewards, privacy-notice references | Verified 2026-05-01 |
+| GoodRx Privacy Policy | https://www.goodrx.com/privacy-policy | Privacy, health data, disclosures, sensitive data consent, user controls | Verified 2026-05-01 |
+| GoodRx Care | https://www.goodrx.com/care | Telehealth entry, condition-oriented visits, provider handoff expectations | Verified 2026-05-01 |
+| NCPDP | https://www.ncpdp.org/ | Pharmacy transaction standards orientation for BIN/PCN/GROUP-style routing language | Verified 2026-05-01 |
 
 ## Detailed Design
 
@@ -53,6 +55,15 @@ This spec is Draft 1: surfaces ready; PBM/pharmacy pricing feeds, coupon-at-POS 
 - Subscription tier with deeper discounts; transparent pricing and cancel-anytime.
 - Telehealth partner flows for a bounded set of conditions; redirect to partner UX where appropriate.
 - Reminders for refills with local notifications and PHI-minimization.
+- Coupon price screens must label prices as estimates, identify the pharmacy, dosage, form, quantity, timestamp, and coupon terms.
+- Coupon presentation must avoid implying insurance processing; it must clearly distinguish discount-card use from insurance benefits.
+- Coupon troubleshooting must capture minimal context and redact drug names from third-party support tooling unless necessary for partner resolution.
+- Gold-style membership states must include free, trial, active, grace, canceled, refund pending, platform-managed, and web-managed states.
+- Care/telehealth entry must route through licensed-provider partners and block emergencies, unsupported states, minors when unsupported, and controlled-substance requests.
+- Privacy surfaces must expose sensitive-health-data consent, data deletion, SMS opt-out, and partner disclosure links.
+- Drug images, dosage guidance, substitutions, side-effect education, and medication comparison content must be sourced from licensed drug databases or omitted.
+- Pharmacy hours, participation, and price availability must be treated as partner-supplied and stale unless refreshed by the quote endpoint.
+- Account deletion must separately reconcile saved Rx, reminders, SMS enrollment, membership billing, and open support cases.
 
 ## Core User Journeys
 
@@ -144,6 +155,13 @@ This spec is Draft 1: surfaces ready; PBM/pharmacy pricing feeds, coupon-at-POS 
 - Duplicate saved Rx entries; dedupe on save.
 - Account deletion with active subscription; subscription must cancel and prorate if required.
 - Feed outages; show last-known timestamps.
+- Pharmacy refuses or cannot process the coupon; regenerate, switch pharmacy, or open minimal-PHI support case.
+- User tries to combine a discount coupon with insurance; show non-insurance disclosure and require confirmation.
+- Price changes between quote and counter; display timestamp and partner terms without guaranteeing final price.
+- Drug search returns high-risk or controlled-substance terms; require compliance-reviewed display rules and block telehealth shortcuts.
+- SMS coupon is sent to the wrong number; include opt-out and do not include unnecessary medication details in the message body.
+- Subscription discount is not better than free coupon; disclose comparison and avoid dark-pattern upgrade pressure.
+- Telehealth partner declines treatment; explain refund/next-step state without giving medical advice.
 
 ## Test Plan
 
@@ -157,6 +175,11 @@ This spec is Draft 1: surfaces ready; PBM/pharmacy pricing feeds, coupon-at-POS 
 - Controlled-substance display constraints.
 - Accessibility across search, detail, and coupon screens.
 - Manual verification: real pharmacy coupon redemption.
+- Support-case tests confirm drug/pharmacy linkage is redacted from analytics and visible only in restricted partner-resolution views.
+- Membership tests cover app-store purchase, web purchase, restore, cancellation, grace, refund, and cross-platform entitlement mismatch.
+- Telehealth tests cover unsupported state, emergency disclaimer, minor gating, prescription declined, and partner handoff failure.
+- Price freshness tests assert all quote and coupon screens display timestamps and stale-data messaging.
+- SMS tests verify opt-in, coupon delivery, opt-out, wrong-number report, and PHI-minimized body content.
 
 ## Acceptance Criteria
 
@@ -165,6 +188,9 @@ This spec is Draft 1: surfaces ready; PBM/pharmacy pricing feeds, coupon-at-POS 
 - Subscription is cancel-anytime with transparent fees.
 - Telehealth flows include "not for emergencies" and licensed-provider gating.
 - Manual verification blockers resolved or feature-flagged.
+- All exact source links are current or refreshed before implementation starts.
+- Any telehealth, pharmacy, PBM, or SMS partner integration has a documented contract, BAA or equivalent privacy review where required, and launch owner.
+- Price, coupon, and membership screens avoid guaranteed-savings claims unless the partner contract supports them.
 
 ## Open Questions
 
@@ -176,15 +202,16 @@ This spec is Draft 1: surfaces ready; PBM/pharmacy pricing feeds, coupon-at-POS 
 
 ## Build Plan
 
-- Phase 1: drug search, price comparison, coupon generation, pharmacy locator.
-- Phase 2: saved Rx, favorites, ZIP persistence, reminders.
-- Phase 3: subscription tier and deeper pricing.
-- Phase 4: telehealth add-ons via partner.
-- Phase 5: price alerts and account data controls.
-- Phase 6: privacy audit, accessibility, manual verification.
+- Phase 1: drug catalog, pharmacy locator, quote freshness model, coupon-generation contract, non-insurance disclosures, privacy-safe analytics.
+- Phase 2: saved Rx, favorite pharmacies, ZIP/location fallback, refill reminders, SMS coupon delivery, and support-case redaction.
+- Phase 3: membership entitlement service, app-store/web billing reconciliation, deeper-price display, cancellation/refund flows.
+- Phase 4: telehealth partner handoff, state/minor/emergency gates, provider-status webhooks, and prescription-decline handling.
+- Phase 5: price alerts, account deletion, sensitive-data consent controls, audit logging, and partner disclosure surfaces.
+- Phase 6: PBM/pharmacy/manual coupon redemption verification, HIPAA-adjacent privacy review, accessibility, incident-response drill, launch gate.
 
 ## Next Steps
 
 - PBM and pharmacy partnership RFPs.
 - Privacy/HIPAA counsel review.
-- Replace discovery URLs with exact first-party URLs before implementation.
+- Resolve PBM, pharmacy, SMS, telehealth, and licensed drug-database partners before unflagging production flows.
+- Complete manual coupon-at-POS and telehealth handoff verification before claiming one-for-one parity.

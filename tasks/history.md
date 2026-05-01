@@ -429,3 +429,11 @@
 - Expanded each spec with finance risk coverage: no-investment-advice framing, KYC/AML gates, fraud/account-takeover controls, market-data licensing, banking partner/FDIC/SIPC boundaries, social-investing moderation for Stocktwits/Public, and child/teen controls for Greenlight/Step.
 - Validation: targeted checks found one H1 in each promoted file, all 18 canonical H2 sections in each file, and no `Source discovery`, `Readiness status: Draft`, or `TODO` markers in the 13-file slice.
 - Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 149 implementation-ready specs and 2,637 source-discovery placeholder rows across 851 remaining files.
+
+## 2026-05-01 - Phase 8 Step 8.3 Pharmacy And Telehealth Slice (IDs 150-157)
+
+- Promoted 8 pharmacy, doctor-booking, telehealth, therapy, and direct-to-consumer care specs to implementation-ready public-source V1: `150-goodrx.md` through `157-ro.md`.
+- Replaced source-discovery placeholders with exact public marketplace, app/product, help/support, privacy, terms, clinical-scope, crisis-resource, pharmacy, photo, rewards, lab, and care-path URLs verified on 2026-05-01.
+- Expanded category-specific risk coverage: PHI/HIPAA-adjacent posture, pharmacy/PBM coupon handling, retail pharmacy/photo/rewards separation, provider calendar and eligibility verification, clinical licensure, crisis/emergency routing, therapy/psychiatry access control, prescription/pharmacy fulfillment, lab orders/results, controlled-substance gates, minor/dependent consent, and privacy-safe notifications/analytics.
+- Validation: targeted checks found one H1 in each promoted file and no `Source discovery`, `Readiness status: Draft`, or `Replace discovery URLs` markers in the 8-file slice.
+- Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 157 implementation-ready specs and 2,597 source-discovery placeholder rows across 843 remaining files.
