@@ -2,200 +2,245 @@
 
 > Metadata
 > - Inspiration app: Acorns
-> - Category: Micro-investing and banking
-> - Readiness status: Draft 1
-> - Verification basis: source discovery of public marketplace listings, help center articles, and regulatory disclosures pending exact URL verification.
-> - Manual verification blockers: account opening KYC flows, linked-bank round-up cadence, portfolio rebalance cadence, debit-card purchase flows, and family/custodial account lifecycles require hands-on verification on a real funded account.
-> - Legal scope: lawful functional parity only; original code, brand, copy, iconography, portfolio construction logic, and partner-bank/broker integrations. No proprietary fund/portfolio names or marketing copy.
+> - Category: Automated investing and savings
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace listings, first-party product/help pages, privacy policy, terms, and legal/disclosure pages verified on 2026-05-01.
+> - Manual verification blockers: KYC/AML onboarding, linked-card round-up behavior, portfolio recommendation logic, subscription billing/restore, custodial account approvals, card lock, and statement/tax forms require investing/banking/compliance owners plus provider sandbox evidence.
+> - Legal scope: functional parity only; use original code, brand, copy, iconography, sample data, market/news/provider data, disclosures, and UX.
 
 ## Overview
 
-Build an original micro-investing mobile app inspired by Acorns' workflow: round-up-based recurring investments into a diversified portfolio, goal-based deposits, linked banking with debit card, retirement sub-accounts, and custodial child accounts.
+Build an original mobile automated investing and savings app inspired by Acorns's public workflow: automated ETF portfolios, Round-Ups-style spare-change investing, recurring deposits, checking, emergency savings, retirement, kids accounts, learning content, subscriptions, and security controls. The clone must not copy Acorns branding, protected UI artwork, screenshots, copy, private APIs, partner contracts, proprietary datasets, or regulated operating status.
 
-The clone must not copy Acorns branding, screenshots, portfolio names, partner disclosures, or marketing copy. It must use original product language and first-party integrations with a regulated broker-dealer, custodian, and banking partner under original agreements.
-
-This spec is Draft 1: product surfaces and data model are implementation-ready, while broker/bank partner integrations and KYC/AML flows remain behind a regulatory review gate until partner contracts and compliance sign-off land.
+This spec is implementation-ready for a public-source V1 that targets documented public behavior only. Account-, subscription-, KYC-, banking-, brokerage-, payment-, market-data-, child/teen-, native-device-, and region-gated behavior must ship behind feature flags or acceptance-test blockers until lawful hands-on verification and provider review complete.
 
 ## Goals
 
-- Provide a mobile-first round-up investing experience with linked-bank round-ups, recurring deposits, one-time deposits, and goal-based pacing.
-- Offer model-based diversified portfolios without implying personalized investment advice.
-- Support banking features (direct deposit, debit card, round-ups-from-card) through a regulated bank partner under original agreements.
-- Offer retirement sub-account and custodial-for-minor account types under distinct suitability flows.
-- Keep privacy, fraud, and KYC/AML controls auditable and recoverable across the customer lifecycle.
+- Deliver the core automated investing and savings jobs documented by the official app listings and first-party support/legal pages.
+- Keep all regulated actions provider-backed, auditable, and reversible where the domain permits.
+- Show risk, partner, fee, market-data, privacy, and non-affiliation disclosures before users rely on financial outputs.
+- Preserve a hard boundary between verified public behavior, inferred implementation requirements, and blocked manual-verification areas.
+- Produce concrete screens, entities, API contracts, offline rules, analytics, and tests for a downstream implementation repo.
 
 ## Non-Goals
 
-- Do not imply registered-investment-advisor or fiduciary status the operator does not actually hold.
-- Do not reuse Acorns portfolios, disclosure copy, fund selection, or promotional language.
-- Do not offer tax, legal, retirement, or personalized investment advice as authoritative output.
-- Do not launch real-money flows before broker-dealer, bank, and compliance partners are contracted and reviewed.
-- Do not onboard minors into adult investing accounts; custodial flows require explicit custodial gating.
+- Do not build a Acorns-branded app or imply affiliation, endorsement, banking status, broker-dealer status, RIA status, publisher status, money-transmitter status, or insurance status.
+- Do not scrape Acorns, reuse private APIs, replay app traffic, copy article text, reproduce proprietary algorithms, or use unlicensed market/account/card/payment data.
+- Do not execute trades, money transfers, credit reporting, card issuance, lending, advisory recommendations, account aggregation, or child/teen financial flows without licensed partners and compliance sign-off.
+- Do not make financial, tax, legal, medical, or investment advice claims from generic educational tooling.
+- Do not claim one-for-one native parity until manual verification blockers are resolved with lawful device/account evidence.
 
 ## Research Sources
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store listing | https://apps.apple.com/us/app/acorns-invest-spare-change/id883324671 | iOS features, category, age rating, privacy labels | Source discovery — pending exact URL verification |
-| Google Play listing | https://play.google.com/store/apps/details?id=com.acorns.android | Android features, data safety, content rating | Source discovery — pending exact URL verification |
-| Product help center | https://www.acorns.com/support/ | Round-up cadence, portfolio types, account lifecycle | Source discovery — pending exact URL verification |
-| Customer agreements | https://www.acorns.com/terms/ | Broker/bank disclosures, arbitration, custodial rules | Source discovery — pending exact URL verification |
-| SEC advisor disclosures | https://adviserinfo.sec.gov/ | Regulated-entity disclosures referenced by app | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/acorns-save-invest-money/id883324671 | Official iOS listing, device support, age rating, privacy label, feature claims, subscriptions or account disclosures where listed | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.acorns.android | Official Android listing, feature claims, content rating, data safety, developer contact, partner/risk disclosures where listed | Verified 2026-05-01 |
+| Acorns website | https://www.acorns.com | First-party product orientation and non-affiliation boundary for a lawful functional-parity clone | Verified 2026-05-01 |
+| Acorns help/support | https://support.acorns.com | Support taxonomy, account-management concepts, troubleshooting paths, and user-facing escalation expectations | Verified 2026-05-01 |
+| Acorns Privacy Policy | https://www.acorns.com/privacy-policy/ | Personal, financial, device, location, analytics, support, retention, sharing, deletion, and privacy-rights obligations | Verified 2026-05-01 |
+| Acorns Terms | https://www.acorns.com/terms/ | Eligibility, account rules, prohibited conduct, subscription/payment terms, risk language, user responsibilities, and dispute path | Verified 2026-05-01 |
+| Acorns legal/disclosures | https://www.acorns.com/disclosures/ | Finance, banking, brokerage, advisory, market-data, partner-bank, FDIC/SIPC, risk, or product-specific disclosures | Verified 2026-05-01 |
 
 ## Detailed Design
 
 ### Source-Backed Product Requirements
 
-- Users link one or more external bank accounts for funding and round-up aggregation.
-- Round-ups from linked-card transactions accumulate until a threshold (for example, a small dollar amount) and are swept to the investing account.
-- Users choose from a small set of model portfolios varying by risk; the app must describe portfolios with original labels and show generic asset-class allocations.
-- Users can schedule recurring deposits (daily/weekly/monthly) and set goals (target amount, target date).
-- Retirement sub-accounts (traditional/Roth/SEP-style analogues) are suitability-gated and must present original tax-treatment education.
-- Custodial-for-minor accounts require the custodian to be the legal owner until the minor reaches majority; the minor's profile must be data-minimized.
-- Banking checking features require a bank partner; the app must surface FDIC coverage via the partner and never imply first-party FDIC insurance.
-- Debit-card round-ups complement bank-linked round-ups and must reconcile against swept amounts to avoid double counting.
-- Fees must be presented clearly with the subscription or per-transaction schedule in original copy.
+- The V1 must center on automated ETF portfolios, Round-Ups-style spare-change investing, recurring deposits, checking, emergency savings, retirement, kids accounts, learning content, subscriptions, and security controls, while using original product names, copy, visual design, data contracts, and content.
+- The public app listings and first-party pages support automated investing, round-ups, recurring investing, checking, emergency savings, retirement, kids investing, subscriptions, SIPC/FDIC framing, 2FA, fraud protection, and disclosure links; any deeper account, paid, native, or regulated behavior remains blocked until hands-on verification.
+- All onboarding must separate informational education from regulated account opening, with explicit eligibility checks before any money movement, investment, borrowing, or banking surface.
+- Every screen that shows prices, balances, yields, projected growth, rewards, or market data must display stale-state, source/attribution, and risk/disclosure context.
+- The app must never present itself as the inspiration app, a bank, broker-dealer, investment adviser, money transmitter, insurer, or licensed publisher unless the downstream operator actually has that status.
+- Financial guidance must be framed as educational or tool output unless the downstream entity has a reviewed advisory model and licensed personnel/registration coverage.
+- KYC/AML, sanctions, fraud, account-takeover, device-risk, and suspicious-activity workflows must be provider-backed and auditable before launch.
+- Sensitive data collection must be minimized: financial account data, government IDs, card PANs, precise location, child data, trading intent, support attachments, and tax records require scoped retention and access logs.
+- Push notifications must avoid sensitive balances, order details, child location, or personally identifying financial data by default.
+- Subscription, advisory, banking, transfer, rewards, and trading fees must be represented with original copy and dated assumptions; dynamic fees must come from server-side configuration.
+- Support paths must include account lock, fraud report, lost card, disputed transaction, transfer failure, investment/trading issue, privacy request, and complaint escalation.
+- Accessibility must support dynamic type, screen readers, reduced motion, color-independent gains/losses, clear error recovery, and secure entry fields.
+- Kids and custodial investing require parental authority, account-owner separation, age/consent review, and clear investment-risk education.
+- Portfolio construction, rebalancing, order routing, dividends, taxes, statements, and account transfer flows must be provider-backed and fully auditable.
+- FDIC, SIPC, insurance, brokerage, advisory, bank-partner, and risk disclosures must be placed at account-opening, product-detail, and transaction-confirmation points.
 
 ## Core User Journeys
 
-- New user signs up, completes KYC (identity verification, SSN/tax-id collection where required), links a funding bank, selects a portfolio, and funds the first deposit.
-- User enables round-ups on linked cards, sees pending round-ups, and watches a sweep execute when threshold is reached.
-- User schedules a recurring deposit and later edits cadence or pauses during a cash crunch.
-- User creates a goal with a target amount and date, and receives pacing nudges without manipulative copy.
-- User opens a retirement sub-account, confirms suitability, selects a sub-portfolio, and completes a first contribution within contribution-limit checks.
-- Custodial parent opens a minor account, names a beneficiary, funds it, and manages allocations until minor reaches majority.
-- User applies for the banking checking account, receives a debit card, sets up direct deposit, and uses it for card-based round-ups.
-- User withdraws funds to an external bank, sees trade-settlement delay, and is warned about potential market impact and tax events.
-- User cancels the subscription, consents to position liquidation or transfer, and completes account closure with audit events.
-- User disputes a transaction (banking side) or reports unauthorized access; case lifecycle is tracked.
+- New user installs the app, reviews original onboarding, sees non-affiliation and automated investing and savings disclosures, and chooses sign-up or read-only exploration where permitted.
+- User creates an account, completes email/phone verification, device trust, passcode/biometric setup, and receives a clear explanation of any financial-data collection.
+- User starts a regulated flow, hits eligibility/KYC gates, uploads required information through a provider-backed path, and sees pending, approved, rejected, and retry states.
+- User lands on the home dashboard, reviews balances/watchlists/news/tasks, and can distinguish cached, delayed, realtime, and unavailable data.
+- User searches for a symbol, account, recipient, goal, card, article, or support topic and receives scoped results with empty and error states.
+- User configures alerts, notification preferences, privacy settings, and disclosure acknowledgement without exposing sensitive details in push payloads.
+- User initiates the primary money/content/investing action, reviews fees/risks/limits, confirms with strong authentication, and receives a durable receipt or audit event.
+- User edits recurring automation, transfer schedule, watchlist, portfolio setting, chore/allowance, subscription, or saved preference and sees conflict-safe synchronization.
+- User encounters an ineligible feature, risk block, region block, subscription gate, provider outage, or account hold and sees a support path rather than a broken control.
+- User reports fraud, abuse, incorrect data, suspicious content, lost card, account takeover, or transaction dispute and sees escalation state.
+- User exports data, deletes account, closes eligible financial products, or revokes connected accounts with clear retention and regulatory caveats.
+- Returning user opens offline or after a long absence and sees stale data labels, cached read-only state, required reauthentication, and reconciliation after reconnect.
 
 ## Screen Inventory
 
 | Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Welcome/KYC | Onboarding, identity verification, consent | name, address, SSN/tax-id, DOB | collecting, verifying, approved, manual-review | denied, restricted state, underage |
-| Home Dashboard | Portfolio balance, pending round-ups, next deposit | navigation, quick actions | empty, funded, negative-day | market-closed, data stale, account-frozen |
-| Portfolio Picker | Select model portfolio, view allocations | risk preference, confirm | default, switched, in-progress switch | switch blocked, unsuitable for retirement |
-| Round-Ups Config | Link cards, toggle round-ups, set multiplier | card selection, multiplier | on, off, paused | linking failed, reauth needed, card expired |
-| Recurring Deposits | Set cadence and amount | cadence, amount, start-date | active, paused, canceled | insufficient funds, bank-link broken |
-| Goals | Create and track goals | target amount, target date | on-track, behind, complete | unrealistic goal warning |
-| Retirement Sub-Account | Open/manage IRA-equivalent | type selection, contributions | eligible, contributing, at-limit | over-limit, ineligible, closed |
-| Custodial Account | Open/manage minor's account | custodian, beneficiary | active, transferring at majority | custodian eligibility issue |
-| Banking/Card | Checking features, debit card | funding, card controls | active, locked, replaced | card fraud hold, partner outage |
-| Activity & Statements | Transactions, tax docs | filter, download | loaded, empty, pending docs | doc generation delayed |
-| Profile & Settings | KYC updates, subscription, security | edits, toggles | default, MFA-enabled | locked-out, identity re-verification |
-| Support & Disputes | Help and case filing | category, description | submitted, in-review, resolved | escalated, rejected |
+| Welcome/Auth | Entry, legal framing, sign-up, sign-in | email, phone, SSO where allowed | new, returning, locked, region-blocked | underage, unsupported region, failed verification |
+| Eligibility/KYC | Regulated onboarding and risk gates | identity fields, document provider, consent | not-started, pending, approved, rejected | manual review, sanctions hit, provider outage |
+| Home Dashboard | Primary account, markets, content, or family overview | navigation, cards, refresh | loaded, empty, cached, loading | stale data, partial provider outage |
+| Search | Find symbols, accounts, recipients, articles, help topics | query, filters | empty, results, no-results | rate limited, restricted symbol/recipient |
+| Detail View | Primary item detail and disclosure context | tabs, chart range, action buttons | loaded, delayed, realtime | unsupported item, licensing gap |
+| Action Review | Confirm money movement, trade, transfer, subscription, alert, or family action | amount, target, schedule, auth | draft, review, confirmed | limit exceeded, blocked, duplicate |
+| Activity/History | Receipts, transactions, posts, articles, alerts, audit trail | filters, item selection | loaded, pending, settled | reversal, correction, missing record |
+| Alerts/Notifications | Topic, price, account, fraud, support, family alerts | toggle, threshold, channel | enabled, disabled, permission-needed | push denied, throttled |
+| Support Center | Help, complaint, fraud, dispute, safety escalation | case form, attachment, reason | draft, submitted, in-review | SLA miss, duplicate case |
+| Privacy Center | Data export, deletion, sharing controls, privacy rights | export, delete, opt-out | idle, pending, complete | regulated retention, identity recheck |
+| Subscription/Fees | Plans, paid features, restore, fee schedule | plan choice, restore, manage | free, trial, paid, canceled | platform mismatch, refund, webhook delay |
+| Legal/Disclosures | Risk, partner, license, market-data, banking, advisory copy | document links, acknowledgement | current, accepted | outdated disclosure, missing locale |
+| Settings/Security | Profile, devices, passcode, biometrics, connected accounts | toggles, revoke, logout | loaded, verified | account hold, reauth required |
 
 ## Data Model
 
-- `User`: identity, auth, KYC state, CIP evidence, risk profile, tax residency, locale.
-- `ExternalBankLink`: aggregator token, masked account, status, reauth state, ACH micro-deposit state.
-- `Card`: card network, masked PAN, issuer, round-up enabled, last4, expiry.
-- `InvestmentAccount`: type (`taxable` | `ira_traditional` | `ira_roth` | `custodial`), status, model-portfolio id, cash balance, positions summary.
-- `BankAccount`: checking/savings partner-backed account, routing masked, card id, direct-deposit status.
-- `RoundUp`: source transaction id (hash), amount, accumulated bucket state, sweep id.
-- `Sweep`: aggregate round-ups, initiated/settled timestamps, ACH id, status.
-- `RecurringDeposit`: cadence, amount, next-run-at, paused state.
-- `Goal`: target amount, target date, progress, allocation pointer.
-- `Trade`: order id, side, quantity, price, status, settlement date, corporate-action flags.
-- `Subscription`: plan key, features, renewal, cancellation, grace period.
-- `AuditEvent`: append-only KYC, account, suitability, funds-movement, and disclosure acknowledgements.
+- `User`: account identity, eligibility, locale, region, age/role flags, verification state, and privacy preferences.
+- `DeviceSession`: device id, platform, app version, push token, biometric/passcode state, risk score, and session expiry.
+- `IdentityVerification`: provider reference, required fields, document checks, sanctions/PEP status, pending/rejected/approved state, and evidence retention.
+- `RiskReview`: fraud, AML, market-abuse, credit, family-safety, or account-takeover review state with owner and resolution reason.
+- `ConsentRecord`: terms/privacy/disclosure/marketing/analytics/child-parent consent version, timestamp, actor, and revocation state.
+- `DisclosureAcknowledgement`: legal document id, version, product surface, required/optional flag, and acceptance timestamp.
+- `ConnectedAccount`: external account or brokerage connection, provider token, scopes, status, refresh time, and revocation.
+- `FinancialAccount`: cash, card, brokerage, savings, transfer, family, or content subscription account with partner, status, limits, and owner role.
+- `BalanceSnapshot`: account id, amount, currency, available/pending split, source, stale timestamp, and display restrictions.
+- `Transaction`: money, card, transfer, order, subscription, reward, support, or content purchase event with lifecycle and dispute state.
+- `TransferInstruction`: source, destination, amount, currency, quote, schedule, limits, risk check, idempotency key, and receipt.
+- `PaymentInstrument`: card, bank account, wallet, or funding source token with network, verification, lock/freeze, and display-safe metadata.
+- `InvestmentProfile`: risk tolerance, time horizon, goals, suitability inputs, portfolio selection, advisory acknowledgements, and blocked states.
+- `Instrument`: symbol, asset class, exchange, issuer, quote eligibility, trade/support status, and disclosure requirements.
+- `QuoteSnapshot`: instrument, bid/ask/last, change, timestamp, venue, delayed/realtime flag, attribution, and licensing scope.
+- `OrderIntent`: non-executing or provider-backed action review for trade, transfer, card, borrowing, subscription, or family approval with risk checks.
+- `AlertRule`: topic, symbol/account/role target, threshold, delivery channel, throttle, quiet hours, and permission state.
+- `SubscriptionEntitlement`: plan, platform, renewal, trial, cancellation, refund, restore, feature gates, and billing support reference.
+- `SupportCase`: reason, severity, attachments, redaction state, owner queue, SLA, audit events, and final resolution.
+- `AuditEvent`: append-only record for Acorns-inspired auth, consent, disclosure, privacy, support, regulated-action, and admin changes.
 
 ## API And Backend Contracts
 
-- `POST /auth/session`, `POST /auth/mfa`, `DELETE /auth/session`: session lifecycle with MFA enforcement for funds movement.
-- `POST /kyc/start`, `POST /kyc/documents`, `GET /kyc/status`: identity verification with retry and manual-review branches.
-- `POST /bank-links`, `GET /bank-links`, `POST /bank-links/:id/reauth`, `DELETE /bank-links/:id`: aggregator-backed linking.
-- `POST /cards`, `PATCH /cards/:id`, `DELETE /cards/:id`: linked-card management for round-ups.
-- `POST /accounts/investment`, `GET /accounts/investment/:id`, `PATCH /accounts/investment/:id`: account open, portfolio select, suitability updates.
-- `POST /accounts/banking`, `POST /accounts/banking/card`, `PATCH /accounts/banking/card`: partner-bank account and card controls.
-- `POST /deposits`, `POST /withdrawals`, `GET /transfers?cursor=`: funds-movement orchestration with idempotency keys.
-- `GET /roundups/pending`, `POST /roundups/sweep-now`: aggregation and manual sweep.
-- `POST /goals`, `PATCH /goals/:id`, `DELETE /goals/:id`: goal lifecycle.
-- `GET /trades`, `GET /positions`, `GET /statements?year=`: reporting and tax documents.
-- `POST /billing/subscribe`, `POST /billing/cancel`, `POST /billing/webhook`: subscription with server-side truth.
-- `POST /support/cases`, `POST /disputes`: support and Reg E-style dispute intake.
+- `POST /auth/session`: creates, revokes, or strengthens authenticated device sessions with audit events.
+- `DELETE /auth/session`: creates, revokes, or strengthens authenticated device sessions with audit events.
+- `POST /auth/device-trust`: creates, revokes, or strengthens authenticated device sessions with audit events.
+- `GET /me`: domain API.
+- `PATCH /me/preferences`: domain API.
+- `POST /identity/verifications`: starts and reads regulated identity/KYC/age/role verification through a provider-backed workflow.
+- `GET /identity/verifications/:id`: starts and reads regulated identity/KYC/age/role verification through a provider-backed workflow.
+- `GET /disclosures`: serves current legal/risk/partner disclosures and records acknowledgements.
+- `POST /disclosures/:id/acknowledge`: serves current legal/risk/partner disclosures and records acknowledgements.
+- `GET /dashboard`: returns the Acorns-inspired home summary with stale-data labels and feature flags.
+- `GET /search?query=`: performs scoped search across allowed symbols, accounts, recipients, content, help, or family objects.
+- `GET /accounts`: lists authorized financial or product accounts with role-scoped balances and status.
+- `POST /connected-accounts`: lists authorized financial or product accounts with role-scoped balances and status.
+- `DELETE /connected-accounts/:id`: lists authorized financial or product accounts with role-scoped balances and status.
+- `GET /transactions?cursor=`: returns paginated activity with pending, posted, reversed, disputed, and hidden-sensitive states.
+- `POST /transfers/quotes`: creates a server-side quote with fees, rates, limits, availability, and expiry.
+- `POST /transfers`: submits or reads idempotent money movement, account transfer, or equivalent action state.
+- `GET /transfers/:id`: submits or reads idempotent money movement, account transfer, or equivalent action state.
+- `GET /instruments/:symbol`: returns display-safe instrument metadata with licensing and support flags.
+- `GET /quotes?symbols=`: returns attributed quote snapshots with delayed/realtime and entitlement labels.
+- `POST /orders/intents`: creates an action intent for provider-backed regulated execution or blocked review.
+- `POST /alerts`: creates, updates, or deletes notification rules with permission and throttling state.
+- `PATCH /alerts/:id`: creates, updates, or deletes notification rules with permission and throttling state.
+- `GET /entitlements`: returns server-authoritative feature access and subscription state.
+- `POST /billing/restore`: reconciles app-store or web purchases, refunds, cancellation, and restore state.
+- `POST /support/cases`: creates a redacted support, fraud, dispute, abuse, or complaint case.
+- `POST /data-export`: starts a privacy export workflow with identity recheck and delivery status.
+- `DELETE /account`: starts account deletion/closure with regulatory retention caveats and product-specific preconditions.
 
 ## Realtime, Push, And Offline Behavior
 
-- Market data and balance reads must tolerate market-closed states and stale caches labeled explicitly as delayed.
-- Transfer status, trade fills, and settlement events must stream via server-sent events or webhook-driven polling with idempotent client reconciliation.
-- Sensitive actions (funds movement, beneficiary changes, payout) require re-auth/MFA and are never cached offline.
-- Local state is limited to read-only summaries; pending forms can be drafted offline but never submitted until reconnect.
-- Push notifications cover sweep completion, deposit failure, card fraud, KYC next steps, statements ready, and security alerts. Payload must not include PII or balances.
+- Dashboard, quote, balance, transfer, support, and entitlement summaries may be cached for read-only offline use with visible stale timestamps.
+- Money movement, trading, borrowing, account opening, child/teen authorization, card changes, and privacy deletion require an online server-confirmed state.
+- Push notifications must use opaque identifiers and generic copy by default; sensitive balances, order details, child location, and account identifiers stay in-app.
+- Realtime updates should use server-sent events or websockets where licensed; otherwise poll with backoff and show delayed-data labels.
+- Local drafts for support messages, alerts, watchlists, and scheduled actions must reconcile through idempotent server requests after reconnect.
+- Provider outages must degrade only the affected capability and keep legal/disclosure/support surfaces reachable.
+- Audit events must be append-only for consent, disclosure, auth, device, money, privacy, support, and admin actions.
+- Feature flags must gate every unresolved manual-verification blocker named in the metadata.
 
 ## Permissions, Privacy, And Safety
 
-- Device permissions (camera for ID capture, notifications, biometrics) are requested only at point of use.
-- SSN/tax-id is encrypted at rest with restricted access, never logged in analytics, and redacted in support tooling.
-- KYC/AML program: CIP, OFAC screening, ongoing monitoring, SAR workflow readiness.
-- Suitability for retirement and custodial accounts must be explicitly captured with disclosures acknowledged.
-- No investment advice; all educational content must include originality and not-advice disclaimers.
-- Banking partner disclosures (including FDIC pass-through through the partner) must be presented accurately without implying first-party insurance.
-- Launch owners: compliance, security, privacy, and regulatory-affairs leads must each sign off.
+- Request camera, files, contacts, location, notifications, biometrics, and motion permissions only at point of use with original explanatory copy.
+- Financial account numbers, card data, government IDs, tax documents, support attachments, child/teen data, precise location, and market/trading intent require field-level redaction in logs and analytics.
+- Default analytics must exclude raw balances, transaction memo text, holdings, recipient names, article bodies, post bodies, support message content, child locations, and government-ID data.
+- Account takeover controls must include device trust, step-up authentication, session revocation, password recovery hardening, and suspicious-change notifications.
+- Fraud, dispute, abuse, market-manipulation, insider-information, harassment, child-safety, location-safety, and complaint flows must have named operational owners.
+- Every investment, savings yield, cash sweep, card, transfer, borrowing, credit, insurance, or paid-plan claim must show dated assumptions and links to current disclosures.
+- Accessibility owner must verify screen reader labels, dynamic type, keyboard/focus order, reduced motion, sufficient contrast, and non-color-only indicators.
+- Launch owner: product owner for scope, compliance/legal owner for disclosures, privacy/security owner for data controls, support owner for escalation, accessibility owner for inclusive UX.
 
 ## Analytics And Monetization
 
-- Privacy-safe events only: onboarding step transitions, KYC decision classes, link-bank status classes, round-up sweep completion classes, deposit/withdrawal classes, portfolio-switch, subscription state changes, support/dispute classes.
-- Monetization via original subscription tiers and/or interchange from the banking partner under contract.
-- No manipulative paywalls; paywall states must surface feature, plan, price, cancel path, and partner disclosures.
-- Never correlate analytics events with raw transaction descriptions or counterparty names.
+- Track only privacy-safe events: onboarding step viewed, disclosure acknowledged, dashboard viewed, item opened, action reviewed, action confirmed, alert changed, support case submitted, entitlement changed, privacy request started, and provider error code.
+- Use stable object types and coarse categories rather than raw symbols, balances, transaction memos, child location, article/post text, or recipient identifiers unless explicit consent and a compliance basis exist.
+- Monetization can include original subscriptions, advisory fees, transfer fees, interchange-funded rewards, premium content, or partner fees only when copied plan names/prices/promotions are avoided.
+- Fee schedules, APYs, cash yields, transfer rates, rewards, and subscription benefits must be server-configured with effective dates and rollback support.
+- Paywalls and upgrade prompts must identify the blocked feature, current entitlement, fee/renewal rules, restore path, cancellation path, support path, and any regulatory caveat.
+- Advertising, if used, must not target sensitive financial, child, location, health, or hardship behaviors.
 
 ## Edge Cases
 
-- KYC manual review, duplicate SSN, sanctioned or restricted jurisdiction, address mismatch, under-18 adult-account attempt.
-- Linked-bank reauth required mid-sweep, ACH return, NSF, micro-deposit mismatch.
-- Market holiday or halted security delaying trade settlement; partial fills; fractional-share corporate actions.
-- Round-up double-count from debit card round-up overlapping bank-linked round-up on same transaction.
-- Retirement over-contribution, excess-contribution correction, ineligible account type.
-- Custodial account where the minor reaches majority and refuses transfer; custodian death/incapacity.
-- Banking card lost/stolen, Reg E dispute, chargeback, skimming compromise.
-- Subscription cancel with open positions; transfer-out (ACATS-equivalent) to external broker.
-- App store subscription restore mismatch, refund, trial abuse.
+- KYC provider returns pending manual review after the user has already started account setup.
+- User is in an unsupported region or product availability changes after onboarding.
+- Market data is delayed, unavailable, corrected, or licensed only for display after login.
+- User attempts a transaction while offline, with stale balance, or after session expiry.
+- Duplicate tap or retry creates two intents; idempotency must prevent duplicate money movement.
+- Funding source is reversed, returned, or disconnected after a scheduled transfer is queued.
+- Push notification arrives after the relevant price, transaction, location, or support state has changed.
+- Subscription is active on one platform but not yet reconciled server-side.
+- Account is locked for fraud review while the user has pending transfers or support cases.
+- User requests deletion where financial records must be retained for legal/regulatory reasons.
+- Accessibility user relies on screen reader and cannot use color alone to understand loss/gain or risk.
+- Provider outage affects only cards, transfers, quotes, identity, push, or support while other surfaces remain usable.
+- A disclosure, rate, fee, APY, plan name, eligibility rule, or partner-bank relationship changes without an app release.
 
 ## Test Plan
 
-- KYC state-machine tests across verified, denied, manual review, and reapply paths.
-- Bank-linking tests: success, reauth, micro-deposit, disconnection, aggregator outage.
-- Round-up accumulation and sweep tests with deterministic fixtures and double-entry ledger reconciliation.
-- Recurring deposit and goal pacing tests across timezones and market holidays.
-- Portfolio switch tests with rebalance simulation, fractional-share edge cases.
-- Retirement contribution-limit tests per tax year and per account type.
-- Custodial lifecycle tests including coming-of-age transfer.
-- Banking/debit-card tests for activation, lock, fraud, and disputes.
-- Billing tests for subscription lifecycle and webhook reconciliation.
-- Privacy tests for PII redaction in analytics and support tooling.
-- Accessibility tests for dynamic type, screen reader, focus order on forms.
-- Manual verification: real funded account walkthrough for round-ups, sweeps, trades, statements, tax docs.
+- Unit tests for disclosure placement, eligibility rules, risk copy, stale-data labels, currency/amount formatting, and idempotency keys.
+- Unit tests for role permissions, support-case state transitions, alert-rule evaluation, and privacy-safe analytics payloads.
+- Contract tests for auth, identity, disclosures, dashboard, search, accounts, transactions, transfers, quotes, entitlements, support, export, and deletion APIs.
+- Integration tests for onboarding through KYC pending/approved/rejected states.
+- Integration tests for the primary dashboard to detail to action-review to receipt journey.
+- Integration tests for subscription restore, cancellation, webhook delay, refund, and cross-platform entitlement mismatch.
+- Provider-failure tests for identity, market-data, banking, brokerage, transfer, card, notification, and support dependencies.
+- Security tests for device binding, biometric fallback, session revocation, sensitive-data redaction, and account-takeover recovery.
+- Privacy tests for export/delete, consent revocation, child/teen data where applicable, and analytics exclusion of raw financial content.
+- Accessibility tests for dynamic type, screen reader labels, focus order, reduced motion, and color-independent indicators.
+- Compliance tests asserting no investment-advice, no bank-status, no FDIC/SIPC overstatement, no unlicensed market-data, and no copied brand/copy.
+- Manual verification blockers must remain feature-flagged until native device/account evidence resolves the owner path.
 
 ## Acceptance Criteria
 
-- Users cannot move real money until KYC, suitability, and partner-side approvals have completed.
-- Round-up, sweep, deposit, withdrawal, trade, and statement flows reconcile on a double-entry ledger with full audit events.
-- Portfolio switches, goal changes, and subscription changes are logged and reversible where regulation requires.
-- All educational copy passes a "not investment advice" review.
-- Banking disclosures reflect the partner and FDIC pass-through accurately.
-- Manual verification blockers are resolved or feature-flagged off before launch.
+- Research Sources contain exact first-party URLs with no source-discovery placeholders.
+- Readiness metadata states implementation-ready as of 2026-05-01, while manual blockers remain explicit and feature-flagged.
+- No proprietary brand, copy, screenshots, private APIs, partner-only data, market content, or regulated status claims are introduced.
+- Finance-risk review covers no-investment-advice framing, KYC/AML, fraud/account takeover, market-data licensing, partner-bank/FDIC or SIPC boundaries, and support escalation.
+- Regulated account, banking, brokerage, advisory, money-transmission, subscription, and provider-gated flows are blocked until lawful sandbox or hands-on verification exists.
+- Screen inventory, data model, API contracts, edge cases, tests, and build plan are detailed enough for downstream implementation planning.
+- Accessibility, privacy, security, support, and compliance owners are named in launch gates.
 
 ## Open Questions
 
-- Which broker-dealer, custodian, and banking partner will back real-money flows?
-- Which round-up sources (aggregator transactions vs. card-network authorization feed) will V1 use?
-- Will V1 support retirement and custodial accounts, or ship taxable only first?
-- How are referral bonuses (if any) funded and disclosed?
-- What jurisdictions does V1 support (US-only vs multi-region), and what are tax-residency edges?
+- Which licensed providers will supply identity, account aggregation, banking, brokerage, card, transfer, market-data, notification, and support infrastructure for V1?
+- Which countries, states, account types, age groups, and subscription tiers are in scope for the first implementation?
+- Which app-store native flows, account-review decisions, partner disclosures, and push payloads differ between iOS and Android?
+- What retention schedule applies to identity documents, financial records, child/teen records, support attachments, audit logs, and deleted accounts?
+- Which manual verification sessions are scheduled, and who owns the evidence capture for each blocked flow?
+- Which claims require legal/compliance approval before public demo, beta, or launch?
 
 ## Build Plan
 
-- Phase 1: auth, KYC scaffolding, bank linking, taxable investment account, model portfolios, first deposit.
-- Phase 2: round-ups, sweeps, recurring deposits, goals, statements.
-- Phase 3: retirement sub-accounts with suitability and contribution controls.
-- Phase 4: banking partner, debit card, direct deposit, card-based round-ups.
-- Phase 5: custodial-for-minor, tax documents, transfer-out.
-- Phase 6: subscription, support/disputes, compliance audit, accessibility, manual verification.
+- Phase 1: Establish original product shell, auth/session management, disclosure registry, feature flags, audit logging, and privacy-safe analytics.
+- Phase 2: Build read-only dashboard, search, detail screens, support center, settings, privacy center, and legal/disclosure surfaces using mocked provider data.
+- Phase 3: Add regulated-provider integration adapters for identity, accounts, market data, transfers/cards/trading/content as applicable, all behind sandbox flags.
+- Phase 4: Implement action review, receipts/history, alerts, notifications, subscription/fee configuration, support escalation, and provider-failure recovery.
+- Phase 5: Complete security hardening, accessibility pass, privacy export/delete, compliance review, data-retention review, and abuse/fraud runbooks.
+- Phase 6: Resolve manual verification blockers with lawful device/account evidence; unflag only verified flows and keep unresolved parity claims out of release notes.
 
 ## Next Steps
 
-- Engage broker-dealer, custodian, and banking partner RFPs.
-- Finalize KYC/AML program with compliance counsel.
-- Replace source-discovery URLs with exact first-party URLs and regulatory filings before implementation.
+- Confirm provider choices and legal operating model before downstream implementation begins.
+- Create acceptance-test blockers for every metadata blocker and assign product, compliance, privacy/security, support, and accessibility owners.
+- Keep the downstream repo private until original code/assets, naming, licensing, data-provider, and legal reviews are complete.

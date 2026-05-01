@@ -2,192 +2,245 @@
 
 > Metadata
 > - Inspiration app: Greenlight
-> - Category: Kids banking and financial education
-> - Readiness status: Draft 1
-> - Verification basis: source discovery of public marketplace listings, help articles, and regulatory disclosures pending exact URL verification.
-> - Manual verification blockers: kids debit card issuance, parental controls, chores/allowance scheduling, investing-for-kids gating, and custodial account lifecycle require hands-on verification.
-> - Legal scope: lawful functional parity only; original code, brand, copy, and partner-bank/broker integrations. Child accounts require explicit parental consent and data-minimization; operator is not a bank.
+> - Category: Kids and teen banking
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace listings, first-party product/help pages, privacy policy, terms, and legal/disclosure pages verified on 2026-05-01.
+> - Manual verification blockers: parent identity verification, child account consent, card issuance, transfer limits, investing approval, location/crash detection, insurance/identity products, COPPA review, subscription restore, and push payloads require family-safety/banking/privacy owners.
+> - Legal scope: functional parity only; use original code, brand, copy, iconography, sample data, market/news/provider data, disclosures, and UX.
 
 ## Overview
 
-Build an original kids-banking and financial-education app inspired by Greenlight: parent-owned subscription with linked kids, kids' debit cards, parental controls over store categories and spending limits, chores and allowance scheduling, savings goals, and parent-supervised investing for kids.
+Build an original mobile kids and teen banking app inspired by Greenlight's public workflow: family finance, kids/teen debit, parent controls, chores, allowance, savings rewards, parent-approved investing, financial literacy, location sharing, crash/SOS alerts, identity protection, subscriptions, and banking partner disclosures. The clone must not copy Greenlight branding, protected UI artwork, screenshots, copy, private APIs, partner contracts, proprietary datasets, or regulated operating status.
 
-The clone must use original copy and integrations. Because child accounts are involved, a COPPA-adjacent parental-consent and data-minimization regime governs data collection, disclosures, and analytics.
-
-This spec is Draft 1: surfaces ready; partner-bank, card issuer, broker-for-kids integrations, and the parental-consent regime remain behind compliance review.
+This spec is implementation-ready for a public-source V1 that targets documented public behavior only. Account-, subscription-, KYC-, banking-, brokerage-, payment-, market-data-, child/teen-, native-device-, and region-gated behavior must ship behind feature flags or acceptance-test blockers until lawful hands-on verification and provider review complete.
 
 ## Goals
 
-- Parent signs up, subscribes, and adds children as linked profiles.
-- Each child receives a debit card funded from a parent-controlled wallet.
-- Parents set per-merchant-category and per-store controls, spending limits, and ATM limits.
-- Chores/allowance scheduling with automated transfers on completion.
-- Savings goals (child-owned, parent-visible) with automated round-ups or transfers.
-- Investing-for-kids via parental approval (custodial-for-minor) with suitability gating.
-- Financial-education content appropriate to age band.
+- Deliver the core kids and teen banking jobs documented by the official app listings and first-party support/legal pages.
+- Keep all regulated actions provider-backed, auditable, and reversible where the domain permits.
+- Show risk, partner, fee, market-data, privacy, and non-affiliation disclosures before users rely on financial outputs.
+- Preserve a hard boundary between verified public behavior, inferred implementation requirements, and blocked manual-verification areas.
+- Produce concrete screens, entities, API contracts, offline rules, analytics, and tests for a downstream implementation repo.
 
 ## Non-Goals
 
-- Do not imply banking licenses; operator uses partner-bank.
-- Do not copy Greenlight trademarks or marketing copy.
-- Do not collect child data beyond what is necessary; no behavioral ad targeting to children.
-- Do not offer credit or lending products to minors.
+- Do not build a Greenlight-branded app or imply affiliation, endorsement, banking status, broker-dealer status, RIA status, publisher status, money-transmitter status, or insurance status.
+- Do not scrape Greenlight, reuse private APIs, replay app traffic, copy article text, reproduce proprietary algorithms, or use unlicensed market/account/card/payment data.
+- Do not execute trades, money transfers, credit reporting, card issuance, lending, advisory recommendations, account aggregation, or child/teen financial flows without licensed partners and compliance sign-off.
+- Do not make financial, tax, legal, medical, or investment advice claims from generic educational tooling.
+- Do not claim one-for-one native parity until manual verification blockers are resolved with lawful device/account evidence.
 
 ## Research Sources
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store listing | https://apps.apple.com/us/app/greenlight-kids-teens-banking/id1124415861 | iOS features | Source discovery — pending exact URL verification |
-| Google Play listing | https://play.google.com/store/apps/details?id=com.greenlight.android | Android features | Source discovery — pending exact URL verification |
-| Product support | https://greenlight.com/support | Feature behavior | Source discovery — pending exact URL verification |
-| Legal & disclosures | https://greenlight.com/legal | Partner-bank and disclosures | Source discovery — pending exact URL verification |
-| FTC COPPA reference | https://www.ftc.gov/business-guidance/privacy-security/childrens-privacy | COPPA compliance education | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/greenlight-kids-teen-banking/id1049340702 | Official iOS listing, device support, age rating, privacy label, feature claims, subscriptions or account disclosures where listed | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=me.greenlight | Official Android listing, feature claims, content rating, data safety, developer contact, partner/risk disclosures where listed | Verified 2026-05-01 |
+| Greenlight website | https://greenlight.com | First-party product orientation and non-affiliation boundary for a lawful functional-parity clone | Verified 2026-05-01 |
+| Greenlight help/support | https://help.greenlight.com | Support taxonomy, account-management concepts, troubleshooting paths, and user-facing escalation expectations | Verified 2026-05-01 |
+| Greenlight Privacy Policy | https://greenlight.com/privacy/ | Personal, financial, device, location, analytics, support, retention, sharing, deletion, and privacy-rights obligations | Verified 2026-05-01 |
+| Greenlight Terms | https://greenlight.com/terms-of-service/ | Eligibility, account rules, prohibited conduct, subscription/payment terms, risk language, user responsibilities, and dispute path | Verified 2026-05-01 |
+| Greenlight legal/disclosures | https://greenlight.com/legal/ | Finance, banking, brokerage, advisory, market-data, partner-bank, FDIC/SIPC, risk, or product-specific disclosures | Verified 2026-05-01 |
 
 ## Detailed Design
 
 ### Source-Backed Product Requirements
 
-- Parent is the account owner; children are linked sub-profiles without independent legal account ownership.
-- Per-child debit card issued through partner-bank with parent-controlled limits and category allow/deny lists.
-- Chores with one-time or recurring schedules; completion triggers allowance transfer when parent approves.
-- Savings goals are child-visible and parent-visible; deposits executed from parent wallet.
-- Investing-for-kids is a custodial account where the parent is custodian; suitability disclosures required.
-- Subscription-based monetization (operator-funded rewards if any).
-- Data minimization for children: no precise location by default, no behavioral ads, restricted analytics.
+- The V1 must center on family finance, kids/teen debit, parent controls, chores, allowance, savings rewards, parent-approved investing, financial literacy, location sharing, crash/SOS alerts, identity protection, subscriptions, and banking partner disclosures, while using original product names, copy, visual design, data contracts, and content.
+- The public app listings and first-party pages support kids and teen debit, parent controls, chores, allowances, savings rewards, parent-approved investing, family safety/location, crash detection, identity/theft protections, paid plans, Community Federal Savings Bank FDIC disclosure, and Play Families policy commitment; any deeper account, paid, native, or regulated behavior remains blocked until hands-on verification.
+- All onboarding must separate informational education from regulated account opening, with explicit eligibility checks before any money movement, investment, borrowing, or banking surface.
+- Every screen that shows prices, balances, yields, projected growth, rewards, or market data must display stale-state, source/attribution, and risk/disclosure context.
+- The app must never present itself as the inspiration app, a bank, broker-dealer, investment adviser, money transmitter, insurer, or licensed publisher unless the downstream operator actually has that status.
+- Financial guidance must be framed as educational or tool output unless the downstream entity has a reviewed advisory model and licensed personnel/registration coverage.
+- KYC/AML, sanctions, fraud, account-takeover, device-risk, and suspicious-activity workflows must be provider-backed and auditable before launch.
+- Sensitive data collection must be minimized: financial account data, government IDs, card PANs, precise location, child data, trading intent, support attachments, and tax records require scoped retention and access logs.
+- Push notifications must avoid sensitive balances, order details, child location, or personally identifying financial data by default.
+- Subscription, advisory, banking, transfer, rewards, and trading fees must be represented with original copy and dated assumptions; dynamic fees must come from server-side configuration.
+- Support paths must include account lock, fraud report, lost card, disputed transaction, transfer failure, investment/trading issue, privacy request, and complaint escalation.
+- Accessibility must support dynamic type, screen readers, reduced motion, color-independent gains/losses, clear error recovery, and secure entry fields.
+- Kids data, precise location, crash detection, and investing require COPPA-adjacent review, parental consent, visible child controls, and no covert monitoring.
+- Parent, child, teen, and supported-adult roles must be separate entities with consent, visibility, and revocation controls.
+- Child-directed learning, chores, allowance, location, card, credit, investing, and borrowing features must pass COPPA-adjacent, consumer-finance, and family-safety review.
 
 ## Core User Journeys
 
-- Parent signs up, completes KYC, subscribes, and funds wallet.
-- Parent adds a child profile with minimum necessary info and orders a card.
-- Parent activates the card, sets category/store controls and spending/ATM limits.
-- Parent creates chores; child marks done; parent approves and allowance transfers.
-- Child sets a savings goal; parent can auto-transfer or approve deposits.
-- Parent opens a custodial investing account for the child and approves trades.
-- Card is declined due to controls; child sees original messaging.
-- Card is lost/stolen; parent locks and orders replacement.
-- Parent updates controls or pauses the child's card.
-- Parent exports data or deletes the child's profile; data-minimization regime applies.
+- New user installs the app, reviews original onboarding, sees non-affiliation and kids and teen banking disclosures, and chooses sign-up or read-only exploration where permitted.
+- User creates an account, completes email/phone verification, device trust, passcode/biometric setup, and receives a clear explanation of any financial-data collection.
+- User starts a regulated flow, hits eligibility/KYC gates, uploads required information through a provider-backed path, and sees pending, approved, rejected, and retry states.
+- User lands on the home dashboard, reviews balances/watchlists/news/tasks, and can distinguish cached, delayed, realtime, and unavailable data.
+- User searches for a symbol, account, recipient, goal, card, article, or support topic and receives scoped results with empty and error states.
+- User configures alerts, notification preferences, privacy settings, and disclosure acknowledgement without exposing sensitive details in push payloads.
+- User initiates the primary money/content/investing action, reviews fees/risks/limits, confirms with strong authentication, and receives a durable receipt or audit event.
+- User edits recurring automation, transfer schedule, watchlist, portfolio setting, chore/allowance, subscription, or saved preference and sees conflict-safe synchronization.
+- User encounters an ineligible feature, risk block, region block, subscription gate, provider outage, or account hold and sees a support path rather than a broken control.
+- User reports fraud, abuse, incorrect data, suspicious content, lost card, account takeover, or transaction dispute and sees escalation state.
+- User exports data, deletes account, closes eligible financial products, or revokes connected accounts with clear retention and regulatory caveats.
+- Returning user opens offline or after a long absence and sees stale data labels, cached read-only state, required reauthentication, and reconciliation after reconnect.
 
 ## Screen Inventory
 
 | Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Parent Onboarding/KYC | Identity, subscription, wallet | name, DOB, SSN | collecting, verified | denied, manual review |
-| Add Child | Create child profile, order card | name, DOB, minimal data | created, card-ordered | underage below floor |
-| Home (Parent) | Wallet, kids summary | navigation | empty, active | partner outage |
-| Home (Kid) | Balance, goals, chores | navigation | empty, funded | controls pause |
-| Card Controls | Limits, categories, store allow/deny | toggles | active, paused | fraud hold |
-| Chores | Create/complete/approve | schedule, reward | pending, approved | disputed |
-| Savings Goals | Create, fund, close | target, contributions | on-track, complete | funding blocked |
-| Investing (Custodial) | Open/approve trades | suitability, ticket | approved, pending | unsuitable |
-| Transfers | Wallet to child or vice versa | amount | pending, settled | NSF |
-| Activity | Transactions | filter | loaded, empty | pending |
-| Settings | Security, notifications, privacy | edits | loaded | MFA needed |
-| Support | Cases | category | submitted | escalated |
+| Welcome/Auth | Entry, legal framing, sign-up, sign-in | email, phone, SSO where allowed | new, returning, locked, region-blocked | underage, unsupported region, failed verification |
+| Eligibility/KYC | Regulated onboarding and risk gates | identity fields, document provider, consent | not-started, pending, approved, rejected | manual review, sanctions hit, provider outage |
+| Home Dashboard | Primary account, markets, content, or family overview | navigation, cards, refresh | loaded, empty, cached, loading | stale data, partial provider outage |
+| Search | Find symbols, accounts, recipients, articles, help topics | query, filters | empty, results, no-results | rate limited, restricted symbol/recipient |
+| Detail View | Primary item detail and disclosure context | tabs, chart range, action buttons | loaded, delayed, realtime | unsupported item, licensing gap |
+| Action Review | Confirm money movement, trade, transfer, subscription, alert, or family action | amount, target, schedule, auth | draft, review, confirmed | limit exceeded, blocked, duplicate |
+| Activity/History | Receipts, transactions, posts, articles, alerts, audit trail | filters, item selection | loaded, pending, settled | reversal, correction, missing record |
+| Alerts/Notifications | Topic, price, account, fraud, support, family alerts | toggle, threshold, channel | enabled, disabled, permission-needed | push denied, throttled |
+| Support Center | Help, complaint, fraud, dispute, safety escalation | case form, attachment, reason | draft, submitted, in-review | SLA miss, duplicate case |
+| Privacy Center | Data export, deletion, sharing controls, privacy rights | export, delete, opt-out | idle, pending, complete | regulated retention, identity recheck |
+| Subscription/Fees | Plans, paid features, restore, fee schedule | plan choice, restore, manage | free, trial, paid, canceled | platform mismatch, refund, webhook delay |
+| Legal/Disclosures | Risk, partner, license, market-data, banking, advisory copy | document links, acknowledgement | current, accepted | outdated disclosure, missing locale |
+| Settings/Security | Profile, devices, passcode, biometrics, connected accounts | toggles, revoke, logout | loaded, verified | account hold, reauth required |
 
 ## Data Model
 
-- `ParentUser`: identity, KYC, subscription, wallet.
-- `ChildProfile`: minimal PII, age band, controls, card id, savings/investing refs.
-- `Card`: partner-issued debit card, controls, state.
-- `CardControl`: category allow/deny, store-level rules, ATM, online.
-- `Chore`: schedule, reward, completion state, approval state.
-- `SavingsGoal`: child id, target, contributions.
-- `CustodialInvestmentAccount`: child id, custodian = parent, holdings.
-- `Transfer`: parent wallet <-> child.
-- `Transaction`: auth/post, mcc, merchant hash, control-decision trace.
-- `Subscription`: parent plan.
-- `AuditEvent`: append-only, parental-consent acknowledgements.
+- `User`: account identity, eligibility, locale, region, age/role flags, verification state, and privacy preferences.
+- `DeviceSession`: device id, platform, app version, push token, biometric/passcode state, risk score, and session expiry.
+- `IdentityVerification`: provider reference, required fields, document checks, sanctions/PEP status, pending/rejected/approved state, and evidence retention.
+- `RiskReview`: fraud, AML, market-abuse, credit, family-safety, or account-takeover review state with owner and resolution reason.
+- `ConsentRecord`: terms/privacy/disclosure/marketing/analytics/child-parent consent version, timestamp, actor, and revocation state.
+- `DisclosureAcknowledgement`: legal document id, version, product surface, required/optional flag, and acceptance timestamp.
+- `ConnectedAccount`: external account or brokerage connection, provider token, scopes, status, refresh time, and revocation.
+- `FinancialAccount`: cash, card, brokerage, savings, transfer, family, or content subscription account with partner, status, limits, and owner role.
+- `BalanceSnapshot`: account id, amount, currency, available/pending split, source, stale timestamp, and display restrictions.
+- `Transaction`: money, card, transfer, order, subscription, reward, support, or content purchase event with lifecycle and dispute state.
+- `TransferInstruction`: source, destination, amount, currency, quote, schedule, limits, risk check, idempotency key, and receipt.
+- `PaymentInstrument`: card, bank account, wallet, or funding source token with network, verification, lock/freeze, and display-safe metadata.
+- `InvestmentProfile`: risk tolerance, time horizon, goals, suitability inputs, portfolio selection, advisory acknowledgements, and blocked states.
+- `Instrument`: symbol, asset class, exchange, issuer, quote eligibility, trade/support status, and disclosure requirements.
+- `QuoteSnapshot`: instrument, bid/ask/last, change, timestamp, venue, delayed/realtime flag, attribution, and licensing scope.
+- `OrderIntent`: non-executing or provider-backed action review for trade, transfer, card, borrowing, subscription, or family approval with risk checks.
+- `AlertRule`: topic, symbol/account/role target, threshold, delivery channel, throttle, quiet hours, and permission state.
+- `SubscriptionEntitlement`: plan, platform, renewal, trial, cancellation, refund, restore, feature gates, and billing support reference.
+- `SupportCase`: reason, severity, attachments, redaction state, owner queue, SLA, audit events, and final resolution.
+- `AuditEvent`: append-only record for Greenlight-inspired auth, consent, disclosure, privacy, support, regulated-action, and admin changes.
 
 ## API And Backend Contracts
 
-- `POST /auth/session`, `POST /auth/mfa`.
-- `POST /kyc/start`, `GET /kyc/status`.
-- `POST /children`, `PATCH /children/:id`, `DELETE /children/:id`.
-- `POST /cards/for-child/:id`, `PATCH /cards/:id/controls`.
-- `POST /chores`, `PATCH /chores/:id`, `POST /chores/:id/complete`, `POST /chores/:id/approve`.
-- `POST /goals`, `PATCH /goals/:id`, `POST /goals/:id/fund`.
-- `POST /custodial/accounts`, `POST /custodial/orders`.
-- `POST /transfers/parent-to-child`, `POST /transfers/child-to-parent`.
-- `GET /transactions/child/:id`, `POST /transactions/:id/dispute`.
-- `POST /billing/subscribe`, `POST /billing/cancel`, `POST /billing/webhook`.
-- `POST /support/cases`.
+- `POST /auth/session`: creates, revokes, or strengthens authenticated device sessions with audit events.
+- `DELETE /auth/session`: creates, revokes, or strengthens authenticated device sessions with audit events.
+- `POST /auth/device-trust`: creates, revokes, or strengthens authenticated device sessions with audit events.
+- `GET /me`: domain API.
+- `PATCH /me/preferences`: domain API.
+- `POST /identity/verifications`: starts and reads regulated identity/KYC/age/role verification through a provider-backed workflow.
+- `GET /identity/verifications/:id`: starts and reads regulated identity/KYC/age/role verification through a provider-backed workflow.
+- `GET /disclosures`: serves current legal/risk/partner disclosures and records acknowledgements.
+- `POST /disclosures/:id/acknowledge`: serves current legal/risk/partner disclosures and records acknowledgements.
+- `GET /dashboard`: returns the Greenlight-inspired home summary with stale-data labels and feature flags.
+- `GET /search?query=`: performs scoped search across allowed symbols, accounts, recipients, content, help, or family objects.
+- `GET /accounts`: lists authorized financial or product accounts with role-scoped balances and status.
+- `POST /connected-accounts`: lists authorized financial or product accounts with role-scoped balances and status.
+- `DELETE /connected-accounts/:id`: lists authorized financial or product accounts with role-scoped balances and status.
+- `GET /transactions?cursor=`: returns paginated activity with pending, posted, reversed, disputed, and hidden-sensitive states.
+- `POST /transfers/quotes`: creates a server-side quote with fees, rates, limits, availability, and expiry.
+- `POST /transfers`: submits or reads idempotent money movement, account transfer, or equivalent action state.
+- `GET /transfers/:id`: submits or reads idempotent money movement, account transfer, or equivalent action state.
+- `GET /instruments/:symbol`: returns display-safe instrument metadata with licensing and support flags.
+- `GET /quotes?symbols=`: returns attributed quote snapshots with delayed/realtime and entitlement labels.
+- `POST /orders/intents`: creates an action intent for provider-backed regulated execution or blocked review.
+- `POST /alerts`: creates, updates, or deletes notification rules with permission and throttling state.
+- `PATCH /alerts/:id`: creates, updates, or deletes notification rules with permission and throttling state.
+- `GET /entitlements`: returns server-authoritative feature access and subscription state.
+- `POST /billing/restore`: reconciles app-store or web purchases, refunds, cancellation, and restore state.
+- `POST /support/cases`: creates a redacted support, fraud, dispute, abuse, or complaint case.
+- `POST /data-export`: starts a privacy export workflow with identity recheck and delivery status.
+- `DELETE /account`: starts account deletion/closure with regulatory retention caveats and product-specific preconditions.
 
 ## Realtime, Push, And Offline Behavior
 
-- Card authorizations stream to parent and optionally the child's app in real time.
-- Chore completions and approvals update via push.
-- Offline shows read-only cached data labeled stale; no controls changes offline.
-- Push payloads never include PII or amounts beyond class-level.
+- Dashboard, quote, balance, transfer, support, and entitlement summaries may be cached for read-only offline use with visible stale timestamps.
+- Money movement, trading, borrowing, account opening, child/teen authorization, card changes, and privacy deletion require an online server-confirmed state.
+- Push notifications must use opaque identifiers and generic copy by default; sensitive balances, order details, child location, and account identifiers stay in-app.
+- Realtime updates should use server-sent events or websockets where licensed; otherwise poll with backoff and show delayed-data labels.
+- Local drafts for support messages, alerts, watchlists, and scheduled actions must reconcile through idempotent server requests after reconnect.
+- Provider outages must degrade only the affected capability and keep legal/disclosure/support surfaces reachable.
+- Audit events must be append-only for consent, disclosure, auth, device, money, privacy, support, and admin actions.
+- Feature flags must gate every unresolved manual-verification blocker named in the metadata.
 
 ## Permissions, Privacy, And Safety
 
-- Parental consent required to create any child profile or card.
-- Child data minimization: no precise location, no behavioral advertising, restricted analytics.
-- Age-band gating for content and features.
-- KYC/AML on parent; OFAC screening.
-- Partner-bank and FDIC pass-through disclosures.
-- Launch owners: compliance, privacy (COPPA-adjacent), partner-bank liaison, security.
+- Request camera, files, contacts, location, notifications, biometrics, and motion permissions only at point of use with original explanatory copy.
+- Financial account numbers, card data, government IDs, tax documents, support attachments, child/teen data, precise location, and market/trading intent require field-level redaction in logs and analytics.
+- Default analytics must exclude raw balances, transaction memo text, holdings, recipient names, article bodies, post bodies, support message content, child locations, and government-ID data.
+- Account takeover controls must include device trust, step-up authentication, session revocation, password recovery hardening, and suspicious-change notifications.
+- Fraud, dispute, abuse, market-manipulation, insider-information, harassment, child-safety, location-safety, and complaint flows must have named operational owners.
+- Every investment, savings yield, cash sweep, card, transfer, borrowing, credit, insurance, or paid-plan claim must show dated assumptions and links to current disclosures.
+- Accessibility owner must verify screen reader labels, dynamic type, keyboard/focus order, reduced motion, sufficient contrast, and non-color-only indicators.
+- Launch owner: product owner for scope, compliance/legal owner for disclosures, privacy/security owner for data controls, support owner for escalation, accessibility owner for inclusive UX.
 
 ## Analytics And Monetization
 
-- Privacy-safe events only; children's analytics limited to service-critical signals with no behavioral targeting.
-- Monetization via parent subscription; interchange from partner-bank arrangement possible.
-- No third-party ad SDKs in child surfaces.
+- Track only privacy-safe events: onboarding step viewed, disclosure acknowledged, dashboard viewed, item opened, action reviewed, action confirmed, alert changed, support case submitted, entitlement changed, privacy request started, and provider error code.
+- Use stable object types and coarse categories rather than raw symbols, balances, transaction memos, child location, article/post text, or recipient identifiers unless explicit consent and a compliance basis exist.
+- Monetization can include original subscriptions, advisory fees, transfer fees, interchange-funded rewards, premium content, or partner fees only when copied plan names/prices/promotions are avoided.
+- Fee schedules, APYs, cash yields, transfer rates, rewards, and subscription benefits must be server-configured with effective dates and rollback support.
+- Paywalls and upgrade prompts must identify the blocked feature, current entitlement, fee/renewal rules, restore path, cancellation path, support path, and any regulatory caveat.
+- Advertising, if used, must not target sensitive financial, child, location, health, or hardship behaviors.
 
 ## Edge Cases
 
-- Child turns age threshold; account must transition or be closed.
-- Parent divorce/co-parent handoff; account ownership cannot be transferred without legal doc.
-- Card declined at allowed merchant due to wrong MCC; self-serve override path.
-- Chore dispute between parent and child; parent has final approval.
-- Investing order placed by child (should be blocked); parent approves.
-- Compromised parent account; child cards must freeze automatically.
-- Account deletion must purge child data per policy.
-- Subscription lapse disables new spend but preserves existing balances.
+- KYC provider returns pending manual review after the user has already started account setup.
+- User is in an unsupported region or product availability changes after onboarding.
+- Market data is delayed, unavailable, corrected, or licensed only for display after login.
+- User attempts a transaction while offline, with stale balance, or after session expiry.
+- Duplicate tap or retry creates two intents; idempotency must prevent duplicate money movement.
+- Funding source is reversed, returned, or disconnected after a scheduled transfer is queued.
+- Push notification arrives after the relevant price, transaction, location, or support state has changed.
+- Subscription is active on one platform but not yet reconciled server-side.
+- Account is locked for fraud review while the user has pending transfers or support cases.
+- User requests deletion where financial records must be retained for legal/regulatory reasons.
+- Accessibility user relies on screen reader and cannot use color alone to understand loss/gain or risk.
+- Provider outage affects only cards, transfers, quotes, identity, push, or support while other surfaces remain usable.
+- A disclosure, rate, fee, APY, plan name, eligibility rule, or partner-bank relationship changes without an app release.
 
 ## Test Plan
 
-- Parent KYC and subscription flows.
-- Child creation with minimum data and card issuance.
-- Controls and category/store rule enforcement at authorization.
-- Chores schedule, completion, and approval flow.
-- Goals funding and closure.
-- Custodial investing with suitability and parent approval required.
-- Transfers and activity reconciliation.
-- Privacy tests: child data minimization, no precise location, no behavioral analytics.
-- COPPA-adjacent consent audit.
-- Accessibility for both adult and child UX.
-- Manual verification: parent + child real-card walkthrough.
+- Unit tests for disclosure placement, eligibility rules, risk copy, stale-data labels, currency/amount formatting, and idempotency keys.
+- Unit tests for role permissions, support-case state transitions, alert-rule evaluation, and privacy-safe analytics payloads.
+- Contract tests for auth, identity, disclosures, dashboard, search, accounts, transactions, transfers, quotes, entitlements, support, export, and deletion APIs.
+- Integration tests for onboarding through KYC pending/approved/rejected states.
+- Integration tests for the primary dashboard to detail to action-review to receipt journey.
+- Integration tests for subscription restore, cancellation, webhook delay, refund, and cross-platform entitlement mismatch.
+- Provider-failure tests for identity, market-data, banking, brokerage, transfer, card, notification, and support dependencies.
+- Security tests for device binding, biometric fallback, session revocation, sensitive-data redaction, and account-takeover recovery.
+- Privacy tests for export/delete, consent revocation, child/teen data where applicable, and analytics exclusion of raw financial content.
+- Accessibility tests for dynamic type, screen reader labels, focus order, reduced motion, and color-independent indicators.
+- Compliance tests asserting no investment-advice, no bank-status, no FDIC/SIPC overstatement, no unlicensed market-data, and no copied brand/copy.
+- Manual verification blockers must remain feature-flagged until native device/account evidence resolves the owner path.
 
 ## Acceptance Criteria
 
-- Child accounts cannot exist without parental consent and minimum data only.
-- Card controls are enforced at authorization via partner-bank.
-- Investing is custodial and parent-approved per trade.
-- Analytics pipeline excludes children from behavioral targeting.
-- Data deletion for children is complete and auditable.
-- Manual verification blockers resolved or feature-flagged.
+- Research Sources contain exact first-party URLs with no source-discovery placeholders.
+- Readiness metadata states implementation-ready as of 2026-05-01, while manual blockers remain explicit and feature-flagged.
+- No proprietary brand, copy, screenshots, private APIs, partner-only data, market content, or regulated status claims are introduced.
+- Finance-risk review covers no-investment-advice framing, KYC/AML, fraud/account takeover, market-data licensing, partner-bank/FDIC or SIPC boundaries, and support escalation.
+- Child/teen, parental-consent, COPPA-adjacent, location-safety, and dependent-role controls are documented and launch-blocking until reviewed.
+- Screen inventory, data model, API contracts, edge cases, tests, and build plan are detailed enough for downstream implementation planning.
+- Accessibility, privacy, security, support, and compliance owners are named in launch gates.
 
 ## Open Questions
 
-- Partner-bank and card issuer for V1?
-- Which investing partner will power custodial accounts?
-- Which age floor applies for card issuance?
-- What data is disclosed between co-parents or separated households?
-- Which jurisdictions are supported at launch?
+- Which licensed providers will supply identity, account aggregation, banking, brokerage, card, transfer, market-data, notification, and support infrastructure for V1?
+- Which countries, states, account types, age groups, and subscription tiers are in scope for the first implementation?
+- Which app-store native flows, account-review decisions, partner disclosures, and push payloads differ between iOS and Android?
+- What retention schedule applies to identity documents, financial records, child/teen records, support attachments, audit logs, and deleted accounts?
+- Which manual verification sessions are scheduled, and who owns the evidence capture for each blocked flow?
+- Which claims require legal/compliance approval before public demo, beta, or launch?
 
 ## Build Plan
 
-- Phase 1: parent auth, KYC, subscription, wallet.
-- Phase 2: child profile, card issuance, controls.
-- Phase 3: chores, allowance scheduling, savings goals.
-- Phase 4: custodial investing for kids.
-- Phase 5: privacy/COPPA-adjacent audit; advanced controls.
-- Phase 6: support, accessibility, manual verification.
+- Phase 1: Establish original product shell, auth/session management, disclosure registry, feature flags, audit logging, and privacy-safe analytics.
+- Phase 2: Build read-only dashboard, search, detail screens, support center, settings, privacy center, and legal/disclosure surfaces using mocked provider data.
+- Phase 3: Add regulated-provider integration adapters for identity, accounts, market data, transfers/cards/trading/content as applicable, all behind sandbox flags.
+- Phase 4: Implement action review, receipts/history, alerts, notifications, subscription/fee configuration, support escalation, and provider-failure recovery.
+- Phase 5: Complete security hardening, accessibility pass, privacy export/delete, compliance review, data-retention review, and abuse/fraud runbooks.
+- Phase 6: Resolve manual verification blockers with lawful device/account evidence; unflag only verified flows and keep unresolved parity claims out of release notes.
 
 ## Next Steps
 
-- Partner RFPs (bank, card issuer, custodial broker).
-- Privacy counsel review of COPPA-adjacent design.
-- Replace discovery URLs with exact first-party URLs before implementation.
+- Confirm provider choices and legal operating model before downstream implementation begins.
+- Create acceptance-test blockers for every metadata blocker and assign product, compliance, privacy/security, support, and accessibility owners.
+- Keep the downstream repo private until original code/assets, naming, licensing, data-provider, and legal reviews are complete.

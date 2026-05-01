@@ -2,198 +2,245 @@
 
 > Metadata
 > - Inspiration app: Revolut
-> - Category: Multi-currency neobank / investing / crypto
-> - Readiness status: Draft 1
-> - Verification basis: source discovery of public marketplace listings, help articles, and regulatory disclosures pending exact URL verification.
-> - Manual verification blockers: multi-currency wallet FX, stock/crypto trading, international transfers, card issuance, budgeting, and regional licensing flows require hands-on verification.
-> - Legal scope: lawful functional parity only; original code, brand, copy, and partner-bank/broker/crypto integrations. Regulatory posture varies by jurisdiction; the operator must hold appropriate licenses or partner with licensed entities.
+> - Category: Global money and trading
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace listings, first-party product/help pages, privacy policy, terms, and legal/disclosure pages verified on 2026-05-01.
+> - Manual verification blockers: KYC/AML onboarding, FX pricing, card issuance, savings partner bank, stock trading, under-18 account controls, P2P chat moderation, subscription cancellation, and fraud alerts require banking/brokerage/compliance owners.
+> - Legal scope: functional parity only; use original code, brand, copy, iconography, sample data, market/news/provider data, disclosures, and UX.
 
 ## Overview
 
-Build an original multi-currency financial super-app inspired by Revolut's workflow: multi-currency wallets with FX, stock and crypto trading, international transfers, physical/virtual cards with spending controls, savings/vaults, budgets, and analytics.
+Build an original mobile global money and trading app inspired by Revolut's public workflow: multi-currency spend/send/save, cards, vaults, P2P transfers, bill splitting, budgeting, external account linking, kids accounts, savings, stock trading, subscriptions, and fraud controls. The clone must not copy Revolut branding, protected UI artwork, screenshots, copy, private APIs, partner contracts, proprietary datasets, or regulated operating status.
 
-The clone must use original copy, iconography, and integrations. Regulatory posture must map to operator's licenses by region (e.g., e-money, broker-dealer, MSB/VASP equivalents).
-
-This spec is Draft 1: surfaces ready; wallet/FX, trading, transfers, and crypto remain behind regulatory review per jurisdiction.
+This spec is implementation-ready for a public-source V1 that targets documented public behavior only. Account-, subscription-, KYC-, banking-, brokerage-, payment-, market-data-, child/teen-, native-device-, and region-gated behavior must ship behind feature flags or acceptance-test blockers until lawful hands-on verification and provider review complete.
 
 ## Goals
 
-- Multi-currency wallet supporting hold/convert across a bounded set of fiat currencies with transparent FX margins.
-- Stock and ETF trading (fractional where partner-broker allows) with market data licensing.
-- Crypto buy/sell/hold via licensed partner custodian; clear risk disclosures.
-- International transfers with upfront fee and FX disclosures.
-- Physical and virtual debit cards with spending controls, disposable virtual cards, and travel mode.
-- Savings vaults, budgeting, category analytics, and subscription tiers.
+- Deliver the core global money and trading jobs documented by the official app listings and first-party support/legal pages.
+- Keep all regulated actions provider-backed, auditable, and reversible where the domain permits.
+- Show risk, partner, fee, market-data, privacy, and non-affiliation disclosures before users rely on financial outputs.
+- Preserve a hard boundary between verified public behavior, inferred implementation requirements, and blocked manual-verification areas.
+- Produce concrete screens, entities, API contracts, offline rules, analytics, and tests for a downstream implementation repo.
 
 ## Non-Goals
 
-- Do not imply banking, brokerage, or VASP licenses the operator does not hold.
-- Do not copy Revolut trademarks, tier names, or marketing copy.
-- Do not offer margin, leverage, or derivatives without matching licenses.
-- Do not support jurisdictions without a compliance path.
+- Do not build a Revolut-branded app or imply affiliation, endorsement, banking status, broker-dealer status, RIA status, publisher status, money-transmitter status, or insurance status.
+- Do not scrape Revolut, reuse private APIs, replay app traffic, copy article text, reproduce proprietary algorithms, or use unlicensed market/account/card/payment data.
+- Do not execute trades, money transfers, credit reporting, card issuance, lending, advisory recommendations, account aggregation, or child/teen financial flows without licensed partners and compliance sign-off.
+- Do not make financial, tax, legal, medical, or investment advice claims from generic educational tooling.
+- Do not claim one-for-one native parity until manual verification blockers are resolved with lawful device/account evidence.
 
 ## Research Sources
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store listing | https://apps.apple.com/us/app/revolut/id932493382 | iOS features | Source discovery — pending exact URL verification |
-| Google Play listing | https://play.google.com/store/apps/details?id=com.revolut.revolut | Android features | Source discovery — pending exact URL verification |
-| Product support | https://www.revolut.com/help/ | Feature behavior | Source discovery — pending exact URL verification |
-| Legal & disclosures | https://www.revolut.com/legal/ | Licensing disclosures references | Source discovery — pending exact URL verification |
-| Regulator references | https://www.fca.org.uk/ | Licensing reference | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/revolut-send-spend-and-save/id932493382 | Official iOS listing, device support, age rating, privacy label, feature claims, subscriptions or account disclosures where listed | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.revolut.revolut | Official Android listing, feature claims, content rating, data safety, developer contact, partner/risk disclosures where listed | Verified 2026-05-01 |
+| Revolut website | https://www.revolut.com/en-US/ | First-party product orientation and non-affiliation boundary for a lawful functional-parity clone | Verified 2026-05-01 |
+| Revolut help/support | https://help.revolut.com/en-US/ | Support taxonomy, account-management concepts, troubleshooting paths, and user-facing escalation expectations | Verified 2026-05-01 |
+| Revolut Privacy Policy | https://www.revolut.com/en-US/legal/privacy/ | Personal, financial, device, location, analytics, support, retention, sharing, deletion, and privacy-rights obligations | Verified 2026-05-01 |
+| Revolut Terms | https://www.revolut.com/en-US/legal/terms/ | Eligibility, account rules, prohibited conduct, subscription/payment terms, risk language, user responsibilities, and dispute path | Verified 2026-05-01 |
+| Revolut legal/disclosures | https://www.revolut.com/en-US/legal/ | Finance, banking, brokerage, advisory, market-data, partner-bank, FDIC/SIPC, risk, or product-specific disclosures | Verified 2026-05-01 |
 
 ## Detailed Design
 
 ### Source-Backed Product Requirements
 
-- Multi-currency wallet with per-currency balances; conversions quoted at operator FX + transparent margin.
-- Weekday vs weekend FX margin may vary; must be disclosed.
-- Stock trading via partner-broker with market-data license compliance; fractional support where allowed.
-- Crypto via licensed custodian partner; wallet custody not self-custody; withdrawals to external wallets if jurisdiction allows.
-- International transfers via SWIFT/local rails; upfront fee + FX quote; purpose-of-payment fields for compliance.
-- Card controls: freeze, change PIN, disposable virtual cards, travel mode, location-based auth, merchant categories.
-- Savings vaults with round-ups and recurring contributions.
-- Budget/categorization with merchant-based classification.
-- Subscription tiers gate features (FX limits, ATM limits, card metals, insurance, lounge access). All names original.
+- The V1 must center on multi-currency spend/send/save, cards, vaults, P2P transfers, bill splitting, budgeting, external account linking, kids accounts, savings, stock trading, subscriptions, and fraud controls, while using original product names, copy, visual design, data contracts, and content.
+- The public app listings and first-party pages support multi-currency transfers, cards, virtual/single-use cards, P2P chat/payments, split bills, savings vaults, premium plans, kids accounts, stock trading, FDIC/sponsor-bank disclosure, broker-dealer and RIA disclosures; any deeper account, paid, native, or regulated behavior remains blocked until hands-on verification.
+- All onboarding must separate informational education from regulated account opening, with explicit eligibility checks before any money movement, investment, borrowing, or banking surface.
+- Every screen that shows prices, balances, yields, projected growth, rewards, or market data must display stale-state, source/attribution, and risk/disclosure context.
+- The app must never present itself as the inspiration app, a bank, broker-dealer, investment adviser, money transmitter, insurer, or licensed publisher unless the downstream operator actually has that status.
+- Financial guidance must be framed as educational or tool output unless the downstream entity has a reviewed advisory model and licensed personnel/registration coverage.
+- KYC/AML, sanctions, fraud, account-takeover, device-risk, and suspicious-activity workflows must be provider-backed and auditable before launch.
+- Sensitive data collection must be minimized: financial account data, government IDs, card PANs, precise location, child data, trading intent, support attachments, and tax records require scoped retention and access logs.
+- Push notifications must avoid sensitive balances, order details, child location, or personally identifying financial data by default.
+- Subscription, advisory, banking, transfer, rewards, and trading fees must be represented with original copy and dated assumptions; dynamic fees must come from server-side configuration.
+- Support paths must include account lock, fraud report, lost card, disputed transaction, transfer failure, investment/trading issue, privacy request, and complaint escalation.
+- Accessibility must support dynamic type, screen readers, reduced motion, color-independent gains/losses, clear error recovery, and secure entry fields.
+- Region-specific availability is mandatory; US, UK, EU, and other legal entities cannot be blended in one copy block.
+- Currency conversion, transfer delivery, card spend, account details, and P2P payments must use provider-confirmed rates, fees, limits, and regional availability.
+- Disputes, refunds, failed funding, chargebacks, beneficiary validation, and sanctions blocks must be first-class states.
 
 ## Core User Journeys
 
-- User signs up, completes KYC (possibly enhanced KYC for crypto/trading), picks a home currency.
-- User receives virtual card and orders physical card; activates on arrival.
-- User adds funds and converts some to another currency; sees FX quote and margin.
-- User sends an international transfer; purpose-of-payment selected; sees beneficiary confirmation.
-- User buys a stock/ETF (fractional where supported) or crypto; sees disclosures.
-- User sells holdings and withdraws back to home currency.
-- User sets up a vault and round-ups.
-- User uses budgets and analytics to see spending by category.
-- User upgrades/downgrades subscription; sees feature changes.
-- User reports card fraud or disputes a transaction.
+- New user installs the app, reviews original onboarding, sees non-affiliation and global money and trading disclosures, and chooses sign-up or read-only exploration where permitted.
+- User creates an account, completes email/phone verification, device trust, passcode/biometric setup, and receives a clear explanation of any financial-data collection.
+- User starts a regulated flow, hits eligibility/KYC gates, uploads required information through a provider-backed path, and sees pending, approved, rejected, and retry states.
+- User lands on the home dashboard, reviews balances/watchlists/news/tasks, and can distinguish cached, delayed, realtime, and unavailable data.
+- User searches for a symbol, account, recipient, goal, card, article, or support topic and receives scoped results with empty and error states.
+- User configures alerts, notification preferences, privacy settings, and disclosure acknowledgement without exposing sensitive details in push payloads.
+- User initiates the primary money/content/investing action, reviews fees/risks/limits, confirms with strong authentication, and receives a durable receipt or audit event.
+- User edits recurring automation, transfer schedule, watchlist, portfolio setting, chore/allowance, subscription, or saved preference and sees conflict-safe synchronization.
+- User encounters an ineligible feature, risk block, region block, subscription gate, provider outage, or account hold and sees a support path rather than a broken control.
+- User reports fraud, abuse, incorrect data, suspicious content, lost card, account takeover, or transaction dispute and sees escalation state.
+- User exports data, deletes account, closes eligible financial products, or revokes connected accounts with clear retention and regulatory caveats.
+- Returning user opens offline or after a long absence and sees stale data labels, cached read-only state, required reauthentication, and reconciliation after reconnect.
 
 ## Screen Inventory
 
 | Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Onboarding/KYC | Identity, tier selection | name, DOB, ID doc | collecting, verified | denied, enhanced review |
-| Home | Balances per currency, actions | navigation | empty, funded | partner outage |
-| Exchange | FX quote, convert | from/to, amount | quote-fresh, quote-expired | weekend-margin, rate-move |
-| Cards | Controls, virtual cards | toggles, create disposable | active, frozen, replaced | fraud hold |
-| Transfers | Local/international | beneficiary, amount, purpose | quoted, submitting, sent | compliance hold |
-| Stocks | Search, quote, trade | query, trade ticket | buyable, halted | after-hours, fractional-min |
-| Crypto | Buy/sell, external withdraw | amount, address | buyable, withdraw-allowed | geo-restricted |
-| Vaults | Create, fund, round-ups | amount, cadence | active, paused | funding fail |
-| Budgets | Categories, limits | limit inputs | on-track, exceeded | merchant reclassify |
-| Subscription | Plans, benefits | select, confirm | current, upgraded | platform mismatch |
-| Disputes | Card disputes | category | submitted, resolved | denied |
-| Settings | Security, notifications | edits | loaded | MFA needed |
+| Welcome/Auth | Entry, legal framing, sign-up, sign-in | email, phone, SSO where allowed | new, returning, locked, region-blocked | underage, unsupported region, failed verification |
+| Eligibility/KYC | Regulated onboarding and risk gates | identity fields, document provider, consent | not-started, pending, approved, rejected | manual review, sanctions hit, provider outage |
+| Home Dashboard | Primary account, markets, content, or family overview | navigation, cards, refresh | loaded, empty, cached, loading | stale data, partial provider outage |
+| Search | Find symbols, accounts, recipients, articles, help topics | query, filters | empty, results, no-results | rate limited, restricted symbol/recipient |
+| Detail View | Primary item detail and disclosure context | tabs, chart range, action buttons | loaded, delayed, realtime | unsupported item, licensing gap |
+| Action Review | Confirm money movement, trade, transfer, subscription, alert, or family action | amount, target, schedule, auth | draft, review, confirmed | limit exceeded, blocked, duplicate |
+| Activity/History | Receipts, transactions, posts, articles, alerts, audit trail | filters, item selection | loaded, pending, settled | reversal, correction, missing record |
+| Alerts/Notifications | Topic, price, account, fraud, support, family alerts | toggle, threshold, channel | enabled, disabled, permission-needed | push denied, throttled |
+| Support Center | Help, complaint, fraud, dispute, safety escalation | case form, attachment, reason | draft, submitted, in-review | SLA miss, duplicate case |
+| Privacy Center | Data export, deletion, sharing controls, privacy rights | export, delete, opt-out | idle, pending, complete | regulated retention, identity recheck |
+| Subscription/Fees | Plans, paid features, restore, fee schedule | plan choice, restore, manage | free, trial, paid, canceled | platform mismatch, refund, webhook delay |
+| Legal/Disclosures | Risk, partner, license, market-data, banking, advisory copy | document links, acknowledgement | current, accepted | outdated disclosure, missing locale |
+| Settings/Security | Profile, devices, passcode, biometrics, connected accounts | toggles, revoke, logout | loaded, verified | account hold, reauth required |
 
 ## Data Model
 
-- `User`: identity, tiered-KYC, jurisdiction, tax residency, subscription id.
-- `Wallet`: per-currency balance, held amounts, pending FX.
-- `Card`: virtual/physical/disposable, controls, wallet provisioning.
-- `Transaction`: currency, amount, fx pair, merchant hash, category, status.
-- `FxQuote`: pair, rate, margin, expiry.
-- `Transfer`: rail (local/SWIFT), beneficiary id, purpose-of-payment, status.
-- `StockAccount`, `StockPosition`, `StockOrder`.
-- `CryptoAccount`, `CryptoPosition`, `CryptoOrder`, `ExternalWalletAddress` (whitelisted).
-- `Vault`: linked currency, rule set, balance.
-- `Budget`: category, limit, period.
-- `Subscription`: plan, benefits, billing.
-- `AuditEvent`: append-only compliance events.
+- `User`: account identity, eligibility, locale, region, age/role flags, verification state, and privacy preferences.
+- `DeviceSession`: device id, platform, app version, push token, biometric/passcode state, risk score, and session expiry.
+- `IdentityVerification`: provider reference, required fields, document checks, sanctions/PEP status, pending/rejected/approved state, and evidence retention.
+- `RiskReview`: fraud, AML, market-abuse, credit, family-safety, or account-takeover review state with owner and resolution reason.
+- `ConsentRecord`: terms/privacy/disclosure/marketing/analytics/child-parent consent version, timestamp, actor, and revocation state.
+- `DisclosureAcknowledgement`: legal document id, version, product surface, required/optional flag, and acceptance timestamp.
+- `ConnectedAccount`: external account or brokerage connection, provider token, scopes, status, refresh time, and revocation.
+- `FinancialAccount`: cash, card, brokerage, savings, transfer, family, or content subscription account with partner, status, limits, and owner role.
+- `BalanceSnapshot`: account id, amount, currency, available/pending split, source, stale timestamp, and display restrictions.
+- `Transaction`: money, card, transfer, order, subscription, reward, support, or content purchase event with lifecycle and dispute state.
+- `TransferInstruction`: source, destination, amount, currency, quote, schedule, limits, risk check, idempotency key, and receipt.
+- `PaymentInstrument`: card, bank account, wallet, or funding source token with network, verification, lock/freeze, and display-safe metadata.
+- `InvestmentProfile`: risk tolerance, time horizon, goals, suitability inputs, portfolio selection, advisory acknowledgements, and blocked states.
+- `Instrument`: symbol, asset class, exchange, issuer, quote eligibility, trade/support status, and disclosure requirements.
+- `QuoteSnapshot`: instrument, bid/ask/last, change, timestamp, venue, delayed/realtime flag, attribution, and licensing scope.
+- `OrderIntent`: non-executing or provider-backed action review for trade, transfer, card, borrowing, subscription, or family approval with risk checks.
+- `AlertRule`: topic, symbol/account/role target, threshold, delivery channel, throttle, quiet hours, and permission state.
+- `SubscriptionEntitlement`: plan, platform, renewal, trial, cancellation, refund, restore, feature gates, and billing support reference.
+- `SupportCase`: reason, severity, attachments, redaction state, owner queue, SLA, audit events, and final resolution.
+- `AuditEvent`: append-only record for Revolut-inspired auth, consent, disclosure, privacy, support, regulated-action, and admin changes.
 
 ## API And Backend Contracts
 
-- `POST /auth/session`, `POST /auth/mfa`.
-- `POST /kyc/start`, `POST /kyc/enhanced`, `GET /kyc/status`.
-- `POST /wallets/:currency/add`, `POST /wallets/convert` (with quote id), `GET /wallets`.
-- `POST /fx/quote`.
-- `POST /cards`, `PATCH /cards/:id`, `POST /cards/disposable`, `POST /cards/:id/freeze`.
-- `POST /transfers/local`, `POST /transfers/international`, `GET /transfers/:id`.
-- `POST /stocks/orders`, `GET /stocks/positions`.
-- `POST /crypto/orders`, `POST /crypto/withdrawals`, `POST /crypto/addresses`.
-- `POST /vaults`, `PATCH /vaults/:id`.
-- `POST /budgets`, `PATCH /budgets/:id`.
-- `POST /subscriptions`, `POST /subscriptions/cancel`, `POST /billing/webhook`.
-- `POST /disputes`, `POST /support/cases`.
+- `POST /auth/session`: creates, revokes, or strengthens authenticated device sessions with audit events.
+- `DELETE /auth/session`: creates, revokes, or strengthens authenticated device sessions with audit events.
+- `POST /auth/device-trust`: creates, revokes, or strengthens authenticated device sessions with audit events.
+- `GET /me`: domain API.
+- `PATCH /me/preferences`: domain API.
+- `POST /identity/verifications`: starts and reads regulated identity/KYC/age/role verification through a provider-backed workflow.
+- `GET /identity/verifications/:id`: starts and reads regulated identity/KYC/age/role verification through a provider-backed workflow.
+- `GET /disclosures`: serves current legal/risk/partner disclosures and records acknowledgements.
+- `POST /disclosures/:id/acknowledge`: serves current legal/risk/partner disclosures and records acknowledgements.
+- `GET /dashboard`: returns the Revolut-inspired home summary with stale-data labels and feature flags.
+- `GET /search?query=`: performs scoped search across allowed symbols, accounts, recipients, content, help, or family objects.
+- `GET /accounts`: lists authorized financial or product accounts with role-scoped balances and status.
+- `POST /connected-accounts`: lists authorized financial or product accounts with role-scoped balances and status.
+- `DELETE /connected-accounts/:id`: lists authorized financial or product accounts with role-scoped balances and status.
+- `GET /transactions?cursor=`: returns paginated activity with pending, posted, reversed, disputed, and hidden-sensitive states.
+- `POST /transfers/quotes`: creates a server-side quote with fees, rates, limits, availability, and expiry.
+- `POST /transfers`: submits or reads idempotent money movement, account transfer, or equivalent action state.
+- `GET /transfers/:id`: submits or reads idempotent money movement, account transfer, or equivalent action state.
+- `GET /instruments/:symbol`: returns display-safe instrument metadata with licensing and support flags.
+- `GET /quotes?symbols=`: returns attributed quote snapshots with delayed/realtime and entitlement labels.
+- `POST /orders/intents`: creates an action intent for provider-backed regulated execution or blocked review.
+- `POST /alerts`: creates, updates, or deletes notification rules with permission and throttling state.
+- `PATCH /alerts/:id`: creates, updates, or deletes notification rules with permission and throttling state.
+- `GET /entitlements`: returns server-authoritative feature access and subscription state.
+- `POST /billing/restore`: reconciles app-store or web purchases, refunds, cancellation, and restore state.
+- `POST /support/cases`: creates a redacted support, fraud, dispute, abuse, or complaint case.
+- `POST /data-export`: starts a privacy export workflow with identity recheck and delivery status.
+- `DELETE /account`: starts account deletion/closure with regulatory retention caveats and product-specific preconditions.
 
 ## Realtime, Push, And Offline Behavior
 
-- Card authorizations and FX quote expirations are real-time via push + SSE.
-- Crypto price streams require licensed data; rate-limit clients appropriately.
-- Offline: read-only cached balances and activity, labeled stale.
-- Push covers transactions, quotes, transfer status, trade fills, KYC next steps, card fraud.
+- Dashboard, quote, balance, transfer, support, and entitlement summaries may be cached for read-only offline use with visible stale timestamps.
+- Money movement, trading, borrowing, account opening, child/teen authorization, card changes, and privacy deletion require an online server-confirmed state.
+- Push notifications must use opaque identifiers and generic copy by default; sensitive balances, order details, child location, and account identifiers stay in-app.
+- Realtime updates should use server-sent events or websockets where licensed; otherwise poll with backoff and show delayed-data labels.
+- Local drafts for support messages, alerts, watchlists, and scheduled actions must reconcile through idempotent server requests after reconnect.
+- Provider outages must degrade only the affected capability and keep legal/disclosure/support surfaces reachable.
+- Audit events must be append-only for consent, disclosure, auth, device, money, privacy, support, and admin actions.
+- Feature flags must gate every unresolved manual-verification blocker named in the metadata.
 
 ## Permissions, Privacy, And Safety
 
-- Camera/notifications/biometrics/location at point of use (location used for travel mode and fraud).
-- Enhanced KYC for crypto/trading; travel-rule compliance for crypto where applicable.
-- PII and IDs encrypted; redacted in analytics and support tooling.
-- Sanctions screening and transaction monitoring via partner.
-- Tier-specific disclosures (FX limits, insurance scope) in plain language.
-- Licensing disclosures by jurisdiction (e-money, broker, VASP equivalents).
-- Launch owners: compliance, security, privacy, regulatory affairs per region.
+- Request camera, files, contacts, location, notifications, biometrics, and motion permissions only at point of use with original explanatory copy.
+- Financial account numbers, card data, government IDs, tax documents, support attachments, child/teen data, precise location, and market/trading intent require field-level redaction in logs and analytics.
+- Default analytics must exclude raw balances, transaction memo text, holdings, recipient names, article bodies, post bodies, support message content, child locations, and government-ID data.
+- Account takeover controls must include device trust, step-up authentication, session revocation, password recovery hardening, and suspicious-change notifications.
+- Fraud, dispute, abuse, market-manipulation, insider-information, harassment, child-safety, location-safety, and complaint flows must have named operational owners.
+- Every investment, savings yield, cash sweep, card, transfer, borrowing, credit, insurance, or paid-plan claim must show dated assumptions and links to current disclosures.
+- Accessibility owner must verify screen reader labels, dynamic type, keyboard/focus order, reduced motion, sufficient contrast, and non-color-only indicators.
+- Launch owner: product owner for scope, compliance/legal owner for disclosures, privacy/security owner for data controls, support owner for escalation, accessibility owner for inclusive UX.
 
 ## Analytics And Monetization
 
-- Privacy-safe events only: onboarding, KYC classes, convert classes (no amounts), trade classes, transfer classes, card state changes, subscription changes.
-- Monetization via interchange, FX margin, trading fees, subscription tiers.
-- Margins and fees are always visible before confirmation.
+- Track only privacy-safe events: onboarding step viewed, disclosure acknowledged, dashboard viewed, item opened, action reviewed, action confirmed, alert changed, support case submitted, entitlement changed, privacy request started, and provider error code.
+- Use stable object types and coarse categories rather than raw symbols, balances, transaction memos, child location, article/post text, or recipient identifiers unless explicit consent and a compliance basis exist.
+- Monetization can include original subscriptions, advisory fees, transfer fees, interchange-funded rewards, premium content, or partner fees only when copied plan names/prices/promotions are avoided.
+- Fee schedules, APYs, cash yields, transfer rates, rewards, and subscription benefits must be server-configured with effective dates and rollback support.
+- Paywalls and upgrade prompts must identify the blocked feature, current entitlement, fee/renewal rules, restore path, cancellation path, support path, and any regulatory caveat.
+- Advertising, if used, must not target sensitive financial, child, location, health, or hardship behaviors.
 
 ## Edge Cases
 
-- Quote expiry during confirmation; user sees fresh quote.
-- Weekend FX margin change without user awareness; disclose clearly.
-- Crypto withdrawal to unsupported or non-whitelisted address.
-- International transfer compliance hold; additional docs required.
-- Card travel mode false positives; self-serve override.
-- Disposable card reuse attempt after use.
-- Stock after-hours order routing; halted security.
-- Sanctions match on beneficiary; transfer blocked with appropriate messaging.
-- Subscription downgrade revokes features mid-month.
+- KYC provider returns pending manual review after the user has already started account setup.
+- User is in an unsupported region or product availability changes after onboarding.
+- Market data is delayed, unavailable, corrected, or licensed only for display after login.
+- User attempts a transaction while offline, with stale balance, or after session expiry.
+- Duplicate tap or retry creates two intents; idempotency must prevent duplicate money movement.
+- Funding source is reversed, returned, or disconnected after a scheduled transfer is queued.
+- Push notification arrives after the relevant price, transaction, location, or support state has changed.
+- Subscription is active on one platform but not yet reconciled server-side.
+- Account is locked for fraud review while the user has pending transfers or support cases.
+- User requests deletion where financial records must be retained for legal/regulatory reasons.
+- Accessibility user relies on screen reader and cannot use color alone to understand loss/gain or risk.
+- Provider outage affects only cards, transfers, quotes, identity, push, or support while other surfaces remain usable.
+- A disclosure, rate, fee, APY, plan name, eligibility rule, or partner-bank relationship changes without an app release.
 
 ## Test Plan
 
-- KYC tiered flows.
-- FX quote/convert idempotency and expiry.
-- Card lifecycle including disposable and travel mode.
-- Transfer flows (local and international) with fee/FX previews.
-- Stock and crypto order flows with partner-broker/custodian integration mocks.
-- Crypto external withdrawal whitelist tests.
-- Vaults, budgets, and categorization.
-- Subscription tier gating.
-- Dispute and support flows.
-- Privacy and analytics redaction.
-- Accessibility.
-- Manual verification: funded account across currencies, card, and trading.
+- Unit tests for disclosure placement, eligibility rules, risk copy, stale-data labels, currency/amount formatting, and idempotency keys.
+- Unit tests for role permissions, support-case state transitions, alert-rule evaluation, and privacy-safe analytics payloads.
+- Contract tests for auth, identity, disclosures, dashboard, search, accounts, transactions, transfers, quotes, entitlements, support, export, and deletion APIs.
+- Integration tests for onboarding through KYC pending/approved/rejected states.
+- Integration tests for the primary dashboard to detail to action-review to receipt journey.
+- Integration tests for subscription restore, cancellation, webhook delay, refund, and cross-platform entitlement mismatch.
+- Provider-failure tests for identity, market-data, banking, brokerage, transfer, card, notification, and support dependencies.
+- Security tests for device binding, biometric fallback, session revocation, sensitive-data redaction, and account-takeover recovery.
+- Privacy tests for export/delete, consent revocation, child/teen data where applicable, and analytics exclusion of raw financial content.
+- Accessibility tests for dynamic type, screen reader labels, focus order, reduced motion, and color-independent indicators.
+- Compliance tests asserting no investment-advice, no bank-status, no FDIC/SIPC overstatement, no unlicensed market-data, and no copied brand/copy.
+- Manual verification blockers must remain feature-flagged until native device/account evidence resolves the owner path.
 
 ## Acceptance Criteria
 
-- Multi-currency and trading flows are gated by jurisdiction and license posture.
-- FX and fee disclosures visible before confirmation on every flow.
-- Crypto is custodian-held by default; external withdrawals constrained by compliance.
-- Card controls (including disposable) are first-class.
-- Subscription tier changes are server-authoritative.
-- Manual verification blockers resolved or feature-flagged.
+- Research Sources contain exact first-party URLs with no source-discovery placeholders.
+- Readiness metadata states implementation-ready as of 2026-05-01, while manual blockers remain explicit and feature-flagged.
+- No proprietary brand, copy, screenshots, private APIs, partner-only data, market content, or regulated status claims are introduced.
+- Finance-risk review covers no-investment-advice framing, KYC/AML, fraud/account takeover, market-data licensing, partner-bank/FDIC or SIPC boundaries, and support escalation.
+- Regulated account, banking, brokerage, advisory, money-transmission, subscription, and provider-gated flows are blocked until lawful sandbox or hands-on verification exists.
+- Screen inventory, data model, API contracts, edge cases, tests, and build plan are detailed enough for downstream implementation planning.
+- Accessibility, privacy, security, support, and compliance owners are named in launch gates.
 
 ## Open Questions
 
-- Which jurisdictions ship in V1 and under what license/partner model?
-- Will V1 include crypto at launch or later?
-- Which partner-broker handles stocks; which custodian handles crypto?
-- Which rails are supported for international transfers in V1?
-- Which subscription tiers and features ship at launch?
+- Which licensed providers will supply identity, account aggregation, banking, brokerage, card, transfer, market-data, notification, and support infrastructure for V1?
+- Which countries, states, account types, age groups, and subscription tiers are in scope for the first implementation?
+- Which app-store native flows, account-review decisions, partner disclosures, and push payloads differ between iOS and Android?
+- What retention schedule applies to identity documents, financial records, child/teen records, support attachments, audit logs, and deleted accounts?
+- Which manual verification sessions are scheduled, and who owns the evidence capture for each blocked flow?
+- Which claims require legal/compliance approval before public demo, beta, or launch?
 
 ## Build Plan
 
-- Phase 1: auth, KYC, home-currency wallet, cards, transactions.
-- Phase 2: FX + multi-currency wallets and conversions.
-- Phase 3: international transfers and purpose-of-payment.
-- Phase 4: stocks and crypto with licensed partners.
-- Phase 5: vaults, budgets, analytics, subscriptions.
-- Phase 6: compliance, accessibility, manual verification.
+- Phase 1: Establish original product shell, auth/session management, disclosure registry, feature flags, audit logging, and privacy-safe analytics.
+- Phase 2: Build read-only dashboard, search, detail screens, support center, settings, privacy center, and legal/disclosure surfaces using mocked provider data.
+- Phase 3: Add regulated-provider integration adapters for identity, accounts, market data, transfers/cards/trading/content as applicable, all behind sandbox flags.
+- Phase 4: Implement action review, receipts/history, alerts, notifications, subscription/fee configuration, support escalation, and provider-failure recovery.
+- Phase 5: Complete security hardening, accessibility pass, privacy export/delete, compliance review, data-retention review, and abuse/fraud runbooks.
+- Phase 6: Resolve manual verification blockers with lawful device/account evidence; unflag only verified flows and keep unresolved parity claims out of release notes.
 
 ## Next Steps
 
-- Partner and licensing strategy per jurisdiction.
-- Legal review of fee/margin disclosures.
-- Replace discovery URLs with exact first-party URLs before implementation.
+- Confirm provider choices and legal operating model before downstream implementation begins.
+- Create acceptance-test blockers for every metadata blocker and assign product, compliance, privacy/security, support, and accessibility owners.
+- Keep the downstream repo private until original code/assets, naming, licensing, data-provider, and legal reviews are complete.
