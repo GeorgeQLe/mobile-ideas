@@ -1805,6 +1805,26 @@ Guardrails:
 | 989 | `GeorgeQLe/stan-store-mobile-clone` | PRIVATE | seeded |
 | 990 | `GeorgeQLe/linktree-mobile-clone` | PRIVATE | seeded |
 
+### Batch 991-1000 Seeding Evidence - 2026-05-01T15:29:41.931Z
+
+- Execution mode: serial private seeding with 10 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":4937,"reset":1777652270,"used":63},"graphql":{"limit":5000,"remaining":4980,"reset":1777652085,"used":20},"search":{"limit":30,"remaining":30,"reset":1777649122,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4907,"reset":1777652270,"used":93},"graphql":{"limit":5000,"remaining":4939,"reset":1777652085,"used":61},"search":{"limit":30,"remaining":30,"reset":1777649441,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 991 | `GeorgeQLe/beacons-mobile-clone` | PRIVATE | seeded |
+| 992 | `GeorgeQLe/linkin-bio-mobile-clone` | PRIVATE | seeded |
+| 993 | `GeorgeQLe/taplink-mobile-clone` | PRIVATE | seeded |
+| 994 | `GeorgeQLe/yandex-maps-mobile-clone` | PRIVATE | seeded |
+| 995 | `GeorgeQLe/2gis-mobile-clone` | PRIVATE | seeded |
+| 996 | `GeorgeQLe/here-wego-mobile-clone` | PRIVATE | seeded |
+| 997 | `GeorgeQLe/maps-me-mobile-clone` | PRIVATE | seeded |
+| 998 | `GeorgeQLe/osmand-mobile-clone` | PRIVATE | seeded |
+| 999 | `GeorgeQLe/sygic-mobile-clone` | PRIVATE | seeded |
+| 1000 | `GeorgeQLe/tomtom-go-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
 
 - Step 6.3 blocker (2026-04-27T19:12:34.859Z) for GeorgeQLe/ecobee-mobile-clone: `git -C /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/ecobee-mobile-clone push origin HEAD` failed with remote rejection `failure` / `remote: fatal error in commit_refs`. Stop-state verification on 2026-04-27T19:12:53Z returned `visibility=PRIVATE`, `isEmpty=true`, and empty `defaultBranchRef`; README lookup returned 404. Per stop-on-failure contract, IDs 652-656 were not attempted in this run; next repair path should reconcile or retry only after confirming the remote accepts a root push.
@@ -2892,16 +2912,16 @@ Guardrails:
 | [x] | 988 | Skool | `GeorgeQLe/skool-mobile-clone` | `specs/batch-50/988-skool.md` |
 | [x] | 989 | Stan Store | `GeorgeQLe/stan-store-mobile-clone` | `specs/batch-50/989-stan-store.md` |
 | [x] | 990 | Linktree | `GeorgeQLe/linktree-mobile-clone` | `specs/batch-50/990-linktree.md` |
-| [ ] | 991 | Beacons | `GeorgeQLe/beacons-mobile-clone` | `specs/batch-50/991-beacons.md` |
-| [ ] | 992 | Linkin.bio | `GeorgeQLe/linkin-bio-mobile-clone` | `specs/batch-50/992-linkin-bio.md` |
-| [ ] | 993 | Taplink | `GeorgeQLe/taplink-mobile-clone` | `specs/batch-50/993-taplink.md` |
-| [ ] | 994 | Yandex Maps | `GeorgeQLe/yandex-maps-mobile-clone` | `specs/batch-50/994-yandex-maps.md` |
-| [ ] | 995 | 2GIS | `GeorgeQLe/2gis-mobile-clone` | `specs/batch-50/995-2gis.md` |
-| [ ] | 996 | HERE WeGo | `GeorgeQLe/here-wego-mobile-clone` | `specs/batch-50/996-here-wego.md` |
-| [ ] | 997 | MAPS.ME | `GeorgeQLe/maps-me-mobile-clone` | `specs/batch-50/997-maps-me.md` |
-| [ ] | 998 | OsmAnd | `GeorgeQLe/osmand-mobile-clone` | `specs/batch-50/998-osmand.md` |
-| [ ] | 999 | Sygic | `GeorgeQLe/sygic-mobile-clone` | `specs/batch-50/999-sygic.md` |
-| [ ] | 1000 | TomTom GO | `GeorgeQLe/tomtom-go-mobile-clone` | `specs/batch-50/1000-tomtom-go.md` |
+| [x] | 991 | Beacons | `GeorgeQLe/beacons-mobile-clone` | `specs/batch-50/991-beacons.md` |
+| [x] | 992 | Linkin.bio | `GeorgeQLe/linkin-bio-mobile-clone` | `specs/batch-50/992-linkin-bio.md` |
+| [x] | 993 | Taplink | `GeorgeQLe/taplink-mobile-clone` | `specs/batch-50/993-taplink.md` |
+| [x] | 994 | Yandex Maps | `GeorgeQLe/yandex-maps-mobile-clone` | `specs/batch-50/994-yandex-maps.md` |
+| [x] | 995 | 2GIS | `GeorgeQLe/2gis-mobile-clone` | `specs/batch-50/995-2gis.md` |
+| [x] | 996 | HERE WeGo | `GeorgeQLe/here-wego-mobile-clone` | `specs/batch-50/996-here-wego.md` |
+| [x] | 997 | MAPS.ME | `GeorgeQLe/maps-me-mobile-clone` | `specs/batch-50/997-maps-me.md` |
+| [x] | 998 | OsmAnd | `GeorgeQLe/osmand-mobile-clone` | `specs/batch-50/998-osmand.md` |
+| [x] | 999 | Sygic | `GeorgeQLe/sygic-mobile-clone` | `specs/batch-50/999-sygic.md` |
+| [x] | 1000 | TomTom GO | `GeorgeQLe/tomtom-go-mobile-clone` | `specs/batch-50/1000-tomtom-go.md` |
 
 ## Next Steps
 
