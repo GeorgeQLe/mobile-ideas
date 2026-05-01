@@ -1,5 +1,13 @@
 # History
 
+## 2026-05-01 - Step 8.3 Family And Parental Controls Readiness Slice
+
+- Promoted the next Phase 8 Step 8.3 slice, IDs 165-169 (`Cozi` through `Google Family Link`), from Draft 1 to implementation-ready public-source V1.
+- Replaced Research Sources placeholder rows with exact public marketplace, official product/help/support, privacy, terms, and device/platform limitation URLs as applicable. Every promoted source row is marked `Verified 2026-05-01`.
+- Preserved manual blockers for subscription restore, native push payloads, background location, device pairing/enrollment, content filtering, app/purchase approvals, platform-specific monitoring APIs, age/consent flows, partner dispatch/hardware integrations, and hands-on device behavior.
+- Added category risk coverage for household permissions, precise-location minimization, no covert monitoring, child consent/assent, COPPA-style review, domestic-abuse misuse, caregiver/guardian roles, custody disputes, support redaction, and school/family data separation.
+- Updated readiness/audit docs. Post-slice `node scripts/check-implementation-readiness.mjs` reports 169 implementation-ready specs and 2,537 remaining source-discovery placeholder rows across 831 unpromoted files. The command exits nonzero by design until all IDs 101-1000 are promoted.
+
 ## 2026-05-01 - Step 8.3 Reading News Readiness Slice
 
 - Promoted the next Phase 8 Step 8.3 slice, IDs 121-136 (`Wattpad` through `Ground News`), from Draft 1 to implementation-ready public-source V1.

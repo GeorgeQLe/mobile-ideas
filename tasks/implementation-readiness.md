@@ -5,11 +5,11 @@ Updated: 2026-05-01
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-164.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-169.
 
-Current readiness count: 164 of 1000.
+Current readiness count: 169 of 1000.
 
-Step 8.3 remains open for IDs 165-1000. A 2026-05-01 post-slice audit found 2,562 source-discovery placeholder rows across 836 files: 162 rows in IDs 165-200 and 300 rows per 100-ID range from 201-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 170-1000. A 2026-05-01 post-slice audit found 2,537 source-discovery placeholder rows across 831 files: 137 rows in IDs 170-200 and 300 rows per 100-ID range from 201-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -191,6 +191,11 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 162 | Ovia | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; fertility/pregnancy/parenting journeys, benefits integration, migration, health integrations, and native/manual blockers remain explicit. |
 | 163 | BabyCenter | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; pregnancy/baby content, tools, community, moderation, child privacy, and native/manual blockers remain explicit. |
 | 164 | Huckleberry | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; baby sleep/feeding logs, prediction windows, caregiver sharing, premium content, child privacy, and native/manual blockers remain explicit. |
+| 165 | Cozi | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; shared calendar, shopping lists, recipes, premium calendar gates, household permissions, child/teen limits, account separation, and native/manual blockers remain explicit. |
+| 166 | Life360 | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; family circles, location sharing, place alerts, drive/crash detection, SOS, roadside handoff, anti-stalking, location privacy, and native/manual blockers remain explicit. |
+| 167 | Bark | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; parental monitoring, screen time, filtering, child disclosure, alert redaction, no covert monitoring, crisis guidance, and native/manual blockers remain explicit. |
+| 168 | Qustodio | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; parental controls, device rules, reports, child app disclosure, platform capability limits, location, guardian roles, and native/manual blockers remain explicit. |
+| 169 | Google Family Link | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; supervised accounts, app/purchase approvals, screen time, location, platform limitations, stop-supervision, child privacy, and native/manual blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 
@@ -230,9 +235,9 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 - Batch 07 reading/news public-source V1 expansion: `121-wattpad.md` through `136-ground-news.md`.
 - Batch 07-08 finance/investing/banking public-source V1 expansion: `137-bloomberg.md` through `149-step.md`.
 - Batch 08 pharmacy/telehealth public-source V1 expansion: `150-goodrx.md` through `157-ro.md`.
-- Batch 08-09 wearable health, sleep, cycle, pregnancy, and baby-care public-source V1 expansion: `158-oura.md` through `164-huckleberry.md`.
+- Batch 08-09 wearable health, sleep, cycle, pregnancy, baby-care, family organizer, family locator, and parental-controls public-source V1 expansion: `158-oura.md` through `169-google-family-link.md`.
 
 ## Next Steps
 
-- Continue Phase 8 Step 8.3 with IDs 165-169 (`Cozi` through `Google Family Link`) as the next family organizer, family locator, and parental-controls slice.
+- Continue Phase 8 Step 8.3 with IDs 170-173 (`ClassDojo` through `Remind`) as the next school communication, classroom management, and LMS slice.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.
