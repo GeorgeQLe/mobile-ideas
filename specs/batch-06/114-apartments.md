@@ -3,9 +3,9 @@
 > Metadata
 > - Inspiration app: Apartments.com
 > - Category: Rental marketplace
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, company help center, public privacy/terms pages, public fair-housing policy pages.
-> - Manual verification blockers: native iOS/Android screen capture, property-management integration, 3D tour playback, application submission flow, and push-notification behavior still require a test device/account before one-for-one parity claims.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, company help/support pages, public privacy/terms pages, and applicable public policy/community-safety pages.
+> - Manual verification blockers: native iOS/Android screen capture, property contact, renter application, landlord add-listing, availability validation, fair-housing legal review, and push/email alert behavior remain blocked; rental-data owner, legal owner, landlord-tools owner, and accessibility owner must gate these before parity claims.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, tagline, sample data, policy copy, and moderation pipelines.
 
 ## Overview
@@ -37,17 +37,20 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/apartments-com-rental-search/id413710295 | iOS listing, privacy labels, screenshots list | Source discovery — pending exact URL verification |
-| Google Play | https://play.google.com/store/apps/details?id=com.apartments.mobile.android | Android listing, data safety, feature blurbs | Source discovery — pending exact URL verification |
-| Apartments.com Help | https://www.apartments.com/help/ | Searches, alerts, contact property, applications | Source discovery — pending exact URL verification |
-| Apartments.com Privacy | https://www.apartments.com/about/privacy/ | Data collection, retention, deletion | Source discovery — pending exact URL verification |
-| Apartments.com Terms | https://www.apartments.com/about/terms/ | Acceptable use, scraping, fair-housing | Source discovery — pending exact URL verification |
-| Apartments.com Fair Housing | https://www.apartments.com/about/fair-housing/ | Fair-housing commitments | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/apartments-com-rental-search/id413710295 | iOS listing, privacy labels, screenshots list | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.apartments.mobile.android | Android listing, data safety, feature blurbs | Verified 2026-05-01 |
+| Apartments.com Help | https://www.apartments.com/help/ | Searches, alerts, contact property, applications, listing management, and renter help | Verified 2026-05-01 |
+| Apartments.com Privacy Policy | https://www.apartments.com/about/privacy/ | Data collection, retention, deletion, location, and privacy rights | Verified 2026-05-01 |
+| Apartments.com Terms of Service | https://www.apartments.com/about/terms/ | Acceptable use, listings, scraping limits, account terms, and fair-housing constraints | Verified 2026-05-01 |
+| Apartments.com Accessibility | https://www.apartments.com/about/accessibility/ | Accessibility commitment and support path | Verified 2026-05-01 |
+| CoStar Terms and Conditions | https://www.costargroup.com/terms-and-conditions | Parent-company service terms and data-use constraints | Verified 2026-05-01 |
 
 ## Detailed Design
 
 ### Source-Backed Product Requirements
 
+- Rental search, draw-area search, photos/floorplans/videos/3D tours, availability, alerts, and property contact are verified from official store/help/legal pages.
+- Availability validation, landlord listing management, and neighborhood data quality remain inferred until source feeds and moderation workflows are selected.
 - Map and list discovery with clusters, draw-area, and commute-time filters.
 - Filters: price, beds, baths, pet-friendly, amenities, income requirement disclosure (where required).
 - Listing detail shows photos, 3D tour where available, floorplans, rent, fees, lease terms, pet policy, amenities.
@@ -199,6 +202,6 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 ## Next Steps
 
-- Replace discovery URLs with verified first-party URLs before implementation kickoff.
+- Keep exact first-party source URLs current before implementation kickoff and refresh this spec if public store/help/legal pages materially change.
 - Engage legal for fair-housing and application-document-retention posture.
 - Confirm 3D tour vendor and licensed-feed providers.

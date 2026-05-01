@@ -3,9 +3,9 @@
 > Metadata
 > - Inspiration app: LinkedIn
 > - Category: Professional networking
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, company help center, public privacy/terms pages, public professional-community policy pages.
-> - Manual verification blockers: native iOS/Android screen capture, account lifecycle walkthrough, premium subscription purchase/restore, recruiter/creator product gating, and push-notification behavior still require a test device/account before one-for-one parity claims.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, company help/support pages, public privacy/terms pages, and applicable public policy/community-safety pages.
+> - Manual verification blockers: native iOS/Android screen capture, account lifecycle walkthrough, premium purchase/restore, identity-verification challenge, recruiter/creator product gating, and push-notification behavior remain blocked; billing owner, safety/security lead, jobs owner, and accessibility owner must keep these behind acceptance-test blockers before parity claims.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, tagline, sample data, policy copy, and moderation pipelines.
 
 ## Overview
@@ -37,17 +37,20 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/linkedin-network-job-finder/id288429040 | iOS listing, category, age rating, privacy labels, screenshots list | Source discovery — pending exact URL verification |
-| Google Play | https://play.google.com/store/apps/details?id=com.linkedin.android | Android listing, content rating, data safety, feature blurbs | Source discovery — pending exact URL verification |
-| LinkedIn Help | https://www.linkedin.com/help/linkedin | Account creation, profile, connections, messaging, jobs, premium | Source discovery — pending exact URL verification |
-| LinkedIn Privacy Policy | https://www.linkedin.com/legal/privacy-policy | Data collection, retention, deletion, GDPR/CCPA posture | Source discovery — pending exact URL verification |
-| LinkedIn User Agreement | https://www.linkedin.com/legal/user-agreement | Acceptable use, scraping, account termination | Source discovery — pending exact URL verification |
-| LinkedIn Professional Community Policies | https://www.linkedin.com/legal/professional-community-policies | Harassment, misinformation, authenticity, reporting | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/linkedin-network-job-finder/id288429040 | iOS listing, category, age rating, privacy labels, screenshots list | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.linkedin.android | Android listing, content rating, data safety, feature blurbs | Verified 2026-05-01 |
+| LinkedIn Help Center | https://www.linkedin.com/help/linkedin | Profile, connections, messaging, jobs, premium, identity verification, and account controls | Verified 2026-05-01 |
+| LinkedIn Privacy Policy | https://www.linkedin.com/legal/privacy-policy | Data collection, retention, deletion, contacts, advertising, and privacy rights | Verified 2026-05-01 |
+| LinkedIn User Agreement | https://www.linkedin.com/legal/user-agreement | Acceptable use, scraping restrictions, account termination, and member obligations | Verified 2026-05-01 |
+| LinkedIn Professional Community Policies | https://www.linkedin.com/legal/professional-community-policies | Authenticity, harassment, misinformation, scams, reporting, and safety moderation | Verified 2026-05-01 |
+| LinkedIn Identity Verification Help | https://www.linkedin.com/help/linkedin/answer/a1359065 | Government ID/selfie verification partner flow and retention boundaries | Verified 2026-05-01 |
 
 ## Detailed Design
 
 ### Source-Backed Product Requirements
 
+- Identity verification and real-name challenge flows are verified from public LinkedIn help/legal material, while any vendor-specific review decisioning remains inferred and launch-blocked until a lawful account walkthrough.
+- Jobs, profile, feed, and messaging requirements are verified from official store listings and help/legal pages; proprietary ranking, recruiter datasets, and Premium conversion logic must remain original.
 - Onboarding captures real name, headline, location, current role, and optional profile photo; discourages anonymous handles.
 - Profile supports experience, education, skills, endorsements, recommendations, certifications, and about section with original copy.
 - Connection graph requires mutual acceptance; follows are asymmetric and apply to creators and companies.
@@ -211,6 +214,6 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 ## Next Steps
 
-- Replace discovery URLs with verified first-party URLs before implementation kickoff.
+- Keep exact first-party source URLs current before implementation kickoff and refresh this spec if public store/help/legal pages materially change.
 - Engage legal for name-policy, salary-disclosure, and scraping-defense posture.
 - Confirm identity-proof vendor and resume-parsing vendor selection.

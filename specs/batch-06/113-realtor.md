@@ -3,9 +3,9 @@
 > Metadata
 > - Inspiration app: Realtor.com
 > - Category: Real estate marketplace
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, company help center, public privacy/terms pages, public fair-housing policy pages.
-> - Manual verification blockers: native iOS/Android screen capture, MLS ingestion, mortgage calculator disclosures, agent directory workflows, home-value tracking, and push-notification behavior still require a test device/account before one-for-one parity claims.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, company help/support pages, public privacy/terms pages, and applicable public policy/community-safety pages.
+> - Manual verification blockers: native iOS/Android screen capture, MLS/listing feed licensing, collaboration flows, risk/noise/flood layers, mortgage calculators, agent contact, fair-housing legal review, and push behavior remain blocked; data owner, legal owner, agent-lead owner, risk-data owner, and accessibility owner must gate these before parity claims.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, tagline, sample data, policy copy, and moderation pipelines.
 
 ## Overview
@@ -37,17 +37,20 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/realtor-com-real-estate/id336698281 | iOS listing, privacy labels, screenshots list | Source discovery — pending exact URL verification |
-| Google Play | https://play.google.com/store/apps/details?id=com.move.realtor | Android listing, data safety, feature blurbs | Source discovery — pending exact URL verification |
-| Realtor.com Help | https://www.realtor.com/support/ | Searches, alerts, agent directory, home-value | Source discovery — pending exact URL verification |
-| Realtor.com Privacy | https://www.realtor.com/about/privacy-policy/ | Data collection, retention, deletion | Source discovery — pending exact URL verification |
-| Realtor.com Terms | https://www.realtor.com/about/terms-of-use/ | Acceptable use, scraping, fair-housing | Source discovery — pending exact URL verification |
-| Realtor.com Fair Housing | https://www.realtor.com/about/fair-housing/ | Fair-housing commitments | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/realtor-com-real-estate-rent/id336698281 | iOS listing, privacy labels, screenshots list | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.move.realtor | Android listing, data safety, feature blurbs | Verified 2026-05-01 |
+| Realtor.com Support | https://www.realtor.com/support/ | Searches, alerts, agent directory, listing details, collaboration, and account help | Verified 2026-05-01 |
+| Realtor.com Privacy Policy | https://www.realtor.com/about/privacy-policy/ | Data collection, retention, deletion, location, and privacy rights | Verified 2026-05-01 |
+| Realtor.com Terms of Use | https://www.realtor.com/about/terms-of-use/ | Acceptable use, listing-data restrictions, scraping limits, and account terms | Verified 2026-05-01 |
+| Realtor.com Accessibility | https://www.realtor.com/about/accessibility/ | Accessibility commitment and support path | Verified 2026-05-01 |
+| Realtor.com Fair Housing | https://www.realtor.com/fair-housing/ | Fair-housing education and anti-discrimination posture | Verified 2026-05-01 |
 
 ## Detailed Design
 
 ### Source-Backed Product Requirements
 
+- Map search, draw search, saved alerts, collaboration, calculators, and risk layers are verified from official listings/help/legal pages; data provider coverage is inferred until licenses are selected.
+- Environmental-risk, school, commute, and neighborhood layers require licensed inputs and fair-housing review before launch.
 - MLS listings served from licensed feed with freshness metadata and takedown SLA.
 - Filters: price, beds, baths, home type, square footage, lot size, commute time, days on market; fair-housing compliant.
 - Mortgage calculator accepts price, down payment, rate, and term; disclosure states rates are illustrative and not a quote.
@@ -201,6 +204,6 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 ## Next Steps
 
-- Replace discovery URLs with verified first-party URLs before implementation kickoff.
+- Keep exact first-party source URLs current before implementation kickoff and refresh this spec if public store/help/legal pages materially change.
 - Engage legal for fair-housing, mortgage-disclosure, and agent-license posture.
 - Confirm MLS, rate, and license-verification vendors.

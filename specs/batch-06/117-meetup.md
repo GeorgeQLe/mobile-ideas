@@ -3,9 +3,9 @@
 > Metadata
 > - Inspiration app: Meetup
 > - Category: Events and interest groups
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, company help center, public privacy/terms pages, public community guidelines.
-> - Manual verification blockers: native iOS/Android screen capture, organizer tools, RSVP lifecycle, attendance tracking, calendar sync, and push-notification behavior still require a test device/account before one-for-one parity claims.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, company help/support pages, public privacy/terms pages, and applicable public policy/community-safety pages.
+> - Manual verification blockers: native iOS screen capture, Android walkthrough, organizer subscription purchase/restore, event creation, RSVP/check-in, group moderation, location recommendation, and push behavior remain blocked; events owner, billing owner, safety lead, privacy owner, and accessibility owner must gate these before parity claims.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, tagline, sample data, policy copy, and moderation pipelines.
 
 ## Overview
@@ -37,17 +37,20 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/meetup-find-events-near-you/id375990038 | iOS listing, privacy labels, screenshots list | Source discovery — pending exact URL verification |
-| Google Play | https://play.google.com/store/apps/details?id=com.meetup | Android listing, data safety, feature blurbs | Source discovery — pending exact URL verification |
-| Meetup Help | https://help.meetup.com/hc/en-us | Groups, events, RSVPs, organizer tools | Source discovery — pending exact URL verification |
-| Meetup Privacy | https://www.meetup.com/privacy/ | Data collection, retention, deletion | Source discovery — pending exact URL verification |
-| Meetup Terms | https://www.meetup.com/terms/ | Acceptable use, scraping, termination | Source discovery — pending exact URL verification |
-| Meetup Community Guidelines | https://help.meetup.com/hc/en-us/articles/360045019691 | Harassment, discrimination, safety | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/meetup-social-events-groups/id375990038 | iOS listing, privacy labels, screenshots list | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.meetup | Android listing, data safety, feature blurbs | Verified 2026-05-01 |
+| Meetup Help Center | https://help.meetup.com/hc/en-us | Groups, events, RSVPs, organizer tools, messaging, payments, and account controls | Verified 2026-05-01 |
+| Meetup Privacy Policy | https://www.meetup.com/privacy/ | Data collection, location, retention, deletion, advertising, and privacy rights | Verified 2026-05-01 |
+| Meetup Terms of Service | https://www.meetup.com/terms/ | Acceptable use, organizer obligations, payments, scraping limits, and account terms | Verified 2026-05-01 |
+| Meetup Community Guidelines | https://help.meetup.com/hc/en-us/articles/360045019691 | Harassment, discrimination, event safety, reporting, and moderation | Verified 2026-05-01 |
+| Meetup Organizer Subscription Help | https://help.meetup.com/hc/en-us/categories/360000878612-Organizer-subscriptions | Organizer subscription and billing surfaces | Verified 2026-05-01 |
 
 ## Detailed Design
 
 ### Source-Backed Product Requirements
 
+- Local/online event discovery, groups, organizer tools, discussions, direct messaging, and location-based recommendations are verified from official store/help/legal pages.
+- Organizer subscription entitlements, fraud controls, and in-person safety requirements remain inferred until lawful organizer testing.
 - Group discovery by topic, location, and language; map and list views.
 - Group pages show description, organizer, members, upcoming events, rules.
 - Event creation by organizers with title, description, time, venue (in-person or online), capacity, RSVP policy, and optional dues.
@@ -202,6 +205,6 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 ## Next Steps
 
-- Replace discovery URLs with verified first-party URLs before implementation kickoff.
+- Keep exact first-party source URLs current before implementation kickoff and refresh this spec if public store/help/legal pages materially change.
 - Engage legal for dues refund policy and age-verification posture.
 - Confirm payments processor, calendar vendor, and harassment classifier targets.

@@ -3,9 +3,9 @@
 > Metadata
 > - Inspiration app: Nextdoor
 > - Category: Neighborhood social network
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, company help center, public privacy/terms pages, public community guidelines.
-> - Manual verification blockers: native iOS/Android screen capture, address verification workflow, neighborhood boundary construction, alerts behavior, local business onboarding, and push-notification behavior still require a test device/account before one-for-one parity claims.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, company help/support pages, public privacy/terms pages, and applicable public policy/community-safety pages.
+> - Manual verification blockers: native iOS/Android screen capture, address verification, neighborhood boundary construction, urgent alerts, local business onboarding, privacy-choice exercise, and push behavior remain blocked; safety lead, privacy owner, boundary-data owner, local-business owner, and accessibility owner must gate these before parity claims.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, tagline, sample data, policy copy, and moderation pipelines.
 
 ## Overview
@@ -37,17 +37,20 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/nextdoor-local-news-alerts/id640360962 | iOS listing, privacy labels, screenshots list | Source discovery — pending exact URL verification |
-| Google Play | https://play.google.com/store/apps/details?id=com.nextdoor | Android listing, data safety, feature blurbs | Source discovery — pending exact URL verification |
-| Nextdoor Help | https://help.nextdoor.com/s/ | Posts, classifieds, recommendations, alerts, businesses | Source discovery — pending exact URL verification |
-| Nextdoor Privacy | https://nextdoor.com/privacy/ | Data collection, address verification, retention | Source discovery — pending exact URL verification |
-| Nextdoor Terms | https://nextdoor.com/member_agreement/ | Acceptable use, scraping, termination | Source discovery — pending exact URL verification |
-| Nextdoor Community Guidelines | https://nextdoor.com/community_guidelines/ | Harassment, hate, discrimination, reporting | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/nextdoor-local-neighborhood/id640360962 | iOS listing, privacy labels, screenshots list | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.nextdoor | Android listing, data safety, feature blurbs | Verified 2026-05-01 |
+| Nextdoor Help Center | https://help.nextdoor.com/s/ | Posts, marketplace, recommendations, alerts, businesses, verification, and account controls | Verified 2026-05-01 |
+| Nextdoor Privacy Policy | https://nextdoor.com/privacy_policy/ | Data collection, address verification, retention, deletion, advertising, and privacy rights | Verified 2026-05-01 |
+| Nextdoor Member Agreement | https://nextdoor.com/member_agreement/ | Acceptable use, scraping restrictions, real-name/address rules, and termination | Verified 2026-05-01 |
+| Nextdoor Community Guidelines | https://nextdoor.com/community_guidelines/ | Harassment, hate, discrimination, misinformation, reporting, and moderation | Verified 2026-05-01 |
+| Nextdoor Do Not Sell Notice | https://nextdoor.com/do_not_sell/ | Privacy opt-out and advertising-choice handling | Verified 2026-05-01 |
 
 ## Detailed Design
 
 ### Source-Backed Product Requirements
 
+- Verified-neighbor, address, local alerts, marketplace, recommendations, groups, and local news requirements are verified from official store/help/legal pages.
+- Neighborhood-boundary data, address-proof vendors, and alert escalation rules remain inferred and must be original, licensed, and abuse-tested.
 - Signup requires email/phone and address; address verification via postcard, geocoded device location, or verified document.
 - Neighborhood boundaries defined by moderator input, public boundary sources (with license), or user-drawn polygons (with moderator review).
 - Feed shows posts (discussion, sale, recommendation, urgent alert, event) from user's neighborhood and opted-in adjacent neighborhoods.
@@ -205,6 +208,6 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 ## Next Steps
 
-- Replace discovery URLs with verified first-party URLs before implementation kickoff.
+- Keep exact first-party source URLs current before implementation kickoff and refresh this spec if public store/help/legal pages materially change.
 - Engage legal for fair-housing, anti-discrimination, and urgent-alert abuse posture.
 - Confirm boundary source license and address-verification vendors.

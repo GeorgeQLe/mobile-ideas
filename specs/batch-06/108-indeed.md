@@ -3,9 +3,9 @@
 > Metadata
 > - Inspiration app: Indeed
 > - Category: Job search
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, company help center, public privacy/terms pages, public employer policy pages.
-> - Manual verification blockers: native iOS/Android screen capture, job-seeker account lifecycle, employer dashboard, resume upload/parse, and push-notification behavior still require a test device/account before one-for-one parity claims.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, company help/support pages, public privacy/terms pages, and applicable public policy/community-safety pages.
+> - Manual verification blockers: native iOS/Android screen capture, resume upload/application walkthrough, employer response notifications, interview scheduling, privacy-choice exercise, and push-notification behavior remain blocked; jobs owner, privacy owner, safety lead, and accessibility owner must gate these before parity claims.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, tagline, sample data, policy copy, and moderation pipelines.
 
 ## Overview
@@ -37,17 +37,20 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/indeed-job-search/id309735670 | iOS listing, category, privacy labels, screenshots list | Source discovery — pending exact URL verification |
-| Google Play | https://play.google.com/store/apps/details?id=com.indeed.android.jobsearch | Android listing, data safety, feature blurbs | Source discovery — pending exact URL verification |
-| Indeed Help Center | https://support.indeed.com/hc/en-us | Account, resume, apply flows, alerts, employer controls | Source discovery — pending exact URL verification |
-| Indeed Privacy Policy | https://www.indeed.com/legal | Data collection, retention, deletion, regional posture | Source discovery — pending exact URL verification |
-| Indeed Terms | https://www.indeed.com/legal?hl=en#tos | Acceptable use, scraping, account termination | Source discovery — pending exact URL verification |
-| Indeed Community Guidelines | https://www.indeed.com/legal/review-guidelines | Review authenticity, employer response rules | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/indeed-job-search/id309735670 | iOS listing, category, privacy labels, screenshots list | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.indeed.android.jobsearch | Android listing, data safety, feature blurbs | Verified 2026-05-01 |
+| Indeed Help Center | https://support.indeed.com/hc/en-us | Account, resume, job search, applications, alerts, and employer controls | Verified 2026-05-01 |
+| Indeed Legal Center | https://www.indeed.com/legal | Privacy, cookie policy, terms, privacy choices, and regional notices | Verified 2026-05-01 |
+| Indeed Terms of Service | https://www.indeed.com/legal#tos | Acceptable use, scraping restrictions, job-posting conduct, and termination | Verified 2026-05-01 |
+| Indeed Review Guidelines | https://www.indeed.com/legal/review-guidelines | Company review authenticity, prohibited content, moderation, and employer responses | Verified 2026-05-01 |
+| Indeed Privacy Choices | https://www.indeed.com/legal/ccpa-dns | Do-not-sell/share and opt-out privacy handling | Verified 2026-05-01 |
 
 ## Detailed Design
 
 ### Source-Backed Product Requirements
 
+- Resume, saved-apply, alerts, application tracking, salaries, and reviews are verified from official store/help/legal pages; any ranking or employer-response timing is inferred and must be independently designed.
+- Government and third-party job listing attribution must preserve non-affiliation disclosures and source-specific removal workflows.
 - Onboarding captures email, optional phone, location, desired role, and resume upload or inline builder.
 - Search supports keyword, city/zip, remote-only toggle, salary filter (where disclosed), date-posted filter, and employer filter.
 - One-tap apply uses stored resume snapshot and optional screening questions supplied by employer; off-site apply redirects open a warning.
@@ -201,6 +204,6 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 ## Next Steps
 
-- Replace discovery URLs with verified first-party URLs before implementation kickoff.
+- Keep exact first-party source URLs current before implementation kickoff and refresh this spec if public store/help/legal pages materially change.
 - Engage legal for pay-transparency posture and review-defamation policy.
 - Confirm resume-parsing vendor and salary-anonymization thresholds.

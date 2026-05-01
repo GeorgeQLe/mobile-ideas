@@ -3,9 +3,9 @@
 > Metadata
 > - Inspiration app: Medium
 > - Category: Long-form publishing and reading
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, company help center, public privacy/terms pages, public community/partner program pages.
-> - Manual verification blockers: native iOS/Android screen capture, paywall metering, writer payout flow, highlight/annotation sync, creator dashboard, and push-notification behavior still require a test device/account before one-for-one parity claims.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, company help/support pages, public privacy/terms pages, and applicable public policy/community-safety pages.
+> - Manual verification blockers: native iOS/Android screen capture, membership purchase/restore, writer payout, publication management, content moderation appeal, reading-list sync, and push behavior remain blocked; publishing owner, billing owner, safety lead, payout owner, and accessibility owner must gate these before parity claims.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, tagline, sample data, policy copy, and moderation pipelines.
 
 ## Overview
@@ -37,17 +37,20 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/medium/id828256236 | iOS listing, privacy labels, screenshots list | Source discovery — pending exact URL verification |
-| Google Play | https://play.google.com/store/apps/details?id=com.medium.reader | Android listing, data safety, feature blurbs | Source discovery — pending exact URL verification |
-| Medium Help | https://help.medium.com/hc/en-us | Accounts, reading, writing, subscriptions | Source discovery — pending exact URL verification |
-| Medium Privacy | https://policy.medium.com/medium-privacy-policy-f03bf92035c9 | Data collection, retention, deletion | Source discovery — pending exact URL verification |
-| Medium Terms | https://policy.medium.com/medium-terms-of-service-9db0094a1e0f | Acceptable use, scraping, partner program | Source discovery — pending exact URL verification |
-| Medium Rules | https://policy.medium.com/medium-rules-30e5502c4eb4 | Harassment, hate, misinformation | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/medium/id828256236 | iOS listing, privacy labels, screenshots list | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.medium.reader | Android listing, data safety, feature blurbs | Verified 2026-05-01 |
+| Medium Help Center | https://help.medium.com/hc/en-us | Accounts, reading, writing, publications, partner program, subscriptions, and account controls | Verified 2026-05-01 |
+| Medium Privacy Policy | https://policy.medium.com/medium-privacy-policy-f03bf92035c9 | Data collection, retention, deletion, personalization, and privacy rights | Verified 2026-05-01 |
+| Medium Terms of Service | https://policy.medium.com/medium-terms-of-service-9db0094a1e0f | Acceptable use, user content, partner program, scraping limits, and account terms | Verified 2026-05-01 |
+| Medium Rules | https://policy.medium.com/medium-rules-30e5502c4eb4 | Content rules, prohibited conduct, moderation, and enforcement | Verified 2026-05-01 |
+| Medium Partner Program Help | https://help.medium.com/hc/en-us/categories/360001913473-Medium-Partner-Program | Writer monetization, eligibility, payouts, and tax-adjacent workflow | Verified 2026-05-01 |
 
 ## Detailed Design
 
 ### Source-Backed Product Requirements
 
+- Reading, writing, publications, memberships, partner-program monetization, and content rules are verified from official store/help/policy pages.
+- Recommendation ranking, distribution boosts, and payout formula behavior remain inferred and must use original methodology.
 - Feed personalization by followed topics, authors, and publications; freshness and diversity controls.
 - Article reading with typography controls (font size, line height), focus mode, reactions, highlights, and inline comments.
 - Paywall: non-subscribers get metered free reads per month; subscribers get unlimited; writer/publication exclusions supported.
@@ -206,6 +209,6 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 ## Next Steps
 
-- Replace discovery URLs with verified first-party URLs before implementation kickoff.
+- Keep exact first-party source URLs current before implementation kickoff and refresh this spec if public store/help/legal pages materially change.
 - Engage legal for DMCA, misinformation, and payout-KYC posture.
 - Confirm payments processor, KYC vendor, and classifier targets for harassment/misinformation.

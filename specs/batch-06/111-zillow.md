@@ -3,9 +3,9 @@
 > Metadata
 > - Inspiration app: Zillow
 > - Category: Real estate marketplace
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, company help center, public privacy/terms pages, public fair-housing policy pages.
-> - Manual verification blockers: native iOS/Android screen capture, MLS-licensed data ingestion, agent-contact workflows, saved-home sync across devices, and push-notification behavior still require a test device/account before one-for-one parity claims.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, company help/support pages, public privacy/terms pages, and applicable public policy/community-safety pages.
+> - Manual verification blockers: native iOS/Android screen capture, MLS/tax/school data licenses, valuation disclosure review, agent-contact workflow, saved-home sync, fair-housing legal review, and push behavior remain blocked; data owner, legal owner, agent-lead owner, and accessibility owner must gate these before parity claims.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, tagline, sample data, policy copy, and moderation pipelines.
 
 ## Overview
@@ -37,17 +37,20 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/zillow-real-estate-rentals/id310738695 | iOS listing, privacy labels, screenshots list | Source discovery — pending exact URL verification |
-| Google Play | https://play.google.com/store/apps/details?id=com.zillow.android.zillowmap | Android listing, data safety, feature blurbs | Source discovery — pending exact URL verification |
-| Zillow Help | https://zillow.zendesk.com/hc/en-us | Saved homes, searches, alerts, agent contact | Source discovery — pending exact URL verification |
-| Zillow Privacy Policy | https://www.zillow.com/z/corp/privacy | Data collection, retention, deletion | Source discovery — pending exact URL verification |
-| Zillow Terms of Use | https://www.zillow.com/z/corp/terms | Acceptable use, scraping, fair-housing | Source discovery — pending exact URL verification |
-| Zillow Fair Housing | https://www.zillow.com/corp/fair-housing-policy | Fair-housing commitments and prohibited filtering | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/zillow-real-estate-rentals/id310738695 | iOS listing, privacy labels, screenshots list | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.zillow.android.zillowmap | Android listing, data safety, feature blurbs | Verified 2026-05-01 |
+| Zillow Help Center | https://zillow.zendesk.com/hc/en-us | Saved homes, searches, alerts, profile, agent contact, and listing controls | Verified 2026-05-01 |
+| Zillow Privacy Notice | https://www.zillow.com/z/corp/privacy | Data collection, retention, deletion, advertising, and privacy rights | Verified 2026-05-01 |
+| Zillow Terms of Use | https://www.zillow.com/z/corp/terms | Acceptable use, scraping, listing data constraints, and account termination | Verified 2026-05-01 |
+| Zillow Fair Housing Policy | https://www.zillow.com/corp/fair-housing-policy/ | Fair-housing commitments and prohibited discriminatory behavior | Verified 2026-05-01 |
+| Zillow Accessibility | https://www.zillow.com/accessibility/ | Accessibility commitment and support path | Verified 2026-05-01 |
 
 ## Detailed Design
 
 ### Source-Backed Product Requirements
 
+- Map search, saved homes/searches, agent contact, and listing alerts are verified from official store/help/legal pages; valuation internals and listing completeness are inferred and must use original licensed data.
+- Fair-housing filter and school-context design require legal review before launch and must avoid protected-class proxies.
 - Map-first search shows pin clusters and polygon/draw-area search; supports for-sale, for-rent, sold, and off-market filters.
 - Filters: price, beds, baths, home type, square footage, lot size, HOA, days on market; explicitly prohibited filters removed per fair-housing.
 - Listing detail shows photos/video tour, price, price history, taxes, estimated monthly payment, and valuation estimate with disclosure of model and data sources.
@@ -201,6 +204,6 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 ## Next Steps
 
-- Replace discovery URLs with verified first-party URLs before implementation kickoff.
+- Keep exact first-party source URLs current before implementation kickoff and refresh this spec if public store/help/legal pages materially change.
 - Engage legal for fair-housing review and data-licensing posture.
 - Confirm MLS, tax, and school data providers and redistribution terms.

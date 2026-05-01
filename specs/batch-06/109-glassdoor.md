@@ -3,9 +3,9 @@
 > Metadata
 > - Inspiration app: Glassdoor
 > - Category: Jobs and employer reviews
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, company help center, public privacy/terms pages, public community guidelines.
-> - Manual verification blockers: native iOS/Android screen capture, anonymous review lifecycle, employer response workflow, interview-experience posting, and push-notification behavior still require a test device/account before one-for-one parity claims.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, company help/support pages, public privacy/terms pages, and applicable public policy/community-safety pages.
+> - Manual verification blockers: native iOS/Android screen capture, anonymous review submission, employer response, salary contribution, community posting, subscription/ads surfaces, and push notifications remain blocked; safety lead, legal owner, jobs owner, and accessibility owner must gate these before parity claims.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, tagline, sample data, policy copy, and moderation pipelines.
 
 ## Overview
@@ -37,17 +37,20 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/glassdoor-job-search/id589698942 | iOS listing, privacy labels, screenshots list | Source discovery — pending exact URL verification |
-| Google Play | https://play.google.com/store/apps/details?id=com.glassdoor.app | Android listing, data safety, feature blurbs | Source discovery — pending exact URL verification |
-| Glassdoor Help | https://help.glassdoor.com/s/ | Reviews, salaries, interviews, employer responses | Source discovery — pending exact URL verification |
-| Glassdoor Privacy Policy | https://www.glassdoor.com/about/privacy.htm | Data collection, anonymity, retention | Source discovery — pending exact URL verification |
-| Glassdoor Terms | https://www.glassdoor.com/about/terms.htm | Acceptable use, defamation, account termination | Source discovery — pending exact URL verification |
-| Glassdoor Community Guidelines | https://www.glassdoor.com/about/communityGuidelines.htm | Review rules, prohibited content, moderation | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/glassdoor-job-search/id589698942 | iOS listing, privacy labels, screenshots list | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.glassdoor.app | Android listing, data safety, feature blurbs | Verified 2026-05-01 |
+| Glassdoor Help Center | https://help.glassdoor.com/s/ | Reviews, salaries, interviews, jobs, employer responses, and account controls | Verified 2026-05-01 |
+| Glassdoor Privacy Policy | https://www.glassdoor.com/about/privacy.htm | Data collection, anonymity posture, retention, deletion, and privacy rights | Verified 2026-05-01 |
+| Glassdoor Terms of Use | https://www.glassdoor.com/about/terms.htm | Acceptable use, user content, account termination, and legal constraints | Verified 2026-05-01 |
+| Glassdoor Community Guidelines | https://www.glassdoor.com/about/communityGuidelines.htm | Review rules, prohibited content, moderation, and authenticity expectations | Verified 2026-05-01 |
+| Glassdoor Review Guidelines | https://help.glassdoor.com/s/article/Community-Guidelines?language=en_US | User-submitted review moderation and rejected-content handling | Verified 2026-05-01 |
 
 ## Detailed Design
 
 ### Source-Backed Product Requirements
 
+- Anonymous review, salary, interview, and community requirements are verified from public store/help/legal pages; deanonymization risk controls must exceed marketplace copy and be tested explicitly.
+- Any company-rating, salary-estimate, or culture-fit ranking is inferred from public behavior and must use original methodology with defamation and authenticity review.
 - Users must have an account to post reviews; anonymity is protected at the display layer, not at the account layer.
 - Each review requires role, tenure bucket (not precise dates), employer, and ratings on multiple axes.
 - Salary reports require role, location (city-level), total comp components, and tenure bucket; suppressed when cohort is too small.
@@ -202,6 +205,6 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 ## Next Steps
 
-- Replace discovery URLs with verified first-party URLs before implementation kickoff.
+- Keep exact first-party source URLs current before implementation kickoff and refresh this spec if public store/help/legal pages materially change.
 - Engage legal counsel for defamation, deanonymization, and legal-process posture.
 - Confirm PII scanning vendor and k-anonymity thresholds.

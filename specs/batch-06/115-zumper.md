@@ -3,9 +3,9 @@
 > Metadata
 > - Inspiration app: Zumper
 > - Category: Rental marketplace
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, company help center, public privacy/terms pages, public fair-housing policy pages.
-> - Manual verification blockers: native iOS/Android screen capture, credit-check integration, instant-notification behavior, landlord messaging, and push-notification behavior still require a test device/account before one-for-one parity claims.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, company help/support pages, public privacy/terms pages, and applicable public policy/community-safety pages.
+> - Manual verification blockers: native iOS/Android screen capture, applications, rent payment, tour booking, messaging, screening/FCRA review, fair-housing legal review, and push behavior remain blocked; rental-data owner, payments owner, legal owner, screening owner, and accessibility owner must gate these before parity claims.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, tagline, sample data, policy copy, and moderation pipelines.
 
 ## Overview
@@ -37,17 +37,20 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/zumper-apartment-finder/id530819966 | iOS listing, privacy labels, screenshots list | Source discovery — pending exact URL verification |
-| Google Play | https://play.google.com/store/apps/details?id=com.zumper.rentals | Android listing, data safety, feature blurbs | Source discovery — pending exact URL verification |
-| Zumper Help | https://help.zumper.com/ | Searches, alerts, applications, messaging | Source discovery — pending exact URL verification |
-| Zumper Privacy | https://www.zumper.com/privacy | Data collection, FCRA, retention, deletion | Source discovery — pending exact URL verification |
-| Zumper Terms | https://www.zumper.com/terms | Acceptable use, scraping, fair-housing | Source discovery — pending exact URL verification |
-| Zumper Fair Housing | https://www.zumper.com/fair-housing | Fair-housing commitments | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/zumper-apartment-finder/id530819966 | iOS listing, privacy labels, screenshots list | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.zumper.rentals | Android listing, data safety, feature blurbs | Verified 2026-05-01 |
+| Zumper Help Center | https://help.zumper.com/ | Searches, alerts, applications, tours, messaging, payments, and account controls | Verified 2026-05-01 |
+| Zumper Privacy Policy | https://www.zumper.com/privacy | Data collection, retention, deletion, FCRA-adjacent notices, and privacy rights | Verified 2026-05-01 |
+| Zumper Terms of Use | https://www.zumper.com/terms-of-use | Acceptable use, listings, applications, payments, scraping limits, and account terms | Verified 2026-05-01 |
+| Zumper Fair Housing | https://www.zumper.com/fair-housing | Fair-housing posture and anti-discrimination expectations | Verified 2026-05-01 |
+| Zumper Accessibility | https://www.zumper.com/accessibility | Accessibility commitment and contact path | Verified 2026-05-01 |
 
 ## Detailed Design
 
 ### Source-Backed Product Requirements
 
+- Rental browsing, filters, alerts, tour requests, applications, and rent-payment claims are verified from official store/help/legal pages; screening and payment implementation details remain inferred.
+- Any application, screening, or payment workflow must include FCRA-adjacent review, fair-housing controls, and explicit consent gates.
 - Listings with filters: price, beds, pet-friendly, amenities, move-in date; fair-housing compliant.
 - Instant push notifications when new matching listing is posted (near-real-time).
 - Credit-checked application: user consents to FCRA-regulated screening via licensed vendor; result shareable with multiple landlords for a validity window.
@@ -199,6 +202,6 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 ## Next Steps
 
-- Replace discovery URLs with verified first-party URLs before implementation kickoff.
+- Keep exact first-party source URLs current before implementation kickoff and refresh this spec if public store/help/legal pages materially change.
 - Engage legal for FCRA and fair-housing compliance review.
 - Confirm credit-screening vendor, retention policy, and chat-moderation vendor.

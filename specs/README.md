@@ -3,13 +3,13 @@
 Created: 2026-04-16
 
 > Metadata
-> - Spec set status: Draft 1 canonical scaffold complete for all 1000 IDs; Phase 3 implementation-readiness upgrades complete for public-source V1 (IDs 001-100). Phase 8 Step 8.3 has promoted the first dating-app slice, IDs 101-106; IDs 107-1000 still await implementation-readiness upgrade.
-> - Coverage: 1000 of 1000 app ideas (106 implementation-ready + 94 Draft 1 canonical + 800 Draft 1 canonical scaffold)
-> - Research state: 106 implementation-ready public-source V1 specs with exact first-party source replacement and explicit hands-on verification blockers; 894 Draft 1 canonical specs awaiting implementation-readiness upgrade (exact URL replacement + category risk review in Step 8.3). A 2026-05-01 post-slice audit found 2,866 source-discovery placeholder rows across IDs 107-1000.
+> - Spec set status: Draft 1 canonical scaffold complete for all 1000 IDs; Phase 3 implementation-readiness upgrades complete for public-source V1 (IDs 001-100). Phase 8 Step 8.3 has promoted Batch 06, IDs 101-120; IDs 121-1000 still await implementation-readiness upgrade.
+> - Coverage: 1000 of 1000 app ideas (120 implementation-ready + 80 Draft 1 canonical + 800 Draft 1 canonical scaffold)
+> - Research state: 120 implementation-ready public-source V1 specs with exact first-party source replacement and explicit hands-on verification blockers; 880 Draft 1 canonical specs awaiting implementation-readiness upgrade (exact URL replacement + category risk review in Step 8.3). A 2026-05-01 post-slice audit found 2,782 source-discovery placeholder rows across IDs 121-1000.
 
 ## Overview
 
-This directory contains technical specs for all 1000 mobile app clone ideas in `tasks/ideas.md`. IDs 001-106 are upgraded to implementation-ready public-source V1 status. IDs 107-200 are canonical Draft 1 as of Phase 7 Step 7.2. IDs 201-1000 are canonical Draft 1 scaffolds added on 2026-04-21. Future passes must replace discovery URLs with exact first-party URLs, distinguish verified vs inferred behavior, and complete category risk reviews to reach implementation-ready status.
+This directory contains technical specs for all 1000 mobile app clone ideas in `tasks/ideas.md`. IDs 001-120 are upgraded to implementation-ready public-source V1 status. IDs 121-200 are canonical Draft 1 as of Phase 7 Step 7.2. IDs 201-1000 are canonical Draft 1 scaffolds added on 2026-04-21. Future passes must replace discovery URLs with exact first-party URLs, distinguish verified vs inferred behavior, and complete category risk reviews to reach implementation-ready status.
 
 The specs are implementation-oriented planning documents. They define lawful functional parity targets, product flows, data models, backend contracts, privacy and safety requirements, analytics, edge cases, test plans, acceptance criteria, open questions, and next steps.
 
@@ -38,7 +38,7 @@ The numbered specs live in ten batches:
 | Batch 03 | 041-060 | food, local discovery, commerce, resale, finance | `specs/batch-03/` | Implementation-ready V1 |
 | Batch 04 | 061-080 | crypto, budgeting, wallet, audio/video, education | `specs/batch-04/` | Implementation-ready V1 |
 | Batch 05 | 081-100 | wellness, fitness, productivity, cloud, creator tools, smart home | `specs/batch-05/` | Implementation-ready V1 |
-| Batch 06 | 101-120 | dating, professional networking, jobs, real estate, rentals, neighborhood/events, blogging, newsletters | `specs/batch-06/` | Partial implementation-ready V1 (101-106); Draft 1 canonical (107-120) |
+| Batch 06 | 101-120 | dating, professional networking, jobs, real estate, rentals, neighborhood/events, blogging, newsletters | `specs/batch-06/` | Implementation-ready V1 |
 | Batch 07 | 121-140 | fiction/comics, e-readers, library, read-later, RSS, news aggregation, finance news, investing social | `specs/batch-07/` | Draft 1 canonical |
 | Batch 08 | 141-160 | micro-investing, robo-advisors, neobanks, FX, kids/teen banking, pharmacy, telehealth, therapy, sleep/recovery trackers | `specs/batch-08/` | Draft 1 canonical |
 | Batch 09 | 161-180 | period/pregnancy/baby tracking, family organizer/locator, parental controls, school comms, LMS, kids learning, language learning | `specs/batch-09/` | Draft 1 canonical |
@@ -113,17 +113,17 @@ Every numbered spec uses these canonical sections:
 
 ## Test Plan
 
-- Confirm exactly 1000 numbered app specs exist (106 implementation-ready + 894 Draft 1 canonical/scaffold).
+- Confirm exactly 1000 numbered app specs exist (120 implementation-ready + 880 Draft 1 canonical/scaffold).
 - Confirm no missing numeric IDs from `001` through `1000`.
 - Confirm every numbered spec has exactly one H1.
 - Confirm every numbered spec has all canonical sections.
-- For IDs 001-100, confirm public-source V1 quality metrics pass for line count, screen rows, detailed-design bullets, data entities, API bullets, journeys, tests, sources, safety, analytics, blockers, and next steps.
-- For IDs 107-200, confirm Draft 1 canonical structure (one H1, metadata block with `Readiness status: Draft 1`, all 18 section headings present with substantive non-TODO content, ~150-220 lines per file, Research Sources marked "Source discovery — pending exact URL verification"); Step 8.3 adds exact-URL replacement and full implementation-readiness depth across IDs 107-1000.
+- For IDs 001-120, confirm public-source V1 quality metrics pass for line count, screen rows, detailed-design bullets, data entities, API bullets, journeys, tests, sources, safety, analytics, blockers, and next steps.
+- For IDs 121-200, confirm Draft 1 canonical structure (one H1, metadata block with `Readiness status: Draft 1`, all 18 section headings present with substantive non-TODO content, ~150-220 lines per file, Research Sources marked "Source discovery — pending exact URL verification"); Step 8.3 adds exact-URL replacement and full implementation-readiness depth across IDs 121-1000.
 
 ## Acceptance Criteria
 
 - All 100 IDs 001-100 specs use canonical Draft 1 structure with exact first-party source links and explicit native/manual parity blockers.
-- IDs 107-1000 specs are canonical Draft 1/scaffold with exactly one H1, metadata block (`Readiness status: Draft 1`), all 18 canonical section headings, and substantive non-TODO content in every section (bodies are normalized; exact-URL verification and implementation-readiness depth pending Step 8.3).
+- IDs 121-1000 specs are canonical Draft 1/scaffold with exactly one H1, metadata block (`Readiness status: Draft 1`), all 18 canonical section headings, and substantive non-TODO content in every section (bodies are normalized; exact-URL verification and implementation-readiness depth pending Step 8.3).
 - Every spec remains legally scoped to original code, original assets, synthetic or licensed data, and lawful integrations.
 - Phase 4 remains responsible for choosing an implementation candidate; Future extension phases remain responsible for promoting IDs 101-1000 to implementation-ready V1 status.
 

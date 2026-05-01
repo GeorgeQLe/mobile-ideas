@@ -3,9 +3,9 @@
 > Metadata
 > - Inspiration app: Substack
 > - Category: Newsletter publishing and subscriptions
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, company help center, public privacy/terms pages, public content/community policy pages.
-> - Manual verification blockers: native iOS/Android screen capture, paid-subscription purchase/restore, creator payout, audio post playback, comments/notes timeline, and push-notification behavior still require a test device/account before one-for-one parity claims.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, company help/support pages, public privacy/terms pages, and applicable public policy/community-safety pages.
+> - Manual verification blockers: native iOS/Android screen capture, paid subscription purchase/restore, creator payout/KYC, video/audio playback, chat/livestream behavior, comments/notes timeline, and push behavior remain blocked; publishing owner, billing owner, payout owner, safety lead, and accessibility owner must gate these before parity claims.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, tagline, sample data, policy copy, and moderation pipelines.
 
 ## Overview
@@ -37,17 +37,20 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/substack/id1491431594 | iOS listing, privacy labels, screenshots list | Source discovery — pending exact URL verification |
-| Google Play | https://play.google.com/store/apps/details?id=com.substack.app | Android listing, data safety, feature blurbs | Source discovery — pending exact URL verification |
-| Substack Help | https://support.substack.com/hc/en-us | Subscriptions, posts, creator tools | Source discovery — pending exact URL verification |
-| Substack Privacy | https://substack.com/privacy | Data collection, retention, deletion | Source discovery — pending exact URL verification |
-| Substack Terms | https://substack.com/tos | Acceptable use, scraping, termination | Source discovery — pending exact URL verification |
-| Substack Content Guidelines | https://substack.com/content | Prohibited content, moderation | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/substack/id1491431594 | iOS listing, privacy labels, screenshots list | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.substack.app | Android listing, data safety, feature blurbs | Verified 2026-05-01 |
+| Substack Support Center | https://support.substack.com/hc/en-us | Subscriptions, posts, notes, chat, video/audio, creator tools, and account controls | Verified 2026-05-01 |
+| Substack Privacy Policy | https://substack.com/privacy | Data collection, retention, deletion, payments, and privacy rights | Verified 2026-05-01 |
+| Substack Terms of Use | https://substack.com/tos | Acceptable use, subscriptions, creator obligations, scraping limits, and account terms | Verified 2026-05-01 |
+| Substack Content Guidelines | https://substack.com/content | Prohibited content, moderation, and enforcement | Verified 2026-05-01 |
+| Substack Publisher Agreement | https://substack.com/pa | Publisher monetization, payments, fees, and creator obligations | Verified 2026-05-01 |
 
 ## Detailed Design
 
 ### Source-Backed Product Requirements
 
+- Free/paid subscriptions, posts, notes, video/audio, chat/livestreams, and creator-support surfaces are verified from official store/support/legal pages.
+- Recommendation ranking, creator payout timing, tax workflow, and private-community behavior remain inferred until lawful publisher testing.
 - Subscribers manage newsletters they follow; free and paid tiers per publication.
 - Publication posts include long-form articles, audio narrations/podcasts, and short-form notes.
 - Notes timeline is a short-form feed distinct from long-form posts.
@@ -201,6 +204,6 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 ## Next Steps
 
-- Replace discovery URLs with verified first-party URLs before implementation kickoff.
+- Keep exact first-party source URLs current before implementation kickoff and refresh this spec if public store/help/legal pages materially change.
 - Engage legal for creator-suspension, DMCA, and payout posture.
 - Confirm payments processor, KYC vendor, and transcript-generation vendor.

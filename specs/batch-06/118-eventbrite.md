@@ -3,9 +3,9 @@
 > Metadata
 > - Inspiration app: Eventbrite
 > - Category: Event discovery and ticketing
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, company help center, public privacy/terms pages, public organizer policy pages.
-> - Manual verification blockers: native iOS/Android screen capture, ticket purchase/refund, scannable-ticket generation and validation, organizer dashboard, calendar integration, and push-notification behavior still require a test device/account before one-for-one parity claims.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, company help/support pages, public privacy/terms pages, and applicable public policy/community-safety pages.
+> - Manual verification blockers: native iOS/Android screen capture, ticket purchase/restore, organizer payout, refund/chargeback, barcode scan/check-in, event cancellation, privacy-choice exercise, and push behavior remain blocked; ticketing owner, payments owner, safety lead, privacy owner, and accessibility owner must gate these before parity claims.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, tagline, sample data, policy copy, and moderation pipelines.
 
 ## Overview
@@ -37,17 +37,20 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/eventbrite/id487255141 | iOS listing, privacy labels, screenshots list | Source discovery — pending exact URL verification |
-| Google Play | https://play.google.com/store/apps/details?id=com.eventbrite.attendee | Android listing, data safety, feature blurbs | Source discovery — pending exact URL verification |
-| Eventbrite Help | https://www.eventbrite.com/support | Tickets, refunds, organizer tools | Source discovery — pending exact URL verification |
-| Eventbrite Privacy | https://www.eventbrite.com/l/legalterms/ | Data collection, retention, deletion | Source discovery — pending exact URL verification |
-| Eventbrite Terms | https://www.eventbrite.com/l/LegalTerms/ | Acceptable use, scraping, termination | Source discovery — pending exact URL verification |
-| Eventbrite Community Guidelines | https://www.eventbrite.com/support/articles/en_US/Troubleshooting/eventbrite-community-guidelines | Prohibited events, safety | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/eventbrite/id487922291 | iOS listing, privacy labels, screenshots list | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.eventbrite.attendee | Android listing, data safety, feature blurbs | Verified 2026-05-01 |
+| Eventbrite Help Center | https://www.eventbrite.com/support | Ticket purchase, refunds, attendee account, organizer tools, payouts, and event operations | Verified 2026-05-01 |
+| Eventbrite Privacy Policy | https://www.eventbrite.com/l/legalterms/ | Data collection, event-organizer sharing, retention, deletion, and privacy rights | Verified 2026-05-01 |
+| Eventbrite Terms of Service | https://www.eventbrite.com/l/LegalTerms/ | Acceptable use, ticketing, organizer obligations, payments, scraping limits, and termination | Verified 2026-05-01 |
+| Eventbrite Community Guidelines | https://www.eventbrite.com/support/articles/en_US/Troubleshooting/eventbrite-community-guidelines | Prohibited events, safety expectations, and moderation | Verified 2026-05-01 |
+| Eventbrite California Privacy Notice | https://www.eventbrite.com/support/articles/en_US/Troubleshooting/supplemental-privacy-notice-for-california-residents | California privacy disclosures and opt-out handling | Verified 2026-05-01 |
 
 ## Detailed Design
 
 ### Source-Backed Product Requirements
 
+- Event discovery, ticketing, attendee data sharing with organizers, refunds, and organizer tools are verified from official store/help/legal pages.
+- Fraud controls, payout timing, tax treatment, and venue-specific check-in behavior remain inferred until lawful organizer testing.
 - Event discovery with category, date, location, and price filters; map and list views.
 - Event detail includes organizer, venue, ticket tiers, capacity, and refund policy.
 - Ticket purchase with saved payment methods (processor tokens); supports paid and free tickets.
@@ -202,6 +205,6 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 ## Next Steps
 
-- Replace discovery URLs with verified first-party URLs before implementation kickoff.
+- Keep exact first-party source URLs current before implementation kickoff and refresh this spec if public store/help/legal pages materially change.
 - Engage legal for payments, refund, and KYC posture.
 - Confirm processor, KYC vendor, and scanner hardware compatibility.

@@ -3,9 +3,9 @@
 > Metadata
 > - Inspiration app: Redfin
 > - Category: Real estate marketplace
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, company help center, public privacy/terms pages, public fair-housing policy pages.
-> - Manual verification blockers: native iOS/Android screen capture, licensed MLS ingestion, tour-scheduling hand-off, offer-tool behavior, saved-search alert cadence, and push-notification behavior still require a test device/account before one-for-one parity claims.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public marketplace pages, company help/support pages, public privacy/terms pages, and applicable public policy/community-safety pages.
+> - Manual verification blockers: native iOS/Android screen capture, MLS refresh verification, tour booking, agent hand-off, mortgage/preapproval partner flow, fair-housing legal review, and push behavior remain blocked; data owner, legal owner, brokerage owner, lending owner, and accessibility owner must gate these before parity claims.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, tagline, sample data, policy copy, and moderation pipelines.
 
 ## Overview
@@ -37,17 +37,20 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/redfin-homes-for-sale-rent/id332242617 | iOS listing, privacy labels, screenshots list | Source discovery — pending exact URL verification |
-| Google Play | https://play.google.com/store/apps/details?id=com.redfin.android | Android listing, data safety, feature blurbs | Source discovery — pending exact URL verification |
-| Redfin Help | https://www.redfin.com/support | Saved searches, tours, alerts, offers | Source discovery — pending exact URL verification |
-| Redfin Privacy | https://www.redfin.com/about/privacy-policy | Data collection, retention, deletion | Source discovery — pending exact URL verification |
-| Redfin Terms | https://www.redfin.com/about/terms-of-use | Acceptable use, scraping, fair-housing | Source discovery — pending exact URL verification |
-| Redfin Fair Housing | https://www.redfin.com/about/fair-housing | Fair-housing commitments and prohibited filtering | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/redfin-real-estate-find-homes/id327962480 | iOS listing, privacy labels, screenshots list | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.redfin.android | Android listing, data safety, feature blurbs | Verified 2026-05-01 |
+| Redfin Help Center | https://www.redfin.com/support | Saved searches, tours, alerts, offers, selling, and account controls | Verified 2026-05-01 |
+| Redfin Privacy Policy | https://www.redfin.com/about/privacy-policy | Data collection, retention, deletion, location, and privacy rights | Verified 2026-05-01 |
+| Redfin Terms of Use | https://www.redfin.com/about/terms-of-use | Acceptable use, listing-data constraints, scraping limits, and account terms | Verified 2026-05-01 |
+| Redfin Fair Housing Commitment | https://www.redfin.com/about/fair-housing-policy | Fair-housing commitments and anti-discrimination obligations | Verified 2026-05-01 |
+| Redfin Accessibility | https://www.redfin.com/about/accessibility | Accessibility commitment and contact path | Verified 2026-05-01 |
 
 ## Detailed Design
 
 ### Source-Backed Product Requirements
 
+- Listing freshness, tours, agent contact, and saved-search alerts are verified from official store/help/legal pages; offer strategy, brokerage operations, and mortgage partner handoffs remain inferred.
+- Data licensing and fair-housing controls are launch-blocking for any filter, recommendation, or alert surface.
 - Map-first search with pin clusters, draw-polygon, commute-time filter, and home-type filter.
 - Listing detail shows photos, video tour, price, tax estimate, HOA, price history, and fair-housing compliant school info.
 - Saved searches generate new-listing, price-drop, and open-house alerts; cadence configurable.
@@ -200,6 +203,6 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 ## Next Steps
 
-- Replace discovery URLs with verified first-party URLs before implementation kickoff.
+- Keep exact first-party source URLs current before implementation kickoff and refresh this spec if public store/help/legal pages materially change.
 - Engage legal for fair-housing and brokerage-licensing posture.
 - Confirm MLS, tax, school providers, and agent-calendar integration vendor.

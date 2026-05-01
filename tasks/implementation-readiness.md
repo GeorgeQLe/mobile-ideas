@@ -5,11 +5,11 @@ Updated: 2026-05-01
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has started with the first dating-app category slice, IDs 101-106.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted Batch 06, IDs 101-120.
 
-Current readiness count: 106 of 1000.
+Current readiness count: 120 of 1000.
 
-Step 8.3 remains open for IDs 107-1000. A 2026-05-01 post-slice audit found 2,866 source-discovery placeholder rows across 894 files: 466 rows in IDs 101-200 and 300 rows per 100-ID range from 201-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 121-1000. A 2026-05-01 post-slice audit found 2,782 source-discovery placeholder rows across 880 files: 382 rows in IDs 121-200 and 300 rows per 100-ID range from 201-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -133,6 +133,20 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 104 | Grindr | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; LGBTQ+ location-grid discovery, chat, health-field privacy, sensitive-location handling, discreet mode, subscriptions, and native/manual blockers remain explicit. |
 | 105 | Match | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; long-form profiles, search, daily matches, events, messaging, age gate, NCII reporting, subscriptions, and native/manual blockers remain explicit. |
 | 106 | Coffee Meets Bagel | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; daily curated matches, Discover, token economy, chat expiry, icebreakers, safety, subscriptions, and native/manual blockers remain explicit. |
+| 107 | LinkedIn | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; professional profiles, connection graph, feed, messaging, jobs, identity verification, subscriptions, and native/manual blockers remain explicit. |
+| 108 | Indeed | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; job search, resume/apply, application tracking, reviews/salaries, alerts, privacy choices, and native/manual blockers remain explicit. |
+| 109 | Glassdoor | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; jobs, anonymous reviews, salaries, workplace communities, employer responses, moderation, and native/manual blockers remain explicit. |
+| 110 | ZipRecruiter | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; candidate matching, one-tap apply, alerts, employer contact, privacy choices, and native/manual blockers remain explicit. |
+| 111 | Zillow | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; map search, saved homes/searches, alerts, valuation disclosure, fair housing, agent contact, and native/manual blockers remain explicit. |
+| 112 | Redfin | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; MLS-backed search, listing freshness, tours, agent/lending handoff, fair housing, and native/manual blockers remain explicit. |
+| 113 | Realtor.com | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; draw search, listings, collaboration, calculators, risk layers, fair housing, and native/manual blockers remain explicit. |
+| 114 | Apartments.com | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; rental search, floorplans/media, availability, alerts, property contact, fair housing, and native/manual blockers remain explicit. |
+| 115 | Zumper | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; rental search, alerts, tours, applications, payments/screening, fair housing, and native/manual blockers remain explicit. |
+| 116 | Nextdoor | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; verified neighborhoods, local alerts, marketplace, recommendations, business pages, address privacy, and native/manual blockers remain explicit. |
+| 117 | Meetup | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; local/online events, groups, RSVPs, organizer tools, subscriptions, safety, and native/manual blockers remain explicit. |
+| 118 | Eventbrite | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; event discovery, ticketing, organizer tools, refunds, payouts, safety, privacy choices, and native/manual blockers remain explicit. |
+| 119 | Medium | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; reading/writing, publications, memberships, partner program, content rules, payouts, and native/manual blockers remain explicit. |
+| 120 | Substack | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; subscriptions, posts, notes, video/audio, chat/livestreams, creator payouts, content rules, and native/manual blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 
@@ -168,8 +182,9 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 - Batch 05 education/wellness/fitness/health public-source V1 expansion: `081-photomath.md`, `082-headspace.md`, `083-calm.md`, `084-strava.md`, `085-nike-run-club.md`, `086-myfitnesspal.md`, `087-fitbit.md`, and `088-flo.md`.
 - Batch 05 productivity/cloud/creator/photo/smart-home public-source V1 expansion: `090-todoist.md`, `091-trello.md`, `092-google-calendar.md`, `093-evernote.md`, `094-dropbox.md`, `095-google-drive.md`, `096-capcut.md`, `097-canva.md`, `098-lightroom.md`, `099-google-photos.md`, and `100-ring.md`.
 - Batch 06 dating public-source V1 expansion: `101-tinder.md`, `102-bumble.md`, `103-hinge.md`, `104-grindr.md`, `105-match.md`, and `106-coffee-meets-bagel.md`.
+- Batch 06 professional/jobs, real estate/rentals, neighborhood/events, and publishing public-source V1 expansion: `107-linkedin.md` through `120-substack.md`.
 
 ## Next Steps
 
-- Produce downstream implementation planning for `specs/batch-05/090-todoist.md`.
+- Continue Phase 8 Step 8.3 with IDs 121-136 (`Wattpad` through `Ground News`) as the next reading/news category slice.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.

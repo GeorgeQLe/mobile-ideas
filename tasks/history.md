@@ -1,5 +1,12 @@
 # History
 
+## 2026-05-01 - Step 8.3 Professional Jobs Real Estate Events Publishing Slice
+
+- Promoted the next Phase 8 Step 8.3 slice, IDs 107-120 (`LinkedIn` through `Substack`), from Draft 1 to implementation-ready public-source V1.
+- Replaced their Research Sources placeholder rows with exact first-party marketplace, help/support, privacy/legal, community/safety, fair-housing, payment/subscription, and publishing-policy URLs.
+- Tightened app-specific manual blockers for native device review, subscriptions/payments, identity/address verification, MLS/rental data licensing, fair-housing review, event/ticketing payouts, creator payouts, and push behavior.
+- Validation: targeted H1/section/readiness checks passed for all 14 files. Full-scope `node scripts/check-implementation-readiness.mjs` now reports 120/1000 implementation-ready specs and 2,782 remaining source-discovery placeholder rows across IDs 121-1000.
+
 ## 2026-05-01 - Step 8.3 Dating Readiness Slice
 
 - Promoted the first Phase 8 Step 8.3 category slice, IDs 101-106 (`Tinder`, `Bumble`, `Hinge`, `Grindr`, `Match`, and `Coffee Meets Bagel`), from Draft 1 to implementation-ready public-source V1.
