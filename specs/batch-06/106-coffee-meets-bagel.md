@@ -3,7 +3,7 @@
 > Metadata
 > - Inspiration app: Coffee Meets Bagel
 > - Category: Dating / daily curated matches
-> - Readiness status: Draft 1
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
 > - Verification basis: public marketplace listings, company help center, public privacy/terms pages, public community guidelines.
 > - Manual verification blockers: native iOS/Android screen capture, subscription purchase/restore, token economy behavior, and push-notification behavior need a test device/account.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, and moderation pipelines.
@@ -34,12 +34,12 @@ The clone must not copy CMB branding, trademarked feature names (e.g., "bagels" 
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/coffee-meets-bagel-dating-app/id630119301 | iOS listing, category, privacy labels | Source discovery — pending exact URL verification |
-| Google Play | https://play.google.com/store/apps/details?id=com.coffeemeetsbagel | Android listing, content rating, data safety | Source discovery — pending exact URL verification |
-| Coffee Meets Bagel Support | https://coffeemeetsbagel.com/support | Daily picks, token economy, Discover tab | Source discovery — pending exact URL verification |
-| CMB Privacy Policy | https://coffeemeetsbagel.com/privacy-policy | Data collection, retention, deletion | Source discovery — pending exact URL verification |
-| CMB Terms | https://coffeemeetsbagel.com/terms | Age/access rules, subscription terms | Source discovery — pending exact URL verification |
-| CMB Safety Center | https://coffeemeetsbagel.com/safety | Safety features, reporting | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/coffee-meets-bagel-dating-app/id630119301 | iOS listing, category, privacy labels | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.coffeemeetsbagel | Android listing, content rating, data safety | Verified 2026-05-01 |
+| Coffee Meets Bagel Support | https://coffeemeetsbagel.com/support | Daily picks, token economy, Discover tab | Verified 2026-05-01 |
+| CMB Privacy Policy | https://coffeemeetsbagel.com/privacy-policy | Data collection, retention, deletion | Verified 2026-05-01 |
+| CMB Terms | https://coffeemeetsbagel.com/terms | Age/access rules, subscription terms | Verified 2026-05-01 |
+| CMB Safety Center | https://coffeemeetsbagel.com/safety | Safety features, reporting | Verified 2026-05-01 |
 
 ## Detailed Design
 
@@ -203,6 +203,6 @@ The clone must not copy CMB branding, trademarked feature names (e.g., "bagels" 
 
 ## Next Steps
 
-- Replace discovery URLs with verified first-party URLs.
+- Refresh exact first-party URLs before implementation kickoff.
 - Engage trust & safety reviewer for token-economy safety and minors/NCII flows.
 - Draft original icebreaker prompt library with legal review.

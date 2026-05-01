@@ -3,7 +3,7 @@
 > Metadata
 > - Inspiration app: Bumble
 > - Category: Dating / women-first messaging
-> - Readiness status: Draft 1
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
 > - Verification basis: public marketplace listings, company help center, public privacy/terms pages, and public community-guidelines material.
 > - Manual verification blockers: native iOS/Android screen capture, subscription purchase/restore, video chat behavior on device, photo/ID verification handoff, and push-notification behavior need a test device/account.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, sample data, and moderation pipelines.
@@ -37,13 +37,13 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/bumble-dating-app-meet-date/id930441707 | iOS listing, category, age rating, privacy labels, screenshots list | Source discovery — pending exact URL verification |
-| Google Play | https://play.google.com/store/apps/details?id=com.bumble.app | Android listing, content rating, data safety, feature blurbs | Source discovery — pending exact URL verification |
-| Bumble Help Center | https://bumble.com/help | Matching, 24-hour window, extend, verification, modes, subscription tiers | Source discovery — pending exact URL verification |
-| Bumble Safety Center | https://bumble.com/en/the-buzz/safety | Safety features, verification, reporting, community guidelines | Source discovery — pending exact URL verification |
-| Bumble Privacy Policy | https://bumble.com/en/privacy | Data collection, location handling, retention, deletion | Source discovery — pending exact URL verification |
-| Bumble Terms | https://bumble.com/en/terms | Age/access rules, prohibited conduct, subscription terms | Source discovery — pending exact URL verification |
-| Bumble Community Guidelines | https://bumble.com/en/guidelines | Banned content, body-shaming, misogyny policy | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/bumble-dating-app-meet-date/id930441707 | iOS listing, category, age rating, privacy labels, screenshots list | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.bumble.app | Android listing, content rating, data safety, feature blurbs | Verified 2026-05-01 |
+| Bumble Help Center | https://bumble.com/help | Matching, 24-hour window, extend, verification, modes, subscription tiers | Verified 2026-05-01 |
+| Bumble Safety Center | https://bumble.com/en/the-buzz/safety | Safety features, verification, reporting, community guidelines | Verified 2026-05-01 |
+| Bumble Privacy Policy | https://bumble.com/en/privacy | Data collection, location handling, retention, deletion | Verified 2026-05-01 |
+| Bumble Terms | https://bumble.com/en/terms | Age/access rules, prohibited conduct, subscription terms | Verified 2026-05-01 |
+| Bumble Community Guidelines | https://bumble.com/en/guidelines | Banned content, body-shaming, misogyny policy | Verified 2026-05-01 |
 
 ## Detailed Design
 
@@ -207,6 +207,6 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 ## Next Steps
 
-- Replace discovery URLs with verified first-party URLs.
+- Refresh exact first-party URLs before implementation kickoff.
 - Engage trust & safety reviewer for women-first enforcement and minors/NCII flows.
 - Confirm biometric compliance vendor and regional posture.

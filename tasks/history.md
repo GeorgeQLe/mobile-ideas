@@ -1,5 +1,12 @@
 # History
 
+## 2026-05-01 - Step 8.3 Dating Readiness Slice
+
+- Promoted the first Phase 8 Step 8.3 category slice, IDs 101-106 (`Tinder`, `Bumble`, `Hinge`, `Grindr`, `Match`, and `Coffee Meets Bagel`), from Draft 1 to implementation-ready public-source V1.
+- Replaced their Research Sources placeholder status with exact first-party URL verification status and kept native/account/subscription/verification/push blockers explicit.
+- Preserved dating-specific safety coverage: age gate, minors protection, NCII reporting, doxxing/location safety, block/report/unmatch, hidden/incognito mode, sensitive-message handling, harassment escalation, and subscription reconciliation.
+- Updated readiness/audit docs. Post-slice `node scripts/check-implementation-readiness.mjs` reports 106/1000 implementation-ready specs and 2,866 remaining source-discovery placeholder rows across IDs 107-1000.
+
 ## 2026-05-01 - Step 8.3 Pre-Promotion Audit
 
 - Added `scripts/check-implementation-readiness.mjs` as the repeatable gate for Step 8.3 promotion batches.

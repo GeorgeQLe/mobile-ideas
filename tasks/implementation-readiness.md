@@ -5,11 +5,11 @@ Updated: 2026-05-01
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has started with the first dating-app category slice, IDs 101-106.
 
-Current readiness count: 100 of 1000.
+Current readiness count: 106 of 1000.
 
-Step 8.3 remains open for IDs 101-1000. A 2026-05-01 audit found 2,904 source-discovery placeholder rows across 900 files: 504 rows in IDs 101-200 and 300 rows per 100-ID range from 201-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 107-1000. A 2026-05-01 post-slice audit found 2,866 source-discovery placeholder rows across 894 files: 466 rows in IDs 101-200 and 300 rows per 100-ID range from 201-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -127,6 +127,12 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 098 | Lightroom | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; photo/video library, imports, camera capture, raw editing, presets, masking, retouch, Quick Actions, generative remove, cloud albums, export, metadata, and native/manual blockers remain explicit. |
 | 099 | Google Photos | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; backup, library timeline, albums, AI search/editing, memories, Locked Folder, sharing, partner sharing, device cleanup, Lens, prints, storage, privacy, and native/manual blockers remain explicit. |
 | 100 | Ring | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; device dashboard, setup, live view, two-way talk, motion alerts, event history, recordings, subscriptions, alarm monitoring, shared users, privacy zones, E2EE, law-enforcement request controls, and hardware/native/manual blockers remain explicit. |
+| 101 | Tinder | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; dating discovery, swipe-to-match, safety, age gate, minors protection, NCII reporting, hidden mode, subscriptions, and native/manual blockers remain explicit. |
+| 102 | Bumble | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; mode switching, first-message timers, extension, safety, age gate, minors protection, NCII reporting, hidden mode, subscriptions, and native/manual blockers remain explicit. |
+| 103 | Hinge | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; prompt profiles, like-with-comment, featured profiles, voice prompts, safety, age gate, minors protection, NCII reporting, subscriptions, and native/manual blockers remain explicit. |
+| 104 | Grindr | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; LGBTQ+ location-grid discovery, chat, health-field privacy, sensitive-location handling, discreet mode, subscriptions, and native/manual blockers remain explicit. |
+| 105 | Match | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; long-form profiles, search, daily matches, events, messaging, age gate, NCII reporting, subscriptions, and native/manual blockers remain explicit. |
+| 106 | Coffee Meets Bagel | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; daily curated matches, Discover, token economy, chat expiry, icebreakers, safety, subscriptions, and native/manual blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 
@@ -161,6 +167,7 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 - Batch 04 education public-source V1 expansion: `077-duolingo.md`, `078-khan-academy.md`, `079-quizlet.md`, and `080-coursera.md`.
 - Batch 05 education/wellness/fitness/health public-source V1 expansion: `081-photomath.md`, `082-headspace.md`, `083-calm.md`, `084-strava.md`, `085-nike-run-club.md`, `086-myfitnesspal.md`, `087-fitbit.md`, and `088-flo.md`.
 - Batch 05 productivity/cloud/creator/photo/smart-home public-source V1 expansion: `090-todoist.md`, `091-trello.md`, `092-google-calendar.md`, `093-evernote.md`, `094-dropbox.md`, `095-google-drive.md`, `096-capcut.md`, `097-canva.md`, `098-lightroom.md`, `099-google-photos.md`, and `100-ring.md`.
+- Batch 06 dating public-source V1 expansion: `101-tinder.md`, `102-bumble.md`, `103-hinge.md`, `104-grindr.md`, `105-match.md`, and `106-coffee-meets-bagel.md`.
 
 ## Next Steps
 

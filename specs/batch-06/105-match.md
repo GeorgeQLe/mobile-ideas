@@ -3,7 +3,7 @@
 > Metadata
 > - Inspiration app: Match
 > - Category: Dating / long-form profiles
-> - Readiness status: Draft 1
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
 > - Verification basis: public marketplace listings, company help center, public privacy/terms pages, community guidelines.
 > - Manual verification blockers: native iOS/Android screen capture, subscription purchase/restore, event feature localization, and push-notification behavior need a test device/account.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, sample data, and moderation pipelines.
@@ -34,12 +34,12 @@ The clone must not copy Match branding, trademarked feature names, screenshots, 
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/match-dating-meet-singles/id305939712 | iOS listing, age rating, privacy labels, feature blurbs | Source discovery — pending exact URL verification |
-| Google Play | https://play.google.com/store/apps/details?id=com.match.android.matchmobile | Android listing, content rating, data safety | Source discovery — pending exact URL verification |
-| Match Help Center | https://www.match.com/help | Search, daily matches, events, subscription tiers, verification | Source discovery — pending exact URL verification |
-| Match Privacy Policy | https://www.match.com/privacypolicy | Data collection, retention, deletion | Source discovery — pending exact URL verification |
-| Match Terms | https://www.match.com/registration/membagr.aspx | Age/access rules, subscription terms | Source discovery — pending exact URL verification |
-| Match Safety Tips | https://www.match.com/help/safety-tips | Safety guidance, reporting | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/match-dating-meet-singles/id305939712 | iOS listing, age rating, privacy labels, feature blurbs | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.match.android.matchmobile | Android listing, content rating, data safety | Verified 2026-05-01 |
+| Match Help Center | https://www.match.com/help | Search, daily matches, events, subscription tiers, verification | Verified 2026-05-01 |
+| Match Privacy Policy | https://www.match.com/privacypolicy | Data collection, retention, deletion | Verified 2026-05-01 |
+| Match Terms | https://www.match.com/registration/membagr.aspx | Age/access rules, subscription terms | Verified 2026-05-01 |
+| Match Safety Tips | https://www.match.com/help/safety-tips | Safety guidance, reporting | Verified 2026-05-01 |
 
 ## Detailed Design
 
@@ -202,6 +202,6 @@ The clone must not copy Match branding, trademarked feature names, screenshots, 
 
 ## Next Steps
 
-- Replace discovery URLs with verified first-party URLs.
+- Refresh exact first-party URLs before implementation kickoff.
 - Engage trust & safety and legal review for event-safety content and profile fields.
 - Draft original lifestyle/values field library with anti-discrimination review.

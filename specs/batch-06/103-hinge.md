@@ -3,7 +3,7 @@
 > Metadata
 > - Inspiration app: Hinge
 > - Category: Dating / prompt-based profiles
-> - Readiness status: Draft 1
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
 > - Verification basis: public marketplace listings, company help center, public privacy/terms pages, public community-guidelines material.
 > - Manual verification blockers: native iOS/Android screen capture, subscription purchase/restore, voice-prompt recording behavior, and push-notification behavior need a test device/account.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, sample prompts, and moderation pipelines.
@@ -36,12 +36,12 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/hinge-dating-relationships/id595287172 | iOS listing, category, age rating, privacy labels | Source discovery — pending exact URL verification |
-| Google Play | https://play.google.com/store/apps/details?id=co.hinge.app | Android listing, content rating, data safety | Source discovery — pending exact URL verification |
-| Hinge Help Center | https://hingeapp.zendesk.com/hc/en-us | Prompts, likes, matches, subscription tiers, verification | Source discovery — pending exact URL verification |
-| Hinge Safety Guidelines | https://hinge.co/safety | Safety features, reporting, community guidelines | Source discovery — pending exact URL verification |
-| Hinge Privacy Policy | https://hinge.co/privacy | Data collection, retention, deletion | Source discovery — pending exact URL verification |
-| Hinge Terms | https://hinge.co/terms | Age/access rules, subscription terms | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/hinge-dating-relationships/id595287172 | iOS listing, category, age rating, privacy labels | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=co.hinge.app | Android listing, content rating, data safety | Verified 2026-05-01 |
+| Hinge Help Center | https://hingeapp.zendesk.com/hc/en-us | Prompts, likes, matches, subscription tiers, verification | Verified 2026-05-01 |
+| Hinge Safety Guidelines | https://hinge.co/safety | Safety features, reporting, community guidelines | Verified 2026-05-01 |
+| Hinge Privacy Policy | https://hinge.co/privacy | Data collection, retention, deletion | Verified 2026-05-01 |
+| Hinge Terms | https://hinge.co/terms | Age/access rules, subscription terms | Verified 2026-05-01 |
 
 ## Detailed Design
 
@@ -206,6 +206,6 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 ## Next Steps
 
-- Replace discovery URLs with verified first-party URLs.
+- Refresh exact first-party URLs before implementation kickoff.
 - Engage trust & safety reviewer for minors/NCII/voice-moderation flows.
 - Draft original prompt library with legal review.

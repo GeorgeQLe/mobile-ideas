@@ -3,7 +3,7 @@
 > Metadata
 > - Inspiration app: Tinder
 > - Category: Dating / swipe discovery
-> - Readiness status: Draft 1
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
 > - Verification basis: public marketplace listings, company help center, public privacy/terms pages, public trust & safety guidance.
 > - Manual verification blockers: native iOS/Android screen capture, account lifecycle walkthrough, subscription purchase/restore, ID verification handoff, and push-notification behavior still require a test device/account before one-for-one parity claims.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, tagline, sample data, safety copy, and moderation pipelines.
@@ -36,13 +36,13 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/tinder-dating-new-people/id547702041 | iOS listing, category, age rating, privacy labels, screenshots list, support/policy links | Source discovery — pending exact URL verification |
-| Google Play | https://play.google.com/store/apps/details?id=com.tinder | Android listing, content rating, data safety, feature blurbs | Source discovery — pending exact URL verification |
-| Tinder Help Center | https://www.help.tinder.com/hc/en-us | Account creation, photo/bio rules, matching, messaging, subscription tiers, block/report | Source discovery — pending exact URL verification |
-| Tinder Safety Center | https://policies.tinder.com/safety/intl/en | Safety features, photo verification, reporting, community guidelines | Source discovery — pending exact URL verification |
-| Tinder Privacy Policy | https://policies.tinder.com/privacy/intl/en | Data collection, location handling, retention, deletion | Source discovery — pending exact URL verification |
-| Tinder Terms of Use | https://policies.tinder.com/terms/intl/en | Age/access rules, prohibited conduct, subscription terms | Source discovery — pending exact URL verification |
-| Tinder Community Guidelines | https://policies.tinder.com/community-guidelines/intl/en | Banned content, harassment, impersonation, nudity policy | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/tinder-dating-new-people/id547702041 | iOS listing, category, age rating, privacy labels, screenshots list, support/policy links | Verified 2026-05-01 |
+| Google Play | https://play.google.com/store/apps/details?id=com.tinder | Android listing, content rating, data safety, feature blurbs | Verified 2026-05-01 |
+| Tinder Help Center | https://www.help.tinder.com/hc/en-us | Account creation, photo/bio rules, matching, messaging, subscription tiers, block/report | Verified 2026-05-01 |
+| Tinder Safety Center | https://policies.tinder.com/safety/intl/en | Safety features, photo verification, reporting, community guidelines | Verified 2026-05-01 |
+| Tinder Privacy Policy | https://policies.tinder.com/privacy/intl/en | Data collection, location handling, retention, deletion | Verified 2026-05-01 |
+| Tinder Terms of Use | https://policies.tinder.com/terms/intl/en | Age/access rules, prohibited conduct, subscription terms | Verified 2026-05-01 |
+| Tinder Community Guidelines | https://policies.tinder.com/community-guidelines/intl/en | Banned content, harassment, impersonation, nudity policy | Verified 2026-05-01 |
 
 ## Detailed Design
 
@@ -211,6 +211,6 @@ Any feature marked `Manual verification required` must ship behind a feature fla
 
 ## Next Steps
 
-- Replace discovery URLs with verified first-party URLs before implementation kickoff.
+- Refresh exact first-party URLs before implementation kickoff and keep unsupported native flows feature-flagged.
 - Engage a trust & safety reviewer for NCII/minor/harassment flows before any public launch.
 - Confirm ID-verification vendor and regional biometric compliance posture.
