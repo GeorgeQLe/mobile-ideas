@@ -1775,6 +1775,36 @@ Guardrails:
 | 969 | `GeorgeQLe/varagesale-mobile-clone` | PRIVATE | seeded |
 | 970 | `GeorgeQLe/kijiji-mobile-clone` | PRIVATE | seeded |
 
+### Batch 971-990 Seeding Evidence - 2026-05-01T14:20:02.370Z
+
+- Execution mode: serial private seeding with 20 successful repo(s).
+- Pre-batch rate limit: `{"core":{"limit":5000,"remaining":5000,"reset":1777648125,"used":0},"graphql":{"limit":5000,"remaining":4984,"reset":1777644755,"used":16},"search":{"limit":30,"remaining":30,"reset":1777644585,"used":0}}`
+- Post-batch rate limit: `{"core":{"limit":5000,"remaining":4910,"reset":1777648126,"used":90},"graphql":{"limit":5000,"remaining":4946,"reset":1777648371,"used":54},"search":{"limit":30,"remaining":30,"reset":1777645262,"used":0}}`
+- Verification: every successful repo returned PRIVATE visibility, non-empty default branch, README, and copied source spec under `docs/source-specs/`.
+
+| ID | Repo | Visibility | Status |
+|---:|---|---|---|
+| 971 | `GeorgeQLe/gumtree-mobile-clone` | PRIVATE | seeded |
+| 972 | `GeorgeQLe/cargurus-mobile-clone` | PRIVATE | seeded |
+| 973 | `GeorgeQLe/autotrader-mobile-clone` | PRIVATE | seeded |
+| 974 | `GeorgeQLe/cars-com-mobile-clone` | PRIVATE | seeded |
+| 975 | `GeorgeQLe/carvana-mobile-clone` | PRIVATE | seeded |
+| 976 | `GeorgeQLe/carmax-mobile-clone` | PRIVATE | seeded |
+| 977 | `GeorgeQLe/truecar-mobile-clone` | PRIVATE | seeded |
+| 978 | `GeorgeQLe/copart-mobile-clone` | PRIVATE | seeded |
+| 979 | `GeorgeQLe/bring-a-trailer-mobile-clone` | PRIVATE | seeded |
+| 980 | `GeorgeQLe/autolist-mobile-clone` | PRIVATE | seeded |
+| 981 | `GeorgeQLe/gumroad-mobile-clone` | PRIVATE | seeded |
+| 982 | `GeorgeQLe/kajabi-mobile-clone` | PRIVATE | seeded |
+| 983 | `GeorgeQLe/teachable-mobile-clone` | PRIVATE | seeded |
+| 984 | `GeorgeQLe/thinkific-mobile-clone` | PRIVATE | seeded |
+| 985 | `GeorgeQLe/podia-mobile-clone` | PRIVATE | seeded |
+| 986 | `GeorgeQLe/mighty-networks-mobile-clone` | PRIVATE | seeded |
+| 987 | `GeorgeQLe/circle-communities-mobile-clone` | PRIVATE | seeded |
+| 988 | `GeorgeQLe/skool-mobile-clone` | PRIVATE | seeded |
+| 989 | `GeorgeQLe/stan-store-mobile-clone` | PRIVATE | seeded |
+| 990 | `GeorgeQLe/linktree-mobile-clone` | PRIVATE | seeded |
+
 ### Failures And Blockers
 
 - Step 6.3 blocker (2026-04-27T19:12:34.859Z) for GeorgeQLe/ecobee-mobile-clone: `git -C /var/folders/n1/z7dtyml50qvc5_v87cysddv80000gn/T/mobile-ideas-downstream-seeds/ecobee-mobile-clone push origin HEAD` failed with remote rejection `failure` / `remote: fatal error in commit_refs`. Stop-state verification on 2026-04-27T19:12:53Z returned `visibility=PRIVATE`, `isEmpty=true`, and empty `defaultBranchRef`; README lookup returned 404. Per stop-on-failure contract, IDs 652-656 were not attempted in this run; next repair path should reconcile or retry only after confirming the remote accepts a root push.
@@ -2842,26 +2872,26 @@ Guardrails:
 | [x] | 968 | letgo | `GeorgeQLe/letgo-mobile-clone` | `specs/batch-49/968-letgo.md` |
 | [x] | 969 | VarageSale | `GeorgeQLe/varagesale-mobile-clone` | `specs/batch-49/969-varagesale.md` |
 | [x] | 970 | Kijiji | `GeorgeQLe/kijiji-mobile-clone` | `specs/batch-49/970-kijiji.md` |
-| [ ] | 971 | Gumtree | `GeorgeQLe/gumtree-mobile-clone` | `specs/batch-49/971-gumtree.md` |
-| [ ] | 972 | CarGurus | `GeorgeQLe/cargurus-mobile-clone` | `specs/batch-49/972-cargurus.md` |
-| [ ] | 973 | AutoTrader | `GeorgeQLe/autotrader-mobile-clone` | `specs/batch-49/973-autotrader.md` |
-| [ ] | 974 | Cars.com | `GeorgeQLe/cars-com-mobile-clone` | `specs/batch-49/974-cars-com.md` |
-| [ ] | 975 | Carvana | `GeorgeQLe/carvana-mobile-clone` | `specs/batch-49/975-carvana.md` |
-| [ ] | 976 | CarMax | `GeorgeQLe/carmax-mobile-clone` | `specs/batch-49/976-carmax.md` |
-| [ ] | 977 | TrueCar | `GeorgeQLe/truecar-mobile-clone` | `specs/batch-49/977-truecar.md` |
-| [ ] | 978 | Copart | `GeorgeQLe/copart-mobile-clone` | `specs/batch-49/978-copart.md` |
-| [ ] | 979 | Bring a Trailer | `GeorgeQLe/bring-a-trailer-mobile-clone` | `specs/batch-49/979-bring-a-trailer.md` |
-| [ ] | 980 | Autolist | `GeorgeQLe/autolist-mobile-clone` | `specs/batch-49/980-autolist.md` |
-| [ ] | 981 | Gumroad | `GeorgeQLe/gumroad-mobile-clone` | `specs/batch-50/981-gumroad.md` |
-| [ ] | 982 | Kajabi | `GeorgeQLe/kajabi-mobile-clone` | `specs/batch-50/982-kajabi.md` |
-| [ ] | 983 | Teachable | `GeorgeQLe/teachable-mobile-clone` | `specs/batch-50/983-teachable.md` |
-| [ ] | 984 | Thinkific | `GeorgeQLe/thinkific-mobile-clone` | `specs/batch-50/984-thinkific.md` |
-| [ ] | 985 | Podia | `GeorgeQLe/podia-mobile-clone` | `specs/batch-50/985-podia.md` |
-| [ ] | 986 | Mighty Networks | `GeorgeQLe/mighty-networks-mobile-clone` | `specs/batch-50/986-mighty-networks.md` |
-| [ ] | 987 | Circle Communities | `GeorgeQLe/circle-communities-mobile-clone` | `specs/batch-50/987-circle-communities.md` |
-| [ ] | 988 | Skool | `GeorgeQLe/skool-mobile-clone` | `specs/batch-50/988-skool.md` |
-| [ ] | 989 | Stan Store | `GeorgeQLe/stan-store-mobile-clone` | `specs/batch-50/989-stan-store.md` |
-| [ ] | 990 | Linktree | `GeorgeQLe/linktree-mobile-clone` | `specs/batch-50/990-linktree.md` |
+| [x] | 971 | Gumtree | `GeorgeQLe/gumtree-mobile-clone` | `specs/batch-49/971-gumtree.md` |
+| [x] | 972 | CarGurus | `GeorgeQLe/cargurus-mobile-clone` | `specs/batch-49/972-cargurus.md` |
+| [x] | 973 | AutoTrader | `GeorgeQLe/autotrader-mobile-clone` | `specs/batch-49/973-autotrader.md` |
+| [x] | 974 | Cars.com | `GeorgeQLe/cars-com-mobile-clone` | `specs/batch-49/974-cars-com.md` |
+| [x] | 975 | Carvana | `GeorgeQLe/carvana-mobile-clone` | `specs/batch-49/975-carvana.md` |
+| [x] | 976 | CarMax | `GeorgeQLe/carmax-mobile-clone` | `specs/batch-49/976-carmax.md` |
+| [x] | 977 | TrueCar | `GeorgeQLe/truecar-mobile-clone` | `specs/batch-49/977-truecar.md` |
+| [x] | 978 | Copart | `GeorgeQLe/copart-mobile-clone` | `specs/batch-49/978-copart.md` |
+| [x] | 979 | Bring a Trailer | `GeorgeQLe/bring-a-trailer-mobile-clone` | `specs/batch-49/979-bring-a-trailer.md` |
+| [x] | 980 | Autolist | `GeorgeQLe/autolist-mobile-clone` | `specs/batch-49/980-autolist.md` |
+| [x] | 981 | Gumroad | `GeorgeQLe/gumroad-mobile-clone` | `specs/batch-50/981-gumroad.md` |
+| [x] | 982 | Kajabi | `GeorgeQLe/kajabi-mobile-clone` | `specs/batch-50/982-kajabi.md` |
+| [x] | 983 | Teachable | `GeorgeQLe/teachable-mobile-clone` | `specs/batch-50/983-teachable.md` |
+| [x] | 984 | Thinkific | `GeorgeQLe/thinkific-mobile-clone` | `specs/batch-50/984-thinkific.md` |
+| [x] | 985 | Podia | `GeorgeQLe/podia-mobile-clone` | `specs/batch-50/985-podia.md` |
+| [x] | 986 | Mighty Networks | `GeorgeQLe/mighty-networks-mobile-clone` | `specs/batch-50/986-mighty-networks.md` |
+| [x] | 987 | Circle Communities | `GeorgeQLe/circle-communities-mobile-clone` | `specs/batch-50/987-circle-communities.md` |
+| [x] | 988 | Skool | `GeorgeQLe/skool-mobile-clone` | `specs/batch-50/988-skool.md` |
+| [x] | 989 | Stan Store | `GeorgeQLe/stan-store-mobile-clone` | `specs/batch-50/989-stan-store.md` |
+| [x] | 990 | Linktree | `GeorgeQLe/linktree-mobile-clone` | `specs/batch-50/990-linktree.md` |
 | [ ] | 991 | Beacons | `GeorgeQLe/beacons-mobile-clone` | `specs/batch-50/991-beacons.md` |
 | [ ] | 992 | Linkin.bio | `GeorgeQLe/linkin-bio-mobile-clone` | `specs/batch-50/992-linkin-bio.md` |
 | [ ] | 993 | Taplink | `GeorgeQLe/taplink-mobile-clone` | `specs/batch-50/993-taplink.md` |
