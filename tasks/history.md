@@ -421,3 +421,11 @@
 - Added `AGENTS.md` Codex project conventions.
 - Updated roadmap, todo, specs index, and quality audit for the 1000-target state.
 - Remote downstream repo creation remains blocked until explicit approval and readiness/manifest work are complete.
+
+## 2026-05-01 - Phase 8 Step 8.3 Finance Slice (IDs 137-149)
+
+- Promoted 13 finance, investing, banking, transfer, and teen/family finance specs to implementation-ready public-source V1: `137-bloomberg.md` through `149-step.md`.
+- Replaced source-discovery placeholders with exact first-party marketplace, product/help, privacy, terms, and disclosure URLs verified on 2026-05-01.
+- Expanded each spec with finance risk coverage: no-investment-advice framing, KYC/AML gates, fraud/account-takeover controls, market-data licensing, banking partner/FDIC/SIPC boundaries, social-investing moderation for Stocktwits/Public, and child/teen controls for Greenlight/Step.
+- Validation: targeted checks found one H1 in each promoted file, all 18 canonical H2 sections in each file, and no `Source discovery`, `Readiness status: Draft`, or `TODO` markers in the 13-file slice.
+- Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 149 implementation-ready specs and 2,637 source-discovery placeholder rows across 851 remaining files.
