@@ -1,13 +1,15 @@
 # Implementation Readiness Gate
 
 Created: 2026-04-16
-Updated: 2026-04-19
+Updated: 2026-05-01
 
 ## Verdict
 
-The full spec set has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs.
 
-Current readiness count: 100 of 100.
+Current readiness count: 100 of 1000.
+
+Step 8.3 remains open for IDs 101-1000. A 2026-05-01 audit found 2,904 source-discovery placeholder rows across 900 files: 504 rows in IDs 101-200 and 300 rows per 100-ID range from 201-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -137,6 +139,10 @@ For each spec:
 5. Add manual verification blockers with explicit launch behavior.
 6. Add a concrete build plan.
 7. Update this file, `tasks/spec-quality-audit.md`, `specs/README.md`, `specs/batch-*/README.md`, `tasks/todo.md`, and `tasks/history.md`.
+
+## Readiness Audit Command
+
+Run `node scripts/check-implementation-readiness.mjs` before and after each Step 8.3 category batch. The command exits non-zero while any IDs 101-1000 source-discovery placeholders remain, and prints placeholder counts by 100-ID range.
 
 ## Completed Pattern Set
 

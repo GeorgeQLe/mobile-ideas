@@ -1,5 +1,12 @@
 # History
 
+## 2026-05-01 - Step 8.3 Pre-Promotion Audit
+
+- Added `scripts/check-implementation-readiness.mjs` as the repeatable gate for Step 8.3 promotion batches.
+- Verified the current implementation-readiness state: 100/1000 specs are implementation-ready, all in IDs 001-100.
+- Confirmed the handoff count of 504 source-discovery placeholders applies to IDs 101-200 only; the full Step 8.3 scope has 2,904 placeholder rows across 900 files.
+- Updated `tasks/implementation-readiness.md`, `tasks/spec-quality-audit.md`, and `tasks/todo.md` to record the measured state and keep Step 8.3 open until exact first-party URLs, verified-vs-inferred distinctions, and category risk reviews land.
+
 ## 2026-05-01 - Downstream Seeding Completion Verification
 
 - Verified `tasks/repo-seeding.md` has 1000 checked downstream manifest rows and 0 unchecked rows.

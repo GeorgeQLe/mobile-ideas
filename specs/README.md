@@ -3,9 +3,9 @@
 Created: 2026-04-16
 
 > Metadata
-> - Spec set status: Draft 1 canonical scaffold complete for all 1000 IDs; Phase 3 implementation-readiness upgrades complete for public-source V1 (IDs 001-100). Phase 7 Step 7.2 canonical Draft 1 normalization complete for IDs 101-200; implementation-readiness upgrade (exact first-party URLs, verified/inferred distinction, category risk reviews) queued in Step 7.3.
+> - Spec set status: Draft 1 canonical scaffold complete for all 1000 IDs; Phase 3 implementation-readiness upgrades complete for public-source V1 (IDs 001-100). Phase 7 Step 7.2 canonical Draft 1 normalization complete for IDs 101-200; implementation-readiness upgrade (exact first-party URLs, verified/inferred distinction, category risk reviews) absorbed into Phase 8 Step 8.3 for IDs 101-1000.
 > - Coverage: 1000 of 1000 app ideas (100 implementation-ready + 100 Draft 1 canonical + 800 Draft 1 canonical scaffold)
-> - Research state: 100 implementation-ready public-source V1 specs with exact first-party source replacement and explicit hands-on verification blockers; 900 Draft 1 canonical specs awaiting implementation-readiness upgrade (exact URL replacement + category risk review in Step 7.3)
+> - Research state: 100 implementation-ready public-source V1 specs with exact first-party source replacement and explicit hands-on verification blockers; 900 Draft 1 canonical specs awaiting implementation-readiness upgrade (exact URL replacement + category risk review in Step 8.3). A 2026-05-01 audit found 2,904 source-discovery placeholder rows across IDs 101-1000.
 
 ## Overview
 
@@ -118,12 +118,12 @@ Every numbered spec uses these canonical sections:
 - Confirm every numbered spec has exactly one H1.
 - Confirm every numbered spec has all canonical sections.
 - For IDs 001-100, confirm public-source V1 quality metrics pass for line count, screen rows, detailed-design bullets, data entities, API bullets, journeys, tests, sources, safety, analytics, blockers, and next steps.
-- For IDs 101-200, confirm Draft 1 canonical structure (one H1, metadata block with `Readiness status: Draft 1`, all 18 section headings present with substantive non-TODO content, ~150-220 lines per file, Research Sources marked "Source discovery — pending exact URL verification"); Step 7.3 adds exact-URL replacement and full implementation-readiness depth.
+- For IDs 101-200, confirm Draft 1 canonical structure (one H1, metadata block with `Readiness status: Draft 1`, all 18 section headings present with substantive non-TODO content, ~150-220 lines per file, Research Sources marked "Source discovery — pending exact URL verification"); Step 8.3 adds exact-URL replacement and full implementation-readiness depth across IDs 101-1000.
 
 ## Acceptance Criteria
 
 - All 100 IDs 001-100 specs use canonical Draft 1 structure with exact first-party source links and explicit native/manual parity blockers.
-- All 900 IDs 101-1000 specs are canonical Draft 1/scaffold with exactly one H1, metadata block (`Readiness status: Draft 1`), all 18 canonical section headings, and substantive non-TODO content in every section (bodies are normalized; exact-URL verification and implementation-readiness depth pending Step 7.3).
+- All 900 IDs 101-1000 specs are canonical Draft 1/scaffold with exactly one H1, metadata block (`Readiness status: Draft 1`), all 18 canonical section headings, and substantive non-TODO content in every section (bodies are normalized; exact-URL verification and implementation-readiness depth pending Step 8.3).
 - Every spec remains legally scoped to original code, original assets, synthetic or licensed data, and lawful integrations.
 - Phase 4 remains responsible for choosing an implementation candidate; Future extension phases remain responsible for promoting IDs 101-1000 to implementation-ready V1 status.
 
