@@ -5,11 +5,11 @@ Updated: 2026-05-01
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted Batch 06, IDs 101-120.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-164.
 
-Current readiness count: 120 of 1000.
+Current readiness count: 164 of 1000.
 
-Step 8.3 remains open for IDs 121-1000. A 2026-05-01 post-slice audit found 2,782 source-discovery placeholder rows across 880 files: 382 rows in IDs 121-200 and 300 rows per 100-ID range from 201-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 165-1000. A 2026-05-01 post-slice audit found 2,562 source-discovery placeholder rows across 836 files: 162 rows in IDs 165-200 and 300 rows per 100-ID range from 201-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -147,6 +147,50 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 118 | Eventbrite | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; event discovery, ticketing, organizer tools, refunds, payouts, safety, privacy choices, and native/manual blockers remain explicit. |
 | 119 | Medium | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; reading/writing, publications, memberships, partner program, content rules, payouts, and native/manual blockers remain explicit. |
 | 120 | Substack | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; subscriptions, posts, notes, video/audio, chat/livestreams, creator payouts, content rules, and native/manual blockers remain explicit. |
+| 121 | Wattpad | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; serialized fiction, chapter comments, reading lists, creator tools, copyright/moderation, and native/manual blockers remain explicit. |
+| 122 | Webtoon | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; vertical comics, episode unlocks, creator uploads, comments, coin/subscription gates, and native/manual blockers remain explicit. |
+| 123 | Goodreads | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; book database, shelves, reviews, challenges, social feed, recommendations, and native/manual blockers remain explicit. |
+| 124 | Kindle | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; library, reader, highlights, dictionary, store/subscription gates, licensed content, and native/manual blockers remain explicit. |
+| 125 | Libby | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; library-card sign-in, holds, checkouts, e-book/audiobook playback, tags, and native/manual blockers remain explicit. |
+| 126 | Apple Books | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; library, store, audiobooks, reading goals, collections, platform integrations, and native/manual blockers remain explicit. |
+| 127 | Scribd | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; subscription reading/listening library, documents, entitlements, licensed content, and native/manual blockers remain explicit. |
+| 128 | Readwise | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; highlight sync, daily review, integrations, export, privacy, and native/manual blockers remain explicit. |
+| 129 | Pocket | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; save/read-later, offline reader, tags, discovery, text-to-speech, and native/manual blockers remain explicit. |
+| 130 | Instapaper | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; clean reader, highlights, notes, folders, export, subscriptions, and native/manual blockers remain explicit. |
+| 131 | Feedly | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; RSS subscriptions, organized feeds, smart filters, boards, AI-assisted reading gates, and native/manual blockers remain explicit. |
+| 132 | Apple News | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; topic following, publication subscriptions, top stories, widgets, News+ style bundle gates, and native/manual blockers remain explicit. |
+| 133 | The New York Times | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; sections, saved articles, audio, games entry, account/subscription gates, and native/manual blockers remain explicit. |
+| 134 | Flipboard | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; magazine feeds, topics, custom magazines, curation, publisher/content licensing, and native/manual blockers remain explicit. |
+| 135 | SmartNews | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; topic channels, offline news, breaking alerts, source balance, publisher/content licensing, and native/manual blockers remain explicit. |
+| 136 | Ground News | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; source comparison, bias/factuality orientation, blindspot feeds, subscriptions, and native/manual blockers remain explicit. |
+| 137 | Bloomberg | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; markets dashboard, watchlists, finance news, audio, subscriptions, market-data licensing, and native/manual blockers remain explicit. |
+| 138 | Yahoo Finance | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; portfolios, watchlists, quotes, news, earnings alerts, data licensing, and native/manual blockers remain explicit. |
+| 139 | Stocktwits | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; cashtag feed, sentiment, watchlists, creator rooms, social moderation, and native/manual blockers remain explicit. |
+| 140 | Public | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; social brokerage, order simulation gates, themes, disclosures, compliance, and native/manual blockers remain explicit. |
+| 141 | Acorns | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; round-ups, portfolios, family accounts, banking partner boundaries, and native/manual blockers remain explicit. |
+| 142 | Stash | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; beginner investing, Stock-Back-style card, education, retirement, compliance, and native/manual blockers remain explicit. |
+| 143 | Wealthfront | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; robo-advice, cash, bond ladder, planning, tax-loss harvesting, and native/manual blockers remain explicit. |
+| 144 | Betterment | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; goal investing, IRAs, cash reserve, ESG-style portfolios, disclosures, and native/manual blockers remain explicit. |
+| 145 | Chime | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; neobank account, overdraft, credit builder, direct deposit, partner-bank disclosures, and native/manual blockers remain explicit. |
+| 146 | Revolut | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; multi-currency wallet, transfers, cards, crypto/stocks gates, KYC/AML, and native/manual blockers remain explicit. |
+| 147 | Wise | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; multi-currency account, international transfers, card, FX transparency, compliance, and native/manual blockers remain explicit. |
+| 148 | Greenlight | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; kids debit, parental controls, chores/allowance, investing education, child privacy, and native/manual blockers remain explicit. |
+| 149 | Step | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; teen banking, secured card/credit-building framing, family controls, partner-bank disclosures, and native/manual blockers remain explicit. |
+| 150 | GoodRx | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; pharmacy prices, coupons, Gold-style subscription, telehealth/pharmacy boundaries, and native/manual blockers remain explicit. |
+| 151 | Walgreens | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; pharmacy refills, store locator, photo, shop, rewards, PHI/retail separation, and native/manual blockers remain explicit. |
+| 152 | Zocdoc | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; provider search, insurance filters, booking, reviews, intake, provider verification, and native/manual blockers remain explicit. |
+| 153 | Teladoc | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; virtual visits, scheduling, prescriptions, behavioral health, licensure, crisis routing, and native/manual blockers remain explicit. |
+| 154 | BetterHelp | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; therapist matching, sessions, worksheets/journaling, crisis routing, privacy, and native/manual blockers remain explicit. |
+| 155 | Talkspace | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; therapy/psychiatry messaging, insurance, care plans, crisis routing, PHI handling, and native/manual blockers remain explicit. |
+| 156 | Hims & Hers | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; condition intakes, prescriptions, subscriptions, fulfillment, clinical/pharmacy gates, and native/manual blockers remain explicit. |
+| 157 | Ro | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; care paths, labs, prescriptions, subscriptions, weight-loss gates, and native/manual blockers remain explicit. |
+| 158 | Oura | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; ring setup, sleep/readiness/activity, HR/temperature trends, membership, wellness disclaimers, and native/manual blockers remain explicit. |
+| 159 | Whoop | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; strap setup, recovery/strain/sleep/stress, journal, coaching, membership, and native/manual blockers remain explicit. |
+| 160 | Sleep Cycle | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; microphone sleep tracking, smart alarm, recorder, trends, sleep coach, and native/manual blockers remain explicit. |
+| 161 | Clue | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; cycle tracking, predictions, reproductive-health privacy, HealthKit/Health Connect, and native/manual blockers remain explicit. |
+| 162 | Ovia | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; fertility/pregnancy/parenting journeys, benefits integration, migration, health integrations, and native/manual blockers remain explicit. |
+| 163 | BabyCenter | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; pregnancy/baby content, tools, community, moderation, child privacy, and native/manual blockers remain explicit. |
+| 164 | Huckleberry | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; baby sleep/feeding logs, prediction windows, caregiver sharing, premium content, child privacy, and native/manual blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 
@@ -183,8 +227,12 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 - Batch 05 productivity/cloud/creator/photo/smart-home public-source V1 expansion: `090-todoist.md`, `091-trello.md`, `092-google-calendar.md`, `093-evernote.md`, `094-dropbox.md`, `095-google-drive.md`, `096-capcut.md`, `097-canva.md`, `098-lightroom.md`, `099-google-photos.md`, and `100-ring.md`.
 - Batch 06 dating public-source V1 expansion: `101-tinder.md`, `102-bumble.md`, `103-hinge.md`, `104-grindr.md`, `105-match.md`, and `106-coffee-meets-bagel.md`.
 - Batch 06 professional/jobs, real estate/rentals, neighborhood/events, and publishing public-source V1 expansion: `107-linkedin.md` through `120-substack.md`.
+- Batch 07 reading/news public-source V1 expansion: `121-wattpad.md` through `136-ground-news.md`.
+- Batch 07-08 finance/investing/banking public-source V1 expansion: `137-bloomberg.md` through `149-step.md`.
+- Batch 08 pharmacy/telehealth public-source V1 expansion: `150-goodrx.md` through `157-ro.md`.
+- Batch 08-09 wearable health, sleep, cycle, pregnancy, and baby-care public-source V1 expansion: `158-oura.md` through `164-huckleberry.md`.
 
 ## Next Steps
 
-- Continue Phase 8 Step 8.3 with IDs 121-136 (`Wattpad` through `Ground News`) as the next reading/news category slice.
+- Continue Phase 8 Step 8.3 with IDs 165-169 (`Cozi` through `Google Family Link`) as the next family organizer, family locator, and parental-controls slice.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.

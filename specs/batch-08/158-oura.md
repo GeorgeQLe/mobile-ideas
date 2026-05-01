@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Oura
 > - Category: Sleep and wellness wearable companion
-> - Readiness status: Draft 1
-> - Verification basis: source discovery of public marketplace listings, help articles, and wearable-companion disclosures pending exact URL verification.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public App Store and Play Store listings, Oura support/legal/science pages, and public wearable wellness disclosures.
 > - Manual verification blockers: ring firmware protocol, sensor fusion for sleep and temperature, HealthKit/Health Connect sync depth, and coaching content licensing require hands-on verification with a ring prototype and partners.
 > - Legal scope: lawful functional parity only; original code, brand, copy, and hardware partnerships. Not a medical device; no clinical claims.
 
@@ -12,7 +12,7 @@
 
 Build an original sleep and wellness companion app inspired by Oura: sleep, readiness, and activity scoring from a wearable ring, trends for heart rate and temperature, and coaching content. The clone requires a companion ring; this spec focuses on the mobile app.
 
-This spec is Draft 1: surfaces ready; ring pairing protocol, sensor algorithms, HealthKit/Health Connect scope, and coaching licensing remain behind hardware/content partner review.
+This spec is implementation-ready for a V1 that targets documented public behavior. Ring pairing protocol, sensor algorithms, HealthKit/Health Connect scope, firmware, membership operations, and coaching licensing remain hardware/content/manual verification blockers.
 
 ## Goals
 
@@ -34,11 +34,11 @@ This spec is Draft 1: surfaces ready; ring pairing protocol, sensor algorithms, 
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store listing | https://apps.apple.com/us/app/oura/id1043837948 | iOS feature list | Source discovery — pending exact URL verification |
-| Google Play listing | https://play.google.com/store/apps/details?id=com.ouraring.oura | Android feature list | Source discovery — pending exact URL verification |
-| Help center | https://support.ouraring.com/ | Feature references | Source discovery — pending exact URL verification |
-| Privacy and terms | https://ouraring.com/legal/privacy-policy | Data handling references | Source discovery — pending exact URL verification |
-| Science references | https://ouraring.com/science | Metric descriptions | Source discovery — pending exact URL verification |
+| Apple App Store listing | https://apps.apple.com/us/app/oura/id1043837948 | iOS listing, Sleep/Activity/Readiness scores, Apple Watch support, biometrics, privacy labels | Verified 2026-05-01 |
+| Google Play listing | https://play.google.com/store/apps/details?id=com.ouraring.oura | Android listing, wellness-device disclaimer, data-safety posture, wearable requirement | Verified 2026-05-01 |
+| Oura Help Center | https://support.ouraring.com/ | Account, ring setup, troubleshooting, membership, integrations, feature support | Verified 2026-05-01 |
+| Privacy Policy | https://ouraring.com/legal/privacy-policy | Health-data handling, privacy rights, disclosures, retention controls | Verified 2026-05-01 |
+| Oura Science | https://ouraring.com/science | Public metric framing, general wellness/science orientation, non-diagnostic posture | Verified 2026-05-01 |
 
 ## Detailed Design
 
@@ -51,6 +51,14 @@ This spec is Draft 1: surfaces ready; ring pairing protocol, sensor algorithms, 
 - Heart rate and temperature trends over time windows.
 - Coaching library with audio/video sessions.
 - Optional write to HealthKit/Health Connect; user-controlled scope.
+- Guided setup must separate account creation, ring sizing/ownership, Bluetooth permission, charger education, firmware update, and first-night baseline expectations.
+- Daily summary must show readiness, sleep, and activity cards with component breakdowns, trend deltas, missing-data states, and clear non-diagnostic wording.
+- Sleep analysis must support bedtime/wake detection, stages, timing, efficiency, latency, restfulness, overnight HR/HRV, respiratory-rate, and low-confidence nights.
+- Readiness analysis must show contributors such as HRV balance, resting HR, body temperature deviation, sleep balance, recovery index, and prior activity load without clinical claims.
+- Activity must support goals, inactivity alerts, workout import/logging, calorie/step-style metrics, recovery-balanced recommendations, and low-battery/off-wrist states.
+- Temperature features must be framed as personal baseline deviations, not fever, fertility, pregnancy, or disease diagnosis.
+- Health integrations must support read/write scope review, revocation, backfill limits, duplicate handling, and provider-specific error states.
+- Membership or subscription gates must be transparent, restoreable, cancelable, and separated from hardware ownership and account deletion.
 
 ## Core User Journeys
 
@@ -81,6 +89,10 @@ This spec is Draft 1: surfaces ready; ring pairing protocol, sensor algorithms, 
 | HealthKit/Health Connect | Scope toggle | permissions | granted | denied |
 | Account | Profile, privacy | edits | loaded | locked |
 | Support | Contact, FAQ | topic | submitted | escalated |
+| Ring Setup | Size, ownership, charger, firmware | BLE scan, firmware confirm | paired, updating | wrong ring, update failed |
+| Today Summary | Three score cards and guidance | date, score card | complete, partial | no baseline, low battery |
+| Trends | Longitudinal wellness charts | metric, range | populated | sparse history |
+| Membership | Plan, restore, billing status | restore, manage | active, expired | hardware without membership |
 
 ## Data Model
 
@@ -94,6 +106,10 @@ This spec is Draft 1: surfaces ready; ring pairing protocol, sensor algorithms, 
 - `Tag`: type, note, timestamp.
 - `CoachingAsset`: id, title, media ref.
 - `AuditEvent`: consent and scope events.
+- `WellnessBaseline`: metric, window, baseline value, confidence.
+- `FirmwareUpdate`: device id, version, state, failure reason.
+- `Membership`: plan, platform, renewal, grace-period state.
+- `IntegrationScope`: provider, read scopes, write scopes, revoked-at.
 
 ## API And Backend Contracts
 
@@ -107,6 +123,10 @@ This spec is Draft 1: surfaces ready; ring pairing protocol, sensor algorithms, 
 - `POST /integrations/healthkit/scope`.
 - `POST /account/export`, `POST /account/delete`.
 - `POST /support/cases`.
+- `GET /baselines`, `POST /baselines/recompute`.
+- `POST /workouts/import`, `POST /workouts/manual`.
+- `GET /membership`, `POST /membership/restore`, `POST /membership/cancel`.
+- `POST /integrations/health-connect/scope`, `DELETE /integrations/:id`.
 
 ## Realtime, Push, And Offline Behavior
 
@@ -146,6 +166,12 @@ This spec is Draft 1: surfaces ready; ring pairing protocol, sensor algorithms, 
 - Coaching media offline; retry or download.
 - Multiple devices per user; primary selection.
 - Account deletion with pending sync.
+- Ring is lost, replaced, or reassigned to another account.
+- First week lacks enough baseline data; all score cards show educational placeholders.
+- Health integration creates duplicate workouts or contradictory sleep sessions.
+- Temperature deviation is high; app routes to general "consult a professional" copy without diagnosis.
+- Subscription expires while local ring data continues to sync; advanced history is gated but export remains available.
+- Firmware update drains battery or disconnects; recovery flow preserves prior firmware state.
 
 ## Test Plan
 
@@ -159,6 +185,11 @@ This spec is Draft 1: surfaces ready; ring pairing protocol, sensor algorithms, 
 - Export and deletion completeness.
 - Coaching media playback.
 - Manual verification with ring hardware.
+- Health integration duplicate prevention and scope revocation tests.
+- Firmware interruption, reconnect, and rollback-state tests.
+- Membership restore/cancel/grace-period reconciliation tests.
+- Baseline formation tests for sparse data, time-zone changes, and ring-not-worn periods.
+- Privacy tests proving no raw health metrics enter push payloads, support logs, or third-party analytics.
 
 ## Acceptance Criteria
 
@@ -167,6 +198,9 @@ This spec is Draft 1: surfaces ready; ring pairing protocol, sensor algorithms, 
 - Export and deletion are user-initiated and complete.
 - HealthKit/Health Connect scope is user-controlled.
 - Manual verification blockers resolved or feature-flagged.
+- Exact source links are current or refreshed before implementation starts.
+- Wearable, firmware, HealthKit/Health Connect, membership, and coaching features are launch-flagged until partner/manual verification passes.
+- Temperature, readiness, HRV, and sleep guidance consistently use non-diagnostic wellness framing.
 
 ## Open Questions
 
@@ -178,15 +212,16 @@ This spec is Draft 1: surfaces ready; ring pairing protocol, sensor algorithms, 
 
 ## Build Plan
 
-- Phase 1: pairing, sync, home, sleep detail.
-- Phase 2: readiness and activity scoring.
-- Phase 3: HR and temperature trends.
-- Phase 4: coaching library and tagging.
-- Phase 5: HealthKit/Health Connect integration, export, delete.
-- Phase 6: privacy audit, accessibility, manual verification.
+- Phase 1: account, ring setup, BLE sync shell, firmware state machine, local encrypted cache, today summary.
+- Phase 2: sleep, readiness, activity, baseline formation, missing-data states, and trend cards.
+- Phase 3: HR/HRV, temperature deviation, workout import/logging, tags, and recovery-balanced guidance.
+- Phase 4: coaching library, membership/entitlements, notifications, support, and restore/cancel flows.
+- Phase 5: HealthKit/Health Connect scope controls, export/delete, privacy center, and analytics redaction.
+- Phase 6: hardware/firmware/manual verification, security/privacy/legal review, accessibility, and launch gates.
 
 ## Next Steps
 
 - Hardware and coaching partner RFPs.
 - Privacy counsel review and "not a medical device" disclosure review.
-- Replace discovery URLs with exact first-party URLs before implementation.
+- Select hardware, firmware, coaching, billing, and health-integration partners.
+- Complete ring pairing, firmware, sensor, HealthKit/Health Connect, membership, export/delete, and privacy manual verification before parity claims.

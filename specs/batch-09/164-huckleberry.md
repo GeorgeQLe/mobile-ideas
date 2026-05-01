@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Huckleberry
 > - Category: Baby sleep and feeding tracker
-> - Readiness status: Draft 1
-> - Verification basis: public App Store and Play Store listings and public help-center discovery. Exact URLs pending verification.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public App Store and Play Store listings, Huckleberry terms/privacy pages, and public baby-tracker/sleep-guidance disclosures.
 > - Manual verification blockers: proprietary sleep-window prediction, subscription flows, premium-feature gating, and clinical-content handling require hands-on verification.
 > - Legal scope: functional parity only; original code, brand, copy, iconography, editorial content, illustrations, and prediction models. No proprietary sleep-science content reuse.
 
@@ -31,11 +31,12 @@ Build an original mobile baby-tracking app inspired by Huckleberry: log sleep se
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/huckleberry-baby-kid-sleep/id1223615833 | Features, age rating, privacy labels | Source discovery — pending exact URL verification |
-| Google Play | https://play.google.com/store/apps/details?id=com.huckleberrylabs.app | Features, data safety | Source discovery — pending exact URL verification |
-| Huckleberry help center | https://huckleberrycare.com/help | Feature how-to | Source discovery — pending exact URL verification |
-| Huckleberry privacy policy | https://huckleberrycare.com/privacy | Data handling | Source discovery — pending exact URL verification |
-| Huckleberry sleep content | https://huckleberrycare.com/blog | Editorial tone reference | Source discovery — pending exact URL verification |
+| Apple App Store listing | https://apps.apple.com/us/app/huckleberry-baby-child/id1169136078 | Baby/child tracker, sleep guidance, premium features, category, age rating, privacy labels | Verified 2026-05-01 |
+| Google Play listing | https://play.google.com/store/apps/details?id=com.huckleberry_labs.app | Baby/child tracker, sleep guidance, SweetSpot-style nap-window behavior, data-safety section | Verified 2026-05-01 |
+| Huckleberry Site | https://www.huckleberrycare.com/ | Public product orientation, baby tracker and sleep guidance scope | Verified 2026-05-01 |
+| Huckleberry Privacy Policy | https://www.huckleberrycare.com/privacy-policy | Data handling, privacy rights, child/dependent data considerations | Verified 2026-05-01 |
+| Huckleberry Terms | https://www.huckleberrycare.com/terms-of-use | Service terms, subscription/use scope, disclaimers | Verified 2026-05-01 |
+| Huckleberry Blog | https://www.huckleberrycare.com/blog | Public parenting/sleep content orientation; original content must be independently authored | Verified 2026-05-01 |
 
 ## Detailed Design
 
@@ -47,6 +48,10 @@ Build an original mobile baby-tracking app inspired by Huckleberry: log sleep se
 - Sleep-plan content by age with disclaimers.
 - Caregiver co-parenting sharing with invite codes.
 - Export and deletion controls.
+- Sleep-window predictions must show age basis, recent-data basis, confidence, and "guidance only" copy.
+- Caregiver sharing must include owner/member roles, invite expiry, revoke flow, audit trail, and custody/dispute escalation policy.
+- Premium sleep-plan content must be original, medically reviewed where appropriate, and separated from emergency or clinical advice.
+- Child data must be excluded from advertising, third-party analytics payloads, and public sharing by default.
 
 ## Core User Journeys
 
@@ -135,6 +140,10 @@ Build an original mobile baby-tracking app inspired by Huckleberry: log sleep se
 - Push permission denied; suggest in-app alternatives.
 - Sync conflict on same sleep session from two devices.
 - Partner leaves family; data retention.
+- Twin profiles have overlapping timers; app keeps logs separate and prevents wrong-child edits.
+- Caregiver dispute or custody issue; support flow pauses new invites and documents ownership policy.
+- Prediction suggests a nap during illness; app tells caregivers to follow professional advice and child cues.
+- Premium expires; export/delete, caregiver removal, and basic logs remain available.
 
 ## Test Plan
 
@@ -146,6 +155,9 @@ Build an original mobile baby-tracking app inspired by Huckleberry: log sleep se
 - Offline tests.
 - Accessibility tests.
 - Manual verification: native timer behavior, subscription flow.
+- Multi-caregiver permission tests for invite, revoke, owner transfer, conflict, and audit trail.
+- Child-data privacy tests proving no child profile or log details enter analytics, ads, push payloads, or support logs.
+- Content safety tests for sleep plans, feeding/medication logs, illness, and professional-care routing.
 
 ## Acceptance Criteria
 
@@ -153,6 +165,8 @@ Build an original mobile baby-tracking app inspired by Huckleberry: log sleep se
 - Predictions and plan content delivered with disclaimers.
 - COPPA-style review complete.
 - Export and deletion accessible.
+- Exact source links are current or refreshed before implementation starts.
+- Sleep prediction, premium content, caregiver sharing, child data, subscription, and timer behavior are launch-flagged until manual verification passes.
 
 ## Open Questions
 
@@ -171,6 +185,6 @@ Build an original mobile baby-tracking app inspired by Huckleberry: log sleep se
 
 ## Next Steps
 
-- Verify URLs.
-- Commission COPPA-style review.
-- Define prediction model.
+- Commission COPPA-style, child-privacy, sleep-content, and accessibility review.
+- Define prediction model, caregiver data-rights policy, premium entitlement model, and regional launch matrix.
+- Complete native timer, subscription, caregiver sharing, export/delete, prediction, and child-data privacy manual verification before parity claims.

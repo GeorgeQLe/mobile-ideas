@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Sleep Cycle
 > - Category: Sleep tracking
-> - Readiness status: Draft 1
-> - Verification basis: source discovery of public marketplace listings, help articles, and sleep-tracker disclosures pending exact URL verification.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public App Store and Play Store listings, Sleep Cycle support/privacy pages, and public sleep-tracking/smart-alarm disclosures.
 > - Manual verification blockers: microphone-based sleep detection algorithms, smart-alarm wake windows, snoring detection, and cross-device sync require hands-on verification on multiple device classes.
 > - Legal scope: lawful functional parity only; original code, brand, copy, and content partnerships. Not a medical device; no clinical claims.
 
@@ -12,7 +12,7 @@
 
 Build an original sleep-tracking app inspired by Sleep Cycle: sound-based sleep analysis via the device microphone, smart alarm that wakes within a light-sleep window, trends over time, and snoring detection. The clone emphasizes local-only processing where feasible.
 
-This spec is Draft 1: surfaces ready; microphone algorithms, smart-alarm tuning, snoring analysis, and sleep-content licensing remain behind algorithm/content partner review.
+This spec is implementation-ready for a V1 that targets documented public behavior. Microphone algorithms, smart-alarm tuning, cough/snore/sleep-talk detection, AI coaching, integrations, and sleep-content licensing remain algorithm/content/manual verification blockers.
 
 ## Goals
 
@@ -34,11 +34,11 @@ This spec is Draft 1: surfaces ready; microphone algorithms, smart-alarm tuning,
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store listing | https://apps.apple.com/us/app/sleep-cycle-sleep-tracker/id320606217 | iOS feature list | Source discovery — pending exact URL verification |
-| Google Play listing | https://play.google.com/store/apps/details?id=com.northcube.sleepcycle | Android feature list | Source discovery — pending exact URL verification |
-| Help center | https://support.sleepcycle.com/ | Feature references | Source discovery — pending exact URL verification |
-| Privacy and terms | https://www.sleepcycle.com/privacy-policy/ | Data handling references | Source discovery — pending exact URL verification |
-| Methodology pages | https://www.sleepcycle.com/how-sleep-cycle-works/ | Metric descriptions | Source discovery — pending exact URL verification |
+| Apple App Store listing | https://apps.apple.com/us/app/sleep-cycle-tracker-sounds/id320606217 | iOS listing, smart alarm, microphone/accelerometer tracking, snore/cough/sleep-talk recording, Apple Health sync, privacy labels | Verified 2026-05-01 |
+| Google Play listing | https://play.google.com/store/apps/details?id=com.northcube.sleepcycle | Android listing, smart alarm, snore/sleep recorder, sleep notes, Google Fit, Wear OS, subscription features | Verified 2026-05-01 |
+| Sleep Cycle Support | https://support.sleepcycle.com/hc/en-us | Account, alarm, tracking, recorder, subscription, integrations, troubleshooting support | Verified 2026-05-01 |
+| Privacy Policy | https://www.sleepcycle.com/privacy-policy/ | Data handling, retention, user rights, terms/privacy orientation | Verified 2026-05-01 |
+| Product Site | https://www.sleepcycle.com/ | Public feature orientation, science/wellness framing, app ecosystem links | Verified 2026-05-01 |
 
 ## Detailed Design
 
@@ -51,6 +51,13 @@ This spec is Draft 1: surfaces ready; microphone algorithms, smart-alarm tuning,
 - Snoring detection with local-only audio snippet storage by default; cloud sync opt-in.
 - Sleep notes and tags.
 - Optional sleep-aid content (sounds, stories).
+- Onboarding must explain microphone/background execution, local processing defaults, charger/placement requirements, and non-diagnostic limitations.
+- Sleep recorder must classify snoring, coughing, talking, and other night sounds with confidence and user-delete controls.
+- Smart alarm must support configurable wake windows, snooze/stop behavior, fallback alarm, notification/audio failure states, and offline reliability.
+- Trends must include sleep quality, regularity, bedtime/wake time, snore/cough events, notes correlation, and baseline confidence.
+- AI/sleep-coach surfaces must avoid diagnosis, suppress advice on poor data quality, and route concerning symptoms to professional-care copy.
+- Health integrations must support Apple Health/Google Fit scope review, write conflicts, revocation, and duplicate prevention.
+- Premium content and cloud sync must be clearly gated, restoreable, and cancelable.
 
 ## Core User Journeys
 
@@ -81,6 +88,10 @@ This spec is Draft 1: surfaces ready; microphone algorithms, smart-alarm tuning,
 | Sync | Cloud sync opt-in | toggle | synced | conflict |
 | Account | Profile, privacy | edits | loaded | locked |
 | Support | Contact, FAQ | topic | submitted | escalated |
+| Recorder Review | Night sounds and events | play, classify, delete | loaded | no audio, permission revoked |
+| Coach | Personalized sleep guidance | prompt, goal | answered | medical-advice prompt |
+| Integrations | Health/Fit, lights, wearable | toggles | connected | provider outage |
+| Subscription | Premium, restore, manage | plan, restore | active | expired |
 
 ## Data Model
 
@@ -94,6 +105,10 @@ This spec is Draft 1: surfaces ready; microphone algorithms, smart-alarm tuning,
 - `SyncState`: last sync, conflicts.
 - `AuditEvent`: consent and scope events.
 - `ExportRecord`: format, range, generated-at.
+- `AudioEvent`: session id, class, confidence, local file ref, deleted-at.
+- `CoachMessage`: prompt, response, safety class, data-quality state.
+- `IntegrationScope`: provider, scopes, last sync, revoked-at.
+- `Entitlement`: plan, platform, renewal/expiry state.
 
 ## API And Backend Contracts
 
@@ -107,6 +122,10 @@ This spec is Draft 1: surfaces ready; microphone algorithms, smart-alarm tuning,
 - `POST /account/export`, `POST /account/delete`.
 - `POST /support/cases`.
 - `POST /snoring/cloud-backup` (explicit opt-in only).
+- `POST /audio-events/classify` (local metadata or opted-in cloud only).
+- `POST /coach/queries`, `GET /coach/history`.
+- `POST /integrations/health/scope`, `DELETE /integrations/:id`.
+- `GET /entitlements`, `POST /billing/restore`, `POST /billing/webhook`.
 
 ## Realtime, Push, And Offline Behavior
 
@@ -146,6 +165,12 @@ This spec is Draft 1: surfaces ready; microphone algorithms, smart-alarm tuning,
 - Smart alarm during DST fallback/spring forward.
 - Cloud-sync conflicts across devices.
 - Account deletion with local-only data; ensure local wipe.
+- Fallback alarm must fire if sleep classification crashes or OS kills the app.
+- User shares room with partner; app must avoid claiming speaker identity unless manually tagged.
+- Cough/snore spikes suggest concern; app uses wellness copy and professional-care routing only.
+- Phone not charging overnight; low-power mode warning and safe alarm fallback.
+- Wear OS/watch session conflicts with phone session; reconcile explicitly.
+- Premium expires; local deletion/export and alarm access remain available.
 
 ## Test Plan
 
@@ -159,6 +184,11 @@ This spec is Draft 1: surfaces ready; microphone algorithms, smart-alarm tuning,
 - Accessibility across reports and trends.
 - Export and deletion completeness.
 - Content playback in background audio mode.
+- Recorder classification tests for snore, cough, sleep talk, silence, and noisy rooms.
+- Fallback alarm tests when ML/classification/background execution fails.
+- Health/Fit integration scope, revocation, and duplicate-session tests.
+- Coach safety tests for medical-advice prompts, low-confidence data, and crisis phrasing.
+- Privacy tests proving audio snippets, classifications, and metrics are excluded from push/support/analytics unless explicitly consented.
 
 ## Acceptance Criteria
 
@@ -167,6 +197,9 @@ This spec is Draft 1: surfaces ready; microphone algorithms, smart-alarm tuning,
 - Export and deletion are user-initiated and complete.
 - Smart alarm reliably fires within user-set window offline.
 - Manual verification blockers resolved or feature-flagged.
+- Exact source links are current or refreshed before implementation starts.
+- Microphone, background execution, AI coach, Health/Fit, premium, and content features are launch-flagged until manual/device verification passes.
+- Sleep, cough, and snore insights consistently avoid diagnosis and treatment claims.
 
 ## Open Questions
 
@@ -178,15 +211,16 @@ This spec is Draft 1: surfaces ready; microphone algorithms, smart-alarm tuning,
 
 ## Build Plan
 
-- Phase 1: mic capture, local processing, bedtime/wake report.
-- Phase 2: smart alarm and sleep detail.
-- Phase 3: trends, notes, tags.
-- Phase 4: snoring detection with local storage.
-- Phase 5: optional cloud sync, sleep-aid content.
-- Phase 6: privacy audit, accessibility, manual verification.
+- Phase 1: onboarding, microphone/background permissions, local encrypted store, tracking session, fallback alarm, wake report.
+- Phase 2: smart alarm, sleep detail, sleep quality, audio-event recorder, local delete/rotation policy.
+- Phase 3: trends, notes/tags, coach safety shell, Health/Fit integrations, and wearable/light-provider stubs.
+- Phase 4: sleep-aid content, premium entitlements, cloud sync opt-in, conflict resolution, and billing restore.
+- Phase 5: privacy center, export/delete, analytics redaction, support tooling, and accessibility.
+- Phase 6: device/manual verification, audio ML review, privacy/legal review, content licensing, and launch gates.
 
 ## Next Steps
 
 - Audio ML and content partner RFPs.
 - Privacy counsel review of mic and audio-retention policy.
-- Replace discovery URLs with exact first-party URLs before implementation.
+- Select audio ML, sleep-content, billing, health-integration, and optional smart-light partners.
+- Complete microphone/background, smart-alarm, recorder, Health/Fit, subscription, export/delete, and privacy manual verification before parity claims.

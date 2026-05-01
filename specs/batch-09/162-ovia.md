@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Ovia
 > - Category: Fertility, pregnancy, and parenting tracker
-> - Readiness status: Draft 1
-> - Verification basis: public App Store and Play Store listings, public help-center articles, and publicly available privacy policy and benefits-program descriptions. Exact URLs pending verification.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public App Store and Play Store listings, public Ovia/Labcorp pages, privacy policy, and benefits-program descriptions.
 > - Manual verification blockers: employer-benefits integration flows, clinical-content accuracy, HealthKit/Health Connect behavior, subscription/entitlement handling, and regional availability require hands-on verification.
 > - Legal scope: functional parity only; original code, brand, copy, iconography, medical content, illustrations, and prediction models. No proprietary health-research content or trademarked program names.
 
@@ -12,7 +12,7 @@
 
 Build an original mobile health-journey tracker inspired by Ovia's three-mode workflow: fertility tracking with cycle and ovulation predictions, pregnancy tracking with week-by-week logging, and parenting tracking with child growth and development milestones. Add health-content education and optional employer-benefit program linking without copying proprietary content or branding.
 
-This spec is Draft 1: implementation-ready for a lawful V1 clone, with sensitive-health blockers requiring legal and clinical review before launch.
+This spec is implementation-ready for a lawful V1 clone, with sensitive-health blockers requiring legal and clinical review before launch.
 
 ## Goals
 
@@ -33,11 +33,12 @@ This spec is Draft 1: implementation-ready for a lawful V1 clone, with sensitive
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store — Ovia Fertility | https://apps.apple.com/us/app/ovia-fertility-cycle-tracker/id725300518 | Category, features, age rating, privacy labels | Source discovery — pending exact URL verification |
-| Google Play — Ovia Pregnancy | https://play.google.com/store/apps/details?id=com.ovuline.pregnancy | Features, data safety | Source discovery — pending exact URL verification |
-| Ovia help center | https://www.oviahealth.com/help | Feature overviews and how-to | Source discovery — pending exact URL verification |
-| Ovia privacy policy | https://www.oviahealth.com/privacy | Data handling, rights, retention | Source discovery — pending exact URL verification |
-| Ovia benefits program page | https://www.oviahealth.com/employers | Employer-benefit enrollment model | Source discovery — pending exact URL verification |
+| Apple App Store listing | https://apps.apple.com/us/app/ovia-cycle-pregnancy-tracker/id570244389 | Unified cycle/pregnancy/postpartum/perimenopause app, Apple Health/Fitbit references, employer/health-plan access, privacy labels, age rating | Verified 2026-05-01 |
+| Google Play listing | https://play.google.com/store/apps/details?id=com.ovuline.fertility | Android feature scope, unified Ovia journey model, data-safety section | Verified 2026-05-01 |
+| Legacy Pregnancy listing | https://play.google.com/store/apps/details?id=com.ovuline.pregnancy | Migration notice from legacy pregnancy app into unified Ovia app | Verified 2026-05-01 |
+| Ovia Health | https://www.oviahealth.com/ | Public product/benefits-program orientation and family-health journey scope | Verified 2026-05-01 |
+| Ovia Privacy Policy | https://www.oviahealth.com/privacy-policy/ | Data handling, benefits-program privacy, rights, retention, user controls | Verified 2026-05-01 |
+| Ovia Employers | https://www.oviahealth.com/for-employers/ | Employer/health-plan benefits model and program access context | Verified 2026-05-01 |
 
 ## Detailed Design
 
@@ -118,6 +119,9 @@ This spec is Draft 1: implementation-ready for a lawful V1 clone, with sensitive
 
 - Sensitive health data excluded from advertising and third-party analytics.
 - Employer benefit integration requires granular scope consent and revocation.
+- Employer, health-plan, and Labcorp-affiliated program surfaces must separate care navigation, benefits eligibility, and user-entered health logs.
+- Benefits administrators receive only aggregate or explicitly consented data; no pregnancy, fertility, symptom, child, or location details leave the account without granular consent.
+- Apple Health, Fitbit, and HealthKit/Health Connect-style integrations require scope-by-scope consent, revocation, duplicate handling, and data-origin labeling.
 - Post-Dobbs: minimize retention; publish LEO response policy; support data-export and deletion.
 - Clinical-content disclaimers; crisis and loss resources readily available.
 - COPPA-style review required before launch for any child-account or under-13 data handling in parenting mode.
@@ -142,6 +146,10 @@ This spec is Draft 1: implementation-ready for a lawful V1 clone, with sensitive
 - Sync conflict across devices.
 - Regional legal constraint on data retention.
 - Employer-benefit data-sharing scope change without user re-consent.
+- Legacy Ovia Pregnancy migration imports duplicate journey records; user reviews before merge.
+- User loses employer eligibility mid-pregnancy; core export/delete and safety resources remain available.
+- Fitbit/Apple Health weight or sleep values conflict with manual pregnancy logs.
+- User transitions through loss/postpartum/perimenopause; content and notifications stop insensitive reminders.
 
 ## Test Plan
 
@@ -154,6 +162,8 @@ This spec is Draft 1: implementation-ready for a lawful V1 clone, with sensitive
 - Accessibility tests: dynamic type, screen reader, color contrast.
 - Safety tests: loss copy, crisis resources.
 - Manual verification: benefit enrollment, HealthKit integration.
+- Partner-program tests for employer/health-plan eligibility, consent revocation, aggregate-only reporting, and admin access boundaries.
+- Migration tests from legacy pregnancy app accounts into unified Ovia profiles.
 
 ## Acceptance Criteria
 
@@ -162,6 +172,8 @@ This spec is Draft 1: implementation-ready for a lawful V1 clone, with sensitive
 - Employer benefit link fully consent-driven and revocable.
 - Legal and medical review complete.
 - Manual verification blockers resolved or feature-flagged.
+- Exact source links are current or refreshed before implementation starts.
+- Benefits-program, HealthKit/Fitbit, pregnancy, fertility, child profile, migration, and clinical-content flows are launch-flagged until partner/manual verification passes.
 
 ## Open Questions
 
@@ -181,6 +193,6 @@ This spec is Draft 1: implementation-ready for a lawful V1 clone, with sensitive
 
 ## Next Steps
 
-- Verify exact marketplace and help URLs.
 - Commission clinical-content and post-Dobbs legal review.
-- Define employer benefit data-sharing architecture.
+- Define employer/health-plan benefit data-sharing architecture, migration policy, and regional launch matrix.
+- Complete benefits enrollment, HealthKit/Fitbit, migration, export/delete, journey transition, and privacy manual verification before parity claims.

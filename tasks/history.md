@@ -437,3 +437,12 @@
 - Expanded category-specific risk coverage: PHI/HIPAA-adjacent posture, pharmacy/PBM coupon handling, retail pharmacy/photo/rewards separation, provider calendar and eligibility verification, clinical licensure, crisis/emergency routing, therapy/psychiatry access control, prescription/pharmacy fulfillment, lab orders/results, controlled-substance gates, minor/dependent consent, and privacy-safe notifications/analytics.
 - Validation: targeted checks found one H1 in each promoted file and no `Source discovery`, `Readiness status: Draft`, or `Replace discovery URLs` markers in the 8-file slice.
 - Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 157 implementation-ready specs and 2,597 source-discovery placeholder rows across 843 remaining files.
+
+## 2026-05-01 - Phase 8 Step 8.3 Wearable, Sleep, Cycle, Pregnancy, And Baby-Care Slice (IDs 158-164)
+
+- Promoted 7 wearable health, sleep, reproductive-health, pregnancy/parenting, and baby-care specs to implementation-ready public-source V1: `158-oura.md` through `164-huckleberry.md`.
+- Replaced source-discovery placeholders with exact public marketplace, support/help, privacy, terms, science/product, benefits, community, and content URLs verified on 2026-05-01.
+- Expanded category-specific risk coverage: health-data minimization, non-medical-device and non-diagnostic disclaimers, HealthKit/Health Connect/Fitbit/Google Fit permission scope, microphone/audio consent, reproductive-health privacy and post-Dobbs retention posture, employer/health-plan benefit boundaries, child/dependent data controls, caregiver access, notification safety, and child-directed/COPPA-style review gates.
+- Refreshed `tasks/implementation-readiness.md` to 164 of 1000 ready, added rows for IDs 121-164, and moved the next Step 8.3 slice to IDs 165-169.
+- Validation: targeted checks found one H1 in each promoted file and no `Source discovery`, `Readiness status: Draft 1`, exact-URL-pending, or discovery-replacement markers in the 7-file slice.
+- Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 164 implementation-ready specs and 2,562 source-discovery placeholder rows across 836 remaining files.

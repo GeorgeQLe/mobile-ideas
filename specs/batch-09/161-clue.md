@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Clue
 > - Category: Period and cycle tracker
-> - Readiness status: Draft 1
-> - Verification basis: public App Store and Play Store listings, public help-center articles on cycle tracking and data export, and public privacy policy discovery. Exact URLs pending verification.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public App Store and Play Store listings, public Clue support/privacy/terms pages, and public reproductive-health app disclosures.
 > - Manual verification blockers: live cycle-prediction algorithm behavior, subscription purchase/restore flows, health-data integrations with HealthKit/Health Connect, and regional availability require hands-on verification before one-for-one parity claims.
 > - Legal scope: functional parity only; original code, brand, copy, iconography, sample data, illustrations, educational content, and prediction models. No proprietary health-research content or trademarked feature names.
 
@@ -14,7 +14,7 @@ Build an original mobile menstrual-cycle tracker inspired by the Clue workflow: 
 
 The clone must not copy brand assets, research-backed content text, trademarked cycle-phase names, or proprietary prediction models. It should present comparable user jobs with original copy, original educational material, and transparent algorithmic explanations.
 
-This spec is Draft 1: implementation-ready for a lawful V1 clone, with sensitive-health blockers flagged until manual verification and legal/medical review.
+This spec is implementation-ready for a lawful V1 clone, with sensitive-health blockers flagged until manual verification and legal/medical review.
 
 ## Goals
 
@@ -36,11 +36,11 @@ This spec is Draft 1: implementation-ready for a lawful V1 clone, with sensitive
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store listing | https://apps.apple.com/us/app/clue-period-tracker-calendar/id657189652 | Category, features, privacy labels, age rating | Source discovery — pending exact URL verification |
-| Google Play listing | https://play.google.com/store/apps/details?id=com.clue.android | Feature summary, data-safety section, compatibility | Source discovery — pending exact URL verification |
-| Clue support — predictions | https://helloclue.com/help/predictions | Prediction logic overview and caveats | Source discovery — pending exact URL verification |
-| Clue privacy policy | https://helloclue.com/privacy | Data minimization, jurisdiction, user rights | Source discovery — pending exact URL verification |
-| Clue data export help | https://helloclue.com/help/export | User-initiated export and deletion | Source discovery — pending exact URL verification |
+| Apple App Store listing | https://apps.apple.com/us/app/clue-period-cycle-tracker/id657189652 | Category, cycle/fertility/perimenopause feature scope, privacy labels, age rating, non-contraceptive/medical disclaimer | Verified 2026-05-01 |
+| Google Play listing | https://play.google.com/store/apps/details?id=com.clue.android | Feature summary, period/ovulation/PMS predictions, data-safety section, Android compatibility | Verified 2026-05-01 |
+| Clue Support Center | https://support.helloclue.com/hc/en-us | Account, tracking, predictions, subscription, export/delete, and troubleshooting support | Verified 2026-05-01 |
+| Clue Privacy Policy | https://www.helloclue.com/privacy | Data minimization, GDPR posture, user rights, sharing, retention, deletion | Verified 2026-05-01 |
+| Clue Terms | https://www.helloclue.com/terms | Service scope, subscriptions, user obligations, non-medical-use framing | Verified 2026-05-01 |
 
 ## Detailed Design
 
@@ -153,6 +153,10 @@ This spec is Draft 1: implementation-ready for a lawful V1 clone, with sensitive
 - Sync conflict when device offline for weeks.
 - Passphrase forgotten; define recovery or graceful data-loss acknowledgment.
 - Regional law change requiring expanded retention control.
+- User requests deletion while pregnant, in TTC mode, or with HealthKit/Health Connect sync enabled.
+- Law-enforcement or civil-process request arrives; app follows published transparency and user-notice process where permitted.
+- Fertile-window prediction conflicts with ovulation test logs; app explains uncertainty instead of overriding user data silently.
+- User enables advertising attribution; sensitive cycle, sex, pregnancy, fertility, and location context remain excluded.
 
 ## Test Plan
 
@@ -166,6 +170,8 @@ This spec is Draft 1: implementation-ready for a lawful V1 clone, with sensitive
 - Accessibility tests: dynamic type, screen reader labels on symptom chips, color contrast on charts, reduced motion.
 - Safety tests: crisis-resource visibility, sensitive-topic copy review, not-medical-advice disclosures.
 - Manual verification: native device walkthrough, subscription purchase/restore, HealthKit/Health Connect behavior.
+- Legal/privacy review tests for reproductive-health data retention, subpoenas, user notice, and regional restrictions.
+- Medical-content tests for pregnancy loss, unusual bleeding, contraception disclaimers, fertility uncertainty, and professional-care routing.
 
 ## Acceptance Criteria
 
@@ -176,6 +182,8 @@ This spec is Draft 1: implementation-ready for a lawful V1 clone, with sensitive
 - All launch-blocking safety disclosures and crisis resources are present.
 - Legal and medical-content reviewer sign-off completed before launch.
 - Manual verification blockers resolved or feature-flagged.
+- Exact source links are current or refreshed before implementation starts.
+- Reproductive-health data, HealthKit/Health Connect, subscriptions, predictions, and regional privacy controls are launch-flagged until legal/medical/manual verification passes.
 
 ## Open Questions
 
@@ -196,6 +204,6 @@ This spec is Draft 1: implementation-ready for a lawful V1 clone, with sensitive
 
 ## Next Steps
 
-- Verify exact App Store, Play Store, and help-center URLs and refresh the Research Sources table.
 - Commission medical-content review and post-Dobbs legal review.
-- Define E2E sync architecture and passphrase-recovery policy.
+- Define E2E sync architecture, passphrase-recovery policy, transparency-report process, and regional launch matrix.
+- Complete native device, subscription, HealthKit/Health Connect, export/delete, prediction, and privacy manual verification before parity claims.

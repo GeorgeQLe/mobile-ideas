@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: BabyCenter
 > - Category: Pregnancy and parenting content/community
-> - Readiness status: Draft 1
-> - Verification basis: public App Store and Play Store listings, public help-center articles, and publicly available privacy/community guidelines. Exact URLs pending verification.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-01.
+> - Verification basis: exact public App Store and Play Store listings, BabyCenter privacy/community pages, and public pregnancy/parenting content/community disclosures.
 > - Manual verification blockers: community moderation tooling, subscription/entitlement flows, regional content availability, and child-directed content handling require hands-on verification.
 > - Legal scope: functional parity only; original code, brand, copy, iconography, editorial content, community guidelines, and illustrations. No proprietary clinical or editorial content reuse.
 
@@ -31,11 +31,11 @@ Build an original mobile pregnancy-and-parenting companion inspired by BabyCente
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/babycenter-pregnancy-baby/id436949545 | Features, category, age rating | Source discovery — pending exact URL verification |
-| Google Play | https://play.google.com/store/apps/details?id=com.babycenter.pregnancytracker | Feature list, data safety | Source discovery — pending exact URL verification |
-| BabyCenter help center | https://www.babycenter.com/help | Feature how-to and community rules | Source discovery — pending exact URL verification |
-| BabyCenter privacy policy | https://www.babycenter.com/privacy | Data handling, retention | Source discovery — pending exact URL verification |
-| BabyCenter community guidelines | https://www.babycenter.com/community-guidelines | Moderation policy | Source discovery — pending exact URL verification |
+| Apple App Store listing | https://apps.apple.com/us/app/babycenter-pregnancy-baby/id436949545 | Pregnancy/baby tracker, tools, community, category, age rating, privacy labels | Verified 2026-05-01 |
+| Google Play listing | https://play.google.com/store/apps/details?id=com.babycenter.pregnancytracker | Pregnancy tracker, baby tracker, due-date/birth-club/community/tools, data-safety section | Verified 2026-05-01 |
+| BabyCenter Help Center | https://www.babycenter.com/help | Account/help orientation, feature support, user assistance | Verified 2026-05-01 |
+| BabyCenter Privacy Policy | https://www.babycenter.com/privacy | Data handling, sharing, retention, rights, children/health data considerations | Verified 2026-05-01 |
+| BabyCenter Community Guidelines | https://www.babycenter.com/community/community-guidelines | Community participation, moderation expectations, safety boundaries | Verified 2026-05-01 |
 
 ## Detailed Design
 
@@ -144,6 +144,10 @@ Build an original mobile pregnancy-and-parenting companion inspired by BabyCente
 - Push notification to locked device shouldn't reveal sensitive content.
 - Handle collision and impersonation.
 - Over-age user in kids-adjacent group.
+- Birth-club group receives medical misinformation; moderation labels, downranks, or escalates.
+- User deletes account with active posts; retention/anonymization policy is applied and explained.
+- Sponsored product recommendation appears near pregnancy or child content; targeting is contextual only and labeled.
+- Kick counter or contraction timer suggests concern; app routes to care-professional/emergency guidance without diagnosis.
 
 ## Test Plan
 
@@ -157,6 +161,8 @@ Build an original mobile pregnancy-and-parenting companion inspired by BabyCente
 - Accessibility tests.
 - Safety tests for loss and crisis flows.
 - Manual verification of community moderation behavior on real devices.
+- Medical-content review tests for week-by-week articles, tools, pregnancy loss, postpartum mental health, and emergency routing.
+- Ad/privacy tests proving child and pregnancy data are excluded from behavioral targeting and third-party analytics.
 
 ## Acceptance Criteria
 
@@ -165,6 +171,8 @@ Build an original mobile pregnancy-and-parenting companion inspired by BabyCente
 - COPPA-style review complete; no targeted ads in child-directed content.
 - Export and deletion accessible.
 - Legal and medical review complete.
+- Exact source links are current or refreshed before implementation starts.
+- Community moderation, medical content, pregnancy tools, child data, ads, subscription, and regional privacy controls are launch-flagged until manual verification passes.
 
 ## Open Questions
 
@@ -184,6 +192,6 @@ Build an original mobile pregnancy-and-parenting companion inspired by BabyCente
 
 ## Next Steps
 
-- Verify marketplace and help URLs.
-- Commission content review and COPPA-style review.
-- Define moderation vendor or in-house model.
+- Commission content review, COPPA-style review, privacy/ad review, and community trust-and-safety review.
+- Define moderation vendor or in-house model, medical advisory workflow, contextual-ad policy, and regional launch matrix.
+- Complete community moderation, app-store, pregnancy tools, subscription, export/delete, and privacy manual verification before parity claims.
