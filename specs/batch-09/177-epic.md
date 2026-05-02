@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Epic!
 > - Category: Kids reading (books, audiobooks, videos)
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings and public help-center pages observed during source discovery.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-02.
+> - Verification basis: exact public marketplace pages, official Epic support/help pages, and public privacy/terms pages.
 > - Manual verification blockers: native capture, subscription purchase/restore, classroom login flows, offline downloads, and push payloads require hands-on verification.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, and UX. Book, audiobook, and video catalog must be licensed; no proprietary content reuse. COPPA-style review required before launch.
 
@@ -34,11 +34,11 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/epic-kids-books-reading/id719219382 | Source discovery — pending exact URL verification | Pending |
-| Google Play | https://play.google.com/store/apps/details?id=com.getepic.Epic | Source discovery — pending exact URL verification | Pending |
-| Epic Help | https://help.getepic.com | Source discovery — pending exact URL verification | Pending |
-| Epic Privacy | https://www.getepic.com/privacy | Source discovery — pending exact URL verification | Pending |
-| Epic Terms | https://www.getepic.com/termsofservice | Source discovery — pending exact URL verification | Pending |
+| Apple App Store | https://apps.apple.com/us/app/epic-kids-books-reading/id719219382 | Official iOS listing, subscription indicator, privacy labels, and public catalog/reading feature framing | Verified 2026-05-02 |
+| Google Play | https://play.google.com/store/apps/details?id=com.getepic.Epic | Official Android listing, books/audiobooks/videos, downloads, family subscription, school tier, data safety, and Families Policy indicator | Verified 2026-05-02 |
+| Epic Help Center | https://help.getepic.com/ | Official support surface for family, educator, subscription, classroom, reading, and device flows | Verified 2026-05-02 |
+| Epic Privacy Policy | https://www.getepic.com/privacy | Public privacy posture for children, families, educators, data rights, and retention | Verified 2026-05-02 |
+| Epic Terms | https://www.getepic.com/tos | Public account, subscription, school, catalog, and service terms | Verified 2026-05-02 |
 
 ## Detailed Design
 
@@ -50,6 +50,14 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - Classroom roster management for teachers.
 - Subscription for family accounts; school tier handling (inferred, verify).
 - Offline downloads.
+- Licensed catalog ingestion must represent publisher, format, age band, reading level, locale/language, license window, offline eligibility, and removal rules.
+- Search and browse must support category, subject, level, language, format, educator filters, and safe empty states.
+- Family subscription and school access must be separate entitlement modes with clear time-of-day/school-day limitations where applicable.
+- Reading tools may include read-to-me, audiobooks, dictionary/word help, quizzes, collections, assignments, and badges using original or licensed content only.
+- Teacher/classroom flows must include verified educator onboarding, roster management, assignment sharing, progress reports, and student privacy controls.
+- Push notifications must target parents/teachers for reading reminders, assignments, subscription/account events, and never include sensitive child reading details by default.
+- COPPA/FERPA-adjacent review is required for family-child profiles, school rosters, assignments, reading logs, and teacher reports.
+- Accessibility must support readable typography, read-aloud controls, captions/transcripts where applicable, audio controls, screen-reader navigation, and dyslexia-friendly display options.
 
 ## Core User Journeys
 
@@ -95,6 +103,12 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - `Badge`: id, criteria.
 - `Download`: device, item, status.
 - `Entitlement`: plan, platform, state.
+- `CatalogLicense`: publisher/provider, content scope, territory, offline rights, expiration, takedown state.
+- `Collection`: curated list, owner, audience, content items, assignment eligibility.
+- `QuizAttempt`: profile, quiz, answers, score, feedback, completed-at.
+- `VocabularyLookup`: profile, item, word, locale, shown-at, privacy-safe retention.
+- `TeacherReport`: classroom, period, reading minutes, completion, assignment status.
+- `NotificationPreference`: parent/teacher topic, channel, quiet hours.
 - `AuditEvent`: billing, privacy, profile changes.
 
 ## API And Backend Contracts
@@ -109,6 +123,11 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - `GET /entitlements`, `POST /checkout/session`, `POST /billing/restore`, `POST /billing/webhook`.
 - `POST /data-export`, `DELETE /account`.
 - `POST /support/cases`.
+- `GET /collections`, `POST /collections`, `POST /collections/:id/assign`.
+- `GET /reports/reading?profile=&range=`, `GET /reports/classroom/:id`.
+- `GET /licenses/:contentId`, `POST /catalog/takedowns`.
+- `POST /vocabulary/lookups`, `GET /badges/:profileId`.
+- `PATCH /notifications/preferences`.
 
 ## Realtime, Push, And Offline Behavior
 
@@ -148,6 +167,12 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - Classroom seat limit reached; block add with message.
 - Parental gate bypass attempts.
 - Account deletion with active classroom.
+- Family subscription allows home access but school entitlement is limited by policy/time window.
+- Publisher license expires while an item is downloaded, assigned, or mid-read.
+- Teacher assignment includes content unavailable to a student's region, level, or entitlement.
+- Reading log sync conflicts after offline reading on two devices.
+- Parent and teacher both request export/delete for the same child/student profile.
+- Dictionary, quiz, or read-to-me asset missing for a licensed book.
 
 ## Test Plan
 
@@ -160,14 +185,21 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - Offline tests.
 - Classroom-role tests (teacher vs parent permissions).
 - Manual verification: native captures, purchase/restore, offline, classroom login.
+- Catalog-license tests for territory, expiration, takedown, offline rights, and assignment restrictions.
+- Search/filter tests for age band, reading level, language, format, educator filters, and safe no-results states.
+- Reporting tests for parent dashboard, teacher classroom reports, assignment completion, and redacted exports.
+- Notification tests for parent/teacher-only payloads, reminders, quiet hours, and assignment notifications.
+- Deletion/export tests across family profiles, classroom profiles, reading logs, downloads, and license records.
+- Manual verification: native captures, purchase/restore, offline downloads, classroom login, school-day access, reading tools, and push payloads.
 
 ## Acceptance Criteria
 
-- Exact source URLs verified.
-- COPPA-style review complete.
-- Content licenses signed before launch.
-- Parental gate, subscription, classroom, and offline flows functional.
-- Accessibility confirmed.
+- Exact source links are verified and no source-discovery placeholders remain.
+- COPPA-style and FERPA-adjacent reviews are complete for family profiles, classrooms, reading logs, and educator reports.
+- Licensed catalog, search/browse, reader/player, quizzes, badges, reading logs, assignments, subscription, and offline flows work end-to-end.
+- Original UI/copy and licensed metadata/content replace all Epic branding, private catalog data, and protected assets.
+- Family subscription and educator access are clearly separated with deterministic entitlement, restore, expiry, and school-policy states.
+- Accessibility, billing, classroom, push, export/delete, and license-expiry blockers are resolved or feature-flagged.
 
 ## Open Questions
 

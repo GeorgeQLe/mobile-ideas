@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: YouTube Kids
 > - Category: Kids video
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings and public help-center pages observed during source discovery.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-02.
+> - Verification basis: exact public marketplace pages, official YouTube Kids help/privacy/terms pages, and public Google/YouTube policy pages.
 > - Manual verification blockers: native capture, parental controls, timer behavior, content moderation escalation, and push payloads require hands-on verification.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, and UX. Video catalog must be licensed or creator-submitted under original terms; no proprietary content reuse. COPPA-style review required before launch.
 
@@ -34,11 +34,11 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/youtube-kids/id936971630 | Source discovery — pending exact URL verification | Pending |
-| Google Play | https://play.google.com/store/apps/details?id=com.google.android.apps.youtube.kids | Source discovery — pending exact URL verification | Pending |
-| YouTube Kids Help | https://support.google.com/youtubekids | Source discovery — pending exact URL verification | Pending |
-| YouTube Kids Privacy Notice | https://kids.youtube.com/privacynotice | Source discovery — pending exact URL verification | Pending |
-| YouTube Kids Terms | https://kids.youtube.com/t/terms | Source discovery — pending exact URL verification | Pending |
+| Apple App Store | https://apps.apple.com/us/app/youtube-kids/id936971630 | Official iOS listing, age rating, privacy labels, and public parental-control/video feature framing | Verified 2026-05-02 |
+| Google Play | https://play.google.com/store/apps/details?id=com.google.android.apps.youtube.kids | Official Android listing, age modes, approved content, timer, watch-again, data safety, and Families Policy indicator | Verified 2026-05-02 |
+| YouTube Kids Help | https://support.google.com/youtubekids/ | Official help center for parental controls, profiles, search, approved content, timer, blocking, and reporting | Verified 2026-05-02 |
+| YouTube Kids Privacy Notice | https://kids.youtube.com/t/privacynotice | Public YouTube Kids-specific privacy notice and child-use data posture | Verified 2026-05-02 |
+| YouTube Kids Terms | https://kids.youtube.com/t/terms | Public service terms for YouTube Kids usage boundaries | Verified 2026-05-02 |
 
 ## Detailed Design
 
@@ -51,6 +51,15 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - Creator profile pages (licensed/submitted creators only).
 - Activity insights for parents (what the child watched).
 - Offline downloads for subscription tier (inferred).
+- Parent setup must choose signed-in or unsigned child profile mode, age tier, search availability, and content controls before child use where required.
+- Age modes must influence catalog eligibility, home shelves, search scope, recommendations, and reporting labels without copying YouTube taxonomy copy.
+- Approved-content-only mode must fully suppress search and recommendations outside parent-selected videos, channels, collections, or licensed equivalents.
+- Blocking must work for a video, creator/channel, or collection and take effect across home, search, watch-again, and recommendations.
+- Timer must lock the child surface at expiry and require adult action or next allowed window to resume.
+- Reporting must capture content, reason, profile context, evidence, reviewer state, and takedown/escalation decisions.
+- Video catalog must be licensed, creator-submitted, or otherwise lawfully sourced under original terms; no YouTube metadata, thumbnails, private APIs, or brand assets may be reused.
+- Commercial content and sponsorship policy must be explicit; V1 should avoid child-directed ads unless legal review separately approves a compliant model.
+- Accessibility must support captions, audio descriptions where licensed, screen-reader player controls, reduced motion, focus visibility, and TV/tablet layouts.
 
 ## Core User Journeys
 
@@ -96,6 +105,12 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - `Download`: device, video, status.
 - `Entitlement`: plan, platform, state.
 - `AuditEvent`: parental-control and privacy changes.
+- `ContentReview`: video/creator, age tier, policy labels, reviewer, decision, expiration.
+- `Report`: target, reporter profile/adult, reason, severity, review state, action.
+- `RecommendationEvent`: child profile, source shelf, opaque content ids, policy reason, redacted analytics.
+- `CommercialDisclosure`: video/creator, disclosure type, eligibility, region.
+- `PrivacyRequest`: parent request, child profile scope, export/delete state.
+- `NotificationPreference`: parent topic, channel, quiet hours.
 
 ## API And Backend Contracts
 
@@ -110,6 +125,11 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - `GET /entitlements`, `POST /checkout/session`, `POST /billing/restore`, `POST /billing/webhook`.
 - `POST /data-export`, `DELETE /account`.
 - `POST /reports` (flag a video).
+- `POST /profiles/:id/age-mode`, `PATCH /profiles/:id/search`.
+- `GET /controls/:childId`, `PATCH /controls/:childId`.
+- `POST /blocks`, `DELETE /blocks/:id`, `GET /approved-content/:childId`.
+- `POST /moderation/reviews`, `GET /moderation/queue`.
+- `POST /privacy/export`, `DELETE /profiles/:id/data`.
 
 ## Realtime, Push, And Offline Behavior
 
@@ -148,6 +168,12 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - Parental gate bypass attempts; fail-safe block.
 - Region-restricted content; geofenced catalog.
 - Account deletion with active downloads.
+- Approved-only list contains only blocked, expired, or region-unavailable videos.
+- Search is disabled but a deep link or watch-again item points to unavailable content.
+- Timer expires during casting, background playback, or offline playback.
+- Parent blocks a creator while a child is watching one of its videos.
+- Content report arrives after a video was removed, reclassified, or license-expired.
+- Commercial disclosure status changes after a video is downloaded.
 
 ## Test Plan
 
@@ -160,14 +186,21 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - Billing tests.
 - Offline tests.
 - Manual verification: native captures, parental controls, timer, purchase/restore.
+- Moderation tests for report intake, triage priority, age reclassification, takedown, and audit retention.
+- Recommendation tests for age-tier filtering, approved-only suppression, blocks, search-off state, and watch-again eligibility.
+- Privacy tests for signed-in and unsigned profiles, child data export/delete, analytics redaction, and parent controls.
+- Commercial-policy tests if any monetization exists: disclosure, region, child-directed restriction, and no behavioral targeting.
+- Notification tests for parent-only payloads, no child marketing, quiet hours, and account/security events.
+- Manual verification: native captures, parental setup, approved-only, timer, blocking, reporting, purchase/restore if downloads are paid, and push payloads.
 
 ## Acceptance Criteria
 
-- Exact source URLs verified.
-- COPPA-style review complete.
-- Content licensing/moderation pipeline in place.
-- Parental gate, timer, approved-only, and subscription flows functional.
-- Accessibility confirmed.
+- Exact source links are verified and no source-discovery placeholders remain.
+- COPPA-style child-video privacy review and content-policy review are complete.
+- Parent setup, child profiles, age modes, approved-only, search toggle, block/report, timer, video playback, activity insights, and offline/subscription states work deterministically.
+- Licensed/creator-submitted catalog, original thumbnails/copy, and original policy labels replace all YouTube branding, metadata, private APIs, and assets.
+- Moderation, commercial disclosure, privacy export/delete, analytics redaction, and parent-only notification controls are covered by tests.
+- Accessibility, native parental-control, timer, reporting, and push blockers are resolved or feature-flagged.
 
 ## Open Questions
 

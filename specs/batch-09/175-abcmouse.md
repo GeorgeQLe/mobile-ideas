@@ -3,14 +3,14 @@
 > Metadata
 > - Inspiration app: ABCmouse
 > - Category: Kids education (PreK-2 curriculum)
-> - Readiness status: Draft 1
-> - Verification basis: public App Store and Play Store listings, public help-center discovery, and publicly available privacy/terms. Exact URLs pending verification.
-> - Manual verification blockers: subscription/entitlement flows, offline content download, and parental-gate behavior require hands-on verification.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-02.
+> - Verification basis: exact public marketplace pages, official ABCmouse/Age of Learning support pages, and public privacy/terms pages.
+> - Manual verification blockers: subscription purchase/restore, trial conversion, parental gate, offline downloads, profile switching, progress reports, rewards, push payloads, and cancellation flows require lawful test accounts/devices before one-for-one native parity claims.
 > - Legal scope: functional parity only; original code, brand, copy, iconography, illustrations, characters, audio, and curriculum content. No proprietary curriculum or characters reuse.
 
 ## Overview
 
-Build an original mobile kids-education app inspired by ABCmouse: guided PreK-2 curriculum with activities, books, videos, puzzles, and songs; progress tracking; rewards; and parent dashboard. COPPA-style review required; no behavioral advertising and strict parental controls.
+Build an original mobile kids-education app inspired by ABCmouse's public workflows: parent-owned subscription/account, child profiles, age/grade learning paths, books, videos, puzzles, songs, creative play, rewards, progress reporting, and offline lessons. COPPA-style review, no child-directed behavioral advertising, and strict adult controls are launch requirements.
 
 ## Goals
 
@@ -31,22 +31,29 @@ Build an original mobile kids-education app inspired by ABCmouse: guided PreK-2 
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/abcmouse-reading-math-more/id586328581 | Features, age rating, privacy labels | Source discovery — pending exact URL verification |
-| Google Play | https://play.google.com/store/apps/details?id=mobi.ageofLearning.abcmouse | Features, data safety | Source discovery — pending exact URL verification |
-| ABCmouse help | https://help.abcmouse.com | Feature how-to | Source discovery — pending exact URL verification |
-| ABCmouse privacy | https://www.abcmouse.com/abt/privacy | Data handling, COPPA | Source discovery — pending exact URL verification |
-| ABCmouse terms | https://www.abcmouse.com/abt/termsofservice | Terms | Source discovery — pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/abcmouse-classic/id586328581 | Official iOS listing, subscription indicator, age rating, privacy labels, and classic app positioning | Verified 2026-05-02 |
+| Google Play | https://play.google.com/store/apps/details?id=com.aofl.abcmouse | Official Android listing, free daily content, subscription disclosures, data safety, and Families Policy indicator | Verified 2026-05-02 |
+| ABCmouse Support | https://support.abcmouse.com/ | Official support surface for accounts, subscriptions, child profiles, learning activities, and device issues | Verified 2026-05-02 |
+| ABCmouse Privacy Policy | https://www.ageoflearning.com/abc-privacy-current/ | Public child/privacy, data rights, and state-specific privacy posture | Verified 2026-05-02 |
+| ABCmouse Terms | https://www.ageoflearning.com/abc-tandc-current/ | Public subscription, account, cancellation, and service terms | Verified 2026-05-02 |
 
 ## Detailed Design
 
 ### Source-Backed Product Requirements
 
-- Parent-owned account with multiple child profiles.
-- Per-child curriculum pathway adaptive by age.
-- Activities across reading, math, science, art, music.
-- Rewards system with virtual tokens redeemed for in-app items (non-monetary).
-- Time controls and progress reports for parents.
-- Offline lesson download.
+- Public listings describe parent-managed learning for kids ages 2-8 with reading, math, science, music, art, social studies, read-to-me books, videos, songs, puzzles, and creative activities.
+- Parent onboarding must create an adult account, handle subscription/trial state, collect consent, and create one or more child profiles.
+- Child profiles must enter a kid-safe home without exposing adult credentials, billing, support, external links, or account deletion.
+- Learning paths must be age/grade aware, show next recommended activities, and preserve progress across devices when signed in.
+- Activity player must support original interactive games, books, read-aloud narration, videos, songs, puzzles, art activities, and completion scoring.
+- Parent dashboard must show progress summaries, subject coverage, time spent, recent activity, and profile controls without exposing raw child content unnecessarily.
+- Rewards must be non-monetary, in-app only, age-appropriate, and unable to trigger purchases or external sharing from the child surface.
+- Offline downloads must be adult-controlled, storage-aware, entitlement-aware, and cleared on profile/account deletion or subscription expiry as policy requires.
+- Subscription surfaces must disclose trial, renewal, restore, cancellation, platform ownership, and locked/free daily content states.
+- Push notifications must target parent devices for subscription, progress, and account events; no child-targeted marketing payloads.
+- Original curriculum, books, songs, videos, art, characters, and reward assets are required; no ABCmouse catalog or characters may be reused.
+- COPPA-style privacy posture must minimize child profile data, prohibit behavioral ads, isolate child analytics, and honor export/delete workflows.
+- Accessibility must cover read-aloud controls, captions where applicable, dynamic type in parent surfaces, screen-reader labels, reduced motion, and color contrast.
 
 ## Core User Journeys
 
@@ -91,6 +98,11 @@ Build an original mobile kids-education app inspired by ABCmouse: guided PreK-2 
 - `TimeRule`: child, daily limit.
 - `Entitlement`: plan, platform, state.
 - `PrivacySettings`: analytics opt-in.
+- `ContentAsset`: original/licensed media, age band, subject, license, version, offline eligibility.
+- `LearningPathState`: child, subject, current node, mastery estimate, next recommendation.
+- `ParentReport`: period, progress summaries, time totals, skill coverage, generated-at.
+- `ParentalGateAttempt`: challenge type, result, adult action, timestamp.
+- `NotificationPreference`: parent user, topic, channel, quiet hours.
 - `AuditEvent`: billing, privacy, profile changes.
 
 ## API And Backend Contracts
@@ -105,6 +117,10 @@ Build an original mobile kids-education app inspired by ABCmouse: guided PreK-2 
 - `GET /entitlements`, `POST /billing/checkout`, `POST /billing/restore`, `POST /billing/webhook`.
 - `POST /data-export`, `DELETE /account`.
 - `POST /support/cases`.
+- `GET /content/catalog`, `GET /content/:id/assets`: versioned original content delivery.
+- `POST /parent-gate/verify`: adult-gated action verification with rate limits.
+- `GET /reports/progress?child=&range=`: parent-visible progress summaries.
+- `PATCH /notifications/preferences`: parent notification controls.
 
 ## Realtime, Push, And Offline Behavior
 
@@ -139,6 +155,12 @@ Build an original mobile kids-education app inspired by ABCmouse: guided PreK-2 
 - Parental gate bypass attempts.
 - Session backgrounded mid-activity.
 - Payment method issues.
+- Free daily content rotates while a child is offline or mid-activity.
+- Parent deletes a child profile while downloads and progress sync are pending.
+- Reward balance becomes inconsistent after offline play and server reconciliation.
+- Trial expires or refund arrives while a child is in a locked lesson.
+- Platform restore reports active entitlement for a different adult account.
+- Child attempts to access billing, support, external links, or privacy pages without adult gate.
 
 ## Test Plan
 
@@ -150,13 +172,19 @@ Build an original mobile kids-education app inspired by ABCmouse: guided PreK-2 
 - Billing tests.
 - Offline tests.
 - Manual verification: parental gate, offline, subscription flow.
+- Content tests for original asset licensing flags, age/subject filtering, and versioned downloads.
+- Parent-dashboard tests for progress aggregation, multi-child isolation, and report redaction.
+- Notification tests for parent-only payloads, quiet hours, opt-in state, and subscription reminders.
+- Deletion/export tests for profile removal, account deletion, downloaded content cleanup, and audit retention.
 
 ## Acceptance Criteria
 
-- COPPA-style review complete.
-- Parental gate, subscription, and offline download functional.
-- Accessibility confirmed.
-- No ads or behavioral tracking against children.
+- Exact source links are verified and no source-discovery placeholders remain.
+- COPPA-style review is complete and child sessions contain no behavioral ads, open chat, or external links.
+- Parent account, subscription/trial/restore, child profiles, pathway, activity player, rewards, progress reports, and offline downloads work end-to-end.
+- Original or licensed curriculum/media assets are in place; no ABCmouse characters, copy, songs, videos, or course content are reused.
+- Parental gate protects billing, external links, support, privacy, downloads, and account/profile deletion.
+- Accessibility, billing, privacy/export/delete, and manual device verification blockers are either resolved or feature-flagged.
 
 ## Open Questions
 

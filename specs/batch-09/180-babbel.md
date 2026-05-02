@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Babbel
 > - Category: Language learning
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings and public help-center pages observed during source discovery.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-02.
+> - Verification basis: exact public marketplace pages, official Babbel support pages, and public privacy/terms pages.
 > - Manual verification blockers: native capture, subscription purchase/restore, speech recognition behavior, trial conversion, and push payloads require a test device/account.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, and UX. Course content must be original or licensed; no proprietary curriculum reuse.
 
@@ -34,11 +34,11 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/babbel-language-learning/id829587759 | Source discovery — pending exact URL verification | Pending |
-| Google Play | https://play.google.com/store/apps/details?id=com.babbel.mobile.android.en | Source discovery — pending exact URL verification | Pending |
-| Babbel Help | https://support.babbel.com | Source discovery — pending exact URL verification | Pending |
-| Babbel Privacy | https://about.babbel.com/en/privacy/ | Source discovery — pending exact URL verification | Pending |
-| Babbel Terms | https://about.babbel.com/en/terms/ | Source discovery — pending exact URL verification | Pending |
+| Apple App Store | https://apps.apple.com/us/app/babbel-language-learning/id829587759 | Official iOS listing, subscription indicator, privacy labels, and public lesson/review/speech feature framing | Verified 2026-05-02 |
+| Google Play | https://play.google.com/store/apps/details?id=com.babbel.mobile.android.en | Official Android listing, supported languages, ad-free/subscription framing, support contact, privacy/terms links, and data safety | Verified 2026-05-02 |
+| Babbel Help Center | https://support.babbel.com/hc/en-us | Official support surface for accounts, subscriptions, courses, lessons, speech recognition, and device support | Verified 2026-05-02 |
+| Babbel Privacy Policy | https://about.babbel.com/en/privacy/ | Public privacy posture, audio/data handling, rights, analytics, and service data use | Verified 2026-05-02 |
+| Babbel Terms | https://about.babbel.com/en/terms/ | Public account, subscription, trial, cancellation, content, and service terms | Verified 2026-05-02 |
 
 ## Detailed Design
 
@@ -51,6 +51,15 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - Daily goal and streak.
 - Subscription unlock (trial, monthly, annual, family tier as applicable).
 - Offline lesson download (optional).
+- Course content must be original or licensed and represented by target language, source locale, proficiency level, skill, grammar theme, vocabulary set, and review eligibility.
+- Placement must support skip, self-assessment, scored quiz, and later reset without overstating formal proficiency.
+- Lesson player must handle multiple exercise types: choice, matching, fill-in, listen, speak, dialogue, grammar note, and review prompt.
+- Speech recognition must request microphone consent at first use, provide non-speech alternatives, and separate pronunciation coaching from professional assessment.
+- Review manager must implement spaced repetition with due queues, streak/goal updates, offline queueing, and deterministic conflict resolution.
+- Subscription/paywall must disclose trial length, renewal, platform restore, web/mobile entitlement reconciliation, cancellation, refund, expired, and locked-content states.
+- Notifications must be opt-in and limited to goals, review reminders, subscription/account events, and privacy/security messages.
+- Minor-user handling must age-gate or route under-13 users to a separately reviewed kids flow; adult Babbel-style V1 should not collect children's data by default.
+- Accessibility must include captions/transcripts for listening, screen-reader exercise controls, keyboard/focus order, dynamic type, reduced motion, and mic-denied alternatives.
 
 ## Core User Journeys
 
@@ -94,6 +103,12 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - `Download`: device, lesson, status.
 - `Entitlement`: plan, platform, state.
 - `AnalyticsPref`: opt-in flag.
+- `PlacementResult`: user, target language, level estimate, source, reset history.
+- `VocabularyItem`: phrase/word, language, translations, audio refs, grammar tags.
+- `SpeechAttempt`: exercise, audio ref or local score, consent state, score, retention state.
+- `DialogueTurn`: lesson, speaker, prompt, expected response, audio/caption refs.
+- `NotificationPreference`: topic, channel, quiet hours, opt-in state.
+- `PrivacyRequest`: export/delete/access request, fulfillment state, subscription/account linkage.
 - `AuditEvent`: billing, privacy, profile changes.
 
 ## API And Backend Contracts
@@ -108,6 +123,11 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - `GET /entitlements`, `POST /checkout/session`, `POST /billing/restore`, `POST /billing/webhook`.
 - `POST /data-export`, `DELETE /account`.
 - `POST /support/cases`.
+- `POST /placement/start`, `POST /placement/answer`, `POST /placement/reset`.
+- `GET /vocabulary/:id`, `GET /dialogues/:id`.
+- `POST /speech/consent`, `DELETE /speech/audio/:id`.
+- `PATCH /notifications/preferences`.
+- `GET /privacy/settings`, `PATCH /privacy/settings`.
 
 ## Realtime, Push, And Offline Behavior
 
@@ -147,6 +167,13 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - Trial expired mid-session; friendly gate.
 - Timezone change affects streak.
 - Account deletion with active subscription.
+- User changes target language, source language, or proficiency level after completing lessons.
+- Speech score differs materially between on-device and cloud scoring paths.
+- Trial starts on web but mobile platform restore cannot see it immediately.
+- Review queue is completed offline on two devices and syncs out of order.
+- Daily streak crosses timezone, travel, daylight-saving, or offline boundaries.
+- Downloaded lesson pack contains content retired, corrected, or relicensed by curriculum team.
+- Minor user fails age gate or parent account attempts to add a child profile to adult product.
 
 ## Test Plan
 
@@ -159,14 +186,22 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - Accessibility tests (dynamic type, captions, reduced motion).
 - Speech fallback tests (mic denied, scoring outage).
 - Manual verification: native captures, purchase/restore, speech exercise, push payloads.
+- Placement tests for skip, self-assessment, scored quiz, reset, and level/course mapping.
+- Content tests for original/licensed lesson assets, grammar notes, dialogue audio/captions, and locale fallback.
+- Speech tests for consent, mic denied, on-device fallback, cloud outage, retention deletion, and score determinism.
+- Subscription tests for trial, paid, expired, canceled, refund, restore, web/mobile reconciliation, and webhook duplicate states.
+- Notification tests for opt-in reminders, quiet hours, no sensitive payloads, and subscription/security topics.
+- Privacy tests for audio retention, analytics opt-out, export/delete, account deletion with subscription, and minor age gate.
+- Manual verification: native captures, purchase/restore, speech recognition, trial conversion, cancellation, offline lessons, and push payloads.
 
 ## Acceptance Criteria
 
-- Exact source URLs verified.
-- Original or licensed course content in place.
-- Mic consent, speech scoring, and subscription flows behave deterministically.
-- Accessibility confirmed.
-- Manual verification blockers resolved or feature-flagged.
+- Exact source links are verified and no source-discovery placeholders remain.
+- Original or licensed courses, lesson media, vocabulary, audio, dialogue, and grammar content are in place.
+- Onboarding, placement, course path, lesson player, review manager, speech recognition, goals/streaks, subscription/trial/restore, and offline downloads work end-to-end.
+- Microphone consent, audio retention/deletion, analytics redaction, minor age gate, and privacy export/delete are deterministic and tested.
+- Accessibility covers listening/speech alternatives, captions/transcripts, screen readers, dynamic type, focus order, and reduced motion.
+- Manual verification blockers for purchase/restore, speech, trial conversion, cancellation, offline behavior, and push payloads are resolved or feature-flagged.
 
 ## Open Questions
 

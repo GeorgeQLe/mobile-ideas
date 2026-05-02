@@ -1,15 +1,15 @@
 # Implementation Readiness Gate
 
 Created: 2026-04-16
-Updated: 2026-05-01
+Updated: 2026-05-02
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-169.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-180.
 
-Current readiness count: 169 of 1000.
+Current readiness count: 180 of 1000.
 
-Step 8.3 remains open for IDs 170-1000. A 2026-05-01 post-slice audit found 2,537 source-discovery placeholder rows across 831 files: 137 rows in IDs 170-200 and 300 rows per 100-ID range from 201-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 181-1000. A 2026-05-02 post-slice audit found 2,482 source-discovery placeholder rows across 820 files: 82 rows in IDs 181-200 and 300 rows per 100-ID range from 201-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -196,6 +196,17 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 167 | Bark | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; parental monitoring, screen time, filtering, child disclosure, alert redaction, no covert monitoring, crisis guidance, and native/manual blockers remain explicit. |
 | 168 | Qustodio | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; parental controls, device rules, reports, child app disclosure, platform capability limits, location, guardian roles, and native/manual blockers remain explicit. |
 | 169 | Google Family Link | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; supervised accounts, app/purchase approvals, screen time, location, platform limitations, stop-supervision, child privacy, and native/manual blockers remain explicit. |
+| 170 | ClassDojo | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; classroom stories, messaging, portfolios, feedback points, FERPA/student-data posture, and native/manual blockers remain explicit. |
+| 171 | Remind | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; class announcements, two-way school messaging, translation, SMS/telecom consent, attendance alerts, and native/manual blockers remain explicit. |
+| 172 | Canvas Student | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; LMS courses, assignments, submissions, grades, discussions, calendar, institution SSO, and native/manual blockers remain explicit. |
+| 173 | Google Classroom | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; class stream, assignments, grading, Drive integration, guardian summaries, school account boundaries, and native/manual blockers remain explicit. |
+| 174 | ScratchJr | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; block-based kids coding, local projects, paint/sound/photo permissions, parent-gated export, COPPA-style review, and native/manual blockers remain explicit. |
+| 175 | ABCmouse | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; parent subscription, child profiles, curriculum activities, rewards, offline downloads, COPPA-style review, and native/manual blockers remain explicit. |
+| 176 | Khan Academy Kids | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; free PreK-2 learning paths, stories/videos, parent/teacher surfaces, offline downloads, no-ads child privacy, and native/manual blockers remain explicit. |
+| 177 | Epic! | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; licensed kids books/audiobooks/videos, family subscriptions, educator classrooms, reading logs, COPPA/FERPA-adjacent review, and native/manual blockers remain explicit. |
+| 178 | YouTube Kids | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; child video profiles, age modes, approved-only controls, timer, reporting, moderation, COPPA-style review, and native/manual blockers remain explicit. |
+| 179 | PBS Kids | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; licensed kids video catalog, live stream, downloads, games, region/license controls, COPPA-style review, and native/manual blockers remain explicit. |
+| 180 | Babbel | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; language courses, placement, review manager, speech recognition, subscriptions, mic/audio privacy, and native/manual blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 
@@ -239,5 +250,5 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 
 ## Next Steps
 
-- Continue Phase 8 Step 8.3 with IDs 170-173 (`ClassDojo` through `Remind`) as the next school communication, classroom management, and LMS slice.
+- Continue Phase 8 Step 8.3 with IDs 181-185 (`Rosetta Stone` through `Otter.ai`) as the next language learning, translation, and transcription slice.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.

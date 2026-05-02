@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: PBS Kids
 > - Category: Kids TV (video and games)
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings and public help-center pages observed during source discovery.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-02.
+> - Verification basis: exact public marketplace pages, official PBS/PBS KIDS help pages, and public privacy/terms pages.
 > - Manual verification blockers: native capture, live-stream behavior, game load performance, and push payloads require hands-on verification.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, and UX. Show catalog must be licensed; no proprietary content reuse. COPPA-style review required before launch.
 
@@ -34,11 +34,11 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/pbs-kids-video/id394449504 | Source discovery — pending exact URL verification | Pending |
-| Google Play | https://play.google.com/store/apps/details?id=org.pbskids.video | Source discovery — pending exact URL verification | Pending |
-| PBS Kids Help | https://pbskids.org/help | Source discovery — pending exact URL verification | Pending |
-| PBS Privacy | https://www.pbs.org/about/policies/privacy-policy/ | Source discovery — pending exact URL verification | Pending |
-| PBS Terms | https://www.pbs.org/about/policies/terms-of-use/ | Source discovery — pending exact URL verification | Pending |
+| Apple App Store | https://apps.apple.com/us/app/pbs-kids-video/id435138734 | Official iOS listing, live/on-demand/download positioning, age rating, privacy labels, and language/caption support | Verified 2026-05-02 |
+| Google Play | https://play.google.com/store/apps/details?id=org.pbskids.video | Official Android listing, live TV, 600+ episodes, clips, downloads, Spanish/captions, geographic/download restrictions, and data safety | Verified 2026-05-02 |
+| PBS KIDS Help | https://pbskids.org/help | Official help surface for kids/caregiver app support and PBS KIDS service orientation | Verified 2026-05-02 |
+| PBS Privacy Policy | https://www.pbs.org/about/policies/privacy-policy/ | Public privacy posture for PBS services, children, data use, and rights | Verified 2026-05-02 |
+| PBS Terms | https://www.pbs.org/about/policies/terms-of-use/ | Public service, content, geographic, and usage terms | Verified 2026-05-02 |
 
 ## Detailed Design
 
@@ -51,6 +51,14 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - Game library with simple interactive games.
 - Parental gate for adult settings and station change.
 - Offline download (optional).
+- V1 must model no-login video access with local-first preferences and minimal data collection by default.
+- Catalog browse must group licensed shows, episodes, clips, movies, live channel, and games without copying PBS show titles, character art, logos, descriptions, or video assets.
+- Live stream must expose now-playing, schedule, geolocation/region eligibility, stream outage, and fallback-to-on-demand states.
+- Download support must respect show-specific eligibility, region restrictions, storage, license expiry, and caregiver controls.
+- Grownups/adult surface must be gated and include local station selection, schedule, learning goals, accessibility settings, privacy notice, support, and external links.
+- Sponsorship/funding-message policy must be reviewed; V1 should use no child-targeted ads and should keep any adult/caregiver links gated.
+- Games must load original/licensed bundles in a sandbox with performance, crash, audio, and offline states.
+- Accessibility must include English/Spanish captions where licensed, audio description where available, screen-reader controls, focus states, reduced motion, and large-screen support.
 
 ## Core User Journeys
 
@@ -94,6 +102,12 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - `Preferences`: captions, AD, autoplay.
 - `PrivacySettings`: analytics opt-in (off by default).
 - `AuditEvent`: caregiver-initiated changes (local).
+- `ContentLicense`: provider, territory, format, download eligibility, expiration, takedown state.
+- `ScheduleItem`: live channel, start/end, title, metadata, station/region.
+- `CaptionTrack`: episode, locale, format, availability, sync status.
+- `SponsorMessage`: content, disclosure, region, adult-review state.
+- `GameSession`: game, device, progress, crash state, local save.
+- `SupportCase`: caregiver contact, issue, device/app version, redaction state.
 
 ## API And Backend Contracts
 
@@ -106,6 +120,11 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - `GET /preferences`, `PATCH /preferences`.
 - `POST /privacy/clear-local`.
 - `POST /support/cases`.
+- `GET /catalog?region=`, `GET /shows/:id/episodes`, `GET /clips/:id`.
+- `GET /licenses/:contentId`, `POST /catalog/takedowns`.
+- `GET /captions/:episodeId`, `GET /audio-description/:episodeId`.
+- `GET /sponsor-messages?content=`, `GET /learning-goals/:showId`.
+- `POST /games/:id/session`, `PATCH /games/:id/session/:sessionId`.
 
 ## Realtime, Push, And Offline Behavior
 
@@ -143,6 +162,12 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - Parental gate bypass attempts.
 - Autoplay disabled via accessibility settings.
 - Deep link to expired episode.
+- User outside licensed territory opens app, live stream, downloaded item, or deep link.
+- Local station is unavailable, ambiguous by ZIP/region, or changes schedule feed.
+- Downloaded episode loses license while device is offline.
+- Live stream schedule and video stream disagree on now-playing.
+- Sponsor/funding message is unavailable, disallowed in a region, or fails to load.
+- Game bundle crashes or hangs on low-memory devices.
 
 ## Test Plan
 
@@ -153,15 +178,21 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - Accessibility tests (captions, AD, dynamic type, reduced motion).
 - Offline tests.
 - Manual verification: native captures, live stream, parental gate, download.
+- License/region tests for on-demand, live stream, downloads, takedowns, and expired content.
+- Schedule tests for now-playing, station changes, stream outage fallback, and schedule feed failures.
+- Caption/audio-description tests for availability, locale selection, sync, and missing-track states.
+- Game tests for sandbox loading, crash recovery, audio focus, input, offline, and memory limits.
+- Privacy tests for no account requirement, local-first history, data clearing, sponsor disclosures, and no behavioral child tracking.
+- Manual verification: native captures, live stream, downloads, station picker, game load performance, captions/AD, parental gate, and push payloads.
 
 ## Acceptance Criteria
 
-- Exact source URLs verified.
-- COPPA-style review complete.
-- Content licenses in place.
-- Parental gate, live, on-demand, and games functional.
-- Accessibility confirmed.
-- No ads or behavioral tracking against children.
+- Exact source links are verified and no source-discovery placeholders remain.
+- COPPA-style review is complete; no login, behavioral ads, open chat, or unnecessary child data collection is required.
+- Licensed catalog, show/episode browse, live stream, schedule, captions/AD, station picker, downloads, games, and caregiver settings work end-to-end.
+- Original/licensed content and original UI/copy replace all PBS KIDS branding, shows, characters, screenshots, and catalog metadata.
+- Region, license, sponsorship/funding-message, privacy clearing, support, and accessibility states are deterministic.
+- Native live-stream, download, game-performance, caption/AD, and push blockers are resolved or feature-flagged.
 
 ## Open Questions
 

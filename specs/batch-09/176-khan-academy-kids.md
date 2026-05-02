@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Khan Academy Kids
 > - Category: Kids learning (PreK-2)
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings and public help-center pages observed during source discovery.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-02.
+> - Verification basis: exact public marketplace pages, official Khan Academy Kids/support pages, and public privacy/terms pages.
 > - Manual verification blockers: native capture, offline content download, parental-gate behavior, and push payloads require hands-on verification.
 > - Legal scope: functional parity only; use original code, brand, copy, iconography, illustrations, characters, audio, and curriculum content. No proprietary curriculum or characters reuse. COPPA-style review required before launch.
 
@@ -34,11 +34,11 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/app/khan-academy-kids/id1378467217 | Source discovery — pending exact URL verification | Pending |
-| Google Play | https://play.google.com/store/apps/details?id=org.khankids.android | Source discovery — pending exact URL verification | Pending |
-| Khan Academy Kids Help | https://support.khankids.org | Source discovery — pending exact URL verification | Pending |
-| Khan Academy Privacy | https://www.khanacademy.org/about/privacy-policy | Source discovery — pending exact URL verification | Pending |
-| Khan Academy Terms | https://www.khanacademy.org/about/tos | Source discovery — pending exact URL verification | Pending |
+| Apple App Store | https://apps.apple.com/us/app/khan-academy-kids/id1378467217 | Official iOS listing, age rating, free/ad-free positioning, privacy labels, and public feature framing | Verified 2026-05-02 |
+| Google Play | https://play.google.com/store/apps/details?id=org.khankids.android | Official Android listing, Teacher Approved badge, free/no ads/no subscriptions framing, activities/books/videos, and data safety | Verified 2026-05-02 |
+| Khan Academy Kids Support | https://support.khankids.org/ | Official help center for families, teachers, account/profile, lessons, and device support | Verified 2026-05-02 |
+| Khan Academy Privacy Policy | https://www.khanacademy.org/about/privacy-policy | Public privacy posture, child/account data handling, rights, and service boundaries | Verified 2026-05-02 |
+| Khan Academy Terms | https://www.khanacademy.org/about/tos | Public usage, account, content, and service terms | Verified 2026-05-02 |
 
 ## Detailed Design
 
@@ -51,6 +51,13 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - Time controls and progress reports for parents.
 - Offline download of lessons.
 - Fully free (no IAP exposed to child); optional parent-side donations.
+- Parent/teacher surfaces must stay separate from the child surface and protect account, privacy, support, and external-link actions behind adult gates.
+- Lesson recommendations must be explainable enough for caregivers and teachers to understand progression without exposing sensitive child profiling.
+- Original or licensed books, videos, characters, music, and learning activities are required; public references to partner content are evidence of content types, not reusable assets.
+- Teacher/classroom use must support roster, class code, assignment/progress visibility, and school-data retention controls only after hands-on account verification.
+- Microphone or speech-practice features are optional and must default to explicit consent, local processing where possible, and no raw-audio analytics.
+- Offline downloads must be adult-controlled, versioned, storage-aware, and reconciled with progress sync on reconnect.
+- Accessibility must cover read-aloud controls, captions, screen-reader labels, large targets, reduced motion, and high-contrast child UI.
 
 ## Core User Journeys
 
@@ -93,6 +100,12 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - `Download`: device, activity, status.
 - `TimeRule`: child, daily limit.
 - `PrivacySettings`: analytics opt-in (parent-set, off by default for child).
+- `TeacherUser`: verified educator identity, class ownership, support state.
+- `Classroom`: teacher, roster, class code, assignments, retention policy.
+- `Assignment`: classroom, activity/story set, due window, assigned children.
+- `ContentAsset`: original/licensed activity/book/video/audio asset, age band, locale, version.
+- `ParentReport`: generated progress summary, period, skill coverage, redaction state.
+- `ConsentRecord`: parent/teacher consent, child scope, feature, effective window.
 - `AuditEvent`: privacy, profile, settings changes.
 
 ## API And Backend Contracts
@@ -106,6 +119,11 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - `GET /time-rules`, `PATCH /time-rules`.
 - `POST /data-export`, `DELETE /account`.
 - `POST /support/cases`.
+- `POST /teachers/session`, `POST /classrooms`, `POST /classrooms/:id/roster`, `POST /classrooms/:id/assignments`.
+- `GET /reports/progress?child=&range=`, `GET /reports/classroom/:id`.
+- `GET /content/catalog`, `GET /content/:id/assets`.
+- `PATCH /settings/privacy`, `PATCH /notifications/preferences`.
+- `POST /consents`, `DELETE /consents/:id`.
 
 ## Realtime, Push, And Offline Behavior
 
@@ -144,6 +162,12 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - Session backgrounded mid-activity; resume.
 - Microphone permission denied during speech activity.
 - Account deletion with active downloads.
+- Teacher roster import conflicts with parent-owned child profiles.
+- Child switches profile during an adaptive recommendation update.
+- Free content service outage on first launch; app must show cached/offline fallback where available.
+- Donation or external support link is tapped from child surface; adult gate blocks it.
+- Speech-practice audio capture starts while microphone permission is revoked or shared by another app.
+- Classroom assignment is removed while child is offline completing it.
 
 ## Test Plan
 
@@ -155,14 +179,20 @@ This spec is implementation-ready for a V1. Unverified behaviors must ship behin
 - Offline tests for downloaded play and progress sync.
 - Parental-gate tests.
 - Manual verification: native captures, offline, parental gate, progress digests.
+- Classroom tests for teacher signup, roster/class code, assignment, progress visibility, and child/parent isolation.
+- Content tests for original/licensed asset metadata, age filters, locale fallback, and versioned download refresh.
+- Consent tests for child profile creation, teacher classroom use, microphone/speech, notifications, export, and deletion.
+- Notification tests for parent/teacher-only payloads and no child-directed marketing.
+- Manual verification: native captures, offline, parental gate, classroom flows, teacher progress views, push payloads, and any speech practice.
 
 ## Acceptance Criteria
 
-- Exact source URLs verified.
-- COPPA-style review complete and documented.
-- Parental gate, offline download, and progress reporting functional.
-- Accessibility confirmed.
-- No ads or behavioral tracking against children.
+- Exact source links are verified and no source-discovery placeholders remain.
+- COPPA-style review is complete and documented; no ads, subscriptions, open chat, or behavioral tracking target children.
+- Parent/teacher account, child profile, adaptive pathway, activity/story/video library, progress reporting, and offline download flows work end-to-end.
+- Original or licensed curriculum, characters, stories, videos, music, and learning assets replace all protected Khan Academy Kids content.
+- Parental/adult gates protect external links, support, privacy, donations, teacher setup, exports, and deletion.
+- Accessibility, classroom, push, offline, and speech-practice blockers are resolved or feature-flagged with dated evidence.
 
 ## Open Questions
 

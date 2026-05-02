@@ -1,5 +1,13 @@
 # History
 
+## 2026-05-02 - Step 8.3 Kids Education, Video, And Language Readiness Slice
+
+- Promoted the next Phase 8 Step 8.3 slice, IDs 174-180 (`ScratchJr` through `Babbel`), from Draft 1 to implementation-ready public-source V1.
+- Replaced Research Sources placeholder rows with exact public marketplace, official product/support/help, privacy, terms, and child/video/language-learning source URLs as applicable. Every promoted source row is marked `Verified 2026-05-02`.
+- Preserved manual blockers for native tablet gestures, project import/export, camera/photo/microphone insertion, subscription purchase/restore, trial conversion, parental gates, classroom/teacher accounts, offline downloads, licensed content, live/video behavior, speech recognition, push payloads, and real account/device behavior.
+- Added category risk coverage for COPPA/child-directed design, parent dashboards and consent, no behavioral advertising to children, child profile minimization, classroom/school privacy, licensed books/video/curriculum, age-tiered video controls, moderation/reporting, region/license restrictions, speech/audio retention, minor age gates, and data export/delete.
+- Updated readiness/audit docs. Post-slice `node scripts/check-implementation-readiness.mjs` reports 180 implementation-ready specs and 2,482 remaining source-discovery placeholder rows across 820 unpromoted files. The command exits nonzero by design until all IDs 101-1000 are promoted.
+
 ## 2026-05-02 - Step 8.3 School Communication And LMS Readiness Slice
 
 - Promoted the next Phase 8 Step 8.3 slice, IDs 170-173 (`ClassDojo` through `Google Classroom`), from Draft 1 to implementation-ready public-source V1.
