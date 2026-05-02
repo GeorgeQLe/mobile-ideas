@@ -1,5 +1,13 @@
 # History
 
+## 2026-05-02 - Step 8.3 School Communication And LMS Readiness Slice
+
+- Promoted the next Phase 8 Step 8.3 slice, IDs 170-173 (`ClassDojo` through `Google Classroom`), from Draft 1 to implementation-ready public-source V1.
+- Replaced Research Sources placeholder rows with exact public marketplace, official help/support, privacy, terms, education privacy, and API/documentation URLs as applicable. Every promoted source row is marked `Verified 2026-05-02`.
+- Preserved manual blockers for teacher/admin onboarding, district/school agreements, roster import, parent/student invites, SMS delivery and carrier opt-out, institution SSO, LMS submissions/quizzes, cloud storage integrations, guardian summaries, subscription restore, translation behavior, production push payloads, offline downloads, and real account/device behavior.
+- Added category risk coverage for FERPA/student-data posture, COPPA-style review, no student advertising, school account boundaries, teacher/parent/student role separation, classroom media consent, message/comment moderation, guardian/custody controls, SMS/telecom consent, LMS tenant isolation, cloud OAuth scopes, support redaction, and data export/delete through school policy.
+- Validation: targeted `rg -n "Source discovery|Readiness status" specs/batch-09/17{0,1,2,3}-*.md` showed implementation-ready status for all four promoted specs and no source-discovery placeholders. Post-slice `node scripts/check-implementation-readiness.mjs` reports 173 implementation-ready specs and 2,517 remaining source-discovery placeholder rows across 827 unpromoted files. The command exits nonzero by design until all IDs 101-1000 are promoted.
+
 ## 2026-05-01 - Step 8.3 Family And Parental Controls Readiness Slice
 
 - Promoted the next Phase 8 Step 8.3 slice, IDs 165-169 (`Cozi` through `Google Family Link`), from Draft 1 to implementation-ready public-source V1.
