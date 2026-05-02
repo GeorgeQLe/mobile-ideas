@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: DeepL
 > - Category: Translation
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings and help articles — pending exact URL verification.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-02.
+> - Verification basis: exact public App Store listing, official DeepL support articles, privacy policy, and terms.
 > - Manual verification blockers: native document translation flow, glossary enforcement on device, subscription purchase/restore, and accessibility passes still require a test device.
 > - Legal scope: functional parity only; use original UI, original branding, and a licensed MT engine.
 
@@ -33,10 +33,11 @@ The clone must not copy DeepL branding, model outputs, iconography, or glossary 
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store listing | https://apps.apple.com/us/app/deepl-translate/id1552407475 | iOS listing, privacy labels | Source discovery — pending exact URL verification |
-| Google Play listing | https://play.google.com/store/apps/details?id=com.deepl.mobiletranslator | Android listing, data safety | Source discovery — pending exact URL verification |
-| DeepL Help Center | https://support.deepl.com/ | Documents, glossaries, Pro | Source discovery — pending exact URL verification |
-| DeepL Privacy Policy | https://www.deepl.com/en/privacy | Personal data, enterprise | Source discovery — pending exact URL verification |
+| Apple App Store listing | https://apps.apple.com/us/app/deepl-translate/id1552407475 | iOS listing, 100+ language framing, camera/photo/speech/text/file translation, alternatives, favorites, history, transliteration, glossary, tone, handwriting, DeepL Write, and accessibility labels | Verified 2026-05-02 |
+| DeepL Translator help | https://support.deepl.com/hc/en-us/articles/360019924399-About-DeepL-Translator | Supported platforms, text/document/glossary/image/formality/dictionary/clarify/alternatives, API and integration surface | Verified 2026-05-02 |
+| DeepL mobile file translation | https://support.deepl.com/hc/en-us/articles/4408409154322-Translate-text-from-documents | Mobile file translation requirements, account requirement, file types, plan limits, translated-file overview, and accuracy limitations for difficult text | Verified 2026-05-02 |
+| DeepL Privacy Policy | https://www.deepl.com/en/privacy | Translation/account data, product telemetry, retention, rights, and organizational privacy posture | Verified 2026-05-02 |
+| DeepL Terms | https://www.deepl.com/en/pro-license | Account, plan, paid-feature, acceptable-use, and service contract boundaries | Verified 2026-05-02 |
 
 ## Detailed Design
 
@@ -47,6 +48,13 @@ The clone must not copy DeepL branding, model outputs, iconography, or glossary 
 - Glossary entries must be enforced per language pair.
 - Alternative translations must be browsable and clickable to replace inline.
 - Subscription state must include free, trial, paid, expired, restored, and web-managed.
+- Mobile file translation must require an account, support .pdf/.docx/.ppt inputs where licensed by the clone, expose plan-count usage, and block unsupported files before upload.
+- Glossary is not supported for mobile file translation per official help; V1 must make that limitation explicit instead of silently ignoring glossary terms.
+- The App Store listing verifies real-time camera translation, imported photo translation, dictation, text-to-speech, quick detection while typing, alternatives, favorites, history, transliteration, glossary, formal/informal tone, handwriting on iPad, and writing suggestions.
+- DeepL Write-style suggestions must be modeled separately from translation, with original copy, grammar/style suggestions, and clear data retention.
+- Enterprise/team glossary and usage analytics must be feature-flagged until team account, admin, and billing behavior are manually verified.
+- Accessibility coverage must include VoiceOver, Voice Control, larger text, dark interface, keyboard focus, and screen-reader labels for language swap, camera, mic, file, favorite, and history controls.
+- Low-quality OCR cases such as small, badly lit, handwritten, or stylized text must produce low-confidence warnings and user correction paths.
 
 ## Core User Journeys
 

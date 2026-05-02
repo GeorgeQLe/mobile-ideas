@@ -1,17 +1,17 @@
 # Spec Quality Audit
 
 Created: 2026-04-16
-Updated: 2026-05-01
+Updated: 2026-05-02
 
 ## Verdict
 
-The 180 technical specs for IDs 001-180 pass the Draft 1 structural and public-source V1 depth gate. Phase 3 implementation-readiness upgrades replaced discovery sources with exact first-party URLs for IDs 001-100, and Phase 8 Step 8.3 has promoted IDs 101-180.
+The 185 technical specs for IDs 001-185 pass the Draft 1 structural and public-source V1 depth gate. Phase 3 implementation-readiness upgrades replaced discovery sources with exact first-party URLs for IDs 001-100, and Phase 8 Step 8.3 has promoted IDs 101-185.
 
-Phase 7 Step 7.2 (2026-04-21) rewrote all 100 IDs 101-200 placeholders into canonical Draft 1 specs. They now meet the Draft 1 structural and depth gates: one H1, full metadata block, all 18 canonical sections with substantive non-TODO content, ~150-220 lines per file, and category-specific risk notes. IDs 101-180 now meet the implementation-readiness gate. IDs 181-200 still use plausible discovery URLs marked "Source discovery — pending exact URL verification" and do NOT yet meet the implementation-readiness gate. Phase 8 Step 8.3 will replace discovery URLs with exact first-party URLs, distinguish verified vs inferred behavior, expand depth to public-source V1, and complete category risk reviews across IDs 181-1000.
+Phase 7 Step 7.2 (2026-04-21) rewrote all 100 IDs 101-200 placeholders into canonical Draft 1 specs. They now meet the Draft 1 structural and depth gates: one H1, full metadata block, all 18 canonical sections with substantive non-TODO content, ~150-220 lines per file, and category-specific risk notes. IDs 101-185 now meet the implementation-readiness gate. IDs 186-200 still use plausible discovery URLs marked "Source discovery — pending exact URL verification" and do NOT yet meet the implementation-readiness gate. Phase 8 Step 8.3 will replace discovery URLs with exact first-party URLs, distinguish verified vs inferred behavior, expand depth to public-source V1, and complete category risk reviews across IDs 186-1000.
 
 The IDs 001-100 specs are not final one-for-one clone specs because hands-on verification remains blocked for native, paid, account, hardware, support, and regional flows.
 
-Step 8.3 post-slice audit on 2026-05-02 confirmed the current full-scope state: 180 implementation-ready specs, 820 Draft 1 specs, and 2,482 source-discovery placeholder rows across IDs 181-1000. The remaining 82 placeholder rows in the 101-200 range apply to IDs 181-200.
+Step 8.3 post-slice audit on 2026-05-02 confirmed the current full-scope state: 185 implementation-ready specs, 815 Draft 1 specs, and 2,461 source-discovery placeholder rows across IDs 186-1000. The remaining 61 placeholder rows in the 101-200 range apply to IDs 186-200.
 
 ## Audit Scope
 
@@ -33,15 +33,15 @@ A Draft 1 or public-source V1 spec must meet these minimums:
 
 ## Metrics Summary
 
-- Numbered app specs present: 1000 (180 implementation-ready + 820 Draft 1 canonical/scaffold).
+- Numbered app specs present: 1000 (185 implementation-ready + 815 Draft 1 canonical/scaffold).
 - Missing numeric IDs from `001` through `1000`: 0.
 - Specs with exactly one H1: 1000.
 - Specs with all canonical section headings present: 1000.
 - Specs passing Draft 1 depth metrics: 200 (IDs 001-200); IDs 201-1000 are canonical Draft 1 scaffolds with lighter generated depth.
-- Specs with exact first-party source URLs replacing discovery links: 180 (IDs 001-180); IDs 181-1000 still await Step 8.3 source replacement.
-- Source-discovery placeholder rows remaining: 2,482 total across IDs 181-1000 (82 in IDs 181-200; 300 in each 100-ID range from 201-1000).
+- Specs with exact first-party source URLs replacing discovery links: 185 (IDs 001-185); IDs 186-1000 still await Step 8.3 source replacement.
+- Source-discovery placeholder rows remaining: 2,461 total across IDs 186-1000 (61 in IDs 186-200; 300 in each 100-ID range from 201-1000).
 - Specs with hands-on app behavior fully verified: 0.
-- Specs upgraded to implementation-ready public-source V1: 180 (IDs 001-180); IDs 181-1000 remain queued in Step 8.3.
+- Specs upgraded to implementation-ready public-source V1: 185 (IDs 001-185); IDs 186-1000 remain queued in Step 8.3.
 
 ## Resolved Findings
 
@@ -131,11 +131,11 @@ All numbered specs now use the same canonical structure and pass the same depth 
 
 Phase 7 Step 7.2 (2026-04-21) rewrote all 100 Draft 0 placeholders under `specs/batch-06/` through `specs/batch-10/` into canonical Draft 1 specs. Each file has exactly one H1, the full metadata block (Inspiration app, Category, `Readiness status: Draft 1`, Verification basis, Manual verification blockers, Legal scope), and all 18 canonical sections populated with substantive non-TODO content at the required depth (8-12 journeys, 8-12 screens, 8-12 entities, 10-15 API routes, 8-12 edge cases, 8-12 tests, etc.). Category-specific risk notes were added for dating (101-106), finance/investing/banking (137-149), telehealth/therapy (153-157), wellness/health trackers (158-162), cycle/pregnancy (161-164), family locator/parental controls (166-169), and kids-directed (163-179) apps.
 
-### High: Implementation-Readiness Gap For IDs 181-1000 (Phase 8 Step 8.3)
+### High: Implementation-Readiness Gap For IDs 186-1000 (Phase 8 Step 8.3)
 
-The Draft 1 specs for IDs 181-1000 still use plausible discovery URLs in Research Sources (all marked "Source discovery — pending exact URL verification"), do not distinguish verified vs inferred behavior beyond generic "inferred" flags, and have not yet passed full category risk review for high-risk routing categories.
+The Draft 1 specs for IDs 186-1000 still use plausible discovery URLs in Research Sources (all marked "Source discovery — pending exact URL verification"), do not distinguish verified vs inferred behavior beyond generic "inferred" flags, and have not yet passed full category risk review for high-risk routing categories.
 
-Impact: IDs 181-1000 cannot be considered for downstream implementation candidate selection until they reach implementation-ready public-source V1 status.
+Impact: IDs 186-1000 cannot be considered for downstream implementation candidate selection until they reach implementation-ready public-source V1 status.
 
 Recommended fix:
 - Phase 8 Step 8.3: replace discovery URLs with exact first-party URLs (marketplace/help/privacy/legal/product), distinguish verified vs inferred behavior, enumerate concrete screens/entities/API routes/permissions/subscription states/edge cases/analytics events/test matrix/build-plan phases at implementation-ready depth, add full category risk review (dating/finance/telehealth/health/kids/location/school/enterprise/security/marketplace), and mark blocked flows with owner/path.
@@ -161,7 +161,7 @@ Recommended fix: Use lawful test accounts/devices to verify reachable flows. Mar
 
 ## Next Steps
 
-- Phase 8 Step 8.3: upgrade IDs 181-1000 from canonical Draft 1 to implementation-ready public-source V1 with exact first-party sources, verified-vs-inferred distinction, full category risk review, and explicit blockers. Use `node scripts/check-implementation-readiness.mjs` as the pre/post batch gate.
+- Phase 8 Step 8.3: upgrade IDs 186-1000 from canonical Draft 1 to implementation-ready public-source V1 with exact first-party sources, verified-vs-inferred distinction, full category risk review, and explicit blockers. Use `node scripts/check-implementation-readiness.mjs` as the pre/post batch gate.
 - Complete hands-on verification where lawful and feasible.
 
 ## 1000-App Extension Addendum - 2026-04-21

@@ -470,3 +470,12 @@
 - Refreshed `tasks/implementation-readiness.md` to 164 of 1000 ready, added rows for IDs 121-164, and moved the next Step 8.3 slice to IDs 165-169.
 - Validation: targeted checks found one H1 in each promoted file and no `Source discovery`, `Readiness status: Draft 1`, exact-URL-pending, or discovery-replacement markers in the 7-file slice.
 - Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 164 implementation-ready specs and 2,562 source-discovery placeholder rows across 836 remaining files.
+
+## 2026-05-02 - Phase 8 Step 8.3 Language, Translation, And Transcription Slice (IDs 181-185)
+
+- Promoted 5 language learning, translation, and transcription specs to implementation-ready public-source V1: `181-rosetta-stone.md` through `185-otter-ai.md`.
+- Replaced source-discovery placeholders with exact public first-party marketplace, product/help, support, privacy, terms, pricing, speech-recognition, community-correction, certificate, file-translation, and meeting/transcription URLs verified on 2026-05-02.
+- Expanded category-specific risk coverage: speech/audio capture and retention, camera/OCR privacy, offline language packs, community corrections and moderation, live classes/certification claims, meeting import/calendar OAuth gates, recording consent, AI summary/chat boundaries, subscription gates, accessibility, and data export/delete.
+- Refreshed `tasks/implementation-readiness.md` to 185 of 1000 ready and moved the next Step 8.3 slice to IDs 186-190.
+- Validation: targeted checks found one H1 in each promoted file and no `Source discovery`, `Readiness status: Draft 1`, or exact-URL-pending markers in the 5-file slice.
+- Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 185 implementation-ready specs and 2,461 source-discovery placeholder rows across 815 remaining files.

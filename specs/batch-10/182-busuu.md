@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Busuu
 > - Category: Language learning
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, help center, and product pages — pending exact URL verification.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-02.
+> - Verification basis: exact public marketplace listing, official product page, support articles, community-corrections page, and privacy policy.
 > - Manual verification blockers: native iOS/Android screen capture, live class join flow, community correction moderation, subscription purchase/restore, and certification claims still require a test device/account.
 > - Legal scope: functional parity only; use original curriculum, community guidelines, voice talent, iconography, copy, and certification partners.
 
@@ -33,10 +33,12 @@ The implementation can reproduce comparable user jobs (structured path, communit
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store listing | https://apps.apple.com/us/app/busuu-language-learning/id379968583 | iOS listing, privacy labels, screenshots | Source discovery — pending exact URL verification |
-| Google Play listing | https://play.google.com/store/apps/details?id=com.busuu.android.enc | Android listing, data safety | Source discovery — pending exact URL verification |
-| Busuu Help Center | https://help.busuu.com/ | Community, live classes, subscriptions | Source discovery — pending exact URL verification |
-| Busuu Privacy Policy | https://www.busuu.com/en/privacy-policy | Personal data, minors, community content | Source discovery — pending exact URL verification |
+| Apple App Store listing | https://apps.apple.com/us/app/busuu-language-learning/id379968583 | iOS listing, course-language count, community feedback, expert-designed lessons, subscriptions, and privacy labels | Verified 2026-05-02 |
+| Busuu product page | https://www.busuu.com/en-us | Language catalog, learner counts, course structure, community interactions, speaking confidence, and progress tracking | Verified 2026-05-02 |
+| Community Corrections | https://www.busuu.com/en/how-to/corrections | Written/audio correction workflow, matching, feedback, ratings, premium priority, and notification behavior | Verified 2026-05-02 |
+| Busuu Support | https://help.busuu.com/hc/en-us | Account, subscription, course, live lesson, review, certificate, and troubleshooting support surface | Verified 2026-05-02 |
+| Busuu Certificates | https://help.busuu.com/hc/en-us/articles/16559434818321-What-are-Certificates-and-how-can-I-get-them | CEFR-aligned certificate fields, premium gating, supported course levels, and level-completion test dependency | Verified 2026-05-02 |
+| Busuu Privacy Policy | https://www.busuu.com/en-us/privacy | Audio recordings, community corrections, AI conversations, moderation providers, and data handling | Verified 2026-05-02 |
 
 ## Detailed Design
 
@@ -48,6 +50,12 @@ The implementation can reproduce comparable user jobs (structured path, communit
 - Live class experience must expose schedule, join link, reminders, and post-class review.
 - Progress must sync across devices.
 - Subscription states: trial, active, lapsed, restored, refunded.
+- Community Corrections must support both writing and voice submissions, optional algorithmic matching, friend-directed requests, star ratings, inline edits, written comments, thanks, and best-correction awards.
+- Premium status must influence correction queue priority and submission limits without hiding safety tools from free users.
+- Learner profile must store languages known well enough to correct others and must let users adjust those languages/levels.
+- Certificates must be tied to level-completion tests, CEFR level, grade, issue date, learner display name, and course/level availability; unsupported courses stay blocked.
+- Live lessons must be feature-flagged until provider join, instructor cancellation, capacity, reminders, and post-class content are manually verified.
+- Audio-only Community Corrections and AI Conversations require explicit recording notice, retention policy, moderation coverage, and model-training opt-in/opt-out treatment.
 
 ## Core User Journeys
 
@@ -78,7 +86,20 @@ The implementation can reproduce comparable user jobs (structured path, communit
 
 ## Data Model
 
-- `Learner`, `LanguagePair`, `LessonAttempt`, `Submission` (text/audio), `Review` (given/received), `LiveClass`, `Booking`, `CheckpointAttempt`, `Entitlement`, `SafetyReport`, `Reputation`, `AuditEvent`.
+- `Learner`: identity, locale, age gate, known languages, target languages, consent, deletion state.
+- `LanguagePair`: source language, target language, CEFR level, goal, streak, placement state.
+- `CourseUnit`: language, CEFR band, lesson order, checkpoint dependency, premium gate.
+- `LessonAttempt`: learner, lesson, score, duration, completed exercises, sync state.
+- `Submission`: text/audio artifact, prompt, learner, target language, visibility, moderation state.
+- `Review`: reviewer, submission, inline edits, rating, comment, award, abuse state.
+- `LiveClass`: provider session, topic, instructor alias, capacity, schedule, join state.
+- `Booking`: learner, class, reminder preference, cancellation/refund state.
+- `CheckpointAttempt`: level test, grade, passed flag, certificate dependency.
+- `Certificate`: learner name, CEFR level, course, grade, issue date, share/export state.
+- `Entitlement`: platform, plan, premium state, renewal, refund, restore state.
+- `SafetyReport`: reporter, target, reason, evidence, moderation decision, appeal state.
+- `Reputation`: correction counts, helpfulness, rate limits, violation state.
+- `AuditEvent`: billing, privacy, community moderation, and account changes.
 
 ## API And Backend Contracts
 

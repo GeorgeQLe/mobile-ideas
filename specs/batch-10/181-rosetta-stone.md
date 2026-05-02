@@ -3,8 +3,8 @@
 > Metadata
 > - Inspiration app: Rosetta Stone
 > - Category: Language learning
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace listings, help center articles, and product tour pages — pending exact URL verification.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-02.
+> - Verification basis: exact public marketplace listing, official product pages, support center, privacy policy, and subscription terms.
 > - Manual verification blockers: native iOS/Android screen capture, speech-grading calibration on device, subscription purchase/restore, offline lesson pack delivery, and accessibility passes still require a test device/account before one-for-one parity claims.
 > - Legal scope: functional parity only; use original curriculum copy, original voice talent, original iconography, original brand, and licensed or first-party ASR providers.
 
@@ -14,7 +14,7 @@ Build an original mobile language-learning app inspired by immersion-style pedag
 
 The clone must not copy Rosetta Stone branding, curriculum copy, voice recordings, artwork, private APIs, named features (e.g. the trademarked speech grader), plan names, or marketing language. The implementation can reproduce comparable user jobs and interaction patterns using original content and licensed or first-party speech recognition.
 
-This spec is Draft 1: structure and scope are stable, but exact source URLs, curriculum design partners, and device-specific ASR performance must be confirmed before implementation.
+This spec is implementation-ready for a V1. Unverified native behaviors must ship behind feature flags until manual evidence resolves the blockers.
 
 ## Goals
 
@@ -36,11 +36,12 @@ This spec is Draft 1: structure and scope are stable, but exact source URLs, cur
 
 | Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store listing | https://apps.apple.com/us/app/rosetta-stone-learn-languages/id435588892 | iOS listing, age rating, privacy labels, screenshots | Source discovery — pending exact URL verification |
-| Google Play listing | https://play.google.com/store/apps/details?id=air.com.rosettastone.mobile.CoursePlayer | Android listing, data safety, compatibility | Source discovery — pending exact URL verification |
-| Rosetta Stone Support | https://support.rosettastone.com/ | Subscription, account, speech grading, offline lessons | Source discovery — pending exact URL verification |
-| Rosetta Stone Privacy Policy | https://www.rosettastone.com/lp/privacy/ | Personal data, minors, account controls | Source discovery — pending exact URL verification |
-| Product Tour | https://www.rosettastone.com/how-it-works/ | Immersion method, lesson types, stories | Source discovery — pending exact URL verification |
+| Apple App Store listing | https://apps.apple.com/us/app/rosetta-course/id435588892 | iOS listing, subscription terms, supported devices, offline lessons, progress sync, stories/audio companion, and no-ads framing | Verified 2026-05-02 |
+| Rosetta Stone mobile apps | https://www.rosettastone.com/product/mobile-apps/ | Mobile/offline availability, speaking-focused lessons, Dynamic Immersion method, and Extended Learning feature orientation | Verified 2026-05-02 |
+| TruAccent product page | https://www.rosettastone.com/features/truaccent-speech-recognition/ | Speech-recognition feedback, native-speaker comparison framing, and adjustable sensitivity | Verified 2026-05-02 |
+| Phrasebook product page | https://www.rosettastone.com/features/phrasebook/ | Travel phrase categories, native-speaker audio guidance, and speech feedback for phrases | Verified 2026-05-02 |
+| Rosetta Stone Support | https://support.rosettastone.com/ | Account, app access, subscription, device, and troubleshooting support surface | Verified 2026-05-02 |
+| Rosetta Stone Privacy Policy | https://www.rosettastone.com/privacy-policy/ | Personal data handling, account controls, analytics, communications, and learner privacy posture | Verified 2026-05-02 |
 
 ## Detailed Design
 
@@ -54,6 +55,11 @@ This spec is Draft 1: structure and scope are stable, but exact source URLs, cur
 - Stories or audio companions must be downloadable for offline playback.
 - Subscription state must include free trial, active, lapsed, restored, refunded, web-managed, and app-store-managed states.
 - Progress must sync per language and per unit and handle device loss / fresh install recovery.
+- The App Store listing verifies all-language subscription access, 3-month, 12-month, and Lifetime options, app-store renewal/cancel mechanics, and Enterprise/Education learner variance.
+- Offline lessons must be scoped to downloaded lesson packs, stories, and audio companions; all server-required speech grading and entitlement checks need graceful queued or blocked states.
+- Phrasebook must cover travel-oriented categories such as greetings, politeness, time/money, dining, health/safety, and getting around with native-speaker audio and pronunciation attempts.
+- Speech scoring must avoid the trademarked feature name while implementing comparable microphone capture, sensitivity setting, immediate feedback, retry, skip, and no-audio fallback.
+- Enterprise/Education access must be modeled separately from direct consumer purchase because feature availability may vary for managed learners.
 
 ## Core User Journeys
 

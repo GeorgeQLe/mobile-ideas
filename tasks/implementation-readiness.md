@@ -5,11 +5,11 @@ Updated: 2026-05-02
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-180.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-185.
 
-Current readiness count: 180 of 1000.
+Current readiness count: 185 of 1000.
 
-Step 8.3 remains open for IDs 181-1000. A 2026-05-02 post-slice audit found 2,482 source-discovery placeholder rows across 820 files: 82 rows in IDs 181-200 and 300 rows per 100-ID range from 201-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 186-1000. A 2026-05-02 post-slice audit found 2,461 source-discovery placeholder rows across 815 files: 61 rows in IDs 186-200 and 300 rows per 100-ID range from 201-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -247,8 +247,9 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 - Batch 07-08 finance/investing/banking public-source V1 expansion: `137-bloomberg.md` through `149-step.md`.
 - Batch 08 pharmacy/telehealth public-source V1 expansion: `150-goodrx.md` through `157-ro.md`.
 - Batch 08-09 wearable health, sleep, cycle, pregnancy, baby-care, family organizer, family locator, and parental-controls public-source V1 expansion: `158-oura.md` through `169-google-family-link.md`.
+- Batch 09-10 school, kids education/media, language learning, translation, and transcription public-source V1 expansion: `170-classdojo.md` through `185-otter-ai.md`.
 
 ## Next Steps
 
-- Continue Phase 8 Step 8.3 with IDs 181-185 (`Rosetta Stone` through `Otter.ai`) as the next language learning, translation, and transcription slice.
+- Continue Phase 8 Step 8.3 with IDs 186-190 (`GitHub` through `Asana`) as the next developer collaboration, work management, and project planning slice.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.
