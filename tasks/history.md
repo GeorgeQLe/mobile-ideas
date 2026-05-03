@@ -1,5 +1,14 @@
 # History
 
+## 2026-05-03 - Phase 8 Step 8.3 Photo And Video Editing Slice (IDs 241-260)
+
+- Promoted 20 photo enhancement, collage, social template, motion graphics, and mobile video editing specs to implementation-ready public-source V1: `241-lensa.md` through `260-vivavideo.md`.
+- Replaced source-discovery placeholders with exact public first-party product/help/support/privacy/terms URLs or explicit native marketplace blockers verified on 2026-05-03, with native store privacy labels, purchase/restore, permissions, camera/hardware integrations, and exact mobile UI behavior preserved as manual verification blockers.
+- Expanded category-specific risk coverage: media import/export privacy; EXIF/GPS stripping; face/body/beauty and AI edit safety; non-consensual/deepfake/child-safety controls; licensed presets, brushes, templates, stickers, music, stock, and marketplace assets; timeline/render/export recovery; ad/analytics SDK boundaries; commercial-use disclosures; cloud/local draft retention; subscription/quota states; and export/delete.
+- Refreshed `tasks/implementation-readiness.md`, `specs/README.md`, `specs/batch-13/README.md`, and `tasks/todo.md` to 260 of 1000 ready and moved the next Step 8.3 slice to IDs 261-280.
+- Validation: targeted checks found one H1 and 18 canonical H2 sections in each promoted file and no `Source discovery`, `Readiness status: Draft`, or exact-URL-pending markers in the 20-file slice.
+- Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 260 implementation-ready specs and 2,220 source-discovery placeholder rows across 740 remaining files.
+
 ## 2026-05-03 - Phase 8 Step 8.3 AI And Photo Editing Slice (IDs 221-240)
 
 - Promoted 20 AI research/assistant and photo/media editing specs to implementation-ready public-source V1: `221-forefront-ai.md` through `240-pixelcut.md`.

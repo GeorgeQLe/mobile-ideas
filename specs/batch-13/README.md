@@ -1,13 +1,13 @@
-# Batch 13 Draft 1 Specs
+# Batch 13 Implementation-Ready Specs
 
 > Metadata
 > - App range: 241-260
-> - Status: Draft 1 canonical scaffold
-> - Research state: public source-discovery links included; exact source replacement and hands-on verification still required before implementation.
+> - Status: Implementation-ready public-source V1
+> - Research state: exact public first-party product/help/privacy/terms URLs or explicit native marketplace blockers are included; hands-on verification remains required before one-for-one native parity claims.
 
 ## Overview
 
-This batch contains canonical Draft 1 clone specs for apps 241-260 from tasks/ideas.md.
+This batch contains implementation-ready public-source V1 clone specs for apps 241-260 from tasks/ideas.md.
 
 ## Included Specs
 
@@ -35,10 +35,10 @@ This batch contains canonical Draft 1 clone specs for apps 241-260 from tasks/id
 ## Quality Gate
 
 - Each numbered spec uses canonical hygiene sections.
-- Each numbered spec includes source-discovery links, functional requirements, data model, API contracts, edge cases, test plan, acceptance criteria, build plan, open questions, and next steps.
+- Each numbered spec replaces source-discovery links with exact first-party URLs or explicit native marketplace blockers and includes functional requirements, data model, API contracts, edge cases, test plan, acceptance criteria, build plan, open questions, and next steps.
 - Each numbered spec remains legally scoped to functional parity with original assets and licensed data.
 
 ## Next Steps
 
-- Replace source-discovery links in every spec with exact verified first-party URLs.
-- Complete hands-on verification where lawful and feasible before app implementation starts.
+- Capture native app-store listing IDs, privacy labels, release notes, subscription purchase/restore, permission prompts, and exact mobile UI behavior during lawful device verification.
+- Complete hands-on verification where lawful and feasible before one-for-one parity claims.

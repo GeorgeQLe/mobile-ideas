@@ -3,13 +3,13 @@
 Created: 2026-04-16
 
 > Metadata
-> - Spec set status: Draft 1 canonical scaffold complete for all 1000 IDs; Phase 3 implementation-readiness upgrades complete for public-source V1 (IDs 001-100). Phase 8 Step 8.3 has promoted IDs 101-200; IDs 201-1000 still await implementation-readiness upgrade.
-> - Coverage: 1000 of 1000 app ideas (200 implementation-ready + 800 Draft 1 canonical scaffold)
-> - Research state: 200 implementation-ready public-source V1 specs with exact first-party source replacement and explicit hands-on verification blockers; 800 Draft 1 canonical specs awaiting implementation-readiness upgrade (exact URL replacement + category risk review in Step 8.3). A 2026-05-03 post-slice audit found 2,400 source-discovery placeholder rows across IDs 201-1000.
+> - Spec set status: Draft 1 canonical scaffold complete for all 1000 IDs; Phase 3 implementation-readiness upgrades complete for public-source V1 (IDs 001-100). Phase 8 Step 8.3 has promoted IDs 101-260; IDs 261-1000 still await implementation-readiness upgrade.
+> - Coverage: 1000 of 1000 app ideas (260 implementation-ready + 740 Draft 1 canonical scaffold)
+> - Research state: 260 implementation-ready public-source V1 specs with exact first-party source replacement and explicit hands-on verification blockers; 740 Draft 1 canonical specs awaiting implementation-readiness upgrade (exact URL replacement + category risk review in Step 8.3). A 2026-05-03 post-slice audit found 2,220 source-discovery placeholder rows across IDs 261-1000.
 
 ## Overview
 
-This directory contains technical specs for all 1000 mobile app clone ideas in `tasks/ideas.md`. IDs 001-200 are upgraded to implementation-ready public-source V1 status. IDs 201-1000 are canonical Draft 1 scaffolds added on 2026-04-21. Future passes must replace discovery URLs with exact first-party URLs, distinguish verified vs inferred behavior, and complete category risk reviews to reach implementation-ready status.
+This directory contains technical specs for all 1000 mobile app clone ideas in `tasks/ideas.md`. IDs 001-260 are upgraded to implementation-ready public-source V1 status. IDs 261-1000 are canonical Draft 1 scaffolds added on 2026-04-21. Future passes must replace discovery URLs with exact first-party URLs, distinguish verified vs inferred behavior, and complete category risk reviews to reach implementation-ready status.
 
 The specs are implementation-oriented planning documents. They define lawful functional parity targets, product flows, data models, backend contracts, privacy and safety requirements, analytics, edge cases, test plans, acceptance criteria, open questions, and next steps.
 
@@ -25,11 +25,11 @@ The specs are implementation-oriented planning documents. They define lawful fun
 
 - Do not implement application code in this repository.
 - Do not copy branding, trade dress, logos, screenshots, copyrighted media, private APIs, proprietary data, or paywalled content.
-- Do not treat source-discovery links as a substitute for exact verified first-party URLs.
+- Do not treat source-discovery links as a substitute for exact verified first-party URLs or explicit native marketplace blockers.
 
 ## Detailed Design
 
-The numbered specs live in ten batches:
+The numbered specs live in fifty batches:
 
 | Batch | App Range | Focus Areas | Directory | Readiness |
 |---|---:|---|---|---|
@@ -43,9 +43,9 @@ The numbered specs live in ten batches:
 | Batch 08 | 141-160 | micro-investing, robo-advisors, neobanks, FX, kids/teen banking, pharmacy, telehealth, therapy, sleep/recovery trackers | `specs/batch-08/` | Implementation-ready V1 |
 | Batch 09 | 161-180 | period/pregnancy/baby tracking, family organizer/locator, parental controls, school comms, LMS, kids learning, language learning | `specs/batch-09/` | Implementation-ready V1 |
 | Batch 10 | 181-200 | language learning, translation, transcription, writing, dev tools, project management, design, scheduling, calendars, tasks, notes, journaling, hiking | `specs/batch-10/` | Implementation-ready V1 |
-| Batch 11 | 201-220 | extended mobile-app backlog | `specs/batch-11/` | Draft 1 canonical scaffold |
-| Batch 12 | 221-240 | extended mobile-app backlog | `specs/batch-12/` | Draft 1 canonical scaffold |
-| Batch 13 | 241-260 | extended mobile-app backlog | `specs/batch-13/` | Draft 1 canonical scaffold |
+| Batch 11 | 201-220 | AI assistant, AI writing, language coaching, meeting assistants, keyboard/workspace AI | `specs/batch-11/` | Implementation-ready V1 |
+| Batch 12 | 221-240 | AI research assistants, photo editing, drawing, beauty/portrait tools, product-photo tools | `specs/batch-12/` | Implementation-ready V1 |
+| Batch 13 | 241-260 | photo enhancement, collage, social templates, and mobile video editing | `specs/batch-13/` | Implementation-ready V1 |
 | Batch 14 | 261-280 | extended mobile-app backlog | `specs/batch-14/` | Draft 1 canonical scaffold |
 | Batch 15 | 281-300 | extended mobile-app backlog | `specs/batch-15/` | Draft 1 canonical scaffold |
 | Batch 16 | 301-320 | extended mobile-app backlog | `specs/batch-16/` | Draft 1 canonical scaffold |
@@ -113,17 +113,17 @@ Every numbered spec uses these canonical sections:
 
 ## Test Plan
 
-- Confirm exactly 1000 numbered app specs exist (200 implementation-ready + 800 Draft 1 canonical/scaffold).
+- Confirm exactly 1000 numbered app specs exist (260 implementation-ready + 740 Draft 1 canonical/scaffold).
 - Confirm no missing numeric IDs from `001` through `1000`.
 - Confirm every numbered spec has exactly one H1.
 - Confirm every numbered spec has all canonical sections.
 - For IDs 001-200, confirm public-source V1 quality metrics pass for line count, screen rows, detailed-design bullets, data entities, API bullets, journeys, tests, sources, safety, analytics, blockers, and next steps.
-- For IDs 201-1000, confirm Draft 1 canonical scaffold structure (one H1, metadata block with `Readiness status: Draft 1`, all 18 section headings present, Research Sources marked "Source discovery — pending exact URL verification"); Step 8.3 adds exact-URL replacement and full implementation-readiness depth across IDs 201-1000.
+- For IDs 261-1000, confirm Draft 1 canonical scaffold structure (one H1, metadata block with `Readiness status: Draft 1`, all 18 section headings present, Research Sources marked "Source discovery — pending exact URL verification"); Step 8.3 adds exact-URL replacement and full implementation-readiness depth across IDs 201-1000.
 
 ## Acceptance Criteria
 
 - IDs 001-200 specs use canonical implementation-ready structure with exact first-party source links and explicit native/manual parity blockers.
-- IDs 201-1000 specs are canonical Draft 1 scaffolds with exactly one H1, metadata block (`Readiness status: Draft 1`), all 18 canonical section headings, and substantive non-TODO content in every section (bodies are normalized; exact-URL verification and implementation-readiness depth pending Step 8.3).
+- IDs 261-1000 specs are canonical Draft 1 scaffolds with exactly one H1, metadata block (`Readiness status: Draft 1`), all 18 canonical section headings, and substantive non-TODO content in every section (bodies are normalized; exact-URL verification and implementation-readiness depth pending Step 8.3).
 - Every spec remains legally scoped to original code, original assets, synthetic or licensed data, and lawful integrations.
 - Phase 4 remains responsible for choosing an implementation candidate; Future extension phases remain responsible for promoting IDs 101-1000 to implementation-ready V1 status.
 

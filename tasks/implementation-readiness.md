@@ -5,11 +5,11 @@ Updated: 2026-05-03
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-200.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-260.
 
-Current readiness count: 240 of 1000.
+Current readiness count: 260 of 1000.
 
-Step 8.3 remains open for IDs 241-1000. A 2026-05-03 post-slice audit found 2,280 source-discovery placeholder rows across 760 files: 180 rows in IDs 201-300 and 300 rows per 100-ID range from 301-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 261-1000. A 2026-05-03 post-slice audit found 2,220 source-discovery placeholder rows across 740 files: 120 rows in IDs 201-300 and 300 rows per 100-ID range from 301-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -267,6 +267,26 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 238 | Polish | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; photo editor, filters/effects, collage, background/object tools, stickers/text, and native/manual blockers remain explicit. |
 | 239 | PhotoRoom | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; background removal, product photo creation, templates, AI image tools, batch editing, and native/manual blockers remain explicit. |
 | 240 | Pixelcut | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; AI product photo editor, background removal, magic eraser, templates, upscaling, and native/manual blockers remain explicit. |
+| 241 | Lensa | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; AI portrait/photo editing, retouching, generated avatars, subscription gates, and native/manual blockers remain explicit. |
+| 242 | Remini | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; AI enhancement/restoration, before-after processing, subscription/quota states, and native/manual blockers remain explicit. |
+| 243 | PicCollage | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; collage canvas, templates, stickers/backgrounds, cutout tools, export/share, and native/manual blockers remain explicit. |
+| 244 | Layout | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; collage layout creation, camera-roll selection, grid templates, Instagram-adjacent sharing blockers, and native/manual blockers remain explicit. |
+| 245 | Hypic | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; AI photo editing, retouching, templates, effects, object/background tools, and native/manual blockers remain explicit. |
+| 246 | Tezza | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; preset-based editing, templates, creator workflow, filter packs, export/share, and native/manual blockers remain explicit. |
+| 247 | Unfold | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; story/reel templates, brand kits, media editing, export/share, and native/manual blockers remain explicit. |
+| 248 | InShot | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; timeline video/photo editing, music/text/stickers, canvas ratios, export/share, and native/manual blockers remain explicit. |
+| 249 | VN Video Editor | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; timeline editing, multi-track clips, templates, music/text/effects, project drafts, and native/manual blockers remain explicit. |
+| 250 | KineMaster | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; layered video editing, asset store, timeline tracks, chroma/keyframe/effects, and native/manual blockers remain explicit. |
+| 251 | Splice | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; video timeline editing, trimming, transitions, speed, music, captions, and native/manual blockers remain explicit. |
+| 252 | LumaFusion | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; professional multitrack editing, media library, timeline, audio/video effects, export, and native/manual blockers remain explicit. |
+| 253 | Videoleap | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; AI/mobile video editing, templates, timeline, effects, generated-media tools, and native/manual blockers remain explicit. |
+| 254 | Filmora | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; mobile video editing, templates, timeline clips, effects, captions, export/share, and native/manual blockers remain explicit. |
+| 255 | Alight Motion | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; motion graphics, keyframes, layers, vector/effects editing, exports, and native/manual blockers remain explicit. |
+| 256 | Mojo | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; social video/story templates, animated text, brand kits, export/share, and native/manual blockers remain explicit. |
+| 257 | Apple Clips | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Apple mobile clip capture/editing, live titles, effects, stickers, platform gates, and native/manual blockers remain explicit. |
+| 258 | Magisto | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; automated video creation, media import, templates/styles, music, exports, and native/manual blockers remain explicit. |
+| 259 | GoPro Quik | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; GoPro media import, automatic edits, cloud backup, camera integration, exports, and native/manual blockers remain explicit. |
+| 260 | VivaVideo | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; mobile video editing, timeline clips, templates, music/effects/text, drafts, exports, and native/manual blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 
@@ -308,8 +328,11 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 - Batch 08 pharmacy/telehealth public-source V1 expansion: `150-goodrx.md` through `157-ro.md`.
 - Batch 08-09 wearable health, sleep, cycle, pregnancy, baby-care, family organizer, family locator, and parental-controls public-source V1 expansion: `158-oura.md` through `169-google-family-link.md`.
 - Batch 09-10 school, kids education/media, language learning, translation, transcription, writing/dev/work management, design collaboration, whiteboard, scheduling, calendar/tasks, personal productivity, notes/journaling, and outdoor trail/navigation public-source V1 expansion: `170-classdojo.md` through `200-alltrails.md`.
+- Batch 11 AI assistant, AI writing, language-coaching, meeting assistant, keyboard assistant, and workspace-AI public-source V1 expansion: `201-poe.md` through `220-notion-ai.md`.
+- Batch 12 AI research/assistant and photo/media editing public-source V1 expansion: `221-forefront-ai.md` through `240-pixelcut.md`.
+- Batch 13 photo/video editing public-source V1 expansion: `241-lensa.md` through `260-vivavideo.md`.
 
 ## Next Steps
 
-- Continue Phase 8 Step 8.3 with IDs 201-220 (`Poe` through `Notion AI`) as the next AI assistant and AI writing/meeting/keyboard slice.
+- Continue Phase 8 Step 8.3 with IDs 261-280 (`VideoShow` through `Anghami`) as the next video creator, audio, and music streaming slice.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.
