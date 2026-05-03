@@ -7,9 +7,9 @@ Updated: 2026-05-03
 
 The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-200.
 
-Current readiness count: 220 of 1000.
+Current readiness count: 240 of 1000.
 
-Step 8.3 remains open for IDs 221-1000. A 2026-05-03 post-slice audit found 2,340 source-discovery placeholder rows across 780 files: 240 rows in IDs 201-300 and 300 rows per 100-ID range from 301-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 241-1000. A 2026-05-03 post-slice audit found 2,280 source-discovery placeholder rows across 760 files: 180 rows in IDs 201-300 and 300 rows per 100-ID range from 301-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -247,6 +247,26 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 218 | Genie | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; consumer chatbot, writing templates, media/file gates, mobile paywalls, and native/manual blockers remain explicit. |
 | 219 | Monica | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; chat, writing, summarization, translation, browser/page context, file privacy, and native/manual blockers remain explicit. |
 | 220 | Notion AI | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; workspace AI writing, Q&A, summaries, page/database actions, admin controls, and native/manual blockers remain explicit. |
+| 221 | Forefront AI | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; assistant chat, model selection, personas, prompt history, file context, team controls, and native/manual blockers remain explicit. |
+| 222 | Consensus | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; research-question intake, paper search, source-backed summaries, citations, evidence ratings, and native/manual blockers remain explicit. |
+| 223 | Picsart | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; photo/video editor, templates, stickers, effects, AI tools, community sharing, and native/manual blockers remain explicit. |
+| 224 | VSCO | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; camera/editor, presets, studio drafts, profile publishing, community, membership, and native/manual blockers remain explicit. |
+| 225 | Snapseed | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; local-first import, edit stack, filters/tools, selective edits, looks, export/share, and native/manual blockers remain explicit. |
+| 226 | Adobe Express | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; template design, media editing, generative tools, brand kits, stock assets, cloud projects, and native/manual blockers remain explicit. |
+| 227 | Photoshop Express | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; mobile photo editing, retouching, collage, filters, healing/cutout tools, cloud sync, and native/manual blockers remain explicit. |
+| 228 | Procreate Pocket | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; illustration canvas, brushes, layers, time-lapse, color tools, imports/exports, and native/manual blockers remain explicit. |
+| 229 | Sketchbook | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; drawing canvas, brushes, layers, guides, gallery storage, export/share, and native/manual blockers remain explicit. |
+| 230 | ibis Paint X | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; drawing canvas, brushes, layers, comic tools, process video, online gallery, and native/manual blockers remain explicit. |
+| 231 | Clip Studio Paint | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; illustration/comic/animation workspace, materials, cloud sync, marketplace assets, and native/manual blockers remain explicit. |
+| 232 | Bazaart | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; cutout/collage design, background removal, templates, stickers, AI tools, and native/manual blockers remain explicit. |
+| 233 | Prequel | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; photo/video filters, effects, AI avatars/effects, camera capture, templates, and native/manual blockers remain explicit. |
+| 234 | Facetune | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; portrait retouching, selfie editing, AI enhancement, background/object edits, and native/manual blockers remain explicit. |
+| 235 | BeautyPlus | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; selfie camera, beauty retouching, filters, makeup effects, AI/background tools, and native/manual blockers remain explicit. |
+| 236 | SNOW | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; camera filters, AR stickers, beauty effects, photo/video capture, paid assets, and native/manual blockers remain explicit. |
+| 237 | Meitu | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; photo/video editing, beauty retouching, AI art/effects, templates, cloud/account features, and native/manual blockers remain explicit. |
+| 238 | Polish | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; photo editor, filters/effects, collage, background/object tools, stickers/text, and native/manual blockers remain explicit. |
+| 239 | PhotoRoom | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; background removal, product photo creation, templates, AI image tools, batch editing, and native/manual blockers remain explicit. |
+| 240 | Pixelcut | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; AI product photo editor, background removal, magic eraser, templates, upscaling, and native/manual blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 

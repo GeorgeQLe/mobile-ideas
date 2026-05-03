@@ -1,5 +1,14 @@
 # History
 
+## 2026-05-03 - Phase 8 Step 8.3 AI And Photo Editing Slice (IDs 221-240)
+
+- Promoted 20 AI research/assistant and photo/media editing specs to implementation-ready public-source V1: `221-forefront-ai.md` through `240-pixelcut.md`.
+- Replaced source-discovery placeholders with exact public first-party product/help/support/privacy/terms or marketplace URLs verified on 2026-05-03, with native store privacy labels, purchase/restore, permissions, and exact mobile UI behavior preserved as manual verification blockers.
+- Expanded category-specific risk coverage: AI answer provenance and citations for Consensus-style flows; prompt/file retention and model/provider routing for Forefront-style flows; media import/export privacy; EXIF/GPS stripping; face/body/beauty edit safety; non-consensual/deepfake/child-safety controls; licensed presets, brushes, templates, stickers, stock, and marketplace assets; ad/analytics SDK boundaries; commercial-use disclosures; cloud/local draft retention; subscription/quota states; and export/delete.
+- Refreshed `tasks/implementation-readiness.md` to 240 of 1000 ready and moved the next Step 8.3 slice to IDs 241-260.
+- Validation: targeted checks found one H1 in each promoted file and no `Source discovery`, `Readiness status: Draft 1`, or exact-URL-pending markers in the 20-file slice.
+- Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 240 implementation-ready specs and 2,280 source-discovery placeholder rows across 760 remaining files.
+
 ## 2026-05-03 - Step 8.3 Personal Productivity Notes And Outdoor Readiness Slice
 
 - Promoted the next Phase 8 Step 8.3 slice, IDs 196-200 (`Things 3` through `AllTrails`), from Draft 1 to implementation-ready public-source V1.
