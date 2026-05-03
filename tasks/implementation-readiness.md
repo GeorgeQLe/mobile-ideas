@@ -5,11 +5,11 @@ Updated: 2026-05-03
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-260.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-280.
 
-Current readiness count: 260 of 1000.
+Current readiness count: 280 of 1000.
 
-Step 8.3 remains open for IDs 261-1000. A 2026-05-03 post-slice audit found 2,220 source-discovery placeholder rows across 740 files: 120 rows in IDs 201-300 and 300 rows per 100-ID range from 301-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 281-1000. A 2026-05-03 post-slice audit found 2,160 source-discovery placeholder rows across 720 files: 60 rows in IDs 201-300 and 300 rows per 100-ID range from 301-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -287,6 +287,26 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 258 | Magisto | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; automated video creation, media import, templates/styles, music, exports, and native/manual blockers remain explicit. |
 | 259 | GoPro Quik | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; GoPro media import, automatic edits, cloud backup, camera integration, exports, and native/manual blockers remain explicit. |
 | 260 | VivaVideo | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; mobile video editing, timeline clips, templates, music/effects/text, drafts, exports, and native/manual blockers remain explicit. |
+| 261 | VideoShow | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; mobile video editing, templates/effects, exports, subscriptions, and native/manual blockers remain explicit. |
+| 262 | PowerDirector | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; mobile video editing, AI tools, stock/template assets, cloud/project handling, and native/manual blockers remain explicit. |
+| 263 | Adobe Premiere Rush | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; mobile capture/editing, Adobe account gates, Rush discontinuation blockers, and native/manual blockers remain explicit. |
+| 264 | Descript | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; script-based media editing, transcription, AI voice/avatar blockers, collaboration, and native/manual blockers remain explicit. |
+| 265 | Captions | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; AI video creation, caption generation, teleprompter/editor workflow, avatar/voice blockers, and native/manual blockers remain explicit. |
+| 266 | OpusClip | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; AI long-to-short clipping, transcript-driven edits, social captions, scoring blockers, and native/manual blockers remain explicit. |
+| 267 | VEED | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; video editing, captions, templates, AI tools, brand kits, collaboration, and native/manual blockers remain explicit. |
+| 268 | TikTok Studio | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; creator publishing, analytics, content management, monetization/policy surfaces, and native/manual blockers remain explicit. |
+| 269 | YouTube Create | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; mobile creator editing, Shorts/social exports, captions/audio/effects, YouTube integration, and native/manual blockers remain explicit. |
+| 270 | Shazam | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; music recognition, listening history, library saves, Apple Music handoff, and native/manual blockers remain explicit. |
+| 271 | Bandcamp | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; artist/fan catalog, purchases, streaming, collections, downloads, merch/payment blockers, and native/manual blockers remain explicit. |
+| 272 | Deezer | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; music discovery, playback queues, library/favorites, offline downloads, recommendations, and native/manual blockers remain explicit. |
+| 273 | TIDAL | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; hi-fi music/video streaming, credits, playlists, downloads/offline, subscriptions, and native/manual blockers remain explicit. |
+| 274 | Pandora | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; radio stations, thumbs feedback, personalized playlists, ads/subscriptions, and native/manual blockers remain explicit. |
+| 275 | iHeartRadio | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; live radio, podcasts, artist radio, playlists, subscription/offline states, and native/manual blockers remain explicit. |
+| 276 | SiriusXM | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; live channels, on-demand shows, car/device integrations, subscriptions, and native/manual blockers remain explicit. |
+| 277 | TuneIn Radio | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; live radio directory, sports/news streams, favorites, podcasts, subscriptions, and native/manual blockers remain explicit. |
+| 278 | Amazon Music | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Prime/Unlimited entitlements, podcasts, downloads/offline, Alexa/device integration, and native/manual blockers remain explicit. |
+| 279 | Qobuz | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; hi-res music streaming, editorial/catalog discovery, purchases/downloads, and native/manual blockers remain explicit. |
+| 280 | Anghami | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; MENA-focused streaming, playlists, downloads/offline, podcasts/live/social surfaces, and native/manual blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 
@@ -331,8 +351,9 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 - Batch 11 AI assistant, AI writing, language-coaching, meeting assistant, keyboard assistant, and workspace-AI public-source V1 expansion: `201-poe.md` through `220-notion-ai.md`.
 - Batch 12 AI research/assistant and photo/media editing public-source V1 expansion: `221-forefront-ai.md` through `240-pixelcut.md`.
 - Batch 13 photo/video editing public-source V1 expansion: `241-lensa.md` through `260-vivavideo.md`.
+- Batch 14 video creator, audio recognition, music streaming, radio, and hi-res catalog public-source V1 expansion: `261-videoshow.md` through `280-anghami.md`.
 
 ## Next Steps
 
-- Continue Phase 8 Step 8.3 with IDs 261-280 (`VideoShow` through `Anghami`) as the next video creator, audio, and music streaming slice.
+- Continue Phase 8 Step 8.3 with IDs 281-300 (`Musixmatch` through `Acast`) as the next music creation, audio hardware/control, podcast, and creator-audio slice.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.

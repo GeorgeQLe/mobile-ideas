@@ -1,5 +1,14 @@
 # History
 
+## 2026-05-03 - Phase 8 Step 8.3 Video Creator And Audio Streaming Slice (IDs 261-280)
+
+- Promoted 20 video creator, audio recognition, music streaming, radio, and hi-res catalog specs to implementation-ready public-source V1: `261-videoshow.md` through `280-anghami.md`.
+- Replaced source-discovery placeholders with exact public first-party product/help/support/privacy/terms URLs or explicit native marketplace blockers verified on 2026-05-03, with native store privacy labels, purchase/restore, permissions, background playback/export, creator-platform integrations, and exact mobile UI behavior preserved as manual verification blockers.
+- Expanded category-specific risk coverage: transcript/caption privacy; AI/video render/export recovery; creator-platform policy gates; licensed music/catalog rights; radio/live-stream availability; playback/download expiry; CarPlay/Android Auto/Alexa/Siri/device integrations; artist/creator monetization and payments; explicit-content controls; recommendation/listening-history privacy; subscription/ad states; and export/delete.
+- Refreshed `tasks/implementation-readiness.md`, `specs/README.md`, `specs/batch-14/README.md`, `tasks/spec-quality-audit.md`, and `tasks/todo.md` to 280 of 1000 ready and moved the next Step 8.3 slice to IDs 281-300.
+- Validation: targeted checks found one H1 and 18 canonical H2 sections in each promoted file and no `Source discovery`, `Readiness status: Draft`, or exact-URL-pending markers in the 20-file slice.
+- Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 280 implementation-ready specs and 2,160 source-discovery placeholder rows across 720 remaining files.
+
 ## 2026-05-03 - Phase 8 Step 8.3 Photo And Video Editing Slice (IDs 241-260)
 
 - Promoted 20 photo enhancement, collage, social template, motion graphics, and mobile video editing specs to implementation-ready public-source V1: `241-lensa.md` through `260-vivavideo.md`.

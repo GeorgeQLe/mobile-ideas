@@ -3,189 +3,220 @@
 > Metadata
 > - Inspiration app: iHeartRadio
 > - Category: Music and audio
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace/source-discovery links only; exact first-party URL replacement and hands-on verification are still required.
-> - Manual verification blockers: native iOS/Android screen capture, account lifecycle walkthrough, subscription or payment state, permission prompts, push notifications, provider integrations, and region-specific behavior require lawful test evidence before one-for-one parity claims.
-> - Legal scope: functional parity only; use original code, brand, copy, iconography, sample data, media, policies, and integrations.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-03.
+> - Verification basis: exact public first-party product, help/support, privacy, terms, and official product pages listed below; native marketplace listing IDs and privacy-label details remain manual verification blockers.
+> - Manual verification blockers: native iOS/Android screen capture, marketplace listing IDs, app-store privacy labels and release notes, account lifecycle walkthrough, paid subscription or quota state, permission prompts, push notifications, provider integrations, creator/platform integrations, playback or render background behavior, and region-specific behavior still require lawful test evidence before one-for-one native parity claims.
+> - Legal scope: functional parity only; use original code, brand, copy, iconography, screenshots, proprietary presets/effects/templates/music/catalog data/model weights, private APIs, customer media, marketplace assets, licensed stock, and unlicensed training or evaluation datasets.
 
 ## Overview
 
-Build an original mobile product inspired by iHeartRadio's public user-facing workflow. The clone focus is: Catalog discovery, playback queue, library saves, downloads/offline behavior, creator/channel surfaces, and subscription or rights gates
+Build an original mobile music/audio product inspired by iHeartRadio's public product and policy materials. V1 focuses on live radio, podcasts, artist radio, playlists, library saves, subscription/offline states, ads, and rights gates. The clone must use original branding, original UI copy, original sample media, licensed providers/assets, and explicit disclosures when a feature is inferred from public materials rather than verified hands-on behavior.
 
-This Draft 1 spec reserves ID 275 in the 1000-app backlog. It provides enough structure for downstream research, estimation, and lawful implementation planning, but it is not implementation-ready until exact first-party URLs replace source-discovery links and app-specific public evidence is added.
+This spec is implementation-ready for a public-source V1. Any behavior marked `Manual verification required` must stay behind a feature flag or documented blocker until lawful hands-on verification confirms exact native behavior.
 
 ## Goals
 
-- Deliver a mobile-first music and audio experience with onboarding, primary workflow, settings, support, and recovery flows.
-- Reproduce the functional job behind iHeartRadio using original product naming, original UI, original sample data, and licensed integrations.
-- Preserve exact boundaries between public-source evidence, inferred clone requirements, and blocked hands-on behavior.
-- Define screens, entities, API contracts, offline behavior, privacy/safety controls, analytics, tests, acceptance criteria, and build phases.
+- Provide mobile onboarding, consent, account recovery, settings, support, and data lifecycle flows.
+- Support catalog discovery, playback, library management, downloads/offline where licensed, recommendations, rights-aware sharing, and device integration with clear retry/recovery behavior.
+- Preserve boundaries between user content, edited output, provider telemetry, analytics, support logs, rights/licensing records, and billing records.
+- Implement free, ad-supported where relevant, trial, paid, expired, restored, refunded, quota-exhausted, platform-owned, and unavailable entitlement states without copying exact pricing, plan names, or promotional copy.
+- Include export/delete, report abuse, privacy controls, accessibility, and manual-verification paths before downstream implementation.
+- Document provider, asset, catalog, rights, recommendation, subscription, device-integration, child-safety, and marketplace risks before any implementation claim.
 
 ## Non-Goals
 
-- Do not copy iHeartRadio branding, logos, screenshots, marketing copy, private APIs, proprietary datasets, ranking systems, or protected media.
-- Do not claim exact native behavior until a lawful hands-on verification pass records evidence.
-- Do not implement production payments, regulated services, medical advice, transport dispatch, smart-home control, or real-money game economies without separate legal/platform review.
+- Do not imply affiliation with iHeartRadio or its publisher.
+- Do not copy proprietary presets, effects, templates, audio catalogs, editorial rankings, recommendation models, screenshots, icons, brand names, or private API shapes.
+- Do not send production user prompts, photos, videos, audio, transcripts, files, listening history, face/voice data, or workspace content to any third-party provider without explicit consent and a documented data-processing path.
+- Do not present generated, edited, enhanced, captioned, transcribed, recommended, or source-backed output as professional, medical, legal, financial, scientific, therapeutic, educational, or safety-critical advice.
+- Do not enable autonomous external publication, purchases, account changes, public creator actions, or regulated workflows without a separate confirmation and risk review.
 - Do not build runtime app code in this spec store.
 
 ## Research Sources
 
-| Source | Discovery URL | Evidence To Verify | Status |
+| Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/search?term=iHeartRadio | iOS listing, category, age rating, privacy labels, release notes, support links | Source discovery -- pending exact URL verification |
-| Google Play | https://play.google.com/store/search?q=iHeartRadio&c=apps | Android listing, content rating, data safety, feature blurbs | Source discovery -- pending exact URL verification |
-| Official website/help search | https://www.google.com/search?q=iHeartRadio%20official%20app%20help%20privacy%20terms | Help center, privacy, terms, support, subscription, safety, and product docs to replace with first-party URLs | Source discovery -- pending exact URL verification |
+| Official product | https://www.iheart.com/ | Public iHeartRadio product positioning, workflow, feature surfaces, and account/subscription framing | Verified 2026-05-03 |
+| Help/support | https://help.iheart.com/ | Public support taxonomy for app usage, subscriptions, exports/playback, troubleshooting, and native behavior to verify | Verified 2026-05-03 |
+| Privacy policy | https://www.iheart.com/content/privacy/ | Media, account, device, analytics, provider, retention, rights, and user-rights handling | Verified 2026-05-03 |
+| Terms/legal | https://www.iheart.com/content/terms/ | User content, subscriptions, media/catalog tools, acceptable use, and legal boundaries | Verified 2026-05-03 |
+| Native marketplace listings | Manual verification required | Canonical App Store/Google Play listing IDs, privacy labels, data safety, release notes, age ratings, and in-app purchase labels | Blocked pending lawful device/store verification |
 
 ## Detailed Design
 
-- Onboarding must support guest, signup, returning-user, permission-primer, and blocked-account states appropriate for music and audio.
-- Home must default to Home with empty, loading, personalized, degraded-network, and signed-out variants.
-- The primary action must be reachable from Search within two taps from home.
-- Content Detail must represent preview, confirmation, or consumption state with saved, shared, unavailable, and error variants.
-- Settings must include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements must model free, trial, paid, expired, canceled, restored, refunded, and unavailable states without copying plan names or pricing.
-- Accessibility must support dynamic type, screen reader labels, visible focus, contrast, reduced motion, and captions/transcripts where relevant.
-- Offline behavior must preserve recoverable drafts and block irreversible or regulated writes until the client has canonical server state.
+### Source-Backed Product Requirements
+
+- Onboarding must support signed-out preview, account creation, login/recovery, blocked-region state, blocked-account state, and entitlement-unavailable state.
+- The home surface must expose recent listening, recommendations or stations, search, library entry points, and degraded offline/account states.
+- Catalog discovery must model albums, tracks, artists, playlists, stations, podcasts, shows, live channels, editorial shelves, and unavailable-region states as applicable.
+- Playback must support queue state, now-playing controls, background audio, remote controls, history, favorites, downloads/offline where allowed, and rights-expired behavior.
+- Library surfaces must support saved items, playlists/stations, follows, downloads, purchase/download state where relevant, and sync conflict recovery.
+- Creator/artist/channel surfaces must preserve rights, attribution, explicit content, takedown state, fan interactions, purchase/merch/payment blockers where relevant, and region/licensing constraints.
+- Account settings must include privacy policy, terms, notification preferences, subscription restore/manage, support, data export, delete account, and listening-data controls where supported.
+- Entitlements must handle free, ad-supported, trial, paid, expired, canceled, refunded, restored, family/student/Prime/bundle, store-owned, web-owned, and unavailable states.
+- Analytics must avoid raw precise location, child data, payment credentials, private listening notes, contact lists, support attachments, and unredacted account identifiers.
+- Abuse reporting must cover infringing uploads, impersonation, harmful creator content, explicit-content labeling, harassment, fraudulent purchases, and rights disputes.
+- Licensed media, editorial rankings, recommendation models, radio schedules, podcast feeds, artist payouts, downloads, and device integrations require explicit provider/legal controls.
+- Manual verification required: native subscription purchase/restore, exact playback background behavior, store privacy labels, CarPlay/Android Auto/Alexa/Siri integrations, push payloads, and region catalog differences.
 
 ## Core User Journeys
 
-- New user installs, reviews an original value proposition, creates or restores an account, and reaches Home.
-- Returning user opens Home, resumes the latest meaningful state, and completes the primary action in Search.
-- User searches or browses, opens Content Detail, saves or shares the item, and later finds it again from history or library.
-- User denies a requested permission, receives a functional fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry, reconcile, or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees correct locked/unlocked states.
-- User requests support, submits a report or dispute where relevant, and receives a durable case state.
-- User requests data export and account deletion from settings.
+- New user opens the app, reviews consent and data-use notices, signs in or continues with the allowed preview path, and reaches the home/listen surface.
+- Returning user resumes the last track, station, channel, podcast, show, or playlist and controls playback from the app and OS media controls.
+- User searches or browses the catalog, opens a detail page, saves or follows the item, and later finds it again from library/history.
+- User starts a station, queue, playlist, or live stream and sees buffering, unavailable, explicit-filtered, and region-blocked states.
+- User downloads eligible content, goes offline, refreshes licenses, and sees expired/unavailable download handling.
+- User upgrades, downgrades, restores, cancels, or loses an entitlement and sees correct ad, skip, quality, offline, and catalog gates.
+- User reports rights, explicit-content, account, creator, or abuse issues and receives a durable case state.
+- User requests export/delete and can remove account data, listening history, saved library, support cases, and billing references where legally deletable.
+- Manual verification required: background audio, lock-screen controls, CarPlay/Android Auto, voice assistant/device integrations, and exact region catalog behavior.
 
 ## Screen Inventory
 
-| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Home | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Search | Primary creation/action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Content Detail | Inspect, consume, or confirm details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Player/Reader | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Library | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Downloads | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Creator/Source | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Comments/Reviews | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Welcome / Auth | Account entry and consent | sign in, sign up, SSO, continue | signed-out, loading, authenticated | blocked region, blocked account, offline |
+| Home / Listen | Personalized listening entry | play, search, resume, browse | empty, personalized, loading | stale catalog, entitlement unavailable |
+| Search / Browse | Catalog discovery | query, filters, categories | results, no results, loading | rights removed, region blocked |
+| Catalog Detail | Track/album/show/channel details | play, save, follow, share | available, explicit, saved | unlicensed, removed, preview-only |
+| Now Playing | Playback controls and queue | play, pause, skip, scrub | playing, paused, buffering | rights expired, network loss |
+| Queue / Station | Playback sequence management | reorder, remove, seed, thumbs | loaded, personalized | duplicate, unavailable, explicit filtered |
+| Library | Saved content and downloads | save, remove, sort | empty, synced, offline | download expired, sync conflict |
+| Downloads / Offline | Offline entitlement behavior | download, remove, refresh | available, expired | storage full, license expired |
+| Creator / Channel | Artist/station/show presence | follow, share, buy where relevant | loaded, followed | takedown, payout/payment blocker |
+| Subscription / Entitlement | Plans and usage state | upgrade, restore, manage | free, ad-supported, paid | refund, expired, store mismatch |
+| Notifications | Push and in-app notices | opt in, categories | enabled, denied | token expired, deep link stale |
+| Settings / Privacy | Account and data controls | toggles, export, delete | loaded, pending request | delete blocked by billing/support hold |
+| Support | Help and case tracking | search, contact, case | open, pending, resolved | attachment redacted, SLA unavailable |
+| Safety / Reports | Rights and abuse feedback | report, reason, evidence | submitted, reviewed | duplicate report, legal hold |
 
 ## Data Model
 
-- `User`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for iHeartRadio-style workflows.
-- `CatalogItem`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for iHeartRadio-style workflows.
-- `CreatorOrSource`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for iHeartRadio-style workflows.
-- `Collection`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for iHeartRadio-style workflows.
-- `PlaybackOrReadSession`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for iHeartRadio-style workflows.
-- `QueueItem`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for iHeartRadio-style workflows.
-- `Download`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for iHeartRadio-style workflows.
-- `Entitlement`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for iHeartRadio-style workflows.
-- `Comment`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for iHeartRadio-style workflows.
-- `RecommendationSlot`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for iHeartRadio-style workflows.
-- `AuditEvent`: append-only record for sensitive writes, account changes, support actions, moderation decisions, and entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, conflict resolution, and cache expiry.
+- `User`: identity, locale, age/region gates, auth providers, consent state, deletion/export state, and support flags.
+- `AccountSession`: device id, platform, token state, last active time, revocation reason, and suspicious-login markers.
+- `ProjectOrLibraryItem`: owner, title, source type, saved/draft state, retention policy, pinned/archive/deleted state, and availability.
+- `ImportAsset`: photo/video/audio/file/source refs, MIME type, dimensions/duration, EXIF state, scan state, extraction state, license, and retention.
+- `TimelineOrQueue`: ordered clips/tracks/items, transitions or playback rules, audio offsets, render/playback settings, draft state, and conflict version.
+- `ToolCapability`: provider or local engine, feature category, input limits, output formats, safety category, availability, and entitlement requirement.
+- `EditOrPlaybackOperation`: tool/playback id, parameters, before/after or queue refs, undo group, destructive flag, processing state, and audit refs.
+- `ProviderJob`: provider route, request id, status, retry count, timeout, error class, quota or rights impact, and output refs.
+- `AssetOrCatalogLicense`: template/preset/sticker/music/catalog/source owner, usage scope, commercial-use flag, attribution, expiry, and takedown state.
+- `ExportOrDownloadJob`: destination, format, quality, metadata policy, watermark or license state, progress, expiry, and failure reason.
+- `Entitlement`: plan class, trial, renewal, cancellation, refund, quota counters, store owner, family/bundle scope, and feature gates.
+- `RightsOrSafetyReport`: target object, reason, severity, submitted evidence, moderation state, reviewer notes, and appeal state.
+- `NotificationPreference`: category, channel, quiet hours, token status, and consent timestamp.
+- `SupportCase`: user-visible case id, category, redacted attachments, status, owner, SLA, and deletion/export eligibility.
+- `AuditEvent`: import, edit, playback, catalog, generation, asset use, export/download, billing, support, safety, privacy, and admin events.
 
 ## API And Backend Contracts
 
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /catalogitems, GET /creatororsources, GET /collections, GET /playbackorreadsessions; all reads return authorization status, pagination, cache hints, stale-data markers, and localization keys.
-- Writes: POST /users, POST /catalogitems, POST /creatororsources, POST /collections, POST /playbackorreadsessions; all writes require validation errors, idempotency keys, optimistic-state reconciliation, and audit events for sensitive state.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context.
-- Upload/import: use signed upload URLs, MIME/size validation, malware/content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must refetch canonical state after missed events.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+- `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /account` for account lifecycle.
+- `GET /home`, `GET /library`, `POST /library/items`, `PATCH /library/items/:id`, and `DELETE /library/items/:id`.
+- `POST /imports/uploads`, `PUT /imports/uploads/:id/content`, `GET /imports/:id`, and `DELETE /imports/:id` where user media import is in scope.
+- `GET /catalog`, `GET /catalog/:id`, `GET /search`, and `POST /catalog/:id/save` for licensed media/catalog discovery where applicable.
+- `GET /tools`, `GET /tools/:id`, and `POST /tools/:id/preview` for capability and entitlement-aware routing.
+- `POST /jobs`, `GET /jobs/:id`, `GET /jobs/:id/events`, `POST /jobs/:id/cancel`, and `POST /jobs/:id/commit` for render, transcript, generation, recognition, or provider work.
+- `POST /playback/session`, `PATCH /playback/session/:id`, and `POST /playback/events` where streaming or recognition playback is in scope.
+- `GET /assets`, `GET /assets/:id/license`, `POST /assets/:id/use`, and `POST /assets/:id/report`.
+- `POST /exports`, `GET /exports/:id`, `POST /exports/:id/share`, and `DELETE /exports/:id`.
+- `GET /entitlements`, `POST /checkout/session`, `POST /billing/restore`, and `POST /billing/webhook`.
+- `GET /privacy/settings`, `PATCH /privacy/settings`, `POST /data-export`, and `GET /data-export/:id`.
+- `GET /support/articles`, `POST /support/cases`, `GET /support/cases/:id`, `POST /reports`, and `GET /reports/:id`.
 
 ## Realtime, Push, And Offline Behavior
 
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must reconcile against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+- Drafts, selected tools, local edit stacks, playback queues, library saves, and export/download settings cache locally with explicit size, retention, and purge rules.
+- Long-running recognition/edit/render/export/download jobs use polling, SSE, or websocket fallback and must support cancel, timeout, retry, and canonical refetch after reconnect.
+- Offline mode allows opening cached drafts or licensed downloads but blocks provider calls, publication, billing changes, irreversible deletes, and unsafe reports.
+- Reconnect must reconcile duplicate submits through idempotency keys and show whether quota, credits, rights windows, or downloads were consumed for failed/canceled attempts.
+- Push notifications are opt-in by category and limited to export/download completion, account/security, subscription, support, creator/channel, collaboration, and moderation states.
+- Background playback, export, upload, render, recognition, download refresh, and cloud sync behavior is `Manual verification required` and must stay disabled until platform-specific evidence exists.
+- Cached prompts, uploads, originals, previews, generated outputs, edited exports, timelines, catalog manifests, and downloads purge on logout, account delete, retention expiry, policy change, rights expiry, or legal hold.
 
 ## Permissions, Privacy, And Safety
 
-- Treat licensed media as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat copyright as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat content moderation as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat parental controls as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat download or syndication rights as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+- Request camera, microphone, speech recognition, photo library, files, clipboard, contacts/share sheet, notifications, local network, Bluetooth, media library, or creator-platform OAuth only at feature use.
+- Permission screens must state what is captured, where it is processed, how long it is retained, and what fallback remains if denied.
+- Do not collect raw prompts, photos, videos, audio, transcripts, files, listening history, face geometry, EXIF, exports, or private notes in analytics or crash logs.
+- Provider calls must use scoped credentials, redacted logs, request/response retention limits, and per-provider data-processing notes.
+- Media imports must strip or let users control EXIF, GPS, face tags, camera serials, filenames, embedded captions, and private metadata before export/share.
+- AI, captions, voice, face/body, restoration, recognition, and recommendation features must block non-consensual sexualization, child imagery, deepfake impersonation, doxxing, harassment, illegal content, and misleading attribution.
+- Generated, edited, recognized, recommended, or licensed output must show that results can be inaccurate, synthetic, altered, rights-limited, or region-limited before consequential or commercial use.
+- Asset/catalog libraries must preserve source, license, attribution, commercial-use, takedown, explicit-content, and region restrictions in project and export/download metadata.
+- Music/audio handling must separate user-owned imports, platform-provided tracks, licensed stock, streaming catalog rights, downloads, and blocked copyrighted media.
+- Support access to prompts, originals, uploads, drafts, exports, playback history, and account data requires explicit user consent and auditable staff access.
+- Export/delete must cover account data, originals, uploads, drafts, edit stacks, generated outputs, playback/history where legally available, exports, reports, support cases, and billing references where legally deletable.
 
 ## Analytics And Monetization
 
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement logic; do not copy exact pricing, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, private messages, or child data as event properties.
+- Analytics events: onboarding started/completed, import started/completed, search performed, item opened, tool selected, edit/playback/render completed or failed, export/download completed, report submitted, export/delete requested, and paywall viewed.
+- Event properties must use coarse file/media type classes, tool categories, catalog category, model capability class, latency buckets, error codes, output dimensions buckets, render-duration buckets, playback state, and entitlement state only.
+- Monetization may gate premium tools, higher quotas, batch exports, cloud sync, stock/templates, music/audio, AI generation, high-resolution output, watermark removal, downloads/offline, ad-free playback, family/bundle features, or priority processing.
+- Billing must handle app-store, web, bundle/family, trial, paid, ad-supported, expired, canceled, refunded, restored, unavailable, and quota-exhausted states.
+- Paywalls must not block safety reporting, account recovery, export/delete, privacy settings, or access to already-created user content where legally required.
 
 ## Edge Cases
 
-- First launch with no network, no account, expired session, or unsupported OS version.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
-- Subscription restored on a different platform, refunded externally, or unavailable in the user's region.
-- Legal/privacy request submitted while transactions, messages, or support cases are still active.
+- User imports a huge file, unsupported format, corrupt image/video/audio, low-storage clip, DRM-protected media, or media with sensitive EXIF/location.
+- Provider outage after the user submits an edit, transcription, recognition, render, download, or export job but before output is persisted.
+- User cancels processing after credits, quota, skips, or rights windows are consumed.
+- Tool, model, preset, template, sticker, music, catalog item, station, podcast, or asset becomes unavailable, renamed, region-locked, explicit-filtered, or takedown-blocked.
+- Generated, edited, recognized, recommended, or exported output includes unsafe, infringing, non-consensual, misleading, missing-attribution, or rights-limited content.
+- Draft, library item, playlist, station, or download is deleted on one device while another device is playing, exporting, rendering, or processing it.
+- Subscription renews, refunds, or expires while a premium export, render, download, recognition, or playback session is in progress.
+- Account/team/family policy disables AI, cloud sync, commercial assets, explicit content, downloads, creator features, or public sharing after content has been cached locally.
+- Camera, photo library, files, microphone, clipboard, media library, Bluetooth, local network, or notifications are revoked in OS settings mid-flow.
+- User requests export/delete while processing jobs, reports, support cases, billing disputes, creator payouts, or rights disputes remain active.
+- Uploaded or played media appears to contain child data, health data, financial documents, private keys, third-party confidential material, or copyrighted assets.
+- User attempts to use generated/edited/recognized output for identity deception, financial/scientific claims, regulated advertising, unauthorized commercial use, or non-consensual publication.
 
 ## Test Plan
 
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+- Unit tests for project/library state machines, idempotency keys, entitlement checks, quota counters, provider error mapping, and analytics redaction.
+- Unit tests for import/catalog validation, MIME/size/codec limits, EXIF policy, scan states, rights states, retention flags, and deletion/export eligibility.
+- Unit tests for edit stack undo/redo, timeline trim/split/reorder or playback queue behavior, destructive-confirmation gates, asset license propagation, watermark/download state, and metadata policy.
+- Contract tests for auth, home, library, imports, catalog/search, tools, jobs, assets/licenses, playback, exports/downloads, billing, privacy, support, and reports.
+- Integration tests for onboarding -> import/search -> edit/play -> preview/now-playing -> export/download/share -> delete.
+- Integration tests for permission denied, granted, revoked, limited photo/media access, oversized files, unsupported inputs, provider timeouts, and rights failures.
+- Offline tests for cached drafts, licensed downloads, local edits, reconnect reconciliation, duplicate-submit prevention, and blocked unsafe writes.
+- Safety tests for hallucination/source disclaimers where applicable, face/body/media abuse, non-consensual edits, child-safety prompts, copyright reports, explicit-content gates, and moderation states.
+- Billing tests for trial, purchase, restore, renewal, refund, expiration, region unavailable, quota exhausted, ad-supported, app-store-owned, and web-owned states.
+- Privacy/security tests for provider request redaction, support access consent, EXIF/GPS stripping, prompt/log scrubbing, export, delete, retention expiry, and rights expiry.
+- Accessibility tests for screen-reader order, dynamic type, focus, contrast, reduced motion, captions/transcripts, non-gesture alternatives, media controls, and processing announcements.
+- Manual verification tests for native store listings, privacy labels, permission prompts, subscription purchase/restore, push notifications, camera/photo/file/media behavior, background playback/export, and region-specific availability.
 
 ## Acceptance Criteria
 
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source-discovery links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+- All source-discovery links are replaced with exact first-party product/help/privacy/terms URLs or explicit manual blockers for native marketplace evidence.
+- A lawful V1 can be built with original branding, UI copy, sample content, providers, and licensed assets/catalogs.
+- Onboarding, home, import/search, editor or playback, tool/effect/catalog picker, asset/library, preview/now-playing, export/download/share, settings, support, safety report, export/delete, and entitlement screens are specified.
+- Media/import/export/playback/provider/billing/support/analytics data boundaries are documented and testable.
+- Offline draft/download recovery and reconnect reconciliation are covered without allowing unsafe provider, billing, publication, rights, or irreversible operations while offline.
+- Safety tests cover hallucinations or source claims where relevant, face/body/media abuse, non-consensual edits, copyright reports, generated-content attribution, music/catalog licensing, explicit content, and commercial-use warnings.
+- Manual verification blockers remain for native behavior that requires accounts, subscriptions, devices, permissions, marketplace labels, camera/hardware integration, background playback/export, or regional access.
+- At least 12 implementation tests cover happy path, failed provider, permission denial, import/playback failure, quota exhaustion, offline recovery, export/delete, billing restore, safety report, accessibility, privacy redaction, and regression behavior.
 
 ## Open Questions
 
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, regulated sandbox, or provider credentials?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, AI, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+- Which exact mobile marketplace listing IDs and app-store privacy labels should be treated as canonical after native verification?
+- Which provider(s) will power AI, video/audio processing, media storage, moderation, stock/template/music/catalog libraries, billing, analytics, notifications, and recommendations in the original implementation?
+- Which prompts, uploads, originals, drafts, generated outputs, edit operations, playback history, catalog refs, and exports/downloads are retained for product improvement, support, abuse prevention, rights accounting, or legal obligations?
+- Which regions, ages, teams, schools, families, bundles, or enterprise policies should block or alter feature availability?
+- Which generated-content attribution, watermarking, license, citation, explicit-content, download, or disclosure rules are required by platform policy, rights contracts, or local law?
+- Which hands-on flows require paid access, creator/admin access, special hardware, background permissions, platform integrations, or regulated review?
 
 ## Build Plan
 
-- Phase 1: Replace source-discovery rows with exact first-party URLs and classify each requirement as verified or inferred.
-- Phase 2: Define route map, component map, domain entities, API schema, permissions, analytics schema, and seed-data policy.
-- Phase 3: Build onboarding, home, primary action, detail, search, settings, support, and entitlement shells with original copy and sample data.
-- Phase 4: Add backend contracts, offline/retry handling, notification preferences, data export/delete, and safety/reporting flows.
-- Phase 5: Complete accessibility, privacy, safety, billing, permission, and regression tests.
-- Phase 6: Conduct lawful hands-on verification and resolve manual blockers before parity claims.
+- Phase 1: Finalize native marketplace URLs, source notes, provider choices, legal names, rights model, and feature flags for all manual blockers.
+- Phase 2: Implement auth, home, import/search, editor or playback shell, project/library history, settings, and support routes.
+- Phase 3: Add tool/model/catalog routing, asset library, edit/render/recognition/playback jobs, preview/now-playing states, quota states, and provider error handling.
+- Phase 4: Add offline draft/download recovery, reconnect reconciliation, notification preferences, export/delete, report handling, rights state, and audit events.
+- Phase 5: Add billing/restore, privacy controls, analytics redaction, provider retention controls, accessibility, media safety, copyright/music checks, and policy tests.
+- Phase 6: Run lawful hands-on native verification and remove or preserve blockers with dated evidence before parity claims.
 
 ## Next Steps
 
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, support docs, and user-review themes in a dedicated research note without committing proprietary media.
-- Resolve open questions and update this spec before downstream implementation starts.
-- Extend the Phase 5 implementation-plan queue and repo-seeding manifest after the spec reaches implementation-ready V1.
+- Capture native app-store listing IDs, privacy labels, release notes, and permission prompts during a lawful device verification session.
+- Select original providers for media processing, recognition/transcription, moderation, storage, billing, analytics, notifications, recommendations, licensed music, and asset/catalog libraries.
+- Keep presets, templates, sample prompts, generated examples, playlists, editorial shelves, and seed media original to the clone implementation.
+- Extend the Phase 5 implementation-plan queue after this spec range is incorporated into the broader readiness pipeline.
