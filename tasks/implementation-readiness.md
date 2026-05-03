@@ -5,11 +5,11 @@ Updated: 2026-05-03
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-195.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-200.
 
-Current readiness count: 195 of 1000.
+Current readiness count: 200 of 1000.
 
-Step 8.3 remains open for IDs 191-1000. A 2026-05-03 post-slice audit found 2,440 source-discovery placeholder rows across 810 files: 40 rows in IDs 191-200 and 300 rows per 100-ID range from 201-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 201-1000. A 2026-05-03 post-slice audit found 2,400 source-discovery placeholder rows across 800 files: 300 rows per 100-ID range from 201-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -222,6 +222,11 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 193 | Miro | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; collaborative canvas, sticky notes, shapes, frames, templates, uploads, realtime permissions, and native/manual blockers remain explicit. |
 | 194 | Calendly | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; event types, availability, public booking, provider calendars, team scheduling, reminders, and native/manual blockers remain explicit. |
 | 195 | Fantastical | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; calendar/task views, natural-language entry, provider scopes, widgets, weather, notifications, and native/manual blockers remain explicit. |
+| 196 | Things 3 | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; task buckets, projects, headings, tags, recurrence, quick entry, widgets, sync, billing, and native/manual blockers remain explicit. |
+| 197 | Obsidian | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; local Markdown vaults, backlinks, graph, plugins, file-system storage, encrypted sync, and native/manual blockers remain explicit. |
+| 198 | Bear | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Markdown notes, hashtag organization, backlinks, attachments, themes, lock/privacy, sync, and native/manual blockers remain explicit. |
+| 199 | Day One | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; journal entries, media, prompts, app lock, E2EE sync, import/export, location/weather privacy, and native/manual blockers remain explicit. |
+| 200 | AllTrails | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; trail discovery, licensed maps/data, recording, offline maps, reviews/photos, safety share, subscriptions, and native/manual blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 
@@ -262,9 +267,9 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 - Batch 07-08 finance/investing/banking public-source V1 expansion: `137-bloomberg.md` through `149-step.md`.
 - Batch 08 pharmacy/telehealth public-source V1 expansion: `150-goodrx.md` through `157-ro.md`.
 - Batch 08-09 wearable health, sleep, cycle, pregnancy, baby-care, family organizer, family locator, and parental-controls public-source V1 expansion: `158-oura.md` through `169-google-family-link.md`.
-- Batch 09-10 school, kids education/media, language learning, translation, transcription, writing/dev/work management, design collaboration, whiteboard, scheduling, and calendar/tasks public-source V1 expansion: `170-classdojo.md` through `195-fantastical.md`.
+- Batch 09-10 school, kids education/media, language learning, translation, transcription, writing/dev/work management, design collaboration, whiteboard, scheduling, calendar/tasks, personal productivity, notes/journaling, and outdoor trail/navigation public-source V1 expansion: `170-classdojo.md` through `200-alltrails.md`.
 
 ## Next Steps
 
-- Continue Phase 8 Step 8.3 with IDs 196-200 (`Things 3` through `AllTrails`) as the next personal productivity, notes/journaling, and outdoor trail/navigation slice.
+- Continue Phase 8 Step 8.3 with IDs 201-220 (`Poe` through `Notion AI`) as the next AI assistant and AI writing/meeting/keyboard slice.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.

@@ -1,5 +1,13 @@
 # History
 
+## 2026-05-03 - Step 8.3 Personal Productivity Notes And Outdoor Readiness Slice
+
+- Promoted the next Phase 8 Step 8.3 slice, IDs 196-200 (`Things 3` through `AllTrails`), from Draft 1 to implementation-ready public-source V1.
+- Replaced Research Sources placeholder rows with exact public marketplace, official product/help/support, privacy, terms, sync/encryption, and activity/offline/navigation source URLs as applicable. Every promoted source row is marked `Verified 2026-05-03`.
+- Preserved manual blockers for native quick entry/share extensions, widgets/watch/Siri/Shortcuts, app-store purchase/restore, local file-system vault behavior, plugin sandboxing, cross-device sync, E2EE key recovery, media capture, background/precise location, offline map rendering, real-device recording accuracy, subscriptions, and accessibility.
+- Added category risk coverage for local-first/offline sync, cloud/provider scopes, attachment/media storage, note/journal content privacy, prompt licensing, plugin permissions, location/GPS minimization, map/trail data licensing, safety disclaimers, live-share token controls, review/photo moderation, export/delete, and subscription limits.
+- Validation: targeted checks found one H1 and 18 canonical H2 sections in each promoted file and no `Source discovery`, `Readiness status: Draft`, or exact-URL-pending markers in the 5-file slice. Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 200 implementation-ready specs and 2,400 source-discovery placeholder rows across 800 remaining files.
+
 ## 2026-05-02 - Step 8.3 Kids Education, Video, And Language Readiness Slice
 
 - Promoted the next Phase 8 Step 8.3 slice, IDs 174-180 (`ScratchJr` through `Babbel`), from Draft 1 to implementation-ready public-source V1.
