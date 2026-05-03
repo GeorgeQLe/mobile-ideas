@@ -1,15 +1,15 @@
 # Implementation Readiness Gate
 
 Created: 2026-04-16
-Updated: 2026-05-02
+Updated: 2026-05-03
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-185.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-190.
 
-Current readiness count: 185 of 1000.
+Current readiness count: 190 of 1000.
 
-Step 8.3 remains open for IDs 186-1000. A 2026-05-02 post-slice audit found 2,461 source-discovery placeholder rows across 815 files: 61 rows in IDs 186-200 and 300 rows per 100-ID range from 201-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 191-1000. A 2026-05-03 post-slice audit found 2,440 source-discovery placeholder rows across 810 files: 40 rows in IDs 191-200 and 300 rows per 100-ID range from 201-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -207,6 +207,16 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 178 | YouTube Kids | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; child video profiles, age modes, approved-only controls, timer, reporting, moderation, COPPA-style review, and native/manual blockers remain explicit. |
 | 179 | PBS Kids | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; licensed kids video catalog, live stream, downloads, games, region/license controls, COPPA-style review, and native/manual blockers remain explicit. |
 | 180 | Babbel | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; language courses, placement, review manager, speech recognition, subscriptions, mic/audio privacy, and native/manual blockers remain explicit. |
+| 181 | Rosetta Stone | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; language courses, speech recognition, live classes, certificates, subscriptions, and native/manual blockers remain explicit. |
+| 182 | Duolingo ABC | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; early literacy lessons, child-directed privacy, parent/teacher controls, offline learning, and native/manual blockers remain explicit. |
+| 183 | Google Translate | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; text/camera/conversation translation, offline language packs, privacy, and native/manual blockers remain explicit. |
+| 184 | DeepL | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; translation, writing assistance, camera/file translation, glossary, subscriptions, and native/manual blockers remain explicit. |
+| 185 | Otter.ai | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; transcription, meeting import, recording consent, summaries, collaboration, and native/manual blockers remain explicit. |
+| 186 | Grammarly | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; keyboard suggestions, editor checks, tone/rewrites, full-access disclosure, enterprise/privacy controls, and native/manual blockers remain explicit. |
+| 187 | GitHub Mobile | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; inbox, issues, pull requests, code review, Actions, OAuth scopes, enterprise policy, and native/manual blockers remain explicit. |
+| 188 | Linear | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; issues, inbox, cycles, projects, realtime sync, permissions, SSO/admin gates, and native/manual blockers remain explicit. |
+| 189 | Jira | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; boards, backlogs, sprints, workflow validators, enterprise permissions, SSO/SCIM, and native/manual blockers remain explicit. |
+| 190 | Asana | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; My Tasks, projects, views, goals, portfolios, dependencies, enterprise gates, and native/manual blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 
