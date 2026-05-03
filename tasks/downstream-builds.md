@@ -57,6 +57,8 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 - [x] 921-940 - Build planning pushed.
 - [x] 941-950 - Build planning pushed.
 - [x] 951-970 - Build planning pushed.
+- [x] 971-990 - Build planning pushed.
+- [ ] 991-1000 - Build planning pending.
 
 ## Evidence
 
@@ -1607,3 +1609,32 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 968 | letgo | `GeorgeQLe/letgo-mobile-clone` | build planning started |
 | 969 | VarageSale | `GeorgeQLe/varagesale-mobile-clone` | build planning started |
 | 970 | Kijiji | `GeorgeQLe/kijiji-mobile-clone` | build planning started |
+
+### Batch 971-990 Build Planning - 2026-05-03T23:56:55.024Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 971 | Gumtree | `GeorgeQLe/gumtree-mobile-clone` | build planning started |
+| 972 | CarGurus | `GeorgeQLe/cargurus-mobile-clone` | build planning started |
+| 973 | AutoTrader | `GeorgeQLe/autotrader-mobile-clone` | build planning started |
+| 974 | Cars.com | `GeorgeQLe/cars-com-mobile-clone` | build planning started |
+| 975 | Carvana | `GeorgeQLe/carvana-mobile-clone` | build planning started |
+| 976 | CarMax | `GeorgeQLe/carmax-mobile-clone` | build planning started |
+| 977 | TrueCar | `GeorgeQLe/truecar-mobile-clone` | build planning started |
+| 978 | Copart | `GeorgeQLe/copart-mobile-clone` | build planning started |
+| 979 | Bring a Trailer | `GeorgeQLe/bring-a-trailer-mobile-clone` | build planning started |
+| 980 | Autolist | `GeorgeQLe/autolist-mobile-clone` | build planning started |
+| 981 | Gumroad | `GeorgeQLe/gumroad-mobile-clone` | build planning started |
+| 982 | Kajabi | `GeorgeQLe/kajabi-mobile-clone` | build planning started |
+| 983 | Teachable | `GeorgeQLe/teachable-mobile-clone` | build planning started |
+| 984 | Thinkific | `GeorgeQLe/thinkific-mobile-clone` | build planning started |
+| 985 | Podia | `GeorgeQLe/podia-mobile-clone` | build planning started |
+| 986 | Mighty Networks | `GeorgeQLe/mighty-networks-mobile-clone` | build planning started |
+| 987 | Circle Communities | `GeorgeQLe/circle-communities-mobile-clone` | build planning started |
+| 988 | Skool | `GeorgeQLe/skool-mobile-clone` | build planning started |
+| 989 | Stan Store | `GeorgeQLe/stan-store-mobile-clone` | build planning started |
+| 990 | Linktree | `GeorgeQLe/linktree-mobile-clone` | build planning started |
