@@ -488,3 +488,12 @@
 - Refreshed `tasks/implementation-readiness.md` to 190 of 1000 ready and moved the next Step 8.3 slice to IDs 191-195.
 - Validation: targeted checks found one H1 in each promoted file and no `Source discovery`, `Readiness status: Draft`, or exact-URL-pending markers in the 5-file slice.
 - Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 190 implementation-ready specs and 2,440 source-discovery placeholder rows across 810 remaining files.
+
+## 2026-05-03 - Phase 8 Step 8.3 Productivity, Design, Whiteboard, Scheduling, And Calendar Slice (IDs 191-195)
+
+- Promoted 5 productivity, design collaboration, collaborative whiteboard, scheduling, and calendar/tasks specs to implementation-ready public-source V1: `191-clickup.md` through `195-fantastical.md`.
+- Replaced source-discovery placeholders with exact public first-party marketplace, help/support, product, security/trust, privacy, terms, pricing, mobile, OAuth/provider, and subscription URLs verified on 2026-05-03.
+- Expanded category-specific risk coverage: workspace permissions, realtime/offline sync, attachment/upload storage, canvas/rendering performance, sharing/public links, template/AI boundaries, calendar/provider OAuth scopes, natural-language parsing, widgets/notifications, export/delete, and subscription/seat limits.
+- Refreshed `tasks/implementation-readiness.md` to 195 of 1000 ready and moved the next Step 8.3 slice to IDs 196-200.
+- Validation: targeted checks found one H1 in each promoted file and no `Source discovery`, `Readiness status: Draft`, or exact-URL-pending markers in the 5-file slice.
+- Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 195 implementation-ready specs and 2,420 source-discovery placeholder rows across 805 remaining files.

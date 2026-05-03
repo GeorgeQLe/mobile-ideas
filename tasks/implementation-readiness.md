@@ -5,9 +5,9 @@ Updated: 2026-05-03
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-190.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-195.
 
-Current readiness count: 190 of 1000.
+Current readiness count: 195 of 1000.
 
 Step 8.3 remains open for IDs 191-1000. A 2026-05-03 post-slice audit found 2,440 source-discovery placeholder rows across 810 files: 40 rows in IDs 191-200 and 300 rows per 100-ID range from 201-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
@@ -217,6 +217,11 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 188 | Linear | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; issues, inbox, cycles, projects, realtime sync, permissions, SSO/admin gates, and native/manual blockers remain explicit. |
 | 189 | Jira | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; boards, backlogs, sprints, workflow validators, enterprise permissions, SSO/SCIM, and native/manual blockers remain explicit. |
 | 190 | Asana | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; My Tasks, projects, views, goals, portfolios, dependencies, enterprise gates, and native/manual blockers remain explicit. |
+| 191 | ClickUp | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; workspace hierarchy, tasks, docs, dashboards, whiteboards, AI boundaries, enterprise gates, and native/manual blockers remain explicit. |
+| 192 | Figma | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; file viewing, prototypes, comments, sharing, mirroring, asset/privacy controls, and native/manual blockers remain explicit. |
+| 193 | Miro | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; collaborative canvas, sticky notes, shapes, frames, templates, uploads, realtime permissions, and native/manual blockers remain explicit. |
+| 194 | Calendly | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; event types, availability, public booking, provider calendars, team scheduling, reminders, and native/manual blockers remain explicit. |
+| 195 | Fantastical | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; calendar/task views, natural-language entry, provider scopes, widgets, weather, notifications, and native/manual blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 
@@ -257,9 +262,9 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 - Batch 07-08 finance/investing/banking public-source V1 expansion: `137-bloomberg.md` through `149-step.md`.
 - Batch 08 pharmacy/telehealth public-source V1 expansion: `150-goodrx.md` through `157-ro.md`.
 - Batch 08-09 wearable health, sleep, cycle, pregnancy, baby-care, family organizer, family locator, and parental-controls public-source V1 expansion: `158-oura.md` through `169-google-family-link.md`.
-- Batch 09-10 school, kids education/media, language learning, translation, and transcription public-source V1 expansion: `170-classdojo.md` through `185-otter-ai.md`.
+- Batch 09-10 school, kids education/media, language learning, translation, transcription, writing/dev/work management, design collaboration, whiteboard, scheduling, and calendar/tasks public-source V1 expansion: `170-classdojo.md` through `195-fantastical.md`.
 
 ## Next Steps
 
-- Continue Phase 8 Step 8.3 with IDs 186-190 (`GitHub` through `Asana`) as the next developer collaboration, work management, and project planning slice.
+- Continue Phase 8 Step 8.3 with IDs 196-200 (`Things 3` through `AllTrails`) as the next personal productivity, notes/journaling, and outdoor trail/navigation slice.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.
