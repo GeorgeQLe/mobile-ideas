@@ -7,9 +7,9 @@ Updated: 2026-05-03
 
 The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-200.
 
-Current readiness count: 200 of 1000.
+Current readiness count: 220 of 1000.
 
-Step 8.3 remains open for IDs 201-1000. A 2026-05-03 post-slice audit found 2,400 source-discovery placeholder rows across 800 files: 300 rows per 100-ID range from 201-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 221-1000. A 2026-05-03 post-slice audit found 2,340 source-discovery placeholder rows across 780 files: 240 rows in IDs 201-300 and 300 rows per 100-ID range from 301-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -227,6 +227,26 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 198 | Bear | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Markdown notes, hashtag organization, backlinks, attachments, themes, lock/privacy, sync, and native/manual blockers remain explicit. |
 | 199 | Day One | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; journal entries, media, prompts, app lock, E2EE sync, import/export, location/weather privacy, and native/manual blockers remain explicit. |
 | 200 | AllTrails | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; trail discovery, licensed maps/data, recording, offline maps, reviews/photos, safety share, subscriptions, and native/manual blockers remain explicit. |
+| 201 | Poe | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; multi-model chat, bot discovery, creator bots, attachments, model routing, AI safety, and native/manual blockers remain explicit. |
+| 202 | Gemini | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; assistant chat, voice/live sessions, file/image context, connected-app gates, account controls, and native/manual blockers remain explicit. |
+| 203 | Microsoft Copilot | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; consumer AI chat, image generation, voice, web answers, account continuity, and native/manual blockers remain explicit. |
+| 204 | Grok | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; assistant chat, image/media features, voice, X/xAI linkage, paid access, and native/manual blockers remain explicit. |
+| 205 | DeepSeek | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; reasoning chat, code/math workflows, conversation history, account limits, and native/manual blockers remain explicit. |
+| 206 | Meta AI | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; chat, image generation, search-style answers, Meta account boundaries, cross-app gates, and native/manual blockers remain explicit. |
+| 207 | You.com | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; AI search, source-backed answers, writing/code modes, file context, agent tasks, and native/manual blockers remain explicit. |
+| 208 | Pi | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; supportive assistant chat, voice-style dialogue, memory/history, wellbeing-adjacent safety, and native/manual blockers remain explicit. |
+| 209 | Phind | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; developer AI search, code answers, citations, history, plan limits, and native/manual blockers remain explicit. |
+| 210 | HuggingChat | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; open-model chat, assistant/model selection, community moderation, model licensing, and native/manual blockers remain explicit. |
+| 211 | Wysa | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; mental wellbeing chat, coaching exercises, mood check-ins, crisis routing, and native/manual blockers remain explicit. |
+| 212 | ELSA Speak | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; pronunciation coaching, speech recording, lessons, scoring, progress, and native/manual blockers remain explicit. |
+| 213 | OtterPilot | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; meeting recording, live transcription, summaries, speaker labels, calendar joins, and native/manual blockers remain explicit. |
+| 214 | Grammarly Keyboard | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; mobile keyboard suggestions, full-access privacy, sensitive-field suppression, premium gates, and native/manual blockers remain explicit. |
+| 215 | Wordtune | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; AI rewrites, tone/length transforms, summaries, writing templates, document privacy, and native/manual blockers remain explicit. |
+| 216 | QuillBot | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; paraphrasing, grammar, summarization, citations, uploaded-document privacy, and native/manual blockers remain explicit. |
+| 217 | Ask AI | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; consumer chatbot, prompt templates, media/file gates, subscription restore, and native/manual blockers remain explicit. |
+| 218 | Genie | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; consumer chatbot, writing templates, media/file gates, mobile paywalls, and native/manual blockers remain explicit. |
+| 219 | Monica | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; chat, writing, summarization, translation, browser/page context, file privacy, and native/manual blockers remain explicit. |
+| 220 | Notion AI | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; workspace AI writing, Q&A, summaries, page/database actions, admin controls, and native/manual blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 

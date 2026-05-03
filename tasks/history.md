@@ -425,6 +425,15 @@
 - No downstream repo changes; `GeorgeQLe/mobile-ideas` remains PUBLIC; all 100 existing downstream repos remain PRIVATE.
 - Execution note: 100-spec rewrite was fanned out across 5 parallel batch-scoped subagents. Initial round hit per-agent usage limits and a second finishing round completed the tail (batch-06 107-120, batch-07 137-140, batch-08 151-160, batch-09 176-180).
 
+## 2026-05-03 - Phase 8 Step 8.3 AI Assistant Slice (IDs 201-220)
+
+- Promoted 20 AI assistant, AI writing, language-coaching, meeting assistant, keyboard assistant, and workspace-AI specs to implementation-ready public-source V1: `201-poe.md` through `220-notion-ai.md`.
+- Replaced source-discovery placeholders with exact public first-party product/help/privacy/terms URLs verified on 2026-05-03, with native marketplace listing IDs and app-store privacy labels preserved as manual verification blockers where not yet captured.
+- Expanded category-specific risk coverage: AI safety, model/provider routing, prompt and attachment privacy, conversation retention, hallucination disclaimers, crisis/mental-health escalation for Wysa-style flows, speech/audio retention for ELSA/OtterPilot-style flows, recording consent for OtterPilot-style flows, keyboard full-access privacy for Grammarly Keyboard-style flows, workspace permission scoping for Notion AI-style flows, export/delete, generated-content attribution, subscription/quota states, and provider outage recovery.
+- Refreshed `tasks/implementation-readiness.md` to 220 of 1000 ready and moved the next Step 8.3 slice to IDs 221-240.
+- Validation: targeted checks found one H1 in each promoted file and no `Source discovery`, `Readiness status: Draft 1`, or exact-URL-pending markers in the 20-file slice.
+- Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 220 implementation-ready specs and 2,340 source-discovery placeholder rows across 780 remaining files.
+
 ## 2026-04-20 - Phase 7 Step 7.1: Draft 0 Placeholders for IDs 101-200
 
 - Created 100 Draft 0 placeholder spec files under `specs/batch-06/` through `specs/batch-10/` (20 files per batch) covering IDs 101-200 from the 2026-04-20 `tasks/ideas.md` extension.
