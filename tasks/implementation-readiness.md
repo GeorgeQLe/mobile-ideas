@@ -5,11 +5,11 @@ Updated: 2026-05-04
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-460.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-480.
 
-Current readiness count: 460 of 1000.
+Current readiness count: 480 of 1000.
 
-Step 8.3 remains open for IDs 461-1000. A 2026-05-04 post-slice audit found 1,620 source-discovery placeholder rows across 540 files: 120 rows in IDs 401-500 and 300 rows per 100-ID range from 501-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 481-1000. A 2026-05-04 post-slice audit found 1,560 source-discovery placeholder rows across 520 files: 60 rows in IDs 401-500 and 300 rows per 100-ID range from 501-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -487,6 +487,26 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 458 | GOAT | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; sneaker/apparel resale marketplace, seller listings, authenticity review blockers, offers, checkout, shipping, returns, fraud holds, and payout/tax blockers remain explicit. |
 | 459 | Grailed | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; menswear resale marketplace, buyer/seller profiles, listings, offers, messaging, authentication blockers, payments, disputes, and moderation remain explicit. |
 | 460 | Mercari | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; consumer resale marketplace, listing creation, offers, messaging, payments, shipping labels, returns/disputes, ratings, prohibited-goods moderation, and support remain explicit. |
+| 461 | Vinted | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; fashion resale marketplace, listings, offers, bundles, buyer protection, prepaid shipping, payments, returns/disputes, and prohibited-item moderation remain explicit. |
+| 462 | OfferUp | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; local recommerce marketplace, nearby listings, secure messaging, offers, promoted listings, local meetup/shipping handoffs, ratings, payments, and fraud controls remain explicit. |
+| 463 | Craigslist | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; local classifieds, city/category browsing, posting/reply flows, saved searches, maps, alerts, housing/jobs/service category constraints, and scam controls remain explicit. |
+| 464 | AliExpress | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; cross-border marketplace discovery, seller disclosure, coupons, checkout, shipping estimates, buyer protection, returns/refunds, taxes/duties blockers, and support remain explicit. |
+| 465 | Wish | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; discount marketplace feed, merchant offers, coupons/deals, checkout, shipping estimates, order tracking, returns/refunds, seller disclosure, and support remain explicit. |
+| 466 | Lazada | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; regional marketplace discovery, mall/seller storefronts, vouchers, wallet/payment handoffs, logistics tracking, returns/refunds, seller operations, and region availability remain explicit. |
+| 467 | Shopee | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; marketplace search, seller shops, vouchers, coins/rewards, wallet/payment handoffs, logistics tracking, livestream/game blockers, returns/refunds, and regional policy variation remain explicit. |
+| 468 | Flipkart | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; India marketplace discovery, seller offers, SuperCoins-style rewards, payment instruments, delivery tracking, exchange/returns/refunds, seller support, and regional availability remain explicit. |
+| 469 | Myntra | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; fashion discovery, product size/color variants, wishlist, checkout, payment instruments, delivery tracking, returns/exchanges, loyalty/rewards, and support remain explicit. |
+| 470 | Rakuten | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; cash-back store discovery, offer activation, shopping handoff attribution, rewards balance, payout methods, referral states, missing-cashback support, and privacy controls remain explicit. |
+| 471 | Newegg | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; electronics search, technical specifications, marketplace seller offers, stock/price freshness, checkout, order tracking, warranties, returns/RMA, reviews, and support remain explicit. |
+| 472 | Chase Mobile | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; secure banking sign-in, account dashboard, mobile deposit, transfers, bill pay, card controls, alerts, statements, credit score, investing handoffs, fraud support, and compliance blockers remain explicit. |
+| 473 | Bank of America Mobile Banking | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; secure banking sign-in, account dashboard, transfer/bill-pay simulation, mobile deposit blockers, card controls, alerts, spending insights, rewards states, support, and fraud controls remain explicit. |
+| 474 | Wells Fargo Mobile | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; secure sign-in, account dashboard, transfer/bill-pay simulation, mobile deposit blockers, card controls, alerts, credit monitoring, rewards/card states, statements, and fraud support remain explicit. |
+| 475 | Citi Mobile | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; secure sign-in, accounts/cards dashboard, payments, transfers, rewards states, credit score, alerts, statements, card lock, dispute/fraud support, and regulated servicing blockers remain explicit. |
+| 476 | Capital One Mobile | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; secure sign-in, account/card dashboard, payments, transfers, mobile deposit blockers, credit score, card controls, rewards, alerts, fraud/support, and compliance blockers remain explicit. |
+| 477 | American Express | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; secure card servicing, account dashboard, payments, transactions, offers, rewards states, statements, card benefits, disputes, fraud alerts, and support remain explicit. |
+| 478 | Discover Mobile | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; secure card/banking sign-in, account dashboard, payments, rewards/cashback states, FICO score, alerts, card controls, statements, disputes, and fraud support remain explicit. |
+| 479 | U.S. Bank | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; secure sign-in, account dashboard, transfers, bill pay, mobile deposit blockers, card controls, rewards states, alerts, statements, support, fraud controls, and compliance blockers remain explicit. |
+| 480 | PNC Mobile | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; secure sign-in, account dashboard, transfers, bill pay, mobile deposit blockers, card controls, alerts, statements, money-management surfaces, rewards states, support, and compliance blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 
@@ -541,8 +561,9 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 - Batch 21 grocery retail, subscription grocery, UK/EU supermarket, and delivery marketplace public-source V1 expansion: `401-publix.md` through `420-deliveroo.md`.
 - Batch 22 delivery marketplace, regional super-app, courier/rider, shopper, and worker app public-source V1 expansion: `421-just-eat.md` through `440-talabat.md`.
 - Batch 23 delivery marketplace, electronics, home improvement, furniture, department store, beauty, athletic retail, fashion, resale, and marketplace public-source V1 expansion: `441-mr-d-food.md` through `460-mercari.md`.
+- Batch 24 resale/classifieds, cross-border/regional marketplace, cash-back, electronics retail, and banking/card servicing public-source V1 expansion: `461-vinted.md` through `480-pnc-mobile.md`.
 
 ## Next Steps
 
-- Continue Phase 8 Step 8.3 with IDs 461-480 as the next retail marketplace, ticketing/events, travel, hotel, airline, car rental, transit, parking, EV charging, maps, weather, and local services category slice.
+- Continue Phase 8 Step 8.3 with IDs 481-500 as the next banking, credit union, fintech, brokerage, trading, digital banking, and remittance category slice.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.

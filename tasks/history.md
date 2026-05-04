@@ -1,5 +1,27 @@
 # History
 
+## 2026-05-04 - Phase 8 Step 8.3 Resale Marketplace Banking And Card Servicing Slice (IDs 461-480)
+
+- Promoted 20 resale/classifieds, cross-border/regional marketplace, cash-back, electronics retail, and banking/card servicing specs to implementation-ready public-source V1: `461-vinted.md` through `480-pnc-mobile.md`.
+- Replaced source-discovery placeholders with exact public first-party product/help/support/privacy/terms/program URLs and native marketplace listing URLs verified on 2026-05-04, with native privacy labels, account lifecycle, payments/payouts, mobile deposit, card controls, push payloads, marketplace labels, regional availability, and provider integrations preserved as manual verification blockers where not yet captured.
+- Expanded category-specific risk coverage: listing/catalog licensing, seller/buyer trust, prohibited goods, payment/payout and return/dispute flows, ad-tech and cash-back attribution, account takeover, KYC/AML, financial licensing, money movement, card fraud, credit-score/rewards disclosures, statement retention, GLBA-style privacy, accessibility, support, and regulator-facing auditability.
+- Refreshed `tasks/implementation-readiness.md` to 480 of 1000 ready and moved the next Step 8.3 slice to IDs 481-500.
+- Validation: targeted checks found one H1 and 18 canonical H2 sections in each promoted file and no `Source discovery`, `Readiness status: Draft 1`, or exact-URL-pending markers in the 20-file slice.
+- Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 480 implementation-ready specs and 1,560 source-discovery placeholder rows across 520 remaining files.
+
+### Ship Manifest
+
+- User goal: execute `$run` next incomplete Step 8.3 slice and ship the result.
+- Changed files: `scripts/promote-batch-24-specs.mjs`, `specs/batch-24/461-vinted.md` through `specs/batch-24/480-pnc-mobile.md`, `tasks/todo.md`, `tasks/implementation-readiness.md`, and `tasks/history.md`.
+- Per-file purpose: added a repeatable batch-24 promotion script, promoted 20 specs to implementation-ready public-source V1, and recorded readiness counts, next slice, and audit evidence.
+- User-goal mapping: the edited specs replace Draft 1/source-discovery placeholders for IDs 461-480; task files preserve the Step 8.3 execution trail and handoff.
+- Tests run: `node scripts/check-implementation-readiness.mjs` expected-red with 480 ready specs and 1,560 remaining placeholders; targeted `rg` checks found no Draft 1/source-discovery markers in the promoted slice; targeted H1/H2 checks found one H1 and 18 H2 sections per promoted file.
+- Skipped tests: no runtime lint/type/build commands apply because this repository contains planning/specification Markdown and this slice changes no runtime code.
+- Adversarial review: diff reviewed for source-discovery residue, one-H1 structure, readiness-count consistency, manual native blockers, legal-scope boundaries, marketplace and banking/card servicing risk coverage, and next-slice routing.
+- Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native verification before one-for-one parity claims.
+- Rollback note: revert the shipping commit to restore IDs 461-480 to their previous Draft 1 scaffold state and previous readiness counts.
+- Next command: `$run`.
+
 ## 2026-05-04 - Phase 8 Step 8.3 Sports Fantasy Sportsbook And Fitness Slice (IDs 341-360)
 
 - Promoted 20 sports/news, league media, sports streaming, sportsbook-adjacent, fantasy sports, and fitness specs to implementation-ready public-source V1: `341-yahoo-sports.md` through `360-fitbod.md`.
