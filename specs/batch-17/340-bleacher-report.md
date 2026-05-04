@@ -3,189 +3,230 @@
 > Metadata
 > - Inspiration app: Bleacher Report
 > - Category: Sports and fitness
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace/source-discovery links only; exact first-party URL replacement and hands-on verification are still required.
-> - Manual verification blockers: native iOS/Android screen capture, account lifecycle walkthrough, subscription or payment state, permission prompts, push notifications, provider integrations, and region-specific behavior require lawful test evidence before one-for-one parity claims.
-> - Legal scope: functional parity only; use original code, brand, copy, iconography, sample data, media, policies, and integrations.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-04.
+> - Verification basis: exact public first-party product, support/help, privacy, terms, and marketplace URLs listed below; hands-on native parity remains blocked where stated.
+> - Manual verification blockers: native iOS/Android screen capture, account lifecycle walkthrough, paid/subscription or borrowing state, permission prompts, push notifications, provider integrations, background playback/download/casting behavior, app-store privacy labels beyond public listing pages, and region-specific behavior still require lawful test evidence before one-for-one native parity claims.
+> - Legal scope: functional parity only; use original code, brand, copy, iconography, screenshots, proprietary media catalogs, private feeds, recommendation models, private APIs, customer media, marketplace assets, licensed stock, and unlicensed datasets.
 
 ## Overview
 
-Build an original mobile product inspired by Bleacher Report's public user-facing workflow. The clone focus is: Scores/feed, team/player detail, alerts, fantasy or wagering-adjacent gates where applicable, subscriptions, and safety/compliance controls
+Build an original mobile sports and fitness product inspired by Bleacher Report's public product and policy materials. V1 focuses on personalized sports news feed, teams/leagues, alerts, scores, highlights, social/community reactions, merch or ticket-adjacent links, and video rights. The clone must use original branding, original UI copy, original sample media, licensed providers/assets, and explicit disclosures when a feature is inferred from public materials rather than verified hands-on behavior.
 
-This Draft 1 spec reserves ID 340 in the 1000-app backlog. It provides enough structure for downstream research, estimation, and lawful implementation planning, but it is not implementation-ready until exact first-party URLs replace source-discovery links and app-specific public evidence is added.
+This spec is implementation-ready for a public-source V1. Any behavior marked `Manual verification required` must stay behind a feature flag or documented blocker until lawful hands-on verification confirms exact native behavior.
 
 ## Goals
 
-- Deliver a mobile-first sports and fitness experience with onboarding, primary workflow, settings, support, and recovery flows.
-- Reproduce the functional job behind Bleacher Report using original product naming, original UI, original sample data, and licensed integrations.
-- Preserve exact boundaries between public-source evidence, inferred clone requirements, and blocked hands-on behavior.
-- Define screens, entities, API contracts, offline behavior, privacy/safety controls, analytics, tests, acceptance criteria, and build phases.
+- Provide mobile onboarding, consent, account recovery, settings, support, and data lifecycle flows.
+- Support personalized sports news feed, teams/leagues, alerts, scores, highlights, social/community reactions, merch or ticket-adjacent links, and video rights with clear retry, recovery, unavailable, region, and rights-aware states.
+- Preserve boundaries between account data, viewing/reading history, provider telemetry, analytics, support logs, rights/licensing records, billing records, ad records, and public creator/publisher data.
+- Implement free, ad-supported, trial, paid, expired, restored, refunded, quota-exhausted, provider-owned, bundle-owned, library-owned, and unavailable entitlement states without copying exact pricing, plan names, or promotional copy.
+- Include export/delete, report abuse, privacy controls, accessibility, and manual-verification paths before downstream implementation.
+- Document provider, catalog/feed, rights, recommendation, subscription, device-integration, safety, advertising, child/profile, and marketplace risks before any implementation claim.
 
 ## Non-Goals
 
-- Do not copy Bleacher Report branding, logos, screenshots, marketing copy, private APIs, proprietary datasets, ranking systems, or protected media.
-- Do not claim exact native behavior until a lawful hands-on verification pass records evidence.
-- Do not implement production payments, regulated services, medical advice, transport dispatch, smart-home control, or real-money game economies without separate legal/platform review.
+- Do not imply affiliation with Bleacher Report or its publisher.
+- Do not copy proprietary media catalogs, scores feeds, article databases, artwork, transcripts, recommendation models, screenshots, icons, brand names, or private API shapes.
+- Do not send production user video, audio, reading/viewing history, device telemetry, precise location, child-profile data, library-card data, payment data, or support attachments to any third-party provider without explicit consent and a documented data-processing path.
+- Do not present recommendations, sports data, ratings, creator analytics, ad targeting, news/video content, or source-backed output as professional, medical, legal, financial, educational, betting, or safety-critical advice.
+- Do not enable autonomous external publication, purchases, account changes, creator monetization, public profile changes, betting/wagering, or regulated workflows without a separate confirmation and risk review.
 - Do not build runtime app code in this spec store.
 
 ## Research Sources
 
-| Source | Discovery URL | Evidence To Verify | Status |
+| Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/search?term=Bleacher%20Report | iOS listing, category, age rating, privacy labels, release notes, support links | Source discovery -- pending exact URL verification |
-| Google Play | https://play.google.com/store/search?q=Bleacher%20Report&c=apps | Android listing, content rating, data safety, feature blurbs | Source discovery -- pending exact URL verification |
-| Official website/help search | https://www.google.com/search?q=Bleacher%20Report%20official%20app%20help%20privacy%20terms | Help center, privacy, terms, support, subscription, safety, and product docs to replace with first-party URLs | Source discovery -- pending exact URL verification |
+| Official product | https://bleacherreport.com/ | Public product positioning, core surfaces, availability framing, account, catalog/feed, subscription, and app behavior | Verified 2026-05-04 |
+| Support/help center | https://support.bleacherreport.com/ | Public support taxonomy for account, playback/reading, billing, devices, downloads, provider auth, troubleshooting, and deletion/export flows | Verified 2026-05-04 |
+| Privacy policy | https://www.bleacherreport.com/privacy | Account, profile, media/history, device, advertising, analytics, support, children/profile, and user-rights handling | Verified 2026-05-04 |
+| Terms of service | https://www.bleacherreport.com/terms | Service usage, licensed content, subscriptions, user conduct, provider limits, and legal boundaries | Verified 2026-05-04 |
+| App Store listing | https://apps.apple.com/us/app/bleacher-report-sports-news/id418075935 | Canonical iOS listing, category, age rating, privacy label, compatibility, in-app purchases where public, and native metadata | Verified 2026-05-04 |
+| Google Play listing | https://play.google.com/store/apps/details?id=com.bleacherreport.android.teamstream | Canonical Android listing, feature blurbs, content rating, data safety, downloads, and native metadata | Verified 2026-05-04 |
+| Native hands-on evidence | Manual verification required | Real-device screens, permission prompts, store purchase/restore, push payloads, background playback/download, casting, and regional catalog/feed differences | Blocked pending lawful device/store verification |
 
 ## Detailed Design
 
-- Onboarding must support guest, signup, returning-user, permission-primer, and blocked-account states appropriate for sports and fitness.
-- Home must default to Home/Workspace with empty, loading, personalized, degraded-network, and signed-out variants.
-- The primary action must be reachable from Create/Edit within two taps from home.
-- Detail/Preview must represent preview, confirmation, or consumption state with saved, shared, unavailable, and error variants.
-- Settings must include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements must model free, trial, paid, expired, canceled, restored, refunded, and unavailable states without copying plan names or pricing.
-- Accessibility must support dynamic type, screen reader labels, visible focus, contrast, reduced motion, and captions/transcripts where relevant.
-- Offline behavior must preserve recoverable drafts and block irreversible or regulated writes until the client has canonical server state.
+### Source-Backed Product Requirements
+
+- Onboarding must support signed-out preview where allowed, account creation or restore, blocked-account state, unavailable-region state, and entitlement-unavailable state.
+- Home must expose the latest meaningful sports and fitness state, search/discovery, saved items, settings, and degraded offline/account variants.
+- Search and discovery must distinguish first-party public evidence, licensed catalog/feed data, editorial recommendations, ads/sponsorship, user-generated content, and inferred behavior.
+- Detail screens must show availability, rights state, explicit/safety labels where relevant, save/follow/share actions, and manual-verification warnings for native-only behavior.
+- Playback, reading, download, DVR, borrowing, provider-auth, device-control, or profile jobs must expose pending, active, paused, failed, canceled, expired, and recovered states.
+- Library, history, queue, watchlist, subscription, profile, channel, team, feed, or creator state must sync without trusting stale client-only state for paid, rights-limited, or irreversible actions.
+- Settings must include profile/account, notification preferences, privacy policy, terms, support, export/delete, subscription management, and connected-provider controls.
+- Entitlements must model free, ad-supported, trial, paid, expired, canceled, refunded, restored, store-owned, web-owned, bundle-owned, library-owned, quota-exhausted, and unavailable states.
+- Analytics must avoid raw viewing/reading history at event granularity, private feed URLs, downloaded file paths, precise location, child data, payment credentials, library-card identifiers, support attachments, and unredacted account identifiers.
+- Moderation and support must cover copyright, impersonation, harassment, explicit content, unsafe uploads/comments, account takeover, fraud, private-feed leaks, provider-auth failures, and rights disputes.
+- Licensed media, live TV feeds, sports data, article feeds, recommendations, ads, payments, downloads, DVR state, library/institution entitlements, and device integrations require explicit provider/legal controls.
+- Manual verification required: native permission prompts, marketplace privacy labels, subscription purchase/restore, push payloads, background playback/download, casting/device integrations, and region-specific availability.
+- sports data licensing, highlight/video rights, push-alert preferences, community moderation, commerce/ad links, and personalized team-interest privacy must be treated as a launch-blocking risk area with owner, mitigation, acceptance tests, and manual-verification notes.
+- Video, article, score, live-event, or playback surfaces must preserve profile, maturity rating, captions/subtitles, audio descriptions, spoilers, ad labels, download eligibility, concurrent-stream limits, and content-expiry state.
+- Parental/profile controls must separate adult profiles, child profiles, PINs, ratings, search visibility, autoplay, recommendations, notifications, and account-owner controls where relevant.
 
 ## Core User Journeys
 
-- New user installs, reviews an original value proposition, creates or restores an account, and reaches Home/Workspace.
-- Returning user opens Home/Workspace, resumes the latest meaningful state, and completes the primary action in Create/Edit.
-- User searches or browses, opens Detail/Preview, saves or shares the item, and later finds it again from history or library.
-- User denies a requested permission, receives a functional fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry, reconcile, or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees correct locked/unlocked states.
-- User requests support, submits a report or dispute where relevant, and receives a durable case state.
-- User requests data export and account deletion from settings.
+- New user opens the app, reviews consent and data-use notices, signs in or continues with the allowed preview path, and reaches the primary surface.
+- Returning user resumes the latest session, queue, profile, episode, stream, title, article, score, download, DVR item, creator dashboard, or feed state and can recover from stale data.
+- User searches or browses public content, opens a detail page, saves or follows the item, and later finds it again from library/history.
+- User starts playback, reading, borrowing, DVR, provider-auth, download, or another core action, sees progress and cancellation, handles unavailable/provider-failed states, and confirms canonical state after completion.
+- User denies a permission, receives a functional fallback, and can re-enable the permission from settings without data loss.
+- User goes offline, opens cached safe content, plays licensed downloads where allowed, queues low-risk local work where allowed, and reconciles on reconnect.
+- User upgrades, downgrades, restores, cancels, or loses an entitlement and sees correct ads, quota, premium, download, quality, profile, and provider gates.
+- User reports rights, explicit-content, account, creator, publisher, feed, title, device, score, article, or abuse issues and receives a durable case state.
+- User requests export/delete and can remove account data, user content, viewing/reading history, support cases, and billing references where legally deletable.
+- Manual verification required: background behavior, push payloads, store purchase/restore, OS permission prompts, marketplace labels, casting/device integrations, and regional catalog/feed differences.
 
 ## Screen Inventory
 
-| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Home/Workspace | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Create/Edit | Primary creation/action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Detail/Preview | Inspect, consume, or confirm details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Search | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Share | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Sync/Activity | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Templates/Library | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Permissions | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Welcome / Auth | Defines the welcome / auth workflow for Bleacher Report-inspired sports and fitness behavior | taps, forms, search, filters, deep links, media controls, permissions | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, rights unavailable, provider failed, region unavailable |
+| Plan / Bundle Gate | Defines the plan / bundle gate workflow for Bleacher Report-inspired sports and fitness behavior | taps, forms, search, filters, deep links, media controls, permissions | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, rights unavailable, provider failed, region unavailable |
+| Home / For You | Defines the home / for you workflow for Bleacher Report-inspired sports and fitness behavior | taps, forms, search, filters, deep links, media controls, permissions | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, rights unavailable, provider failed, region unavailable |
+| Search / Browse | Defines the search / browse workflow for Bleacher Report-inspired sports and fitness behavior | taps, forms, search, filters, deep links, media controls, permissions | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, rights unavailable, provider failed, region unavailable |
+| Title / Story Detail | Defines the title / story detail workflow for Bleacher Report-inspired sports and fitness behavior | taps, forms, search, filters, deep links, media controls, permissions | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, rights unavailable, provider failed, region unavailable |
+| Team Stream | Defines the team stream workflow for Bleacher Report-inspired sports and fitness behavior | taps, forms, search, filters, deep links, media controls, permissions | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, rights unavailable, provider failed, region unavailable |
+| Scores / Alerts | Defines the scores / alerts workflow for Bleacher Report-inspired sports and fitness behavior | taps, forms, search, filters, deep links, media controls, permissions | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, rights unavailable, provider failed, region unavailable |
+| Episode / Event Detail | Defines the episode / event detail workflow for Bleacher Report-inspired sports and fitness behavior | taps, forms, search, filters, deep links, media controls, permissions | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, rights unavailable, provider failed, region unavailable |
+| Player / Reader | Defines the player / reader workflow for Bleacher Report-inspired sports and fitness behavior | taps, forms, search, filters, deep links, media controls, permissions | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, rights unavailable, provider failed, region unavailable |
+| Profiles / Kids Profile | Defines the profiles / kids profile workflow for Bleacher Report-inspired sports and fitness behavior | taps, forms, search, filters, deep links, media controls, permissions | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, rights unavailable, provider failed, region unavailable |
+| Watchlist / Saved | Defines the watchlist / saved workflow for Bleacher Report-inspired sports and fitness behavior | taps, forms, search, filters, deep links, media controls, permissions | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, rights unavailable, provider failed, region unavailable |
+| Downloads / Offline | Defines the downloads / offline workflow for Bleacher Report-inspired sports and fitness behavior | taps, forms, search, filters, deep links, media controls, permissions | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, rights unavailable, provider failed, region unavailable |
+| Notifications | Defines the notifications workflow for Bleacher Report-inspired sports and fitness behavior | taps, forms, search, filters, deep links, media controls, permissions | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, rights unavailable, provider failed, region unavailable |
+| Settings / Privacy | Defines the settings / privacy workflow for Bleacher Report-inspired sports and fitness behavior | taps, forms, search, filters, deep links, media controls, permissions | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, rights unavailable, provider failed, region unavailable |
+| Support / Reports | Defines the support / reports workflow for Bleacher Report-inspired sports and fitness behavior | taps, forms, search, filters, deep links, media controls, permissions | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, rights unavailable, provider failed, region unavailable |
 
 ## Data Model
 
-- `User`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Bleacher Report-style workflows.
-- `Workspace`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Bleacher Report-style workflows.
-- `Document`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Bleacher Report-style workflows.
-- `Asset`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Bleacher Report-style workflows.
-- `Project`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Bleacher Report-style workflows.
-- `Version`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Bleacher Report-style workflows.
-- `ShareGrant`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Bleacher Report-style workflows.
-- `Template`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Bleacher Report-style workflows.
-- `SyncJob`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Bleacher Report-style workflows.
-- `Notification`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Bleacher Report-style workflows.
-- `AuditEvent`: append-only record for sensitive writes, account changes, support actions, moderation decisions, and entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, conflict resolution, and cache expiry.
+- `User`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Bleacher Report-inspired sports and fitness workflows.
+- `AccountSession`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Bleacher Report-inspired sports and fitness workflows.
+- `Profile`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Bleacher Report-inspired sports and fitness workflows.
+- `CatalogOrFeedItem`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Bleacher Report-inspired sports and fitness workflows.
+- `CreatorOrPublisher`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Bleacher Report-inspired sports and fitness workflows.
+- `EpisodeOrTitle`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Bleacher Report-inspired sports and fitness workflows.
+- `PlaybackSession`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Bleacher Report-inspired sports and fitness workflows.
+- `QueueOrWatchlist`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Bleacher Report-inspired sports and fitness workflows.
+- `Download`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Bleacher Report-inspired sports and fitness workflows.
+- `ProviderJob`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Bleacher Report-inspired sports and fitness workflows.
+- `Entitlement`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Bleacher Report-inspired sports and fitness workflows.
+- `AdOrSponsorshipSlot`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Bleacher Report-inspired sports and fitness workflows.
+- `NotificationPreference`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Bleacher Report-inspired sports and fitness workflows.
+- `RightsOrSafetyReport`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Bleacher Report-inspired sports and fitness workflows.
+- `SupportCase`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Bleacher Report-inspired sports and fitness workflows.
+- `AuditEvent`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Bleacher Report-inspired sports and fitness workflows.
+- `LocalCacheRecord`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Bleacher Report-inspired sports and fitness workflows.
 
 ## API And Backend Contracts
 
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /workspaces, GET /documents, GET /assets, GET /projects; all reads return authorization status, pagination, cache hints, stale-data markers, and localization keys.
-- Writes: POST /users, POST /workspaces, POST /documents, POST /assets, POST /projects; all writes require validation errors, idempotency keys, optimistic-state reconciliation, and audit events for sensitive state.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context.
-- Upload/import: use signed upload URLs, MIME/size validation, malware/content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must refetch canonical state after missed events.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+- `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /account` for account lifecycle.
+- `GET /home`, `GET /profiles`, `POST /profiles`, `PATCH /profiles/:id`, and `DELETE /profiles/:id`.
+- `GET /library`, `POST /library/items`, `PATCH /library/items/:id`, and `DELETE /library/items/:id`.
+- `GET /catalog`, `GET /catalog/:id`, `GET /search`, and `POST /catalog/:id/save` for licensed media, article, event, feed, title, creator, or publisher discovery.
+- `GET /live/guide`, `GET /live/channels/:id`, `POST /dvr/recordings`, `GET /dvr/recordings`, and `DELETE /dvr/recordings/:id` where live TV or DVR behavior is in scope.
+- `GET /scores`, `GET /teams/:id`, `GET /games/:id`, `POST /teams/:id/follow`, and `GET /articles` where sports feed behavior is in scope.
+- `POST /jobs`, `GET /jobs/:id`, `GET /jobs/:id/events`, `POST /jobs/:id/cancel`, and `POST /jobs/:id/commit` for download, DVR, provider auth, playback sync, feed refresh, or device work.
+- `POST /playback/session`, `PATCH /playback/session/:id`, and `POST /playback/events` for streaming, reading, viewing, live, or device playback.
+- `GET /assets`, `GET /assets/:id/license`, `POST /assets/:id/use`, and `POST /assets/:id/report` for catalogs, feeds, artwork, subtitles, transcripts, channels, ads, articles, scores, or publisher assets.
+- `POST /downloads`, `GET /downloads/:id`, `POST /downloads/:id/refresh`, and `DELETE /downloads/:id`.
+- `GET /entitlements`, `POST /checkout/session`, `POST /billing/restore`, and `POST /billing/webhook`.
+- `GET /privacy/settings`, `PATCH /privacy/settings`, `POST /data-export`, and `GET /data-export/:id`.
+- `GET /support/articles`, `POST /support/cases`, `GET /support/cases/:id`, `POST /reports`, and `GET /reports/:id`.
 
 ## Realtime, Push, And Offline Behavior
 
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must reconcile against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+- Queues, watchlists, subscriptions, profiles, downloads, history, DVR/library state, score follows, team follows, selected settings, and export/download settings cache locally with explicit size, retention, and purge rules.
+- Long-running download/DVR/feed-refresh/playback-sync/provider-auth/device jobs use polling, SSE, or websocket fallback and must support cancel, timeout, retry, and canonical refetch after reconnect.
+- Offline mode allows safe cached reads and licensed downloads but blocks provider calls, billing changes, public publication, rights-affecting writes, profile-owner changes, wagering-adjacent flows, and irreversible deletes.
+- Reconnect must reconcile duplicate submits through idempotency keys and show whether quota, credits, licenses, rights windows, ad counters, DVR recordings, or downloads were consumed for failed/canceled attempts.
+- Push notifications are opt-in by category and limited to downloads, account/security, subscription, support, creator/publisher/channel, live events, game alerts, recommendations, and moderation states.
+- Background playback, live streaming, download refresh, casting, local-network/device behavior, watch/TV behavior, and cloud sync behavior is `Manual verification required` and must stay disabled until platform-specific evidence exists.
+- Cached uploads, originals, previews, downloads, subtitles, transcripts, viewing/reading history, queues, profiles, private feed URLs, device metadata, team interests, and catalog refs purge on logout, account delete, retention expiry, policy change, rights expiry, or legal hold.
 
 ## Permissions, Privacy, And Safety
 
-- Treat data loss as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat permission leakage as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat copyrighted assets as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat collaboration access as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat device security as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+- Request microphone, media library, photo library, files, clipboard, contacts/share sheet, notifications, local network, Bluetooth, location, motion, camera, TV/cast access, or provider OAuth only at feature use.
+- Permission screens must state what is captured, where it is processed, how long it is retained, and what fallback remains if denied.
+- Do not collect raw viewing/reading histories, private feed URLs, precise location, child-profile data, downloaded file paths, payment data, library-card identifiers, or support attachments in analytics or crash logs.
+- Provider calls must use scoped credentials, redacted logs, request/response retention limits, and per-provider data-processing notes.
+- Media imports, profile images, and support attachments must strip or let users control EXIF, GPS, filenames, embedded captions, contact names, voice metadata, and private tags before export/share.
+- Audio, video, article, score, news, recommendation, ad, and creator features must block non-consensual publication, child exploitation, doxxing, harassment, impersonation, illegal content, unsafe device behavior, wagering evasion, and misleading attribution.
+- Recommended, ad-targeted, creator-claimed, sports, news, factual, wellness, or licensed output must show that results can be inaccurate, sponsored, rights-limited, region-limited, age-restricted, spoiler-sensitive, delayed, or unavailable before consequential or commercial use.
+- Asset/catalog/feed libraries must preserve source, license, attribution, commercial-use, takedown, explicit-content, privacy, rating, spoiler, embargo, and region restrictions in playback/download metadata.
+- Media handling must separate user-owned imports, public feeds, platform-provided tracks/titles/articles, licensed stock, streaming catalog rights, downloads, ad inventory, sports data feeds, and blocked copyrighted media.
+- Support access to uploads, feeds, drafts, downloads, playback history, profile data, diagnostics, and account data requires explicit user consent and auditable staff access.
+- Export/delete must cover account data, uploads, drafts, feeds, reviews, generated outputs, playback/history where legally available, downloads, reports, support cases, device associations, and billing references where legally deletable.
 
 ## Analytics And Monetization
 
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement logic; do not copy exact pricing, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, private messages, or child data as event properties.
+- Analytics events: onboarding started/completed, permission primer viewed, search performed, item opened, playback or article started/completed/failed, download completed, report submitted, export/delete requested, paywall viewed, and alert preference changed.
+- Event properties must use coarse media/feed/title/article/device classes, catalog category, provider capability class, latency buckets, error codes, playback-duration buckets, ad state, rating class, team/league category, and entitlement state only.
+- Monetization may gate premium playback, live channels, sports packages, higher quality, offline downloads, ad-free mode, cloud DVR, creator/publisher tools, paid content, bundles, family profiles, or priority processing.
+- Billing must handle app-store, web, bundle/family, trial, paid, ad-supported, expired, canceled, refunded, restored, unavailable, borrowing/library-owned, and quota-exhausted states.
+- Paywalls must not block safety reporting, account recovery, export/delete, privacy settings, or access to already-created user content where legally required.
 
 ## Edge Cases
 
-- First launch with no network, no account, expired session, or unsupported OS version.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
-- Subscription restored on a different platform, refunded externally, or unavailable in the user's region.
-- Legal/privacy request submitted while transactions, messages, or support cases are still active.
+- First launch with no network, no account, unsupported OS, unavailable territory, disabled catalog/feed, or unsupported institution/provider.
+- Permission denied, later granted, later revoked, or limited by OS/device policy.
+- Duplicate taps, duplicate downloads, duplicate webhook delivery, timeout retry, and stale optimistic state.
+- Licensed media, show, episode, book, channel, article, game, feed, or video title becomes unavailable, renamed, explicit-filtered, geo-blocked, blackout-blocked, embargoed, or takedown-blocked.
+- Background playback, download, live stream, DVR, feed refresh, score alert, or offline license refresh is interrupted by app termination.
+- Subscription renews, refunds, expires, switches bundle owner, changes platform owner, or loses institution/provider authorization during active playback/download.
+- User requests export/delete while jobs, reports, support cases, billing disputes, rights disputes, ad records, or content-provider logs remain active.
+- Uploaded, indexed, or saved media contains child data, private conversations, health data, financial data, copyrighted material, or third-party confidential content.
+- Provider/CDN/feed outage occurs after the user starts playback, download, DVR, article read, or purchase but before canonical state is persisted.
+- User attempts misleading attribution, impersonation, review abuse, non-consensual publication, private-feed sharing, copyright infringement, spoiler abuse, wagering evasion, or unsafe public sharing.
+- Device storage fills, cache corrupts, download expires, token expires, clock skew occurs, or reconnect creates a profile/queue conflict.
+- Account, family, kids, school, library, enterprise, bundle, or territory policy disables a feature after content has been cached locally.
 
 ## Test Plan
 
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+- Unit tests for state machines, entitlement checks, idempotency keys, provider error mapping, and analytics redaction.
+- Unit tests for media/feed/catalog/article/score validation, rights states, rating labels, retention flags, permissions, and deletion/export eligibility.
+- Unit tests for queue/watchlist/profile/playback/download/DVR/provider-auth behavior, retry gates, destructive confirmations, and license propagation.
+- Contract tests for auth, home, library, search/discovery, catalog/feed, jobs, playback, downloads, billing, privacy, support, scores/articles where scoped, and reports.
+- Integration tests for onboarding -> discover -> detail -> play/read/watch -> save/download/share -> settings/support/delete.
+- Integration tests for permission denied, granted, revoked, limited access, oversized uploads, unsupported inputs, CDN/feed timeouts, sports-data delays, and rights failures.
+- Offline tests for cached reads, licensed downloads, local queues, reconnect reconciliation, duplicate-submit prevention, and blocked unsafe writes.
+- Safety tests for copyright reports, explicit-content gates, child profile controls, private-feed leakage, harassment, impersonation, ad disclosures, misleading attribution, and wagering-adjacent controls.
+- Billing tests for trial, purchase, restore, renewal, refund, expiration, bundle owner, institution owner, region unavailable, quota exhausted, ad-supported, app-store-owned, and web-owned states.
+- Privacy/security tests for provider request redaction, support access consent, media metadata controls, log scrubbing, export, delete, retention expiry, and rights expiry.
+- Accessibility tests for screen-reader order, dynamic type, focus, contrast, reduced motion, captions/transcripts, subtitles, audio descriptions, media controls, article reader controls, and processing announcements.
+- Manual verification tests for native store listings, privacy labels, permission prompts, subscription purchase/restore, push notifications, casting, background playback/download, and regional availability.
 
 ## Acceptance Criteria
 
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source-discovery links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+- All source-discovery links are replaced with exact first-party product/help/privacy/terms URLs or explicit manual blockers for native marketplace evidence.
+- A lawful V1 can be built with original branding, UI copy, sample content, providers, and licensed assets/catalogs.
+- Onboarding, home, discover/listen/watch/read, detail, queue/watchlist/feed/library, player/reader, downloads, export/share, settings, support, safety report, export/delete, and entitlement screens are specified.
+- Media/feed/catalog/playback/provider/billing/support/analytics data boundaries are documented and testable.
+- Offline cache/download recovery and reconnect reconciliation are covered without allowing unsafe provider, billing, publication, rights, profile-owner, wagering-adjacent, or irreversible operations while offline.
+- Safety tests cover copyright reports, explicit content, child profiles, private-feed leakage, non-consensual uploads, impersonation, ad disclosures, media licensing, sports-data delays, commercial-use warnings, and privacy redaction.
+- Manual verification blockers remain for native behavior that requires accounts, subscriptions, devices, permissions, marketplace labels, casting integration, background playback/download, institution/provider auth, or regional access.
+- At least 12 implementation tests cover happy path, failed provider, permission denial, playback/read failure, quota exhaustion, offline recovery, export/delete, billing restore, safety report, accessibility, privacy redaction, and regression behavior.
 
 ## Open Questions
 
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, regulated sandbox, or provider credentials?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, AI, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+- Which exact mobile marketplace privacy labels, release-note details, and native screenshots should be treated as canonical after device verification?
+- Which provider(s) will power catalog/feed ingestion, sports data, article feeds, CDN playback, moderation, storage, billing, analytics, notifications, recommendations, ads, creator monetization, institution auth, or device integrations in the original implementation?
+- Which uploads, feeds, drafts, user content, viewing/reading histories, downloads, device diagnostics, and exports are retained for product improvement, support, abuse prevention, rights accounting, ads, or legal obligations?
+- Which regions, ages, teams, families, bundles, institutions, devices, profiles, or enterprise policies should block or alter feature availability?
+- Which attribution, rating, subtitle, transcript, download, ad-tech, private-feed, sports-data, blackout, library-patron, or disclosure rules are required by platform policy, rights contracts, provider contracts, or local law?
+- Which hands-on flows require paid access, creator/admin access, special hardware, background permissions, platform integrations, institution/library cards, TV-provider auth, or regulated review?
 
 ## Build Plan
 
-- Phase 1: Replace source-discovery rows with exact first-party URLs and classify each requirement as verified or inferred.
-- Phase 2: Define route map, component map, domain entities, API schema, permissions, analytics schema, and seed-data policy.
-- Phase 3: Build onboarding, home, primary action, detail, search, settings, support, and entitlement shells with original copy and sample data.
-- Phase 4: Add backend contracts, offline/retry handling, notification preferences, data export/delete, and safety/reporting flows.
-- Phase 5: Complete accessibility, privacy, safety, billing, permission, and regression tests.
-- Phase 6: Conduct lawful hands-on verification and resolve manual blockers before parity claims.
+- Phase 1: Finalize native marketplace evidence, source notes, provider choices, legal names, rights model, and feature flags for all manual blockers.
+- Phase 2: Implement auth, home, discovery, primary playback/reading shell, library/history, settings, and support routes.
+- Phase 3: Add catalog/feed/profile routing, asset library, download/playback/sync/DVR/provider-auth jobs, alert states, quota states, and provider error handling.
+- Phase 4: Add offline download/cache recovery, reconnect reconciliation, notification preferences, export/delete, report handling, rights state, and audit events.
+- Phase 5: Add billing/restore, privacy controls, analytics redaction, provider retention controls, accessibility, media/sports/news safety, copyright checks, and policy tests.
+- Phase 6: Run lawful hands-on native verification and remove or preserve blockers with dated evidence before parity claims.
 
 ## Next Steps
 
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, support docs, and user-review themes in a dedicated research note without committing proprietary media.
-- Resolve open questions and update this spec before downstream implementation starts.
-- Extend the Phase 5 implementation-plan queue and repo-seeding manifest after the spec reaches implementation-ready V1.
+- Capture native app-store privacy labels, release notes, screenshots, and permission prompts during a lawful device verification session.
+- Select original providers for catalog/feed ingestion, CDN playback, moderation, storage, billing, analytics, notifications, recommendations, ads, sports data, article feeds, institution auth, and device integrations.
+- Replace any inferred native-only behavior with dated hands-on evidence or keep it behind explicit blockers.
+- Extend the Phase 5 implementation-plan queue and repo-seeding manifest after this spec range remains implementation-ready.

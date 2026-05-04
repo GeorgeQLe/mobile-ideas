@@ -506,6 +506,15 @@
 - Validation: targeted checks found one H1 in each promoted file and no `Source discovery`, `Readiness status: Draft 1`, or exact-URL-pending markers in the 20-file slice.
 - Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 220 implementation-ready specs and 2,340 source-discovery placeholder rows across 780 remaining files.
 
+## 2026-05-04 - Phase 8 Step 8.3 Streaming, Live TV, Library Streaming, And Sports News Slice (IDs 321-340)
+
+- Promoted 20 streaming-video, live-TV, library/institution streaming, creator-video, and sports/news specs to implementation-ready public-source V1: `321-tubi.md` through `340-bleacher-report.md`.
+- Replaced source-discovery placeholders with exact public first-party product, support/help, privacy, terms, App Store, and Google Play URLs verified on 2026-05-04.
+- Expanded category-specific risk coverage: FAST ad-tech, licensed catalog windows, local/news/sports rights, library-card and institution entitlements, household/location gates, cloud DVR, transactional rental/purchase state, device/local-network controls, sports data licensing, wagering-adjacent gates, push alerts, community/comment moderation, export/delete, and background playback/download/casting blockers.
+- Refreshed `tasks/implementation-readiness.md` to 340 of 1000 ready and moved the next Step 8.3 slice to IDs 341-360.
+- Validation: targeted checks found one H1 in each promoted file and no `Source discovery` or `Readiness status: Draft 1` markers in the 20-file slice.
+- Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 340 implementation-ready specs and 1,980 source-discovery placeholder rows across 660 remaining files.
+
 ## 2026-04-20 - Phase 7 Step 7.1: Draft 0 Placeholders for IDs 101-200
 
 - Created 100 Draft 0 placeholder spec files under `specs/batch-06/` through `specs/batch-10/` (20 files per batch) covering IDs 101-200 from the 2026-04-20 `tasks/ideas.md` extension.

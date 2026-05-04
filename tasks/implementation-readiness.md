@@ -5,11 +5,11 @@ Updated: 2026-05-04
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-320.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-340.
 
-Current readiness count: 320 of 1000.
+Current readiness count: 340 of 1000.
 
-Step 8.3 remains open for IDs 321-1000. A 2026-05-04 post-slice audit found 2,040 source-discovery placeholder rows across 680 files: 240 rows in IDs 301-400 and 300 rows per 100-ID range from 401-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 341-1000. A 2026-05-04 post-slice audit found 1,980 source-discovery placeholder rows across 660 files: 180 rows in IDs 301-400 and 300 rows per 100-ID range from 401-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -347,6 +347,26 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 318 | Prime Video | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Prime/member and standalone streaming, rentals/purchases, channels, profiles, downloads/offline, ads, and marketplace-billing blockers remain explicit. |
 | 319 | Crunchyroll | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; anime streaming, simulcast discovery, subtitles/dubs, watchlists, downloads/offline, game-vault, ads, and regional licensing blockers remain explicit. |
 | 320 | Plex | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; personal media server access, free ad-supported streaming, live TV, libraries, remote access, downloads/sync, and server/privacy blockers remain explicit. |
+| 321 | Tubi | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; free ad-supported movies/TV, live channels, watchlists, ads, profiles, catalog rights, and region/privacy blockers remain explicit. |
+| 322 | Pluto TV | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; free live TV, on-demand movies/series, guide browsing, ads, local/news/sports rights, and Paramount privacy blockers remain explicit. |
+| 323 | Roku | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; mobile remote, voice search, private listening, Roku Channel playback, device discovery, local network, and device-control blockers remain explicit. |
+| 324 | Fandango at Home | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; transactional rentals/purchases, library playback, linked libraries, receipts, promotions, license expiry, and refund/support blockers remain explicit. |
+| 325 | Vudu | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; legacy Vudu/Fandango at Home library continuity, rentals/purchases, migration, license expiry, and payment/refund blockers remain explicit. |
+| 326 | MUBI | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; curated cinema, editorial rails, subscriptions, downloads, region windows, community/reviews, and catalog-rights blockers remain explicit. |
+| 327 | The Criterion Channel | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; curated classic/art-house films, collections, supplements, subscriptions, downloads, editorial metadata, and regional-rights blockers remain explicit. |
+| 328 | Kanopy | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; library/university authentication, Kanopy Kids, play-credit style limits, patron privacy, and institutional catalog blockers remain explicit. |
+| 329 | Hoopla | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; library borrowing across media formats, monthly borrows, offline license expiry, kids mode, patron data, and institution-specific catalog blockers remain explicit. |
+| 330 | Nebula | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; creator-owned streaming, subscriptions/bundles, creator channels, classes, downloads, community moderation, and creator analytics blockers remain explicit. |
+| 331 | Curiosity Stream | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; documentary streaming, topic discovery, subscriptions/bundles, downloads, kids/family controls, and factual-content blockers remain explicit. |
+| 332 | Gaia | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; wellness/consciousness streaming, yoga/meditation programming, live events, subscriptions, sensitive-interest privacy, and wellness-claim blockers remain explicit. |
+| 333 | Dropout | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; subscription comedy/variety streaming, series discovery, downloads, mature ratings, community/talent rights, and regional availability blockers remain explicit. |
+| 334 | BritBox | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; British TV streaming, series discovery, watchlists, subscriptions, downloads, household controls, and regional catalog blockers remain explicit. |
+| 335 | Acorn TV | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; British/international mystery and drama streaming, subscriptions, downloads, premiere notifications, maturity ratings, and regional catalog blockers remain explicit. |
+| 336 | YouTube TV | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; live TV membership, local channels, cloud DVR, household profiles, sports packages, downloads, and location/Google-account blockers remain explicit. |
+| 337 | Sling TV | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; live TV packages, channel guide, DVR, add-ons, concurrent streams, regional rights, sports blackouts, and billing blockers remain explicit. |
+| 338 | ESPN | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; scores, teams, news, highlights, ESPN+ and provider auth, fantasy/betting-adjacent surfaces, sports data, and video-rights blockers remain explicit. |
+| 339 | The Athletic | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; subscription sports journalism, personalized team/league feeds, article reader, podcasts, comments/live rooms, and NYT privacy blockers remain explicit. |
+| 340 | Bleacher Report | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; personalized sports news feed, teams/leagues, alerts, scores, highlights, community reactions, and sports-data/video-rights blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 
@@ -394,8 +414,9 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 - Batch 14 video creator, audio recognition, music streaming, radio, and hi-res catalog public-source V1 expansion: `261-videoshow.md` through `280-anghami.md`.
 - Batch 15 lyrics/recognition, music creation, karaoke/social audio, hardware control, wellness audio, podcast player, and creator-podcast public-source V1 expansion: `281-musixmatch.md` through `300-acast.md`.
 - Batch 16 podcast/audio, publisher audio, audiobook/audio-series, and streaming-video public-source V1 expansion: `301-player-fm.md` through `320-plex.md`.
+- Batch 17 streaming-video, live-TV, library/institution streaming, creator-video, and sports/news public-source V1 expansion: `321-tubi.md` through `340-bleacher-report.md`.
 
 ## Next Steps
 
-- Continue Phase 8 Step 8.3 with IDs 321-340 as the next streaming-video category slice.
+- Continue Phase 8 Step 8.3 with IDs 341-360 as the next sports, fantasy/sportsbook-adjacent, and fitness category slice.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.
