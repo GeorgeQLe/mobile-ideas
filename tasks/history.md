@@ -858,3 +858,24 @@
 - Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native/account/provider verification before one-for-one parity claims.
 - Rollback note: revert the shipping commit to restore IDs 561-580 to their previous Draft 1 scaffold state and previous readiness counts.
 - Next command: `$run`.
+
+## 2026-05-04 - Phase 8 Step 8.3 IDs 581-600 Promotion
+
+- Promoted specs 581-600 (Enterprise Rent-A-Car through Wikiloc) from Draft 1 to implementation-ready public-source V1.
+- Replaced source-discovery rows with exact public marketplace, product, support/help, privacy, and terms/legal URLs.
+- Added transportation, parking, EV charging, connected-vehicle, and outdoor maps blockers for rental booking, parking sessions/reservations, charger discovery/session activation, vehicle pairing/remote-command boundaries, route/offline map behavior, payment/subscription/session correctness, provider/operator handoff, location privacy, safety support, receipts/refunds, accessibility, and regional availability.
+- Updated `specs/batch-30/README.md`, `tasks/implementation-readiness.md`, and `tasks/todo.md` for 600 ready specs and the next IDs 601-620 slice.
+- Validation: targeted H1/readiness check passed for 20 files; `rg` found no Draft/source-discovery markers in the promoted specs; section-count checks found all canonical sections in 20 files; `node scripts/check-implementation-readiness.mjs` reported expected remaining Draft 1 scope: 600 ready, 400 non-ready, 1,200 placeholder rows across IDs 601-1000.
+
+### Ship Manifest
+
+- User goal: execute `$run` next incomplete Step 8.3 slice and ship the result.
+- Changed files: `specs/batch-30/581-enterprise-rent-a-car.md` through `specs/batch-30/600-wikiloc.md`, `specs/batch-30/README.md`, `tasks/todo.md`, `tasks/implementation-readiness.md`, and `tasks/history.md`.
+- Per-file purpose: promoted 20 specs to implementation-ready public-source V1; updated the batch README; recorded readiness counts, latest slice, and next-slice routing.
+- User-goal mapping: the edited specs replace Draft 1/source-discovery placeholders for IDs 581-600; task files preserve the Step 8.3 execution trail and handoff.
+- Tests run: `node scripts/check-implementation-readiness.mjs` expected-red with 600 ready specs and 1,200 remaining placeholders; targeted `rg` checks found no Draft 1/source-discovery markers in promoted specs; targeted H1/readiness checks found one H1 and one implementation-ready status per promoted file; section-count checks found all canonical sections in 20 promoted files.
+- Skipped tests: no runtime lint/type/build commands apply because this repository contains planning/specification Markdown and this slice changes no runtime code.
+- Adversarial review: diff reviewed for source-discovery residue, one-H1 structure, canonical section coverage, readiness-count consistency, manual native blockers, legal-scope boundaries, rental/parking/charging/connected-vehicle/outdoor-map payment/session/location/safety/support risk coverage, and next-slice routing.
+- Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native/account/provider/hardware verification before one-for-one parity claims.
+- Rollback note: revert the shipping commit to restore IDs 581-600 to their previous Draft 1 scaffold state and previous readiness counts.
+- Next command: `$run`.

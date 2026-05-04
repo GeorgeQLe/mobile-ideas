@@ -1,13 +1,13 @@
-# Batch 30 Draft 1 Specs
+# Batch 30 Implementation-Ready Specs
 
 > Metadata
 > - App range: 581-600
-> - Status: Draft 1 canonical scaffold
-> - Research state: public source-discovery links included; exact source replacement and hands-on verification still required before implementation.
+> - Status: Implementation-ready public-source V1
+> - Research state: exact public marketplace, product, support, privacy, and legal URLs are listed in each spec; hands-on native/account/provider behavior remains blocked until verified.
 
 ## Overview
 
-This batch contains canonical Draft 1 clone specs for apps 581-600 from tasks/ideas.md.
+This batch contains implementation-ready public-source V1 clone specs for apps 581-600 from tasks/ideas.md.
 
 ## Included Specs
 
@@ -35,10 +35,11 @@ This batch contains canonical Draft 1 clone specs for apps 581-600 from tasks/id
 ## Quality Gate
 
 - Each numbered spec uses canonical hygiene sections.
-- Each numbered spec includes source-discovery links, functional requirements, data model, API contracts, edge cases, test plan, acceptance criteria, build plan, open questions, and next steps.
+- Each numbered spec includes exact public source URLs, functional requirements, data model, API contracts, edge cases, test plan, acceptance criteria, build plan, open questions, and next steps.
 - Each numbered spec remains legally scoped to functional parity with original assets and licensed data.
+- Each numbered spec preserves manual verification blockers for account, payment, rental, parking, charging, vehicle, route, location, safety, and regional behavior where relevant.
 
 ## Next Steps
 
-- Replace source-discovery links in every spec with exact verified first-party URLs.
 - Complete hands-on verification where lawful and feasible before app implementation starts.
+- Extend Phase 5 implementation-plan queue rows only after corresponding specs reach implementation-ready V1.
