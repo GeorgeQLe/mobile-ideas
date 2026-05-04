@@ -5,11 +5,11 @@ Updated: 2026-05-04
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-340.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-360.
 
-Current readiness count: 340 of 1000.
+Current readiness count: 360 of 1000.
 
-Step 8.3 remains open for IDs 341-1000. A 2026-05-04 post-slice audit found 1,980 source-discovery placeholder rows across 660 files: 180 rows in IDs 301-400 and 300 rows per 100-ID range from 401-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 361-1000. A 2026-05-04 post-slice audit found 1,920 source-discovery placeholder rows across 640 files: 120 rows in IDs 301-400 and 300 rows per 100-ID range from 401-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -367,6 +367,26 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 338 | ESPN | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; scores, teams, news, highlights, ESPN+ and provider auth, fantasy/betting-adjacent surfaces, sports data, and video-rights blockers remain explicit. |
 | 339 | The Athletic | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; subscription sports journalism, personalized team/league feeds, article reader, podcasts, comments/live rooms, and NYT privacy blockers remain explicit. |
 | 340 | Bleacher Report | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; personalized sports news feed, teams/leagues, alerts, scores, highlights, community reactions, and sports-data/video-rights blockers remain explicit. |
+| 341 | Yahoo Sports | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; personalized scores, news feed, teams/leagues, player pages, alerts, video highlights, fantasy/wagering-adjacent gates, and sports-data/video-rights blockers remain explicit. |
+| 342 | CBS Sports | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; sports news, scores, live/video surfaces, teams/leagues, alerts, subscriptions, and Paramount privacy/video-rights blockers remain explicit. |
+| 343 | FOX Sports | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; sports news, scores, live/video surfaces, team/player pages, alerts, provider auth, and sports-data/video-rights blockers remain explicit. |
+| 344 | NBA | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; league news, schedules, scores, standings, team/player pages, NBA media rights, subscriptions, and regional availability blockers remain explicit. |
+| 345 | NFL | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; league news, schedules, scores, standings, team/player pages, NFL media rights, subscriptions, and regional availability blockers remain explicit. |
+| 346 | MLB | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; league news, schedules, scores, standings, game feeds, media rights, subscriptions, and blackout/regional blockers remain explicit. |
+| 347 | NHL | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; league news, schedules, scores, standings, team/player pages, media rights, subscriptions, and regional availability blockers remain explicit. |
+| 348 | FIFA | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; global football news, schedules, scores, tournaments, FIFA+ media, subscriptions, and regional availability blockers remain explicit. |
+| 349 | Fubo | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; live sports/video catalog, channel guide, playback, subscriptions, regional rights, DVR/download/casting, and billing blockers remain explicit. |
+| 350 | DAZN | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; live sports streaming, event catalog, playback, subscriptions, regional rights, downloads/casting, and billing blockers remain explicit. |
+| 351 | FanDuel Sportsbook | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; regulated sportsbook discovery, eligibility/geolocation, odds boards, responsible-gaming controls, wallet blockers, and no-real-money-wager blockers remain explicit. |
+| 352 | DraftKings Sportsbook | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; regulated sportsbook discovery, eligibility/geolocation, odds boards, responsible-gaming controls, wallet blockers, and no-real-money-wager blockers remain explicit. |
+| 353 | Sleeper | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; fantasy leagues, drafts, rosters, matchups, waivers/trades, chat, alerts, and contest/wagering-adjacent blockers remain explicit. |
+| 354 | ESPN Fantasy Sports | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; fantasy leagues, drafts, rosters, matchups, waivers/trades, scoring, alerts, and contest/wagering-adjacent blockers remain explicit. |
+| 355 | Yahoo Fantasy Sports | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; fantasy leagues, drafts, rosters, matchups, waivers/trades, scoring, alerts, and contest/wagering-adjacent blockers remain explicit. |
+| 356 | Peloton | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; workout discovery, plans/classes, activity history, connected-device sync, subscriptions, health data, and injury/medical blockers remain explicit. |
+| 357 | Zwift | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; connected cycling/running, sensor/device sync, virtual activities, subscriptions, location/device permissions, and injury/medical blockers remain explicit. |
+| 358 | Garmin Connect | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; wearable sync, activity history, health/fitness metrics, routes, device connections, subscriptions, and health-data blockers remain explicit. |
+| 359 | Nike Training Club | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; workout discovery, plans, exercise detail, session tracking, progress history, health data, and injury/medical blockers remain explicit. |
+| 360 | Fitbod | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; workout plans, exercise detail, active sessions, progress history, subscriptions, health data, and injury/medical blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 
@@ -415,8 +435,9 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 - Batch 15 lyrics/recognition, music creation, karaoke/social audio, hardware control, wellness audio, podcast player, and creator-podcast public-source V1 expansion: `281-musixmatch.md` through `300-acast.md`.
 - Batch 16 podcast/audio, publisher audio, audiobook/audio-series, and streaming-video public-source V1 expansion: `301-player-fm.md` through `320-plex.md`.
 - Batch 17 streaming-video, live-TV, library/institution streaming, creator-video, and sports/news public-source V1 expansion: `321-tubi.md` through `340-bleacher-report.md`.
+- Batch 18 sports, fantasy/sportsbook-adjacent, and fitness public-source V1 expansion: `341-yahoo-sports.md` through `360-fitbod.md`.
 
 ## Next Steps
 
-- Continue Phase 8 Step 8.3 with IDs 341-360 as the next sports, fantasy/sportsbook-adjacent, and fitness category slice.
+- Continue Phase 8 Step 8.3 with IDs 361-380 as the next fitness and food/loyalty category slice.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.
