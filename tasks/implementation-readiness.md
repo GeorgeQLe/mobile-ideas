@@ -5,11 +5,11 @@ Updated: 2026-05-04
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-420.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-440.
 
-Current readiness count: 420 of 1000.
+Current readiness count: 440 of 1000.
 
-Step 8.3 remains open for IDs 421-1000. A 2026-05-04 post-slice audit found 1,740 source-discovery placeholder rows across 580 files: 240 rows in IDs 401-500 and 300 rows per 100-ID range from 501-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 441-1000. A 2026-05-04 post-slice audit found 1,680 source-discovery placeholder rows across 560 files: 180 rows in IDs 401-500 and 300 rows per 100-ID range from 501-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -447,6 +447,26 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 418 | Grubhub | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; restaurant discovery, menus, upfront fees, Grubhub+, order tracking, courier handoff, refunds/credits, and support blockers remain explicit. |
 | 419 | Gopuff | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; address serviceability, micro-fulfillment inventory, fast delivery, FAM memberships, alcohol eligibility, courier tracking, and support blockers remain explicit. |
 | 420 | Deliveroo | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; postcode serviceability, restaurant/grocery discovery, delivery/pickup checkout, Plus membership, rider tracking, substitutions, and country-specific blockers remain explicit. |
+| 421 | Just Eat | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; postcode serviceability, restaurant discovery, menu ordering, collection/delivery checkout, offers, order tracking, refunds/support, and regional blockers remain explicit. |
+| 422 | Glovo | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; multi-category delivery, restaurants/grocery/retail, Prime benefits, courier tracking, payment, support, and country availability blockers remain explicit. |
+| 423 | Bolt Food | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; restaurant/grocery delivery, pickup, scheduled orders, Bolt Plus, courier tracking, payment, and regional blockers remain explicit. |
+| 424 | foodpanda | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; food/grocery delivery, pandamart, self-pickup, pandapro, vouchers, parcel delivery, and support blockers remain explicit. |
+| 425 | Swiggy | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; food delivery, Instamart, Dineout, Swiggy One, train-food blockers, payment methods, live ETA, and support blockers remain explicit. |
+| 426 | Zomato | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; restaurant discovery, reviews, food delivery, dining reservations/payment, membership, order tracking, and support blockers remain explicit. |
+| 427 | Rappi | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Latin America super-app delivery, groceries/retail, pharmacy-adjacent blockers, RappiPro, courier tracking, and support blockers remain explicit. |
+| 428 | Grab | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Southeast Asia super-app food/grocery/transport-adjacent flows, GrabPay, rewards, support, and regional product blockers remain explicit. |
+| 429 | Gojek | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; GoFood, GoMart, ride/logistics-adjacent blockers, PLUS benefits, driver communication, payment, and regional blockers remain explicit. |
+| 430 | DiDi Food | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; food delivery, restaurant menus, promotions, courier tracking, payment recovery, support, and country availability blockers remain explicit. |
+| 431 | Meituan | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; China local-services, food delivery, reservations, deals, errands, group-buying, payments, and legal/regional blockers remain explicit. |
+| 432 | Ele.me | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; China food/local retail delivery, coupons/membership, rider tracking, payment, support/refunds, and account/legal blockers remain explicit. |
+| 433 | Deliveroo Rider | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; rider application, right-to-work and vehicle checks, going online, orders, earnings, safety, and worker-rule blockers remain explicit. |
+| 434 | DoorDash Dasher | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Dasher signup, checks, scheduling, offers, pickup/dropoff, tips/earnings, payout products, support, and safety blockers remain explicit. |
+| 435 | Uber Driver | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; driver/courier onboarding, document checks, online status, ride/delivery offers, earnings, Uber Pro-style status, and safety blockers remain explicit. |
+| 436 | Instacart Shopper | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; shopper signup, batch selection, picking, substitutions, checkout card handling, delivery, earnings, cashout, and safety blockers remain explicit. |
+| 437 | Shipt | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; shopper/driver onboarding, order offers, grocery picking, member messaging, substitutions, delivery windows, earnings, and safety blockers remain explicit. |
+| 438 | Favor | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Texas runner onboarding, H-E-B/Favor orders, shopping/delivery tasks, messaging, tips/earnings, promos, support, and safety blockers remain explicit. |
+| 439 | SkipTheDishes | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Canada food/grocery delivery, Skip+ benefits, points, order tracking, alcohol/pharmacy-adjacent blockers, refunds, and regional blockers remain explicit. |
+| 440 | Talabat | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Middle East food/grocery/mart retail, pharmacy-adjacent blockers, pro membership, rewards, Dine Out/Pickup, tracking, and support blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 
@@ -499,8 +519,9 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 - Batch 19 fitness/training and food ordering/loyalty public-source V1 expansion: `361-strong.md` through `380-little-caesars.md`.
 - Batch 20 food/coffee, convenience retail, grocery/retail, warehouse club, and Prime grocery public-source V1 expansion: `381-kfc.md` through `400-whole-foods-market.md`.
 - Batch 21 grocery retail, subscription grocery, UK/EU supermarket, and delivery marketplace public-source V1 expansion: `401-publix.md` through `420-deliveroo.md`.
+- Batch 22 delivery marketplace, regional super-app, courier/rider, shopper, and worker app public-source V1 expansion: `421-just-eat.md` through `440-talabat.md`.
 
 ## Next Steps
 
-- Continue Phase 8 Step 8.3 with IDs 421-440 as the next meal kit, recipe, grocery inventory, pharmacy, retail, fashion, beauty, home, pets, automotive, electronics, and ticketing category slice.
+- Continue Phase 8 Step 8.3 with IDs 441-460 as the next delivery marketplace, electronics, home improvement, furniture, department store, beauty, athletic retail, fashion, resale, and marketplace category slice.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.
