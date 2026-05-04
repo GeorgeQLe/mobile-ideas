@@ -1,5 +1,28 @@
 # History
 
+## 2026-05-04 - Phase 8 Step 8.3 Podcast Audio And Streaming Video Slice (IDs 301-320)
+
+- Promoted 20 podcast-player, podcast-platform, podcast-directory/social, publisher-audio, radio streaming, audiobook/audio-series, and streaming-video specs to implementation-ready public-source V1: `301-player-fm.md` through `320-plex.md`.
+- Replaced source-discovery placeholders with exact public first-party product/help/support/privacy/terms URLs verified on 2026-05-04, with native marketplace listing IDs, app-store privacy labels, paid states, device permissions, casting, and background behavior preserved as manual verification blockers where not yet captured.
+- Expanded category-specific risk coverage: RSS/private-feed ownership, dynamic ad markers, creator publishing/analytics, listener/viewer privacy, licensed video/audio catalog rights, profiles and kids profiles, downloads/offline expiry, subtitles/captions/audio descriptions, live/regional availability, bundle/subscription states, advertising identifiers, casting/device integrations, export/delete, and provider/CDN/feed outage recovery.
+- Refreshed `tasks/implementation-readiness.md` to 320 of 1000 ready and moved the next Step 8.3 slice to IDs 321-340.
+- Validation: targeted checks found one H1 in each promoted file and no `Source discovery`, `Readiness status: Draft 1`, or exact-URL-pending markers in the 20-file slice.
+- Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 320 implementation-ready specs and 2,040 source-discovery placeholder rows across 680 remaining files.
+
+### Ship Manifest
+
+- User goal: execute `$run` next incomplete Step 8.3 slice and ship the result.
+- Changed files: `specs/batch-16/301-player-fm.md` through `specs/batch-16/320-plex.md`, `tasks/todo.md`, `tasks/implementation-readiness.md`, and `tasks/history.md`.
+- Per-file purpose: promoted 20 specs to implementation-ready public-source V1; recorded readiness counts, next slice, and audit evidence.
+- User-goal mapping: the edited specs replace Draft 1/source-discovery placeholders for IDs 301-320; task files preserve the Step 8.3 execution trail and handoff.
+- Tests run: `node scripts/check-implementation-readiness.mjs` expected-red with 320 ready specs and 2,040 remaining placeholders; targeted `rg` checks found no Draft 1/source-discovery markers in the promoted slice; targeted H1 check found one H1 per promoted file.
+- Skipped tests: no runtime lint/type/build commands apply because this repository contains planning/specification Markdown and this slice changes no runtime code.
+- Adversarial review: diff reviewed for source-discovery residue, one-H1 structure, readiness-count consistency, manual native blockers, legal-scope boundaries, media/podcast/video rights risks, and next-slice routing.
+- Residual risk: public URLs were gathered from public web search and should still be rechecked during future hands-on native verification before one-for-one parity claims.
+- Rollback note: revert the shipping commit to restore IDs 301-320 to their previous Draft 1 scaffold state and previous readiness counts.
+- Next command: `$run`.
+
+
 ## 2026-05-04 - Phase 8 Step 8.3 Music Creation, Hardware Audio, Wellness Audio, And Podcast Slice (IDs 281-300)
 
 - Promoted 20 lyrics/recognition, music creation, karaoke/social audio, hardware-control, wellness-audio, podcast-player, and creator-podcast specs to implementation-ready public-source V1: `281-musixmatch.md` through `300-acast.md`.

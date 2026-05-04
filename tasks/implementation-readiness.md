@@ -5,11 +5,11 @@ Updated: 2026-05-04
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-300.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-320.
 
-Current readiness count: 300 of 1000.
+Current readiness count: 320 of 1000.
 
-Step 8.3 remains open for IDs 301-1000. A 2026-05-04 post-slice audit found 2,100 source-discovery placeholder rows across 700 files: 300 rows per 100-ID range from 301-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 321-1000. A 2026-05-04 post-slice audit found 2,040 source-discovery placeholder rows across 680 files: 240 rows in IDs 301-400 and 300 rows per 100-ID range from 401-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -327,6 +327,26 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 298 | Podcast Addict | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; podcast/radio/audiobook/RSS discovery, queues, downloads, automation, backups, ads, and premium blockers remain explicit. |
 | 299 | Podimo | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; subscription podcast/audiobook listening, exclusives, recommendations, offline downloads, creator revenue, and subscription/privacy blockers remain explicit. |
 | 300 | Acast | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; podcast hosting, distribution, listener analytics, advertising, premium content, creator dashboards, and ad-tech/privacy blockers remain explicit. |
+| 301 | Player FM | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; podcast discovery, topic onboarding, subscriptions, playlists, downloads/offline, sync, and Premium blockers remain explicit. |
+| 302 | Castbox | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; podcast discovery, subscriptions, playlists, downloads/offline, comments/community, in-audio search, and subscription blockers remain explicit. |
+| 303 | RadioPublic | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; podcast listening, show discovery, web/mobile playback, paid-listen legacy surfaces, and Acast-era privacy/rights blockers remain explicit. |
+| 304 | NPR One | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; personalized NPR/local-station audio, live/on-demand listening, station selection, recommendations, and public-media privacy blockers remain explicit. |
+| 305 | BBC Sounds | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; BBC radio, podcasts, music mixes, signed-in personalization, downloads/offline, and regional content-rights blockers remain explicit. |
+| 306 | Libsyn | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; podcast hosting, episode publishing, RSS distribution, mobile stats, monetization, ads, and feed-ownership blockers remain explicit. |
+| 307 | Podchaser | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; podcast database discovery, reviews/ratings, creator profiles, lists, credits, PWA behavior, and public-profile privacy blockers remain explicit. |
+| 308 | Pocket FM | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; serialized audio stories, paid coin unlocks, recommendations, library saves, creator/story rights, and regional content blockers remain explicit. |
+| 309 | Storytel | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; audiobook/ebook subscription listening and reading, library saves, downloads/offline, kids/family modes, and regional catalog blockers remain explicit. |
+| 310 | Audacy | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; live radio, sports talk, podcasts, station discovery, favorites, advertising, location-aware content, and account/privacy blockers remain explicit. |
+| 311 | iVoox | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Spanish-language podcasts, radio, audiobooks, subscriptions, creator channels, fan payments, and community discovery blockers remain explicit. |
+| 312 | Goodpods | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; social podcast discovery, follows, lists, reviews, courses, queues, recommendations, and public/private sharing blockers remain explicit. |
+| 313 | Hulu | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; subscription/ad-supported video streaming, profiles, live TV where available, watchlists, downloads/offline, bundles, and ad/privacy blockers remain explicit. |
+| 314 | Disney+ | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; subscription streaming, profiles and kids profiles, downloads/offline, bundles, parental controls, and regional catalog blockers remain explicit. |
+| 315 | Max | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; subscription/ad-supported streaming, profiles and kids profiles, downloads/offline, recommendations, privacy/ad choices, and account-deletion blockers remain explicit. |
+| 316 | Peacock TV | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; subscription/ad-supported streaming, live sports/news, profiles, downloads/offline, location/ads, and US-region blockers remain explicit. |
+| 317 | Paramount+ | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; subscription/ad-supported streaming, live CBS/sports/news, profiles, downloads/offline, bundle states, and kids-control blockers remain explicit. |
+| 318 | Prime Video | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Prime/member and standalone streaming, rentals/purchases, channels, profiles, downloads/offline, ads, and marketplace-billing blockers remain explicit. |
+| 319 | Crunchyroll | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; anime streaming, simulcast discovery, subtitles/dubs, watchlists, downloads/offline, game-vault, ads, and regional licensing blockers remain explicit. |
+| 320 | Plex | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; personal media server access, free ad-supported streaming, live TV, libraries, remote access, downloads/sync, and server/privacy blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 
@@ -373,8 +393,9 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 - Batch 13 photo/video editing public-source V1 expansion: `241-lensa.md` through `260-vivavideo.md`.
 - Batch 14 video creator, audio recognition, music streaming, radio, and hi-res catalog public-source V1 expansion: `261-videoshow.md` through `280-anghami.md`.
 - Batch 15 lyrics/recognition, music creation, karaoke/social audio, hardware control, wellness audio, podcast player, and creator-podcast public-source V1 expansion: `281-musixmatch.md` through `300-acast.md`.
+- Batch 16 podcast/audio, publisher audio, audiobook/audio-series, and streaming-video public-source V1 expansion: `301-player-fm.md` through `320-plex.md`.
 
 ## Next Steps
 
-- Continue Phase 8 Step 8.3 with IDs 301-320 as the next podcast/audio and books/comics/reading category slice.
+- Continue Phase 8 Step 8.3 with IDs 321-340 as the next streaming-video category slice.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.
