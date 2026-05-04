@@ -5,11 +5,11 @@ Updated: 2026-05-04
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-480.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-500.
 
-Current readiness count: 480 of 1000.
+Current readiness count: 500 of 1000.
 
-Step 8.3 remains open for IDs 481-1000. A 2026-05-04 post-slice audit found 1,560 source-discovery placeholder rows across 520 files: 60 rows in IDs 401-500 and 300 rows per 100-ID range from 501-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 501-1000. A 2026-05-04 post-slice audit found 1,500 source-discovery placeholder rows across 500 files: 300 rows per 100-ID range from 501-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -507,6 +507,26 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 478 | Discover Mobile | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; secure card/banking sign-in, account dashboard, payments, rewards/cashback states, FICO score, alerts, card controls, statements, disputes, and fraud support remain explicit. |
 | 479 | U.S. Bank | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; secure sign-in, account dashboard, transfers, bill pay, mobile deposit blockers, card controls, rewards states, alerts, statements, support, fraud controls, and compliance blockers remain explicit. |
 | 480 | PNC Mobile | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; secure sign-in, account dashboard, transfers, bill pay, mobile deposit blockers, card controls, alerts, statements, money-management surfaces, rewards states, support, and compliance blockers remain explicit. |
+| 481 | TD Bank | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; secure sign-in, account dashboard, transfers, bill pay, mobile deposit blockers, card controls, alerts, statements, rewards states, support, fraud controls, and compliance blockers remain explicit. |
+| 482 | Truist | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; secure sign-in, account dashboard, transfers, bill pay, mobile deposit blockers, card controls, alerts, insight surfaces, support, fraud controls, and regulated servicing blockers remain explicit. |
+| 483 | USAA | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; member eligibility, account dashboard, transfers, mobile deposit blockers, card controls, insurance policy surfaces, claim blockers, alerts, support, and compliance blockers remain explicit. |
+| 484 | Navy Federal Credit Union | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; member eligibility, account dashboard, transfers, bill pay, mobile deposit blockers, card controls, loan surfaces, alerts, statements, support, and regulated servicing blockers remain explicit. |
+| 485 | SoFi | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; fintech onboarding, banking dashboard, transfers, lending/card surfaces, investing handoffs, credit score, rewards states, support, KYC blockers, and regulated servicing controls remain explicit. |
+| 486 | Ally | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; digital banking sign-in, account dashboard, transfers, mobile deposit blockers, card controls, savings buckets, investing handoffs, alerts, statements, support, and compliance blockers remain explicit. |
+| 487 | Marcus | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; savings dashboard, loan/account servicing, transfers, statements, alerts, support, disclosure surfaces, fraud controls, and compliance blockers remain explicit. |
+| 488 | Fidelity | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; brokerage sign-in, portfolio dashboard, quote/detail pages, watchlists, trading-ticket simulation, retirement/account surfaces, cash management, market-data blockers, alerts, support, and compliance controls remain explicit. |
+| 489 | Schwab Mobile | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; brokerage sign-in, portfolio dashboard, watchlists, quote/research surfaces, trading-ticket simulation, transfer blockers, alerts, support, market-data licensing, and compliance controls remain explicit. |
+| 490 | E*TRADE | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; brokerage sign-in, portfolio dashboard, watchlists, trading-ticket simulation, options/margin blockers, market-data licensing, alerts, banking handoffs, support, and compliance controls remain explicit. |
+| 491 | Webull | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; brokerage onboarding, portfolio dashboard, watchlists, quote/detail pages, trading-ticket simulation, options/crypto blockers, market-data licensing, alerts, community surfaces, support, and compliance controls remain explicit. |
+| 492 | moomoo | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; trading onboarding, portfolio dashboard, market-data/research surfaces, watchlists, trading-ticket simulation, options blockers, community features, alerts, support, provider licensing, and compliance controls remain explicit. |
+| 493 | Interactive Brokers | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; brokerage sign-in, portfolio dashboard, global market-data surfaces, watchlists, order-ticket simulation, options/futures/margin blockers, account management, alerts, support, licensing, and compliance controls remain explicit. |
+| 494 | Vanguard | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; investing sign-in, portfolio dashboard, holdings and transaction detail, retirement account surfaces, transfer blockers, statements, alerts, support, disclosure surfaces, and compliance controls remain explicit. |
+| 495 | Monzo | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; digital banking sign-in, account dashboard, card controls, transfers, pots/budgeting states, notifications, statements, paid-plan blockers, support, fraud controls, and regional compliance blockers remain explicit. |
+| 496 | N26 | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; digital banking onboarding, account dashboard, card controls, transfers, spaces/budgeting, insights, subscription-tier blockers, statements, support, fraud controls, and regional compliance blockers remain explicit. |
+| 497 | Starling Bank | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; digital banking sign-in, account dashboard, card controls, payments/transfers, spaces, business-account blockers, alerts, statements, support, fraud controls, and regional compliance blockers remain explicit. |
+| 498 | Skrill | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; wallet onboarding, balance dashboard, send/receive simulation, funding blockers, fees/FX disclosures, loyalty/VIP states, crypto-adjacent blockers, support, fraud controls, and compliance blockers remain explicit. |
+| 499 | Neteller | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; wallet onboarding, balance dashboard, send/receive simulation, prepaid-card blockers, funding and cashout states, fees/FX disclosures, loyalty/VIP states, support, fraud controls, and compliance blockers remain explicit. |
+| 500 | Remitly | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; remittance onboarding, recipient management, transfer quotes, funding and payout-method blockers, delivery-speed states, transfer tracking, fees/FX disclosures, cancellation/refund support, fraud controls, sanctions screening, and compliance blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 
@@ -562,8 +582,9 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 - Batch 22 delivery marketplace, regional super-app, courier/rider, shopper, and worker app public-source V1 expansion: `421-just-eat.md` through `440-talabat.md`.
 - Batch 23 delivery marketplace, electronics, home improvement, furniture, department store, beauty, athletic retail, fashion, resale, and marketplace public-source V1 expansion: `441-mr-d-food.md` through `460-mercari.md`.
 - Batch 24 resale/classifieds, cross-border/regional marketplace, cash-back, electronics retail, and banking/card servicing public-source V1 expansion: `461-vinted.md` through `480-pnc-mobile.md`.
+- Batch 25 banking, credit union, fintech, brokerage, trading, digital banking, wallet, and remittance public-source V1 expansion: `481-td-bank.md` through `500-remitly.md`.
 
 ## Next Steps
 
-- Continue Phase 8 Step 8.3 with IDs 481-500 as the next banking, credit union, fintech, brokerage, trading, digital banking, and remittance category slice.
+- Continue Phase 8 Step 8.3 with IDs 501-520 as the next payments, crypto, tax, accounting, insurance, benefits, and payroll category slice.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.
