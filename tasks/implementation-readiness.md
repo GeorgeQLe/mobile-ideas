@@ -5,11 +5,11 @@ Updated: 2026-05-04
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-360.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-380.
 
-Current readiness count: 360 of 1000.
+Current readiness count: 380 of 1000.
 
-Step 8.3 remains open for IDs 361-1000. A 2026-05-04 post-slice audit found 1,920 source-discovery placeholder rows across 640 files: 120 rows in IDs 301-400 and 300 rows per 100-ID range from 401-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 381-1000. A 2026-05-04 post-slice audit found 1,860 source-discovery placeholder rows across 620 files: 60 rows in IDs 301-400 and 300 rows per 100-ID range from 401-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -387,6 +387,26 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 358 | Garmin Connect | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; wearable sync, activity history, health/fitness metrics, routes, device connections, subscriptions, and health-data blockers remain explicit. |
 | 359 | Nike Training Club | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; workout discovery, plans, exercise detail, session tracking, progress history, health data, and injury/medical blockers remain explicit. |
 | 360 | Fitbod | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; workout plans, exercise detail, active sessions, progress history, subscriptions, health data, and injury/medical blockers remain explicit. |
+| 361 | Strong | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; workout logging, routines, progress tracking, subscriptions, Health/fitness data, and device/manual blockers remain explicit. |
+| 362 | Hevy | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; gym logging, routine planning, exercise videos, social workout sharing, Wear OS, subscriptions, and health/privacy blockers remain explicit. |
+| 363 | Runkeeper | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; GPS run tracking, training plans, challenges, route history, subscriptions, and location/health blockers remain explicit. |
+| 364 | MapMyRun | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; GPS run tracking, routes, goals, connected devices, MVP-style subscription gates, and location/device blockers remain explicit. |
+| 365 | komoot | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; outdoor route planning, navigation, offline maps, community highlights, device integrations, and location/map-license blockers remain explicit. |
+| 366 | Relive | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; GPS activity imports, 3D route videos, media moments, sharing, subscriptions, and route/media privacy blockers remain explicit. |
+| 367 | TrainerRoad | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; structured cycling workouts, adaptive plans, power/device pairing, Bluetooth/ANT+, subscriptions, and injury/device blockers remain explicit. |
+| 368 | TrainingPeaks | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; training calendars, planned workouts, device sync, coach comments, performance metrics, premium tools, and health/device blockers remain explicit. |
+| 369 | Chick-fil-A | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; restaurant locator, order ahead, pickup/check-in, rewards, gift cards, payments, and location/store blockers remain explicit. |
+| 370 | Dunkin | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; order ahead, pickup methods, rewards/offers, stored cards, auto-reload, payment, and store/support blockers remain explicit. |
+| 371 | Chipotle | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; pickup/delivery ordering, menu customization, saved meals, rewards, gift cards, split payment, and store/refund blockers remain explicit. |
+| 372 | Taco Bell | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; mobile ordering, pickup/delivery, menu customization, rewards/offers, nutrition/allergen access, and payment/store blockers remain explicit. |
+| 373 | Subway | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; sandwich customization, pickup/delivery, rewards, offers, rapid reorder, payments, and franchise/store blockers remain explicit. |
+| 374 | Panera Bread | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; pickup/delivery/curbside, MyPanera-style rewards, Sip Club-style subscriptions, gift cards, payments, and cafe availability blockers remain explicit. |
+| 375 | Wendy's | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; mobile ordering, pickup/delivery, rewards/offers, menu customization, payments, nutrition/allergen access, and store/refund blockers remain explicit. |
+| 376 | Burger King | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; mobile ordering, pickup/delivery, rewards/offers, coupons, payments, store locator, and franchise/refund blockers remain explicit. |
+| 377 | Domino's | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; pizza builder, carryout/delivery, coupons, loyalty, order tracker, payment, and delivery/store blockers remain explicit. |
+| 378 | Pizza Hut | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; pizza builder, delivery/takeout/curbside, rewards, local deals, future orders, guest checkout, and payment/region blockers remain explicit. |
+| 379 | Papa Johns | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; pizza ordering, delivery/carryout, rewards, offers, saved favorites, payment, order tracking, and support/refund blockers remain explicit. |
+| 380 | Little Caesars | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; pizza ordering, pickup portal-style handoff, delivery/carryout, deals, payment, order status, and store/privacy blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 

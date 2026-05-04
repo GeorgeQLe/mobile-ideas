@@ -617,3 +617,25 @@
 - Refreshed `tasks/implementation-readiness.md` to 195 of 1000 ready and moved the next Step 8.3 slice to IDs 196-200.
 - Validation: targeted checks found one H1 in each promoted file and no `Source discovery`, `Readiness status: Draft`, or exact-URL-pending markers in the 5-file slice.
 - Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 195 implementation-ready specs and 2,420 source-discovery placeholder rows across 805 remaining files.
+
+## 2026-05-04 - Phase 8 Step 8.3 IDs 361-380 Promotion
+
+- Promoted specs 361-380 (Strong through Little Caesars) from Draft 1 to implementation-ready public-source V1.
+- Replaced source-discovery rows with exact first-party product, support/help, privacy, terms, App Store, and Google Play URLs.
+- Added fitness/training blockers for health data, injury/medical disclaimers, GPS/routes, wearable/device permissions, subscriptions, export/delete, and background activity behavior.
+- Added food ordering/loyalty blockers for menu/price/tax/fee freshness, store/franchise participation, ordering/payment/gift-card/refund flows, rewards fraud/expiry, nutrition/allergen disclosures, location privacy, and support escalation.
+- Validation: targeted H1/readiness/placeholder check passed for 20 files; `node scripts/check-implementation-readiness.mjs` reported expected remaining Draft 1 scope: 380 ready, 620 non-ready, 1,860 placeholder rows across IDs 381-1000.
+
+
+### Ship Manifest
+
+- User goal: execute `$run` next incomplete Step 8.3 slice and ship the result.
+- Changed files: `specs/batch-19/361-strong.md` through `specs/batch-19/380-little-caesars.md`, `tasks/todo.md`, `tasks/implementation-readiness.md`, and `tasks/history.md`.
+- Per-file purpose: promoted 20 specs to implementation-ready public-source V1; recorded readiness counts, next slice, and audit evidence.
+- User-goal mapping: the edited specs replace Draft 1/source-discovery placeholders for IDs 361-380; task files preserve the Step 8.3 execution trail and handoff.
+- Tests run: `node scripts/check-implementation-readiness.mjs` expected-red with 380 ready specs and 1,860 remaining placeholders; targeted `rg` checks found no Draft 1/source-discovery markers in the promoted slice; targeted H1/readiness checks found one H1 and one implementation-ready status per promoted file; `git diff --check` passed.
+- Skipped tests: no runtime lint/type/build commands apply because this repository contains planning/specification Markdown and this slice changes no runtime code.
+- Adversarial review: diff reviewed for source-discovery residue, one-H1 structure, readiness-count consistency, manual native blockers, legal-scope boundaries, health/device/location/payment/loyalty/store risk coverage, and next-slice routing.
+- Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native verification before one-for-one parity claims.
+- Rollback note: revert the shipping commit to restore IDs 361-380 to their previous Draft 1 scaffold state and previous readiness counts.
+- Next command: `$run`.

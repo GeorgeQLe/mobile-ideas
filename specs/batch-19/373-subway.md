@@ -2,190 +2,226 @@
 
 > Metadata
 > - Inspiration app: Subway
-> - Category: Food and loyalty
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace/source-discovery links only; exact first-party URL replacement and hands-on verification are still required.
-> - Manual verification blockers: native iOS/Android screen capture, account lifecycle walkthrough, subscription or payment state, permission prompts, push notifications, provider integrations, and region-specific behavior require lawful test evidence before one-for-one parity claims.
-> - Legal scope: functional parity only; use original code, brand, copy, iconography, sample data, media, policies, and integrations.
+> - Category: Food and drink
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-04.
+> - Verification basis: exact public first-party product, support/help, privacy, terms, and marketplace URLs listed below; hands-on native parity remains blocked where stated.
+> - Manual verification blockers: native iOS/Android screen capture, account lifecycle walkthrough, paid/subscription or payment state, permission prompts, push notifications, provider integrations, store/franchise availability, menu/pricing/tax/fee correctness, loyalty redemption, refund/order-support behavior, marketplace privacy labels beyond public listing pages, and region-specific behavior still require lawful test evidence before one-for-one native parity claims.
+> - Legal scope: functional parity only; use original code, brand, copy, iconography, screenshots, proprietary menus/catalogs, workout libraries, maps/routes, media, private APIs, recommendation models, customer data, marketplace assets, and unlicensed datasets.
 
 ## Overview
 
-Build an original mobile product inspired by Subway's public user-facing workflow. The clone focus is: Store/menu catalog, cart, checkout, order tracking, loyalty or membership state, refunds/support, and merchant/courier handoff simulation
+Build an original mobile restaurant ordering and loyalty product inspired by Subway's public product and policy materials. V1 focuses on sandwich customization, pickup/delivery ordering, Subway Rewards-style stamps/points, offers, rapid reorder, store locator, payment, and franchise availability handling. The clone must use original branding, original UI copy, original sample data, licensed providers, and explicit disclosures when a feature is inferred from public materials rather than verified hands-on behavior.
 
-This Draft 1 spec reserves ID 373 in the 1000-app backlog. It provides enough structure for downstream research, estimation, and lawful implementation planning, but it is not implementation-ready until exact first-party URLs replace source-discovery links and app-specific public evidence is added.
+This spec is implementation-ready for a public-source V1. Any behavior marked `Manual verification required` must stay behind a feature flag or documented blocker until lawful hands-on verification confirms exact native behavior.
 
 ## Goals
 
-- Deliver a mobile-first food and loyalty experience with onboarding, primary workflow, settings, support, and recovery flows.
-- Reproduce the functional job behind Subway using original product naming, original UI, original sample data, and licensed integrations.
-- Preserve exact boundaries between public-source evidence, inferred clone requirements, and blocked hands-on behavior.
-- Define screens, entities, API contracts, offline behavior, privacy/safety controls, analytics, tests, acceptance criteria, and build phases.
+- Provide mobile onboarding, consent, account recovery, settings, support, and data lifecycle flows.
+- Support sandwich customization, pickup/delivery ordering, Subway Rewards-style stamps/points, offers, rapid reorder, store locator, payment, and franchise availability handling with clear retry, recovery, unavailable, region, entitlement, and provider-aware states.
+- Preserve boundaries between account data, profile data, order/payment/location/loyalty data, analytics, support logs, rights/licensing records, billing records, ad records, and public catalog data.
+- Implement guest, free, trial, paid, expired, restored, refunded, store-owned, web-owned, provider-owned, region-blocked, and unavailable states without copying exact pricing, plan names, promotions, or loyalty terms.
+- Include export/delete, support/report flows, privacy controls, accessibility, and manual-verification paths before downstream implementation.
+- Document provider, catalog, location, subscription/payment, device/permission, safety, advertising, and marketplace risks before any implementation claim.
 
 ## Non-Goals
 
-- Do not copy Subway branding, logos, screenshots, marketing copy, private APIs, proprietary datasets, ranking systems, or protected media.
-- Do not claim exact native behavior until a lawful hands-on verification pass records evidence.
-- Do not implement production payments, regulated services, medical advice, transport dispatch, smart-home control, or real-money game economies without separate legal/platform review.
+- Do not imply affiliation with Subway or its publisher.
+- Do not copy proprietary feeds, workout libraries, menus, prices, promotions, route data, media, artwork, recommendation models, screenshots, icons, brand names, or private API shapes.
+- Do not send production user order, payment, precise-location, loyalty, support, or delivery telemetry to any third-party provider without explicit consent and a documented data-processing path.
+- Do not present nutrition, allergen, price, delivery-time, reward, or availability output as professional, medical, legal, financial, or safety-critical advice.
+- Do not enable autonomous purchases, account changes, public profile changes, health diagnosis, regulated workflows, or irreversible external actions without a separate confirmation and risk review.
 - Do not build runtime app code in this spec store.
 
 ## Research Sources
 
-| Source | Discovery URL | Evidence To Verify | Status |
+| Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/search?term=Subway | iOS listing, category, age rating, privacy labels, release notes, support links | Source discovery -- pending exact URL verification |
-| Google Play | https://play.google.com/store/search?q=Subway&c=apps | Android listing, content rating, data safety, feature blurbs | Source discovery -- pending exact URL verification |
-| Official website/help search | https://www.google.com/search?q=Subway%20official%20app%20help%20privacy%20terms | Help center, privacy, terms, support, subscription, safety, and product docs to replace with first-party URLs | Source discovery -- pending exact URL verification |
+| Official product | https://www.subway.com/en-us/aboutus/mobile-apps | Public product positioning, core surfaces, availability framing, account, catalog/feed, subscription/payment, and app behavior | Verified 2026-05-04 |
+| Support/help center | https://www.subway.com/en-us/contactus/contactusform | Public support taxonomy for account, activity/order, billing/payment, devices/permissions, troubleshooting, and deletion/export flows | Verified 2026-05-04 |
+| Privacy policy | https://www.subway.com/en-us/privacy | Account, profile, activity/order history, location, device, advertising, analytics, support, and user-rights handling | Verified 2026-05-04 |
+| Terms of service | https://www.subway.com/en-us/legal/terms-of-use | Service usage, licensed content, subscriptions/payments, user conduct, provider limits, regulated-flow boundaries, and legal boundaries | Verified 2026-05-04 |
+| App Store listing | https://apps.apple.com/us/app/subway/id901941015 | Canonical iOS listing, category, age rating, privacy label, compatibility, in-app purchases where public, and native metadata | Verified 2026-05-04 |
+| Google Play listing | https://play.google.com/store/apps/details?id=com.subway.mobile.subwayapp03 | Canonical Android listing, feature blurbs, content rating, data safety, downloads, and native metadata | Verified 2026-05-04 |
+| Native hands-on evidence | Manual verification required | Real-device screens, permission prompts, store purchase/restore, push payloads, background behavior, provider integrations, regional availability, and store/payment/loyalty/refund behavior | Blocked pending lawful device/store verification |
 
 ## Detailed Design
 
-- Onboarding must support guest, signup, returning-user, permission-primer, and blocked-account states appropriate for food and loyalty.
-- Home must default to Browse/Search with empty, loading, personalized, degraded-network, and signed-out variants.
-- The primary action must be reachable from Listing/Menu/Product Detail within two taps from home.
-- Cart must represent preview, confirmation, or consumption state with saved, shared, unavailable, and error variants.
-- Settings must include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements must model free, trial, paid, expired, canceled, restored, refunded, and unavailable states without copying plan names or pricing.
-- Accessibility must support dynamic type, screen reader labels, visible focus, contrast, reduced motion, and captions/transcripts where relevant.
-- Offline behavior must preserve recoverable drafts and block irreversible or regulated writes until the client has canonical server state.
+### Source-Backed Product Requirements
+
+- Onboarding must support guest or signed-out preview where allowed, account creation or restore, blocked-account state, unavailable-region state, and entitlement-unavailable state.
+- Home must expose the latest meaningful ordering/loyalty state, search/discovery, saved items, settings, and degraded offline/account variants.
+- Search and discovery must distinguish first-party public evidence, licensed catalog/provider data, editorial recommendations, ads/sponsorship, user-generated content, and inferred behavior.
+- Detail screens must show availability, provider timestamp, rights state, safety labels where relevant, save/favorite/share actions, and manual-verification warnings for native-only behavior.
+- Long-running cart, quote, payment, order, reward, gift-card, store check-in, or handoff jobs must expose pending, active, paused, failed, canceled, expired, and recovered states.
+- Library, history, favorites, cart, order, reward, offer, gift card, payment, profile, or store state must sync without trusting stale client-only state for paid, rights-limited, health-adjacent, payment, or irreversible actions.
+- Settings must include profile/account, notification preferences, privacy policy, terms, support, export/delete, subscription or payment management, connected-provider controls, and responsible-use controls where relevant.
+- Entitlements must model guest, free, ad-supported, trial, paid, expired, canceled, refunded, restored, store-owned, web-owned, provider-owned, quota-exhausted, region-blocked, and unavailable states.
+- Analytics must avoid raw orders, payment credentials, precise arrival paths, loyalty identifiers, support attachments, and unredacted account identifiers.
+- Moderation and support must cover copyright, impersonation, harassment, unsafe uploads/comments, account takeover, fraud, provider failures, wrong/missing/late/canceled orders and refund disputes, and rights disputes.
+- Provider calls require scoped credentials, redacted logs, request/response retention limits, per-provider data-processing notes, retry policies, and user-visible recovery.
+- Manual verification required: native permission prompts, marketplace privacy labels, purchase/restore or payment, push payloads, background behavior, provider integrations, regional availability, and store/franchise/payment/loyalty/refund behavior.
+- menu, price, promotion, tax, fee, and item-availability freshness must be treated as a launch-blocking risk area with owner, mitigation, acceptance tests, and manual-verification notes.
+- store/franchise participation, hours, throttling, and regional menu differences must be treated as a launch-blocking risk area with owner, mitigation, acceptance tests, and manual-verification notes.
+- payment authorization, stored-value, gift-card, refund, and chargeback handling must be treated as a launch-blocking risk area with owner, mitigation, acceptance tests, and manual-verification notes.
+- loyalty/rewards earning, redemption, expiry, fraud, and account takeover controls must be treated as a launch-blocking risk area with owner, mitigation, acceptance tests, and manual-verification notes.
+- pickup, curbside, drive-thru, delivery handoff, and failed-arrival recovery must be treated as a launch-blocking risk area with owner, mitigation, acceptance tests, and manual-verification notes.
+- nutrition, allergen, ingredient, substitution, and limited-time-item disclosures must be treated as a launch-blocking risk area with owner, mitigation, acceptance tests, and manual-verification notes.
+- location privacy, local offers, ad-tech, and personalization boundaries must be treated as a launch-blocking risk area with owner, mitigation, acceptance tests, and manual-verification notes.
+- support escalation for wrong, missing, late, canceled, duplicate, or unsafe orders must be treated as a launch-blocking risk area with owner, mitigation, acceptance tests, and manual-verification notes.
 
 ## Core User Journeys
 
-- New user installs, reviews an original value proposition, creates or restores an account, and reaches Browse/Search.
-- Returning user opens Browse/Search, resumes the latest meaningful state, and completes the primary action in Listing/Menu/Product Detail.
-- User searches or browses, opens Cart, saves or shares the item, and later finds it again from history or library.
-- User denies a requested permission, receives a functional fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry, reconcile, or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees correct locked/unlocked states.
-- User requests support, submits a report or dispute where relevant, and receives a durable case state.
-- User requests data export and account deletion from settings.
+- New user reviews consent, signs in or continues as guest where allowed, selects a nearby store, and reaches the menu.
+- Returning user reorders a favorite, edits modifiers, applies a qualifying reward or offer, and checks out.
+- User switches pickup, curbside, drive-thru, dine-in, or delivery where available and sees store-specific availability.
+- User pays with card, wallet, gift card, stored value, reward, or split payment where supported and handles authorization failure.
+- User tracks order status, checks in or confirms arrival, and receives handoff instructions without exposing precise location unnecessarily.
+- User sees item unavailable, store closed, menu changed, fee changed, or promotion invalid and can recover before payment.
+- User requests support, refund, or order correction and receives durable case state.
+- Manual verification required: background behavior, push payloads, OS permission prompts, marketplace labels, provider integrations, purchases/payments, and regional availability.
 
 ## Screen Inventory
 
-| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Browse/Search | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Listing/Menu/Product Detail | Primary creation/action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Cart | Inspect, consume, or confirm details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Checkout | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Order Status | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Messages | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Reviews | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Returns/Support | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Seller/Admin Tools | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Welcome / Auth | Defines the welcome / auth workflow for Subway-inspired restaurant ordering behavior | taps, forms, search, filters, deep links, location, payment, store selection | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, provider failed, region unavailable, store closed, item unavailable, payment failed |
+| Restaurant / Store Locator | Defines the restaurant / store locator workflow for Subway-inspired restaurant ordering behavior | taps, forms, search, filters, deep links, location, payment, store selection | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, provider failed, region unavailable, store closed, item unavailable, payment failed |
+| Menu Browse | Defines the menu browse workflow for Subway-inspired restaurant ordering behavior | taps, forms, search, filters, deep links, location, payment, store selection | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, provider failed, region unavailable, store closed, item unavailable, payment failed |
+| Item Detail / Customizer | Defines the item detail / customizer workflow for Subway-inspired restaurant ordering behavior | taps, forms, search, filters, deep links, location, payment, store selection | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, provider failed, region unavailable, store closed, item unavailable, payment failed |
+| Cart | Defines the cart workflow for Subway-inspired restaurant ordering behavior | taps, forms, search, filters, deep links, location, payment, store selection | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, provider failed, region unavailable, store closed, item unavailable, payment failed |
+| Checkout / Payment | Defines the checkout / payment workflow for Subway-inspired restaurant ordering behavior | taps, forms, search, filters, deep links, location, payment, store selection | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, provider failed, region unavailable, store closed, item unavailable, payment failed |
+| Order Status / Tracker | Defines the order status / tracker workflow for Subway-inspired restaurant ordering behavior | taps, forms, search, filters, deep links, location, payment, store selection | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, provider failed, region unavailable, store closed, item unavailable, payment failed |
+| Pickup / Delivery Handoff | Defines the pickup / delivery handoff workflow for Subway-inspired restaurant ordering behavior | taps, forms, search, filters, deep links, location, payment, store selection | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, provider failed, region unavailable, store closed, item unavailable, payment failed |
+| Rewards / Offers | Defines the rewards / offers workflow for Subway-inspired restaurant ordering behavior | taps, forms, search, filters, deep links, location, payment, store selection | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, provider failed, region unavailable, store closed, item unavailable, payment failed |
+| Favorites / Reorder | Defines the favorites / reorder workflow for Subway-inspired restaurant ordering behavior | taps, forms, search, filters, deep links, location, payment, store selection | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, provider failed, region unavailable, store closed, item unavailable, payment failed |
+| Gift Card / Stored Value | Defines the gift card / stored value workflow for Subway-inspired restaurant ordering behavior | taps, forms, search, filters, deep links, location, payment, store selection | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, provider failed, region unavailable, store closed, item unavailable, payment failed |
+| Settings / Privacy | Defines the settings / privacy workflow for Subway-inspired restaurant ordering behavior | taps, forms, search, filters, deep links, location, payment, store selection | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, provider failed, region unavailable, store closed, item unavailable, payment failed |
+| Support / Refunds | Defines the support / refunds workflow for Subway-inspired restaurant ordering behavior | taps, forms, search, filters, deep links, location, payment, store selection | empty, loading, loaded, signed-out, offline, entitlement-aware | permission denied, stale state, entitlement blocked, provider failed, region unavailable, store closed, item unavailable, payment failed |
 
 ## Data Model
 
-- `User`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Subway-style workflows.
-- `Merchant`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Subway-style workflows.
-- `CatalogItem`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Subway-style workflows.
-- `Inventory`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Subway-style workflows.
-- `Cart`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Subway-style workflows.
-- `Order`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Subway-style workflows.
-- `PaymentIntent`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Subway-style workflows.
-- `Fulfillment`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Subway-style workflows.
-- `Review`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Subway-style workflows.
-- `Dispute`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Subway-style workflows.
-- `AuditEvent`: append-only record for sensitive writes, account changes, support actions, moderation decisions, and entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, conflict resolution, and cache expiry.
+- `User`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Subway-inspired restaurant ordering workflows.
+- `AccountSession`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Subway-inspired restaurant ordering workflows.
+- `CustomerProfile`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Subway-inspired restaurant ordering workflows.
+- `RestaurantLocation`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Subway-inspired restaurant ordering workflows.
+- `MenuCatalog`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Subway-inspired restaurant ordering workflows.
+- `MenuItem`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Subway-inspired restaurant ordering workflows.
+- `ModifierGroup`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Subway-inspired restaurant ordering workflows.
+- `Cart`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Subway-inspired restaurant ordering workflows.
+- `Order`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Subway-inspired restaurant ordering workflows.
+- `PaymentInstrument`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Subway-inspired restaurant ordering workflows.
+- `RewardAccount`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Subway-inspired restaurant ordering workflows.
+- `Offer`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Subway-inspired restaurant ordering workflows.
+- `GiftCard`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Subway-inspired restaurant ordering workflows.
+- `DeliveryOrPickupHandoff`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Subway-inspired restaurant ordering workflows.
+- `SupportCase`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Subway-inspired restaurant ordering workflows.
+- `RefundCase`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Subway-inspired restaurant ordering workflows.
+- `AuditEvent`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Subway-inspired restaurant ordering workflows.
+- `LocalCacheRecord`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, and audit metadata for Subway-inspired restaurant ordering workflows.
 
 ## API And Backend Contracts
 
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /merchants, GET /catalogitems, GET /inventorys, GET /carts; all reads return authorization status, pagination, cache hints, stale-data markers, and localization keys.
-- Writes: POST /users, POST /merchants, POST /catalogitems, POST /inventorys, POST /carts; all writes require validation errors, idempotency keys, optimistic-state reconciliation, and audit events for sensitive state.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context.
-- Upload/import: use signed upload URLs, MIME/size validation, malware/content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must refetch canonical state after missed events.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+- POST /auth/session, POST /auth/recover, DELETE /auth/session, and DELETE /account for account lifecycle.
+- GET /locations, GET /locations/:id, GET /menus, GET /menus/:locationId, GET /items/:id, and GET /offers.
+- POST /carts, PATCH /carts/:id, POST /carts/:id/items, PATCH /carts/:id/items/:itemId, and DELETE /carts/:id/items/:itemId.
+- POST /checkout/quote, POST /orders, GET /orders/:id, POST /orders/:id/cancel, and GET /orders/:id/status.
+- GET /rewards, POST /rewards/enroll, POST /rewards/redeem, GET /gift-cards, POST /gift-cards/reload, and GET /payment-instruments.
+- POST /support/cases, GET /support/cases/:id, POST /refund-requests, POST /data-export, and DELETE /account.
+- `GET /privacy/settings`, `PATCH /privacy/settings`, `POST /data-export`, and `GET /data-export/:id` for privacy lifecycle.
+- `GET /support/articles`, `POST /support/cases`, `GET /support/cases/:id`, `POST /reports`, and `GET /reports/:id` for support, abuse, safety, and rights workflows.
 
 ## Realtime, Push, And Offline Behavior
 
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must reconcile against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+- Recent home, catalog, settings, entitlement, and in-progress state cache locally with explicit size, retention, and purge rules.
+- Long-running jobs use polling, SSE, websocket, or provider webhook fallback and must support cancel, timeout, retry, and canonical refetch after reconnect.
+- Offline mode allows safe cached reads and low-risk local drafts where allowed but blocks provider calls, billing/payment changes, public publication, rights-affecting writes, profile-owner changes, health diagnosis, and irreversible deletes.
+- Reconnect must reconcile duplicate submits through idempotency keys and show whether quota, promotions, licenses, rewards, device syncs, orders, or subscriptions were consumed for failed/canceled attempts.
+- Push notifications are opt-in by category and limited to account/security, subscription/payment, support, order status, rewards/offers, store arrival, delivery handoff, and moderation states.
+- Background tracking, location checks, wearable sync, Bluetooth/local-network/device behavior, watch behavior, payment authorization, loyalty redemption, store check-in, and cloud sync behavior are `Manual verification required` and must stay disabled until platform-specific evidence exists.
+- Cached uploads, activities/orders, payment references, device metadata, location history, support attachments, and catalog refs purge on logout, account delete, retention expiry, policy change, rights expiry, or legal hold.
 
 ## Permissions, Privacy, And Safety
 
-- Treat payment security as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat consumer protection as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat fraud as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat unsafe or counterfeit goods as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat review abuse as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+- Request notifications, precise location, approximate location, motion/fitness, camera, media library, files, clipboard, contacts/share sheet, local network, Bluetooth, health-store access, or provider OAuth only at feature use.
+- Permission screens must state what is captured, where it is processed, how long it is retained, and what fallback remains if denied.
+- Do not collect raw order histories, payment credentials, exact arrival trails, loyalty tokens, support attachments, or private messages in analytics or crash logs.
+- Provider calls must use scoped credentials, redacted logs, request/response retention limits, and per-provider data-processing notes.
+- Media imports, profile images, support attachments, and order issue photos must strip or let users control EXIF, GPS, filenames, embedded captions, contact names, and private tags before export/share.
+- Menu, order, payment, reward, delivery, offer, nutrition, and allergen features must block non-consensual publication, child exploitation, doxxing, harassment, impersonation, illegal content, unsafe behavior, fraud, and misleading attribution.
+- Recommended, ad-targeted, factual, wellness, price, nutrition, allergen, location, or availability output must show that results can be inaccurate, delayed, sponsored, rights-limited, region-limited, age-restricted, store-limited, injury-sensitive, or unavailable before consequential use.
+- Catalog/feed libraries must preserve source, license, attribution, commercial-use, takedown, explicit-content, privacy, rating, embargo, region, store, and availability restrictions in metadata.
+- Support access to uploads, activity/order history, profile data, diagnostics, and account data requires explicit user consent and auditable staff access.
+- Export/delete must cover account data, uploads, drafts, activity/order history, generated outputs, reports, support cases, device associations, payment tokens, rewards references, and billing references where legally deletable.
 
 ## Analytics And Monetization
 
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement logic; do not copy exact pricing, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, private messages, or child data as event properties.
+- Analytics events: onboarding started/completed, permission primer viewed, search performed, item opened, cart updated, quote viewed, order submitted/failed, favorite saved, report submitted, export/delete requested, paywall/payment viewed, and notification preference changed.
+- Event properties must use coarse category, provider capability class, latency buckets, error codes, duration buckets, ad state, entitlement/payment state, and region/store class only.
+- Monetization may gate premium plans, advanced analytics, offline maps/downloads, device integrations, coaching plans, subscriptions, delivery fees, service fees, offers, rewards, stored value, gift cards, or priority processing.
+- Billing/payment must handle app-store, web, in-store, wallet, gift-card, trial, paid, ad-supported, expired, canceled, refunded, restored, unavailable, provider-owned, quota-exhausted, and payment-failed states.
+- Paywalls and payment gates must not block safety reporting, account recovery, export/delete, privacy settings, or access to already-created user content where legally required.
 
 ## Edge Cases
 
-- First launch with no network, no account, expired session, or unsupported OS version.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
-- Subscription restored on a different platform, refunded externally, or unavailable in the user's region.
-- Legal/privacy request submitted while transactions, messages, or support cases are still active.
+- First launch with no network, no account, unsupported OS, unavailable territory, disabled catalog/provider, unsupported store/device, or blocked account.
+- Permission denied, later granted, later revoked, or limited by OS/device policy.
+- Duplicate taps, duplicate provider events, duplicate webhook delivery, timeout retry, and stale optimistic state.
+- Licensed catalog, route, workout, menu item, promotion, reward, price, store, provider, activity, or order becomes unavailable, renamed, corrected, expired, geo-blocked, or takedown-blocked.
+- Background tracking, order status, payment authorization, workout recording, device sync, feed refresh, score/order alert, or offline license refresh is interrupted by app termination.
+- Subscription renews, refunds, expires, switches owner, changes platform owner, or loses provider authorization during active use.
+- User requests export/delete while jobs, reports, support cases, billing disputes, rights disputes, ad records, or provider logs remain active.
+- Uploaded, indexed, or saved data contains child data, private conversations, health data, financial data, copyrighted material, or third-party confidential content.
+- Provider/CDN/feed/device/store/payment outage occurs after the user starts an action but before canonical state is persisted.
+- User attempts misleading attribution, impersonation, review abuse, non-consensual publication, copyright infringement, unsafe exercise, fraud, promotion abuse, refund abuse, or unsafe public sharing.
+- Device storage fills, cache corrupts, token expires, clock skew occurs, sensor/order data is malformed, or reconnect creates a profile/queue conflict.
+- Account, family, provider, bundle, health, territory, regulator, store, franchise, or device policy disables a feature after content has been cached locally.
 
 ## Test Plan
 
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+- Unit tests for state machines, entitlement/payment checks, eligibility gates, idempotency keys, provider error mapping, and analytics redaction.
+- Unit tests for catalog validation, rights states, rating labels, retention flags, permissions, and deletion/export eligibility.
+- Unit tests for profile, favorite, history, active job, provider-auth, retry gates, destructive confirmations, and license/availability propagation.
+- Contract tests for auth, home, catalog, jobs, billing/payment, privacy, support, reports, and provider routes where scoped.
+- Integration tests for onboarding -> discover -> detail -> start/order -> save/share -> settings/support/delete.
+- Integration tests for permission denied, granted, revoked, limited access, oversized uploads, unsupported inputs, provider timeouts, and availability failures.
+- Offline tests for cached reads, allowed local drafts, local queues, reconnect reconciliation, duplicate-submit prevention, and blocked unsafe writes.
+- Safety tests for reports, explicit-content gates, child/profile controls, fraud, impersonation, ad disclosures, delayed/provider data, responsible-use controls, unsafe behavior, and privacy redaction.
+- Billing/payment tests for trial, purchase, restore, renewal, refund, expiration, gift card, stored value, provider owner, region unavailable, quota exhausted, ad-supported, app-store-owned, and web-owned states.
+- Privacy/security tests for provider request redaction, support access consent, metadata controls, log scrubbing, export, delete, retention expiry, and rights expiry.
+- Accessibility tests for screen-reader order, dynamic type, focus, contrast, reduced motion, captions/transcripts where applicable, controls, status announcements, and processing announcements.
+- Manual verification tests for native store listings, privacy labels, permission prompts, purchase/payment, push notifications, provider integrations, background behavior, and regional availability.
 
 ## Acceptance Criteria
 
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source-discovery links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+- All source-discovery links are replaced with exact first-party product/help/privacy/terms URLs or explicit manual blockers for native marketplace evidence.
+- A lawful V1 can be built with original branding, UI copy, sample content, providers, and licensed catalog/data.
+- Onboarding, home, discover, detail, active-use/order, notifications, export/share, settings, support, safety report, export/delete, and entitlement/payment screens are specified.
+- Account, profile, provider, billing/payment, support, analytics, and order/location/loyalty/store data boundaries are documented and testable.
+- Offline cache and reconnect reconciliation are covered without allowing unsafe provider, billing/payment, publication, rights, profile-owner, health-diagnosis, or irreversible operations while offline.
+- Safety tests cover reports, explicit content, non-consensual uploads, impersonation, ad disclosures, provider delays, responsible-use controls, unsafe behavior, fraud, and privacy redaction.
+- Manual verification blockers remain for native behavior that requires accounts, subscriptions/payments, devices, permissions, marketplace labels, geolocation, provider auth, regulated eligibility, background behavior, or regional access.
+- At least 12 implementation tests cover happy path, failed provider, permission denial, active job failure, quota exhaustion, offline recovery, export/delete, billing/payment restore, safety report, accessibility, privacy redaction, and regression behavior.
 
 ## Open Questions
 
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, regulated sandbox, or provider credentials?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, AI, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+- Which exact mobile marketplace privacy labels, release-note details, and native screenshots should be treated as canonical after device verification?
+- Which provider(s) will power catalog data, maps/location, media, notifications, billing/payment, analytics, support, recommendations, ads, or device integrations in the original implementation?
+- Which uploads, drafts, histories, diagnostics, and exports are retained for product improvement, support, abuse prevention, rights accounting, ads, or legal obligations?
+- Which regions, ages, stores, providers, devices, profiles, regulators, or enterprise policies should block or alter feature availability?
+- Which attribution, rating, nutrition/allergen, safety, ad-tech, location, health, payment, refund, or disclosure rules are required by platform policy, rights contracts, provider contracts, regulators, or local law?
+- Which hands-on flows require paid access, special hardware, background permissions, platform integrations, geolocation, health-store access, payment methods, real orders, or regulated review?
 
 ## Build Plan
 
-- Phase 1: Replace source-discovery rows with exact first-party URLs and classify each requirement as verified or inferred.
-- Phase 2: Define route map, component map, domain entities, API schema, permissions, analytics schema, and seed-data policy.
-- Phase 3: Build onboarding, home, primary action, detail, search, settings, support, and entitlement shells with original copy and sample data.
-- Phase 4: Add backend contracts, offline/retry handling, notification preferences, data export/delete, and safety/reporting flows.
-- Phase 5: Complete accessibility, privacy, safety, billing, permission, and regression tests.
-- Phase 6: Conduct lawful hands-on verification and resolve manual blockers before parity claims.
+- Phase 1: Finalize native marketplace evidence, source notes, provider choices, legal names, rights model, eligibility model, payment/health/location model, and feature flags for all manual blockers.
+- Phase 2: Define route map, component map, domain entities, API schema, provider contracts, permissions, analytics schema, seed-data policy, and retention matrix.
+- Phase 3: Build onboarding, home, discovery, detail, active-use/order, settings, support, and entitlement/payment shells with original copy and licensed sample data.
+- Phase 4: Add backend contracts, offline/retry handling, provider adapters, notification preferences, data export/delete, safety/reporting flows, and responsible-use gates.
+- Phase 5: Complete accessibility, privacy, safety, billing/payment, permission, provider-failure, offline, and regression tests.
+- Phase 6: Conduct lawful hands-on verification and resolve native, device/store, provider, marketplace, region, subscription/payment, health/location, and regulated-flow blockers before parity claims.
 
 ## Next Steps
 
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, support docs, and user-review themes in a dedicated research note without committing proprietary media.
-- Resolve open questions and update this spec before downstream implementation starts.
-- Extend the Phase 5 implementation-plan queue and repo-seeding manifest after the spec reaches implementation-ready V1.
+- Keep native marketplace, permission-prompt, subscription/payment, provider, health/device, geolocation, store/franchise, and regional behavior marked as manual verification blockers until lawful hands-on evidence is captured.
+- Select licensed providers for catalog data, maps/location, media, notifications, billing/payment, analytics, support, and provider integrations before downstream implementation.
+- Preserve exact source URLs and dated verification notes whenever public product, support, privacy, terms, or marketplace links change.
