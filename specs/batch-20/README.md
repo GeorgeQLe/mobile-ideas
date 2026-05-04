@@ -1,13 +1,13 @@
-# Batch 20 Draft 1 Specs
+# Batch 20 Implementation-Ready Specs
 
 > Metadata
 > - App range: 381-400
-> - Status: Draft 1 canonical scaffold
-> - Research state: public source-discovery links included; exact source replacement and hands-on verification still required before implementation.
+> - Status: Implementation-ready public-source V1 specs as of 2026-05-04
+> - Research state: exact public first-party source URLs are listed in each numbered spec; hands-on native verification remains blocked where stated before one-for-one parity claims.
 
 ## Overview
 
-This batch contains canonical Draft 1 clone specs for apps 381-400 from tasks/ideas.md.
+This batch contains implementation-ready public-source V1 clone specs for apps 381-400 from tasks/ideas.md.
 
 ## Included Specs
 
@@ -35,10 +35,10 @@ This batch contains canonical Draft 1 clone specs for apps 381-400 from tasks/id
 ## Quality Gate
 
 - Each numbered spec uses canonical hygiene sections.
-- Each numbered spec includes source-discovery links, functional requirements, data model, API contracts, edge cases, test plan, acceptance criteria, build plan, open questions, and next steps.
+- Each numbered spec includes exact public first-party URLs, functional requirements, data model, API contracts, edge cases, test plan, acceptance criteria, build plan, open questions, and next steps.
 - Each numbered spec remains legally scoped to functional parity with original assets and licensed data.
 
 ## Next Steps
 
-- Replace source-discovery links in every spec with exact verified first-party URLs.
-- Complete hands-on verification where lawful and feasible before app implementation starts.
+- Complete hands-on verification where lawful and feasible before one-for-one native parity claims.
+- Continue Phase 8 Step 8.3 with IDs 401-420.

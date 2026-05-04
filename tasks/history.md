@@ -639,3 +639,25 @@
 - Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native verification before one-for-one parity claims.
 - Rollback note: revert the shipping commit to restore IDs 361-380 to their previous Draft 1 scaffold state and previous readiness counts.
 - Next command: `$run`.
+
+## 2026-05-04 - Phase 8 Step 8.3 IDs 381-400 Promotion
+
+- Promoted specs 381-400 (KFC through Whole Foods Market) from Draft 1 to implementation-ready public-source V1.
+- Replaced source-discovery rows with exact first-party product, support/help, privacy, terms, rewards/membership, App Store, and Google Play URLs.
+- Added food/coffee ordering blockers for menu/price/tax/fee freshness, ordering/payment/gift-card/refund handling, rewards fraud/expiry, scan-in-store behavior, nutrition/allergen disclosures, store/franchise availability, location privacy, and support escalation.
+- Added convenience/grocery/retail blockers for scan-and-go/mobile checkout, wallet/fuel savings, Prime/member entitlements, grocery substitutions/refunds, retail inventory, pharmacy privacy, age-restricted goods, delivery/returns, ad-tech disclosures, and Amazon/retail provider handoffs.
+- Updated `specs/batch-20/README.md`, `tasks/implementation-readiness.md`, and `tasks/todo.md` for 400 ready specs and the next IDs 401-420 slice.
+- Validation: targeted H1/readiness check passed for 20 files; `rg` found no Draft/source-discovery markers in the promoted specs; `node scripts/check-implementation-readiness.mjs` reported expected remaining Draft 1 scope: 400 ready, 600 non-ready, 1,800 placeholder rows across IDs 401-1000; `git diff --check` passed.
+
+### Ship Manifest
+
+- User goal: execute `$run` next incomplete Step 8.3 slice and ship the result.
+- Changed files: `specs/batch-20/381-kfc.md` through `specs/batch-20/400-whole-foods-market.md`, `specs/batch-20/README.md`, `tasks/todo.md`, `tasks/implementation-readiness.md`, and `tasks/history.md`.
+- Per-file purpose: promoted 20 specs to implementation-ready public-source V1; updated the batch README; recorded readiness counts, next slice, and audit evidence.
+- User-goal mapping: the edited specs replace Draft 1/source-discovery placeholders for IDs 381-400; task files preserve the Step 8.3 execution trail and handoff.
+- Tests run: `node scripts/check-implementation-readiness.mjs` expected-red with 400 ready specs and 1,800 remaining placeholders; targeted `rg` checks found no Draft 1/source-discovery markers in promoted specs; targeted H1/readiness checks found one H1 and one implementation-ready status per promoted file; `git diff --check` passed.
+- Skipped tests: no runtime lint/type/build commands apply because this repository contains planning/specification Markdown and this slice changes no runtime code.
+- Adversarial review: diff reviewed for source-discovery residue, one-H1 structure, readiness-count consistency, manual native blockers, legal-scope boundaries, food/coffee/grocery/retail/payment/loyalty/membership/pharmacy/location risk coverage, and next-slice routing.
+- Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native verification before one-for-one parity claims.
+- Rollback note: revert the shipping commit to restore IDs 381-400 to their previous Draft 1 scaffold state and previous readiness counts.
+- Next command: `$run`.

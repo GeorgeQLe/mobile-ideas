@@ -5,11 +5,11 @@ Updated: 2026-05-04
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-380.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-400.
 
-Current readiness count: 380 of 1000.
+Current readiness count: 400 of 1000.
 
-Step 8.3 remains open for IDs 381-1000. A 2026-05-04 post-slice audit found 1,860 source-discovery placeholder rows across 620 files: 60 rows in IDs 301-400 and 300 rows per 100-ID range from 401-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 401-1000. A 2026-05-04 post-slice audit found 1,800 source-discovery placeholder rows across 600 files: 300 rows per 100-ID range from 401-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -407,6 +407,26 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 378 | Pizza Hut | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; pizza builder, delivery/takeout/curbside, rewards, local deals, future orders, guest checkout, and payment/region blockers remain explicit. |
 | 379 | Papa Johns | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; pizza ordering, delivery/carryout, rewards, offers, saved favorites, payment, order tracking, and support/refund blockers remain explicit. |
 | 380 | Little Caesars | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; pizza ordering, pickup portal-style handoff, delivery/carryout, deals, payment, order status, and store/privacy blockers remain explicit. |
+| 381 | KFC | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; fried chicken ordering, rewards, deals, delivery/pickup, gift cards, payment, and store/support blockers remain explicit. |
+| 382 | Popeyes | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; fried chicken ordering, offers, delivery/pickup, payment, account support, and store/refund blockers remain explicit. |
+| 383 | SONIC Drive-In | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; drive-in ordering, customization-heavy drinks, exclusive offers, stall/check-in, payments, and location/support blockers remain explicit. |
+| 384 | Shake Shack | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; burger ordering, pickup, curbside, delivery, favorites/reorder, app offers, allergy preferences, and delivery/support blockers remain explicit. |
+| 385 | sweetgreen | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; bowl/salad ordering, SG Rewards, scan-in-store, seasonal menus, gift cards, nutrition filters, and support/payment blockers remain explicit. |
+| 386 | CAVA | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Mediterranean bowl ordering, pickup/delivery, dietary preferences, rewards, QR scan, and payment/privacy blockers remain explicit. |
+| 387 | Wingstop | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; wings ordering, scheduled pickup/delivery, flavor customization, reorder, multiple payment providers, and support blockers remain explicit. |
+| 388 | Dairy Queen | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; quick-service ordering, treats, rewards, deals, scan-at-register, restaurant favorites, and region/store blockers remain explicit. |
+| 389 | Dutch Bros | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Order Ahead, Dutch Pass stored value, rewards, stickers, gift cards, tipping, and shop/payment blockers remain explicit. |
+| 390 | 7-Eleven | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; retail rewards, delivery, wallet, mobile checkout, fuel savings, age-restricted goods, and store/payment blockers remain explicit. |
+| 391 | Krispy Kreme | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; doughnut ordering, rewards, Hot Light notifications, shop locator, gift cards, offers, and support blockers remain explicit. |
+| 392 | Jamba | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; smoothie/bowl ordering, rewards, pickup/delivery, customization, pay-ahead, and customer-care blockers remain explicit. |
+| 393 | Walmart | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; retail/grocery commerce, pickup, delivery, shipping, Walmart Pay, Walmart+, Scan & Go, pharmacy, AI shopping, and refund/substitution blockers remain explicit. |
+| 394 | Target | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; retail commerce, Target Circle, Drive Up, same-day delivery, Wallet, barcode scan, returns, AR shopping, and payment/inventory blockers remain explicit. |
+| 395 | Costco | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; warehouse membership, digital membership, savings, warehouse locator, pharmacy, travel/photos, and entitlement/privacy blockers remain explicit. |
+| 396 | Sam's Club | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; membership shopping, Scan & Go, curbside pickup, delivery, fuel, pharmacy, Sam's Cash, and receipt/payment blockers remain explicit. |
+| 397 | Kroger | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; grocery shopping, digital coupons, pickup/delivery, pharmacy, fuel points, Kroger Pay, and coupon/privacy blockers remain explicit. |
+| 398 | Safeway | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; grocery deals, pickup/delivery, rewards, in-store mode, pharmacy, recipes, health habits, and substitution/privacy blockers remain explicit. |
+| 399 | Albertsons | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; grocery deals, pickup/delivery, rewards, in-store mode, pharmacy, recipes, health habits, and cross-banner/privacy blockers remain explicit. |
+| 400 | Whole Foods Market | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Prime member savings, weekly sales, shopping lists, shipped pantry items, Amazon handoff, and store/privacy blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 
@@ -456,8 +476,10 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 - Batch 16 podcast/audio, publisher audio, audiobook/audio-series, and streaming-video public-source V1 expansion: `301-player-fm.md` through `320-plex.md`.
 - Batch 17 streaming-video, live-TV, library/institution streaming, creator-video, and sports/news public-source V1 expansion: `321-tubi.md` through `340-bleacher-report.md`.
 - Batch 18 sports, fantasy/sportsbook-adjacent, and fitness public-source V1 expansion: `341-yahoo-sports.md` through `360-fitbod.md`.
+- Batch 19 fitness/training and food ordering/loyalty public-source V1 expansion: `361-strong.md` through `380-little-caesars.md`.
+- Batch 20 food/coffee, convenience retail, grocery/retail, warehouse club, and Prime grocery public-source V1 expansion: `381-kfc.md` through `400-whole-foods-market.md`.
 
 ## Next Steps
 
-- Continue Phase 8 Step 8.3 with IDs 361-380 as the next fitness and food/loyalty category slice.
+- Continue Phase 8 Step 8.3 with IDs 401-420 as the next meal-planning, grocery, pharmacy, retail, fashion, beauty, home, pets, automotive, and electronics category slice.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.
