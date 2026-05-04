@@ -5,11 +5,11 @@ Updated: 2026-05-04
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-400.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-420.
 
-Current readiness count: 400 of 1000.
+Current readiness count: 420 of 1000.
 
-Step 8.3 remains open for IDs 401-1000. A 2026-05-04 post-slice audit found 1,800 source-discovery placeholder rows across 600 files: 300 rows per 100-ID range from 401-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 421-1000. A 2026-05-04 post-slice audit found 1,740 source-discovery placeholder rows across 580 files: 240 rows in IDs 401-500 and 300 rows per 100-ID range from 501-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -427,6 +427,26 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 398 | Safeway | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; grocery deals, pickup/delivery, rewards, in-store mode, pharmacy, recipes, health habits, and substitution/privacy blockers remain explicit. |
 | 399 | Albertsons | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; grocery deals, pickup/delivery, rewards, in-store mode, pharmacy, recipes, health habits, and cross-banner/privacy blockers remain explicit. |
 | 400 | Whole Foods Market | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Prime member savings, weekly sales, shopping lists, shipped pantry items, Amazon handoff, and store/privacy blockers remain explicit. |
+| 401 | Publix | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Club Publix, weekly ads, coupons, shopping lists, prepared-food ordering, pickup/delivery, and in-store redemption blockers remain explicit. |
+| 402 | H-E-B | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; curbside/delivery, coupons, weekly ads, recipes, in-store maps, prescriptions, SNAP EBT, and Texas serviceability blockers remain explicit. |
+| 403 | Meijer | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; mPerks, coupons, weekly ads, grocery/retail pickup and delivery, pharmacy, payment/EBT, and returns/support blockers remain explicit. |
+| 404 | ALDI | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; weekly ads, ALDI Finds, store locator, product browse, shopping lists, delivery partner handoff, and limited-assortment blockers remain explicit. |
+| 405 | Lidl | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Lidl Plus loyalty, coupons, rewards, receipts, weekly offers, shopping lists, and regional feature blockers remain explicit. |
+| 406 | Wegmans | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; coupons, recipes, grocery lists, item-location sorting, pickup/delivery, account, store context, and support blockers remain explicit. |
+| 407 | Food Lion | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; MVP card, Shop & Earn rewards, coupons, weekly ad, digital card, pickup/delivery, substitutions, and EBT/payment blockers remain explicit. |
+| 408 | Giant Eagle | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; myPerks, digital wallet, coupons, weekly deals, curbside/delivery, fuel redemption, pharmacy links, and scan/pay blockers remain explicit. |
+| 409 | Stop & Shop | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Go Rewards, bonus offers, coupons, digital card, Scan It, deli order-ahead, pickup/delivery, and checkout blockers remain explicit. |
+| 410 | ShopRite | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Price Plus card, coupons, circulars, recipes, pickup/delivery, substitutions, store-owned inventory, and EBT/payment blockers remain explicit. |
+| 411 | FreshDirect | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; delivery-zone gating, delivery windows, order modification, previous purchases, grocery lists, quality notes, and support blockers remain explicit. |
+| 412 | Misfits Market | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; subscription lifecycle, rescued-food catalog, weekly customization, order minimums, shipping fees, skip/cancel, and sustainability-claim blockers remain explicit. |
+| 413 | Thrive Market | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; paid membership, member pricing, diet/lifestyle filters, autoship, shipping thresholds, gifts/deals, and cancellation/refund blockers remain explicit. |
+| 414 | Ocado | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; UK serviceability, delivery slots, trolley editing, substitutions, offers, Smart Pass, recipes, vouchers, and customer-service blockers remain explicit. |
+| 415 | Carrefour | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; regional selection, loyalty card, coupons, drive pickup, home delivery, marketplace/catalog boundaries, payment, substitutions, and multilingual blockers remain explicit. |
+| 416 | Tesco | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Clubcard barcode, points/vouchers, grocery basket, home delivery, Click+Collect, Whoosh, marketplace, stock check, and security blockers remain explicit. |
+| 417 | Sainsbury's | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; registered grocery accounts, Nectar linking, product browse, favorites, order editing, delivery/Click & Collect, and UK serviceability blockers remain explicit. |
+| 418 | Grubhub | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; restaurant discovery, menus, upfront fees, Grubhub+, order tracking, courier handoff, refunds/credits, and support blockers remain explicit. |
+| 419 | Gopuff | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; address serviceability, micro-fulfillment inventory, fast delivery, FAM memberships, alcohol eligibility, courier tracking, and support blockers remain explicit. |
+| 420 | Deliveroo | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; postcode serviceability, restaurant/grocery discovery, delivery/pickup checkout, Plus membership, rider tracking, substitutions, and country-specific blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 
@@ -478,8 +498,9 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 - Batch 18 sports, fantasy/sportsbook-adjacent, and fitness public-source V1 expansion: `341-yahoo-sports.md` through `360-fitbod.md`.
 - Batch 19 fitness/training and food ordering/loyalty public-source V1 expansion: `361-strong.md` through `380-little-caesars.md`.
 - Batch 20 food/coffee, convenience retail, grocery/retail, warehouse club, and Prime grocery public-source V1 expansion: `381-kfc.md` through `400-whole-foods-market.md`.
+- Batch 21 grocery retail, subscription grocery, UK/EU supermarket, and delivery marketplace public-source V1 expansion: `401-publix.md` through `420-deliveroo.md`.
 
 ## Next Steps
 
-- Continue Phase 8 Step 8.3 with IDs 401-420 as the next meal-planning, grocery, pharmacy, retail, fashion, beauty, home, pets, automotive, and electronics category slice.
+- Continue Phase 8 Step 8.3 with IDs 421-440 as the next meal kit, recipe, grocery inventory, pharmacy, retail, fashion, beauty, home, pets, automotive, electronics, and ticketing category slice.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.
