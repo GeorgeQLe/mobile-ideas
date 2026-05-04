@@ -1,5 +1,28 @@
 # History
 
+## 2026-05-04 - Phase 8 Step 8.3 BNPL And Airline Travel Slice (IDs 521-540)
+
+- Promoted 20 BNPL and airline travel specs to implementation-ready public-source V1: `521-afterpay.md` through `540-turkish-airlines.md`.
+- Replaced source-discovery placeholders with exact public first-party product/help/support/privacy/terms/legal URLs and native marketplace listing URLs verified on 2026-05-04, with native privacy labels, account lifecycle, booking/payment/check-in/boarding pass issuance, passport/APIS document capture, seats/bags/extras, loyalty redemption, push payloads, location/airport maps, provider integrations, support outcomes, and regional/route availability preserved as manual verification blockers where not yet captured.
+- Expanded category-specific risk coverage: BNPL credit disclosures, installment/repayment correctness, virtual-card/payment handling, refunds/disputes, passenger-data privacy, travel-document handling, contract-of-carriage/passenger-rights disclosures, operational-data licensing, loyalty-program boundaries, fraud/account takeover, accessibility, support, and regulator/passenger-rights auditability.
+- Corrected the stale handoff classification in `tasks/todo.md`: `tasks/ideas.md` lists IDs 523-540 as airline travel apps, not finance apps through `Acorns Later`.
+- Refreshed `tasks/implementation-readiness.md` to 540 of 1000 ready and moved the next Step 8.3 slice to IDs 541-560.
+- Validation: targeted checks found one H1 and 18 canonical H2 sections in each promoted file and no `Source discovery`, `Readiness status: Draft 1`, or exact-URL-pending markers in the 20-file slice.
+- Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 540 implementation-ready specs and 1,380 source-discovery placeholder rows across 460 remaining files.
+
+### Ship Manifest
+
+- User goal: execute `$run` next incomplete Step 8.3 slice and ship the result.
+- Changed files: `specs/batch-27/521-afterpay.md` through `specs/batch-27/540-turkish-airlines.md`, `tasks/todo.md`, `tasks/implementation-readiness.md`, and `tasks/history.md`.
+- Per-file purpose: promoted 20 specs to implementation-ready public-source V1 and recorded readiness counts, next slice, stale handoff correction, and audit evidence.
+- User-goal mapping: the edited specs replace Draft 1/source-discovery placeholders for IDs 521-540; task files preserve the Step 8.3 execution trail and handoff.
+- Tests run: `node scripts/check-implementation-readiness.mjs` expected-red with 540 ready specs and 1,380 remaining placeholders; targeted `rg` checks found no Draft 1/source-discovery markers in the promoted slice; targeted H1/H2 checks found one H1 and 18 H2 sections per promoted file.
+- Skipped tests: no runtime lint/type/build commands apply because this repository contains planning/specification Markdown and this slice changes no runtime code.
+- Adversarial review: diff reviewed for source-discovery residue, one-H1 structure, readiness-count consistency, manual native blockers, legal-scope boundaries, stale handoff correction, BNPL/airline risk coverage, and next-slice routing.
+- Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native verification before one-for-one parity claims.
+- Rollback note: revert the shipping commit to restore IDs 521-540 to their previous Draft 1 scaffold state and previous readiness counts.
+- Next command: `$run`.
+
 ## 2026-05-04 - Phase 8 Step 8.3 Resale Marketplace Banking And Card Servicing Slice (IDs 461-480)
 
 - Promoted 20 resale/classifieds, cross-border/regional marketplace, cash-back, electronics retail, and banking/card servicing specs to implementation-ready public-source V1: `461-vinted.md` through `480-pnc-mobile.md`.
