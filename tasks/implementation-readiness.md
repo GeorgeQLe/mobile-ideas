@@ -5,11 +5,11 @@ Updated: 2026-05-04
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-440.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-460.
 
-Current readiness count: 440 of 1000.
+Current readiness count: 460 of 1000.
 
-Step 8.3 remains open for IDs 441-1000. A 2026-05-04 post-slice audit found 1,680 source-discovery placeholder rows across 560 files: 180 rows in IDs 401-500 and 300 rows per 100-ID range from 501-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 461-1000. A 2026-05-04 post-slice audit found 1,620 source-discovery placeholder rows across 540 files: 120 rows in IDs 401-500 and 300 rows per 100-ID range from 501-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -467,6 +467,26 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 438 | Favor | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Texas runner onboarding, H-E-B/Favor orders, shopping/delivery tasks, messaging, tips/earnings, promos, support, and safety blockers remain explicit. |
 | 439 | SkipTheDishes | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Canada food/grocery delivery, Skip+ benefits, points, order tracking, alcohol/pharmacy-adjacent blockers, refunds, and regional blockers remain explicit. |
 | 440 | Talabat | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Middle East food/grocery/mart retail, pharmacy-adjacent blockers, pro membership, rewards, Dine Out/Pickup, tracking, and support blockers remain explicit. |
+| 441 | Mr D Food | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; South Africa restaurants, groceries, TakealotNow-style retail, loyalty capture, payment methods, live tracking, and age/pharmacy-adjacent blockers remain explicit. |
+| 442 | Best Buy | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; electronics catalog, store inventory, curbside pickup, marketplace seller disclosure, membership deals, services, returns, and reviews remain explicit. |
+| 443 | Home Depot | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; home improvement catalog, image/barcode search, aisle/bay inventory, local ads, Pro account surfaces, rentals/services, and returns remain explicit. |
+| 444 | Lowe's | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; home improvement catalog, barcode scan, project lists, inventory, pickup/delivery, rewards, installation/services blockers, and returns remain explicit. |
+| 445 | IKEA | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; furniture catalog, room inspiration, product dimensions/materials, store inventory, family membership, planning handoffs, and returns remain explicit. |
+| 446 | Wayfair | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; home goods marketplace catalog, visual search, room inspiration, 3D/AR blockers, delivery estimates, assembly/provider handoffs, and sponsored placement remain explicit. |
+| 447 | Kohl's | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; department-store catalog, coupons, rewards, wallet, pickup/shipping, order status, returns, card/account blockers, and support remain explicit. |
+| 448 | Macy's | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; department-store browse/search, deals, Star Rewards-style membership, wallet/offers, registry/gift-service blockers, returns, and support remain explicit. |
+| 449 | Nordstrom | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; fashion catalog, wishlist, rewards, stylist/service appointment blockers, pickup/shipping, returns, purchase history, and support remain explicit. |
+| 450 | Sephora | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; beauty catalog, shade/skin preferences, virtual try-on blockers, rewards, reviews, samples/offers, pickup/shipping, services, and support remain explicit. |
+| 451 | Ulta Beauty | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; beauty catalog, offers/coupons, rewards, virtual try-on blockers, salon/service blockers, pickup/shipping, returns, and reviews remain explicit. |
+| 452 | Nike | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; member onboarding, product discovery, variants, launch/drop access blockers, favorites, checkout, returns, activity handoffs, and support remain explicit. |
+| 453 | Adidas | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; athletic catalog, adiClub-style rewards, launch/drop blockers, variants, favorites, checkout, delivery/returns, and support remain explicit. |
+| 454 | Zara | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; fashion catalog, new arrivals, store stock, barcode/scan blockers, favorites, checkout, returns, country catalog, and support remain explicit. |
+| 455 | H&M | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; fashion catalog, member offers, store mode, barcode/visual search blockers, checkout, returns, sustainability-claim review, and support remain explicit. |
+| 456 | Uniqlo | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; fashion basics catalog, size/color inventory, membership barcode, store inventory, scan/search blockers, checkout, and returns remain explicit. |
+| 457 | Lululemon | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; athletic apparel discovery, fit/size variants, store inventory, membership/community blockers, checkout, returns, events/classes, and support remain explicit. |
+| 458 | GOAT | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; sneaker/apparel resale marketplace, seller listings, authenticity review blockers, offers, checkout, shipping, returns, fraud holds, and payout/tax blockers remain explicit. |
+| 459 | Grailed | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; menswear resale marketplace, buyer/seller profiles, listings, offers, messaging, authentication blockers, payments, disputes, and moderation remain explicit. |
+| 460 | Mercari | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; consumer resale marketplace, listing creation, offers, messaging, payments, shipping labels, returns/disputes, ratings, prohibited-goods moderation, and support remain explicit. |
 
 ## Repeatable Upgrade Loop
 
@@ -520,8 +540,9 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 - Batch 20 food/coffee, convenience retail, grocery/retail, warehouse club, and Prime grocery public-source V1 expansion: `381-kfc.md` through `400-whole-foods-market.md`.
 - Batch 21 grocery retail, subscription grocery, UK/EU supermarket, and delivery marketplace public-source V1 expansion: `401-publix.md` through `420-deliveroo.md`.
 - Batch 22 delivery marketplace, regional super-app, courier/rider, shopper, and worker app public-source V1 expansion: `421-just-eat.md` through `440-talabat.md`.
+- Batch 23 delivery marketplace, electronics, home improvement, furniture, department store, beauty, athletic retail, fashion, resale, and marketplace public-source V1 expansion: `441-mr-d-food.md` through `460-mercari.md`.
 
 ## Next Steps
 
-- Continue Phase 8 Step 8.3 with IDs 441-460 as the next delivery marketplace, electronics, home improvement, furniture, department store, beauty, athletic retail, fashion, resale, and marketplace category slice.
+- Continue Phase 8 Step 8.3 with IDs 461-480 as the next retail marketplace, ticketing/events, travel, hotel, airline, car rental, transit, parking, EV charging, maps, weather, and local services category slice.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.

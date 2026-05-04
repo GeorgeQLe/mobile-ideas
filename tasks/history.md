@@ -705,3 +705,25 @@
 - Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native verification before one-for-one parity claims.
 - Rollback note: revert the shipping commit to restore IDs 421-440 to their previous Draft 1 scaffold state and previous readiness counts.
 - Next command: `$run`.
+
+## 2026-05-04 - Phase 8 Step 8.3 IDs 441-460 Promotion
+
+- Promoted specs 441-460 (Mr D Food through Mercari) from Draft 1 to implementation-ready public-source V1.
+- Replaced source-discovery rows with exact public product, support/help, privacy, terms, rewards/membership/seller-program, App Store, and Google Play URLs.
+- Added delivery/electronics/home/furniture/department-store blockers for catalog/product licensing, inventory/price/fee freshness, store/merchant privacy, pickup/delivery/shipping handoffs, returns/refunds, product safety, membership/loyalty correctness, and provider risk.
+- Added beauty/fashion/athletic/resale blockers for shade/skin and try-on privacy, scan/AR behavior, launch/drop fairness, sustainability/claim substantiation, authenticity review, prohibited goods, seller fraud, payment/payout correctness, returns/disputes, moderation, and support escalation.
+- Updated `specs/batch-23/README.md`, `tasks/implementation-readiness.md`, and `tasks/todo.md` for 460 ready specs and the next IDs 461-480 slice.
+- Validation: targeted H1/readiness check passed for 20 files; `rg` found no Draft/source-discovery markers in the promoted specs; section-count checks found all canonical sections in 20 files; `node scripts/check-implementation-readiness.mjs` reported expected remaining Draft 1 scope: 460 ready, 540 non-ready, 1,620 placeholder rows across IDs 461-1000; `git diff --check` passed.
+
+### Ship Manifest
+
+- User goal: execute `$run` next incomplete Step 8.3 slice and ship the result.
+- Changed files: `specs/batch-23/441-mr-d-food.md` through `specs/batch-23/460-mercari.md`, `specs/batch-23/README.md`, `scripts/promote-batch-23-specs.mjs`, `tasks/todo.md`, `tasks/implementation-readiness.md`, and `tasks/history.md`.
+- Per-file purpose: promoted 20 specs to implementation-ready public-source V1; updated the batch README; kept the batch promotion generator as reproducible project tooling; recorded readiness counts, next slice, and audit evidence.
+- User-goal mapping: the edited specs replace Draft 1/source-discovery placeholders for IDs 441-460; task files preserve the Step 8.3 execution trail and handoff.
+- Tests run: `node scripts/check-implementation-readiness.mjs` expected-red with 460 ready specs and 1,620 remaining placeholders; targeted `rg` checks found no Draft 1/source-discovery markers in promoted specs; targeted H1/readiness checks found one H1 and one implementation-ready status per promoted file; section-count checks found all canonical sections in 20 promoted files; `git diff --check` passed.
+- Skipped tests: no runtime lint/type/build commands apply because this repository contains planning/specification Markdown and this slice changes no runtime code.
+- Adversarial review: diff reviewed for source-discovery residue, one-H1 structure, canonical section coverage, readiness-count consistency, manual native blockers, legal-scope boundaries, delivery/retail/beauty/fashion/resale/payment/payout/location/safety/risk coverage, and next-slice routing.
+- Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native verification before one-for-one parity claims.
+- Rollback note: revert the shipping commit to restore IDs 441-460 to their previous Draft 1 scaffold state and previous readiness counts.
+- Next command: `$run`.
