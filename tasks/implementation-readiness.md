@@ -5,11 +5,11 @@ Updated: 2026-05-04
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-540.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-560.
 
-Current readiness count: 540 of 1000.
+Current readiness count: 560 of 1000.
 
-Step 8.3 remains open for IDs 541-1000. A 2026-05-04 post-slice audit found 1,380 source-discovery placeholder rows across 460 files: 300 rows per full 100-ID range plus the remaining 60 IDs in the 501-600 range. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 561-1000. A 2026-05-04 post-slice audit found 1,320 source-discovery placeholder rows across 440 files: 300 rows per full 100-ID range plus the remaining 40 IDs in the 501-600 range. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -527,6 +527,26 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 498 | Skrill | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; wallet onboarding, balance dashboard, send/receive simulation, funding blockers, fees/FX disclosures, loyalty/VIP states, crypto-adjacent blockers, support, fraud controls, and compliance blockers remain explicit. |
 | 499 | Neteller | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; wallet onboarding, balance dashboard, send/receive simulation, prepaid-card blockers, funding and cashout states, fees/FX disclosures, loyalty/VIP states, support, fraud controls, and compliance blockers remain explicit. |
 | 500 | Remitly | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; remittance onboarding, recipient management, transfer quotes, funding and payout-method blockers, delivery-speed states, transfer tracking, fees/FX disclosures, cancellation/refund support, fraud controls, sanctions screening, and compliance blockers remain explicit. |
+| 541 | Ryanair | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; airline search/booking, trip management, check-in, boarding-pass placeholders, seats/bags/extras, passenger-data privacy, and route/manual blockers remain explicit. |
+| 542 | easyJet | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; airline search/booking, trip management, check-in, boarding-pass placeholders, seats/bags/extras, passenger-data privacy, and route/manual blockers remain explicit. |
+| 543 | Wizz Air | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; airline search/booking, trip management, check-in, boarding-pass placeholders, seats/bags/extras, passenger-data privacy, and route/manual blockers remain explicit. |
+| 544 | ANA | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; airline search/booking, trip management, check-in, boarding-pass placeholders, seats/bags/extras, passenger-data privacy, and route/manual blockers remain explicit. |
+| 545 | JAL | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; airline search/booking, trip management, check-in, boarding-pass placeholders, seats/bags/extras, passenger-data privacy, and route/manual blockers remain explicit. |
+| 546 | Cathay Pacific | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; airline search/booking, trip management, check-in, boarding-pass placeholders, seats/bags/extras, passenger-data privacy, and route/manual blockers remain explicit. |
+| 547 | Marriott Bonvoy | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; hotel search/booking, reservations, mobile check-in/key placeholders, loyalty, guest-data privacy, cancellation/refund, and property/manual blockers remain explicit. |
+| 548 | Hilton Honors | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; hotel search/booking, reservations, mobile check-in/key placeholders, loyalty, guest-data privacy, cancellation/refund, and property/manual blockers remain explicit. |
+| 549 | Hyatt | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; hotel search/booking, reservations, mobile entry placeholders, loyalty, guest-data privacy, cancellation/refund, and property/manual blockers remain explicit. |
+| 550 | IHG One Rewards | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; hotel search/booking, reservations, mobile check-in placeholders, loyalty, guest-data privacy, cancellation/refund, and property/manual blockers remain explicit. |
+| 551 | Wyndham Hotels | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; hotel search/booking, reservations, mobile check-in placeholders, loyalty, guest-data privacy, cancellation/refund, and property/manual blockers remain explicit. |
+| 552 | Choice Hotels | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; hotel search/booking, reservations, mobile check-in placeholders, loyalty, guest-data privacy, cancellation/refund, and property/manual blockers remain explicit. |
+| 553 | Accor ALL | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; hotel search/booking, reservations, online check-in placeholders, loyalty, guest-data privacy, cancellation/refund, and property/manual blockers remain explicit. |
+| 554 | Hotels.com | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; lodging marketplace search/booking, reservation management, rewards/offers, cancellation/refund, traveler-data privacy, and supplier/manual blockers remain explicit. |
+| 555 | Vrbo | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; vacation-rental marketplace search/booking, host/traveler messaging, payments, cancellation/refund, trust/safety, traveler-data privacy, and host/manual blockers remain explicit. |
+| 556 | Hostelworld | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; hostel marketplace search/booking, reservation management, payments, cancellation/refund, reviews, traveler-data privacy, and property/manual blockers remain explicit. |
+| 557 | Couchsurfing | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; community hospitality profiles, hosting/surfing requests, messaging, references, subscription/payment, trust/safety, moderation, and privacy blockers remain explicit. |
+| 558 | Klook | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; travel activity discovery, booking, vouchers, supplier handoff, cancellation/refund, payment, traveler-data privacy, and supplier/manual blockers remain explicit. |
+| 559 | GetYourGuide | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; travel activity discovery, booking, vouchers, supplier handoff, cancellation/refund, reviews, traveler-data privacy, and supplier/manual blockers remain explicit. |
+| 560 | Viator | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; travel activity discovery, booking, vouchers, supplier handoff, cancellation/refund, reviews, traveler-data privacy, and supplier/manual blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 
@@ -583,8 +603,9 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 - Batch 23 delivery marketplace, electronics, home improvement, furniture, department store, beauty, athletic retail, fashion, resale, and marketplace public-source V1 expansion: `441-mr-d-food.md` through `460-mercari.md`.
 - Batch 24 resale/classifieds, cross-border/regional marketplace, cash-back, electronics retail, and banking/card servicing public-source V1 expansion: `461-vinted.md` through `480-pnc-mobile.md`.
 - Batch 25 banking, credit union, fintech, brokerage, trading, digital banking, wallet, and remittance public-source V1 expansion: `481-td-bank.md` through `500-remitly.md`.
+- Batch 28 airline, hotel/lodging, community hospitality, and travel activities marketplace public-source V1 expansion: `541-ryanair.md` through `560-viator.md`.
 
 ## Next Steps
 
-- Continue Phase 8 Step 8.3 with IDs 501-520 as the next payments, crypto, tax, accounting, insurance, benefits, and payroll category slice.
+- Continue Phase 8 Step 8.3 with IDs 561-580 as the next travel booking and transportation category slice.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.

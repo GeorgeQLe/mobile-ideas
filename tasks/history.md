@@ -1,5 +1,28 @@
 # History
 
+## 2026-05-04 - Phase 8 Step 8.3 Airline Hotel And Travel Marketplace Slice (IDs 541-560)
+
+- Promoted 20 airline, hotel/lodging, community hospitality, and travel activities marketplace specs to implementation-ready public-source V1: `541-ryanair.md` through `560-viator.md`.
+- Added `scripts/promote-batch-28-specs.mjs` as a repeatable generator for the slice, including explicit `Source Orientation`, `Legal Scope`, and privacy/safety sections.
+- Replaced source-discovery placeholders with exact public first-party product/help/support/privacy/terms/program URLs and native marketplace listing URLs verified on 2026-05-04, with native privacy labels, account lifecycle, booking/payment, airline check-in/boarding pass, hotel check-in/digital key, activity voucher, host/supplier handoff, push payloads, location behavior, support outcomes, and regional availability preserved as manual verification blockers where not yet captured.
+- Expanded category-specific risk coverage: passenger/guest/traveler-data privacy, travel-document and provider-owned placeholder handling, payment/booking correctness, fare/rate/tax/fee disclosures, operational-data licensing, loyalty/membership boundaries, host/supplier licensing, personal safety/moderation, fraud/account takeover, accessibility, support, and cancellation/refund auditability.
+- Refreshed `tasks/implementation-readiness.md` to 560 of 1000 ready and moved the next Step 8.3 slice to IDs 561-580.
+- Validation: targeted checks found one H1 in each promoted file and no `Source discovery`, `Readiness status: Draft 1`, or exact-URL-pending markers in the 20-file slice.
+- Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 560 implementation-ready specs and 1,320 source-discovery placeholder rows across 440 remaining files.
+
+### Ship Manifest
+
+- User goal: execute `$run` next incomplete Step 8.3 slice and ship the result.
+- Changed files: `scripts/promote-batch-28-specs.mjs`, `specs/batch-28/541-ryanair.md` through `specs/batch-28/560-viator.md`, `tasks/todo.md`, `tasks/implementation-readiness.md`, and `tasks/history.md`.
+- Per-file purpose: added a repeatable batch-28 promotion script, promoted 20 specs to implementation-ready public-source V1, and recorded readiness counts, next slice, and audit evidence.
+- User-goal mapping: the edited specs replace Draft 1/source-discovery placeholders for IDs 541-560; task files preserve the Step 8.3 execution trail and handoff.
+- Tests run: `node scripts/check-implementation-readiness.mjs` expected-red with 560 ready specs and 1,320 remaining placeholders; targeted `rg` checks found no Draft 1/source-discovery markers in the promoted slice; targeted H1 checks found one H1 per promoted file.
+- Skipped tests: no runtime lint/type/build commands apply because this repository contains planning/specification Markdown and this slice changes no runtime application code; the new Node script is a one-shot documentation generator verified by execution and resulting Markdown audits.
+- Adversarial review: diff reviewed for source-discovery residue, one-H1 structure, readiness-count consistency, manual native blockers, explicit source/legal/privacy headings, lawful functional-parity boundaries, airline/hotel/lodging/community/tour-marketplace risk coverage, and next-slice routing.
+- Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native verification before one-for-one parity claims.
+- Rollback note: revert the shipping commit to restore IDs 541-560 to their previous Draft 1 scaffold state and previous readiness counts.
+- Next command: `$run`.
+
 ## 2026-05-04 - Phase 8 Step 8.3 BNPL And Airline Travel Slice (IDs 521-540)
 
 - Promoted 20 BNPL and airline travel specs to implementation-ready public-source V1: `521-afterpay.md` through `540-turkish-airlines.md`.

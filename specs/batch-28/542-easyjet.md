@@ -2,190 +2,226 @@
 
 > Metadata
 > - Inspiration app: easyJet
-> - Category: Airline travel
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace/source-discovery links only; exact first-party URL replacement and hands-on verification are still required.
-> - Manual verification blockers: native iOS/Android screen capture, account lifecycle walkthrough, subscription or payment state, permission prompts, push notifications, provider integrations, and region-specific behavior require lawful test evidence before one-for-one parity claims.
-> - Legal scope: functional parity only; use original code, brand, copy, iconography, sample data, media, policies, and integrations.
+> - Category: airline travel mobile app, flight search and booking, trip management, check-in, mobile boarding pass, seats/bags/extras, flight status, disruption support, and passenger-data privacy
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-04.
+> - Verification basis: exact public first-party product, support/help, privacy, terms, loyalty/membership/supplier, and marketplace URLs listed below; hands-on native parity remains blocked where stated.
+> - Manual verification blockers: native iOS/Android screen capture, account creation/recovery, booking and payment, check-in/key/voucher/document issuance where relevant, loyalty or membership redemption, push notifications, location or device permissions, support outcomes, provider/supplier/property/route availability, and region-specific behavior require lawful test evidence before one-for-one native parity claims.
+> - Legal scope: functional parity only; do not use original code, brand, copy, iconography, screenshots, proprietary fares/inventory/rates/listings, private APIs, customer records, operational feeds, payment processor contracts, loyalty data, or unlicensed datasets.
 
 ## Overview
 
-Build an original mobile product inspired by easyJet's public user-facing workflow. The clone focus is: Conversational assistant onboarding, prompt composer, response history, attachments, model/provider routing, safety controls, and subscription gates
+Build an original mobile product inspired by easyJet's public product, support, policy, and marketplace materials. V1 focuses on flight search, fare review, booking shell, trip retrieval, check-in readiness, boarding-pass placeholder, seats/bags/extras, loyalty account, flight status, airport guidance, disruption handling, notifications, support, privacy, and accessibility. The clone must use original branding, original UI copy, synthetic data, licensed providers, and explicit manual blockers for behavior that requires account, reservation, route, property, supplier, document, payment, location, or regulated verification.
 
-This Draft 1 spec reserves ID 542 in the 1000-app backlog. It provides enough structure for downstream research, estimation, and lawful implementation planning, but it is not implementation-ready until exact first-party URLs replace source-discovery links and app-specific public evidence is added.
+This spec is implementation-ready for a public-source V1. Behavior marked manual verification required must stay behind feature flags, simulator stubs, or documented blockers until lawful device/account evidence confirms exact native behavior.
 
 ## Goals
 
-- Deliver a mobile-first airline travel experience with onboarding, primary workflow, settings, support, and recovery flows.
-- Reproduce the functional job behind easyJet using original product naming, original UI, original sample data, and licensed integrations.
-- Preserve exact boundaries between public-source evidence, inferred clone requirements, and blocked hands-on behavior.
-- Define screens, entities, API contracts, offline behavior, privacy/safety controls, analytics, tests, acceptance criteria, and build phases.
+- Provide secure onboarding, guest flow where allowed, account recovery, profile, support, export/delete, and accessibility flows.
+- Support flight search, fare review, booking shell, trip retrieval, check-in readiness, boarding-pass placeholder, seats/bags/extras, loyalty account, flight status, airport guidance, disruption handling, notifications, support, privacy, and accessibility.
+- Preserve clear boundaries between account, traveler/guest/passenger/member, booking/reservation/order, payment, loyalty/membership, notification, support, privacy, and audit records.
+- Model guest, signed-in, lookup-found, lookup-missing, booked, canceled, changed, provider-owned, document-required, refund-requested, support-open, loyalty-linked, entitlement-blocked, and region-restricted states.
+- Require passenger-data privacy, passport/APIS and travel-document handling, payment/booking correctness, fare/tax/fee disclosures, check-in and boarding-pass accuracy, operational-data licensing, loyalty-program boundaries, fraud/account takeover, accessibility, support, and passenger-rights auditability review before launch.
+- Keep downstream scaffold repositories private and avoid parity claims until manual blockers are resolved.
 
 ## Non-Goals
 
-- Do not copy easyJet branding, logos, screenshots, marketing copy, private APIs, proprietary datasets, ranking systems, or protected media.
-- Do not claim exact native behavior until a lawful hands-on verification pass records evidence.
-- Do not implement production payments, regulated services, medical advice, transport dispatch, smart-home control, or real-money game economies without separate legal/platform review.
+- Do not imply affiliation with easyJet or its publisher.
+- Do not copy proprietary screens, brand assets, marketing copy, private endpoint shapes, fare/rate/inventory logic, maps, loyalty rules, operational feeds, customer data, or supplier/property datasets.
+- Do not sell real travel, issue real boarding passes, keys, tickets, vouchers, stays, or reservations, alter reservations, process real payments, scan government documents, or connect production travel/payment/provider systems without separate legal, compliance, provider, and security approval.
+- Do not treat public marketplace blurbs as proof of exact native screen order, route/property/activity availability, price math, refund handling, support resolution, or venue acceptance.
 - Do not build runtime app code in this spec store.
 
 ## Research Sources
 
-| Source | Discovery URL | Evidence To Verify | Status |
+| Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/search?term=easyJet | iOS listing, category, age rating, privacy labels, release notes, support links | Source discovery -- pending exact URL verification |
-| Google Play | https://play.google.com/store/search?q=easyJet&c=apps | Android listing, content rating, data safety, feature blurbs | Source discovery -- pending exact URL verification |
-| Official website/help search | https://www.google.com/search?q=easyJet%20official%20app%20help%20privacy%20terms | Help center, privacy, terms, support, subscription, safety, and product docs to replace with first-party URLs | Source discovery -- pending exact URL verification |
+| Official product/app page | https://www.easyjet.com/en/mobile-app | Public product positioning, primary mobile workflows, account/reservation surfaces, support entry points, and app capability claims | Verified 2026-05-04 |
+| Support/help center | https://www.easyjet.com/en/help | Public support taxonomy for account, booking, payments, refunds/cancellations, loyalty or membership, accessibility, privacy, and recovery flows | Verified 2026-05-04 |
+| Privacy policy | https://www.easyjet.com/en/policy/privacy-promise | Account, traveler/guest/passenger, payment, location, device, analytics, support, retention, and privacy-rights handling | Verified 2026-05-04 |
+| Terms / program rules | https://www.easyjet.com/en/terms-and-conditions | Service usage, booking/payment obligations, cancellation/refund limits, conduct, liability, and legal boundaries | Verified 2026-05-04 |
+| Loyalty, membership, or supplier program | https://www.easyjet.com/en/holidays | Public loyalty, member, host, supplier, or partner-program orientation and entitlement constraints | Verified 2026-05-04 |
+| App Store listing | https://apps.apple.com/us/app/easyjet-travel-app/id483568103 | Canonical iOS listing, category, age rating, privacy label, compatibility, release notes, public feature claims, and native metadata | Verified 2026-05-04 |
+| Google Play listing | https://play.google.com/store/apps/details?id=com.mttnow.droid.easyjet | Canonical Android listing, feature blurbs, content rating, data safety, downloads, and native metadata | Verified 2026-05-04 |
+| Native hands-on evidence | Manual verification required | Real-device screens, permission prompts, account/login, booking/payment, check-in or voucher flows, push payloads, location behavior, support outcomes, and region-specific availability | Blocked pending lawful device/account verification |
+
+## Source Orientation
+
+This V1 spec is grounded in the exact public URLs above. Product, support, privacy, terms, loyalty/membership/supplier, App Store, and Google Play materials are treated as public-source orientation only. Native screen order, permission prompts, account behavior, payment flow, provider handoff, support outcomes, and region-specific availability remain blocked until lawful hands-on evidence is collected.
+
+Implementation teams must tag each downstream requirement as one of: verified public-source behavior, inferred behavior for an original lawful clone, or manual-verification blocker. Any source-discovery URL has been replaced for this promoted slice.
+
+## Legal Scope
+
+This project may reproduce functional workflow categories with original implementation, original branding, original UI copy, synthetic seed data, licensed providers, and documented manual blockers. It must not copy easyJet code, trademarks, logos, icons, screenshots, marketing copy, private API shapes, proprietary datasets, maps, fares, rates, inventory, loyalty logic, support scripts, user records, operational feeds, or payment/provider contracts.
+
+The clone must avoid one-for-one native parity claims until public evidence, legal review, and lawful hands-on verification support that claim. Production travel, lodging, activity, payment, key/pass/voucher, identity-document, support, or provider integrations require separate approval outside this spec store.
 
 ## Detailed Design
 
-- Onboarding must support guest, signup, returning-user, permission-primer, and blocked-account states appropriate for airline travel.
-- Home must default to Search with empty, loading, personalized, degraded-network, and signed-out variants.
-- The primary action must be reachable from Map/List Results within two taps from home.
-- Detail must represent preview, confirmation, or consumption state with saved, shared, unavailable, and error variants.
-- Settings must include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements must model free, trial, paid, expired, canceled, restored, refunded, and unavailable states without copying plan names or pricing.
-- Accessibility must support dynamic type, screen reader labels, visible focus, contrast, reduced motion, and captions/transcripts where relevant.
-- Offline behavior must preserve recoverable drafts and block irreversible or regulated writes until the client has canonical server state.
+### Source-Backed Product Requirements
+
+- Onboarding must support guest mode where allowed, account sign-in, membership prompt, lookup entry, recovery, unavailable route/property/activity/region, and provider outage states.
+- Account and membership surfaces must separate profile, preferences, saved travelers or guests, payment methods, loyalty or membership state, credits where supported, and privacy settings.
+- Search and discovery must model destination or route, dates, travelers, filters, price/rate/fare/availability freshness, sold-out or unavailable states, and stale-result refetch.
+- Booking shell must show itinerary or reservation detail, tax/fee disclosure, traveler details, add-ons or requests, payment state, confirmation, and post-booking recovery without connecting to real provider systems.
+- Trip, stay, or booking management must expose upcoming, past, canceled, changed, disrupted, refund-requested, provider-owned, partially consumed, and support-needed states.
+- Provider-owned sensitive outputs such as boarding passes, digital keys, vouchers, identity verification, or check-in confirmations must remain simulator placeholders until lawful verification and provider approval.
+- Notifications must be opt-in by category and limited to account/security, itinerary/reservation status, operational updates, support, reminders, and marketing where allowed.
+- Provider calls require scoped credentials, redacted logs, idempotency keys, retry policies, canonical refetch, retention limits, and user-visible recovery.
+- Analytics must avoid raw passenger, guest, traveler, payment, document, loyalty, support, exact-location, supplier, property, host, or operationally sensitive records.
+- Manual verification required: native permission prompts, marketplace privacy labels, booking/payment, membership redemption, provider/supplier handoff, push payloads, cancellation/refund outcomes, support outcomes, and regional availability.
 
 ## Core User Journeys
 
-- New user installs, reviews an original value proposition, creates or restores an account, and reaches Search.
-- Returning user opens Search, resumes the latest meaningful state, and completes the primary action in Map/List Results.
-- User searches or browses, opens Detail, saves or shares the item, and later finds it again from history or library.
-- User denies a requested permission, receives a functional fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry, reconcile, or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees correct locked/unlocked states.
-- User requests support, submits a report or dispute where relevant, and receives a durable case state.
-- User requests data export and account deletion from settings.
+- New user opens guest mode, searches a destination, route, property, stay, or activity, reviews price/tax/fee disclosure, and reaches a simulated booking confirmation.
+- Returning user signs in, reviews membership or loyalty state, retrieves an upcoming trip/reservation/booking, and sees current readiness or status.
+- User looks up a booking by confirmation details and handles no-match, canceled, changed, provider-owned, and refund-requested states.
+- User handles add-ons, traveler details, room or seat preferences, supplier handoff, support, or cancellation without production provider writes.
+- User receives delay, status, check-in, reminder, gate/property/activity, voucher/key, refund, or support notification and can recover from stale/offline state.
+- User requests support, refund help, accessibility assistance, safety help, data export, or account deletion and receives durable case state.
+- Manual verification required: exact booking, payment, provider handoff, document/key/pass/voucher, support, push, location, and region-specific native behavior.
 
 ## Screen Inventory
 
-| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Search | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Map/List Results | Primary creation/action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Detail | Inspect, consume, or confirm details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Booking/Plan | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Checkout/Confirm | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Live Status | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Messages | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| History | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Support | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Welcome / Mode Select | welcome / mode select workflow for the combined mobile experience | taps, forms, search, filters, deep links, permissions, provider state | empty, loading, loaded, signed-out, stale, offline | denied permission, provider outage, unavailable region, payment failed, account locked, stale provider data |
+| Auth / Recovery | auth / recovery workflow for the combined mobile experience | taps, forms, search, filters, deep links, permissions, provider state | empty, loading, loaded, signed-out, stale, offline | denied permission, provider outage, unavailable region, payment failed, account locked, stale provider data |
+| Search Flights | search flights workflow for the mobile experience | taps, forms, search, filters, deep links, permissions, provider state | empty, loading, loaded, signed-out, stale, offline | denied permission, provider outage, unavailable region, payment failed, account locked, stale provider data |
+| Booking Review | booking review workflow for the mobile experience | taps, forms, search, filters, deep links, permissions, provider state | empty, loading, loaded, signed-out, stale, offline | denied permission, provider outage, unavailable region, payment failed, account locked, stale provider data |
+| Trips / Timeline | trips / timeline workflow for the combined mobile experience | taps, forms, search, filters, deep links, permissions, provider state | empty, loading, loaded, signed-out, stale, offline | denied permission, provider outage, unavailable region, payment failed, account locked, stale provider data |
+| Trip Detail | trip detail workflow for the mobile experience | taps, forms, search, filters, deep links, permissions, provider state | empty, loading, loaded, signed-out, stale, offline | denied permission, provider outage, unavailable region, payment failed, account locked, stale provider data |
+| Check-In | check-in workflow for the mobile experience | taps, forms, search, filters, deep links, permissions, provider state | empty, loading, loaded, signed-out, stale, offline | denied permission, provider outage, unavailable region, payment failed, account locked, stale provider data |
+| Boarding Pass | boarding pass workflow for the mobile experience | taps, forms, search, filters, deep links, permissions, provider state | empty, loading, loaded, signed-out, stale, offline | denied permission, provider outage, unavailable region, payment failed, account locked, stale provider data |
+| Seats / Bags / Extras | seats / bags / extras workflow for the combined mobile experience | taps, forms, search, filters, deep links, permissions, provider state | empty, loading, loaded, signed-out, stale, offline | denied permission, provider outage, unavailable region, payment failed, account locked, stale provider data |
+| Flight Status / Airport | flight status / airport workflow for the combined mobile experience | taps, forms, search, filters, deep links, permissions, provider state | empty, loading, loaded, signed-out, stale, offline | denied permission, provider outage, unavailable region, payment failed, account locked, stale provider data |
+| Alerts / Messages | alerts / messages workflow for the combined mobile experience | taps, forms, search, filters, deep links, permissions, provider state | empty, loading, loaded, signed-out, stale, offline | denied permission, provider outage, unavailable region, payment failed, account locked, stale provider data |
+| Support / Refund | support / refund workflow for the combined mobile experience | taps, forms, search, filters, deep links, permissions, provider state | empty, loading, loaded, signed-out, stale, offline | denied permission, provider outage, unavailable region, payment failed, account locked, stale provider data |
+| Settings / Privacy | settings / privacy workflow for the combined mobile experience | taps, forms, search, filters, deep links, permissions, provider state | empty, loading, loaded, signed-out, stale, offline | denied permission, provider outage, unavailable region, payment failed, account locked, stale provider data |
+| Accessibility / Localization | accessibility / localization workflow for the combined mobile experience | taps, forms, search, filters, deep links, permissions, provider state | empty, loading, loaded, signed-out, stale, offline | denied permission, provider outage, unavailable region, payment failed, account locked, stale provider data |
 
 ## Data Model
 
-- `User`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for easyJet-style workflows.
-- `Location`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for easyJet-style workflows.
-- `Listing`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for easyJet-style workflows.
-- `Availability`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for easyJet-style workflows.
-- `Booking`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for easyJet-style workflows.
-- `PaymentIntent`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for easyJet-style workflows.
-- `MessageThread`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for easyJet-style workflows.
-- `Route`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for easyJet-style workflows.
-- `Review`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for easyJet-style workflows.
-- `SupportCase`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for easyJet-style workflows.
-- `AuditEvent`: append-only record for sensitive writes, account changes, support actions, moderation decisions, and entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, conflict resolution, and cache expiry.
+- `User`: lifecycle state, authorization boundary, provider owner, retention class, export/delete behavior, and audit metadata for user records.
+- `AccountSession`: lifecycle state, authorization boundary, provider owner, retention class, export/delete behavior, and audit metadata for accountsession records.
+- `LoyaltyAccount`: lifecycle state, authorization boundary, provider owner, retention class, export/delete behavior, and audit metadata for loyaltyaccount records.
+- `TravelerProfile`: lifecycle state, authorization boundary, provider owner, retention class, export/delete behavior, and audit metadata for travelerprofile records.
+- `TravelDocument`: lifecycle state, authorization boundary, provider owner, retention class, export/delete behavior, and audit metadata for traveldocument records.
+- `SearchQuery`: lifecycle state, authorization boundary, provider owner, retention class, export/delete behavior, and audit metadata for searchquery records.
+- `FareOffer`: lifecycle state, authorization boundary, provider owner, retention class, export/delete behavior, and audit metadata for fareoffer records.
+- `Booking`: lifecycle state, authorization boundary, provider owner, retention class, export/delete behavior, and audit metadata for booking records.
+- `FlightSegment`: lifecycle state, authorization boundary, provider owner, retention class, export/delete behavior, and audit metadata for flightsegment records.
+- `CheckInState`: lifecycle state, authorization boundary, provider owner, retention class, export/delete behavior, and audit metadata for checkinstate records.
+- `BoardingPass`: lifecycle state, authorization boundary, provider owner, retention class, export/delete behavior, and audit metadata for boardingpass records.
+- `SeatAssignment`: lifecycle state, authorization boundary, provider owner, retention class, export/delete behavior, and audit metadata for seatassignment records.
+- `BagRecord`: lifecycle state, authorization boundary, provider owner, retention class, export/delete behavior, and audit metadata for bagrecord records.
+- `AncillaryPurchase`: lifecycle state, authorization boundary, provider owner, retention class, export/delete behavior, and audit metadata for ancillarypurchase records.
+- `PaymentInstrument`: lifecycle state, authorization boundary, provider owner, retention class, export/delete behavior, and audit metadata for paymentinstrument records.
+- `DisruptionCase`: lifecycle state, authorization boundary, provider owner, retention class, export/delete behavior, and audit metadata for disruptioncase records.
+- `SupportCase`: lifecycle state, authorization boundary, provider owner, retention class, export/delete behavior, and audit metadata for supportcase records.
+- `NotificationPreference`: lifecycle state, authorization boundary, provider owner, retention class, export/delete behavior, and audit metadata for notificationpreference records.
+- `PrivacyRequest`: lifecycle state, authorization boundary, provider owner, retention class, export/delete behavior, and audit metadata for privacyrequest records.
+- `AuditEvent`: lifecycle state, authorization boundary, provider owner, retention class, export/delete behavior, and audit metadata for auditevent records.
+- `LocalCacheRecord`: lifecycle state, authorization boundary, provider owner, retention class, export/delete behavior, and audit metadata for localcacherecord records.
 
 ## API And Backend Contracts
 
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /locations, GET /listings, GET /availabilitys, GET /bookings; all reads return authorization status, pagination, cache hints, stale-data markers, and localization keys.
-- Writes: POST /users, POST /locations, POST /listings, POST /availabilitys, POST /bookings; all writes require validation errors, idempotency keys, optimistic-state reconciliation, and audit events for sensitive state.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context.
-- Upload/import: use signed upload URLs, MIME/size validation, malware/content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must refetch canonical state after missed events.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+- Auth routes: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /account` with device-scoped audit events.
+- Profile routes: `GET /profile`, `PATCH /profile`, `GET /membership`, and `PATCH /travelers/:id` or equivalent guest/member records.
+- Discovery routes: `GET /destinations`, `POST /searches`, `GET /offers/:id`, and `GET /availability` with quote expiry, cache hints, and provider owner fields.
+- Booking routes: `POST /bookings/simulated`, `GET /bookings/:id`, `PATCH /bookings/:id`, and `POST /bookings/:id/cancel-request` for simulated lifecycle only.
+- Status routes: `GET /trips`, `GET /trips/:id`, `GET /trips/:id/timeline`, `GET /provider-status`, and `GET /messages` for state reconciliation.
+- Sensitive placeholder routes such as `GET /boarding-passes/:id`, `GET /digital-keys/:id`, or `GET /vouchers/:id` must return simulator-only disabled artifacts until approved.
+- Support and privacy routes: `POST /support/cases`, `POST /refund-requests`, `PATCH /notification-preferences`, `POST /data-export`, and `GET /data-export/:id`.
+- Provider webhooks must include idempotency keys, signature validation, redacted payload logging, retry semantics, and canonical refetch after booking, payment, status, support, cancellation, refund, or loyalty events.
+- Admin/support routes must distinguish read-only diagnostics, consented support access, refund handling, account restriction, and deletion/export exceptions.
+- Public API documentation must use original route names and domain models; never mimic private endpoint paths, request bodies, pricing logic, loyalty logic, or proprietary schemas from easyJet.
 
 ## Realtime, Push, And Offline Behavior
 
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must reconcile against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+- Cache safe reads for trips, reservations, bookings, status, settings, legal links, support articles, and placeholders with explicit TTL and purge rules.
+- Offline mode allows safe cached reads and low-risk support drafts but blocks booking, payment, provider handoff, check-in, document/key/pass/voucher issuance, account-owner changes, and irreversible deletes.
+- Reconnect must refetch canonical server state, de-duplicate submissions with idempotency keys, and show whether prices, availability, assignments, times, gates, policies, refund state, or support state changed.
+- Push notifications are opt-in by category and mirrored in an in-app notification center.
+- Cached sensitive records purge on logout, account delete, retention expiry, policy change, or legal hold.
 
 ## Permissions, Privacy, And Safety
 
-- Treat location privacy as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat payment disputes as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat fraud as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat personal safety as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat regional/provider constraints as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+- Request notifications, biometrics, camera/document scan, location, Bluetooth, calendar, wallet, files/photos, or provider OAuth only at feature use and with a clear fallback.
+- Permission screens must explain what is captured, where it is processed, retention, support access, and what remains available if denied.
+- Product owner must approve traveler/guest/member profile, saved traveler, document, special-service, minor traveler, and data-retention flows before launch.
+- Payments/booking owner must approve quote, booking simulation, add-on purchase, refund, payment, and ledger reconciliation tests before launch.
+- Security owner must approve MFA, device binding, account takeover detection, document redaction, placeholder issuance, webhook signatures, and redacted logs.
+- Legal/regulatory owner must approve terms, passenger/traveler rights, cancellation/refund, accessibility, privacy, marketing, loyalty/membership, and regional availability copy.
+- Support access to account, booking, payment, membership, document, and support records requires user consent, role-based controls, and auditable staff access.
+- Safety copy must warn about simulated booking limitations, sensitive traveler data, provider-owned states, stale operational data, refund limits, and offline placeholder risks.
 
 ## Analytics And Monetization
 
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement logic; do not copy exact pricing, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, private messages, or child data as event properties.
+- Analytics events: onboarding started/completed, search performed, offer viewed/refreshed/expired, booking simulated, trip viewed, provider placeholder viewed, support case submitted, export/delete requested, and notification preference changed.
+- Event properties must use coarse destination/route/property/activity region, product type, latency bucket, error code, disclosure version, provider state, refund state, and region class only.
+- Monetization may include booking fees, add-ons, membership, loyalty offers, referrals, partner offers, or advertising only after legal, tax, consumer-protection, and disclosure review.
+- Payment logic must handle pending, authorized, captured, failed, reversed, refunded, charged back, settled, expired, provider-owned, and region-blocked states.
+- Paywalls, fees, or account restrictions must not block safety reporting, accessibility assistance, account recovery, export/delete, privacy settings, refund/disruption support, or legally required disclosures.
 
 ## Edge Cases
 
-- First launch with no network, no account, expired session, or unsupported OS version.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
-- Subscription restored on a different platform, refunded externally, or unavailable in the user's region.
-- Legal/privacy request submitted while transactions, messages, or support cases are still active.
+- First launch with no network, no account, unsupported OS, unavailable route/property/activity, sold-out inventory, blocked account, or stale app version.
+- Permission denied, later granted, later revoked, or limited by OS/device policy.
+- Duplicate taps, duplicate webhooks, timeout retry, quote expiry, schedule/policy change, stale optimistic state, and idempotency-key replay.
+- Provider becomes unavailable, invalid, closed, restricted, expired, or region-blocked during a workflow.
+- Booking, payment, check-in, placeholder issuance, add-on purchase, refund, cancellation, or support case is interrupted by app termination.
+- User requests export/delete while active bookings, refunds, disputes, legal holds, or support cases remain active.
+- Uploaded documents/support attachments contain third-party data, minors, health data, financial data, copyrighted material, or confidential material.
+- Fraud, account takeover, price abuse, loyalty abuse, refund abuse, unsafe document sharing, phishing, harassment, or prohibited travel behavior.
+- Device storage fills, cache corrupts, token expires, clock skew occurs, webhook order changes, or reconnect creates conflicting state.
 
 ## Test Plan
 
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+- Unit tests for search/date validation, quote expiry, booking state machines, idempotency keys, disclosure versioning, provider error mapping, and analytics redaction.
+- Unit tests for profile/traveler validation, document redaction where relevant, placeholder eligibility, refund/cancellation eligibility, and deletion/export rules.
+- Contract tests for auth, profile, membership, search, offers, bookings, trips, placeholders, payments, status, support, privacy, and provider webhook routes.
+- Integration tests for onboarding -> search -> offer -> simulated booking -> trip -> provider placeholder -> support/settings/delete.
+- Integration tests for permission denial, unavailable region, provider timeout, price refresh, stale operational data, payment failure, and support escalation.
+- Offline tests for cached trip/booking reads, draft preservation, blocked regulated writes, reconnect reconciliation, duplicate-submit prevention, and corrupt-cache recovery.
+- Security tests for MFA, reauthentication, device binding, suspicious login, document redaction, placeholder tokenization, webhook signatures, and redacted logs.
+- Compliance tests for legal links, cancellation/refund copy, accessibility assistance, minor traveler handling, and support consent.
+- Privacy tests for provider request redaction, support access consent, metadata stripping, log scrubbing, export, delete, retention expiry, and legal hold exceptions.
+- Accessibility tests for screen-reader order, dynamic type, focus, contrast, reduced motion, disclosure readability, status announcements, and processing announcements.
+- Manual verification tests for native store listings, privacy labels, permission prompts, booking/payment, provider handoff, placeholders, push notifications, support outcomes, and regional availability.
 
 ## Acceptance Criteria
 
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source-discovery links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+- All discovery placeholders are replaced with exact public product/help/privacy/legal/marketplace URLs or explicit manual blockers for native/account evidence.
+- A lawful V1 can be built with original branding, UI copy, sample data, licensed providers, and production travel/payment/provider workflows disabled until approved.
+- Onboarding, auth, search, detail, booking review, trips, provider placeholders, alerts, support, settings, export/delete, and accessibility screens are specified.
+- Account, traveler/guest/member, booking, payment, support, analytics, privacy, compliance, and audit boundaries are documented and testable.
+- Offline cache and reconnect reconciliation are covered without allowing unsafe booking, payment, provider handoff, document/key/pass/voucher issuance, account-owner changes, or irreversible operations while offline.
+- Category risks for passenger-data privacy, passport/APIS and travel-document handling, payment/booking correctness, fare/tax/fee disclosures, check-in and boarding-pass accuracy, operational-data licensing, loyalty-program boundaries, fraud/account takeover, accessibility, support, and passenger-rights auditability have owners and tests.
+- Manual verification blockers remain for native behavior that requires accounts, devices, permissions, marketplace labels, geolocation, provider credentials, payment methods, loyalty credentials, or region-specific review.
+- At least 12 implementation tests cover happy path, failed provider, permission denial, active workflow failure, unavailable inventory, offline recovery, export/delete, payment restore, support, accessibility, privacy redaction, and regression behavior.
 
 ## Open Questions
 
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, regulated sandbox, or provider credentials?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, AI, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+- Which exact native marketplace privacy labels, release-note details, and screenshots should be treated as canonical after device verification?
+- Which providers will power search, availability, maps/location, payment tokenization, loyalty or membership simulation, notifications, analytics, support, fraud prevention, and document validation where relevant?
+- Which countries, states, routes, properties, activities, fare/rate classes, traveler types, membership tiers, partner providers, or regulators alter feature availability?
+- Which records are retained for support, fraud prevention, legal obligations, or product improvement?
+- Which disclosures are required for price/tax/fee display, refunds, cancellations, accessibility, provider-owned states, and payment reversibility?
+- Which hands-on flows require paid bookings, physical presence, identity documents, payment instruments, provider credentials, support contact, or sandbox review?
 
 ## Build Plan
 
-- Phase 1: Replace source-discovery rows with exact first-party URLs and classify each requirement as verified or inferred.
-- Phase 2: Define route map, component map, domain entities, API schema, permissions, analytics schema, and seed-data policy.
-- Phase 3: Build onboarding, home, primary action, detail, search, settings, support, and entitlement shells with original copy and sample data.
-- Phase 4: Add backend contracts, offline/retry handling, notification preferences, data export/delete, and safety/reporting flows.
-- Phase 5: Complete accessibility, privacy, safety, billing, permission, and regression tests.
-- Phase 6: Conduct lawful hands-on verification and resolve manual blockers before parity claims.
+- Phase 1: Finalize native marketplace evidence, legal names, provider choices, production-feature flags, data path, price model, disclosure matrix, and manual blocker owners.
+- Phase 2: Define route map, component map, domain entities, API schema, provider contracts, permissions, analytics schema, seed-data policy, and retention matrix.
+- Phase 3: Build onboarding, auth, search, detail, booking review, trips, provider placeholder, alerts, support, settings, and export/delete shells with original copy and synthetic data.
+- Phase 4: Add backend contracts, offline/retry handling, provider adapters, notification preferences, fraud/account-takeover controls, refund/support flows, and privacy lifecycle.
+- Phase 5: Complete accessibility, privacy, security, compliance, payment/booking, permission, provider-failure, offline, and regression tests.
+- Phase 6: Conduct lawful hands-on verification and resolve manual blockers before any one-for-one parity claim.
 
 ## Next Steps
 
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, support docs, and user-review themes in a dedicated research note without committing proprietary media.
-- Resolve open questions and update this spec before downstream implementation starts.
-- Extend the Phase 5 implementation-plan queue and repo-seeding manifest after the spec reaches implementation-ready V1.
+- Capture lawful native-device evidence for iOS and Android screen flows, privacy labels, permission prompts, push payloads, account login, booking/payment, provider handoff, placeholders, location behavior, and support outcomes.
+- Select licensed providers for search/availability, status/maps, payment tokenization, loyalty or membership simulation, notifications, analytics, fraud prevention, and support.
+- Convert manual blockers into launch checklist items owned by product, payments, security, legal, privacy, accessibility, and support leads.
+- Extend the Phase 5 implementation-plan queue and repo-seeding manifest after the full Step 8.3 readiness range lands.
