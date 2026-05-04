@@ -1,15 +1,15 @@
 # Implementation Readiness Gate
 
 Created: 2026-04-16
-Updated: 2026-05-03
+Updated: 2026-05-04
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-280.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-300.
 
-Current readiness count: 280 of 1000.
+Current readiness count: 300 of 1000.
 
-Step 8.3 remains open for IDs 281-1000. A 2026-05-03 post-slice audit found 2,160 source-discovery placeholder rows across 720 files: 60 rows in IDs 201-300 and 300 rows per 100-ID range from 301-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 301-1000. A 2026-05-04 post-slice audit found 2,100 source-discovery placeholder rows across 700 files: 300 rows per 100-ID range from 301-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -307,6 +307,26 @@ A numbered app spec is implementation-ready only when it has all of the followin
 | 278 | Amazon Music | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; Prime/Unlimited entitlements, podcasts, downloads/offline, Alexa/device integration, and native/manual blockers remain explicit. |
 | 279 | Qobuz | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; hi-res music streaming, editorial/catalog discovery, purchases/downloads, and native/manual blockers remain explicit. |
 | 280 | Anghami | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; MENA-focused streaming, playlists, downloads/offline, podcasts/live/social surfaces, and native/manual blockers remain explicit. |
+| 281 | Musixmatch | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; lyrics discovery, synchronized lyrics, song recognition, translations, contributor workflows, microphone privacy, and lyric-rights blockers remain explicit. |
+| 282 | GarageBand | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; mobile music creation, instruments, loops, project storage, sharing, and Apple platform blockers remain explicit. |
+| 283 | BandLab | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; cloud studio, collaboration, social publishing, creator monetization, moderation, and music-rights blockers remain explicit. |
+| 284 | Voloco | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; vocal recording, pitch correction, voice effects, beats, exports, and subscription/media blockers remain explicit. |
+| 285 | Smule | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; karaoke recordings, duet/group performance, songbook discovery, comments, VIP gates, and social-safety blockers remain explicit. |
+| 286 | StarMaker | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; karaoke/live social rooms, duet recordings, virtual items, creator profiles, and moderation blockers remain explicit. |
+| 287 | SoundHound | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; song recognition, humming/voice search, lyrics, history, external handoff, and audio-privacy blockers remain explicit. |
+| 288 | Sonos | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; speaker setup, local-network discovery, room grouping, service linking, firmware/device controls, and household-permission blockers remain explicit. |
+| 289 | Bose Music | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; headphone/speaker setup, Bluetooth pairing, sound controls, firmware updates, and product-account blockers remain explicit. |
+| 290 | JBL Portable | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; portable-speaker pairing, PartyBoost/stereo grouping, firmware updates, light/EQ controls, and Bluetooth blockers remain explicit. |
+| 291 | Endel | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; personalized soundscapes, focus/relax/sleep sessions, wearable/context signals, subscriptions, and wellness-disclaimer blockers remain explicit. |
+| 292 | Brain.fm | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; functional music sessions, focus/relax/sleep modes, science-claim boundaries, subscriptions, and privacy blockers remain explicit. |
+| 293 | Overcast | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; podcast discovery, subscriptions, episode queue, smart playlists, downloads, playback enhancements, and premium blockers remain explicit. |
+| 294 | Castro | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; podcast inbox, queue triage, downloads/offline, watch/Siri surfaces, and Castro Plus blockers remain explicit. |
+| 295 | Podbean | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; podcast listening/hosting, recording/uploading, live streams, analytics, monetization, and creator/listener boundaries remain explicit. |
+| 296 | Spotify for Podcasters | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; podcast creation, hosting, distribution, analytics, monetization, fan interaction, and Spotify account blockers remain explicit. |
+| 297 | Anchor | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; legacy Anchor-style podcast creation, hosting, recording, distribution, analytics, monetization, and Spotify migration blockers remain explicit. |
+| 298 | Podcast Addict | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; podcast/radio/audiobook/RSS discovery, queues, downloads, automation, backups, ads, and premium blockers remain explicit. |
+| 299 | Podimo | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; subscription podcast/audiobook listening, exclusives, recommendations, offline downloads, creator revenue, and subscription/privacy blockers remain explicit. |
+| 300 | Acast | Implementation-ready for public-source V1 | Exact public sources replaced discovery links; podcast hosting, distribution, listener analytics, advertising, premium content, creator dashboards, and ad-tech/privacy blockers remain explicit. |
 
 ## Repeatable Upgrade Loop
 
@@ -352,8 +372,9 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 - Batch 12 AI research/assistant and photo/media editing public-source V1 expansion: `221-forefront-ai.md` through `240-pixelcut.md`.
 - Batch 13 photo/video editing public-source V1 expansion: `241-lensa.md` through `260-vivavideo.md`.
 - Batch 14 video creator, audio recognition, music streaming, radio, and hi-res catalog public-source V1 expansion: `261-videoshow.md` through `280-anghami.md`.
+- Batch 15 lyrics/recognition, music creation, karaoke/social audio, hardware control, wellness audio, podcast player, and creator-podcast public-source V1 expansion: `281-musixmatch.md` through `300-acast.md`.
 
 ## Next Steps
 
-- Continue Phase 8 Step 8.3 with IDs 281-300 (`Musixmatch` through `Acast`) as the next music creation, audio hardware/control, podcast, and creator-audio slice.
+- Continue Phase 8 Step 8.3 with IDs 301-320 as the next podcast/audio and books/comics/reading category slice.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.
