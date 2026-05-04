@@ -2,190 +2,221 @@
 
 > Metadata
 > - Inspiration app: Ledger Live
-> - Category: Payments and crypto
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace/source-discovery links only; exact first-party URL replacement and hands-on verification are still required.
-> - Manual verification blockers: native iOS/Android screen capture, account lifecycle walkthrough, subscription or payment state, permission prompts, push notifications, provider integrations, and region-specific behavior require lawful test evidence before one-for-one parity claims.
-> - Legal scope: functional parity only; use original code, brand, copy, iconography, sample data, media, policies, and integrations.
+> - Category: hardware-wallet companion app, device pairing, portfolio sync, on-device transaction confirmation, firmware/app blockers, buy/swap/stake provider gates, and custody education
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-04.
+> - Verification basis: exact public first-party product, help/support, privacy, terms/legal, and marketplace URLs listed below; hands-on native parity remains blocked where stated.
+> - Manual verification blockers: native iOS/Android screen capture, account creation/recovery, identity/KYC checks, funding instruments, payment authorization, withdrawals/payouts/repayments, push notifications, device permissions, support outcomes, provider integrations, sanctions/travel-rule/credit/partner-bank checks where applicable, and region-specific availability require lawful test evidence before one-for-one native parity claims.
+> - Legal scope: functional parity only; do not use original code, brand, copy, iconography, screenshots, proprietary financial data, private APIs, payment rails, customer records, provider contracts, model outputs, or unlicensed datasets.
 
 ## Overview
 
-Build an original mobile product inspired by Ledger Live's public user-facing workflow. The clone focus is: Secure onboarding, account dashboard, transaction/trade simulation, funding instruments, alerts, statements, support, and compliance gates
+Build an original mobile product inspired by Ledger Live's public product, support, policy, and marketplace materials. V1 focuses on hardware wallet pairing, portfolio, account synchronization, receive/send confirmation on device, buy/swap/stake blockers, firmware/app update blockers. The clone must use original branding, original UI copy, synthetic sample data, licensed providers, and explicit disclosures whenever a requirement is inferred from public behavior rather than verified through lawful hands-on testing.
 
-This Draft 1 spec reserves ID 513 in the 1000-app backlog. It provides enough structure for downstream research, estimation, and lawful implementation planning, but it is not implementation-ready until exact first-party URLs replace source-discovery links and app-specific public evidence is added.
+This spec is implementation-ready for a public-source V1. Behavior marked `Manual verification required` must stay behind a feature flag, simulator stub, or documented blocker until lawful device/account verification confirms exact native behavior.
 
 ## Goals
 
-- Deliver a mobile-first payments and crypto experience with onboarding, primary workflow, settings, support, and recovery flows.
-- Reproduce the functional job behind Ledger Live using original product naming, original UI, original sample data, and licensed integrations.
-- Preserve exact boundaries between public-source evidence, inferred clone requirements, and blocked hands-on behavior.
-- Define screens, entities, API contracts, offline behavior, privacy/safety controls, analytics, tests, acceptance criteria, and build phases.
+- Provide secure mobile onboarding, consent, account recovery, settings, support, export/delete, and accessibility flows.
+- Support hardware wallet pairing, portfolio, account synchronization, receive/send confirmation on device, buy/swap/stake blockers, firmware/app update blockers with clear unavailable, pending, failed, blocked, held, canceled, expired, refunded, disputed, and recovered states.
+- Preserve boundaries between identity, account, balance, quote, payment/funding, transfer/order/advance, recipient/wallet, alert, support, compliance, and provider data.
+- Model guest, signed-in, verified, pending-review, rejected, restricted, region-blocked, provider-owned, expired, closed, refunded, disputed, and unavailable states without copying exact pricing, plan names, promotions, or legal copy.
+- Require KYC/AML, sanctions screening, fraud/scam prevention, payment/payout/repayment correctness, licensing, disclosures, privacy, accessibility, support, and regulator-facing audit blockers before launch.
+- Keep downstream scaffold repositories private and avoid parity claims until manual blockers are resolved.
 
 ## Non-Goals
 
-- Do not copy Ledger Live branding, logos, screenshots, marketing copy, private APIs, proprietary datasets, ranking systems, or protected media.
-- Do not claim exact native behavior until a lawful hands-on verification pass records evidence.
-- Do not implement production payments, regulated services, medical advice, transport dispatch, smart-home control, or real-money game economies without separate legal/platform review.
+- Do not imply affiliation with Ledger Live or its publisher.
+- Do not copy proprietary screens, brand assets, marketing copy, private endpoint shapes, risk models, payment processor contracts, customer data, card data, wallet keys, or trading/remittance data.
+- Do not move real money, issue credit, provide investment advice, custody crypto, transmit funds, execute trades, or connect production payment rails without separate legal, compliance, provider, and security approval.
+- Do not store seed phrases, private keys, bank credentials, card PANs, identity documents, or sensitive support attachments in analytics, logs, crash reports, or noncompliant storage.
+- Do not treat public marketplace blurbs as proof of exact native screen order, regional availability, fee math, support resolution, or regulated eligibility.
 - Do not build runtime app code in this spec store.
 
 ## Research Sources
 
-| Source | Discovery URL | Evidence To Verify | Status |
+| Source | Exact URL | Evidence Used | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/search?term=Ledger%20Live | iOS listing, category, age rating, privacy labels, release notes, support links | Source discovery -- pending exact URL verification |
-| Google Play | https://play.google.com/store/search?q=Ledger%20Live&c=apps | Android listing, content rating, data safety, feature blurbs | Source discovery -- pending exact URL verification |
-| Official website/help search | https://www.google.com/search?q=Ledger%20Live%20official%20app%20help%20privacy%20terms | Help center, privacy, terms, support, subscription, safety, and product docs to replace with first-party URLs | Source discovery -- pending exact URL verification |
+| Official product | https://www.ledger.com/ledger-live | Public product positioning, core mobile workflow, availability framing, account/funding/payment surfaces, and support entry points | Verified 2026-05-04 |
+| Support/help center | https://support.ledger.com/ | Public support taxonomy for onboarding, identity, funding, transfer/order/payment, dispute, refund, security, and account lifecycle flows | Verified 2026-05-04 |
+| Privacy policy | https://www.ledger.com/privacy-policy | Personal, financial, device, location, analytics, support, fraud-prevention, retention, and privacy-rights handling | Verified 2026-05-04 |
+| Terms or user agreement | https://shop.ledger.com/pages/terms-and-conditions | Eligibility, account obligations, prohibited use, fees, payment/transfer/credit/crypto risk disclosures, and legal boundaries | Verified 2026-05-04 |
+| App Store listing | https://apps.apple.com/us/app/ledger-live-crypto-wallet/id1361671700 | Canonical iOS listing, category, age rating, privacy label, compatibility, public feature claims, and native metadata | Verified 2026-05-04 |
+| Google Play listing | https://play.google.com/store/apps/details?id=com.ledger.live | Canonical Android listing, feature blurbs, content rating, data safety, downloads, and native metadata | Verified 2026-05-04 |
+| Native hands-on evidence | Manual verification required | Real-device screens, permission prompts, KYC/payment/funding/withdrawal/repayment states, push payloads, provider integrations, support outcomes, and region-specific availability | Blocked pending lawful device/account verification |
 
 ## Detailed Design
 
-- Onboarding must support guest, signup, returning-user, permission-primer, and blocked-account states appropriate for payments and crypto.
-- Home must default to Identity/Security with empty, loading, personalized, degraded-network, and signed-out variants.
-- The primary action must be reachable from Dashboard within two taps from home.
-- Account Detail must represent preview, confirmation, or consumption state with saved, shared, unavailable, and error variants.
-- Settings must include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements must model free, trial, paid, expired, canceled, restored, refunded, and unavailable states without copying plan names or pricing.
-- Accessibility must support dynamic type, screen reader labels, visible focus, contrast, reduced motion, and captions/transcripts where relevant.
-- Offline behavior must preserve recoverable drafts and block irreversible or regulated writes until the client has canonical server state.
+### Source-Backed Product Requirements
+
+- Onboarding must support signed-out education, account creation, sign-in, recovery, eligibility notices, blocked account, unavailable region, and provider outage states.
+- Identity and compliance checks must separate submitted, pending, approved, rejected, expired, escalated, and resubmission states with owner-visible recovery copy.
+- Home must expose the latest account, quote, balance, transaction, repayment, transfer, wallet, or order state with loading, empty, degraded-network, stale-data, and support-needed variants.
+- Primary quote flow must show source amount, destination/asset/recipient, fees, FX or price timestamp, estimated delivery, limits, risk notices, and required verification before consequential action.
+- Recipient, bank, card, wallet, payroll, or repayment instrument management must distinguish verified, unverified, failed, expired, disabled, duplicate, and provider-owned states.
+- Confirmation screens must summarize funding source, recipient/wallet/payee, delivery method, fee, rate/APR/repayment disclosure where applicable, cancellation/refund rules, and compliance review risk.
+- Tracking/detail screens must expose pending, processing, held, sent, delivered, failed, canceled, refunded, disputed, chargeback, repayment-due, and support-escalated states.
+- Settings must include profile, security, notification preferences, privacy policy, terms/legal, support, export/delete, linked providers, funding instruments, and regulatory disclosures.
+- Entitlements and eligibility must model verified, unverified, waitlisted, restricted, suspended, region-blocked, provider-owned, quota/limit-exhausted, expired, refunded, and unavailable states.
+- Provider calls require scoped credentials, redacted logs, idempotency keys, retry policies, canonical refetch, retention limits, and user-visible recovery.
+- Analytics must avoid raw PII, bank credentials, card numbers, wallet addresses where unnecessary, seed phrases, identity documents, exact location trails, support attachments, and account identifiers.
+- Fraud, scam prevention, account takeover, sanctions screening, KYC/AML, travel-rule/provider licensing, financial disclosures, credit or wage-access rules where relevant, and regulator-facing auditability are launch-blocking risk areas with named owners.
+- Manual verification required: native permission prompts, marketplace privacy labels, identity review, funding/withdrawal/repayment execution, push payloads, provider integrations, support outcomes, and regional availability.
 
 ## Core User Journeys
 
-- New user installs, reviews an original value proposition, creates or restores an account, and reaches Identity/Security.
-- Returning user opens Identity/Security, resumes the latest meaningful state, and completes the primary action in Dashboard.
-- User searches or browses, opens Account Detail, saves or shares the item, and later finds it again from history or library.
-- User denies a requested permission, receives a functional fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry, reconcile, or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees correct locked/unlocked states.
-- User requests support, submits a report or dispute where relevant, and receives a durable case state.
-- User requests data export and account deletion from settings.
+- New user reviews consent and eligibility, creates an account, completes required identity/security steps, and reaches the main dashboard without unsupported permissions.
+- Returning user reviews balance, quote, transaction, advance, wallet, or repayment state and resumes the most recent incomplete workflow safely.
+- User creates a quote, reviews fee/rate/disclosure details, selects a funding or repayment instrument, confirms, and receives durable tracking state.
+- User adds or edits a recipient, wallet address, bank account, card, payroll, or provider connection and handles verification failure without losing progress.
+- User sees a compliance hold, fraud warning, provider outage, region block, quote expiry, insufficient funds, failed payment, rejected wallet address, or repayment issue and can recover or contact support.
+- User configures alerts for status, security, repayment, price/rate, support, and marketing categories with opt-in controls.
+- User requests cancellation, refund, dispute, chargeback help, data export, or account deletion and receives durable case state.
+- Manual verification required: exact KYC, payment, payout, wallet signing, support, push, repayment, and region-specific native behavior.
 
 ## Screen Inventory
 
-| Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
+| Screen | Purpose | Primary Inputs | Required States | Edge And Failure States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Identity/Security | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Dashboard | Primary creation/action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Account Detail | Inspect, consume, or confirm details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Transaction Detail | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Transfer/Trade Ticket | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Alerts | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Statements | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Support | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Welcome / Eligibility | Product education, legal eligibility, and account entry | taps, country/region, login, consent | signed-out, loading, eligible, ineligible, region-aware | unsupported region, legal restriction, network failure, stale app version |
+| Auth / Recovery | Sign up, sign in, MFA, and account recovery | forms, OTP, biometrics, recovery links | empty, submitting, verified, locked, recovered | OTP expired, account locked, device risk, suspicious login |
+| Identity / Compliance | KYC, verification, and compliance review | profile fields, documents, selfie, provider status | not-started, pending, approved, rejected, escalated | document failure, sanctions hit, manual review, resubmission required |
+| Dashboard | Default account and latest activity surface | tabs, filters, refresh, deep links | empty, loading, loaded, degraded, stale | restricted account, provider outage, data mismatch |
+| Quote / Calculator | Amount, destination/asset, fees, rate, and delivery estimate | amount, currency/asset, recipient, speed | quote-ready, expired, recalculating, blocked | limit exceeded, rate changed, unsupported corridor/asset |
+| Recipient / Wallet / Instrument | Manage destination and funding/repayment methods | forms, scan, search, provider OAuth | verified, unverified, pending, disabled | invalid wallet/address, bank failure, duplicate, provider revoked |
+| Confirmation | Final review before consequential action | quote, instrument, disclosure acceptance | ready, submitting, held, confirmed | payment failed, compliance hold, stale quote, user canceled |
+| Activity / Detail | Track transfers, orders, advances, repayments, or wallet actions | transaction id, refresh, support link | pending, processing, completed, failed, canceled | refund pending, chargeback, delayed delivery, repayment overdue |
+| Alerts / Messages | Status, security, marketing, repayment, and support alerts | toggles, quiet hours, categories | opted-in, opted-out, denied, muted | OS denied, push token expired, duplicate alert |
+| Support / Dispute | Help articles, cases, refunds, disputes, and escalation | search, attachments, case forms | draft, submitted, in-review, resolved | missing evidence, unsafe attachment, duplicate case |
+| Settings / Privacy | Profile, security, legal, providers, export/delete | toggles, links, destructive actions | loaded, saving, pending delete, exported | legal hold, active dispute, provider disconnect failed |
+| Accessibility / Localization | Language, currency, dynamic type, screen-reader review | locale, font, motion, contrast | default, customized, reduced-motion | truncated disclosure, unsupported locale, contrast failure |
 
 ## Data Model
 
-- `User`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Ledger Live-style workflows.
-- `IdentityCheck`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Ledger Live-style workflows.
-- `Account`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Ledger Live-style workflows.
-- `Balance`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Ledger Live-style workflows.
-- `Transaction`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Ledger Live-style workflows.
-- `Transfer`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Ledger Live-style workflows.
-- `Instrument`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Ledger Live-style workflows.
-- `RiskReview`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Ledger Live-style workflows.
-- `Statement`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Ledger Live-style workflows.
-- `DeviceSession`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Ledger Live-style workflows.
-- `AuditEvent`: append-only record for sensitive writes, account changes, support actions, moderation decisions, and entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, conflict resolution, and cache expiry.
+- `User`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, compliance flags, and audit metadata for Ledger Live-inspired workflows.
+- `AccountSession`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, compliance flags, and audit metadata for Ledger Live-inspired workflows.
+- `IdentityCheck`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, compliance flags, and audit metadata for Ledger Live-inspired workflows.
+- `RiskReview`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, compliance flags, and audit metadata for Ledger Live-inspired workflows.
+- `SupportCase`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, compliance flags, and audit metadata for Ledger Live-inspired workflows.
+- `AuditEvent`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, compliance flags, and audit metadata for Ledger Live-inspired workflows.
+- `LocalCacheRecord`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, compliance flags, and audit metadata for Ledger Live-inspired workflows.
+- `NotificationPreference`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, compliance flags, and audit metadata for Ledger Live-inspired workflows.
+- `PrivacyRequest`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, compliance flags, and audit metadata for Ledger Live-inspired workflows.
+- `HardwareDevice`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, compliance flags, and audit metadata for Ledger Live-inspired workflows.
+- `DeviceAccount`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, compliance flags, and audit metadata for Ledger Live-inspired workflows.
+- `FirmwareStatus`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, compliance flags, and audit metadata for Ledger Live-inspired workflows.
+- `OnDeviceApproval`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, compliance flags, and audit metadata for Ledger Live-inspired workflows.
+- `AssetAccount`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, compliance flags, and audit metadata for Ledger Live-inspired workflows.
+- `WalletTransaction`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, compliance flags, and audit metadata for Ledger Live-inspired workflows.
+- `ProviderQuote`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, compliance flags, and audit metadata for Ledger Live-inspired workflows.
+- `LedgerAppInstall`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, compliance flags, and audit metadata for Ledger Live-inspired workflows.
+- `RecoveryCheck`: owner, lifecycle state, authorization boundary, sync state, retention policy, deletion/export behavior, compliance flags, and audit metadata for Ledger Live-inspired workflows.
 
 ## API And Backend Contracts
 
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /identitychecks, GET /accounts, GET /balances, GET /transactions; all reads return authorization status, pagination, cache hints, stale-data markers, and localization keys.
-- Writes: POST /users, POST /identitychecks, POST /accounts, POST /balances, POST /transactions; all writes require validation errors, idempotency keys, optimistic-state reconciliation, and audit events for sensitive state.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context.
-- Upload/import: use signed upload URLs, MIME/size validation, malware/content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must refetch canonical state after missed events.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+- `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /account` for account lifecycle with device-scoped audit events.
+- `POST /identity/checks`, `GET /identity/checks/:id`, and `POST /identity/checks/:id/resubmit` for KYC, verification, and manual-review state.
+- `GET /regions`, `GET /eligibility`, `GET /limits`, and `GET /disclosures` for jurisdiction, corridor, product, credit, crypto, or provider availability.
+- `POST /quotes`, `GET /quotes/:id`, and `POST /quotes/:id/refresh` for fee, FX, price, delivery, repayment, or risk-disclosure quotes.
+- `GET /instruments`, `POST /instruments`, `PATCH /instruments/:id`, and `DELETE /instruments/:id` for funding, payout, wallet, bank, card, payroll, or repayment methods.
+- `POST /transactions`, `GET /transactions/:id`, `POST /transactions/:id/cancel`, `POST /transactions/:id/dispute`, and `GET /transactions/:id/events` for durable activity state.
+- `GET /accounts`, `GET /balances`, `GET /statements`, `GET /alerts`, and `PATCH /notification-preferences` for dashboard and notification surfaces.
+- `POST /support/cases`, `GET /support/cases/:id`, `POST /refund-requests`, `POST /reports`, `POST /data-export`, and `GET /data-export/:id` for support and privacy lifecycle.
+- Provider webhooks must include idempotency keys, signature validation, redacted payload logging, retry semantics, and canonical refetch after missed payment, payout, transfer, trade, repayment, or compliance events.
+- Admin/support routes must distinguish read-only diagnostics, consented support access, fraud hold review, compliance review, refund/dispute handling, account restriction, and deletion/export exceptions.
+- Public API documentation must use original route names and domain models; never mimic private endpoint paths, request bodies, risk scores, or proprietary schemas from Ledger Live.
 
 ## Realtime, Push, And Offline Behavior
 
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must reconcile against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+- Cache dashboard, recent activity, settings, legal links, support articles, and in-progress quotes with explicit size, TTL, and purge rules.
+- Offline mode allows safe cached reads and low-risk drafts but blocks identity submission, money movement, crypto signing/trading, credit/advance acceptance, repayment changes, provider calls, and irreversible deletes.
+- Reconnect must refetch canonical server state, de-duplicate submissions with idempotency keys, and show whether quotes, fees, repayments, transfers, trades, or support cases expired.
+- Push notifications are opt-in by category and limited to account/security, quote expiry, transaction status, repayment/settlement, support, fraud/compliance, and marketing where allowed.
+- Long-running workflows use polling, SSE, websocket, or provider webhook fallback with timeout, cancel, retry, and escalation states.
+- Cached documents, identity data, wallet/payment references, support attachments, device metadata, and activity records purge on logout, account delete, retention expiry, policy change, or legal hold.
 
 ## Permissions, Privacy, And Safety
 
-- Treat KYC/AML as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat financial licensing as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat fraud as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat PII leakage as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat market-data or banking-provider licensing as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+- Request camera, notifications, biometrics, contacts/share sheet, location, files, clipboard, or provider OAuth only at feature use and with a clear fallback.
+- Permission screens must explain what is captured, where it is processed, retention, support access, and what remains available if denied.
+- KYC/AML owner must approve identity-document handling, sanctions screening, politically exposed person review, adverse media handling where relevant, and resubmission flows before launch.
+- Payments/compliance owner must approve money-movement, card/bank, wallet, repayment, refund, chargeback, and ledger reconciliation tests before launch.
+- Security owner must approve MFA, device binding, account takeover detection, phishing/scam warnings, withdrawal/address-change holds, and sensitive-action reauthentication.
+- Legal/regulatory owner must approve money-transmission, credit, wage-access, banking partner, crypto custody, securities/market-risk, tax, travel-rule, disclosure, and regional availability copy where relevant.
+- Support access to identity, financial, wallet, transaction, repayment, and support records requires user consent, role-based controls, and auditable staff access.
+- Export/delete must cover account data, profile, instruments, activity, alerts, support cases, documents, provider tokens, and legally deletable audit records while preserving legal holds.
+- Safety copy must warn against scams, irreversible crypto sends, wrong recipients, quote/rate changes, repayment obligations, credit impact where relevant, and unsupported jurisdiction use.
+- Analytics, crash logs, and support tooling must redact raw PII, payment credentials, bank details, seed phrases/private keys, identity documents, wallet addresses where unnecessary, and precise location.
 
 ## Analytics And Monetization
 
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement logic; do not copy exact pricing, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, private messages, or child data as event properties.
+- Analytics events: onboarding started/completed, eligibility viewed, identity submitted, quote viewed/refreshed/expired, instrument added, confirmation submitted, activity viewed, support case submitted, export/delete requested, and notification preference changed.
+- Event properties must use coarse product type, corridor/asset class, provider capability class, latency bucket, error code, status, disclosure version, entitlement state, and region class only.
+- Monetization may include transfer fees, FX spread, subscription, interchange, referral, partner-bank economics, advance fee/tip, BNPL merchant fee, crypto spread, or on-ramp provider fee only after legal, tax, consumer-protection, and disclosure review.
+- Payment, repayment, payout, withdrawal, refund, and fee logic must handle pending, authorized, captured, failed, reversed, charged back, settled, expired, provider-owned, tax-hold, and region-blocked states.
+- Paywalls, fees, or account restrictions must not block safety reporting, account recovery, export/delete, privacy settings, dispute access, or legally required disclosures.
 
 ## Edge Cases
 
-- First launch with no network, no account, expired session, or unsupported OS version.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
-- Subscription restored on a different platform, refunded externally, or unavailable in the user's region.
-- Legal/privacy request submitted while transactions, messages, or support cases are still active.
+- First launch with no network, no account, unsupported OS, unavailable territory, disabled corridor/asset/provider, blocked account, or stale app version.
+- Permission denied, later granted, later revoked, or limited by OS/device policy.
+- Duplicate taps, duplicate webhooks, timeout retry, quote expiry, rate changes, stale optimistic state, and idempotency-key replay.
+- Recipient, wallet, bank, card, payroll, payout, repayment, or provider becomes unavailable, invalid, closed, sanctioned, restricted, expired, or region-blocked during an active workflow.
+- Identity review fails, enters manual review, expires, requires resubmission, or conflicts with an existing account.
+- Payment authorization, payout, withdrawal, cash pickup, mobile-wallet delivery, trade, advance, repayment, refund, or support case is interrupted by app termination.
+- User requests export/delete while transactions, repayments, disputes, refunds, chargebacks, compliance holds, legal holds, or support cases remain active.
+- Uploaded identity/support documents contain third-party data, children, health data, financial data, copyrighted material, or confidential material.
+- Provider outage occurs after the user confirms an action but before canonical state is persisted.
+- User attempts fraud, scam inducement, mule activity, sanctions evasion, account takeover, promo abuse, repayment avoidance, chargeback abuse, phishing, or unsafe sharing.
+- Device storage fills, cache corrupts, token expires, clock skew occurs, webhook order changes, or reconnect creates conflicting state.
+- Regulator, banking partner, payment network, app store, crypto network, employer/payroll provider, or support policy disables a feature after data has been cached locally.
 
 ## Test Plan
 
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+- Unit tests for eligibility gates, state machines, quote expiry, idempotency keys, disclosure versioning, provider error mapping, and analytics redaction.
+- Unit tests for identity, recipient/wallet/instrument validation, account restriction, refund/dispute eligibility, repayment status, and deletion/export rules.
+- Contract tests for auth, identity, eligibility, quotes, instruments, transactions, alerts, support, privacy, and provider webhook routes.
+- Integration tests for onboarding -> identity -> quote -> instrument -> confirmation -> tracking -> support/settings/delete.
+- Integration tests for permission denial, unsupported region, provider timeout, quote refresh, stale data, compliance hold, failed payment, and support escalation.
+- Offline tests for cached reads, draft preservation, blocked regulated writes, reconnect reconciliation, duplicate-submit prevention, and corrupt-cache recovery.
+- Security tests for MFA, reauthentication, device binding, suspicious login, address/instrument changes, webhook signatures, and redacted logs.
+- Safety/compliance tests for scam warnings, sanctions/AML holds, wrong-recipient warnings, irreversible crypto sends where relevant, credit/repayment disclosures where relevant, and support consent.
+- Billing/payment tests for authorization, capture, settlement, reversal, refund, chargeback, payout, repayment, provider owner, tax hold, and region unavailable states.
+- Privacy tests for provider request redaction, support access consent, metadata stripping, log scrubbing, export, delete, retention expiry, and legal hold exceptions.
+- Accessibility tests for screen-reader order, dynamic type, focus, contrast, reduced motion, disclosure readability, status announcements, and processing announcements.
+- Manual verification tests for native store listings, privacy labels, permission prompts, account verification, payment/payout/repayment, push notifications, provider integrations, and regional availability.
 
 ## Acceptance Criteria
 
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source-discovery links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+- All discovery placeholders are replaced with exact public product/help/privacy/terms/marketplace URLs or explicit manual blockers for native/account evidence.
+- A lawful V1 can be built with original branding, UI copy, sample data, licensed providers, and regulated workflows disabled until approved.
+- Onboarding, identity, dashboard, quote, instrument, confirmation, activity detail, alerts, support, settings, export/delete, and accessibility screens are specified.
+- Account, identity, provider, quote, transaction, instrument, support, analytics, privacy, compliance, and audit boundaries are documented and testable.
+- Offline cache and reconnect reconciliation are covered without allowing unsafe money movement, crypto signing/trading, repayment changes, provider calls, profile-owner changes, or irreversible operations while offline.
+- Category risks for KYC/AML, sanctions, financial licensing, provider licensing, money movement, payment/payout/repayment, fraud/scams, privacy, accessibility, support, and regulator-facing auditability have owners and tests.
+- Manual verification blockers remain for native behavior that requires accounts, devices, permissions, marketplace labels, geolocation, payment methods, payout instruments, repayment instruments, identity documents, provider credentials, or regulated review.
+- At least 12 implementation tests cover happy path, failed provider, permission denial, active workflow failure, quota/limit exhaustion, compliance hold, offline recovery, export/delete, payment/payout/repayment restore, safety report, accessibility, privacy redaction, and regression behavior.
 
 ## Open Questions
 
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, regulated sandbox, or provider credentials?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, AI, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+- Which exact native marketplace privacy labels, release-note details, and screenshots should be treated as canonical after device verification?
+- Which providers will power identity, KYC/AML, bank/card funding, wallet/on-chain data, quote/rate data, payroll, repayment, notifications, analytics, support, fraud prevention, and sanctions screening?
+- Which regions, states, countries, corridors, assets, employers, banking partners, credit products, wallet networks, or regulators alter feature availability?
+- Which uploads, identity records, transaction histories, support cases, risk signals, provider logs, and exports are retained for support, fraud prevention, legal obligations, or product improvement?
+- Which disclosures are required for fees, FX spread, APR/repayment, wage-access, crypto risk, custody, no-investment-advice, partner-bank status, payment reversibility, or tax treatment?
+- Which hands-on flows require paid access, special hardware, physical cards, geolocation, wallet funds, identity documents, real transfers, repayment instruments, support contact, or regulated sandbox review?
 
 ## Build Plan
 
-- Phase 1: Replace source-discovery rows with exact first-party URLs and classify each requirement as verified or inferred.
-- Phase 2: Define route map, component map, domain entities, API schema, permissions, analytics schema, and seed-data policy.
-- Phase 3: Build onboarding, home, primary action, detail, search, settings, support, and entitlement shells with original copy and sample data.
-- Phase 4: Add backend contracts, offline/retry handling, notification preferences, data export/delete, and safety/reporting flows.
-- Phase 5: Complete accessibility, privacy, safety, billing, permission, and regression tests.
-- Phase 6: Conduct lawful hands-on verification and resolve manual blockers before parity claims.
+- Phase 1: Finalize native marketplace evidence, legal names, provider choices, regulated-feature flags, identity/KYC path, quote model, disclosure matrix, and manual blocker owners.
+- Phase 2: Define route map, component map, domain entities, API schema, provider contracts, permissions, analytics schema, seed-data policy, and retention matrix.
+- Phase 3: Build onboarding, identity, dashboard, quote, instrument, confirmation, activity, alerts, support, settings, and export/delete shells with original copy and synthetic data.
+- Phase 4: Add backend contracts, offline/retry handling, provider adapters, notification preferences, fraud/scam controls, compliance holds, dispute/refund/repayment flows, and privacy lifecycle.
+- Phase 5: Complete accessibility, privacy, security, compliance, payment/payout/repayment, permission, provider-failure, offline, and regression tests.
+- Phase 6: Conduct lawful hands-on verification and resolve manual blockers before any one-for-one parity claim.
 
 ## Next Steps
 
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, support docs, and user-review themes in a dedicated research note without committing proprietary media.
-- Resolve open questions and update this spec before downstream implementation starts.
-- Extend the Phase 5 implementation-plan queue and repo-seeding manifest after the spec reaches implementation-ready V1.
+- Capture lawful native-device evidence for iOS and Android screen flows, privacy labels, permission prompts, push payloads, account verification, and provider behavior.
+- Verify identity, payment, payout, repayment, transfer/trade/advance, refund, dispute, support, and regional availability states with test accounts where allowed.
+- Extend the Phase 5 implementation-plan queue after this ID is included in the readiness batch.
+- Keep downstream scaffold repos private and label this source spec as implementation-ready only for original public-source V1 work.

@@ -770,3 +770,24 @@
 - Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native verification before one-for-one parity claims.
 - Rollback note: revert the shipping commit to restore IDs 481-500 to their previous Draft 1 scaffold state and previous readiness counts.
 - Next command: `$run`.
+
+## 2026-05-04 - Phase 8 Step 8.3 IDs 501-520 Promotion
+
+- Promoted specs 501-520 (WorldRemit through Klarna) from Draft 1 to implementation-ready public-source V1.
+- Replaced source-discovery rows with exact public product, support/help, privacy, terms/legal, App Store, and Google Play URLs.
+- Added remittance, custodial crypto exchange, self-custody wallet, hardware-wallet companion, fiat/crypto on-ramp, bitcoin payments, neobank/cash-advance, earned-wage access, and BNPL blockers for KYC/AML, sanctions screening, travel-rule/provider licensing, private-key custody boundaries, money movement, repayment/credit disclosures, payment/payout/remittance rules, fraud/scam controls, regional availability, privacy, accessibility, support, and regulator-facing auditability.
+- Updated `specs/batch-26/README.md`, `tasks/implementation-readiness.md`, and `tasks/todo.md` for 520 ready specs and the next IDs 521-540 slice.
+- Validation: targeted H1/readiness check passed for 20 files; `rg` found no Draft/source-discovery/legal-scope scaffold markers in the promoted specs; section-count checks found all canonical sections in 20 files; `node scripts/check-implementation-readiness.mjs` reported expected remaining Draft 1 scope: 520 ready, 480 non-ready, 1,440 placeholder rows across IDs 521-1000; `git diff --check` passed.
+
+### Ship Manifest
+
+- User goal: execute `$run` next incomplete Step 8.3 slice and ship the result.
+- Changed files: `specs/batch-26/501-worldremit.md` through `specs/batch-26/520-klarna.md`, `specs/batch-26/README.md`, `tasks/todo.md`, `tasks/implementation-readiness.md`, and `tasks/history.md`.
+- Per-file purpose: promoted 20 specs to implementation-ready public-source V1; updated the batch README; recorded readiness counts, latest slice, and next-slice routing.
+- User-goal mapping: the edited specs replace Draft 1/source-discovery placeholders for IDs 501-520; task files preserve the Step 8.3 execution trail and handoff.
+- Tests run: `node scripts/check-implementation-readiness.mjs` expected-red with 520 ready specs and 1,440 remaining placeholders; targeted `rg` checks found no Draft 1/source-discovery/legal-scope scaffold markers in promoted specs; targeted H1/readiness checks found one H1 and one implementation-ready status per promoted file; section-count checks found all canonical sections in 20 promoted files; `git diff --check` passed.
+- Skipped tests: no runtime lint/type/build commands apply because this repository contains planning/specification Markdown and this slice changes no runtime code.
+- Adversarial review: diff reviewed for source-discovery residue, one-H1 structure, canonical section coverage, readiness-count consistency, manual native blockers, legal-scope boundaries, remittance/crypto/wallet/neobank/advance/EWA/BNPL payment/payout/repayment/privacy/compliance risk coverage, and next-slice routing.
+- Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native/account verification before one-for-one parity claims.
+- Rollback note: revert the shipping commit to restore IDs 501-520 to their previous Draft 1 scaffold state and previous readiness counts.
+- Next command: `$run`.
