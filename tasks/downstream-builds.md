@@ -58,7 +58,7 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 - [x] 941-950 - Build planning pushed.
 - [x] 951-970 - Build planning pushed.
 - [x] 971-990 - Build planning pushed.
-- [ ] 991-1000 - Build planning pending.
+- [x] 991-1000 - Build planning pushed.
 
 ## Evidence
 
@@ -1638,3 +1638,22 @@ Build-start evidence means the downstream repo has an app-specific implementatio
 | 988 | Skool | `GeorgeQLe/skool-mobile-clone` | build planning started |
 | 989 | Stan Store | `GeorgeQLe/stan-store-mobile-clone` | build planning started |
 | 990 | Linktree | `GeorgeQLe/linktree-mobile-clone` | build planning started |
+
+### Batch 991-1000 Build Planning - 2026-05-04T00:00:08.458Z
+
+- Execution mode: serial downstream build-planning baseline.
+- Verification: each selected repo was confirmed PRIVATE before cloning and pushing.
+- Scope: `docs/plans/`, `docs/decisions/stack.md`, `tasks/todo.md`, and `tasks/history.md` only; no runtime code or parity claim was added.
+
+| ID | App | Repo | Status |
+|---:|---|---|---|
+| 991 | Beacons | `GeorgeQLe/beacons-mobile-clone` | build planning started |
+| 992 | Linkin.bio | `GeorgeQLe/linkin-bio-mobile-clone` | build planning started |
+| 993 | Taplink | `GeorgeQLe/taplink-mobile-clone` | build planning started |
+| 994 | Yandex Maps | `GeorgeQLe/yandex-maps-mobile-clone` | build planning started |
+| 995 | 2GIS | `GeorgeQLe/2gis-mobile-clone` | build planning started |
+| 996 | HERE WeGo | `GeorgeQLe/here-wego-mobile-clone` | build planning started |
+| 997 | MAPS.ME | `GeorgeQLe/maps-me-mobile-clone` | build planning started |
+| 998 | OsmAnd | `GeorgeQLe/osmand-mobile-clone` | build planning started |
+| 999 | Sygic | `GeorgeQLe/sygic-mobile-clone` | build planning started |
+| 1000 | TomTom GO | `GeorgeQLe/tomtom-go-mobile-clone` | build planning started |
