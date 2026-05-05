@@ -1,5 +1,15 @@
 # History
 
+## 2026-05-05 - Phase 8 Step 8.3 Cloud Files And Identity Slice (IDs 781-800)
+
+- Promoted 20 cloud-files-and-identity specs to implementation-ready public-source V1: `781-mega.md` through `800-google-authenticator.md`.
+- Added `scripts/promote-batch-40-specs.mjs` as a repeatable generator for the slice.
+- Replaced source-discovery placeholders with exact public marketplace/product/help/support/privacy/terms URLs or explicit platform blockers verified on 2026-05-05.
+- Three sub-category screen inventories: cloud-storage (encrypted sync, camera uploads, selective sync, link sharing, file versioning), document-scanning (auto-edge detection, OCR, batch scanning, PDF export, e-sign), and password-auth (vault encryption, autofill, TOTP/passkey, breach monitoring, biometric unlock).
+- Preserved manual blockers for end-to-end/zero-knowledge encryption key derivation and recovery, autofill integration behavior (iOS AutoFill, Android Autofill API), camera permission and auto-detection accuracy, OCR accuracy and language support, e-sign legal validity across jurisdictions, TOTP generation accuracy and time sync, cloud backup encryption, multi-device sync, emergency access trust mechanics, and enterprise/compliance certifications.
+- Updated `tasks/todo.md` Step 8.3 progress to 800 of 1000 promoted with 200 remaining Draft 1 placeholder rows.
+- Validation: 0 residual `Source discovery` strings, 20 `Implementation-ready` specs, all with exactly one H1.
+
 ## 2026-05-05 - Phase 8 Step 8.3 Productivity Documents Slice (IDs 721-740)
 
 - Promoted 20 productivity-documents specs to implementation-ready public-source V1: `721-google-docs.md` through `740-anytype.md`.
