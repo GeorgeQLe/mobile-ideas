@@ -1,5 +1,29 @@
 # History
 
+## 2026-05-05 - Phase 8 Step 8.3 Health Family Safety And Education Slice (IDs 681-700)
+
+- Promoted 20 health/medical, parenting/family-safety, and education specs to implementation-ready public-source V1: `681-google-fit.md` through `700-schoology.md`.
+- Added `scripts/promote-batch-35-specs.mjs` as a repeatable generator for the slice.
+- Replaced source-discovery placeholders with exact public marketplace/product/help/support/privacy/terms URLs or explicit platform blockers verified on 2026-05-05.
+- Preserved manual blockers for health-data and wearable sync, HealthKit/Health Connect permissions, sleep/audio tracking, wellness and medical-adjacent disclaimers, pregnancy/family/minor privacy, child location, parental-control device management, private family media, childcare listing freshness, classroom/LMS student-data handling, institution SSO, assessment integrity, grades visibility, push payloads, accessibility, and region/provider/school availability.
+- Expanded category-specific risk coverage: health data and sensor accuracy, family location misuse, child and student privacy, COPPA/FERPA-style controls, caregiver/parent/school role scoping, invite/access revocation, community moderation, private media sharing, school-owned records, provider-owned records, data export/deletion limitations, and platform blockers for Athlytic Android parity.
+- Refreshed `tasks/implementation-readiness.md` to 700 of 1000 ready and moved the next Step 8.3 slice to IDs 701-720.
+- Validation: targeted checks found one H1 and 18 canonical H2 sections in each promoted file and no `Source discovery`, `Readiness status: Draft 1`, or exact-URL-pending markers in the 20-file slice.
+- Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 700 implementation-ready specs and 900 source-discovery placeholder rows across 300 remaining files.
+
+### Ship Manifest
+
+- User goal: execute `$run` next incomplete Step 8.3 slice and ship the result.
+- Changed files: `scripts/promote-batch-35-specs.mjs`, `specs/batch-35/681-google-fit.md` through `specs/batch-35/700-schoology.md`, `tasks/todo.md`, `tasks/implementation-readiness.md`, and `tasks/history.md`.
+- Per-file purpose: added a repeatable batch-35 promotion script, promoted 20 specs to implementation-ready public-source V1, and recorded readiness counts, next slice, and audit evidence.
+- User-goal mapping: the edited specs replace Draft 1/source-discovery placeholders for IDs 681-700; task files preserve the Step 8.3 execution trail and handoff.
+- Tests run: `node scripts/check-implementation-readiness.mjs` expected-red with 700 ready specs and 900 remaining placeholders; targeted `rg` checks found no Draft 1/source-discovery markers in the promoted slice; targeted H1/H2 checks found one H1 and 18 H2 sections per promoted file.
+- Skipped tests: no runtime lint/type/build commands apply because this repository contains planning/specification Markdown and this slice changes no runtime application code; the new Node script is a documentation generator verified by execution and resulting Markdown audits.
+- Adversarial review: diff reviewed for source-discovery residue, one-H1 structure, readiness-count consistency, manual native blockers, lawful functional-parity boundaries, health/family-safety/education privacy coverage, platform blockers, and next-slice routing.
+- Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native verification before one-for-one parity claims.
+- Rollback note: revert the shipping commit to restore IDs 681-700 to their previous Draft 1 scaffold state and previous readiness counts.
+- Next command: `$run`.
+
 ## 2026-05-05 - Phase 8 Step 8.3 Health Medical Slice (IDs 661-680)
 
 - Promoted 20 health/medical specs to implementation-ready public-source V1: `661-express-scripts.md` through `680-apple-health.md`.

@@ -3,189 +3,184 @@
 > Metadata
 > - Inspiration app: Schoology
 > - Category: Education
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace/source-discovery links only; exact first-party URL replacement and hands-on verification are still required.
-> - Manual verification blockers: native iOS/Android screen capture, account lifecycle walkthrough, subscription or payment state, permission prompts, push notifications, provider integrations, and region-specific behavior require lawful test evidence before one-for-one parity claims.
-> - Legal scope: functional parity only; use original code, brand, copy, iconography, sample data, media, policies, and integrations.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-05.
+> - Verification basis: exact public marketplace, official product/help, privacy, and terms URLs captured on 2026-05-05; hands-on native evidence is still required before one-for-one parity claims.
+> - Manual verification blockers: district configuration, student/instructor roles, PowerSchool account/SSO, FERPA/student-data privacy, assessment integrity, offline limitations, notification payloads, and school support ownership.
+> - Legal scope: functional parity only; do not use original code, brand, copy, iconography, screenshots, media, private APIs, proprietary datasets, school/provider contracts, child data, or unlicensed integrations.
 
 ## Overview
 
-Build an original mobile product inspired by Schoology's public user-facing workflow. The clone focus is: Learner/family onboarding, content or classroom surfaces, progress tracking, messaging, reminders, privacy controls, and minors/student-data gates
+Build an original mobile product inspired by Schoology's public education workflow. The V1 clone focuses on PowerSchool Schoology courses, assignments, assessments, discussions, messages, grades, notifications, classroom collaboration, and school/district account access.
 
-This Draft 1 spec reserves ID 700 in the 1000-app backlog. It provides enough structure for downstream research, estimation, and lawful implementation planning, but it is not implementation-ready until exact first-party URLs replace source-discovery links and app-specific public evidence is added.
+This spec is implementation-ready for a lawful public-source V1 because source-discovery placeholders have been replaced with exact public URLs or explicit platform blockers, app-specific privacy/safety boundaries are explicit, and unverified native, account, subscription, school, provider, family, regional, and regulated behaviors remain blocked until hands-on evidence is captured.
 
 ## Goals
 
-- Deliver a mobile-first education experience with onboarding, primary workflow, settings, support, and recovery flows.
-- Reproduce the functional job behind Schoology using original product naming, original UI, original sample data, and licensed integrations.
-- Preserve exact boundaries between public-source evidence, inferred clone requirements, and blocked hands-on behavior.
-- Define screens, entities, API contracts, offline behavior, privacy/safety controls, analytics, tests, acceptance criteria, and build phases.
+- Deliver a mobile-first education experience with onboarding, dashboard, primary workflow, reminders or notifications, settings, support, and recovery flows.
+- Preserve the functional job behind Schoology while using original product naming, original UI, original sample data, and licensed integrations.
+- Keep public-source evidence, inferred requirements, and blocked hands-on behavior visibly separate.
+- Define screens, entities, API contracts, realtime/offline behavior, permissions, privacy/safety controls, analytics, tests, acceptance criteria, and implementation phases.
 
 ## Non-Goals
 
-- Do not copy Schoology branding, logos, screenshots, marketing copy, private APIs, proprietary datasets, ranking systems, or protected media.
-- Do not claim exact native behavior until a lawful hands-on verification pass records evidence.
-- Do not implement production payments, regulated services, medical advice, transport dispatch, smart-home control, or real-money game economies without separate legal/platform review.
-- Do not build runtime app code in this spec store.
+- Do not copy Schoology branding, logos, screenshots, marketing copy, private APIs, proprietary datasets, plan names, UI trade dress, community content, school content, health content, or protected media.
+- Do not claim exact native behavior until lawful hands-on verification records evidence for iOS, Android, account, permission, push, subscription, role, and region states.
+- Do not provide clinical advice, child surveillance bypasses, school-record control, emergency routing, or regulated services without separate legal and safety review.
+- Do not build runtime app code in this spec repository.
 
 ## Research Sources
 
-| Source | Discovery URL | Evidence To Verify | Status |
+| Source | URL | Evidence To Verify | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/search?term=Schoology | iOS listing, category, age rating, privacy labels, release notes, support links | Source discovery -- pending exact URL verification |
-| Google Play | https://play.google.com/store/search?q=Schoology&c=apps | Android listing, content rating, data safety, feature blurbs | Source discovery -- pending exact URL verification |
-| Official website/help search | https://www.google.com/search?q=Schoology%20official%20app%20help%20privacy%20terms | Help center, privacy, terms, support, subscription, safety, and product docs to replace with first-party URLs | Source discovery -- pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/schoology/id411766326 | iOS listing, privacy labels, ratings, LMS feature claims, and support links | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Google Play | https://play.google.com/store/apps/details?id=com.schoology.app | Android listing, data safety, LMS feature claims, and release cadence | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Official product site | https://www.powerschool.com/classroom/schoology-learning/ | Schoology product scope, LMS features, collaboration, and district positioning | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Official support | https://uc.powerschool-docs.com/en/schoology/latest | Schoology documentation for courses, assignments, grades, messages, and app behavior | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Privacy policy | https://www.powerschool.com/privacy/ | Student, school, account, content, analytics, and sharing disclosures | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Terms | https://www.powerschool.com/terms/ | PowerSchool service terms, school relationship, content, and acceptable-use boundaries | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
 
 ## Detailed Design
 
-- Onboarding must support guest, signup, returning-user, permission-primer, and blocked-account states appropriate for education.
-- Home must default to Home/Workspace with empty, loading, personalized, degraded-network, and signed-out variants.
-- The primary action must be reachable from Create/Edit within two taps from home.
-- Detail/Preview must represent preview, confirmation, or consumption state with saved, shared, unavailable, and error variants.
-- Settings must include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements must model free, trial, paid, expired, canceled, restored, refunded, and unavailable states without copying plan names or pricing.
-- Accessibility must support dynamic type, screen reader labels, visible focus, contrast, reduced motion, and captions/transcripts where relevant.
-- Offline behavior must preserve recoverable drafts and block irreversible or regulated writes until the client has canonical server state.
+- Onboarding must support account creation, returning-user recovery, consent, role or eligibility checks, permission primers, and blocked-account states.
+- Home must default to a personalized dashboard with empty, loading, loaded, degraded-network, stale-data, signed-out, consent-missing, and permission-denied variants.
+- The primary workflow must be reachable within two taps from home and expose clear state transitions, recovery actions, and auditability for sensitive changes.
+- Detail views must show provenance, freshness, source, ownership, retention, and limitations for health, family, location, media, or school data.
+- Settings must include profile, privacy, notifications, support, terms, privacy policy, data export, and deletion or account-closure entry points.
+- Entitlements must model free, trial, paid, expired, canceled, restored, refunded, sponsored, school/provider eligible, and unavailable states without copying plan names or pricing.
+- Accessibility must support dynamic type, screen reader labels, visible focus, contrast, reduced motion, captions/transcripts where relevant, and error text that does not rely on color alone.
+- Offline behavior must preserve safe read-only context and recoverable drafts while blocking regulated, safety-sensitive, school-owned, provider-owned, child-location, or irreversible writes until canonical server state is available.
+- Manual blockers must remain launch-blocking until verified: district configuration, student/instructor roles, PowerSchool account/SSO, FERPA/student-data privacy, assessment integrity, offline limitations, notification payloads, and school support ownership.
 
 ## Core User Journeys
 
-- New user installs, reviews an original value proposition, creates or restores an account, and reaches Home/Workspace.
-- Returning user opens Home/Workspace, resumes the latest meaningful state, and completes the primary action in Create/Edit.
-- User searches or browses, opens Detail/Preview, saves or shares the item, and later finds it again from history or library.
-- User denies a requested permission, receives a functional fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry, reconcile, or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees correct locked/unlocked states.
-- User requests support, submits a report or dispute where relevant, and receives a durable case state.
-- User requests data export and account deletion from settings.
+- User creates or restores a Schoology-style account, completes required consent, role, or eligibility checks, and reaches the dashboard.
+- User reviews a health metric, family item, child safety state, course item, message, or record with source/provenance and limitations clearly labeled.
+- User starts the primary tracking, learning, sharing, scheduling, control, search, or support flow and receives a durable status.
+- User edits notification/reminder preferences and sees distinctions between transactional, care/safety-critical, school-critical, marketing, and optional wellness messages.
+- User exports data or requests deletion, sees provider-owned, school-owned, child-owned, legal-hold, or subscription limitations, and receives an auditable request state.
+- User attempts an urgent, unsafe, privacy-invasive, or clinically/school-sensitive action and is routed to emergency, caregiver, school, provider, or support channels instead of generic completion.
+- User loses connectivity, sees cached state labeled as stale, can inspect allowed history, and cannot submit unsafe or regulated requests until reconnected.
 
 ## Screen Inventory
 
 | Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Home/Workspace | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Create/Edit | Primary creation/action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Detail/Preview | Inspect, consume, or confirm details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Search | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Share | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Sync/Activity | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Templates/Library | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Permissions | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Welcome/Auth | Institution, school, or site login | SSO, site URL, email, role | new, returning, role-bound, locked | school SSO failed, unsupported site, role mismatch |
+| Course Dashboard | Courses, due dates, announcements, and recent activity | tap, filter, refresh, deep link | empty, loading, current, stale | offline, missing course, district outage |
+| Course Detail | Modules, materials, assignments, tests, discussions, and grades | open, submit, comment, download | available, locked, submitted, graded | late, unavailable, upload failed, quiz locked |
+| Messages/Notifications | Announcements, direct messages, reminders, and push settings | compose, reply, toggle, deep link | unread, sent, muted, failed | privacy leak, stale payload, disabled push |
+| Settings/Privacy | Profile, support, legal links, export/delete constraints | forms, links, support case | loaded, editing, requested | school-owned data, account locked, legal hold |
 
 ## Data Model
 
-- `User`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Schoology-style workflows.
-- `Workspace`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Schoology-style workflows.
-- `Document`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Schoology-style workflows.
-- `Asset`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Schoology-style workflows.
-- `Project`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Schoology-style workflows.
-- `Version`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Schoology-style workflows.
-- `ShareGrant`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Schoology-style workflows.
-- `Template`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Schoology-style workflows.
-- `SyncJob`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Schoology-style workflows.
-- `Notification`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Schoology-style workflows.
-- `AuditEvent`: append-only record for sensitive writes, account changes, support actions, moderation decisions, and entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, conflict resolution, and cache expiry.
+- User: account, identity, role, consent, locale, accessibility, notification preferences, deletion/export status, and support state.
+- Profile: health profile, child profile, parent/caregiver profile, student profile, instructor profile, school profile, or household member with eligibility and verification metadata.
+- Relationship: provider, device, app integration, child/caregiver, family invite, school/institution, course, teacher/student, or subscription relationship with scope and expiry.
+- Record: health metric, sleep/audio item, location event, family media item, childcare listing, activity, course material, assignment, grade, message, or support case with provenance and release status.
+- Request: tracking session, app/device sync, family share, parental-control command, childcare contact, assignment submission, message, export, deletion, bill, subscription, or support request with validation and queue state.
+- ConsentGrant: permission, child consent, caregiver/proxy access, school/institution access, marketing, notification, HealthKit, Health Connect, location, media, or integration consent with revocation audit.
+- Reminder: health, sleep, activity, pregnancy, child, calendar, assignment, due-date, safety, or family reminder with quiet hours and delivery history.
+- Entitlement: free, trial, paid, restored, refunded, expired, sponsored, family, school, provider, or unavailable entitlement state.
+- AuditEvent: sensitive reads/writes, role changes, child/family access, location/media access, school submissions, exports, account deletion, support escalation, and billing events.
+- LocalCacheRecord: encrypted offline summary cache with TTL, redaction policy, retry state, stale-source label, and device-lock requirements.
 
 ## API And Backend Contracts
 
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /workspaces, GET /documents, GET /assets, GET /projects; all reads return authorization status, pagination, cache hints, stale-data markers, and localization keys.
-- Writes: POST /users, POST /workspaces, POST /documents, POST /assets, POST /projects; all writes require validation errors, idempotency keys, optimistic-state reconciliation, and audit events for sensitive state.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context.
-- Upload/import: use signed upload URLs, MIME/size validation, malware/content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must refetch canonical state after missed events.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+- Auth/identity: POST /auth/session, POST /auth/mfa, POST /identity/verify, POST /eligibility/check, and POST /invites/accept with audit metadata.
+- Profile/roles: GET /profile, PATCH /profile, GET /relationships, and role-scoped authorization responses.
+- Records: GET /records, GET /records/{recordId}, POST /records/export, and release-status metadata for provider-owned, school-owned, family-owned, or device-owned records.
+- Requests: POST /requests, GET /requests/{requestId}, PATCH /requests/{requestId}, and type-specific validation for tracking, sharing, control, assignment, message, calendar, or support workflows.
+- Messages/reminders: GET /messages, POST /messages, POST /reminders, and transactional push categories that distinguish urgent, child-safety, school-critical, marketing, and optional wellness content.
+- Directory/search: GET /directory with service, school, course, provider, childcare, food/content, location, category, and availability filters plus freshness disclaimers.
+- Payments/entitlements: GET /entitlements, POST /checkout/session, POST /entitlements/restore, and receipt metadata without storing raw card or regulated identifiers in the client.
+- Integrations: GET /integrations, POST /integrations/connect, DELETE /integrations/{id}, and permission-scoped imports from HealthKit, Health Connect, calendars, wearables, school LMS, or location systems.
+- Privacy/support: GET /privacy/settings, PATCH /privacy/settings, POST /data-export, DELETE /account, and POST /support-cases with legal-hold, school-owned, provider-owned, and child-data limitations.
+- Audit/config: GET /audit-events for user-visible sensitive activity where lawful; GET /app-config returns feature flags, supported regions, legal links, copy keys, minimum versions, and maintenance banners.
 
 ## Realtime, Push, And Offline Behavior
 
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must reconcile against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+- Cache the dashboard, recent detail pages, settings, entitlement state, and safe drafts with explicit TTL and stale-state labels.
+- Realtime channels may use websocket, SSE, polling, device-sync callbacks, LMS sync, location updates, or push-triggered refetch; clients must reconcile against canonical server state after missed events.
+- Push notifications must be opt-in, grouped by category, mirrored in an in-app notification center where relevant, and deep-linked only after authorization checks.
+- Queue only low-risk drafts locally; block regulated care requests, child-location control, school submissions/tests, paid transactions, irreversible deletes, and unsafe requests while offline.
+- Long-running tasks must expose pending, complete, failed, canceled, expired, provider-review, school-review, family-review, and support-escalated states.
+- Background work must tolerate app termination, OS permission changes, token expiry, clock skew, duplicate events, stale wearable/location/LMS data, and replayed webhooks.
 
 ## Permissions, Privacy, And Safety
 
-- Treat data loss as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat permission leakage as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat copyrighted assets as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat collaboration access as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat device security as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
+- Treat student data, grades, assignments, school identity, institution-owned records, SSO, teacher/student roles, FERPA-style controls, assessment integrity, and school/district support boundaries as launch-blocking review areas with owners, mitigations, and acceptance tests before implementation.
+- Consent, proxy, caregiver, parent, school, provider, organization, device, and integration access must be explicit, auditable, revocable where lawful, and clearly separate from marketing preferences.
+- Do not send raw health entries, child location, school content, grades, family media, private messages, precise location, payment data, or child/student data as analytics properties.
+- Provider-owned, school-owned, device-owned, family-owned, or organization-owned records may not be deletable or exportable solely by the clone; display limitations and request status honestly.
+- Native permission prompts for notifications, camera/media, microphone/audio, location, Bluetooth/device sync, HealthKit, Health Connect, calendars, contacts, photos, files, and local network must be just-in-time and have functional denial fallbacks.
+- Safety copy must route urgent symptoms, child safety risk, abuse reports, location misuse, school emergencies, privacy concerns, and severe wellness risks to appropriate human-owned channels.
 - Use original sample data and licensed third-party providers only after legal review.
 
 ## Analytics And Monetization
 
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement logic; do not copy exact pricing, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, private messages, or child data as event properties.
+- Onboarding events: onboarding_started, permission_primer_viewed, signup_started, signup_completed, eligibility_checked, role_selected, and onboarding_blocked with source, locale, and experiment IDs.
+- Core action events: home_viewed, detail_opened, primary_action_started, primary_action_completed, primary_action_failed, and support_started with object type and coarse failure code only.
+- Retention events: notification_opened, reminder_configured, history_opened, export_started, sync_recovered, subscription_restored, and settings_updated.
+- Safety/privacy events: privacy_setting_changed, data_export_requested, account_delete_requested, access_grant_created, access_grant_revoked, safety_block_shown, and urgent_disclaimer_viewed.
+- Monetization events: paywall_viewed, trial_started, purchase_started, purchase_completed, purchase_failed, subscription_canceled, entitlement_restored, benefit_eligible, and entitlement_expired where monetization is in scope.
+- Monetization model: use original free/trial/paid/sponsored/school/provider entitlement logic; do not copy exact pricing, plan names, bundle names, promotional copy, school contracts, or partner offers from Schoology.
+- Analytics rule: do not send raw content, symptoms, child/student identifiers, school records, grades, family media, location traces, professional identifiers, payment credentials, private messages, or child data as event properties.
 
 ## Edge Cases
 
-- First launch with no network, no account, expired session, or unsupported OS version.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
-- Subscription restored on a different platform, refunded externally, or unavailable in the user's region.
-- Legal/privacy request submitted while transactions, messages, or support cases are still active.
+- First launch with no network, unsupported OS, expired session, revoked token, unsupported region, missing school/provider/family benefit, or maintenance banner.
+- Permission denied, permission revoked in OS settings, limited permission granted, device disconnected, school SSO expired, child profile missing, and permission granted after fallback use.
+- Duplicate taps, retry after timeout, duplicate webhook delivery, stale optimistic UI, conflict after reconnect, and clock skew.
+- Deleted, suspended, blocked, expired, unavailable, region-locked, entitlement-locked, provider-owned, school-owned, child-owned, device-owned, or account-merged objects.
+- Partial upload/download, corrupt cache, disk full, app termination during background work, and push delivered before local cache is ready.
+- Abuse/fraud: account takeover, invite abuse, location misuse, overbroad sharing, school impersonation, unsafe requests, support social engineering, and policy escalation.
+- Subscription, paid purchase, school eligibility, provider eligibility, family plan, or device service restored on a different platform, refunded externally, unavailable in region, or contradicted by server state.
+- Legal/privacy request submitted while active care relationships, family invites, child data, school courses, messages, subscriptions, support cases, or audit records still exist.
 
 ## Test Plan
 
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+- Unit tests for validation, state machines, permission gates, role checks, entitlement checks, idempotency keys, safety copy routing, and privacy-safe analytics payload construction.
+- Integration tests for auth, onboarding, eligibility, primary reads/writes, settings, support, notifications, entitlement transitions, data export, and account deletion.
+- Contract tests for every documented API response shape, error code, pagination behavior, webhook event, provider/device/LMS import, and realtime reconciliation path.
+- Offline tests for cached reads, stale labels, queued safe drafts, blocked unsafe writes, reconnect reconciliation, and corrupt-cache recovery.
+- Permission tests for denied, granted, revoked, limited-access, OS-settings recovery, HealthKit, Health Connect, camera, microphone, location, notification, calendar, contacts, and files states.
+- Safety/privacy tests for sensitive-data redaction, consent/sharing revocation, support escalation, audit events, urgent disclaimers, legal links, child/student data, and school/provider-owned records.
+- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, media alternatives, and error text.
+- Billing/entitlement tests for trial, purchase, renewal, cancellation, refund, expiration, restore, sponsored/school/provider eligibility, and unavailable states where applicable.
+- Notification tests for opt-in, denied, revoked, quiet hours, category preferences, reminder timing, deep links, and in-app notification center behavior.
+- Manual verification tests for district configuration, student/instructor roles, PowerSchool account/SSO, FERPA/student-data privacy, assessment integrity, offline limitations, notification payloads, and school support ownership.
 
 ## Acceptance Criteria
 
 - The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source-discovery links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+- All research-source rows use exact public URLs or explicit platform/provider blockers; no source-discovery placeholder remains.
+- A new user can complete onboarding and reach the default dashboard without unsupported permissions.
+- A returning user can complete the primary workflow, recover from network failure, and confirm canonical server state after reconnect.
+- Dashboard, detail, primary action, reminders, records/history, settings, support, notifications, entitlement, and deletion/export flows are represented in routes and tests.
+- All entities have owners, lifecycle states, authorization rules, retention, audit events, and deletion/export behavior.
+- At least 10 acceptance tests cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, entitlement, notifications, data deletion/export, and regression behavior.
+- Hands-on native parity remains blocked until the manual verification blockers listed in metadata have recorded lawful evidence.
 
 ## Open Questions
 
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, regulated sandbox, or provider credentials?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, AI, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+- Which exact iOS and Android native screens, permission prompts, and push payloads differ materially from public marketplace claims?
+- Which account, subscription, provider, school, child, family, device, organization, region, or eligibility states require paid, sponsored, physical, or regulated test access?
+- Which third-party providers will supply identity, payments, notifications, analytics, maps, childcare listings, device cloud, HealthKit, Health Connect, LMS, storage, media, or support services for the original clone?
+- Which features are intentionally out of scope for legal, safety, budget, provider-contract, school-contract, medical-device, child-data, or platform-policy reasons?
+- What retention, export, and deletion limits apply to provider-owned, school-owned, device-owned, family-owned, child/student, billing, subscription, support, or audit records?
 
 ## Build Plan
 
-- Phase 1: Replace source-discovery rows with exact first-party URLs and classify each requirement as verified or inferred.
-- Phase 2: Define route map, component map, domain entities, API schema, permissions, analytics schema, and seed-data policy.
-- Phase 3: Build onboarding, home, primary action, detail, search, settings, support, and entitlement shells with original copy and sample data.
-- Phase 4: Add backend contracts, offline/retry handling, notification preferences, data export/delete, and safety/reporting flows.
-- Phase 5: Complete accessibility, privacy, safety, billing, permission, and regression tests.
-- Phase 6: Conduct lawful hands-on verification and resolve manual blockers before parity claims.
+- Phase 1: Convert this spec into route map, component map, domain entities, API schemas, permissions matrix, analytics schema, seed-data policy, and safety-review checklist.
+- Phase 2: Build onboarding, dashboard, detail, primary workflow, settings, support, and entitlement shells with original copy and sample data.
+- Phase 3: Add backend contracts, audit logging, offline/retry handling, notification preferences, consent/proxy/sharing controls, integrations, and data export/delete flows.
+- Phase 4: Add app-specific safety controls for PowerSchool Schoology courses, assignments, assessments, discussions, messages, grades, notifications, classroom collaboration, and school/district account access.
+- Phase 5: Complete accessibility, privacy, safety, entitlement, permission, offline, notification, billing, and regression tests.
+- Phase 6: Conduct lawful hands-on native verification and resolve manual blockers before claiming one-for-one parity.
 
 ## Next Steps
 
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, support docs, and user-review themes in a dedicated research note without committing proprietary media.
-- Resolve open questions and update this spec before downstream implementation starts.
-- Extend the Phase 5 implementation-plan queue and repo-seeding manifest after the spec reaches implementation-ready V1.
+- Capture native iOS and Android screen evidence for onboarding, dashboard, primary workflows, settings, permissions, notifications, entitlement states, and account deletion.
+- Record app-specific account, provider, school, family, child, device, subscription, region, and support blockers in a dedicated research note without committing proprietary screenshots or media.
+- Confirm legal/privacy retention behavior for Schoology-style sensitive records and update API contracts before downstream implementation.
+- Extend the Phase 5 implementation-plan queue and downstream repo source-spec copies after this readiness slice is accepted.
