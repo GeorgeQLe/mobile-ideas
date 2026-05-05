@@ -43,6 +43,43 @@ Extend the canonical spec store from 200 to 1000 mobile app clone ideas. IDs 201
 
 - [ ] Step 8.3: Promote IDs 101-1000 from Draft 1 to implementation-ready public-source V1 (absorbs Phase 7 Step 7.3; scope = 900 specs). Run in category-coherent batches. See archived Phase 7 Step 7.3 detail in `tasks/phases/phase-7.md` for the full operation: exact-URL replacement, verified-vs-inferred discipline, depth expansion, Manual verification blockers per app, and category risk review. Validation: every promoted spec's `Readiness status` line reads `Implementation-ready for a lawful public-source V1 clone as of YYYY-MM-DD.`; no residual `Source discovery -- pending exact URL verification` strings in promoted specs. Progress through 2026-05-05: IDs 101-800 promoted; post-slice audit reports 800 implementation-ready specs and 200 remaining Draft 1 placeholder rows. Latest slice completed: IDs 781-800 (`MEGA` through `Google Authenticator`) promoted across cloud-storage (781-785), document-scanning (786-791), and password-auth (792-800) sub-categories within the cloud-files-and-identity category batch. The slice preserved end-to-end/zero-knowledge encryption, encrypted cloud sync, camera upload background behavior, selective sync, link sharing with password/expiry, file versioning, document scanning with auto-edge detection and OCR, perspective correction, batch scanning, PDF/image export, e-signature workflows, cloud export integrations, vault encryption and key derivation, login autofill, password generation, TOTP/passkey support, breach/dark-web monitoring, multi-device sync, biometric unlock, emergency access, and family/team/enterprise sharing. Next concrete slice: promote IDs 801-820 from `tasks/ideas.md`, replacing source-discovery placeholders with exact first-party URLs.
 
+#### Next-Step Plan: Promote IDs 801-820 (Batch 41)
+
+**What:** Create `scripts/promote-batch-41-specs.mjs` following the established pattern (batch 38/40 scripts). Run it to overwrite 20 Draft 1 scaffolds in `specs/batch-41/` with implementation-ready V1 specs. Validate and update this progress note.
+
+**Apps and sub-categories:**
+- **Identity/auth** (801-803): Microsoft Authenticator, Okta Verify, Duo Mobile — category "Cloud files and identity"
+- **VPN** (804-811): NordVPN, ExpressVPN, Surfshark, Proton VPN, Mullvad VPN, TunnelBear, Windscribe, Cloudflare WARP — category "Security and VPN"
+- **Security suite** (812-818): Malwarebytes, Norton 360, McAfee Security, Avast One, Bitdefender Mobile Security, 2FAS, Yubico Authenticator — category "Security and VPN"
+- **Enterprise CRM** (819-820): Salesforce, HubSpot — category "Enterprise operations"
+
+**Files affected:**
+- `scripts/promote-batch-41-specs.mjs` (new)
+- `specs/batch-41/801-microsoft-authenticator.md` through `specs/batch-41/820-hubspot.md` (20 files overwritten)
+- `tasks/todo.md` (Step 8.3 progress note update to 820 promoted)
+- `tasks/history.md` (session record)
+
+**Key technical decisions:**
+- `screenRows()` needs four sub-category variants: identity-auth, vpn, security-suite, enterprise-crm
+- `risk()` returns category-appropriate risk areas for each sub-category
+- Each app gets app-specific `focus`, `blockers`, and `sources` with exact first-party URLs (App Store, Google Play, official site, help, privacy, terms)
+- VPN apps need VPN-specific screen inventory (connect/disconnect, server selection, kill switch, split tunneling)
+- Security suite apps need scan/protection screen inventory (threat scanning, web protection, identity monitoring)
+- Enterprise CRM apps need CRM-specific screen inventory (contacts, deals, pipeline, reports)
+
+**Execution profile:** serial, implementation-safe, main agent
+
+**Validation:**
+```
+grep -rl "Source discovery" specs/batch-41/*.md | wc -l  # expect 0
+grep -l "Implementation-ready" specs/batch-41/*.md | wc -l  # expect 20
+for f in specs/batch-41/[0-9]*.md; do count=$(grep -c "^# " "$f"); [ "$count" -ne 1 ] && echo "FAIL: $f has $count H1s"; done
+```
+
+**Acceptance criteria:** 20 specs pass validation (one H1, implementation-ready status, no source-discovery residue, canonical sections present), todo.md progress updated to 820.
+
+**Ship-one-step handoff contract:** After implementing this step, validate it, mark the Step 8.3 progress note updated, update `tasks/history.md`, commit and push the completed work, write the following step's plan (IDs 821-840), ensure `.claude/settings.local.json` has `"showClearContextOnPlanAccept": true` and `"defaultMode": "acceptEdits"`, start the approval UI for that following step by calling `EnterPlanMode` first, write a brief pass-through plan in plan mode, call `ExitPlanMode`, and stop before implementing it.
+
 - [ ] Step 8.4: Extend `tasks/roadmap.md` Phase 5 plan queue to 1000 rows. Append 800 rows for IDs 201-1000 (ID | App | Source Spec | High-Level Implementation Plan). Land only after Step 8.3 lands for the corresponding ID range.
 
 - [x] Step 8.5: Extend and verify `tasks/repo-seeding.md` Per-Repo Checklist manifest to 1000 rows. Verified 2026-05-01: 1000 checked rows, 0 unchecked rows. Audit again after Step 8.3 lands only if source spec paths or readiness labels change.
