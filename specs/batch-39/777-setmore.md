@@ -3,189 +3,215 @@
 > Metadata
 > - Inspiration app: Setmore
 > - Category: Scheduling and appointments
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace/source-discovery links only; exact first-party URL replacement and hands-on verification are still required.
-> - Manual verification blockers: native iOS/Android screen capture, account lifecycle walkthrough, subscription or payment state, permission prompts, push notifications, provider integrations, and region-specific behavior require lawful test evidence before one-for-one parity claims.
-> - Legal scope: functional parity only; use original code, brand, copy, iconography, sample data, media, policies, and integrations.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-05.
+> - Verification basis: exact public marketplace, official product/help, privacy, and terms URLs captured on 2026-05-05; hands-on native evidence is still required before one-for-one parity claims.
+> - Manual verification blockers: Teleport video meeting hosting, social media booking page integration, payment gateway connections, staff scheduling, native iOS/Android screen capture, account lifecycle walkthrough.
+> - Legal scope: functional parity only; do not use original code, brand, copy, iconography, screenshots, media, private APIs, proprietary datasets, licensed course/document content, school contracts, tenant data, or unlicensed integrations.
 
 ## Overview
 
-Build an original mobile product inspired by Setmore's public user-facing workflow. The clone focus is: Workspace/object creation, search, sharing, sync/offline conflict handling, import/export, permissions, and subscription state
+Build an original mobile product inspired by Setmore's public user-facing workflow. Setmore is a free online appointment scheduling platform that differentiates through generous free-tier features, built-in video meetings (branded "Teleport"), social media booking page integration (Instagram, Facebook, Google), and broad payment gateway support (Square, Stripe, PayPal). It targets small businesses, freelancers, and service professionals who need scheduling without high software costs.
 
-This Draft 1 spec reserves ID 777 in the 1000-app backlog. It provides enough structure for downstream research, estimation, and lawful implementation planning, but it is not implementation-ready until exact first-party URLs replace source-discovery links and app-specific public evidence is added.
+Setmore's positioning: free scheduling for up to 4 staff with unlimited appointments, a built-in video meeting solution for virtual appointments, and native integration with social media platforms so clients can book directly from Instagram or Facebook profiles.
 
 ## Goals
 
-- Deliver a mobile-first scheduling and appointments experience with onboarding, primary workflow, settings, support, and recovery flows.
-- Reproduce the functional job behind Setmore using original product naming, original UI, original sample data, and licensed integrations.
-- Preserve exact boundaries between public-source evidence, inferred clone requirements, and blocked hands-on behavior.
-- Define screens, entities, API contracts, offline behavior, privacy/safety controls, analytics, tests, acceptance criteria, and build phases.
+- Deliver a mobile-first free appointment scheduling platform with video meetings, social media booking integration, and multi-payment-gateway support.
+- Reproduce Setmore's functional model: generous free tier + video meetings + social booking as differentiators for small businesses.
+- Support the business workflow (schedule management, staff, clients, payments, video) and client workflow (book via any channel — web, social, direct link).
+- Define complete data model, API contracts, and test plan for implementation-ready V1.
 
 ## Non-Goals
 
-- Do not copy Setmore branding, logos, screenshots, marketing copy, private APIs, proprietary datasets, ranking systems, or protected media.
-- Do not claim exact native behavior until a lawful hands-on verification pass records evidence.
-- Do not implement production payments, regulated services, medical advice, transport dispatch, smart-home control, or real-money game economies without separate legal/platform review.
+- Do not copy Setmore branding, logos, screenshots, marketing copy, private APIs, or proprietary datasets.
+- Do not implement real video conferencing infrastructure for V1 — design UX shell; actual WebRTC/streaming deferred.
+- Do not implement real payment gateway connections without compliance review.
+- Do not replicate Setmore's exact tier limits or pricing.
+- Do not claim exact native behavior until hands-on verification.
 - Do not build runtime app code in this spec store.
 
 ## Research Sources
 
-| Source | Discovery URL | Evidence To Verify | Status |
+| Source | URL | Evidence To Verify | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/search?term=Setmore | iOS listing, category, age rating, privacy labels, release notes, support links | Source discovery -- pending exact URL verification |
-| Google Play | https://play.google.com/store/search?q=Setmore&c=apps | Android listing, content rating, data safety, feature blurbs | Source discovery -- pending exact URL verification |
-| Official website/help search | https://www.google.com/search?q=Setmore%20official%20app%20help%20privacy%20terms | Help center, privacy, terms, support, subscription, safety, and product docs to replace with first-party URLs | Source discovery -- pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/setmore-appointments/id543340498 | iOS listing, privacy labels, release notes | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Google Play | https://play.google.com/store/apps/details?id=com.setmore.business | Android listing, data safety, feature blurbs | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Official website | https://www.setmore.com/ | Product features, pricing, integrations | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Help/support center | https://support.setmore.com/ | Setup guides, video meeting docs, integrations | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Privacy policy | https://www.setmore.com/privacy-policy | Data practices, retention, sharing | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Terms of service | https://www.setmore.com/terms-of-service | Usage terms, liability, disputes | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
 
 ## Detailed Design
 
-- Onboarding must support guest, signup, returning-user, permission-primer, and blocked-account states appropriate for scheduling and appointments.
-- Home must default to Home/Workspace with empty, loading, personalized, degraded-network, and signed-out variants.
-- The primary action must be reachable from Create/Edit within two taps from home.
-- Detail/Preview must represent preview, confirmation, or consumption state with saved, shared, unavailable, and error variants.
-- Settings must include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements must model free, trial, paid, expired, canceled, restored, refunded, and unavailable states without copying plan names or pricing.
-- Accessibility must support dynamic type, screen reader labels, visible focus, contrast, reduced motion, and captions/transcripts where relevant.
-- Offline behavior must preserve recoverable drafts and block irreversible or regulated writes until the client has canonical server state.
+- **Free scheduling**: Unlimited appointments for up to 4 staff members on the free tier. Booking page, reminders, and basic client management included at no cost.
+- **Booking page**: Auto-generated public booking page with custom URL (business-name.setmore.com equivalent). Embeddable widget for websites. Mobile-responsive. Shows services, staff, and available times.
+- **Social media booking**: Connect booking page to Instagram (Book button on profile), Facebook (Book Now button on page), and Google Business Profile. Clients book directly from social without leaving the platform.
+- **Video meetings (Teleport)**: Built-in video conferencing for virtual appointments. When appointment is virtual, system auto-generates a meeting link shared with both parties. Join from browser or app. (V1: UX shell, actual WebRTC deferred.)
+- **Staff scheduling**: Multiple staff members with individual services, availability patterns, and booking pages. Shared calendar with conflict detection.
+- **Payment integration**: Connect Square, Stripe, or PayPal to collect payments at booking or after service. Multiple gateways configurable per business.
+- **Client management**: Client list with contact info, appointment history, notes, and communication log. Import from CSV or Google Contacts.
+- **Automated reminders**: Email and SMS appointment reminders (configurable timing). Confirmation on booking. Follow-up and review requests.
+- **Recurring appointments**: Set up weekly/monthly recurring bookings for regular clients.
+- **Calendar sync**: Two-way sync with Google Calendar, Outlook, Apple Calendar. Avoid double-booking across personal and business calendars.
+- **Multi-location**: Manage multiple business locations under one account with separate staff and schedules.
+- **Class scheduling**: Group sessions with capacity limits (paid tier feature).
 
 ## Core User Journeys
 
-- New user installs, reviews an original value proposition, creates or restores an account, and reaches Home/Workspace.
-- Returning user opens Home/Workspace, resumes the latest meaningful state, and completes the primary action in Create/Edit.
-- User searches or browses, opens Detail/Preview, saves or shares the item, and later finds it again from history or library.
-- User denies a requested permission, receives a functional fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry, reconcile, or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees correct locked/unlocked states.
-- User requests support, submits a report or dispute where relevant, and receives a durable case state.
-- User requests data export and account deletion from settings.
+- **Business sets up free account**: Downloads app, creates account, adds business info, sets up 2 services (Consultation, Follow-up), sets availability (Mon-Fri 9-5), generates booking page link, shares link on social media — all free.
+- **Client books via booking page**: Receives link from business's Instagram bio, opens booking page, selects "Consultation" service, picks available Thursday 2pm, enters name/email, confirms — no account needed.
+- **Virtual appointment flow**: Client books a virtual consultation. Both receive email with video meeting link. At appointment time, business opens app, taps "Start Meeting," client clicks link in email, video call begins (simulated in V1).
+- **Client books from Instagram**: Views business's Instagram profile, taps "Book" action button, redirected to booking page within Instagram browser, selects service and time, confirms.
+- **Staff manages schedule**: Business owner adds 3 staff members, each with different services and hours. Staff member opens their app view, sees only their appointments, manages their own availability.
+- **Payment collection**: Business connects Stripe to booking page. Client books a paid service, enters card during booking, payment collected immediately, business sees revenue in dashboard.
+- **Recurring client setup**: Regular client wants weekly massage every Tuesday 4pm. Staff sets up recurring appointment, system auto-creates appointments 4 weeks ahead, client receives reminders each week.
 
 ## Screen Inventory
 
 | Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Home/Workspace | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Create/Edit | Primary creation/action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Detail/Preview | Inspect, consume, or confirm details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Search | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Share | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Sync/Activity | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Templates/Library | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Permissions | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Dashboard | Business overview: today's appointments, quick stats | view schedule, quick actions | busy day, empty, new account | sync error, offline cached |
+| Calendar | Full calendar view (day/week/month) | tap slot, drag reschedule, switch staff | multi-staff, single staff, synced external | conflict with external, offline |
+| Booking Page Preview | Preview public booking page appearance | customize colors, toggle services, preview link | customized, default, disabled | link expired |
+| Appointment Detail | Individual appointment info and actions | start meeting, mark complete, reschedule, cancel | upcoming, in-progress, completed | client no-show, video unavailable |
+| Services | Create and manage service catalog | add service, set duration, price, assign staff | multiple services, empty, class-type | service in use (cannot delete) |
+| Staff | Manage team members and their schedules | invite staff, set hours, assign services | active staff, invited (pending), at-limit | invite failed, limit reached (free tier) |
+| Video Meeting | Video call interface (Teleport equivalent) | join meeting, mute, camera toggle, end call | connected, connecting, ended, recording | connection failed, bandwidth low |
+| Client List | Client database and search | search, add, import, view history | populated, empty, importing | import failed, sync error |
+| Client Detail | Individual client profile | edit info, view history, add note | active, has recurring, new | deleted, data export requested |
+| Payments | Payment setup and transaction history | connect gateway, view transactions, refund | connected (Stripe/Square/PayPal), not set up | gateway error, refund failed |
+| Social Integrations | Connect Instagram/Facebook/Google booking | connect platform, view status, disconnect | connected, disconnected, pending auth | auth expired, platform error |
+| Reminders | Configure automated reminder settings | toggle email/SMS, set timing, customize text | email on, SMS on, both, none | delivery failures |
+| Recurring | Set up and manage recurring appointments | set frequency, duration, client | active recurring, paused, ended | conflict on future date |
+| Reports | Booking stats, revenue, staff utilization | date range, filter by staff/service | data available, new account (empty) | calculation delay |
+| Settings | Account, billing, calendar sync, locations | edit profile, upgrade plan, sync calendar | free tier, paid, multi-location | sync failed, upgrade error |
 
 ## Data Model
 
-- `User`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Setmore-style workflows.
-- `Workspace`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Setmore-style workflows.
-- `Document`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Setmore-style workflows.
-- `Asset`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Setmore-style workflows.
-- `Project`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Setmore-style workflows.
-- `Version`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Setmore-style workflows.
-- `ShareGrant`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Setmore-style workflows.
-- `Template`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Setmore-style workflows.
-- `SyncJob`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Setmore-style workflows.
-- `Notification`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Setmore-style workflows.
-- `AuditEvent`: append-only record for sensitive writes, account changes, support actions, moderation decisions, and entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, conflict resolution, and cache expiry.
+- `Business`: id, owner_id, name, type, slug (booking page URL), address, phone, email, timezone, branding (colors, logo_url), subscription_tier (free/premium/pro), staff_limit, locations (array), created_at.
+- `User`: id, email, phone, name, role (owner/staff/client), business_id (nullable for clients), avatar_url, status.
+- `Staff`: id, user_id, business_id, display_name, title, services (service_ids), location_id, status (active/invited/deactivated).
+- `StaffAvailability`: id, staff_id, day_of_week, start_time, end_time, is_recurring, override_date, type (working/break/off).
+- `Service`: id, business_id, name, description, duration_minutes, buffer_minutes, price_cents (nullable — free services), type (appointment/class), capacity (for class type), payment_required (boolean), staff_ids, is_virtual_enabled, is_active.
+- `Appointment`: id, business_id, service_id, staff_id, client_id, start_time, end_time, status (booked/confirmed/in_progress/completed/cancelled/no_show), type (in_person/virtual), video_meeting_id (nullable), recurring_series_id, source (booking_page/social/manual/recurring), payment_id, notes, created_at.
+- `VideoMeeting`: id, appointment_id, meeting_url, host_url, participant_url, status (pending/active/ended), started_at, ended_at, duration_seconds, recording_url.
+- `RecurringSeries`: id, business_id, staff_id, client_id, service_id, frequency (weekly/biweekly/monthly), day_of_week, time, end_date, status (active/paused/ended), appointments_created_until.
+- `Client`: id, business_id, user_id (nullable — guest bookings), name, email, phone, notes, source (booking_page/social/manual/import), total_appointments, last_appointment_at, created_at.
+- `Payment`: id, business_id, appointment_id, client_id, amount_cents, tip_cents, gateway (stripe/square/paypal), gateway_transaction_id, status (pending/completed/refunded/failed), processed_at.
+- `PaymentGateway`: id, business_id, provider (stripe/square/paypal), credentials_token, status (active/disconnected/error), connected_at.
+- `SocialIntegration`: id, business_id, platform (instagram/facebook/google), status (connected/disconnected/pending), external_page_id, connected_at.
+- `BookingPage`: id, business_id, slug, is_active, branding (jsonb: primary_color, logo_url, cover_photo_url), services_visible (array), staff_visible (array), custom_text.
+- `Reminder`: id, appointment_id, type (confirmation/reminder/followup), channel (email/sms), timing_before_minutes, scheduled_at, sent_at, status.
+- `CalendarSync`: id, staff_id, provider (google/outlook/apple), external_calendar_id, sync_direction (one_way/two_way), last_synced_at, status.
+- `AuditEvent`: id, actor_id, action, resource_type, resource_id, metadata, created_at.
 
 ## API And Backend Contracts
 
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /workspaces, GET /documents, GET /assets, GET /projects; all reads return authorization status, pagination, cache hints, stale-data markers, and localization keys.
-- Writes: POST /users, POST /workspaces, POST /documents, POST /assets, POST /projects; all writes require validation errors, idempotency keys, optimistic-state reconciliation, and audit events for sensitive state.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context.
-- Upload/import: use signed upload URLs, MIME/size validation, malware/content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must refetch canonical state after missed events.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+- Auth: `POST /auth/session`, `POST /auth/signup`, `POST /auth/recover`, `POST /auth/staff-invite/accept`.
+- Business: `GET /business/:id`, `PUT /business/:id`, `GET /business/:id/stats`.
+- Services: `GET /business/:id/services`, `POST /business/:id/services`, `PUT /services/:id`, `DELETE /services/:id`.
+- Staff: `GET /business/:id/staff`, `POST /business/:id/staff/invite`, `PUT /staff/:id`, `GET /staff/:id/availability`, `PUT /staff/:id/availability`.
+- Booking page: `GET /booking/:slug` (public), `GET /booking/:slug/availability?service_id&staff_id&date`, `PUT /business/:id/booking-page` (customize).
+- Appointments: `POST /booking/:slug/appointments` (public client booking), `POST /business/:id/appointments` (manual), `PUT /appointments/:id`, `POST /appointments/:id/complete`, `POST /appointments/:id/cancel`.
+- Video meetings: `POST /appointments/:id/meeting/start`, `GET /appointments/:id/meeting/join-url`, `POST /meetings/:id/end`.
+- Recurring: `POST /business/:id/recurring`, `PUT /recurring/:id`, `DELETE /recurring/:id`.
+- Clients: `GET /business/:id/clients`, `POST /business/:id/clients`, `PUT /clients/:id`, `POST /business/:id/clients/import`.
+- Payments: `POST /appointments/:id/payment`, `GET /business/:id/payments?period`, `POST /payments/:id/refund`.
+- Gateways: `POST /business/:id/payment-gateways/connect`, `DELETE /business/:id/payment-gateways/:provider`.
+- Social: `POST /business/:id/social/connect/:platform`, `DELETE /business/:id/social/:platform`, `GET /business/:id/social/status`.
+- Calendar sync: `POST /staff/:id/calendar-sync`, `DELETE /staff/:id/calendar-sync/:provider`, `POST /staff/:id/calendar-sync/refresh`.
+- Reminders: `GET /business/:id/reminder-settings`, `PUT /business/:id/reminder-settings`.
+- Reports: `GET /business/:id/reports/bookings?period`, `GET /business/:id/reports/revenue?period`, `GET /business/:id/reports/staff?period`.
+- Privacy: `POST /data-export`, `DELETE /account`.
 
 ## Realtime, Push, And Offline Behavior
 
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must reconcile against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+- Cache today's appointments, client list, service catalog, and booking page config offline.
+- Booking page (public) requires connectivity; show error state if business page offline.
+- Push: new booking received, appointment reminder (to client and staff), video meeting starting, cancellation, recurring appointment created.
+- Realtime: calendar updates when client books via booking page; multi-staff conflict detection.
+- Video meeting: requires persistent connection; reconnection UX on drop; recording saved on end.
+- Calendar sync: periodic background refresh; conflict detection on pull; notify staff of external events blocking availability.
+- Offline: view schedule and client info; block bookings, payments, and video.
 
 ## Permissions, Privacy, And Safety
 
-- Treat data loss as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat permission leakage as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat copyrighted assets as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat collaboration access as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat device security as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+- **Free tier limits**: Enforce staff limit (4 on free); graceful upgrade prompts, not hard blocks on existing data.
+- **Client data**: Business-scoped; guest bookers' data stored minimally (name, email for reminders); GDPR deletion on request.
+- **Video privacy**: Meeting links time-limited and single-use; recordings stored encrypted; host controls recording consent.
+- **Social integration**: Platform OAuth tokens stored encrypted; disconnection removes access immediately; no data pulled from social accounts beyond booking button functionality.
+- **Payment security**: Gateway credentials never stored directly (use platform's token/key system); PCI compliance through gateway responsibility.
+- **Staff access**: Staff see only their own calendar and clients by default; owner can grant broader access.
+- **Booking page**: Public but business controls what's visible; no client data exposed on booking page.
+- Notifications for appointments and meetings; camera/microphone for video (request at meeting start); contacts for client import.
 
 ## Analytics And Monetization
 
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement logic; do not copy exact pricing, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, private messages, or child data as event properties.
+- Business events: `business_created`, `first_service_added`, `booking_page_published`, `first_booking_received`, `staff_invited`, `video_meeting_started`.
+- Booking events: `appointment_booked`, `appointment_completed`, `appointment_cancelled`, `recurring_created`, `booking_source_breakdown` (page/social/manual).
+- Integration events: `social_connected`, `payment_gateway_connected`, `calendar_synced`, `video_meeting_completed`.
+- Monetization: free tier (4 staff, unlimited appointments, booking page, reminders, 1 social integration); paid tiers unlock: more staff, video meetings, SMS reminders, multiple social integrations, custom branding, calendar sync. Do not copy Setmore's exact tier pricing.
 
 ## Edge Cases
 
-- First launch with no network, no account, expired session, or unsupported OS version.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
-- Subscription restored on a different platform, refunded externally, or unavailable in the user's region.
-- Legal/privacy request submitted while transactions, messages, or support cases are still active.
+- Staff limit reached on free tier — cannot invite more; existing staff remain active; prompt upgrade.
+- Video meeting — one party has no camera/microphone permission — audio-only fallback; prompt permission in settings.
+- Social platform API changes break booking button — detect broken integration, notify business, show manual link fallback.
+- Client books while calendar sync is delayed — double-booking possible; detect on next sync, alert staff, offer resolution options.
+- Recurring appointment conflicts with a one-off booking — one-off takes priority; skip recurring instance; notify both parties.
+- Payment gateway disconnected mid-booking — allow booking without payment; notify business to collect manually.
+- Video meeting recording storage limit reached — warn before meeting; option to delete old recordings or upgrade.
+- Business deletes staff member with future appointments — require reassignment before deletion.
+- Booking page URL slug conflict — append numeric suffix; notify business of URL change.
+- Guest client (no account) returns for second booking — match by email; merge into single client record.
 
 ## Test Plan
 
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+- Unit tests: availability calculation with calendar sync events, recurring series generation, staff limit enforcement, meeting URL generation, slug uniqueness.
+- Integration tests: full booking-via-page flow, video meeting lifecycle (create/join/end), social integration connect/disconnect, recurring appointment creation with conflict detection.
+- Contract tests: public booking page API consistency, availability endpoint accuracy with synced events, payment gateway webhook handling.
+- Offline tests: cached calendar display, booking page errors gracefully offline, video meeting requires connectivity.
+- Permission tests: staff visibility boundaries, free tier limit enforcement, client data scoping, guest vs. registered client handling.
+- Safety tests: video meeting link expiry, recording consent enforcement, social token revocation, payment security.
+- Accessibility tests: booking page WCAG compliant, calendar navigable via assistive tech, video controls accessible.
+- Billing tests: tier upgrade/downgrade, payment gateway transaction accuracy, refund processing.
 
 ## Acceptance Criteria
 
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source-discovery links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+- Business can set up and start receiving bookings completely free (up to 4 staff, unlimited appointments).
+- Clients can book via public booking page without creating an account (guest booking).
+- Video meeting links are auto-generated for virtual appointments and functional for both parties (UX shell complete).
+- Social media booking integration connects and provides a booking path from Instagram/Facebook/Google.
+- Calendar sync prevents double-booking by incorporating external calendar events into availability calculation.
+- Multiple payment gateways can be connected and used for collecting pre-payment or post-service payment.
+- Free tier limitations are enforced gracefully with clear upgrade paths.
+- At least 12 acceptance tests cover: free-tier booking, booking page flow, video meeting UX, social integration, calendar sync, payment processing, staff management, recurring appointments, reminders, guest clients, offline behavior, and accessibility.
 
 ## Open Questions
 
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, regulated sandbox, or provider credentials?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, AI, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+- How does Setmore's Teleport video meeting compare to Zoom/Meet in terms of features (screen share, recording, group calls)?
+- What is the exact free tier boundary (number of social integrations, SMS limits)?
+- How does calendar sync handle all-day events vs. timed events for availability blocking?
+- What happens to a business's data if they downgrade from paid to free (staff over limit)?
 
 ## Build Plan
 
-- Phase 1: Replace source-discovery rows with exact first-party URLs and classify each requirement as verified or inferred.
-- Phase 2: Define route map, component map, domain entities, API schema, permissions, analytics schema, and seed-data policy.
-- Phase 3: Build onboarding, home, primary action, detail, search, settings, support, and entitlement shells with original copy and sample data.
-- Phase 4: Add backend contracts, offline/retry handling, notification preferences, data export/delete, and safety/reporting flows.
-- Phase 5: Complete accessibility, privacy, safety, billing, permission, and regression tests.
-- Phase 6: Conduct lawful hands-on verification and resolve manual blockers before parity claims.
+- Phase 1: Verify URLs, document free tier features and paid tier boundaries from public pricing page.
+- Phase 2: Build business onboarding, service catalog, and staff management with free tier limits.
+- Phase 3: Implement booking page generation, customization, and public booking flow (guest-friendly).
+- Phase 4: Add calendar views, availability engine, and recurring appointments.
+- Phase 5: Build video meeting UX shell (create, join, controls) with placeholder infrastructure.
+- Phase 6: Implement social media integration connections (Instagram, Facebook, Google booking buttons).
+- Phase 7: Add payment gateway connections (Stripe, Square, PayPal) with collection at booking or after service.
+- Phase 8: Build calendar sync (Google, Outlook, Apple) with conflict detection.
+- Phase 9: Implement reminders, client management, and reporting.
+- Phase 10: Add offline support, accessibility, and comprehensive test suite.
+- Phase 11: Conduct hands-on verification and resolve blockers.
 
 ## Next Steps
 
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, support docs, and user-review themes in a dedicated research note without committing proprietary media.
-- Resolve open questions and update this spec before downstream implementation starts.
-- Extend the Phase 5 implementation-plan queue and repo-seeding manifest after the spec reaches implementation-ready V1.
+- Create a free Setmore account to document onboarding, booking page, and video meeting UX.
+- Research Teleport video feature set from help center documentation.
+- Test social booking button setup from public documentation.
+- Design original UI for booking page generator and video meeting interface.
+- Extend downstream repo-seeding manifest after spec confirmed implementation-ready.

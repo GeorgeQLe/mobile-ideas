@@ -3,189 +3,198 @@
 > Metadata
 > - Inspiration app: Doodle
 > - Category: Scheduling and appointments
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace/source-discovery links only; exact first-party URL replacement and hands-on verification are still required.
-> - Manual verification blockers: native iOS/Android screen capture, account lifecycle walkthrough, subscription or payment state, permission prompts, push notifications, provider integrations, and region-specific behavior require lawful test evidence before one-for-one parity claims.
-> - Legal scope: functional parity only; use original code, brand, copy, iconography, sample data, media, policies, and integrations.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-05.
+> - Verification basis: exact public marketplace, official product/help, privacy, and terms URLs captured on 2026-05-05; hands-on native evidence is still required before one-for-one parity claims.
+> - Manual verification blockers: poll voting mechanics, calendar integration behavior, participant notification delivery, premium poll features, time zone handling across participants, deadline enforcement, admin dashboard behavior, and subscription restore.
+> - Legal scope: functional parity only; do not use original code, brand, copy, iconography, screenshots, media, private APIs, proprietary datasets, licensed course/document content, school contracts, tenant data, or unlicensed integrations.
 
 ## Overview
 
-Build an original mobile product inspired by Doodle's public user-facing workflow. The clone focus is: Workspace/object creation, search, sharing, sync/offline conflict handling, import/export, permissions, and subscription state
+Build an original mobile product inspired by Doodle's public group scheduling workflow. The V1 clone focuses on creating time-based polls, collecting participant availability votes, determining optimal meeting times, connecting calendars, sending reminders, managing recurring polls, booking pages, one-on-one scheduling links, group polls with deadlines, admin controls, and premium entitlements.
 
-This Draft 1 spec reserves ID 762 in the 1000-app backlog. It provides enough structure for downstream research, estimation, and lawful implementation planning, but it is not implementation-ready until exact first-party URLs replace source-discovery links and app-specific public evidence is added.
+This spec is implementation-ready for a lawful public-source V1 because source-discovery placeholders have been replaced with exact public URLs or explicit platform blockers, app-specific privacy/safety boundaries are explicit, and unverified native, account, subscription, calendar-sync, notification, time-zone, and provider behaviors remain blocked until hands-on evidence is captured.
 
 ## Goals
 
-- Deliver a mobile-first scheduling and appointments experience with onboarding, primary workflow, settings, support, and recovery flows.
+- Deliver a mobile-first group scheduling and polling experience with onboarding, dashboard, poll creation, voting, results, calendar sync, notifications, settings, and support flows.
 - Reproduce the functional job behind Doodle using original product naming, original UI, original sample data, and licensed integrations.
 - Preserve exact boundaries between public-source evidence, inferred clone requirements, and blocked hands-on behavior.
 - Define screens, entities, API contracts, offline behavior, privacy/safety controls, analytics, tests, acceptance criteria, and build phases.
 
 ## Non-Goals
 
-- Do not copy Doodle branding, logos, screenshots, marketing copy, private APIs, proprietary datasets, ranking systems, or protected media.
-- Do not claim exact native behavior until a lawful hands-on verification pass records evidence.
-- Do not implement production payments, regulated services, medical advice, transport dispatch, smart-home control, or real-money game economies without separate legal/platform review.
-- Do not build runtime app code in this spec store.
+- Do not copy Doodle branding, logos, screenshots, marketing copy, private APIs, proprietary datasets, plan names, UI trade dress, or protected media.
+- Do not claim exact native behavior until lawful hands-on verification records evidence for iOS, Android, account, permission, push, subscription, and calendar-sync states.
+- Do not implement production payments, regulated services, or real-money economies without separate legal/platform review.
+- Do not build runtime app code in this spec repository.
 
 ## Research Sources
 
-| Source | Discovery URL | Evidence To Verify | Status |
+| Source | URL | Evidence To Verify | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/search?term=Doodle | iOS listing, category, age rating, privacy labels, release notes, support links | Source discovery -- pending exact URL verification |
-| Google Play | https://play.google.com/store/search?q=Doodle&c=apps | Android listing, content rating, data safety, feature blurbs | Source discovery -- pending exact URL verification |
-| Official website/help search | https://www.google.com/search?q=Doodle%20official%20app%20help%20privacy%20terms | Help center, privacy, terms, support, subscription, safety, and product docs to replace with first-party URLs | Source discovery -- pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/doodle-easy-scheduling/id434981618 | iOS listing, privacy labels, release notes, scheduling claims, and support links | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Google Play | https://play.google.com/store/apps/details?id=com.doodle.android | Android listing, data safety, scheduling claims, and release cadence | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Official product site | https://doodle.com/ | Product positioning, features, pricing, integrations, and scheduling workflow | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Official help center | https://help.doodle.com/ | Poll creation, voting, calendar sync, notifications, admin, and troubleshooting | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Privacy policy | https://doodle.com/en/privacy-policy/ | Data collection, calendar access, participant data, analytics, and third-party sharing | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Terms of service | https://doodle.com/en/general-terms-and-conditions/ | Service terms, subscriptions, acceptable use, and data processing | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
 
 ## Detailed Design
 
-- Onboarding must support guest, signup, returning-user, permission-primer, and blocked-account states appropriate for scheduling and appointments.
-- Home must default to Home/Workspace with empty, loading, personalized, degraded-network, and signed-out variants.
-- The primary action must be reachable from Create/Edit within two taps from home.
-- Detail/Preview must represent preview, confirmation, or consumption state with saved, shared, unavailable, and error variants.
-- Settings must include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements must model free, trial, paid, expired, canceled, restored, refunded, and unavailable states without copying plan names or pricing.
-- Accessibility must support dynamic type, screen reader labels, visible focus, contrast, reduced motion, and captions/transcripts where relevant.
-- Offline behavior must preserve recoverable drafts and block irreversible or regulated writes until the client has canonical server state.
+- Onboarding must support guest poll participation (no account required), email signup, Google/Microsoft SSO, returning-user recovery, calendar connection primer, and blocked-account states.
+- Dashboard must show upcoming polls, active polls awaiting responses, completed polls, booking pages, and one-on-one links with empty, loading, personalized, degraded-network, and signed-out variants.
+- Poll creation must support group polls (multiple time options, participant voting), one-on-one meeting links, and booking pages within two taps from home.
+- Poll voting must allow yes/no/if-need-be responses per time slot, display participant counts, show the optimal time, and handle deadline expiry.
+- Calendar integration must connect Google Calendar, Outlook, Apple Calendar (CalDAV), display busy times during poll creation, and auto-book the final time.
+- Settings must include profile, connected calendars, notification preferences, time zone, subscription, support, terms, privacy policy, data export, and delete-account entry points.
+- Entitlements must model free (limited polls, ads), pro (no ads, custom branding, reminders, deadlines), team (admin dashboard, multiple organizers), and enterprise states.
+- Accessibility must support dynamic type, screen reader labels, visible focus, contrast, reduced motion, and accessible poll voting grids.
+- Offline behavior must preserve draft polls locally and block poll finalization, vote submission, and calendar booking until server state is confirmed.
 
 ## Core User Journeys
 
-- New user installs, reviews an original value proposition, creates or restores an account, and reaches Home/Workspace.
-- Returning user opens Home/Workspace, resumes the latest meaningful state, and completes the primary action in Create/Edit.
-- User searches or browses, opens Detail/Preview, saves or shares the item, and later finds it again from history or library.
-- User denies a requested permission, receives a functional fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry, reconcile, or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees correct locked/unlocked states.
-- User requests support, submits a report or dispute where relevant, and receives a durable case state.
-- User requests data export and account deletion from settings.
+- Organizer creates a new group poll: selects time options, adds title/location/description, sets deadline, invites participants via link/email, and publishes.
+- Participant receives poll invitation, views proposed times, marks availability (yes/no/if-need-be), optionally adds comments, and submits vote.
+- Organizer reviews poll results, sees the optimal time highlighted, closes the poll, and books the final meeting time.
+- User connects a calendar, sees busy times overlaid during poll creation, and receives calendar events when polls are finalized.
+- Organizer creates a booking page with available time slots, shares the link, and recipients self-schedule.
+- User creates a one-on-one scheduling link, shares it, and the recipient picks from the organizer's available times.
+- User sets reminders for pending polls, receives push notifications for new votes, deadlines approaching, and poll closures.
+- User upgrades to premium, removes ads, gains custom branding and deadline features, and can manage team polls.
 
 ## Screen Inventory
 
 | Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Home/Workspace | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Create/Edit | Primary creation/action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Detail/Preview | Inspect, consume, or confirm details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Search | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Share | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Sync/Activity | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Templates/Library | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Permissions | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Welcome/Auth | Entry, auth, guest access, and consent | email, SSO, deep link | new, returning, guest, locked | SSO failure, expired invite, blocked account |
+| Dashboard | Active polls, booking pages, scheduling links | tap, pull-refresh, search | empty, loading, loaded, offline | no polls, expired polls, degraded network |
+| Create Poll | Title, time options, location, deadline, invites | form fields, date picker, contacts | draft, publishing, published | validation error, offline, calendar unavailable |
+| Vote/Respond | Time grid, yes/no/if-need-be selection, comments | toggle buttons, text, submit | open, submitted, deadline passed | duplicate vote, expired poll, offline |
+| Poll Results | Participant responses, optimal time, close/book | close poll, book meeting | open, closed, booked | tie votes, no consensus, calendar conflict |
+| Booking Page | Organizer availability, recipient self-schedule | time slot selection, confirm | available, booked, full | no availability, time zone mismatch |
+| One-on-One | Scheduling link configuration and sharing | availability, duration, link | active, disabled, expired | calendar disconnect, overlap |
+| Calendar Sync | Connected calendars, busy/free display | connect, disconnect, refresh | connected, disconnected, syncing | auth expired, sync failure, permission denied |
+| Notifications | Vote alerts, deadline reminders, booking confirmations | preferences, tap-to-open | enabled, disabled, quiet hours | push denied, deep link stale |
+| Settings | Profile, timezone, subscription, privacy, support | forms, toggles, links | loaded, editing, requested | subscription restore failure |
 
 ## Data Model
 
-- `User`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Doodle-style workflows.
-- `Workspace`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Doodle-style workflows.
-- `Document`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Doodle-style workflows.
-- `Asset`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Doodle-style workflows.
-- `Project`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Doodle-style workflows.
-- `Version`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Doodle-style workflows.
-- `ShareGrant`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Doodle-style workflows.
-- `Template`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Doodle-style workflows.
-- `SyncJob`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Doodle-style workflows.
-- `Notification`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Doodle-style workflows.
-- `AuditEvent`: append-only record for sensitive writes, account changes, support actions, moderation decisions, and entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, conflict resolution, and cache expiry.
+- `User`: account state, auth method (email/SSO/guest), display name, email, timezone, locale, connected calendars, notification preferences, entitlement state, and deletion/export status.
+- `Poll`: poll type (group/one-on-one/booking), title, description, location, organizer, time options, deadline, state (draft/open/closed/booked), created/updated timestamps, and participant limit.
+- `TimeOption`: proposed date/time, duration, poll reference, vote counts (yes/no/if-need-be), and final-selection flag.
+- `Vote`: participant reference, poll reference, time option reference, response (yes/no/if-need-be), comment, submission timestamp, and IP/device metadata for anti-spam.
+- `Participant`: name, email, user reference (optional for guests), poll reference, invitation state (pending/viewed/voted), and notification preference.
+- `BookingPage`: organizer, title, description, duration options, availability rules, buffer time, timezone, link slug, and active/disabled state.
+- `ScheduledMeeting`: poll or booking reference, confirmed time, participants, calendar event ID, location, conferencing link, and cancellation state.
+- `CalendarConnection`: user reference, provider (Google/Outlook/Apple), auth tokens, sync state, last sync timestamp, and permission scope.
+- `Reminder`: poll/booking reference, recipient, trigger type (deadline approaching/new vote/poll closed), delivery state, and scheduled time.
+- `Entitlement`: user reference, plan (free/pro/team/enterprise), billing cycle, platform (iOS/Android/web), expiry, and restore state.
+- `AuditEvent`: append-only record for poll creation, poll closure, vote submission, calendar booking, account changes, and entitlement transitions.
+- `LocalCacheRecord`: device-local state for draft polls, pending votes, sync attempts, and cache expiry.
 
 ## API And Backend Contracts
 
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /workspaces, GET /documents, GET /assets, GET /projects; all reads return authorization status, pagination, cache hints, stale-data markers, and localization keys.
-- Writes: POST /users, POST /workspaces, POST /documents, POST /assets, POST /projects; all writes require validation errors, idempotency keys, optimistic-state reconciliation, and audit events for sensitive state.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context.
-- Upload/import: use signed upload URLs, MIME/size validation, malware/content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must refetch canonical state after missed events.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+- Auth: `POST /auth/session`, `POST /auth/sso`, `POST /auth/guest`, `DELETE /auth/session` with device-scoped session tracking.
+- Polls: `POST /polls`, `GET /polls`, `GET /polls/{pollId}`, `PATCH /polls/{pollId}`, `POST /polls/{pollId}/close`, `DELETE /polls/{pollId}` with organizer authorization and idempotency keys.
+- Votes: `POST /polls/{pollId}/votes`, `GET /polls/{pollId}/votes`, `PATCH /polls/{pollId}/votes/{voteId}` with participant validation, deadline enforcement, and duplicate detection.
+- Booking pages: `POST /booking-pages`, `GET /booking-pages`, `GET /booking-pages/{slug}/availability`, `POST /booking-pages/{slug}/book` with conflict detection.
+- Calendar: `POST /calendars/connect`, `GET /calendars/busy-times`, `DELETE /calendars/{connectionId}`, and `POST /calendars/sync` with OAuth token refresh.
+- Notifications: `POST /notification-preferences`, `GET /notifications`, and server-side fanout for vote, deadline, closure, and booking categories.
+- Billing: `GET /entitlements`, `POST /checkout/session`, `POST /entitlements/restore` with platform receipt validation.
+- Privacy: `POST /data-export`, `DELETE /account`, `GET /privacy/settings` accessible from settings and support flows.
+- Invitations: `POST /polls/{pollId}/invitations`, `GET /invitations/{token}` for deep-link resolution, and `POST /invitations/{token}/remind` for re-sends.
 
 ## Realtime, Push, And Offline Behavior
 
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must reconcile against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+- Cache the dashboard, active poll states, booking page configurations, and user settings for offline reads.
+- Queue draft polls and pending votes locally with retry metadata; block poll finalization, calendar booking, and payment actions while offline.
+- Push notifications must be opt-in, grouped by category (new votes, deadline reminders, poll closed, booking confirmed), and mirrored in an in-app notification center.
+- Realtime updates for vote counts must use polling or websocket with server reconciliation after reconnect to avoid duplicate votes or stale results.
+- Long-running calendar sync must expose pending, complete, failed, and retry states with user-visible feedback.
+- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew across participant time zones.
 
 ## Permissions, Privacy, And Safety
 
-- Treat data loss as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat permission leakage as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat copyrighted assets as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat collaboration access as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat device security as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+- Treat participant email collection, calendar access, vote anonymity, poll sharing scope, and guest data retention as launch-blocking review areas.
+- Request calendar access only when the user initiates calendar connection; provide functional fallback (manual time entry) when denied.
+- Request contacts only when user initiates participant invitation from contacts; provide email entry fallback.
+- Request notification permission at the moment of first poll creation or first vote, not at launch.
+- Minimize PII in analytics: do not log participant emails, calendar contents, or poll titles as event properties.
+- Provide user-visible privacy policy, terms, data export, delete account, and support escalation from settings.
+- Guest participants must be able to vote without creating an account; their data retention must respect privacy policy limits.
+- Anti-spam: rate-limit vote submissions, detect duplicate votes from same IP/device, and block poll flooding.
 
 ## Analytics And Monetization
 
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement logic; do not copy exact pricing, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, private messages, or child data as event properties.
+- Onboarding events: `onboarding_started`, `signup_completed`, `guest_vote_started`, `calendar_connected`, `onboarding_skipped` with source and locale.
+- Core action events: `poll_created`, `poll_published`, `vote_submitted`, `poll_closed`, `meeting_booked`, `booking_page_created`, `scheduling_link_shared` with poll type and participant count.
+- Retention events: `notification_opened`, `reminder_sent`, `poll_revisited`, `calendar_synced`, `dashboard_viewed`.
+- Safety events: `spam_vote_blocked`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
+- Monetization events: `paywall_viewed`, `trial_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
+- Monetization model: free tier with limited polls and ads; paid tiers remove ads and add premium features; do not copy exact Doodle pricing or plan names.
+- Analytics rule: do not send participant emails, calendar contents, poll titles, vote details, or payment credentials as event properties.
 
 ## Edge Cases
 
-- First launch with no network, no account, expired session, or unsupported OS version.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
-- Subscription restored on a different platform, refunded externally, or unavailable in the user's region.
-- Legal/privacy request submitted while transactions, messages, or support cases are still active.
+- First launch with no network, expired session, or unsupported OS version.
+- Guest participant votes on a poll that has already been closed or deleted.
+- Participant votes after the deadline has passed; vote must be rejected with clear messaging.
+- Organizer closes poll with a tie; system must not auto-select without organizer confirmation.
+- Calendar connection token expires between poll creation and finalization; busy-time display degrades gracefully.
+- Poll shared via link receives spam votes from bots; rate limiting and CAPTCHA fallback required.
+- Time zone mismatch: participant in different timezone sees times in their local zone; edge cases around DST transitions.
+- Duplicate vote submission from retry after timeout; server must enforce idempotency.
+- Subscription restored on different platform; entitlement must reconcile across iOS/Android/web.
+- Large group poll (50+ participants) must remain performant in vote display and optimal-time calculation.
+- Poll with no votes at deadline; organizer notified and poll transitions to expired state.
+- Booking page with no available slots; recipient sees clear "no availability" state.
 
 ## Test Plan
 
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+- Unit tests for vote tallying, optimal time calculation, deadline enforcement, time zone conversion, idempotency keys, and entitlement checks.
+- Integration tests for auth, poll CRUD, vote submission, calendar connection, booking flow, notification delivery, and entitlement transitions.
+- Contract tests for every API response shape, error code, pagination, webhook event, and calendar OAuth flow.
+- Offline tests for cached dashboard, queued draft polls, blocked vote submission while offline, and reconnect reconciliation.
+- Permission tests for calendar denied, contacts denied, notifications denied, and functional fallback behavior.
+- Safety tests for spam vote detection, rate limiting, guest data handling, and privacy-safe analytics payloads.
+- Accessibility tests for poll voting grid screen reader labels, focus order, dynamic type, contrast, and reduced motion.
+- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and cross-platform restore.
+- Notification tests for opt-in, denied, quiet hours, deep link to poll, and in-app notification center.
+- Time zone tests for DST transitions, cross-timezone participant display, and calendar event creation in correct zone.
 
 ## Acceptance Criteria
 
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source-discovery links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented group scheduling workflow.
+- All research-source rows use exact public URLs or explicit platform/provider blockers; no source-discovery placeholder remains.
+- A new user can create a group poll, share it, collect votes, and close the poll without unsupported permissions.
+- A guest participant can vote on a poll via shared link without creating an account.
+- Calendar integration displays busy times during poll creation and books finalized meetings.
+- Booking pages allow recipients to self-schedule from organizer availability.
+- Dashboard, poll creation, voting, results, booking, calendar sync, notifications, settings, and deletion/export flows are represented in routes and tests.
+- All entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
+- At least 10 acceptance tests cover happy path, empty state, permission denial, offline behavior, accessibility, time zones, spam protection, billing, notifications, and data deletion/export.
+- Hands-on native parity remains blocked until the manual verification blockers listed in metadata have recorded lawful evidence.
 
 ## Open Questions
 
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, regulated sandbox, or provider credentials?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, AI, or storage services for the original clone?
+- Which exact iOS and Android native screens, permission prompts, and push payloads differ materially from public marketplace claims?
+- Which account, subscription, or calendar-provider states require paid or provider-specific test access?
+- Which third-party providers will supply calendar sync, notifications, analytics, payments, identity, and anti-spam services?
 - Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+- What retention and deletion limits apply to guest participant data, expired polls, and closed poll history?
 
 ## Build Plan
 
-- Phase 1: Replace source-discovery rows with exact first-party URLs and classify each requirement as verified or inferred.
-- Phase 2: Define route map, component map, domain entities, API schema, permissions, analytics schema, and seed-data policy.
-- Phase 3: Build onboarding, home, primary action, detail, search, settings, support, and entitlement shells with original copy and sample data.
-- Phase 4: Add backend contracts, offline/retry handling, notification preferences, data export/delete, and safety/reporting flows.
-- Phase 5: Complete accessibility, privacy, safety, billing, permission, and regression tests.
+- Phase 1: Convert this spec into route map, component map, domain entities, API schemas, permissions matrix, analytics schema, and seed-data policy.
+- Phase 2: Build onboarding, dashboard, poll creation, voting, results, and settings shells with original copy and sample data.
+- Phase 3: Add calendar integration, booking pages, one-on-one links, notification preferences, and offline/retry handling.
+- Phase 4: Add billing/entitlement flows, admin dashboard for team plans, custom branding, and deadline enforcement.
+- Phase 5: Complete accessibility, privacy, safety, time zone, billing, permission, and regression tests.
 - Phase 6: Conduct lawful hands-on verification and resolve manual blockers before parity claims.
 
 ## Next Steps
 
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, support docs, and user-review themes in a dedicated research note without committing proprietary media.
-- Resolve open questions and update this spec before downstream implementation starts.
-- Extend the Phase 5 implementation-plan queue and repo-seeding manifest after the spec reaches implementation-ready V1.
+- Capture native iOS and Android screen evidence for poll creation, voting grid, results display, calendar connection, and booking flows.
+- Record app-specific calendar provider, notification, time zone, and subscription blockers in a dedicated research note.
+- Confirm privacy retention behavior for guest participant data and update API contracts before downstream implementation.
+- Extend the Phase 5 implementation-plan queue and downstream repo source-spec copies after this readiness slice is accepted.

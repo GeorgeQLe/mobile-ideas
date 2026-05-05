@@ -3,189 +3,199 @@
 > Metadata
 > - Inspiration app: Booksy
 > - Category: Scheduling and appointments
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace/source-discovery links only; exact first-party URL replacement and hands-on verification are still required.
-> - Manual verification blockers: native iOS/Android screen capture, account lifecycle walkthrough, subscription or payment state, permission prompts, push notifications, provider integrations, and region-specific behavior require lawful test evidence before one-for-one parity claims.
-> - Legal scope: functional parity only; use original code, brand, copy, iconography, sample data, media, policies, and integrations.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-05.
+> - Verification basis: exact public marketplace, official product/help, privacy, and terms URLs captured on 2026-05-05; hands-on native evidence is still required before one-for-one parity claims.
+> - Manual verification blockers: professional verification, review moderation, boost/promotion payment, mobile check-in flow, portfolio showcase, native iOS/Android screen capture, account lifecycle walkthrough.
+> - Legal scope: functional parity only; do not use original code, brand, copy, iconography, screenshots, media, private APIs, proprietary datasets, licensed course/document content, school contracts, tenant data, or unlicensed integrations.
 
 ## Overview
 
-Build an original mobile product inspired by Booksy's public user-facing workflow. The clone focus is: Workspace/object creation, search, sharing, sync/offline conflict handling, import/export, permissions, and subscription state
+Build an original mobile product inspired by Booksy's public user-facing workflow. Booksy is a barber and salon appointment booking platform focused on the barbering community, with strong emphasis on professional portfolios (before/after photos), mobile check-in, client reviews, and "Boost" visibility features for professionals to attract new clients. The platform connects clients with barbers, stylists, and beauty professionals through a marketplace that highlights work quality via photo portfolios.
 
-This Draft 1 spec reserves ID 774 in the 1000-app backlog. It provides enough structure for downstream research, estimation, and lawful implementation planning, but it is not implementation-ready until exact first-party URLs replace source-discovery links and app-specific public evidence is added.
+Booksy differentiates through its focus on the barber/grooming segment, professional identity and portfolio features, and the mobile-first check-in experience that reduces front-desk friction.
 
 ## Goals
 
-- Deliver a mobile-first scheduling and appointments experience with onboarding, primary workflow, settings, support, and recovery flows.
-- Reproduce the functional job behind Booksy using original product naming, original UI, original sample data, and licensed integrations.
-- Preserve exact boundaries between public-source evidence, inferred clone requirements, and blocked hands-on behavior.
-- Define screens, entities, API contracts, offline behavior, privacy/safety controls, analytics, tests, acceptance criteria, and build phases.
+- Deliver a mobile-first barber/salon booking platform with portfolio-driven discovery, mobile check-in, reviews, and professional visibility tools.
+- Reproduce Booksy's functional model: connect clients to barbers/stylists through work-quality showcases and frictionless mobile booking.
+- Support professional identity (portfolio, reviews, specialties) as the primary discovery signal over business brand alone.
+- Define complete data model, API contracts, and test plan for implementation-ready V1.
 
 ## Non-Goals
 
-- Do not copy Booksy branding, logos, screenshots, marketing copy, private APIs, proprietary datasets, ranking systems, or protected media.
-- Do not claim exact native behavior until a lawful hands-on verification pass records evidence.
-- Do not implement production payments, regulated services, medical advice, transport dispatch, smart-home control, or real-money game economies without separate legal/platform review.
+- Do not copy Booksy branding, logos, screenshots, marketing copy, private APIs, or proprietary datasets.
+- Do not implement real payment processing without PCI compliance review.
+- Do not replicate Booksy's exact boost pricing or algorithm.
+- Do not claim exact native behavior until hands-on verification.
 - Do not build runtime app code in this spec store.
 
 ## Research Sources
 
-| Source | Discovery URL | Evidence To Verify | Status |
+| Source | URL | Evidence To Verify | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/search?term=Booksy | iOS listing, category, age rating, privacy labels, release notes, support links | Source discovery -- pending exact URL verification |
-| Google Play | https://play.google.com/store/search?q=Booksy&c=apps | Android listing, content rating, data safety, feature blurbs | Source discovery -- pending exact URL verification |
-| Official website/help search | https://www.google.com/search?q=Booksy%20official%20app%20help%20privacy%20terms | Help center, privacy, terms, support, subscription, safety, and product docs to replace with first-party URLs | Source discovery -- pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/booksy-for-customers/id1065004752 | iOS listing, privacy labels, release notes | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Google Play | https://play.google.com/store/apps/details?id=com.booksy.app | Android listing, data safety, feature blurbs | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Official website | https://booksy.com/ | Product features, professional signup, marketplace | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Privacy policy | https://booksy.com/privacy-policy | Data practices, retention, sharing | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Terms of service | https://booksy.com/terms-conditions | Usage terms, liability, disputes | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
 
 ## Detailed Design
 
-- Onboarding must support guest, signup, returning-user, permission-primer, and blocked-account states appropriate for scheduling and appointments.
-- Home must default to Home/Workspace with empty, loading, personalized, degraded-network, and signed-out variants.
-- The primary action must be reachable from Create/Edit within two taps from home.
-- Detail/Preview must represent preview, confirmation, or consumption state with saved, shared, unavailable, and error variants.
-- Settings must include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements must model free, trial, paid, expired, canceled, restored, refunded, and unavailable states without copying plan names or pricing.
-- Accessibility must support dynamic type, screen reader labels, visible focus, contrast, reduced motion, and captions/transcripts where relevant.
-- Offline behavior must preserve recoverable drafts and block irreversible or regulated writes until the client has canonical server state.
+- **Client marketplace**: Discover barbers, stylists, and beauty professionals by location, specialty (fade, braids, beard trim, color, extensions), rating, portfolio quality, availability, and price. Search emphasizes individual professionals over business establishments.
+- **Professional profiles**: Portfolio gallery (before/after photos, style showcases), specialties, years of experience, certifications, service menu with pricing, reviews, availability calendar, and booking action.
+- **Portfolio showcase**: Professionals upload photos of their work organized by style/service type. Clients browse portfolios to assess quality before booking. High-quality portfolios rank higher in search.
+- **Mobile check-in**: Client arrives at barbershop, opens app, taps "I'm Here" — professional receives notification that client has arrived. Reduces front-desk overhead for busy shops. Optional: estimated wait time display.
+- **Booking flow**: Select professional, choose service, pick available time slot, add payment method (optional deposit), confirm. Support for walk-in queue alongside scheduled appointments.
+- **Reviews and ratings**: Post-appointment reviews with star rating, text, and optional photos of the result. Reviews tied to specific services. Professionals can respond.
+- **Boost visibility**: Professionals pay to appear higher in search results for their area/specialty. Budget-based with impression/booking tracking.
+- **Client management**: Professional views client history, preferences, notes (preferred fade length, usual products), and rebooking patterns.
+- **Notifications and reminders**: Booking confirmations, appointment reminders, professional updates (new portfolio photos, availability changes), and rebooking suggestions.
+- **Walk-in queue**: Professionals can enable a walk-in mode showing estimated wait time; clients can join the queue remotely and receive notification when their turn approaches.
 
 ## Core User Journeys
 
-- New user installs, reviews an original value proposition, creates or restores an account, and reaches Home/Workspace.
-- Returning user opens Home/Workspace, resumes the latest meaningful state, and completes the primary action in Create/Edit.
-- User searches or browses, opens Detail/Preview, saves or shares the item, and later finds it again from history or library.
-- User denies a requested permission, receives a functional fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry, reconcile, or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees correct locked/unlocked states.
-- User requests support, submits a report or dispute where relevant, and receives a durable case state.
-- User requests data export and account deletion from settings.
+- **Client finds a barber**: Opens app, searches "Barber near me," browses results sorted by rating and portfolio quality, taps a professional to view their work gallery, likes the fade styles shown, books a "Skin Fade" for Saturday 10am.
+- **Client checks in**: Arrives at barbershop on appointment day, opens app, sees "Your appointment is now" banner, taps "I'm Here," barber sees notification on their device, calls client to the chair.
+- **Client leaves review with photo**: After haircut, client is prompted to review, takes a photo of the fresh cut, rates 5 stars, writes "Best fade in the city," photo added to professional's portfolio (with consent).
+- **Professional builds portfolio**: After completing a great haircut, takes before/after photos, uploads to their portfolio organized under "Fades" category, adds description, posts.
+- **Professional boosts visibility**: Notices fewer new clients this month, opens Boost section, sets $50/week budget for "Barbers in [City]" category, activates boost, monitors impressions and bookings.
+- **Walk-in flow**: Client is in the area, checks app for barbers accepting walk-ins, sees 15-minute estimated wait at nearby shop, joins walk-in queue remotely, receives "Your turn in 5 min" notification, walks over.
 
 ## Screen Inventory
 
 | Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Home/Workspace | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Create/Edit | Primary creation/action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Detail/Preview | Inspect, consume, or confirm details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Search | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Share | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Sync/Activity | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Templates/Library | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Permissions | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Explore/Search | Client discovery of professionals | location, specialty filter, search text | results loaded, loading, first-time | location denied, no pros nearby, offline |
+| Professional Profile | Portfolio, services, reviews, and booking | scroll gallery, tap service, tap book | full profile, new pro (few photos), top-rated | pro deactivated, stale availability |
+| Portfolio Gallery | Full-screen photo browsing by category | swipe, tap category, zoom | populated, minimal, loading | photos failed to load |
+| Booking Flow | Service/time selection and confirmation | select service, pick time, add card | available slots, limited, no same-day | slot taken, card declined, pro unavailable |
+| Mobile Check-in | Client arrival confirmation | tap "I'm Here," view wait status | appointment now, early arrival, late | no appointment found, location mismatch |
+| Walk-in Queue | Remote queue joining and status | tap join queue, view position, ETA | queue open, full, your turn approaching | queue closed, pro went offline |
+| My Appointments | Client upcoming and past bookings | view, cancel, reschedule, rebook | has bookings, empty state | cancelled by pro |
+| Reviews | Read and write post-appointment reviews | star rating, text, photo upload | prompt after appointment, browse reviews | upload failed, moderation rejected |
+| Pro Dashboard | Professional home: today's schedule, metrics | view appointments, manage walk-ins, stats | busy day, empty, notifications | sync error |
+| Pro Calendar | Professional schedule management | add block, set availability, view bookings | booked, available, blocked, recurring | conflict, offline |
+| Pro Portfolio Mgmt | Upload and organize portfolio photos | upload photos, add categories, reorder | populated, empty (new pro), upload in progress | upload failed, storage limit |
+| Boost | Visibility promotion management | set budget, choose area, activate/pause | active boost, paused, no boost | budget depleted, low performance |
+| Client Notes | Professional's notes on specific clients | edit notes, view preferences, history | returning client, new client | sync conflict |
+| Settings | Account, notifications, payment methods | edit profile, manage cards, notification prefs | complete, incomplete | subscription expired |
 
 ## Data Model
 
-- `User`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Booksy-style workflows.
-- `Workspace`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Booksy-style workflows.
-- `Document`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Booksy-style workflows.
-- `Asset`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Booksy-style workflows.
-- `Project`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Booksy-style workflows.
-- `Version`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Booksy-style workflows.
-- `ShareGrant`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Booksy-style workflows.
-- `Template`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Booksy-style workflows.
-- `SyncJob`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Booksy-style workflows.
-- `Notification`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Booksy-style workflows.
-- `AuditEvent`: append-only record for sensitive writes, account changes, support actions, moderation decisions, and entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, conflict resolution, and cache expiry.
+- `User`: id, email, phone, name, role (client/professional), avatar_url, location, status, created_at.
+- `Professional`: id, user_id, display_name, bio, specialties (array), years_experience, certifications, location_id, rating_avg, review_count, portfolio_count, is_boost_active, accepts_walkins, status.
+- `Location` (business/shop): id, name, address, coordinates, phone, opening_hours (jsonb), professionals (array of pro_ids).
+- `PortfolioItem`: id, professional_id, photo_url, category (fade/braids/color/beard/etc.), description, service_id, before_photo_url, client_photo_consent, likes_count, created_at.
+- `Service`: id, professional_id, name, description, duration_minutes, price_cents, category, is_active.
+- `Appointment`: id, professional_id, client_id, service_id, start_time, end_time, status (booked/checked_in/in_progress/completed/cancelled/no_show), source (app/walkin), check_in_time, notes.
+- `WalkInQueue`: id, professional_id, client_id, position, estimated_wait_minutes, status (waiting/called/serving/completed/left), joined_at.
+- `Review`: id, professional_id, client_id, appointment_id, service_id, rating, text, photo_urls, professional_response, status (published/pending/removed), created_at.
+- `ClientNote`: id, professional_id, client_id, content, preferences (jsonb: preferred_length, products, allergies), last_updated.
+- `Boost`: id, professional_id, budget_cents, spent_cents, area_radius_km, target_specialties, status (active/paused/depleted/ended), impressions, bookings_attributed, started_at, ends_at.
+- `Availability`: id, professional_id, day_of_week, start_time, end_time, is_recurring, override_date, type (available/break/off).
+- `Reminder`: id, appointment_id, type (confirmation/reminder/review_request/rebooking), channel, scheduled_at, sent_at.
+- `Payment`: id, appointment_id, client_id, amount_cents, tip_cents, method, status, processed_at.
+- `AuditEvent`: id, actor_id, action, resource_type, resource_id, metadata, created_at.
 
 ## API And Backend Contracts
 
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /workspaces, GET /documents, GET /assets, GET /projects; all reads return authorization status, pagination, cache hints, stale-data markers, and localization keys.
-- Writes: POST /users, POST /workspaces, POST /documents, POST /assets, POST /projects; all writes require validation errors, idempotency keys, optimistic-state reconciliation, and audit events for sensitive state.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context.
-- Upload/import: use signed upload URLs, MIME/size validation, malware/content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must refetch canonical state after missed events.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+- Auth: `POST /auth/session`, `POST /auth/signup`, `POST /auth/recover`.
+- Discovery: `GET /marketplace/professionals?lat&lng&radius&specialty&rating_min&available_today&accepts_walkins`, `GET /professionals/:id/profile`.
+- Portfolio: `GET /professionals/:id/portfolio?category`, `POST /professionals/:id/portfolio` (upload), `DELETE /portfolio/:id`.
+- Services: `GET /professionals/:id/services`, `POST /professionals/:id/services`, `PUT /services/:id`.
+- Availability: `GET /professionals/:id/availability?date_range`, `PUT /professionals/:id/availability`.
+- Appointments: `POST /professionals/:id/appointments`, `PUT /appointments/:id`, `POST /appointments/:id/check-in`, `POST /appointments/:id/complete`.
+- Walk-ins: `GET /professionals/:id/walkin-queue`, `POST /professionals/:id/walkin-queue/join`, `PUT /walkin-queue/:id/status`.
+- Reviews: `GET /professionals/:id/reviews`, `POST /appointments/:id/review`, `PUT /reviews/:id/respond`.
+- Boost: `GET /professionals/:id/boost`, `POST /professionals/:id/boost`, `PUT /boost/:id` (pause/resume/update budget).
+- Client notes: `GET /professionals/:id/clients/:client_id/notes`, `PUT /professionals/:id/clients/:client_id/notes`.
+- Payments: `POST /appointments/:id/payment`.
+- Privacy: `POST /data-export`, `DELETE /account`.
 
 ## Realtime, Push, And Offline Behavior
 
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must reconcile against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+- Cache professional's daily schedule, client notes, and portfolio offline.
+- Client: cache upcoming appointments and favorite professionals offline; booking requires connectivity.
+- Push: check-in notification (to professional), appointment reminder (to client), walk-in queue position update, new review received, boost performance weekly summary.
+- Realtime: walk-in queue position updates via WebSocket; check-in status visible to professional immediately.
+- Portfolio photo uploads queue in background; show progress indicator; retry on failure.
+- Offline check-in: if client has no connectivity at shop, professional can manually mark as arrived.
 
 ## Permissions, Privacy, And Safety
 
-- Treat data loss as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat permission leakage as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat copyrighted assets as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat collaboration access as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat device security as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+- **Portfolio photos**: Client photo consent required before professional posts client images; client can request removal at any time.
+- **Client notes**: Private to the professional; not visible to client; excluded from client data export unless legally required.
+- **Reviews**: Only verified appointment completers can review; moderation for harassment/discrimination; professional can respond but not delete.
+- **Location**: Required for proximity discovery; fallback to city search if denied.
+- **Payment data**: Tokenized; PCI compliant; never stored in app.
+- **Professional verification**: Professionals self-attest qualifications; platform does not verify licenses (noted in terms); flagging for impersonation.
+- **Boost fairness**: Boosted results labeled as "Featured" or equivalent; organic results still visible; no pay-to-suppress competitors.
+- Camera for portfolio uploads; notifications for check-in/reminders.
 
 ## Analytics And Monetization
 
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement logic; do not copy exact pricing, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, private messages, or child data as event properties.
+- Discovery events: `search_performed`, `profile_viewed`, `portfolio_browsed`, `service_viewed`.
+- Booking events: `appointment_booked`, `check_in_completed`, `appointment_completed`, `walkin_queue_joined`.
+- Engagement events: `portfolio_uploaded`, `review_submitted`, `review_responded`, `client_note_updated`.
+- Revenue events: `boost_activated`, `boost_impression`, `boost_booking_attributed`, `payment_processed`.
+- Monetization: professional subscription for platform access + optional boost spend for increased visibility. Do not copy Booksy's exact subscription or boost pricing.
 
 ## Edge Cases
 
-- First launch with no network, no account, expired session, or unsupported OS version.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
-- Subscription restored on a different platform, refunded externally, or unavailable in the user's region.
-- Legal/privacy request submitted while transactions, messages, or support cases are still active.
+- Client checks in but professional is running behind — display wait time, offer "still on the way" option for client to browse.
+- Walk-in queue client doesn't arrive when called — mark as "didn't show," advance queue, notify next person.
+- Portfolio photo reported as inappropriate — remove immediately pending review; notify professional.
+- Professional deactivates mid-day with existing appointments — notify affected clients, offer rebooking with other pros at same location.
+- Boost budget depletes mid-day — stop showing boosted results immediately; notify professional; no over-charge.
+- Review contains identifiable client photo without consent — moderation removes photo; text review preserved if policy-compliant.
+- Concurrent booking for last slot — first confirmed wins; second gets next available or waitlist.
+- Client disputes charge (no-show fee) — freeze charge, create case, professional provides evidence (check-in status).
+- Professional with zero portfolio photos — still listed but ranked lower; prompt to add photos during onboarding.
 
 ## Test Plan
 
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+- Unit tests: availability slot generation, walk-in wait time estimation, boost budget depletion calculation, review eligibility validation.
+- Integration tests: full booking-to-review flow, check-in notification delivery, walk-in queue lifecycle, boost activation-to-attribution.
+- Contract tests: discovery API ranking consistency, portfolio upload and retrieval, check-in status propagation.
+- Offline tests: cached schedule display, portfolio upload queuing, check-in fallback for connectivity loss.
+- Permission tests: client note privacy, portfolio photo consent enforcement, review eligibility (verified appointments only).
+- Safety tests: portfolio photo moderation, review content policy, professional impersonation detection.
+- Accessibility tests: portfolio gallery navigable via VoiceOver, booking and check-in completable with assistive tech.
+- Billing tests: boost budget tracking accuracy, subscription lifecycle, payment processing.
 
 ## Acceptance Criteria
 
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source-discovery links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+- Client can discover professionals by location/specialty, browse portfolios, and book based on work quality evidence.
+- Mobile check-in works: client taps "I'm Here," professional sees notification immediately.
+- Walk-in queue accurately estimates wait time and notifies clients when their turn approaches.
+- Portfolio system supports categorized before/after photos with client consent tracking.
+- Boost system increases visibility measurably with transparent budget tracking and labeled results.
+- Reviews are tied to verified appointments and include optional result photos.
+- At least 12 acceptance tests cover: discovery/search, portfolio browsing, booking, check-in, walk-in queue, reviews with photos, boost activation, client notes, professional onboarding, offline behavior, accessibility, and data export.
 
 ## Open Questions
 
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, regulated sandbox, or provider credentials?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, AI, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+- How does Booksy's check-in work with multiple clients arriving simultaneously?
+- What is the exact boost algorithm (impressions-based, clicks-based, or bookings-based billing)?
+- How does Booksy handle professionals who work at multiple locations?
+- Is there a minimum portfolio size required for marketplace visibility?
 
 ## Build Plan
 
-- Phase 1: Replace source-discovery rows with exact first-party URLs and classify each requirement as verified or inferred.
-- Phase 2: Define route map, component map, domain entities, API schema, permissions, analytics schema, and seed-data policy.
-- Phase 3: Build onboarding, home, primary action, detail, search, settings, support, and entitlement shells with original copy and sample data.
-- Phase 4: Add backend contracts, offline/retry handling, notification preferences, data export/delete, and safety/reporting flows.
-- Phase 5: Complete accessibility, privacy, safety, billing, permission, and regression tests.
-- Phase 6: Conduct lawful hands-on verification and resolve manual blockers before parity claims.
+- Phase 1: Verify URLs, document features from public app store listings and website.
+- Phase 2: Build client marketplace discovery with professional profiles and portfolio galleries.
+- Phase 3: Implement booking flow with service selection and availability checking.
+- Phase 4: Build mobile check-in system with real-time notifications.
+- Phase 5: Add walk-in queue with estimated wait times and remote joining.
+- Phase 6: Implement portfolio management, photo upload, and consent tracking.
+- Phase 7: Build review system with photo attachments and professional responses.
+- Phase 8: Add boost/visibility promotion with budget tracking and performance metrics.
+- Phase 9: Implement offline support, accessibility, and comprehensive test suite.
+- Phase 10: Conduct hands-on verification and resolve blockers.
 
 ## Next Steps
 
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, support docs, and user-review themes in a dedicated research note without committing proprietary media.
-- Resolve open questions and update this spec before downstream implementation starts.
-- Extend the Phase 5 implementation-plan queue and repo-seeding manifest after the spec reaches implementation-ready V1.
+- Download Booksy client app to document marketplace UX and check-in flow.
+- Research boost pricing model from public professional signup pages.
+- Design original UI for portfolio-driven discovery and mobile check-in.
+- Extend downstream repo-seeding manifest after spec confirmed implementation-ready.

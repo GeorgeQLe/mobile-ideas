@@ -3,189 +3,204 @@
 > Metadata
 > - Inspiration app: Square Appointments
 > - Category: Scheduling and appointments
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace/source-discovery links only; exact first-party URL replacement and hands-on verification are still required.
-> - Manual verification blockers: native iOS/Android screen capture, account lifecycle walkthrough, subscription or payment state, permission prompts, push notifications, provider integrations, and region-specific behavior require lawful test evidence before one-for-one parity claims.
-> - Legal scope: functional parity only; use original code, brand, copy, iconography, sample data, media, policies, and integrations.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-05.
+> - Verification basis: exact public marketplace, official product/help, privacy, and terms URLs captured on 2026-05-05; hands-on native evidence is still required before one-for-one parity claims.
+> - Manual verification blockers: Square payment processing, POS hardware integration, staff calendar sync, client messaging, no-show fee enforcement, inventory management, contract/deposit handling, native iOS/Android screen capture, account lifecycle walkthrough.
+> - Legal scope: functional parity only; do not use original code, brand, copy, iconography, screenshots, media, private APIs, proprietary datasets, licensed course/document content, school contracts, tenant data, or unlicensed integrations.
 
 ## Overview
 
-Build an original mobile product inspired by Square Appointments's public user-facing workflow. The clone focus is: Workspace/object creation, search, sharing, sync/offline conflict handling, import/export, permissions, and subscription state
+Build an original mobile product inspired by Square Appointments's public user-facing workflow. The clone delivers appointment scheduling with integrated point-of-sale, staff management, client database, automated reminders, no-show protection, and invoicing — targeting service businesses (salons, spas, consultants, personal trainers) that need unified booking and payment in one platform.
 
-This Draft 1 spec reserves ID 770 in the 1000-app backlog. It provides enough structure for downstream research, estimation, and lawful implementation planning, but it is not implementation-ready until exact first-party URLs replace source-discovery links and app-specific public evidence is added.
+Square Appointments combines calendar management with Square's payment ecosystem: clients book online or in-app, staff manage their availability, businesses collect payments at checkout or enforce no-show/cancellation fees, and reporting ties appointments to revenue.
 
 ## Goals
 
-- Deliver a mobile-first scheduling and appointments experience with onboarding, primary workflow, settings, support, and recovery flows.
-- Reproduce the functional job behind Square Appointments using original product naming, original UI, original sample data, and licensed integrations.
+- Deliver a mobile-first appointment scheduling and POS experience with business onboarding, calendar management, client booking, staff scheduling, payment collection, and reporting.
+- Reproduce the functional job behind Square Appointments: unified booking + payments for service businesses with staff management, automated reminders, and no-show protection.
+- Support both the business-owner/staff perspective (manage calendar, clients, payments) and the client perspective (discover, book, pay, receive reminders).
 - Preserve exact boundaries between public-source evidence, inferred clone requirements, and blocked hands-on behavior.
-- Define screens, entities, API contracts, offline behavior, privacy/safety controls, analytics, tests, acceptance criteria, and build phases.
 
 ## Non-Goals
 
-- Do not copy Square Appointments branding, logos, screenshots, marketing copy, private APIs, proprietary datasets, ranking systems, or protected media.
+- Do not copy Square branding, logos, screenshots, marketing copy, private APIs, proprietary datasets, or protected media.
+- Do not integrate with actual Square hardware (readers, terminals, registers) — simulate POS interactions.
+- Do not implement real payment processing without separate legal/platform review.
 - Do not claim exact native behavior until a lawful hands-on verification pass records evidence.
-- Do not implement production payments, regulated services, medical advice, transport dispatch, smart-home control, or real-money game economies without separate legal/platform review.
 - Do not build runtime app code in this spec store.
 
 ## Research Sources
 
-| Source | Discovery URL | Evidence To Verify | Status |
+| Source | URL | Evidence To Verify | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/search?term=Square%20Appointments | iOS listing, category, age rating, privacy labels, release notes, support links | Source discovery -- pending exact URL verification |
-| Google Play | https://play.google.com/store/search?q=Square%20Appointments&c=apps | Android listing, content rating, data safety, feature blurbs | Source discovery -- pending exact URL verification |
-| Official website/help search | https://www.google.com/search?q=Square%20Appointments%20official%20app%20help%20privacy%20terms | Help center, privacy, terms, support, subscription, safety, and product docs to replace with first-party URLs | Source discovery -- pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/square-appointments/id1052498614 | iOS listing, privacy labels, release notes | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Google Play | https://play.google.com/store/apps/details?id=com.squareup.appointments | Android listing, data safety, feature blurbs | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Official website | https://squareup.com/us/en/appointments | Product features, pricing tiers, integration list | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Help center | https://squareup.com/help/us/en/article/5095-get-started-with-square-appointments | Setup guides, feature documentation, troubleshooting | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Privacy policy | https://squareup.com/us/en/legal/general/privacy | Data collection, sharing, retention policies | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Terms of service | https://squareup.com/us/en/legal/general/tos | Usage terms, liability, dispute resolution | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
 
 ## Detailed Design
 
-- Onboarding must support guest, signup, returning-user, permission-primer, and blocked-account states appropriate for scheduling and appointments.
-- Home must default to Home/Workspace with empty, loading, personalized, degraded-network, and signed-out variants.
-- The primary action must be reachable from Create/Edit within two taps from home.
-- Detail/Preview must represent preview, confirmation, or consumption state with saved, shared, unavailable, and error variants.
-- Settings must include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements must model free, trial, paid, expired, canceled, restored, refunded, and unavailable states without copying plan names or pricing.
-- Accessibility must support dynamic type, screen reader labels, visible focus, contrast, reduced motion, and captions/transcripts where relevant.
-- Offline behavior must preserve recoverable drafts and block irreversible or regulated writes until the client has canonical server state.
+- **Business onboarding**: Business owner creates account, sets business type (salon, spa, consulting, fitness, etc.), configures services with duration/pricing, adds staff members with individual availability, and sets booking policies (advance notice, cancellation window, no-show fees).
+- **Calendar management**: Day/week/month views showing appointments color-coded by staff member or service type. Drag-to-reschedule, block time for breaks/personal, recurring availability patterns, and multi-location support.
+- **Online booking site**: Auto-generated booking page shareable via link, embeddable widget, or social media. Clients select service, staff (or "any available"), date/time, and confirm with payment method on file.
+- **Client management**: CRM with contact info, appointment history, notes, preferences, payment methods on file, outstanding invoices, and communication log. Import from contacts or CSV.
+- **Staff management**: Individual staff profiles with services they perform, working hours, break schedules, commission rates, and calendar sync (Google Calendar, iCal). Staff can manage their own schedule via the app.
+- **Payment integration**: Collect payment at checkout (card on file, in-person via simulated POS, invoice). No-show and late-cancellation fee enforcement. Tips, discounts, and package/membership pricing.
+- **Automated communications**: Booking confirmations, reminders (email/SMS configurable timing), follow-up requests for reviews, and waitlist notifications.
+- **Invoicing**: Create and send invoices for services rendered, deposits required, or package purchases. Track payment status.
+- **Reporting**: Revenue by service/staff/time period, booking conversion rates, no-show rates, client retention metrics.
+- **Offline behavior**: View upcoming appointments, client details, and service catalog offline. Queue new bookings and payments for sync when connectivity returns. Block payment processing and fee enforcement while offline.
 
 ## Core User Journeys
 
-- New user installs, reviews an original value proposition, creates or restores an account, and reaches Home/Workspace.
-- Returning user opens Home/Workspace, resumes the latest meaningful state, and completes the primary action in Create/Edit.
-- User searches or browses, opens Detail/Preview, saves or shares the item, and later finds it again from history or library.
-- User denies a requested permission, receives a functional fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry, reconcile, or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees correct locked/unlocked states.
-- User requests support, submits a report or dispute where relevant, and receives a durable case state.
-- User requests data export and account deletion from settings.
+- **Business owner setup**: Install app, create business profile, add services with durations and prices, set availability, configure booking policies, share booking link.
+- **Staff member onboarding**: Receive invite from business owner, create staff account, set personal availability, connect external calendar, begin receiving appointment assignments.
+- **Client books appointment**: Client opens booking page/app, browses available services, selects preferred staff and time slot, adds payment method, confirms booking, receives confirmation.
+- **Day-of appointment flow**: Staff views daily schedule, checks in client on arrival, performs service, processes payment (card on file or new payment), adds tip, appointment marked complete.
+- **No-show handling**: Appointment time passes with no check-in, staff marks as no-show, system enforces no-show fee per policy, client notified of charge, dispute flow available.
+- **Cancellation/reschedule**: Client requests cancellation within or outside policy window, system applies or waives fee based on policy, time slot freed for other bookings or waitlist notification sent.
+- **Recurring appointments**: Client or staff sets up recurring booking (weekly haircut, monthly massage), system auto-creates future appointments, sends reminders, handles conflicts.
+- **Reporting review**: Business owner opens dashboard, reviews weekly revenue, identifies top-performing services/staff, checks no-show rates, adjusts policies or pricing.
 
 ## Screen Inventory
 
 | Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Home/Workspace | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Create/Edit | Primary creation/action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Detail/Preview | Inspect, consume, or confirm details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Search | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Share | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Sync/Activity | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Templates/Library | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Permissions | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Welcome/Auth | Business or client login, signup, role selection | email, password, social auth, business type | new user, returning, staff invite, blocked | invalid credentials, suspended account, network error |
+| Calendar/Schedule | Daily/weekly/monthly appointment view | tap appointment, drag to reschedule, tap empty slot | empty day, fully booked, partial availability, multi-staff | sync conflict, stale data, offline cached view |
+| Book Appointment | Service/staff/time selection flow | service picker, staff picker, date/time picker, notes | available slots, no availability, waitlist, recurring | double-booking conflict, payment method required, policy violation |
+| Client List | CRM with search and filters | search, filter by last visit/service, sort | populated list, empty state, loading | offline with cached clients, sync conflicts |
+| Client Detail | Individual client profile and history | edit contact, add note, view history, message | active client, archived, outstanding balance | client deleted account, payment dispute active |
+| Service Catalog | Manage services, durations, prices | add/edit/archive service, set duration, price, staff | active services, archived, categories | service booked while editing, price change mid-booking |
+| Staff Management | Staff list, permissions, schedules | invite staff, set hours, assign services | active staff, pending invite, deactivated | staff overlap conflict, permission denied |
+| Payment/Checkout | Process payment for completed appointment | select payment method, apply tip, discount | card on file, new card, invoice, split payment | payment declined, timeout, offline queued |
+| Invoice | Create/send/track invoices | line items, due date, send method | draft, sent, paid, overdue, disputed | delivery failure, partial payment |
+| No-Show/Cancellation | Handle missed or cancelled appointments | mark no-show, apply fee, waive fee, dispute | within policy, outside policy, fee waived | dispute in progress, payment method expired |
+| Booking Site Settings | Configure public booking page | toggle availability, set policies, customize link | active, paused, maintenance | link conflicts, embedded widget errors |
+| Reports/Analytics | Revenue, booking, and performance metrics | date range, filter by staff/service | data available, insufficient data, loading | calculation errors, timezone mismatches |
+| Notifications/Reminders | Configure automated communications | toggle channels, set timing, customize message | email enabled, SMS enabled, both disabled | delivery failures, client opted out |
+| Settings | Business profile, policies, integrations | edit fields, toggle features, connect services | complete profile, incomplete, subscription limits | integration auth expired, feature locked |
 
 ## Data Model
 
-- `User`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Square Appointments-style workflows.
-- `Workspace`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Square Appointments-style workflows.
-- `Document`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Square Appointments-style workflows.
-- `Asset`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Square Appointments-style workflows.
-- `Project`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Square Appointments-style workflows.
-- `Version`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Square Appointments-style workflows.
-- `ShareGrant`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Square Appointments-style workflows.
-- `Template`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Square Appointments-style workflows.
-- `SyncJob`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Square Appointments-style workflows.
-- `Notification`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Square Appointments-style workflows.
-- `AuditEvent`: append-only record for sensitive writes, account changes, support actions, moderation decisions, and entitlement transitions.
+- `Business`: id, name, type, timezone, address, phone, email, logo_url, booking_url_slug, subscription_tier, created_at, updated_at, deleted_at.
+- `User`: id, email, phone, name, role (owner/staff/client), business_id (nullable for clients), avatar_url, auth_provider, status (active/suspended/deleted), created_at.
+- `Staff`: id, user_id, business_id, display_name, bio, services (array of service_ids), commission_rate, status (active/invited/deactivated), created_at.
+- `StaffAvailability`: id, staff_id, day_of_week, start_time, end_time, is_recurring, override_date (for one-off changes), break_start, break_end.
+- `Service`: id, business_id, name, description, category, duration_minutes, buffer_minutes, price_cents, currency, is_active, requires_deposit, deposit_amount_cents.
+- `Client`: id, business_id, user_id (nullable), name, email, phone, notes, tags, payment_method_token, lifetime_value_cents, last_visit_at, created_at.
+- `Appointment`: id, business_id, service_id, staff_id, client_id, start_time, end_time, status (booked/confirmed/checked_in/completed/no_show/cancelled), source (online/in_person/phone), notes, recurring_series_id, created_at.
+- `RecurringSeries`: id, appointment_template (service_id, staff_id, client_id, day_of_week, time), frequency (weekly/biweekly/monthly), end_date, status (active/paused/ended).
+- `BookingPolicy`: id, business_id, advance_notice_hours, max_advance_days, cancellation_window_hours, no_show_fee_cents, late_cancel_fee_cents, requires_payment_method.
+- `Payment`: id, appointment_id, invoice_id, client_id, amount_cents, tip_cents, discount_cents, method (card_on_file/new_card/cash/invoice), status (pending/completed/failed/refunded), processed_at.
+- `Invoice`: id, business_id, client_id, line_items (jsonb), subtotal_cents, tax_cents, total_cents, status (draft/sent/paid/overdue/cancelled), due_date, sent_at, paid_at.
+- `Reminder`: id, appointment_id, channel (email/sms/push), scheduled_at, sent_at, status (pending/sent/failed/cancelled).
+- `CalendarSync`: id, staff_id, provider (google/ical/outlook), external_calendar_id, sync_direction (read/write/both), last_synced_at, status (active/error/disconnected).
+- `AuditEvent`: id, actor_id, actor_type, action, resource_type, resource_id, metadata (jsonb), ip_address, created_at.
 - `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, conflict resolution, and cache expiry.
 
 ## API And Backend Contracts
 
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /workspaces, GET /documents, GET /assets, GET /projects; all reads return authorization status, pagination, cache hints, stale-data markers, and localization keys.
-- Writes: POST /users, POST /workspaces, POST /documents, POST /assets, POST /projects; all writes require validation errors, idempotency keys, optimistic-state reconciliation, and audit events for sensitive state.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context.
-- Upload/import: use signed upload URLs, MIME/size validation, malware/content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must refetch canonical state after missed events.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+- Auth: `POST /auth/session` (login), `POST /auth/signup` (register business or client), `POST /auth/recover` (password reset), `POST /auth/invite/accept` (staff invite), `DELETE /auth/session`.
+- Business: `GET /business/:id`, `PUT /business/:id` (update profile/policies), `GET /business/:id/booking-page` (public booking config).
+- Services: `GET /business/:id/services`, `POST /business/:id/services`, `PUT /services/:id`, `DELETE /services/:id`.
+- Staff: `GET /business/:id/staff`, `POST /business/:id/staff/invite`, `PUT /staff/:id`, `GET /staff/:id/availability`, `PUT /staff/:id/availability`.
+- Clients: `GET /business/:id/clients`, `POST /business/:id/clients`, `PUT /clients/:id`, `GET /clients/:id/history`, `POST /clients/:id/message`.
+- Appointments: `GET /business/:id/appointments?date_range&staff_id`, `POST /business/:id/appointments`, `PUT /appointments/:id`, `POST /appointments/:id/check-in`, `POST /appointments/:id/complete`, `POST /appointments/:id/no-show`, `POST /appointments/:id/cancel`.
+- Availability: `GET /business/:id/availability?service_id&staff_id&date_range` (public slot query for booking).
+- Payments: `POST /appointments/:id/payment`, `POST /invoices`, `GET /invoices/:id`, `POST /invoices/:id/send`, `POST /payments/:id/refund`.
+- Reminders: `GET /business/:id/reminder-settings`, `PUT /business/:id/reminder-settings`.
+- Reports: `GET /business/:id/reports/revenue?period`, `GET /business/:id/reports/bookings?period`, `GET /business/:id/reports/staff-performance?period`.
+- Calendar sync: `POST /staff/:id/calendar-sync`, `DELETE /staff/:id/calendar-sync/:provider`, `POST /staff/:id/calendar-sync/refresh`.
+- Privacy: `POST /data-export`, `DELETE /account`, `GET /privacy/settings`.
 
 ## Realtime, Push, And Offline Behavior
 
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must reconcile against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+- Cache today's appointments, client list, service catalog, and business settings for offline access.
+- Queue new appointment bookings locally with conflict detection on reconnect (double-booking prevention).
+- Block payment processing, fee enforcement, and invoice sending while offline.
+- Push notifications for: new booking received, appointment reminder (configurable: 24h, 2h, 30min before), cancellation received, no-show fee charged, payment received, staff schedule change.
+- Realtime calendar updates via WebSocket for multi-staff businesses — when one staff member books, others see the slot filled immediately.
+- SMS/email reminders sent server-side on schedule; client delivery failures logged and retried once.
+- Background sync for external calendar integrations (Google Calendar) with conflict resolution favoring the most recently modified event.
 
 ## Permissions, Privacy, And Safety
 
-- Treat data loss as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat permission leakage as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat copyrighted assets as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat collaboration access as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat device security as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+- **Payment data**: PCI compliance required; never store raw card numbers; use tokenized payment methods; audit all payment state changes.
+- **Client data**: Business can export/delete client data; clients can request data export/deletion via support; GDPR/CCPA compliance for client PII.
+- **Staff permissions**: Owner can manage all; staff can only view/manage their own appointments and assigned clients unless elevated.
+- **Booking page privacy**: Business controls what info is public (services, staff names, prices) vs private (client list, revenue).
+- **No-show fees**: Must have clear disclosure to client at booking time; dispute resolution path required; cannot charge without prior consent to payment method storage.
+- **Communication consent**: SMS/email reminders require opt-in; unsubscribe must be honored; no marketing without separate consent.
+- Request location only for multi-location business selection; camera only for avatar/receipt photos; contacts only for client import (one-time, explicit).
+- Minimize PII in analytics; never log payment tokens, client notes, or appointment details in crash reports.
 
 ## Analytics And Monetization
 
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement logic; do not copy exact pricing, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, private messages, or child data as event properties.
+- Onboarding events: `business_created`, `first_service_added`, `first_staff_invited`, `booking_page_published`, `first_appointment_booked`.
+- Core events: `appointment_created`, `appointment_completed`, `appointment_cancelled`, `appointment_no_show`, `payment_processed`, `invoice_sent`.
+- Engagement events: `calendar_viewed`, `client_searched`, `report_viewed`, `reminder_configured`, `calendar_synced`.
+- Monetization: free tier (single staff, limited appointments/month), paid tiers (multi-staff, unlimited appointments, advanced reporting, no-show protection, SMS reminders). Do not copy Square's exact tier names or pricing.
+- Revenue events: `subscription_started`, `subscription_upgraded`, `subscription_cancelled`, `payment_processing_fee_collected`.
 
 ## Edge Cases
 
-- First launch with no network, no account, expired session, or unsupported OS version.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
-- Subscription restored on a different platform, refunded externally, or unavailable in the user's region.
-- Legal/privacy request submitted while transactions, messages, or support cases are still active.
+- Double-booking: two clients attempt to book the same slot simultaneously — last-write-wins with notification to loser, or waitlist.
+- Staff availability conflict: staff marks time as unavailable after client has already booked — require reschedule flow, not silent cancellation.
+- No-show fee with expired card: attempt charge, fail gracefully, flag client account, notify business owner.
+- Timezone handling: business in one timezone, client booking from another — always display in business timezone with client's local time noted.
+- Recurring appointment on holiday/closure: skip and notify, or offer alternative slot.
+- Mid-appointment payment failure: complete the service, flag invoice as outstanding, follow up via invoice.
+- Staff deletion with future appointments: require reassignment or cancellation of all future appointments before deactivation.
+- Client disputes no-show fee: freeze fee, create support case, business owner adjudicates.
+- Booking page abuse: rate-limit booking attempts, CAPTCHA for suspicious patterns, block known spam accounts.
+- Calendar sync conflict: external event blocks a slot that has existing booking — alert staff, do not auto-cancel client booking.
 
 ## Test Plan
 
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+- Unit tests: service duration/buffer calculation, availability slot generation, no-show fee policy evaluation, timezone conversion, recurring series generation.
+- Integration tests: full booking flow (select service -> pick slot -> confirm -> reminder sent -> check-in -> payment), staff invite acceptance, calendar sync round-trip.
+- Contract tests: all API endpoints return documented shapes; availability endpoint never returns double-bookable slots; payment endpoint enforces idempotency.
+- Offline tests: cached calendar renders correctly, queued booking syncs on reconnect with conflict detection, payment blocked while offline.
+- Permission tests: staff cannot access other staff's clients; client cannot see business revenue; deactivated staff loses access.
+- Safety tests: no-show fee requires prior payment method consent; client dispute creates case; PCI-sensitive fields never logged.
+- Accessibility tests: calendar navigation via VoiceOver, booking flow completable with keyboard/switch control, contrast ratios on time slots.
+- Billing tests: subscription upgrade unlocks multi-staff immediately; downgrade at period end; expired subscription limits features gracefully.
 
 ## Acceptance Criteria
 
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source-discovery links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+- Business owner can create account, add services, set availability, and publish a booking page within 5 minutes of first launch.
+- Client can discover available slots, book an appointment, receive confirmation, and get a reminder — all without contacting the business directly.
+- Staff member can view their daily schedule, check in a client, process payment, and see it reflected in reports.
+- No-show and cancellation policies are enforced automatically with clear client disclosure and dispute path.
+- Calendar sync with external providers keeps availability accurate without manual intervention.
+- Offline mode shows cached appointments and queues bookings; payment processing is blocked until online.
+- All data entities have ownership, lifecycle states, and deletion/export support.
+- At least 12 acceptance tests cover: booking happy path, double-booking prevention, no-show fee, cancellation policy, staff permissions, offline behavior, recurring appointments, payment processing, client management, reporting accuracy, accessibility, and data export/deletion.
 
 ## Open Questions
 
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, regulated sandbox, or provider credentials?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, AI, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+- Which Square Appointments features are behind specific paid tiers vs. available on free?
+- How does Square handle multi-location businesses in the mobile app specifically (vs. web dashboard)?
+- What is the exact SMS reminder delivery infrastructure (Twilio equivalent) and cost model?
+- How does the real app handle partial-day availability changes (e.g., staff leaves early)?
 
 ## Build Plan
 
-- Phase 1: Replace source-discovery rows with exact first-party URLs and classify each requirement as verified or inferred.
-- Phase 2: Define route map, component map, domain entities, API schema, permissions, analytics schema, and seed-data policy.
-- Phase 3: Build onboarding, home, primary action, detail, search, settings, support, and entitlement shells with original copy and sample data.
-- Phase 4: Add backend contracts, offline/retry handling, notification preferences, data export/delete, and safety/reporting flows.
-- Phase 5: Complete accessibility, privacy, safety, billing, permission, and regression tests.
-- Phase 6: Conduct lawful hands-on verification and resolve manual blockers before parity claims.
+- Phase 1: Verify all research source URLs; document public feature set from help center and app store listings.
+- Phase 2: Build business onboarding, service catalog, and staff availability management.
+- Phase 3: Implement appointment booking flow (business-side and client-side), calendar views, and slot availability engine.
+- Phase 4: Add payment processing simulation, no-show/cancellation policy enforcement, and invoicing.
+- Phase 5: Implement automated reminders, calendar sync, and real-time multi-staff updates.
+- Phase 6: Build reporting dashboard, client CRM features, and booking page customization.
+- Phase 7: Complete offline support, accessibility, permission tests, and regression suite.
+- Phase 8: Conduct lawful hands-on verification and resolve manual blockers before parity claims.
 
 ## Next Steps
 
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, support docs, and user-review themes in a dedicated research note without committing proprietary media.
-- Resolve open questions and update this spec before downstream implementation starts.
-- Extend the Phase 5 implementation-plan queue and repo-seeding manifest after the spec reaches implementation-ready V1.
+- Conduct hands-on verification with a free Square Appointments account to document exact booking flow and UI patterns.
+- Determine SMS/notification provider for reminders (original implementation, not Square's infrastructure).
+- Design original UI components for calendar, booking, and checkout flows.
+- Extend downstream repo-seeding manifest after this spec is confirmed implementation-ready.

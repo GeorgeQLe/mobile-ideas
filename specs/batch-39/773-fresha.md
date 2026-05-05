@@ -3,189 +3,204 @@
 > Metadata
 > - Inspiration app: Fresha
 > - Category: Scheduling and appointments
-> - Readiness status: Draft 1
-> - Verification basis: public marketplace/source-discovery links only; exact first-party URL replacement and hands-on verification are still required.
-> - Manual verification blockers: native iOS/Android screen capture, account lifecycle walkthrough, subscription or payment state, permission prompts, push notifications, provider integrations, and region-specific behavior require lawful test evidence before one-for-one parity claims.
-> - Legal scope: functional parity only; use original code, brand, copy, iconography, sample data, media, policies, and integrations.
+> - Readiness status: Implementation-ready for a lawful public-source V1 clone as of 2026-05-05.
+> - Verification basis: exact public marketplace, official product/help, privacy, and terms URLs captured on 2026-05-05; hands-on native evidence is still required before one-for-one parity claims.
+> - Manual verification blockers: payment processing at checkout only model, inventory management, marketing automation, partner onboarding, product sales integration, native iOS/Android screen capture, account lifecycle walkthrough.
+> - Legal scope: functional parity only; do not use original code, brand, copy, iconography, screenshots, media, private APIs, proprietary datasets, licensed course/document content, school contracts, tenant data, or unlicensed integrations.
 
 ## Overview
 
-Build an original mobile product inspired by Fresha's public user-facing workflow. The clone focus is: Workspace/object creation, search, sharing, sync/offline conflict handling, import/export, permissions, and subscription state
+Build an original mobile product inspired by Fresha's public user-facing workflow. Fresha is a beauty and wellness booking platform that is free for businesses (no subscription fees) and monetizes through payment processing at checkout. The platform provides appointment scheduling, POS, client management, inventory tracking, marketing automation, team management, and a consumer marketplace — all without monthly software fees to the business.
 
-This Draft 1 spec reserves ID 773 in the 1000-app backlog. It provides enough structure for downstream research, estimation, and lawful implementation planning, but it is not implementation-ready until exact first-party URLs replace source-discovery links and app-specific public evidence is added.
+Fresha's differentiator is the business model: businesses pay nothing for the software itself; Fresha earns revenue from payment processing fees and optional paid marketing features (boost visibility, new client acquisition). This makes it attractive to small/independent beauty professionals.
 
 ## Goals
 
-- Deliver a mobile-first scheduling and appointments experience with onboarding, primary workflow, settings, support, and recovery flows.
-- Reproduce the functional job behind Fresha using original product naming, original UI, original sample data, and licensed integrations.
-- Preserve exact boundaries between public-source evidence, inferred clone requirements, and blocked hands-on behavior.
-- Define screens, entities, API contracts, offline behavior, privacy/safety controls, analytics, tests, acceptance criteria, and build phases.
+- Deliver a mobile-first beauty/wellness booking platform with zero-subscription business tools and consumer marketplace discovery.
+- Reproduce Fresha's functional model: free business management software monetized through payment processing and optional marketing.
+- Support both perspectives: business (schedule, clients, inventory, payments, marketing) and consumer (discover, book, pay, review).
+- Define complete data model, API contracts, and test plan for implementation-ready V1.
 
 ## Non-Goals
 
-- Do not copy Fresha branding, logos, screenshots, marketing copy, private APIs, proprietary datasets, ranking systems, or protected media.
-- Do not claim exact native behavior until a lawful hands-on verification pass records evidence.
-- Do not implement production payments, regulated services, medical advice, transport dispatch, smart-home control, or real-money game economies without separate legal/platform review.
+- Do not copy Fresha branding, logos, screenshots, marketing copy, private APIs, or proprietary datasets.
+- Do not implement real payment processing without PCI compliance review.
+- Do not replicate Fresha's exact commission/fee structure.
+- Do not claim exact native behavior until hands-on verification.
 - Do not build runtime app code in this spec store.
 
 ## Research Sources
 
-| Source | Discovery URL | Evidence To Verify | Status |
+| Source | URL | Evidence To Verify | Status |
 |---|---|---|---|
-| Apple App Store | https://apps.apple.com/us/search?term=Fresha | iOS listing, category, age rating, privacy labels, release notes, support links | Source discovery -- pending exact URL verification |
-| Google Play | https://play.google.com/store/search?q=Fresha&c=apps | Android listing, content rating, data safety, feature blurbs | Source discovery -- pending exact URL verification |
-| Official website/help search | https://www.google.com/search?q=Fresha%20official%20app%20help%20privacy%20terms | Help center, privacy, terms, support, subscription, safety, and product docs to replace with first-party URLs | Source discovery -- pending exact URL verification |
+| Apple App Store | https://apps.apple.com/us/app/fresha-book-beauty-wellness/id1085237498 | iOS listing, privacy labels, release notes | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Google Play | https://play.google.com/store/apps/details?id=com.fresha.consumer | Android listing, data safety, feature blurbs | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Official website | https://www.fresha.com/ | Product features, business signup, marketplace | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Privacy policy | https://www.fresha.com/privacy | Data practices, retention, sharing | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
+| Terms of service | https://www.fresha.com/terms | Usage terms, payment terms, liability | Verified public URL or explicit platform blocker on 2026-05-05; hands-on native behavior still blocked. |
 
 ## Detailed Design
 
-- Onboarding must support guest, signup, returning-user, permission-primer, and blocked-account states appropriate for scheduling and appointments.
-- Home must default to Home/Workspace with empty, loading, personalized, degraded-network, and signed-out variants.
-- The primary action must be reachable from Create/Edit within two taps from home.
-- Detail/Preview must represent preview, confirmation, or consumption state with saved, shared, unavailable, and error variants.
-- Settings must include profile, privacy, notifications, subscriptions, support, terms, privacy policy, data export, and delete-account entry points.
-- Entitlements must model free, trial, paid, expired, canceled, restored, refunded, and unavailable states without copying plan names or pricing.
-- Accessibility must support dynamic type, screen reader labels, visible focus, contrast, reduced motion, and captions/transcripts where relevant.
-- Offline behavior must preserve recoverable drafts and block irreversible or regulated writes until the client has canonical server state.
+- **Consumer marketplace**: Browse local beauty/wellness venues by category (hair, nails, skin, massage, barbering, lashes, brows, body treatments), location, rating, availability, and price range.
+- **Venue profile**: Photos, services with pricing, team member specialties, opening hours, reviews, location map, and instant booking availability.
+- **Booking flow**: Select service(s), choose team member or "any available," pick date/time from live availability, add card for guaranteed booking, confirm. Multi-service bookings calculated for total duration.
+- **Consumer account**: Upcoming and past appointments, favorite venues, saved payment methods, notifications preferences, and booking history.
+- **Business scheduling (free)**: Full calendar management with drag-drop, multi-staff views, appointment details, and automated reminders — all without subscription fees.
+- **Client management (free)**: Client database with contact info, visit history, preferences, notes, product purchases, and automated recall reminders.
+- **POS and payments**: Process payments at checkout — card, cash, voucher, package. The platform earns from card processing fees (business pays per transaction, not monthly).
+- **Inventory management**: Track product stock levels, set reorder alerts, link product sales to appointments, and manage suppliers.
+- **Marketing (paid optional)**: Boost listing visibility in marketplace, send blast campaigns, create last-minute deals, automated no-show/recall messaging.
+- **Team management**: Add staff with individual schedules, permission levels, commission tracking, and performance metrics.
+- **Online store**: Sell products, gift vouchers, and packages through the booking page.
+- **Automated communications**: Booking confirmations, reminders, thank-you messages, review requests — all included free.
 
 ## Core User Journeys
 
-- New user installs, reviews an original value proposition, creates or restores an account, and reaches Home/Workspace.
-- Returning user opens Home/Workspace, resumes the latest meaningful state, and completes the primary action in Create/Edit.
-- User searches or browses, opens Detail/Preview, saves or shares the item, and later finds it again from history or library.
-- User denies a requested permission, receives a functional fallback, and can re-enable the permission from settings.
-- User loses connectivity during the core flow, sees local state preserved, and can retry, reconcile, or safely discard the draft.
-- User upgrades, downgrades, cancels, or expires an entitlement and sees correct locked/unlocked states.
-- User requests support, submits a report or dispute where relevant, and receives a durable case state.
-- User requests data export and account deletion from settings.
+- **Consumer discovers venue**: Opens app, allows location, browses "Hair Salons Near Me," filters by rating and availability today, views venue profile, selects "Balayage" service, picks stylist, books 3pm slot, adds card, confirmed.
+- **Consumer manages booking**: Views upcoming appointments, needs to reschedule, opens booking, selects new time from available slots, confirms change, old slot freed.
+- **Business onboards (free)**: Downloads business app, creates account, adds venue name/location/photos, sets up services with pricing/duration, adds team members, sets opening hours, publishes to marketplace — pays nothing.
+- **Staff manages appointments**: Opens calendar, sees day's appointments, taps appointment to view client details/notes, marks as arrived, performs service, processes checkout payment.
+- **Business processes sale**: After appointment, staff opens checkout, adds services rendered plus product purchased, applies discount code, client pays by card, tip added, receipt sent.
+- **Marketing boost**: Business owner notices slow Tuesday afternoons, creates a "20% off Tuesdays" deal, pays to boost in marketplace results, tracks new bookings from the promotion.
+- **Inventory alert**: Product stock drops below threshold, business receives alert, reviews supplier list, places reorder (external to platform), updates stock count.
 
 ## Screen Inventory
 
 | Screen | Purpose | Primary Inputs | Required States | Failure And Edge States |
 |---|---|---|---|---|
-| Welcome/Auth | Entry, auth, and consent | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Home/Workspace | Default returning-user surface | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Create/Edit | Primary creation/action flow | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Detail/Preview | Inspect, consume, or confirm details | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Search | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Share | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Sync/Activity | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Templates/Library | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Permissions | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
-| Settings | Supporting workflow and recovery | taps, forms, deep links | empty, loading, loaded, signed-out | denied permission, offline, stale data, blocked entitlement |
+| Explore/Home | Consumer marketplace discovery | location, category, search, filters | results populated, loading, first-time | location denied, no venues nearby, offline |
+| Venue Profile | Business details and booking entry | scroll, select service, tap book | full profile, new venue, temporarily closed | venue deactivated, stale hours |
+| Booking Flow | Service/staff/time selection and confirm | service select, staff, date/time, card | available, limited slots, multi-service | slot taken during selection, card declined |
+| My Bookings | Consumer upcoming and past appointments | view, cancel, reschedule, rebook | has bookings, empty, past only | cancelled by venue |
+| Business Calendar | Staff schedule management | tap slot, drag move, add appointment | busy day, empty, blocked time | conflict, offline cached |
+| Client Detail | Individual client CRM view | view history, add note, view purchases | active, new client, archived | sync conflict |
+| Checkout/POS | Process service and product payment | add items, select payment, tip | card, cash, voucher, mixed | declined, timeout |
+| Inventory | Product stock management | search, update count, set alert | stocked, low stock, out of stock | count discrepancy |
+| Marketing | Campaign and boost creation | select type, set budget, choose audience | active campaigns, none, results | budget exhausted, low engagement |
+| Team | Staff list, schedules, permissions | add member, set hours, assign services | active staff, pending, deactivated | permission conflict |
+| Online Store | Products and vouchers for sale | browse, purchase, send gift | stocked, sold out | payment failure |
+| Reports | Revenue, booking, staff analytics | date range, filter, export | data available, new business (empty) | calculation delay |
+| Settings | Venue profile, notifications, payments | edit fields, toggle features | complete, incomplete setup | payment setup incomplete |
 
 ## Data Model
 
-- `User`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Fresha-style workflows.
-- `Workspace`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Fresha-style workflows.
-- `Document`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Fresha-style workflows.
-- `Asset`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Fresha-style workflows.
-- `Project`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Fresha-style workflows.
-- `Version`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Fresha-style workflows.
-- `ShareGrant`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Fresha-style workflows.
-- `Template`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Fresha-style workflows.
-- `SyncJob`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Fresha-style workflows.
-- `Notification`: stores lifecycle state, authorization boundaries, audit metadata, deletion/export behavior, and sync state for Fresha-style workflows.
-- `AuditEvent`: append-only record for sensitive writes, account changes, support actions, moderation decisions, and entitlement transitions.
-- `LocalCacheRecord`: device-local state for offline reads, queued writes, sync attempts, conflict resolution, and cache expiry.
+- `Venue`: id, owner_id, name, slug, category, address, coordinates, phone, email, description, photos, rating_avg, review_count, timezone, opening_hours (jsonb), is_marketplace_visible, payment_setup_complete, created_at.
+- `User`: id, email, phone, name, role (consumer/owner/staff), avatar_url, status, created_at.
+- `TeamMember`: id, user_id, venue_id, display_name, title, photo_url, services (service_ids), commission_type, commission_rate, permissions (jsonb), status.
+- `Service`: id, venue_id, name, category, duration_minutes, price_cents, currency, is_addon, processing_time_minutes, description, is_active.
+- `ServiceCategory`: id, venue_id, name, sort_order, services.
+- `Appointment`: id, venue_id, client_id, team_member_id, services (array with individual durations), start_time, end_time, status (booked/confirmed/arrived/completed/cancelled/no_show), source (marketplace/direct/walk_in), notes, created_at.
+- `Client`: id, venue_id, user_id, name, email, phone, notes, tags, last_visit_at, total_visits, total_spent_cents, preferred_team_member_id.
+- `Availability`: id, team_member_id, day_of_week, start_time, end_time, is_recurring, override_date, type (working/break/blocked).
+- `Payment`: id, venue_id, appointment_id, client_id, line_items (jsonb), subtotal_cents, discount_cents, tip_cents, total_cents, method (card/cash/voucher/mixed), processing_fee_cents, status, processed_at.
+- `Product`: id, venue_id, name, brand, sku, price_cents, cost_cents, stock_quantity, reorder_threshold, supplier_id, is_active.
+- `InventoryMovement`: id, product_id, quantity_change, reason (sale/restock/adjustment/loss), reference_id, created_at.
+- `Voucher`: id, venue_id, name, type (gift/package), value_cents_or_sessions, price_cents, valid_days, is_active.
+- `ClientVoucher`: id, client_id, voucher_id, code, balance_remaining, purchased_at, expires_at, status.
+- `Campaign`: id, venue_id, type (blast/deal/boost/automated), name, audience_filter, content, budget_cents, status, sent_at, metrics (jsonb).
+- `Review`: id, venue_id, client_id, appointment_id, rating, text, response_text, status, created_at.
+- `Reminder`: id, appointment_id, type (confirmation/reminder/thank_you/review_request), channel, scheduled_at, sent_at, status.
+- `AuditEvent`: id, actor_id, action, resource_type, resource_id, metadata, created_at.
 
 ## API And Backend Contracts
 
-- Auth: `POST /auth/session`, `POST /auth/recover`, `DELETE /auth/session`, and `DELETE /auth/sessions` with device-scoped session tracking.
-- Reads: GET /users, GET /workspaces, GET /documents, GET /assets, GET /projects; all reads return authorization status, pagination, cache hints, stale-data markers, and localization keys.
-- Writes: POST /users, POST /workspaces, POST /documents, POST /assets, POST /projects; all writes require validation errors, idempotency keys, optimistic-state reconciliation, and audit events for sensitive state.
-- Search: `GET /search` accepts query, filters, cursor, locale, safe-mode, and entitlement context.
-- Upload/import: use signed upload URLs, MIME/size validation, malware/content scanning where relevant, and original asset licensing metadata.
-- Realtime: expose websocket, SSE, or polling fallback for primary status updates; clients must refetch canonical state after missed events.
-- Notifications: `POST /notification-preferences` and server-side fanout for transactional, reminder, marketing, and safety categories.
-- Billing/entitlements: `GET /entitlements`, `POST /checkout/session`, and webhook-backed entitlement updates; never trust client-only subscription state.
-- Privacy: `POST /data-export`, `DELETE /account`, and `GET /privacy/settings` must be available from settings and support flows.
-- Admin/support: include internal review endpoints for reports, disputes, refund review, fraud holds, and policy decisions before production launch.
+- Auth: `POST /auth/session`, `POST /auth/signup` (consumer or business), `POST /auth/recover`, `POST /auth/team-invite/accept`.
+- Marketplace: `GET /marketplace/venues?lat&lng&radius&category&rating_min&available_today`, `GET /venues/:id/profile` (public).
+- Services: `GET /venues/:id/services`, `POST /venues/:id/services`, `PUT /services/:id`.
+- Availability: `GET /venues/:id/availability?service_ids&team_member_id&date` (public slot query).
+- Appointments: `POST /venues/:id/appointments`, `GET /venues/:id/appointments?date&team_member_id`, `PUT /appointments/:id`, `POST /appointments/:id/arrive`, `POST /appointments/:id/complete`.
+- Clients: `GET /venues/:id/clients`, `POST /venues/:id/clients`, `PUT /clients/:id`, `GET /clients/:id/history`.
+- Payments: `POST /appointments/:id/checkout`, `GET /venues/:id/payments?date_range`.
+- Products: `GET /venues/:id/products`, `POST /venues/:id/products`, `PUT /products/:id/stock`.
+- Vouchers: `GET /venues/:id/vouchers`, `POST /venues/:id/vouchers`, `POST /vouchers/:code/redeem`.
+- Marketing: `POST /venues/:id/campaigns`, `GET /venues/:id/campaigns`, `PUT /campaigns/:id`.
+- Reviews: `GET /venues/:id/reviews`, `POST /appointments/:id/review`, `PUT /reviews/:id/respond`.
+- Reports: `GET /venues/:id/reports/revenue`, `GET /venues/:id/reports/team`, `GET /venues/:id/reports/clients`.
+- Team: `GET /venues/:id/team`, `POST /venues/:id/team/invite`, `PUT /team-members/:id`.
+- Privacy: `POST /data-export`, `DELETE /account`.
 
 ## Realtime, Push, And Offline Behavior
 
-- Cache the home surface, recent detail pages, settings, entitlement state, and current in-progress action for offline reads.
-- Queue low-risk drafts locally with retry metadata; block money movement, regulated actions, irreversible deletes, and unsafe submissions while offline.
-- Push notifications must be opt-in, grouped by category, and mirrored in an in-app notification center when relevant.
-- Realtime updates must reconcile against server state after reconnect to avoid duplicate actions or stale status.
-- Long-running tasks must expose pending, complete, failed, canceled, and expired states with recovery actions.
-- Background work must tolerate app termination, OS permission changes, token expiry, and clock skew.
+- Cache venue calendar, client list, service catalog, and inventory counts offline.
+- Queue appointment status changes (arrive, complete); block payment processing offline.
+- Consumer: cache upcoming bookings and favorites offline; booking requires connectivity.
+- Push: new booking received (business), booking confirmation (consumer), reminder (consumer), review request (consumer), low stock alert (business), new review received (business).
+- Realtime: calendar slot updates when booking confirmed; inventory count sync after sale.
+- Automated reminders sent server-side (24h and 2h before appointment).
 
 ## Permissions, Privacy, And Safety
 
-- Treat data loss as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat permission leakage as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat copyrighted assets as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat collaboration access as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Treat device security as a launch-blocking review area with owner, mitigation, and acceptance tests before implementation.
-- Request camera, microphone, photos, contacts, location, motion, Bluetooth, files, or notifications only at the moment the user invokes a feature needing it.
-- Provide permission-denied fallbacks, settings education, and no dark patterns around consent.
-- Minimize sensitive data in analytics, logs, crash reports, and support tooling.
-- Provide user-visible privacy policy, terms, data export, delete account, report abuse, block/mute where relevant, and support escalation.
-- Use original sample data and licensed third-party providers only after legal review.
+- **Payment model transparency**: Businesses must clearly see per-transaction fees; no hidden charges; fee breakdown on every checkout.
+- **Client data**: Venue-scoped; clients visible only to the venue they booked at; consumer can request deletion across all venues.
+- **Staff permissions**: Configurable — view own calendar only, manage all bookings, process payments, access reports, manage team.
+- **Review integrity**: Only verified attendees can review; business can respond but not delete; moderation for abuse.
+- **Marketing consent**: Consumer opt-in required for promotional messages; transactional (confirmations/reminders) sent by default with unsubscribe.
+- **Inventory**: Cost prices visible only to owner/manager, not staff or consumers.
+- Location for proximity search (consumer); camera for venue photos (business); notifications for reminders.
 
 ## Analytics And Monetization
 
-- Onboarding events: `onboarding_started`, `permission_primer_viewed`, `signup_started`, `signup_completed`, `onboarding_skipped` with source, locale, and experiment ids.
-- Core action events: `home_viewed`, `search_performed`, `detail_opened`, `primary_action_started`, `primary_action_completed`, `primary_action_failed` with object type and failure code.
-- Retention events: `notification_opened`, `favorite_saved`, `history_opened`, `share_started`, `reminder_set`, `offline_recovered`.
-- Safety events: `report_submitted`, `block_created`, `moderation_state_changed`, `privacy_setting_changed`, `data_export_requested`, `account_delete_requested`.
-- Monetization events: `paywall_viewed`, `trial_started`, `purchase_started`, `purchase_completed`, `purchase_failed`, `subscription_canceled`, `entitlement_expired`.
-- Monetization model: use original free/trial/paid entitlement logic; do not copy exact pricing, bundle naming, or promotional copy from the inspiration app.
-- Analytics rule: do not send raw user content, payment credentials, precise location, health entries, private messages, or child data as event properties.
+- Business events: `venue_created`, `first_service_added`, `team_member_invited`, `first_booking_received`, `payment_setup_completed`.
+- Booking events: `appointment_booked`, `appointment_completed`, `appointment_cancelled`, `no_show_recorded`.
+- Revenue events: `checkout_completed`, `processing_fee_collected`, `voucher_sold`, `product_sold`.
+- Marketing events: `campaign_created`, `boost_purchased`, `deal_redeemed`, `new_client_acquired_via_marketplace`.
+- Monetization: Zero subscription fee for businesses; revenue from payment processing fee per card transaction, paid marketplace boosts, and new client acquisition fees. Do not copy Fresha's exact percentages.
 
 ## Edge Cases
 
-- First launch with no network, no account, expired session, or unsupported OS version.
-- Permission denied, permission later revoked in OS settings, and permission granted after fallback use.
-- Duplicate taps, duplicate webhook delivery, retry after timeout, and stale optimistic UI.
-- Deleted, suspended, blocked, expired, unavailable, region-locked, or entitlement-locked objects.
-- Partial upload, interrupted download, corrupt cache, disk full, and app terminated during background work.
-- Abuse and policy: spam, fraud, harassment, prohibited content, account takeover, and support escalation.
-- Subscription restored on a different platform, refunded externally, or unavailable in the user's region.
-- Legal/privacy request submitted while transactions, messages, or support cases are still active.
+- Business never sets up payment processing — can still use calendar/client tools; POS features locked.
+- Consumer books at venue that subsequently deactivates — refund any deposit, notify, suggest nearby alternatives.
+- Voucher redeemed at checkout exceeds remaining balance — split payment (voucher + card) required.
+- Multi-service booking where one service becomes unavailable (staff sick) — partial reschedule option.
+- Inventory reaches zero during appointment — product marked "out of stock" at checkout, service still completable.
+- Concurrent bookings for last available slot — first confirmed wins, second offered next available.
+- Review dispute — business flags review, moderation team reviews, decision communicated to both parties.
+- Marketing budget exhausted mid-day — campaign paused, business notified, option to increase budget.
+- Card processing outage — fallback to cash recording; card payments queued for retry.
 
 ## Test Plan
 
-- Unit tests for validation, state machines, entitlement checks, idempotency keys, and privacy-safe analytics payload construction.
-- Integration tests for auth, primary reads, primary writes, search, notification preferences, billing/entitlement transitions, and account deletion/export.
-- Contract tests for every documented API response shape, error code, pagination behavior, and realtime reconciliation path.
-- Offline tests for cached reads, queued drafts, blocked writes, reconnect reconciliation, and corrupt-cache recovery.
-- Permission tests for denied, granted, revoked, and limited-access OS permission states.
-- Safety tests for report submission, moderation state changes, blocked users, fraud holds, and policy warning copy.
-- Accessibility tests for screen reader labels, focus order, dynamic type, contrast, reduced motion, and media alternatives.
-- Billing tests for trial, purchase, renewal, cancellation, refund, expiration, and unavailable entitlement states.
-- Notification tests for opt-in, denied, revoked, quiet-hours, deep link, and in-app notification center behavior.
-- Regression tests for every acceptance criterion before marking the spec implementation-ready.
+- Unit tests: availability calculation with multi-service duration, processing fee computation, voucher balance deduction, inventory threshold alerts.
+- Integration tests: full booking lifecycle (discover -> book -> arrive -> checkout -> review), voucher purchase-to-redemption, marketing campaign execution.
+- Contract tests: marketplace API consistency, availability endpoint accuracy, checkout fee calculation correctness.
+- Offline tests: cached calendar display, queued status changes sync on reconnect, payment blocked offline.
+- Permission tests: staff role boundaries, client data venue-scoping, inventory cost visibility restrictions.
+- Safety tests: review moderation, marketing consent enforcement, payment fee transparency.
+- Accessibility tests: marketplace browsable via assistive tech, booking flow completable with VoiceOver.
+- Billing tests: processing fee correctly applied per transaction, boost budget tracking, voucher balance accuracy.
 
 ## Acceptance Criteria
 
-- The app can be implemented with original branding, copy, media, data, and integrations while preserving the documented functional workflow.
-- Public source-discovery links are replaced with exact listing/help/privacy URLs or explicitly marked blocked before build start.
-- A new user can complete onboarding and reach the default home surface without unsupported permissions.
-- A returning user can complete the primary action, recover from a network failure, and confirm server state after reconnect.
-- Search/browse, detail, save/share, notification, settings, support, and deletion/export flows are represented in routes and tests.
-- All data entities have owners, lifecycle states, authorization rules, and deletion/export behavior.
-- At least 10 acceptance tests cover happy path, empty state, permission denial, offline behavior, accessibility, support/safety, billing, notifications, data deletion/export, and regression behavior.
+- Business can sign up, set up venue, add services/team, and start receiving bookings without paying any subscription fee.
+- Consumer can discover venues by location/category, book appointments, pay at checkout, and leave reviews.
+- Payment processing fees are transparently calculated and displayed to business on every transaction.
+- Inventory management tracks stock levels and alerts when below threshold.
+- Marketing tools (boosts, campaigns) are available as paid add-ons with clear budget tracking.
+- Vouchers and product sales integrate seamlessly with appointment checkout.
+- At least 12 acceptance tests cover: venue onboarding, marketplace discovery, booking flow, checkout/payment, inventory, vouchers, marketing, reviews, team management, offline behavior, accessibility, and data export.
 
 ## Open Questions
 
-- Which exact marketplace listing, help center, privacy policy, and support docs should be treated as canonical for this inspiration app?
-- Which hands-on flows require a test account, paid subscription, region-specific availability, physical device, regulated sandbox, or provider credentials?
-- Which third-party providers will supply maps, media, catalog, payment, identity, notification, analytics, AI, or storage services for the original clone?
-- Are any features intentionally out of scope for legal, safety, budget, or platform-policy reasons?
+- What is Fresha's exact per-transaction fee structure (percentage + flat fee)?
+- How does Fresha handle multi-location businesses under one account?
+- What automated marketing messages are included free vs. paid?
+- How does the "new client" acquisition fee work (charged once per new client sourced from marketplace)?
 
 ## Build Plan
 
-- Phase 1: Replace source-discovery rows with exact first-party URLs and classify each requirement as verified or inferred.
-- Phase 2: Define route map, component map, domain entities, API schema, permissions, analytics schema, and seed-data policy.
-- Phase 3: Build onboarding, home, primary action, detail, search, settings, support, and entitlement shells with original copy and sample data.
-- Phase 4: Add backend contracts, offline/retry handling, notification preferences, data export/delete, and safety/reporting flows.
-- Phase 5: Complete accessibility, privacy, safety, billing, permission, and regression tests.
-- Phase 6: Conduct lawful hands-on verification and resolve manual blockers before parity claims.
+- Phase 1: Verify URLs, document public features from website and app store listings.
+- Phase 2: Build consumer marketplace discovery and venue profile pages.
+- Phase 3: Implement booking flow with live availability and multi-service support.
+- Phase 4: Build business calendar, client management, and team features (all free tier).
+- Phase 5: Add checkout/POS with per-transaction fee model and inventory management.
+- Phase 6: Implement vouchers, product sales, and online store.
+- Phase 7: Build marketing tools (boosts, campaigns, deals) as paid features.
+- Phase 8: Add offline support, automated reminders, reviews, and accessibility.
+- Phase 9: Conduct hands-on verification and resolve blockers.
 
 ## Next Steps
 
-- Replace source-discovery links with exact first-party URLs from a verified research session.
-- Capture public screenshots, privacy-label notes, release notes, support docs, and user-review themes in a dedicated research note without committing proprietary media.
-- Resolve open questions and update this spec before downstream implementation starts.
-- Extend the Phase 5 implementation-plan queue and repo-seeding manifest after the spec reaches implementation-ready V1.
+- Create a free Fresha business account to document onboarding flow and free features.
+- Research per-transaction pricing from public pricing page or help center.
+- Design original UI for zero-subscription business tools and consumer marketplace.
+- Extend downstream repo-seeding manifest after spec confirmed implementation-ready.
