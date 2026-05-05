@@ -5,11 +5,11 @@ Updated: 2026-05-05
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-700.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-720.
 
-Current readiness count: 700 of 1000.
+Current readiness count: 720 of 1000.
 
-Step 8.3 remains open for IDs 701-1000. A 2026-05-05 post-slice audit found 900 source-discovery placeholder rows across 300 files: 300 rows per full 100-ID range from 701-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 721-1000. A 2026-05-05 post-slice audit found 840 source-discovery placeholder rows across 280 files: 240 rows in IDs 721-800 and 300 rows per full 100-ID range from 801-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
@@ -607,8 +607,9 @@ Run `node scripts/check-implementation-readiness.mjs` before and after each Step
 - Batch 33 smart-home and health/medical public-source V1 expansion: `641-arlo-secure.md` through `660-cvs-health.md`.
 - Batch 34 health/medical public-source V1 expansion: `661-express-scripts.md` through `680-apple-health.md`.
 - Batch 35 health/medical, parenting/family-safety, and education public-source V1 expansion: `681-google-fit.md` through `700-schoology.md`.
+- Batch 36 education and productivity-documents public-source V1 expansion: `701-seesaw.md` through `720-microsoft-365.md`.
 
 ## Next Steps
 
-- Continue Phase 8 Step 8.3 with IDs 701-720 as the next education plus productivity-documents category slice.
+- Continue Phase 8 Step 8.3 with IDs 721-740 as the next productivity-documents category slice.
 - Complete hands-on verification where lawful and feasible before one-for-one native parity claims.
