@@ -5,11 +5,11 @@ Updated: 2026-05-04
 
 ## Verdict
 
-The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-620.
+The original Phase 3 spec set (IDs 001-100) has moved from Draft 1 scaffolds to implementation-ready public-source V1 specs. Phase 8 Step 8.3 has promoted IDs 101-640.
 
-Current readiness count: 620 of 1000.
+Current readiness count: 640 of 1000.
 
-Step 8.3 remains open for IDs 621-1000. A 2026-05-04 post-slice audit found 1,140 source-discovery placeholder rows across 380 files: 240 rows in IDs 621-700 and 300 rows per full 100-ID range from 701-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
+Step 8.3 remains open for IDs 641-1000. A 2026-05-05 post-slice audit found 1,080 source-discovery placeholder rows across 360 files: 180 rows in IDs 641-700 and 300 rows per full 100-ID range from 701-1000. These specs cannot be promoted until exact first-party source URLs replace the discovery rows, verified-vs-inferred distinctions are added, and category-specific risk reviews are completed.
 
 ## Readiness Definition
 
