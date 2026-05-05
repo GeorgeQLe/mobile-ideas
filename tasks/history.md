@@ -1056,3 +1056,24 @@
 - Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native/account/provider/hardware verification before one-for-one parity claims.
 - Rollback note: revert the shipping commit to restore IDs 581-600 to their previous Draft 1 scaffold state and previous readiness counts.
 - Next command: `$run`.
+
+## 2026-05-05 - Phase 8 Step 8.3 IDs 801-820 Promotion
+
+- Promoted specs 801-820 (Microsoft Authenticator through HubSpot) from Draft 1 to implementation-ready public-source V1.
+- Replaced source-discovery rows with exact public marketplace, product, support/help, privacy, and terms/legal URLs.
+- Added identity-auth, VPN, security-suite, and enterprise-CRM blockers for push/TOTP/HOTP MFA, passwordless sign-in, device trust/compliance signals, FastPass/Verified Push, VPN tunnel management with kill switch/split tunneling/auto-connect, server selection and specialty servers, ad/tracker/malware blocking (Threat Protection, CleanWeb, NetShield, R.O.B.E.R.T., DAITA), Meshnet/multihop, dark web monitoring, malware scanning and real-time protection, web/Wi-Fi security, identity theft monitoring, hardware-bound OATH credentials (YubiKey NFC/USB), open-source 2FA with browser extension pairing, CRM contact/deal/opportunity pipeline management, activity logging, Einstein AI insights, approval workflows, and enterprise org/tenant/portal policy enforcement.
+- Updated `tasks/todo.md` for 820 ready specs and the next IDs 821-840 slice.
+- Validation: 0 source-discovery strings, 20 implementation-ready specs, one H1 each across all 20 promoted files.
+
+### Ship Manifest
+
+- User goal: execute next incomplete Step 8.3 slice and ship the result.
+- Changed files: `specs/batch-41/801-microsoft-authenticator.md` through `specs/batch-41/820-hubspot.md`, `scripts/promote-batch-41-specs.mjs`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: promoted 20 specs to implementation-ready public-source V1; created the batch promotion generator as reproducible project tooling; recorded readiness counts, latest slice, and next-slice routing.
+- User-goal mapping: the edited specs replace Draft 1/source-discovery placeholders for IDs 801-820; task files preserve the Step 8.3 execution trail and handoff.
+- Tests run: targeted `grep` checks found 0 source-discovery markers and 20 implementation-ready markers in promoted specs; targeted H1 checks found one H1 per promoted file.
+- Skipped tests: no runtime lint/type/build commands apply because this repository contains planning/specification Markdown and this slice changes no runtime code.
+- Adversarial review: diff reviewed for source-discovery residue, one-H1 structure, readiness-count consistency, manual native blockers, legal-scope boundaries, identity-auth/VPN/security-suite/enterprise-CRM risk coverage, and next-slice routing.
+- Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native/account/provider/hardware verification before one-for-one parity claims.
+- Rollback note: revert the shipping commit to restore IDs 801-820 to their previous Draft 1 scaffold state and previous readiness counts.
+- Next command: `$run`.
