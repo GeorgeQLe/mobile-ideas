@@ -1,5 +1,28 @@
 # History
 
+## 2026-05-05 - Phase 8 Step 8.3 Enterprise Operations Slice (IDs 821-840)
+
+- Promoted 20 enterprise-operations specs to implementation-ready public-source V1: `821-zendesk.md` through `840-mailchimp.md`.
+- Added `scripts/promote-batch-42-specs.mjs` as a repeatable generator for the slice.
+- Replaced source-discovery placeholders with exact public marketplace/product/help/support/privacy/terms URLs or explicit platform blockers verified on 2026-05-05.
+- Four sub-category screen inventories: customer-support (omnichannel inbox, ticket/conversation detail, knowledge base, SLA tracking, macros), hr-payroll (pay stubs/W-2s, time and attendance, benefits enrollment, employee directory, time-off requests), expense-accounting (receipt OCR/SmartScan, expense reports, invoicing/bills, bank reconciliation, P&L/balance sheet), and commerce-payments-marketing (POS/hardware integration, product catalog/inventory, order management/fulfillment, payment processing/disputes, email campaigns/automation).
+- Preserved manual blockers for omnichannel routing and SLA policy configuration, Freddy/Fin/Virtual Agent AI behavior, knowledge base article relevance, tenant/workspace SSO/SCIM/SAML provisioning, employee payroll schedule and tax document availability, time and attendance geofencing, benefits enrollment eligibility and carrier integration, Gusto Cash Account banking compliance, Deel EOR/contractor/country-specific labor law, SmartScan/ExpenseIt OCR accuracy, corporate card feed integration, bank feed connection and reconciliation matching, multi-currency and multi-entity handling, Square hardware Bluetooth pairing, Shopify POS offline mode, Stripe Connect marketplace routing, PayPal QR/Zettle card reader, Mailchimp automation workflows and A/B testing, and PCI/payment regulatory compliance.
+- Updated `tasks/todo.md` Step 8.3 progress to 840 of 1000 promoted with 160 remaining Draft 1 placeholder rows.
+- Validation: 0 residual `Source discovery` strings, 20 `Implementation-ready` specs, all with exactly one H1.
+
+### Ship Manifest
+
+- User goal: execute next incomplete Step 8.3 slice and ship the result.
+- Changed files: `specs/batch-42/821-zendesk.md` through `specs/batch-42/840-mailchimp.md`, `scripts/promote-batch-42-specs.mjs`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: promoted 20 specs to implementation-ready public-source V1; created the batch promotion generator as reproducible project tooling; recorded readiness counts, latest slice, and next-slice routing.
+- User-goal mapping: the edited specs replace Draft 1/source-discovery placeholders for IDs 821-840; task files preserve the Step 8.3 execution trail and handoff.
+- Tests run: targeted `grep` checks found 0 source-discovery markers and 20 implementation-ready markers in promoted specs; targeted H1 checks found one H1 per promoted file.
+- Skipped tests: no runtime lint/type/build commands apply because this repository contains planning/specification Markdown and this slice changes no runtime code.
+- Adversarial review: diff reviewed for source-discovery residue, one-H1 structure, readiness-count consistency, manual native blockers, legal-scope boundaries, customer-support/hr-payroll/expense-accounting/commerce-payments-marketing risk coverage, and next-slice routing.
+- Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native/account/provider/enterprise verification before one-for-one parity claims.
+- Rollback note: revert the shipping commit to restore IDs 821-840 to their previous Draft 1 scaffold state and previous readiness counts.
+- Next command: `$run`.
+
 ## 2026-05-05 - Phase 8 Step 8.3 Cloud Files And Identity Slice (IDs 781-800)
 
 - Promoted 20 cloud-files-and-identity specs to implementation-ready public-source V1: `781-mega.md` through `800-google-authenticator.md`.
