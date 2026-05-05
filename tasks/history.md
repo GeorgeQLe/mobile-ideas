@@ -1,5 +1,29 @@
 # History
 
+## 2026-05-05 - Phase 8 Step 8.3 Smart Home And Health Medical Slice (IDs 641-660)
+
+- Promoted 20 smart-home and health/medical specs to implementation-ready public-source V1: `641-arlo-secure.md` through `660-cvs-health.md`.
+- Added `scripts/promote-batch-33-specs.mjs` as a repeatable generator for the slice.
+- Replaced source-discovery placeholders with exact public marketplace/product/help/support/privacy/terms URLs verified on 2026-05-05.
+- Preserved manual blockers for physical device onboarding, Bluetooth/Wi-Fi/hub pairing, camera/audio clips, lock/alarm/garage/HVAC safety, live status simulation, automations, shared access revocation, subscriptions, professional monitoring/emergency dispatch claims, provider-specific patient portals, clinician identity verification, pharmacy/refill authority, telehealth, insurance/benefit eligibility, medical-record export, native permissions, push payloads, accessibility, and regional/provider/hardware availability.
+- Expanded category-specific risk coverage: smart-home device credentials, camera/audio exposure, unauthorized real-world control, automation hazards, household/guest access, professional monitoring claims, HIPAA/PHI and consumer-health-data handling, proxy/caregiver/professional access, pharmacy safety, clinical disclaimers, support escalation, retention, export, and deletion limitations.
+- Refreshed `tasks/implementation-readiness.md` to 660 of 1000 ready and moved the next Step 8.3 slice to IDs 661-680.
+- Validation: targeted checks found one H1 and 18 canonical H2 sections in each promoted file and no `Source discovery`, `Readiness status: Draft 1`, or exact-URL-pending markers in the 20-file slice.
+- Repo-wide readiness audit remains expected-red because Step 8.3 is not complete: `node scripts/check-implementation-readiness.mjs` now reports 660 implementation-ready specs and 1,020 source-discovery placeholder rows across 340 remaining files.
+
+### Ship Manifest
+
+- User goal: execute `$run` next incomplete Step 8.3 slice and ship the result.
+- Changed files: `scripts/promote-batch-33-specs.mjs`, `specs/batch-33/641-arlo-secure.md` through `specs/batch-33/660-cvs-health.md`, `tasks/todo.md`, `tasks/implementation-readiness.md`, and `tasks/history.md`.
+- Per-file purpose: added a repeatable batch-33 promotion script, promoted 20 specs to implementation-ready public-source V1, and recorded readiness counts, next slice, and audit evidence.
+- User-goal mapping: the edited specs replace Draft 1/source-discovery placeholders for IDs 641-660; task files preserve the Step 8.3 execution trail and handoff.
+- Tests run: `node scripts/check-implementation-readiness.mjs` expected-red with 660 ready specs and 1,020 remaining placeholders; targeted `rg` checks found no Draft 1/source-discovery markers in the promoted slice; targeted H1/H2 checks found one H1 and 18 H2 sections per promoted file.
+- Skipped tests: no runtime lint/type/build commands apply because this repository contains planning/specification Markdown and this slice changes no runtime application code; the new Node script is a documentation generator verified by execution and resulting Markdown audits.
+- Adversarial review: diff reviewed for source-discovery residue, one-H1 structure, readiness-count consistency, manual native blockers, lawful functional-parity boundaries, smart-home device/security coverage, health/medical privacy and safety coverage, and next-slice routing.
+- Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native verification before one-for-one parity claims.
+- Rollback note: revert the shipping commit to restore IDs 641-660 to their previous Draft 1 scaffold state and previous readiness counts.
+- Next command: `$run`.
+
 ## 2026-05-05 - Phase 8 Step 8.3 Real Estate Home Services And Smart Home Slice (IDs 621-640)
 
 - Promoted 20 real-estate/home-services and smart-home specs to implementation-ready public-source V1: `621-apartment-list.md` through `640-wyze.md`.
