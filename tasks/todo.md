@@ -23,8 +23,8 @@ Extend the canonical spec store from 200 to 1000 mobile app clone ideas. IDs 201
 - [x] 800 new backlog rows exist in `tasks/ideas.md` for IDs 201-1000.
 - [x] 800 new spec files exist under `specs/batch-11/` through `specs/batch-50/`.
 - [x] Every new spec has exactly one H1 and canonical sections including Build Plan and Next Steps.
-- [ ] IDs 101-1000 replace source-discovery links with exact first-party URLs.
-- [ ] IDs 101-1000 pass implementation-readiness gate.
+- [x] IDs 101-1000 replace source-discovery links with exact first-party URLs.
+- [x] IDs 101-1000 pass implementation-readiness gate.
 - [ ] Phase 5 implementation-plan queue grows to 1000 rows.
 - [x] `tasks/repo-seeding.md` manifest has 1000 checked rows, each verified PRIVATE + non-empty with README and copied source spec.
 - [x] No downstream repo is made public during scaffold seeding; no proprietary assets introduced.
@@ -41,32 +41,7 @@ Extend the canonical spec store from 200 to 1000 mobile app clone ideas. IDs 201
 - [x] Step 8.1: Add 800 backlog rows for IDs 201-1000 in `tasks/ideas.md`.
 - [x] Step 8.2: Create canonical Draft 1 scaffold specs under `specs/batch-11/` through `specs/batch-50/`.
 
-- [ ] Step 8.3: Promote IDs 101-1000 from Draft 1 to implementation-ready public-source V1 (absorbs Phase 7 Step 7.3; scope = 900 specs). Run in category-coherent batches. See archived Phase 7 Step 7.3 detail in `tasks/phases/phase-7.md` for the full operation: exact-URL replacement, verified-vs-inferred discipline, depth expansion, Manual verification blockers per app, and category risk review. Validation: every promoted spec's `Readiness status` line reads `Implementation-ready for a lawful public-source V1 clone as of YYYY-MM-DD.`; no residual `Source discovery -- pending exact URL verification` strings in promoted specs. Progress through 2026-05-06: IDs 101-980 promoted; post-slice audit reports 980 implementation-ready specs and 20 remaining Draft 1 placeholder rows. Latest slice completed: IDs 961-980 (`Tuta Mail` through `Autolist`) promoted across email-privacy-mail-continued (961-967) and classifieds-automotive (968-980) sub-categories spanning Communication and Shopping categories. The slice preserved end-to-end encrypted email with zero-knowledge calendar and post-quantum roadmap (Tuta Mail), business email suite with Zoho Workplace integration and eDiscovery (Zoho Mail), conversational email with chat-like bubble rendering and Spike Notes collaboration (Spike), premium keyboard-first email with AI triage and Split Inbox (Superhuman), AI-native Gmail client with smart bundling and AI search (Shortwave), email management and cleanup tool with Auto Clean rules and Screener (Clean Email), email subscription management with Rollup digest and one-tap unsubscribe (Unroll.Me), local marketplace with AI-powered image recognition for listing categorization (letgo), community-based verified-member marketplace (VarageSale), Canadian classifieds with broad category coverage and Kijiji Autos integration (Kijiji), UK/AU classifieds with motors section and postcode filtering (Gumtree), vehicle shopping with Deal Rating market value comparison (CarGurus), comprehensive vehicle marketplace with KBB price advisor integration (AutoTrader), vehicle shopping and research with expert/consumer reviews and price analysis (Cars.com), fully online used car buying with 360-degree photography and home delivery (Carvana), no-haggle used car platform with 30-day guarantee and nationwide transfers (CarMax), pricing transparency platform with TrueCar Price Curves and Certified Dealers (TrueCar), online salvage vehicle auction with VB3 virtual bidding technology (Copart), enthusiast curated vehicle auction with 7-day format and community commenting (Bring a Trailer), and vehicle search aggregator combining multi-source listings (Autolist). Next concrete slice: promote IDs 981-1000 from `tasks/ideas.md`, replacing source-discovery placeholders with exact first-party URLs.
-
-#### Next-Step Plan: Promote IDs 981-1000 (Batch 50)
-
-**What:** Create `scripts/promote-batch-50-specs.mjs` following the established pattern (batch 40-49 scripts). Run it to overwrite 20 Draft 1 scaffolds in `specs/batch-50/` with implementation-ready V1 specs. Validate and update this progress note.
-
-**Apps and sub-categories:** Refer to `tasks/ideas.md` IDs 981-1000 for the app list and categories.
-
-**Files affected:**
-- `scripts/promote-batch-50-specs.mjs` (new)
-- `specs/batch-50/981-*.md` through `specs/batch-50/1000-*.md` (20 files overwritten)
-- `tasks/todo.md` (Step 8.3 progress note update to 1000 promoted, mark step complete)
-- `tasks/history.md` (session record)
-
-**Execution profile:** serial, implementation-safe, main agent
-
-**Validation:**
-```
-grep -rl "Source discovery" specs/batch-50/*.md | wc -l  # expect 0
-grep -l "Implementation-ready" specs/batch-50/*.md | wc -l  # expect 20
-for f in specs/batch-50/[0-9]*.md; do count=$(grep -c "^# " "$f"); [ "$count" -ne 1 ] && echo "FAIL: $f has $count H1s"; done
-```
-
-**Acceptance criteria:** 20 specs pass validation (one H1, implementation-ready status, no source-discovery residue, canonical sections present), todo.md progress updated to 1000, Step 8.3 marked complete.
-
-**Ship-one-step handoff contract:** After implementing this step, validate it, mark Step 8.3 complete, update `tasks/history.md`, commit and push the completed work, ensure `.claude/settings.local.json` has `"showClearContextOnPlanAccept": true` and `"defaultMode": "acceptEdits"`, start the approval UI for the next step by calling `EnterPlanMode` first, write a brief pass-through plan in plan mode, call `ExitPlanMode`, and stop before implementing it.
+- [x] Step 8.3: Promote IDs 101-1000 from Draft 1 to implementation-ready public-source V1 (absorbs Phase 7 Step 7.3; scope = 900 specs). **Complete as of 2026-05-06: all 900 specs (IDs 101-1000) promoted to implementation-ready public-source V1.** Final slice: IDs 981-1000 (`Gumroad` through `TomTom GO`) promoted across creator-commerce (981-993) and international-navigation (994-1000) sub-categories spanning Shopping, Business, Social Networking, and Navigation categories. The slice preserved creator-first digital product selling with Stripe Connect payouts and license key generation (Gumroad), all-in-one creator business platform with course/coaching/membership/community and Kajabi Payments (Kajabi), online course platform with drag-and-drop builder and Teachable Payments (Teachable), knowledge commerce platform with branded mobile app and Thinkific Communities (Thinkific), creator storefront combining courses/downloads/coaching/webinars/community with Podia Payments (Podia), community-powered course and membership platform with Mighty Pro white-label native app and AI Co-Host (Mighty Networks), modern community platform with Spaces/courses/events/gamification and headless API (Circle Communities), gamified community and course platform with points/levels/leaderboard (Skool), link-in-bio store with integrated commerce and coaching calendar booking (Stan Store), link-in-bio platform with customizable themes and commerce/analytics integration (Linktree), AI-powered link-in-bio with store/email marketing/invoicing/media kit (Beacons), Instagram grid mirroring shoppable link-in-bio with Later scheduling integration (Linkin.bio), micro-landing page builder with rich content blocks and integrated CRM/payments/messaging (Taplink), comprehensive Russia/CIS mapping with real-time traffic and Yandex Taxi integration (Yandex Maps), detailed city maps with building-level mapping and full offline business directory (2GIS), multi-modal navigation with offline maps for 100+ countries and ride-hailing comparison (HERE WeGo), offline-first OpenStreetMap navigation with travel guides and hotel booking integration (MAPS.ME), open-source offline mapping with topographic/nautical/ski plugins and OSM editing (OsmAnd), premium GPS navigation with TomTom data, HUD mode, and dashcam recording (Sygic), and premium turn-by-turn navigation with TomTom Traffic, speed cameras, and EV charging search (TomTom GO). Validation: 0 residual source-discovery strings, 1000 implementation-ready specs (IDs 101-1000), all with exactly one H1.
 
 - [ ] Step 8.4: Extend `tasks/roadmap.md` Phase 5 plan queue to 1000 rows. Append 800 rows for IDs 201-1000 (ID | App | Source Spec | High-Level Implementation Plan). Land only after Step 8.3 lands for the corresponding ID range.
 

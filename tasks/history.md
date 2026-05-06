@@ -1,5 +1,29 @@
 # History
 
+## 2026-05-06 - Phase 8 Step 8.3 Creator-Commerce/International-Navigation Slice (IDs 981-1000) — FINAL BATCH
+
+- Promoted 20 specs to implementation-ready public-source V1: `981-gumroad.md` through `1000-tomtom-go.md`.
+- Added `scripts/promote-batch-50-specs.mjs` as a repeatable generator for the slice.
+- Replaced source-discovery placeholders with exact public marketplace/product/help/support/privacy/terms URLs or explicit platform blockers verified on 2026-05-06.
+- Two sub-category screen inventories: creator-commerce (storefront/dashboard, product/course creation, checkout/purchase, community/students, analytics/earnings, settings/payouts) and international-navigation (map/explore, search/directions, navigation/turn-by-turn, places/POI, offline maps, settings/preferences).
+- Preserved manual blockers for Gumroad Stripe Connect payouts and license key generation, Kajabi course/coaching/membership builder with Kajabi Payments, Teachable drag-and-drop course builder with Teachable Payments, Thinkific branded mobile app provisioning and Thinkific Communities, Podia combined storefront with coaching calendar and webinar hosting, Mighty Networks Mighty Pro white-label native app and AI Co-Host, Circle Communities Spaces architecture with gamification and headless API, Skool gamification engine with points/levels/leaderboard, Stan Store link-in-bio with integrated commerce and coaching booking, Linktree theme customization and commerce/analytics integration, Beacons AI content generation and media kit with invoicing, Linkin.bio Instagram grid mirroring with Shopify product tagging, Taplink rich content blocks with integrated CRM and messaging widgets, Yandex Maps Russia/CIS proprietary map data with Yandex Taxi integration, 2GIS building-level mapping with full offline business directory, HERE WeGo offline maps for 100+ countries with ride-hailing aggregation, MAPS.ME OpenStreetMap offline navigation with travel guides and booking, OsmAnd open-source topographic/nautical/ski plugins with OSM editing, Sygic TomTom data with HUD windshield projection and dashcam recording, and TomTom GO premium navigation with TomTom Traffic and EV charging search.
+- Marked Step 8.3 complete: all 900 specs (IDs 101-1000) promoted to implementation-ready public-source V1.
+- Updated `tasks/todo.md` Step 8.3 progress to 1000 of 1000, marked step complete, and checked acceptance criteria for source-discovery replacement and implementation-readiness gate.
+- Validation: 0 residual `Source discovery` strings, 20 `Implementation-ready` specs, all with exactly one H1.
+
+### Ship Manifest
+
+- User goal: execute final Step 8.3 slice (batch 50) and ship the result.
+- Changed files: `specs/batch-50/981-gumroad.md` through `specs/batch-50/1000-tomtom-go.md`, `scripts/promote-batch-50-specs.mjs`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: promoted 20 specs to implementation-ready public-source V1; created the batch promotion generator as reproducible project tooling; recorded readiness counts, latest slice, step completion, and next-step routing.
+- User-goal mapping: the edited specs replace Draft 1/source-discovery placeholders for IDs 981-1000; task files preserve the Step 8.3 completion trail and handoff.
+- Tests run: targeted `grep` checks found 0 source-discovery markers and 20 implementation-ready markers in promoted specs; targeted H1 checks found one H1 per promoted file.
+- Skipped tests: no runtime lint/type/build commands apply because this repository contains planning/specification Markdown and this slice changes no runtime code.
+- Adversarial review: diff reviewed for source-discovery residue, one-H1 structure, readiness-count consistency, manual native blockers, legal-scope boundaries, creator-commerce/international-navigation risk coverage, and next-step routing.
+- Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native/account/provider/enterprise verification before one-for-one parity claims.
+- Rollback note: revert the shipping commit to restore IDs 981-1000 to their previous Draft 1 scaffold state and previous readiness counts.
+- Next command: `$run`.
+
 ## 2026-05-06 - Phase 8 Step 8.3 Email/Classifieds-Automotive Slice (IDs 961-980)
 
 - Promoted 20 specs to implementation-ready public-source V1: `961-tuta-mail.md` through `980-autolist.md`.
