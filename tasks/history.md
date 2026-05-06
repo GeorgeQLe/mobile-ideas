@@ -1,5 +1,28 @@
 # History
 
+## 2026-05-06 - Phase 8 Step 8.3 Email/Classifieds-Automotive Slice (IDs 961-980)
+
+- Promoted 20 specs to implementation-ready public-source V1: `961-tuta-mail.md` through `980-autolist.md`.
+- Added `scripts/promote-batch-49-specs.mjs` as a repeatable generator for the slice.
+- Replaced source-discovery placeholders with exact public marketplace/product/help/support/privacy/terms URLs or explicit platform blockers verified on 2026-05-06.
+- Two sub-category screen inventories: email (inbox, thread/detail, compose, folders/labels) and classifieds-automotive (browse/feed, listing detail, create/sell, messages).
+- Preserved manual blockers for Tuta Mail zero-knowledge encryption and post-quantum roadmap, Zoho Mail eDiscovery and Workplace integration, Spike conversational bubble rendering and Spike Notes CRDT collaboration, Superhuman Split Inbox AI categorization and keyboard-first command palette, Shortwave AI email summarization and Gmail-only smart bundling, Clean Email Auto Clean rule engine and bulk action rate limiting, Unroll.Me subscription detection and Rollup digest generation with data monetization transparency, letgo AI-powered image recognition for listing categorization and OfferUp merger context, VarageSale admin-approved community membership and identity verification, Kijiji Canadian city/neighborhood filtering and Kijiji Autos vehicle specs, Gumtree UK/AU postcode radius filtering and motors section vehicle filters, CarGurus Deal Rating algorithm and IMV pricing model data sources, AutoTrader KBB price advisor integration and home delivery option, Cars.com expert/consumer review system and price analysis deal fairness algorithm, Carvana fully online purchase flow and 360-degree photography with 150+ point inspection, CarMax no-haggle pricing and nationwide vehicle transfer logistics, TrueCar Price Curve transaction data aggregation and Certified Dealer pre-negotiated pricing, Copart VB3 virtual bidding auction technology and salvage title processing, Bring a Trailer curated editorial review process and 7-day auction with community commenting, and Autolist multi-source listing aggregation pipeline and deduplication.
+- Updated `tasks/todo.md` Step 8.3 progress to 980 of 1000 promoted with 20 remaining Draft 1 placeholder rows.
+- Validation: 0 residual `Source discovery` strings, 20 `Implementation-ready` specs, all with exactly one H1.
+
+### Ship Manifest
+
+- User goal: execute next incomplete Step 8.3 slice and ship the result.
+- Changed files: `specs/batch-49/961-tuta-mail.md` through `specs/batch-49/980-autolist.md`, `scripts/promote-batch-49-specs.mjs`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: promoted 20 specs to implementation-ready public-source V1; created the batch promotion generator as reproducible project tooling; recorded readiness counts, latest slice, and next-slice routing.
+- User-goal mapping: the edited specs replace Draft 1/source-discovery placeholders for IDs 961-980; task files preserve the Step 8.3 execution trail and handoff.
+- Tests run: targeted `grep` checks found 0 source-discovery markers and 20 implementation-ready markers in promoted specs; targeted H1 checks found one H1 per promoted file.
+- Skipped tests: no runtime lint/type/build commands apply because this repository contains planning/specification Markdown and this slice changes no runtime code.
+- Adversarial review: diff reviewed for source-discovery residue, one-H1 structure, readiness-count consistency, manual native blockers, legal-scope boundaries, email/classifieds-automotive risk coverage, and next-slice routing.
+- Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native/account/provider/enterprise verification before one-for-one parity claims.
+- Rollback note: revert the shipping commit to restore IDs 961-980 to their previous Draft 1 scaffold state and previous readiness counts.
+- Next command: `$run`.
+
 ## 2026-05-06 - Phase 8 Step 8.3 Messaging/Video-Conferencing/Email Slice (IDs 941-960)
 
 - Promoted 20 specs to implementation-ready public-source V1: `941-textnow.md` through `960-hey.md`.
