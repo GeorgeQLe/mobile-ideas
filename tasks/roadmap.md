@@ -15,7 +15,7 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 | Phase 5 | Complete | High-level downstream implementation plan queue for all 100 specs. |
 | Phase 6 | Complete | Seeded 100 private downstream repos; spec store published public 2026-04-20. |
 | Phase 7 | Complete | Backlog extension pipeline for IDs 101-200 (Draft 0 -> readiness -> seeding). |
-| Phase 8 | Active | Backlog and Draft 1 scaffold extension for IDs 201-1000. |
+| Phase 8 | Complete | 1000-app backlog, implementation-ready specs, plan queue, and private downstream repos. |
 
 ## Phase 1: Initial Backlog And Draft 0 Specs
 
@@ -1218,7 +1218,7 @@ Create one GitHub repository per clone implementation target using `gh`, seed ea
 
 - [x] Step 7.1: Draft 0 placeholder specs for all 100 new ideas under `specs/batch-06/` through `specs/batch-10/`.
 - [x] Step 7.2: Draft 1 canonical normalization for IDs 101-200.
-- [ ] Step 7.3: Implementation-readiness upgrades for IDs 101-200. **Absorbed into Phase 8 Step 8.3** on 2026-04-23 — same operation applied across IDs 101-1000 at once (CLAUDE.md allows scaffold seeding at Draft 1 without implementation-ready parity claims).
+- [x] Step 7.3: Implementation-readiness upgrades for IDs 101-200. **Absorbed into Phase 8 Step 8.3** on 2026-04-23 — same operation applied across IDs 101-1000 at once (CLAUDE.md allows scaffold seeding at Draft 1 without implementation-ready parity claims).
 - [x] Step 7.4: Extend `tasks/roadmap.md` Phase 5 plan queue and `tasks/repo-seeding.md` manifest to 200 rows. Superseded by `cd54fcf feat(specs): extend mobile ideas to 1000` which took the manifest directly to 1000 rows.
 - [x] Step 7.5: Seed 100 new private downstream repos via `scripts/seed-downstream-repos.mjs`. IDs 101-200 all verified PRIVATE + non-empty in `tasks/repo-seeding.md`.
 - [x] Step 7.6: Close Phase 7 after verification.
@@ -1240,8 +1240,8 @@ Full step-level plan lives in `tasks/todo.md` Phase 7.
 
 - [x] Step 8.1: Add 800 backlog rows for IDs 201-1000 in `tasks/ideas.md`.
 - [x] Step 8.2: Create canonical Draft 1 scaffold specs under `specs/batch-11/` through `specs/batch-50/`.
-- [ ] Step 8.3: Replace source-discovery links with exact first-party URLs and promote IDs 101-1000 to implementation-ready public-source V1 (absorbs Phase 7 Step 7.3; scope now 900 specs rather than 800).
-- [ ] Step 8.4: Extend Phase 5 implementation-plan queue to 1000 rows.
+- [x] Step 8.3: Replace source-discovery links with exact first-party URLs and promote IDs 101-1000 to implementation-ready public-source V1 (absorbs Phase 7 Step 7.3; scope now 900 specs rather than 800).
+- [x] Step 8.4: Extend Phase 5 implementation-plan queue to 1000 rows.
 - [x] Step 8.5: Extend and verify `tasks/repo-seeding.md` manifest to 1000 rows.
 - [x] Step 8.6: Seed downstream private scaffold repos for IDs 201-1000 with explicit approval and batch-level controls.
 
@@ -1251,13 +1251,14 @@ Full step-level plan lives in `tasks/todo.md` Phase 7.
 - All 1000 IDs are represented in `tasks/ideas.md` and `specs/batch-*`.
 - `tasks/repo-seeding.md` has 1000 checked downstream rows and zero unchecked rows.
 - Downstream scaffold repos are PRIVATE, non-empty, and verified with README plus copied source specs before being marked done.
-- IDs 201-1000 remain clearly marked Draft 1 scaffold until exact first-party source replacement and category-risk review are complete.
 - No downstream repo is made public during the extension.
+
+### Outcome
+
+Phase 8 completed 2026-05-06. All 1000 IDs have backlog rows, implementation-ready public-source V1 specs, Phase 5 plan queue entries, and verified private downstream repos. The scaffold-only caveat for IDs 201-1000 is resolved — all specs passed the implementation-readiness gate.
 
 ## Next Steps
 
-- Complete Phase 8 Step 8.3 for IDs 101-1000 before any downstream repo claims implementation-ready parity.
-- Reconcile Phase 5 implementation-plan queue coverage after Step 8.3 lands.
 - Continue implementation planning and scaffolding in `https://github.com/GeorgeQLe/todoist-mobile-clone` for Phase 5 plan `090`.
 - Select the next Phase 5 plan row when ready, then expand that app into detailed downstream implementation phases from its source spec.
 - Keep all manual verification blockers deferred until lawful hands-on verification evidence exists.

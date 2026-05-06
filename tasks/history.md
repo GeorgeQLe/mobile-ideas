@@ -1,5 +1,14 @@
 # History
 
+## 2026-05-06 - Phase 8 Complete: 1000-App Extension Pipeline
+
+- All Phase 8 steps (8.1-8.6) are complete as of 2026-05-06.
+- Final deliverables: 1000 backlog rows in `tasks/ideas.md`, 1000 implementation-ready public-source V1 specs across `specs/batch-01/` through `specs/batch-50/`, 1000 Phase 5 plan queue entries in `tasks/roadmap.md`, and 1000 verified private downstream repos in `tasks/repo-seeding.md`.
+- Updated `tasks/roadmap.md` Phase Overview table from Active to Complete.
+- Updated `tasks/roadmap.md` Phase 8 section with completion outcome and cleaned up stale Next Steps.
+- Removed stale Step 8.4 next-step planning block from `tasks/todo.md`.
+- Marked Phase 7 Step 7.3 checkbox complete (absorbed into Phase 8 Step 8.3).
+
 ## 2026-05-06 - Phase 8 Step 8.4: Extend Phase 5 Plan Queue to 1000 Rows
 
 - Created `scripts/extend-phase5-queue.mjs` to programmatically generate Phase 5 plan rows from `tasks/ideas.md` and each spec's Overview section.
