@@ -41,44 +41,42 @@ Extend the canonical spec store from 200 to 1000 mobile app clone ideas. IDs 201
 - [x] Step 8.1: Add 800 backlog rows for IDs 201-1000 in `tasks/ideas.md`.
 - [x] Step 8.2: Create canonical Draft 1 scaffold specs under `specs/batch-11/` through `specs/batch-50/`.
 
-- [ ] Step 8.3: Promote IDs 101-1000 from Draft 1 to implementation-ready public-source V1 (absorbs Phase 7 Step 7.3; scope = 900 specs). Run in category-coherent batches. See archived Phase 7 Step 7.3 detail in `tasks/phases/phase-7.md` for the full operation: exact-URL replacement, verified-vs-inferred discipline, depth expansion, Manual verification blockers per app, and category risk review. Validation: every promoted spec's `Readiness status` line reads `Implementation-ready for a lawful public-source V1 clone as of YYYY-MM-DD.`; no residual `Source discovery -- pending exact URL verification` strings in promoted specs. Progress through 2026-05-05: IDs 101-880 promoted; post-slice audit reports 880 implementation-ready specs and 120 remaining Draft 1 placeholder rows. Latest slice completed: IDs 861-880 (`Sentry` through `The Washington Post`) promoted across observability-incident (861-866), mobile-dev-tools (867-871), and news (872-880) sub-categories spanning Developer tools and News categories. The slice preserved real-time error/issue tracking with stack traces and breadcrumbs, infrastructure and APM monitoring with distributed tracing, incident management with on-call scheduling and escalation policies, alert routing and notification with deduplication and suppression, customizable observability dashboards with multi-datasource queries, full-stack observability with NRQL and service levels, React Native development client with live reload and QR loading, SSH/Mosh terminal access with host management and port forwarding, iOS-native terminal with code editor integration and hardware keyboard optimization, full Git client with staging/branching/merging and Files app integration, mobile code editor with integrated terminal and multi-language runtime execution, breaking news with live TV/radio streaming and push alert categories, personalized news feeds with section navigation and offline reading, live blog coverage with daily curated Editions and reader-funded model, real-time market data with watchlist and financial journalism, factual journalism with AP Live coverage and fact-check articles, public radio streaming with podcast playback and station selection, premium business journalism with market data and audio articles, and subscription-gated content with paywall enforcement and gift sharing. Next concrete slice: promote IDs 881-900 from `tasks/ideas.md`, replacing source-discovery placeholders with exact first-party URLs.
+- [ ] Step 8.3: Promote IDs 101-1000 from Draft 1 to implementation-ready public-source V1 (absorbs Phase 7 Step 7.3; scope = 900 specs). Run in category-coherent batches. See archived Phase 7 Step 7.3 detail in `tasks/phases/phase-7.md` for the full operation: exact-URL replacement, verified-vs-inferred discipline, depth expansion, Manual verification blockers per app, and category risk review. Validation: every promoted spec's `Readiness status` line reads `Implementation-ready for a lawful public-source V1 clone as of YYYY-MM-DD.`; no residual `Source discovery -- pending exact URL verification` strings in promoted specs. Progress through 2026-05-05: IDs 101-900 promoted; post-slice audit reports 900 implementation-ready specs and 100 remaining Draft 1 placeholder rows. Latest slice completed: IDs 881-900 (`USA Today` through `The StoryGraph`) promoted across news-continued (881-891), tech-news (892-896), and e-reading/book-platforms (897-900) sub-categories spanning News and Books & Reference categories. The slice preserved national and local news with top stories carousels and local market detection, breaking news with live TV streaming and opinion/premium subscription tiers, network news with live streaming channels and show segment integration, international news with multilingual content and documentary journalism, weekly edition journalism with audio narration and Espresso daily briefings, political news with policy newsletters and premium analysis, smart brevity news with structured article format and local editions, structured journalism with global perspectives and multi-section articles, explanatory journalism with card stacks and video explainers, technology journalism with product review scores and buyer's guides, startup and venture capital news with funding coverage and premium analysis, in-depth tech/science journalism with community reputation systems, technology and culture journalism with gear recommendations and subscription models, e-book and audiobook reading with customizable reader and DRM management, Google ecosystem book reading with family library sharing and read-aloud TTS, magazine and newspaper reading with book lending and kids' reading profiles, and book tracking with mood-based recommendations and reading statistics. Next concrete slice: promote IDs 901-920 from `tasks/ideas.md`, replacing source-discovery placeholders with exact first-party URLs.
 
-#### Next-Step Plan: Promote IDs 881-900 (Batch 45)
+#### Next-Step Plan: Promote IDs 901-920 (Batch 46)
 
-**What:** Create `scripts/promote-batch-45-specs.mjs` following the established pattern (batch 40/41/42/43/44 scripts). Run it to overwrite 20 Draft 1 scaffolds in `specs/batch-45/` with implementation-ready V1 specs. Validate and update this progress note.
+**What:** Create `scripts/promote-batch-46-specs.mjs` following the established pattern (batch 40/41/42/43/44/45 scripts). Run it to overwrite 20 Draft 1 scaffolds in `specs/batch-46/` with implementation-ready V1 specs. Validate and update this progress note.
 
 **Apps and sub-categories:**
-- **News (continued)** (881-891): USA Today, Fox News, NBC News, CBS News, ABC News, Al Jazeera, The Economist, Politico, Axios, Semafor, Vox — category "News"
-- **Tech news/media** (892-896): The Verge, Engadget, TechCrunch, Ars Technica, Wired — category "News"
-- **E-reading/book platforms** (897-900): Kobo Books, Google Play Books, Nook, The StoryGraph — category "Books & Reference"
+- **Books and reading (continued)** (901-914): Bookmate, Blinkist, Headway, Serial Reader, Inkitt, Dreame, Tapas, Radish, Webnovel, MANGA Plus, Shonen Jump, VIZ Manga, Marvel Unlimited, DC Universe Infinite — category "Books & Reference"
+- **Social and creator community** (915-920): Mastodon, Tumblr, Flickr, 500px, Clubhouse, Amino — category "Social"
 
 **Files affected:**
-- `scripts/promote-batch-45-specs.mjs` (new)
-- `specs/batch-45/881-usa-today.md` through `specs/batch-45/900-the-storygraph.md` (20 files overwritten)
-- `tasks/todo.md` (Step 8.3 progress note update to 900 promoted)
+- `scripts/promote-batch-46-specs.mjs` (new)
+- `specs/batch-46/901-bookmate.md` through `specs/batch-46/920-amino.md` (20 files overwritten)
+- `tasks/todo.md` (Step 8.3 progress note update to 920 promoted)
 - `tasks/history.md` (session record)
 
 **Key technical decisions:**
-- `screenRows()` needs three sub-category variants: news (reuse from batch 44), tech-news, e-reading
+- `screenRows()` needs three sub-category variants: books-reading (reader/library/store/progress), manga-comics (reader with panel navigation, chapter list, series tracking), social-community (feed/profile/messaging/discovery)
 - `risk()` returns category-appropriate risk areas for each sub-category
 - Each app gets app-specific `focus`, `blockers`, and `sources` with exact first-party URLs (App Store, Google Play, official site, help, privacy, terms)
-- News/tech-news apps need article/feed/section/saved screen inventory (headlines, sections, articles, saved, audio/video)
-- E-reading apps need library/reader/store/progress screen inventory (bookshelf, reader, store, progress, annotations)
+- Books/reading apps need library/reader/store/progress/recommendations screen inventory
+- Manga/comics apps need chapter reader with panel-by-panel navigation, series tracking, release schedules
+- Social/community apps need feed/profile/messaging/discovery/moderation screen inventory
 
 **Execution profile:** serial, implementation-safe, main agent
 
 **Validation:**
 ```
-grep -rl "Source discovery" specs/batch-45/*.md | wc -l  # expect 0
-grep -l "Implementation-ready" specs/batch-45/*.md | wc -l  # expect 20
-for f in specs/batch-45/[0-9]*.md; do count=$(grep -c "^# " "$f"); [ "$count" -ne 1 ] && echo "FAIL: $f has $count H1s"; done
+grep -rl "Source discovery" specs/batch-46/*.md | wc -l  # expect 0
+grep -l "Implementation-ready" specs/batch-46/*.md | wc -l  # expect 20
+for f in specs/batch-46/[0-9]*.md; do count=$(grep -c "^# " "$f"); [ "$count" -ne 1 ] && echo "FAIL: $f has $count H1s"; done
 ```
 
-**Acceptance criteria:** 20 specs pass validation (one H1, implementation-ready status, no source-discovery residue, canonical sections present), todo.md progress updated to 900.
+**Acceptance criteria:** 20 specs pass validation (one H1, implementation-ready status, no source-discovery residue, canonical sections present), todo.md progress updated to 920.
 
-**Ship-one-step handoff contract:** After implementing this step, validate it, mark the Step 8.3 progress note updated, update `tasks/history.md`, commit and push the completed work, write the following step's plan (IDs 901-920), ensure `.claude/settings.local.json` has `"showClearContextOnPlanAccept": true` and `"defaultMode": "acceptEdits"`, start the approval UI for that following step by calling `EnterPlanMode` first, write a brief pass-through plan in plan mode, call `ExitPlanMode`, and stop before implementing it.
-
-**Ship-one-step handoff contract:** After implementing this step, validate it, mark the Step 8.3 progress note updated, update `tasks/history.md`, commit and push the completed work, write the following step's plan (IDs 881-900), ensure `.claude/settings.local.json` has `"showClearContextOnPlanAccept": true` and `"defaultMode": "acceptEdits"`, start the approval UI for that following step by calling `EnterPlanMode` first, write a brief pass-through plan in plan mode, call `ExitPlanMode`, and stop before implementing it.
+**Ship-one-step handoff contract:** After implementing this step, validate it, mark the Step 8.3 progress note updated, update `tasks/history.md`, commit and push the completed work, write the following step's plan (IDs 921-940), ensure `.claude/settings.local.json` has `"showClearContextOnPlanAccept": true` and `"defaultMode": "acceptEdits"`, start the approval UI for that following step by calling `EnterPlanMode` first, write a brief pass-through plan in plan mode, call `ExitPlanMode`, and stop before implementing it.
 
 - [ ] Step 8.4: Extend `tasks/roadmap.md` Phase 5 plan queue to 1000 rows. Append 800 rows for IDs 201-1000 (ID | App | Source Spec | High-Level Implementation Plan). Land only after Step 8.3 lands for the corresponding ID range.
 
