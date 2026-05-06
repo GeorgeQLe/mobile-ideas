@@ -1,5 +1,28 @@
 # History
 
+## 2026-05-05 - Phase 8 Step 8.3 Books/Manga/Social Slice (IDs 901-920)
+
+- Promoted 20 specs to implementation-ready public-source V1: `901-bookmate.md` through `920-amino.md`.
+- Added `scripts/promote-batch-46-specs.mjs` as a repeatable generator for the slice.
+- Replaced source-discovery placeholders with exact public marketplace/product/help/support/privacy/terms URLs or explicit platform blockers verified on 2026-05-05.
+- Three sub-category screen inventories: books-reading (library/bookshelf, reader/player, store/discovery, progress/stats), manga-comics (library/series, reader with guided view, discover/store, calendar/updates), and social-community (feed/timeline, post/create, profile/community, messaging/chat).
+- Preserved manual blockers for Bookmate e-book DRM and social reading features, Blinkist book summary licensing and Shortcasts content, Headway visual summary infographics and spaced repetition, Serial Reader daily issue chunking algorithm and Project Gutenberg sourcing, Inkitt reader-driven publishing algorithm and Galatea premium integration, Dreame virtual currency coin system and VIP subscription tiers, Tapas webcomic vertical scroll rendering and Ink virtual currency, Radish coin-based episode unlocking and Radish Unlimited subscription, Webnovel Spirit Stone/Power Stone virtual currency and translation program, MANGA Plus simultaneous global release and chapter availability windows, Shonen Jump chapter-a-day mechanics and 15,000+ vault subscription, VIZ Manga digital volume purchasing and DRM delivery, Marvel Unlimited guided view panel detection for 30,000+ comics, DC Universe Infinite Standard vs Ultra tier and same-day release logistics, Mastodon ActivityPub federation and instance selection/migration, Tumblr reblog chain rendering and community labels content filtering, Flickr high-resolution photo storage limits and Creative Commons licensing, 500px Pulse score algorithm and licensing marketplace, Clubhouse live audio room moderation and spatial audio rendering, and Amino fandom community management and reputation/leveling system.
+- Updated `tasks/todo.md` Step 8.3 progress to 920 of 1000 promoted with 80 remaining Draft 1 placeholder rows.
+- Validation: 0 residual `Source discovery` strings, 20 `Implementation-ready` specs, all with exactly one H1.
+
+### Ship Manifest
+
+- User goal: execute next incomplete Step 8.3 slice and ship the result.
+- Changed files: `specs/batch-46/901-bookmate.md` through `specs/batch-46/920-amino.md`, `scripts/promote-batch-46-specs.mjs`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: promoted 20 specs to implementation-ready public-source V1; created the batch promotion generator as reproducible project tooling; recorded readiness counts, latest slice, and next-slice routing.
+- User-goal mapping: the edited specs replace Draft 1/source-discovery placeholders for IDs 901-920; task files preserve the Step 8.3 execution trail and handoff.
+- Tests run: targeted `grep` checks found 0 source-discovery markers and 20 implementation-ready markers in promoted specs; targeted H1 checks found one H1 per promoted file.
+- Skipped tests: no runtime lint/type/build commands apply because this repository contains planning/specification Markdown and this slice changes no runtime code.
+- Adversarial review: diff reviewed for source-discovery residue, one-H1 structure, readiness-count consistency, manual native blockers, legal-scope boundaries, books-reading/manga-comics/social-community risk coverage, and next-slice routing.
+- Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native/account/provider/enterprise verification before one-for-one parity claims.
+- Rollback note: revert the shipping commit to restore IDs 901-920 to their previous Draft 1 scaffold state and previous readiness counts.
+- Next command: `$run`.
+
 ## 2026-05-05 - Phase 8 Step 8.3 News & Books Slice (IDs 881-900)
 
 - Promoted 20 specs to implementation-ready public-source V1: `881-usa-today.md` through `900-the-storygraph.md`.
