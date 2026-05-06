@@ -1,5 +1,28 @@
 # History
 
+## 2026-05-05 - Phase 8 Step 8.3 Developer Tools & News Slice (IDs 861-880)
+
+- Promoted 20 specs to implementation-ready public-source V1: `861-sentry.md` through `880-the-washington-post.md`.
+- Added `scripts/promote-batch-44-specs.mjs` as a repeatable generator for the slice.
+- Replaced source-discovery placeholders with exact public marketplace/product/help/support/privacy/terms URLs or explicit platform blockers verified on 2026-05-05.
+- Three sub-category screen inventories: observability-incident (issues/errors, alerts/incidents, dashboards/metrics, performance/traces), mobile-dev-tools (sessions/connections, editor/terminal, files/repository, build/preview), and news (feed/headlines, article/story, live/video/audio, saved/personalized).
+- Preserved manual blockers for issue grouping and stack trace symbolication, alert rule condition evaluation and notification routing, on-call schedule rotation and escalation policy enforcement, alert deduplication and suppression rules, multi-datasource dashboard query execution, NRQL query limits and distributed trace sampling, React Native bundle download and Expo SDK version compatibility, SSH/Mosh connection authentication and port forwarding, iOS terminal sandbox limitations and VS Code Server tunnel establishment, Git staging/branching/merging conflict resolution and Files app integration, multi-language runtime execution constraints on iOS, live TV streaming authentication and cable provider sign-in, BBC geo-restrictions and regional edition selection, Guardian subscription/supporter tier content access and Editions download, Reuters market data licensing and real-time vs delayed quotes, AP Live real-time update mechanism, NPR live radio stream and station geo-detection, WSJ paywall enforcement and real-time market data licensing, FT myFT personalization and corporate subscription SSO, and Washington Post paywall with subscription entitlement verification.
+- Updated `tasks/todo.md` Step 8.3 progress to 880 of 1000 promoted with 120 remaining Draft 1 placeholder rows.
+- Validation: 0 residual `Source discovery` strings, 20 `Implementation-ready` specs, all with exactly one H1.
+
+### Ship Manifest
+
+- User goal: execute next incomplete Step 8.3 slice and ship the result.
+- Changed files: `specs/batch-44/861-sentry.md` through `specs/batch-44/880-the-washington-post.md`, `scripts/promote-batch-44-specs.mjs`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: promoted 20 specs to implementation-ready public-source V1; created the batch promotion generator as reproducible project tooling; recorded readiness counts, latest slice, and next-slice routing.
+- User-goal mapping: the edited specs replace Draft 1/source-discovery placeholders for IDs 861-880; task files preserve the Step 8.3 execution trail and handoff.
+- Tests run: targeted `grep` checks found 0 source-discovery markers and 20 implementation-ready markers in promoted specs; targeted H1 checks found one H1 per promoted file.
+- Skipped tests: no runtime lint/type/build commands apply because this repository contains planning/specification Markdown and this slice changes no runtime code.
+- Adversarial review: diff reviewed for source-discovery residue, one-H1 structure, readiness-count consistency, manual native blockers, legal-scope boundaries, observability-incident/mobile-dev-tools/news risk coverage, and next-slice routing.
+- Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native/account/provider/enterprise verification before one-for-one parity claims.
+- Rollback note: revert the shipping commit to restore IDs 861-880 to their previous Draft 1 scaffold state and previous readiness counts.
+- Next command: `$run`.
+
 ## 2026-05-05 - Phase 8 Step 8.3 Enterprise Operations & Developer Tools Slice (IDs 841-860)
 
 - Promoted 20 specs to implementation-ready public-source V1: `841-hootsuite.md` through `860-netlify.md`.
