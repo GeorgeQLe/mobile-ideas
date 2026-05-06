@@ -1,5 +1,21 @@
 # History
 
+## 2026-05-06 - Phase 8 Step 8.4: Extend Phase 5 Plan Queue to 1000 Rows
+
+- Created `scripts/extend-phase5-queue.mjs` to programmatically generate Phase 5 plan rows from `tasks/ideas.md` and each spec's Overview section.
+- Appended 900 rows (IDs 101-1000) to the Phase 5 Implementation Plans table in `tasks/roadmap.md`. Each row includes the app name, spec path, and a one-sentence plan derived from the spec's Overview first sentence.
+- Total Phase 5 table: 1000 rows (IDs 001-1000), no duplicates, all referencing correct spec paths.
+- Marked Step 8.4 complete in `tasks/todo.md` and checked the "Phase 5 implementation-plan queue grows to 1000 rows" acceptance criterion.
+- Validation: `grep -c "^| [0-9]" tasks/roadmap.md` returns 1000; spot-checked IDs 201, 500, 750, 1000; zero duplicate IDs.
+
+### Ship Manifest
+
+- User goal: extend Phase 5 plan queue to 1000 rows (Step 8.4, last step in Phase 8).
+- Changed files: `scripts/extend-phase5-queue.mjs` (new), `tasks/roadmap.md` (900 rows appended), `tasks/todo.md` (Step 8.4 marked complete, acceptance criterion checked), `tasks/history.md` (this entry).
+- Tests run: row count (1000), duplicate check (0), spot-check of IDs 201/500/750/1000.
+- Skipped tests: no runtime code in this repository.
+- Rollback note: revert the shipping commit to remove the 900 appended rows and restore previous state.
+
 ## 2026-05-06 - Phase 8 Step 8.3 Creator-Commerce/International-Navigation Slice (IDs 981-1000) — FINAL BATCH
 
 - Promoted 20 specs to implementation-ready public-source V1: `981-gumroad.md` through `1000-tomtom-go.md`.
