@@ -1,5 +1,28 @@
 # History
 
+## 2026-05-06 - Phase 8 Step 8.3 Messaging/Video-Conferencing/Email Slice (IDs 941-960)
+
+- Promoted 20 specs to implementation-ready public-source V1: `941-textnow.md` through `960-hey.md`.
+- Added `scripts/promote-batch-48-specs.mjs` as a repeatable generator for the slice.
+- Replaced source-discovery placeholders with exact public marketplace/product/help/support/privacy/terms URLs or explicit platform blockers verified on 2026-05-06.
+- Three sub-category screen inventories: messaging-calling (conversations, chat/thread, calls, contacts), video-conferencing (home/dashboard, meeting/in-call, schedule/invite, chat/messaging), and email (inbox, thread/detail, compose, folders/labels).
+- Preserved manual blockers for TextNow virtual number provisioning and ad-supported calling infrastructure, TextFree earned calling minutes model and Pinger account integration, GroupMe SMS-integrated group chat delivery and SMS fallback for non-app users, Marco Polo asynchronous video recording/delivery infrastructure and scrapbook feature, Voxer real-time push-to-talk audio streaming and Bluetooth PTT integration, Microsoft Teams enterprise Azure AD tenant provisioning and Microsoft 365 integration, Cisco Webex Control Hub admin provisioning and Zero Trust end-to-end encryption, Google Meet Workspace tenant provisioning and live streaming to 100K viewers, GoTo Connect VoIP/PSTN phone system and GoTo Webinar infrastructure, BlueJeans Dolby Voice audio processing and AI-powered highlights reel, Jitsi Meet self-hosting deployment and no-account-required meeting flow, Proton Mail zero-access encryption architecture and encrypted search index, Yahoo Mail smart views auto-categorization and 1TB storage management, AOL Mail Yahoo identity platform integration and news feed aggregation, Spark Mail Smart Inbox auto-categorization and team collaboration features, Edison Mail AI assistant email analysis and package tracking extraction, BlueMail unlimited account aggregation and S/MIME encryption, Canary Mail built-in PGP encryption and AI Copilot data handling, Fastmail JMAP protocol implementation and masked email address generation, and HEY Imbox/Feed/Paper Trail routing logic and sender Screener approval flow.
+- Updated `tasks/todo.md` Step 8.3 progress to 960 of 1000 promoted with 40 remaining Draft 1 placeholder rows.
+- Validation: 0 residual `Source discovery` strings, 20 `Implementation-ready` specs, all with exactly one H1.
+
+### Ship Manifest
+
+- User goal: execute next incomplete Step 8.3 slice and ship the result.
+- Changed files: `specs/batch-48/941-textnow.md` through `specs/batch-48/960-hey.md`, `scripts/promote-batch-48-specs.mjs`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: promoted 20 specs to implementation-ready public-source V1; created the batch promotion generator as reproducible project tooling; recorded readiness counts, latest slice, and next-slice routing.
+- User-goal mapping: the edited specs replace Draft 1/source-discovery placeholders for IDs 941-960; task files preserve the Step 8.3 execution trail and handoff.
+- Tests run: targeted `grep` checks found 0 source-discovery markers and 20 implementation-ready markers in promoted specs; targeted H1 checks found one H1 per promoted file.
+- Skipped tests: no runtime lint/type/build commands apply because this repository contains planning/specification Markdown and this slice changes no runtime code.
+- Adversarial review: diff reviewed for source-discovery residue, one-H1 structure, readiness-count consistency, manual native blockers, legal-scope boundaries, messaging-calling/video-conferencing/email risk coverage, and next-slice routing.
+- Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native/account/provider/enterprise verification before one-for-one parity claims.
+- Rollback note: revert the shipping commit to restore IDs 941-960 to their previous Draft 1 scaffold state and previous readiness counts.
+- Next command: `$run`.
+
 ## 2026-05-06 - Phase 8 Step 8.3 Social/Creator/Messaging Slice (IDs 921-940)
 
 - Promoted 20 specs to implementation-ready public-source V1: `921-weverse.md` through `940-google-voice.md`.
