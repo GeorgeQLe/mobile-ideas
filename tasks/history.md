@@ -1,5 +1,28 @@
 # History
 
+## 2026-05-05 - Phase 8 Step 8.3 Enterprise Operations & Developer Tools Slice (IDs 841-860)
+
+- Promoted 20 specs to implementation-ready public-source V1: `841-hootsuite.md` through `860-netlify.md`.
+- Added `scripts/promote-batch-43-specs.mjs` as a repeatable generator for the slice.
+- Replaced source-discovery placeholders with exact public marketplace/product/help/support/privacy/terms URLs or explicit platform blockers verified on 2026-05-05.
+- Four sub-category screen inventories: social-media-management (composer/scheduler, calendar/queue, inbox/streams, analytics/reports), developer-platform (repository/project, merge/pull request, CI/CD pipelines, issues/boards), developer-community (feed/discovery, content detail, create/write, profile/reputation), and cloud-infrastructure (dashboard/overview, resources/services, monitoring/logs, deployments/CI, billing/settings).
+- Preserved manual blockers for social network OAuth token refresh and platform-specific publishing API limits, unified social inbox reply-as routing, content calendar timezone handling, social listening sentiment accuracy, Linkin.bio/Start Page domain configuration, repository clone/pull authentication (SSH/HTTPS/PAT), merge request approval rules and code owners, CI/CD runner availability and artifact retention, issue board swimlane configuration, API request builder protocol support, cloud sandbox VM provisioning and resource allocation, live collaboration WebSocket reliability, reputation-gated privilege systems, content moderation and community governance, Firebase-based HN API rate limits, cloud VM/container provisioning and region availability, IAM/RBAC policy evaluation, CloudWatch/Azure Monitor/Cloud Logging alert configuration, deployment preview URL generation and rollback mechanisms, DNS zone delegation and SSL provisioning, serverless function cold-start and edge runtime constraints, and platform-specific SSO/SAML/SCIM/MFA provisioning.
+- Updated `tasks/todo.md` Step 8.3 progress to 860 of 1000 promoted with 140 remaining Draft 1 placeholder rows.
+- Validation: 0 residual `Source discovery` strings, 20 `Implementation-ready` specs, all with exactly one H1.
+
+### Ship Manifest
+
+- User goal: execute next incomplete Step 8.3 slice and ship the result.
+- Changed files: `specs/batch-43/841-hootsuite.md` through `specs/batch-43/860-netlify.md`, `scripts/promote-batch-43-specs.mjs`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: promoted 20 specs to implementation-ready public-source V1; created the batch promotion generator as reproducible project tooling; recorded readiness counts, latest slice, and next-slice routing.
+- User-goal mapping: the edited specs replace Draft 1/source-discovery placeholders for IDs 841-860; task files preserve the Step 8.3 execution trail and handoff.
+- Tests run: targeted `grep` checks found 0 source-discovery markers and 20 implementation-ready markers in promoted specs; targeted H1 checks found one H1 per promoted file.
+- Skipped tests: no runtime lint/type/build commands apply because this repository contains planning/specification Markdown and this slice changes no runtime code.
+- Adversarial review: diff reviewed for source-discovery residue, one-H1 structure, readiness-count consistency, manual native blockers, legal-scope boundaries, social-media-management/developer-platform/developer-community/cloud-infrastructure risk coverage, and next-slice routing.
+- Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native/account/provider/enterprise verification before one-for-one parity claims.
+- Rollback note: revert the shipping commit to restore IDs 841-860 to their previous Draft 1 scaffold state and previous readiness counts.
+- Next command: `$run`.
+
 ## 2026-05-05 - Phase 8 Step 8.3 Enterprise Operations Slice (IDs 821-840)
 
 - Promoted 20 enterprise-operations specs to implementation-ready public-source V1: `821-zendesk.md` through `840-mailchimp.md`.

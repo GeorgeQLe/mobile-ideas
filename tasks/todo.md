@@ -41,45 +41,43 @@ Extend the canonical spec store from 200 to 1000 mobile app clone ideas. IDs 201
 - [x] Step 8.1: Add 800 backlog rows for IDs 201-1000 in `tasks/ideas.md`.
 - [x] Step 8.2: Create canonical Draft 1 scaffold specs under `specs/batch-11/` through `specs/batch-50/`.
 
-- [ ] Step 8.3: Promote IDs 101-1000 from Draft 1 to implementation-ready public-source V1 (absorbs Phase 7 Step 7.3; scope = 900 specs). Run in category-coherent batches. See archived Phase 7 Step 7.3 detail in `tasks/phases/phase-7.md` for the full operation: exact-URL replacement, verified-vs-inferred discipline, depth expansion, Manual verification blockers per app, and category risk review. Validation: every promoted spec's `Readiness status` line reads `Implementation-ready for a lawful public-source V1 clone as of YYYY-MM-DD.`; no residual `Source discovery -- pending exact URL verification` strings in promoted specs. Progress through 2026-05-05: IDs 101-840 promoted; post-slice audit reports 840 implementation-ready specs and 160 remaining Draft 1 placeholder rows. Latest slice completed: IDs 821-840 (`Zendesk` through `Mailchimp`) promoted across customer-support (821-824), hr-payroll (825-830), expense-accounting (831-834), and commerce-payments-marketing (835-840) sub-categories within the Enterprise operations category. The slice preserved omnichannel ticket/conversation management with SLA tracking and macros, Freddy/Fin/Virtual Agent AI, knowledge base article suggestions, employee self-service with pay stubs/W-2s/tax documents, time and attendance with clock in/out and geofencing, benefits enrollment and life events, time-off requests and balances, employee directory and org chart, SmartScan/ExpenseIt receipt OCR, expense reports with policy enforcement and approval workflows, bank feeds and reconciliation, invoicing and bill management, P&L and balance sheet reporting, POS with hardware integration and tap-to-pay, e-commerce store management with product catalog/inventory/fulfillment, payment processing with dispute/chargeback management, subscription billing, email marketing with automation and A/B testing, and enterprise SSO/SCIM/SAML provisioning. Next concrete slice: promote IDs 841-860 from `tasks/ideas.md`, replacing source-discovery placeholders with exact first-party URLs.
+- [ ] Step 8.3: Promote IDs 101-1000 from Draft 1 to implementation-ready public-source V1 (absorbs Phase 7 Step 7.3; scope = 900 specs). Run in category-coherent batches. See archived Phase 7 Step 7.3 detail in `tasks/phases/phase-7.md` for the full operation: exact-URL replacement, verified-vs-inferred discipline, depth expansion, Manual verification blockers per app, and category risk review. Validation: every promoted spec's `Readiness status` line reads `Implementation-ready for a lawful public-source V1 clone as of YYYY-MM-DD.`; no residual `Source discovery -- pending exact URL verification` strings in promoted specs. Progress through 2026-05-05: IDs 101-860 promoted; post-slice audit reports 860 implementation-ready specs and 140 remaining Draft 1 placeholder rows. Latest slice completed: IDs 841-860 (`Hootsuite` through `Netlify`) promoted across social-media-management (841-844), developer-platform (845-848), developer-community (849-853), and cloud-infrastructure (854-860) sub-categories spanning Enterprise operations and Developer tools categories. The slice preserved multi-platform social publishing with content calendar and queue scheduling, unified social inbox and stream monitoring, social analytics and engagement reporting, Linkin.bio/Start Page link-in-bio, social listening and hashtag suggestions, repository browsing with merge/pull request management, CI/CD pipeline monitoring and job logs, issue tracking and kanban boards, API request builder with collections and environments, cloud development sandboxes and DevBoxes, Q&A with reputation and badge systems, developer blogging with Markdown editors and custom domains, product launch discovery and upvoting, technology news aggregation and comment threading, cloud VM/container/database provisioning and management, infrastructure monitoring and alerting, deployment dashboards with preview URLs and rollbacks, billing and cost management, and platform-specific OAuth/SSO/SAML/SCIM provisioning. Next concrete slice: promote IDs 861-880 from `tasks/ideas.md`, replacing source-discovery placeholders with exact first-party URLs.
 
-#### Next-Step Plan: Promote IDs 841-860 (Batch 43)
+#### Next-Step Plan: Promote IDs 861-880 (Batch 44)
 
-**What:** Create `scripts/promote-batch-43-specs.mjs` following the established pattern (batch 40/41/42 scripts). Run it to overwrite 20 Draft 1 scaffolds in `specs/batch-43/` with implementation-ready V1 specs. Validate and update this progress note.
+**What:** Create `scripts/promote-batch-44-specs.mjs` following the established pattern (batch 40/41/42/43 scripts). Run it to overwrite 20 Draft 1 scaffolds in `specs/batch-44/` with implementation-ready V1 specs. Validate and update this progress note.
 
 **Apps and sub-categories:**
-- **Social media management** (841-844): Hootsuite, Buffer, Sprout Social, Later — category "Enterprise operations"
-- **Developer platforms** (845-848): GitLab, Bitbucket, Postman, CodeSandbox — category "Developer tools"
-- **Developer community** (849-853): Stack Overflow, DEV Community, Hashnode, Product Hunt, Hacker News — category "Developer tools"
-- **Cloud infrastructure** (854-860): DigitalOcean, AWS Console, Google Cloud, Microsoft Azure, Cloudflare, Vercel, Netlify — category "Developer tools"
+- **Observability/incident management** (861-866): Sentry, Datadog, PagerDuty, Opsgenie, Grafana, New Relic — category "Developer tools"
+- **Mobile development tools** (867-871): Expo Go, Termius, Blink Shell, Working Copy, Code App — category "Developer tools"
+- **News** (872-880): CNN, BBC News, The Guardian, Reuters, AP News, NPR, The Wall Street Journal, Financial Times, The Washington Post — category "News"
 
 **Files affected:**
-- `scripts/promote-batch-43-specs.mjs` (new)
-- `specs/batch-43/841-hootsuite.md` through `specs/batch-43/860-netlify.md` (20 files overwritten)
-- `tasks/todo.md` (Step 8.3 progress note update to 860 promoted)
+- `scripts/promote-batch-44-specs.mjs` (new)
+- `specs/batch-44/861-sentry.md` through `specs/batch-44/880-the-washington-post.md` (20 files overwritten)
+- `tasks/todo.md` (Step 8.3 progress note update to 880 promoted)
 - `tasks/history.md` (session record)
 
 **Key technical decisions:**
-- `screenRows()` needs four sub-category variants: social-media-management, developer-platform, developer-community, cloud-infrastructure
+- `screenRows()` needs three sub-category variants: observability-incident, mobile-dev-tools, news
 - `risk()` returns category-appropriate risk areas for each sub-category
 - Each app gets app-specific `focus`, `blockers`, and `sources` with exact first-party URLs (App Store, Google Play, official site, help, privacy, terms)
-- Social media management apps need scheduling/publishing/analytics screen inventory (composer, calendar, inbox, analytics)
-- Developer platform apps need repository/CI-CD/collaboration screen inventory (repos, merge requests, pipelines, API workspace)
-- Developer community apps need content/discussion/discovery screen inventory (feed, posts, comments, profiles)
-- Cloud infrastructure apps need resource/monitoring/billing screen inventory (dashboards, services, deployments, billing)
+- Observability apps need error/alert/incident/metrics screen inventory (issues, alerts, dashboards, on-call)
+- Mobile dev tools need terminal/editor/repository/preview screen inventory (sessions, files, repos, builds)
+- News apps need article/feed/section/saved screen inventory (headlines, sections, articles, saved, audio/video)
 
 **Execution profile:** serial, implementation-safe, main agent
 
 **Validation:**
 ```
-grep -rl "Source discovery" specs/batch-43/*.md | wc -l  # expect 0
-grep -l "Implementation-ready" specs/batch-43/*.md | wc -l  # expect 20
-for f in specs/batch-43/[0-9]*.md; do count=$(grep -c "^# " "$f"); [ "$count" -ne 1 ] && echo "FAIL: $f has $count H1s"; done
+grep -rl "Source discovery" specs/batch-44/*.md | wc -l  # expect 0
+grep -l "Implementation-ready" specs/batch-44/*.md | wc -l  # expect 20
+for f in specs/batch-44/[0-9]*.md; do count=$(grep -c "^# " "$f"); [ "$count" -ne 1 ] && echo "FAIL: $f has $count H1s"; done
 ```
 
-**Acceptance criteria:** 20 specs pass validation (one H1, implementation-ready status, no source-discovery residue, canonical sections present), todo.md progress updated to 860.
+**Acceptance criteria:** 20 specs pass validation (one H1, implementation-ready status, no source-discovery residue, canonical sections present), todo.md progress updated to 880.
 
-**Ship-one-step handoff contract:** After implementing this step, validate it, mark the Step 8.3 progress note updated, update `tasks/history.md`, commit and push the completed work, write the following step's plan (IDs 861-880), ensure `.claude/settings.local.json` has `"showClearContextOnPlanAccept": true` and `"defaultMode": "acceptEdits"`, start the approval UI for that following step by calling `EnterPlanMode` first, write a brief pass-through plan in plan mode, call `ExitPlanMode`, and stop before implementing it.
+**Ship-one-step handoff contract:** After implementing this step, validate it, mark the Step 8.3 progress note updated, update `tasks/history.md`, commit and push the completed work, write the following step's plan (IDs 881-900), ensure `.claude/settings.local.json` has `"showClearContextOnPlanAccept": true` and `"defaultMode": "acceptEdits"`, start the approval UI for that following step by calling `EnterPlanMode` first, write a brief pass-through plan in plan mode, call `ExitPlanMode`, and stop before implementing it.
 
 - [ ] Step 8.4: Extend `tasks/roadmap.md` Phase 5 plan queue to 1000 rows. Append 800 rows for IDs 201-1000 (ID | App | Source Spec | High-Level Implementation Plan). Land only after Step 8.3 lands for the corresponding ID range.
 
