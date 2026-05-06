@@ -1,5 +1,28 @@
 # History
 
+## 2026-05-06 - Phase 8 Step 8.3 Social/Creator/Messaging Slice (IDs 921-940)
+
+- Promoted 20 specs to implementation-ready public-source V1: `921-weverse.md` through `940-google-voice.md`.
+- Added `scripts/promote-batch-47-specs.mjs` as a repeatable generator for the slice.
+- Replaced source-discovery placeholders with exact public marketplace/product/help/support/privacy/terms URLs or explicit platform blockers verified on 2026-05-05.
+- Two sub-category screen inventories: social-community (feed/timeline, post/create, profile/community, messaging/chat) and messaging-calling (conversations, chat/thread, calls, contacts).
+- Preserved manual blockers for Weverse HYBE artist-to-fan moderation and Weverse DM paid messaging, Patreon tiered membership billing and creator payout scheduling, Buy Me a Coffee Extras digital product delivery and instant payouts, Ko-fi Gold membership and 0% platform fee claim verification, Cameo personalized video fulfillment SLA and talent payout processing, Guilded gaming voice channel infrastructure and Roblox integration, Geneva group room management and cross-group feed aggregation, Fizz .edu email verification and anonymous identity de-anonymization prevention, Yubo Yoti age estimation AI and age-segregated community enforcement, Poparazzi no-selfie enforcement and consent-based photo tagging, NGL anonymous sender identity protection and FTC compliance history, Tellonym anonymous Q&A moderation and GDPR compliance, Rumble content moderation policy and licensing marketplace, Truth Social feed algorithm and Truth+ premium video subscription, Viber end-to-end encryption and Communities scaling to millions, WeChat Mini Programs platform and Pay regulatory licensing, LINE Letter Sealing encryption and sticker marketplace economics, KakaoTalk Pay financial regulations and gift shop integration, Skype Signal Protocol private conversations and real-time translation, and Google Voice US phone number provisioning and 911 emergency calling limitations.
+- Updated `tasks/todo.md` Step 8.3 progress to 940 of 1000 promoted with 60 remaining Draft 1 placeholder rows.
+- Validation: 0 residual `Source discovery` strings, 20 `Implementation-ready` specs, all with exactly one H1.
+
+### Ship Manifest
+
+- User goal: execute next incomplete Step 8.3 slice and ship the result.
+- Changed files: `specs/batch-47/921-weverse.md` through `specs/batch-47/940-google-voice.md`, `scripts/promote-batch-47-specs.mjs`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: promoted 20 specs to implementation-ready public-source V1; created the batch promotion generator as reproducible project tooling; recorded readiness counts, latest slice, and next-slice routing.
+- User-goal mapping: the edited specs replace Draft 1/source-discovery placeholders for IDs 921-940; task files preserve the Step 8.3 execution trail and handoff.
+- Tests run: targeted `grep` checks found 0 source-discovery markers and 20 implementation-ready markers in promoted specs; targeted H1 checks found one H1 per promoted file.
+- Skipped tests: no runtime lint/type/build commands apply because this repository contains planning/specification Markdown and this slice changes no runtime code.
+- Adversarial review: diff reviewed for source-discovery residue, one-H1 structure, readiness-count consistency, manual native blockers, legal-scope boundaries, social-community/messaging-calling risk coverage, and next-slice routing.
+- Residual risk: public URLs were gathered from public web/source lookup and should still be rechecked during future hands-on native/account/provider/enterprise verification before one-for-one parity claims.
+- Rollback note: revert the shipping commit to restore IDs 921-940 to their previous Draft 1 scaffold state and previous readiness counts.
+- Next command: `$run`.
+
 ## 2026-05-05 - Phase 8 Step 8.3 Books/Manga/Social Slice (IDs 901-920)
 
 - Promoted 20 specs to implementation-ready public-source V1: `901-bookmate.md` through `920-amino.md`.
