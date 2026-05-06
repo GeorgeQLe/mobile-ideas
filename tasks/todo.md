@@ -45,6 +45,40 @@ Extend the canonical spec store from 200 to 1000 mobile app clone ideas. IDs 201
 
 - [ ] Step 8.4: Extend `tasks/roadmap.md` Phase 5 plan queue to 1000 rows. Append 800 rows for IDs 201-1000 (ID | App | Source Spec | High-Level Implementation Plan). Land only after Step 8.3 lands for the corresponding ID range.
 
+#### Next-Step Plan: Extend Phase 5 Plan Queue (Step 8.4)
+
+**What:** Create `scripts/extend-phase5-queue.mjs` that reads `tasks/ideas.md` IDs 201-1000 and each spec's Overview section, then generates 800 table rows to append to the Phase 5 Implementation Plans table in `tasks/roadmap.md`. Each row follows the established format: `| ID | App | Source Spec | High-Level Implementation Plan |`.
+
+**Approach:**
+- Script reads `tasks/ideas.md` to get ID, app name, and category for IDs 201-1000.
+- Script reads each spec's Overview section (first paragraph after `## Overview`) to derive a one-sentence high-level implementation plan.
+- Each plan row references the spec path as `` `specs/batch-NN/NNN-slug.md` `` and summarizes the app's core workflow in one sentence following the established pattern ("Build an original X with Y, Z, and W.").
+- Since generating 800 unique one-sentence plans from spec content would be very large, the script should generate plans based on each spec's `focus` field pattern — similar to how the existing 100 rows were written.
+- Alternatively, a simpler approach: create the script to emit the 800 rows programmatically from `tasks/ideas.md` app names, categories, and the spec slug/batch mapping, with hand-crafted plan summaries per sub-category group.
+
+**Files affected:**
+- `scripts/extend-phase5-queue.mjs` (new)
+- `tasks/roadmap.md` (800 rows appended to Phase 5 Implementation Plans table)
+- `tasks/todo.md` (Step 8.4 marked complete, acceptance criterion checked)
+- `tasks/history.md` (session record)
+
+**Execution profile:** serial, implementation-safe, main agent
+
+**Key decisions:**
+- The 800 plan summaries must be app-specific (not generic per-category). Each should reference the app's distinctive feature set from its spec Overview.
+- Rows for IDs 101-200 already exist in the roadmap (added in Phase 7 Step 7.4). Verify before appending to avoid duplicates.
+- The script should be batch-safe: run it once, verify output, then manually or programmatically append.
+
+**Validation:**
+```
+grep -c "^| [0-9]" tasks/roadmap.md  # expect 1000
+# Spot-check: rows for IDs 201, 500, 750, 1000 exist and reference correct spec paths
+```
+
+**Acceptance criteria:** 1000 plan rows exist in Phase 5 table (IDs 001-1000), each with correct spec path and app-specific one-sentence plan. Step 8.4 marked complete. Phase 5 queue acceptance criterion checked in Phase 8.
+
+**Ship-one-step handoff contract:** After implementing this step, validate it, mark Step 8.4 complete in `tasks/todo.md`, update `tasks/history.md`, commit and push the completed work, ensure `.claude/settings.local.json` has `"showClearContextOnPlanAccept": true` and `"defaultMode": "acceptEdits"`, start the approval UI for the next step by calling `EnterPlanMode` first, write a brief pass-through plan in plan mode, call `ExitPlanMode`, and stop before implementing it.
+
 - [x] Step 8.5: Extend and verify `tasks/repo-seeding.md` Per-Repo Checklist manifest to 1000 rows. Verified 2026-05-01: 1000 checked rows, 0 unchecked rows. Audit again after Step 8.3 lands only if source spec paths or readiness labels change.
 
 - [x] Step 8.6: Seed downstream private scaffold repos for IDs 201-1000 in serial 20-ID batches via `scripts/seed-downstream-batch.mjs`. **Complete as of 2026-05-01: IDs 201-1000 seeded (PRIVATE + non-empty verified per `tasks/repo-seeding.md` Batch evidence sections).**
