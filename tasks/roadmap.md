@@ -16,6 +16,25 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 | Phase 6 | Complete | Seeded 100 private downstream repos; spec store published public 2026-04-20. |
 | Phase 7 | Complete | Backlog extension pipeline for IDs 101-200 (Draft 0 -> readiness -> seeding). |
 | Phase 8 | Complete | 1000-app backlog, implementation-ready specs, plan queue, and private downstream repos. |
+| Phase 9 | Pending | Detailed build plans for all 1000 apps in downstream repos. |
+| Phase 10 | Pending | Benchmarking infrastructure, CI/CD templates, and multi-variant repo structure. |
+| Phase 11 | Pending | Implementation: AI & Assistants cluster (~26 apps × 5 variants). |
+| Phase 12 | Pending | Implementation: Social, Dating & Community cluster (~31 apps × 5 variants). |
+| Phase 13 | Pending | Implementation: Messaging & Email cluster (~37 apps × 5 variants). |
+| Phase 14 | Pending | Implementation: Video & Music Streaming cluster (~53 apps × 5 variants). |
+| Phase 15 | Pending | Implementation: Podcasts, Books & Reading cluster (~42 apps × 5 variants). |
+| Phase 16 | Pending | Implementation: Photo & Video Creation cluster (~47 apps × 5 variants). |
+| Phase 17 | Pending | Implementation: Shopping, Commerce & Classifieds cluster (~65 apps × 5 variants). |
+| Phase 18 | Pending | Implementation: Food, Delivery & Grocery cluster (~77 apps × 5 variants). |
+| Phase 19 | Pending | Implementation: Finance & Payments cluster (~65 apps × 5 variants). |
+| Phase 20 | Pending | Implementation: Travel & Transportation cluster (~79 apps × 5 variants). |
+| Phase 21 | Pending | Implementation: Health, Fitness & Wellness cluster (~81 apps × 5 variants). |
+| Phase 22 | Pending | Implementation: Education & Learning cluster (~31 apps × 5 variants). |
+| Phase 23 | Pending | Implementation: Productivity & Collaboration cluster (~72 apps × 5 variants). |
+| Phase 24 | Pending | Implementation: News, Maps & Navigation cluster (~57 apps × 5 variants). |
+| Phase 25 | Pending | Implementation: Home, Security, Cloud & Enterprise cluster (~137 apps × 5 variants). |
+| Phase 26 | Pending | Cross-version benchmarking, winner selection, and regression audit for all 1000 apps. |
+| Phase 27 | Pending | App Store & Play Store submission for all 1000 winning variants. |
 
 ## Phase 1: Initial Backlog And Draft 0 Specs
 
@@ -1257,8 +1276,541 @@ Full step-level plan lives in `tasks/todo.md` Phase 7.
 
 Phase 8 completed 2026-05-06. All 1000 IDs have backlog rows, implementation-ready public-source V1 specs, Phase 5 plan queue entries, and verified private downstream repos. The scaffold-only caveat for IDs 201-1000 is resolved — all specs passed the implementation-readiness gate.
 
+## Phase 9: Detailed Build Plans (All 1000 Apps)
+
+**Goal**: Generate app-specific build plans in every downstream repo's `docs/plans/README.md`, following the Todoist pilot pattern (Phase 4). Each plan covers route map, API schema, data model, seed data, feature flags, and blocked acceptance tests — tailored to the app's spec.
+
+**Scope**:
+- All 1000 downstream repos get a completed `docs/plans/README.md` with app-specific content derived from `docs/source-specs/`.
+- Plans define five variant targets per app: React Native, Flutter, Expo, Native iOS (Swift/SwiftUI), Native Android (Kotlin/Jetpack Compose).
+- Each plan includes variant-specific architectural notes (e.g., navigation library choices, state management, platform API access patterns).
+- Category batches processed in parallel — each category's apps are independent repos.
+
+**Acceptance Criteria:**
+- [ ] All 1000 downstream repos have a completed `docs/plans/README.md` with route map, API schema, data model, seed data, and test checklist.
+- [ ] Each plan defines variant-specific build notes for all five targets.
+- [ ] Plans reference exact source spec sections and preserve manual verification blockers.
+- [ ] No proprietary assets, trademarks, or copyrighted content introduced.
+
+**Parallelization:** agent-team
+
+**Coordination Notes:** Each downstream repo is fully independent. Category batches can run concurrently with no shared file ownership. Build plans are generated from the source spec already present in each repo.
+
+**On Completion** (fill in when phase is done):
+- Deviations from plan: 
+- Tech debt / follow-ups: 
+- Ready for next phase: 
+
+---
+
+## Phase 10: Benchmarking Infrastructure & Multi-Variant Repo Structure
+
+**Goal**: Build the shared CI/CD templates, benchmarking harness, and multi-variant branch/project structure that all 1000 apps will use during implementation phases.
+
+**Scope**:
+- Benchmarking harness repo with automated scoring across all dimensions:
+  - **Performance**: cold start time, warm start time, frame rate (jank %), memory peak/average, CPU usage, battery drain rate
+  - **Bundle size**: IPA size, APK/AAB size, OTA update size, asset breakdown
+  - **UX fidelity**: spec compliance score (screen coverage, interaction coverage, edge case coverage)
+  - **Code quality**: lint score, type coverage, test coverage, cyclomatic complexity, maintainability index
+  - **Developer velocity**: clean build time, incremental build time, hot/live reload time, CI pipeline duration
+  - **Accessibility**: automated a11y audit score (VoiceOver/TalkBack), contrast ratio compliance, touch target sizes
+  - **Store compliance**: metadata completeness, policy compliance checklist, screenshot coverage, privacy manifest accuracy
+- Shared CI/CD templates (GitHub Actions or equivalent) for building, testing, and benchmarking all five variants.
+- Multi-variant repo structure convention: each downstream repo gets five variant directories or branches (`variants/react-native/`, `variants/flutter/`, `variants/expo/`, `variants/ios-native/`, `variants/android-native/`).
+- Scorecard template and aggregation dashboard schema.
+
+**Acceptance Criteria:**
+- [ ] Benchmarking harness repo exists with automated scoring for all 7 benchmark dimensions.
+- [ ] CI/CD templates cover build, test, lint, and benchmark for all 5 variant stacks.
+- [ ] Multi-variant directory convention is documented and scaffolded in at least one pilot repo.
+- [ ] Scorecard template produces a normalized 0-100 composite score per variant.
+- [ ] Aggregation schema supports cross-app comparison and category-level rollups.
+
+**Parallelization:** serial
+
+**Coordination Notes:** This phase produces shared infrastructure consumed by all subsequent implementation phases. Must complete before Phases 11-25 begin. Pilot with 1-2 apps from different categories to validate the full pipeline end-to-end.
+
+**On Completion** (fill in when phase is done):
+- Deviations from plan: 
+- Tech debt / follow-ups: 
+- Ready for next phase: 
+
+---
+
+## Phase 11: Implementation — AI & Assistants (~26 Apps × 5 Variants)
+
+**Goal**: Build all five variants for every app in the AI & Assistants category cluster to functional completion, passing the benchmarking harness.
+
+**Scope**:
+- Apps: AI assistants (ChatGPT, Gemini, Claude, Copilot, etc.), AI companions, and related AI-first apps.
+- Per app: implement all five variants (React Native, Flutter, Expo, Native iOS, Native Android) following the build plan from Phase 9.
+- Each variant must pass lint, type check, test suite, and benchmarking harness from Phase 10.
+- Functional parity with the source spec — all screens, flows, edge cases, and data contracts implemented with original code and assets.
+
+**Acceptance Criteria:**
+- [ ] All ~26 apps have 5 working variants each (~130 app builds).
+- [ ] Every variant passes CI (build, lint, type check, tests).
+- [ ] Every variant has benchmark scores recorded in the scorecard.
+- [ ] No proprietary assets, no trademark infringement, no copied code.
+- [ ] Manual verification blockers documented but not falsely claimed as resolved.
+
+**Parallelization:** agent-team
+
+**Coordination Notes:** All apps in this cluster are independent repos. All 26 apps (and all 5 variants within each) can build in parallel. Share architectural patterns for LLM integration, streaming responses, conversation persistence, and tool/function calling across AI apps.
+
+**On Completion** (fill in when phase is done):
+- Deviations from plan: 
+- Tech debt / follow-ups: 
+- Ready for next phase: 
+
+---
+
+## Phase 12: Implementation — Social, Dating & Community (~31 Apps × 5 Variants)
+
+**Goal**: Build all five variants for every app in the Social, Dating & Community cluster.
+
+**Scope**:
+- Apps: Social media (Instagram, TikTok, X, etc.), dating (Tinder, Bumble, Hinge, etc.), creator communities.
+- Shared patterns: feed/timeline, profiles, matching algorithms, real-time messaging, content moderation, media upload/processing.
+
+**Acceptance Criteria:**
+- [ ] All ~31 apps have 5 working variants each (~155 app builds).
+- [ ] Every variant passes CI and has benchmark scores recorded.
+- [ ] Content moderation and safety flows implemented per spec.
+
+**Parallelization:** agent-team
+
+**Coordination Notes:** Independent repos. Share feed rendering, media pipeline, and real-time messaging patterns across the cluster.
+
+**On Completion** (fill in when phase is done):
+- Deviations from plan: 
+- Tech debt / follow-ups: 
+- Ready for next phase: 
+
+---
+
+## Phase 13: Implementation — Messaging & Email (~37 Apps × 5 Variants)
+
+**Goal**: Build all five variants for every app in the Messaging & Email cluster.
+
+**Scope**:
+- Apps: Messaging (WhatsApp, Signal, Telegram, etc.), email (Gmail, Outlook, ProtonMail, etc.), calling, video conferencing.
+- Shared patterns: E2E encryption, real-time delivery, push notifications, thread/conversation views, attachment handling, offline queuing.
+
+**Acceptance Criteria:**
+- [ ] All ~37 apps have 5 working variants each (~185 app builds).
+- [ ] Every variant passes CI and has benchmark scores recorded.
+- [ ] Encryption and privacy flows implemented per spec requirements.
+
+**Parallelization:** agent-team
+
+**Coordination Notes:** Independent repos. Share encryption, real-time transport, and notification patterns.
+
+**On Completion** (fill in when phase is done):
+- Deviations from plan: 
+- Tech debt / follow-ups: 
+- Ready for next phase: 
+
+---
+
+## Phase 14: Implementation — Video & Music Streaming (~53 Apps × 5 Variants)
+
+**Goal**: Build all five variants for every app in the Video & Music Streaming cluster.
+
+**Scope**:
+- Apps: Video streaming (YouTube, Netflix, Disney+, etc.), music streaming (Spotify, Apple Music, etc.), audio platforms.
+- Shared patterns: adaptive bitrate streaming, offline downloads, playback controls, recommendation engines, content libraries, DRM-adjacent flows.
+
+**Acceptance Criteria:**
+- [ ] All ~53 apps have 5 working variants each (~265 app builds).
+- [ ] Every variant passes CI and has benchmark scores recorded.
+- [ ] Streaming playback, queue management, and offline flows functional.
+
+**Parallelization:** agent-team
+
+**Coordination Notes:** Independent repos. Share media player, streaming infrastructure, and download manager patterns.
+
+**On Completion** (fill in when phase is done):
+- Deviations from plan: 
+- Tech debt / follow-ups: 
+- Ready for next phase: 
+
+---
+
+## Phase 15: Implementation — Podcasts, Books & Reading (~42 Apps × 5 Variants)
+
+**Goal**: Build all five variants for every app in the Podcasts, Books & Reading cluster.
+
+**Scope**:
+- Apps: Podcast players (Pocket Casts, Overcast, etc.), e-readers (Kindle, Libby, etc.), read-later (Pocket, Instapaper), book discovery.
+- Shared patterns: RSS/feed parsing, audio playback with variable speed, reading progress sync, annotation/highlighting, offline content.
+
+**Acceptance Criteria:**
+- [ ] All ~42 apps have 5 working variants each (~210 app builds).
+- [ ] Every variant passes CI and has benchmark scores recorded.
+- [ ] Reading/listening progress sync and offline content functional.
+
+**Parallelization:** agent-team
+
+**Coordination Notes:** Independent repos. Share audio player, content parser, and progress sync patterns.
+
+**On Completion** (fill in when phase is done):
+- Deviations from plan: 
+- Tech debt / follow-ups: 
+- Ready for next phase: 
+
+---
+
+## Phase 16: Implementation — Photo & Video Creation (~47 Apps × 5 Variants)
+
+**Goal**: Build all five variants for every app in the Photo & Video Creation cluster.
+
+**Scope**:
+- Apps: Photo editors (Snapseed, VSCO, Lightroom, etc.), video editors (CapCut, InShot, etc.), camera apps.
+- Shared patterns: image/video processing pipelines, filter/effect systems, layer compositing, export/share, timeline editing, GPU-accelerated rendering.
+
+**Acceptance Criteria:**
+- [ ] All ~47 apps have 5 working variants each (~235 app builds).
+- [ ] Every variant passes CI and has benchmark scores recorded.
+- [ ] Core editing workflows (crop, filter, adjust, export) functional across variants.
+
+**Parallelization:** agent-team
+
+**Coordination Notes:** Independent repos. Share image processing, filter pipeline, and export patterns. Native variants may have significant advantages for GPU access.
+
+**On Completion** (fill in when phase is done):
+- Deviations from plan: 
+- Tech debt / follow-ups: 
+- Ready for next phase: 
+
+---
+
+## Phase 17: Implementation — Shopping, Commerce & Classifieds (~65 Apps × 5 Variants)
+
+**Goal**: Build all five variants for every app in the Shopping, Commerce & Classifieds cluster.
+
+**Scope**:
+- Apps: Shopping (Amazon, eBay, Etsy, etc.), creator commerce (Gumroad, Shopify, etc.), classifieds (Craigslist, OfferUp, etc.), automotive marketplaces.
+- Shared patterns: product catalog, search/filter, cart/checkout, payment integration, seller dashboards, listing creation, reviews/ratings.
+
+**Acceptance Criteria:**
+- [ ] All ~65 apps have 5 working variants each (~325 app builds).
+- [ ] Every variant passes CI and has benchmark scores recorded.
+- [ ] Browse, search, cart, and checkout flows functional.
+
+**Parallelization:** agent-team
+
+**Coordination Notes:** Independent repos. Share catalog, search, cart, and payment patterns.
+
+**On Completion** (fill in when phase is done):
+- Deviations from plan: 
+- Tech debt / follow-ups: 
+- Ready for next phase: 
+
+---
+
+## Phase 18: Implementation — Food, Delivery & Grocery (~77 Apps × 5 Variants)
+
+**Goal**: Build all five variants for every app in the Food, Delivery & Grocery cluster.
+
+**Scope**:
+- Apps: Food delivery (DoorDash, UberEats, etc.), grocery (Instacart, Walmart, etc.), restaurant loyalty, meal planning, recipe apps.
+- Shared patterns: location-based search, real-time order tracking, cart/checkout, driver/delivery tracking, menu/catalog browsing, loyalty programs.
+
+**Acceptance Criteria:**
+- [ ] All ~77 apps have 5 working variants each (~385 app builds).
+- [ ] Every variant passes CI and has benchmark scores recorded.
+- [ ] Order flow, real-time tracking, and location-based features functional.
+
+**Parallelization:** agent-team
+
+**Coordination Notes:** Independent repos. Share location services, order tracking, and map integration patterns.
+
+**On Completion** (fill in when phase is done):
+- Deviations from plan: 
+- Tech debt / follow-ups: 
+- Ready for next phase: 
+
+---
+
+## Phase 19: Implementation — Finance & Payments (~65 Apps × 5 Variants)
+
+**Goal**: Build all five variants for every app in the Finance & Payments cluster.
+
+**Scope**:
+- Apps: Banking (Chase, Revolut, etc.), investing (Robinhood, E*TRADE, etc.), payments (PayPal, Venmo, etc.), crypto, budgeting, neobanks.
+- Shared patterns: account dashboards, transaction history, transfer flows, portfolio views, charts/graphs, biometric auth, PCI-adjacent security patterns.
+
+**Acceptance Criteria:**
+- [ ] All ~65 apps have 5 working variants each (~325 app builds).
+- [ ] Every variant passes CI and has benchmark scores recorded.
+- [ ] Financial data display, transaction flows, and security patterns functional.
+- [ ] Category-specific risk review for finance/regulated features documented.
+
+**Parallelization:** agent-team
+
+**Coordination Notes:** Independent repos. Share financial chart, transaction, and security patterns. Extra care for regulated feature blockers.
+
+**On Completion** (fill in when phase is done):
+- Deviations from plan: 
+- Tech debt / follow-ups: 
+- Ready for next phase: 
+
+---
+
+## Phase 20: Implementation — Travel & Transportation (~79 Apps × 5 Variants)
+
+**Goal**: Build all five variants for every app in the Travel & Transportation cluster.
+
+**Scope**:
+- Apps: Travel booking (Booking.com, Airbnb, Expedia, etc.), airlines (United, Delta, etc.), ride-hailing (Uber, Lyft, etc.), transit, car rental.
+- Shared patterns: search/filter with dates/locations, booking flows, itinerary management, real-time vehicle tracking, boarding passes, maps integration.
+
+**Acceptance Criteria:**
+- [ ] All ~79 apps have 5 working variants each (~395 app builds).
+- [ ] Every variant passes CI and has benchmark scores recorded.
+- [ ] Search, booking, and itinerary flows functional.
+
+**Parallelization:** agent-team
+
+**Coordination Notes:** Independent repos. Share booking, calendar, map, and itinerary patterns.
+
+**On Completion** (fill in when phase is done):
+- Deviations from plan: 
+- Tech debt / follow-ups: 
+- Ready for next phase: 
+
+---
+
+## Phase 21: Implementation — Health, Fitness & Wellness (~81 Apps × 5 Variants)
+
+**Goal**: Build all five variants for every app in the Health, Fitness & Wellness cluster.
+
+**Scope**:
+- Apps: Fitness (Strava, Peloton, MyFitnessPal, etc.), health (WebMD, MyChart, etc.), wellness (Calm, Headspace, etc.), telehealth, parenting/family safety.
+- Shared patterns: activity tracking, workout logging, health data visualization, HealthKit/Google Fit integration, guided content playback, appointment booking.
+
+**Acceptance Criteria:**
+- [ ] All ~81 apps have 5 working variants each (~405 app builds).
+- [ ] Every variant passes CI and has benchmark scores recorded.
+- [ ] Health data tracking, workout flows, and guided content functional.
+- [ ] Category-specific risk review for health/medical features documented.
+
+**Parallelization:** agent-team
+
+**Coordination Notes:** Independent repos. Share health data, activity tracking, and guided content patterns. Extra care for health-adjacent regulatory blockers.
+
+**On Completion** (fill in when phase is done):
+- Deviations from plan: 
+- Tech debt / follow-ups: 
+- Ready for next phase: 
+
+---
+
+## Phase 22: Implementation — Education & Learning (~31 Apps × 5 Variants)
+
+**Goal**: Build all five variants for every app in the Education & Learning cluster.
+
+**Scope**:
+- Apps: Education (Duolingo, Khan Academy, Coursera, etc.), language learning, LMS platforms, tutoring.
+- Shared patterns: lesson/course structure, progress tracking, quizzes/assessments, gamification, spaced repetition, video lessons, certificates.
+
+**Acceptance Criteria:**
+- [ ] All ~31 apps have 5 working variants each (~155 app builds).
+- [ ] Every variant passes CI and has benchmark scores recorded.
+- [ ] Lesson flow, progress tracking, and assessment features functional.
+
+**Parallelization:** agent-team
+
+**Coordination Notes:** Independent repos. Share lesson structure, gamification, and progress tracking patterns.
+
+**On Completion** (fill in when phase is done):
+- Deviations from plan: 
+- Tech debt / follow-ups: 
+- Ready for next phase: 
+
+---
+
+## Phase 23: Implementation — Productivity & Collaboration (~72 Apps × 5 Variants)
+
+**Goal**: Build all five variants for every app in the Productivity & Collaboration cluster.
+
+**Scope**:
+- Apps: Task management (Todoist, Notion, Trello, etc.), documents (Google Docs, etc.), scheduling (Calendly, etc.), notes, project management, cloud storage, translation, creator tools.
+- Shared patterns: CRUD with real-time sync, drag-and-drop, rich text editing, calendar views, file management, sharing/permissions, offline support.
+
+**Acceptance Criteria:**
+- [ ] All ~72 apps have 5 working variants each (~360 app builds).
+- [ ] Every variant passes CI and has benchmark scores recorded.
+- [ ] Core CRUD, sync, and collaboration features functional.
+
+**Parallelization:** agent-team
+
+**Coordination Notes:** Independent repos. Share real-time sync, rich text editing, and file management patterns.
+
+**On Completion** (fill in when phase is done):
+- Deviations from plan: 
+- Tech debt / follow-ups: 
+- Ready for next phase: 
+
+---
+
+## Phase 24: Implementation — News, Maps & Navigation (~57 Apps × 5 Variants)
+
+**Goal**: Build all five variants for every app in the News, Maps & Navigation cluster.
+
+**Scope**:
+- Apps: News (Reddit, Flipboard, etc.), maps/weather (Google Maps, Weather Channel, etc.), outdoor/navigation, international navigation.
+- Shared patterns: feed/article rendering, map rendering, turn-by-turn navigation, weather data display, offline maps, location services.
+
+**Acceptance Criteria:**
+- [ ] All ~57 apps have 5 working variants each (~285 app builds).
+- [ ] Every variant passes CI and has benchmark scores recorded.
+- [ ] Feed rendering, map display, and navigation flows functional.
+
+**Parallelization:** agent-team
+
+**Coordination Notes:** Independent repos. Share map rendering, feed, and location patterns.
+
+**On Completion** (fill in when phase is done):
+- Deviations from plan: 
+- Tech debt / follow-ups: 
+- Ready for next phase: 
+
+---
+
+## Phase 25: Implementation — Home, Security, Cloud & Enterprise (~137 Apps × 5 Variants)
+
+**Goal**: Build all five variants for every app in the Home, Security, Cloud & Enterprise cluster. Largest cluster — may be split into sub-phases during `/plan-phase`.
+
+**Scope**:
+- Apps: Smart home (Nest, Ring, Hue, etc.), security/VPN (NordVPN, 1Password, etc.), cloud/identity (Google Drive, Dropbox, etc.), enterprise ops (Salesforce, ServiceNow, etc.), developer tools (GitHub, VS Code, etc.), real estate, jobs, parental controls.
+- Shared patterns: device management, secure tunneling, file sync, enterprise dashboards, code editing, property listings, job search, family controls.
+
+**Acceptance Criteria:**
+- [ ] All ~137 apps have 5 working variants each (~685 app builds).
+- [ ] Every variant passes CI and has benchmark scores recorded.
+- [ ] Core workflows per sub-category functional.
+- [ ] Category-specific risk reviews for smart home, security, child-directed, and enterprise features documented.
+
+**Parallelization:** agent-team
+
+**Coordination Notes:** Independent repos. Largest cluster — `/plan-phase` should consider splitting into 2-3 sub-phases (e.g., Home/Security, Cloud/Enterprise, DevTools/Other) to manage scope. Share device integration, file sync, and dashboard patterns.
+
+**On Completion** (fill in when phase is done):
+- Deviations from plan: 
+- Tech debt / follow-ups: 
+- Ready for next phase: 
+
+---
+
+## Phase 26: Cross-Version Benchmarking & Winner Selection
+
+**Goal**: Run the full benchmarking suite across all 5000 app variants (1000 apps × 5 variants), select the winning variant per app, and produce a comprehensive comparison report.
+
+**Scope**:
+- Run automated benchmarks for all 7 dimensions on every variant:
+  - Performance (cold start, warm start, frame rate, memory, CPU, battery)
+  - Bundle size (IPA, APK/AAB, OTA, asset breakdown)
+  - UX fidelity (spec compliance: screens, interactions, edge cases)
+  - Code quality (lint, type coverage, test coverage, complexity, maintainability)
+  - Developer velocity (clean build, incremental build, hot reload, CI duration)
+  - Accessibility (VoiceOver/TalkBack audit, contrast, touch targets)
+  - Store compliance (metadata, policy, screenshots, privacy manifest)
+- Per-app scorecard with normalized 0-100 composite score per variant.
+- Category-level rollup reports showing which variant stack wins most often per category.
+- Global summary: overall stack ranking across all 1000 apps.
+- Winner selection per app based on composite score (ties broken by performance, then bundle size).
+- Regression audit: verify winners still pass full CI after final selection.
+
+**Acceptance Criteria:**
+- [ ] All 5000 variants have complete benchmark scorecards.
+- [ ] Per-app winner selected with documented rationale.
+- [ ] Category-level and global rollup reports generated.
+- [ ] All 1000 winning variants pass full CI regression.
+- [ ] Benchmark data stored in a queryable format for future analysis.
+
+**Parallelization:** agent-team
+
+**Coordination Notes:** Benchmarking is read-only against built artifacts — all 1000 apps can benchmark in parallel. Scorecard aggregation is serial. Winner selection requires all scorecards complete.
+
+**On Completion** (fill in when phase is done):
+- Deviations from plan: 
+- Tech debt / follow-ups: 
+- Ready for next phase: 
+
+---
+
+## Phase 27: App Store & Play Store Submission
+
+**Goal**: Prepare and submit all 1000 winning app variants to the Apple App Store and Google Play Store.
+
+**Scope**:
+- Per app: prepare store assets for the winning variant:
+  - App icon (1024×1024 + required sizes)
+  - Screenshots (iPhone 6.7", 6.5", 5.5"; iPad 12.9"; Android phone + tablet)
+  - App preview videos (optional but recommended)
+  - Store listing copy (title, subtitle, description, keywords, category)
+  - Privacy policy URL and privacy nutrition label / data safety form
+  - Age rating questionnaire
+  - App signing (iOS certificates + provisioning profiles; Android signing key)
+- Build release artifacts (IPA for App Store, AAB for Play Store).
+- Submit to App Store Connect and Google Play Console.
+- Address review feedback and resubmit as needed.
+- Track approval status per app.
+
+**Manual Tasks:**
+- Apple Developer Program enrollment ($99/year) and provisioning profile setup _(blocks: Step 27.1)_
+- Google Play Developer account enrollment ($25 one-time) _(blocks: Step 27.1)_
+- Privacy policy hosting for all 1000 apps _(blocks: Step 27.2)_
+- App Store review response and resubmission for rejections _(after: Step 27.4)_
+- Play Store review response and resubmission for rejections _(after: Step 27.4)_
+
+**Acceptance Criteria:**
+- [ ] All 1000 apps submitted to both App Store and Play Store.
+- [ ] All store listings have complete metadata, screenshots, and privacy policies.
+- [ ] All apps pass automated store compliance checks before submission.
+- [ ] Submission status tracked per app with approval/rejection/resubmission state.
+- [ ] No trademark infringement, no proprietary assets, no copied code in any submission.
+
+**Parallelization:** agent-team
+
+**Coordination Notes:** Store asset generation is parallelizable across apps. Submissions may need to be staggered to avoid bulk-submission flags from Apple/Google. Review response is inherently serial per app.
+
+**On Completion** (fill in when phase is done):
+- Deviations from plan: 
+- Tech debt / follow-ups: 
+- Ready for next phase: 
+
+---
+
+## Deferred / Future Work
+
+- Post-launch analytics, crash monitoring, and user feedback collection for all 1000 apps.
+- Version 2.0 feature updates based on store reviews and user feedback.
+- A/B testing between top-2 variant stacks per app category.
+- Monetization strategy per app (ads, subscriptions, in-app purchases).
+- Localization and internationalization for non-English markets.
+- Watch/TV/tablet-specific variants beyond phone form factor.
+
+## Cross-Phase Concerns
+
+### Multi-Variant Build Infrastructure
+- Phase 10 produces shared CI/CD and benchmarking infrastructure consumed by Phases 11-26.
+- All implementation phases (11-25) must use the same variant directory convention and scorecard format.
+
+### Legal & Compliance
+- Every phase must maintain lawful functional parity — no proprietary assets, trademarks, or copied code.
+- Regulated categories (finance, health, child-directed, smart home) require category-specific risk review before store submission.
+- Privacy policies must be app-specific and accurate to each app's data practices.
+
+### Store Submission Strategy
+- Apple and Google may flag bulk submissions from a single developer account.
+- Consider multiple developer accounts or staggered submission windows.
+- Each app needs a unique bundle ID / package name.
+
 ## Next Steps
 
-- Continue implementation planning and scaffolding in `https://github.com/GeorgeQLe/todoist-mobile-clone` for Phase 5 plan `090`.
-- Select the next Phase 5 plan row when ready, then expand that app into detailed downstream implementation phases from its source spec.
+- Begin Phase 9: generate detailed build plans for all 1000 downstream repos.
 - Keep all manual verification blockers deferred until lawful hands-on verification evidence exists.
