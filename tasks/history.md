@@ -1,5 +1,27 @@
 # History
 
+## 2026-05-07 - Phase 9 Step 9.4: Generate Build Plans — AI & Assistants Cluster (27 Apps)
+
+- Ran `scripts/generate-build-plans.mjs --execute` on two ID ranges:
+  - `--from 1 --to 5`: ChatGPT (skipped, already up to date from 9.3 pilot), Claude, Perplexity, Character.AI, Replika (5 apps)
+  - `--from 201 --to 222`: Poe, Gemini, Microsoft Copilot, Grok, DeepSeek, Meta AI, You.com, Pi, Phind, HuggingChat, Wysa, ELSA Speak, OtterPilot, Grammarly Keyboard, Wordtune, QuillBot, Ask AI, Genie, Monica, Notion AI, Forefront AI, Consensus (22 apps)
+- Fixed script to handle idempotent re-runs: `git diff --cached --quiet` check skips commit/push when plan file is unchanged (hit for ID 001 ChatGPT which already had the plan from Step 9.3).
+- All 27 downstream repos verified via `gh api`: `docs/plans/README.md` exists with 0 unfilled `{{...}}` placeholders.
+- Spot-checked 3 plans from different subcategories:
+  - Phind (AI search): correct route map, API schema, data model from spec.
+  - Wysa (AI companion/mental health): correct product boundaries, seed data plan.
+  - Grammarly Keyboard (specialized AI): all 5 variant architecture sections use AI-specific defaults (SSE streaming, conversation cache, voice I/O).
+- No push failures or script errors across either batch.
+
+### Ship Manifest
+
+- User goal: generate build plans for all AI & Assistants cluster apps (Step 9.4).
+- Changed files: `scripts/generate-build-plans.mjs` (idempotent commit fix), `tasks/todo.md` (marked 9.4 done), `tasks/history.md` (this entry).
+- Tests run: `gh api` verification for file existence and placeholder absence on all 27 repos; content spot-checks on 3 plans.
+- Skipped tests: no runtime test suite (planning repo).
+- Rollback note: revert downstream commits in the 27 repos to remove `docs/plans/README.md`; revert script fix if needed.
+- Next command: `/run` (Step 9.5 — Social, Dating & Community cluster).
+
 ## 2026-05-07 - Phase 9 Step 9.3: Pilot Build Plan Generation on 3 Diverse Apps
 
 - Ran `scripts/generate-build-plans.mjs --execute` on 3 pilot apps from different categories:

@@ -610,12 +610,17 @@ for (let index = 0; index < targets.length; index += 1) {
   fs.writeFileSync(path.join(plansDir, "README.md"), plan, "utf8");
 
   run(["git", "add", "docs/plans/README.md"], { cwd: cloneDir });
-  run(["git", "commit", "-m", "docs(plans): generate build plan from source spec"], { cwd: cloneDir, capture: true });
-  run(["git", "push"], { cwd: cloneDir, capture: true });
+  const statusResult = spawnSync("git", ["diff", "--cached", "--quiet"], { cwd: cloneDir, encoding: "utf8" });
+  if (statusResult.status === 0) {
+    console.log(`  No changes (plan already up to date) — skipping commit/push for ${row.targetRepo}`);
+  } else {
+    run(["git", "commit", "-m", "docs(plans): generate build plan from source spec"], { cwd: cloneDir, capture: true });
+    run(["git", "push"], { cwd: cloneDir, capture: true });
+    console.log(`  Pushed docs/plans/README.md to ${row.targetRepo}`);
+  }
 
   fs.rmSync(cloneDir, { recursive: true, force: true });
   generated += 1;
-  console.log(`  Pushed docs/plans/README.md to ${row.targetRepo}`);
 
   if (index < targets.length - 1 && args.delayMs > 0) {
     console.log(`  Waiting ${args.delayMs}ms...`);

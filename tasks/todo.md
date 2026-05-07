@@ -141,7 +141,7 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
 
   **Ship-one-step handoff contract:** Implement only Step 9.3. Validate it. Mark Step 9.3 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.4's plan. Enter plan mode for Step 9.4's approval UI, and stop.
 
-- [ ] Step 9.4: Generate build plans — AI & Assistants cluster (~26 apps)
+- [x] Step 9.4: Generate build plans — AI & Assistants cluster (~27 apps)
   - Files: modify `tasks/todo.md` (mark 9.4 done)
   - Run `scripts/generate-build-plans.mjs --execute` for all AI & Assistants apps (IDs scattered across batches).
   - Since the script filters by ID range and seeded status, run in batch ranges that cover AI apps: `--from 1 --to 25` (batch-01), then targeted runs for later-batch AI apps (IDs 200-225 area, etc.).
@@ -176,6 +176,32 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
   **Ship-one-step handoff contract:** Implement only Step 9.4. Validate it. Mark Step 9.4 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.5's plan. Enter plan mode for Step 9.5, and stop.
 
 - [ ] Step 9.5: Generate build plans — Social, Dating & Community cluster (~31 apps)
+
+  ### Step 9.5 Implementation Plan
+
+  **What to build:** Generate and push build plans for all Social, Dating & Community cluster apps (~31 apps).
+
+  **Files:**
+  - Modify: `tasks/todo.md` (mark 9.5 done)
+  - Modify: `tasks/history.md` (add 9.5 entry)
+
+  **Technical approach:**
+  1. Identify Social/Dating/Community app IDs from the manifest (grep for social, dating, community categories).
+  2. Run `scripts/generate-build-plans.mjs --execute` in batch ranges covering those IDs.
+  3. After each batch run, verify via `gh api` that `docs/plans/README.md` exists in each downstream repo with 0 unfilled placeholders.
+  4. Spot-check 3 plans for content quality and category-appropriate variant architecture (social defaults: feed/explore/create tabs, infinite scroll pagination, media upload patterns).
+
+  **Acceptance criteria:**
+  - All Social, Dating & Community cluster apps have `docs/plans/README.md` with 0 unfilled placeholders.
+  - Variant architecture uses social-specific defaults (feed tabs, infinite scroll, media uploads, push notifications).
+  - No script errors or push failures during the run.
+
+  **Execution Profile:**
+  - Mode: serial
+  - Integration owner: main agent
+  - Test strategy: `gh api` reads + placeholder grep on each pushed plan
+
+  **Ship-one-step handoff contract:** Implement only Step 9.5. Validate it. Mark Step 9.5 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.6's plan. Enter plan mode for Step 9.6, and stop.
 - [ ] Step 9.6: Generate build plans — Messaging & Email cluster (~37 apps)
 - [ ] Step 9.7: Generate build plans — Video & Music Streaming cluster (~53 apps)
 - [ ] Step 9.8: Generate build plans — Podcasts, Books & Reading cluster (~42 apps)
