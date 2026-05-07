@@ -33,7 +33,7 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
 
 ### Implementation
 
-- [ ] Step 9.1: Design multi-variant build plan template
+- [x] Step 9.1: Design multi-variant build plan template
   - Files: create `templates/build-plan-template.md`
   - Extend the Todoist pilot pattern (`tasks/todoist-downstream-build-plan.md`) with five variant-specific architecture sections.
   - Template sections: Scope, Product Boundaries, Route Map, API Schema Plan, Data Model Plan, Seed Data Plan, Feature Flags and Blocked Acceptance Tests, Variant Architecture Notes (React Native, Flutter, Expo, Native iOS Swift/SwiftUI, Native Android Kotlin/Jetpack Compose), Test Checklist.
@@ -49,6 +49,63 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
   - Supports `--from <id> --to <id>`, `--dry-run`, `--execute`, and `--delay-ms` flags (same pattern as `scripts/seed-downstream-batch.mjs`).
   - Serial execution with configurable delay between repos. Stops on first failure.
   - Clones each downstream repo to a temp directory, writes the plan, commits, and pushes.
+
+  ### Step 9.2 Implementation Plan
+
+  **What to build:** A Node.js script `scripts/generate-build-plans.mjs` that reads the build plan template from `templates/build-plan-template.md`, clones each downstream repo, reads its `docs/source-specs/NNN-slug.md`, extracts structured data from the spec's Markdown sections, fills the template placeholders, writes the result to `docs/plans/README.md`, commits, and pushes.
+
+  **Files:**
+  - Create: `scripts/generate-build-plans.mjs`
+
+  **Technical approach:**
+  1. Follow the CLI pattern from `scripts/seed-downstream-batch.mjs`: `--from`, `--to`, `--dry-run`, `--execute`, `--delay-ms`, `--limit`, serial execution, stop on first failure.
+  2. Read `tasks/repo-seeding.md` manifest to map app IDs to downstream repo URLs (same parsing as seed script).
+  3. Read `templates/build-plan-template.md` once at startup.
+  4. For each app in range:
+     a. Clone downstream repo to temp dir (shallow clone).
+     b. Read `docs/source-specs/NNN-slug.md` from the clone.
+     c. Extract spec sections via Markdown heading parsing:
+        - H1 → `{{APP_NAME}}`
+        - Category from spec's Overview or Category line → `{{CATEGORY}}`
+        - Screens section → parse into `{{ROUTE_MAP_ROWS}}` table rows
+        - Data Contracts / API section → parse into `{{API_SCHEMA_ROWS}}` table rows
+        - Data Model section → parse into `{{DATA_MODEL_ROWS}}` table rows
+        - Legal Scope / Product Boundaries → `{{PRODUCT_BOUNDARIES}}`
+        - Edge Cases / Blockers → `{{FEATURE_FLAGS_ROWS}}`
+        - Test Plan → `{{TEST_CHECKLIST}}`
+        - Entities → `{{SEED_DATA_PLAN}}`
+     d. Generate variant architecture notes per category using category-aware defaults (e.g., messaging apps get different state/navigation recommendations than shopping apps). Store defaults in a `VARIANT_DEFAULTS` object keyed by category.
+     e. Replace all `{{PLACEHOLDER}}` tokens in the template.
+     f. Write to `docs/plans/README.md` in the clone.
+     g. If `--execute`: git add, commit ("docs(plans): generate build plan from source spec"), push.
+     h. If `--dry-run`: print what would be written and skip git operations.
+  5. Log progress and stop on any clone, parse, or push failure.
+
+  **Key decisions:**
+  - Spec section extraction is heading-based regex, not a full Markdown parser — specs follow a consistent H2 structure.
+  - Variant defaults are a static lookup table in the script, keyed by category. Categories without specific overrides get a generic default set.
+  - The script does NOT call the Claude API — all content is deterministic extraction + template fill.
+  - Shallow clone (`--depth 1`) to minimize bandwidth across 1000 repos.
+
+  **Reference files to read:**
+  - `scripts/seed-downstream-batch.mjs` — CLI pattern, manifest parsing, serial execution, error handling
+  - `templates/build-plan-template.md` — template to fill (created in Step 9.1)
+  - `tasks/repo-seeding.md` — manifest with app ID → downstream repo URL mapping
+  - Any one spec (e.g., `specs/batch-01/001-chatgpt.md`) — to understand the heading structure for extraction
+
+  **Execution Profile:**
+  - Mode: serial
+  - Integration owner: main agent
+  - Test strategy: none (planning repo, no runtime code)
+
+  **Acceptance criteria:**
+  - Script runs with `--dry-run --from 1 --to 1` and prints a valid build plan to stdout.
+  - Script correctly parses manifest to find downstream repo URLs.
+  - All 43 template placeholders are replaced (no `{{...}}` tokens remain in output).
+  - Category-aware variant defaults produce different navigation/state recommendations for at least 3 distinct categories.
+  - Error handling: stops on clone failure, missing spec, parse failure, or push failure.
+
+  **Ship-one-step handoff contract:** Implement only Step 9.2. Validate it. Mark Step 9.2 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.3's plan. Ensure `.claude/settings.local.json` has `showClearContextOnPlanAccept: true` and `defaultMode: acceptEdits`. Enter plan mode, write brief pass-through plan, exit plan mode, and stop.
 
 - [ ] Step 9.3: Pilot on 3 diverse apps
   - Files: modify `tasks/todo.md` (mark pilot complete)

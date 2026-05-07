@@ -1,5 +1,14 @@
 # History
 
+## 2026-05-07 - Phase 9 Step 9.1: Design Multi-Variant Build Plan Template
+
+- Created `templates/build-plan-template.md` — parameterized build plan template for all 1000 downstream repos.
+- Preserves all Todoist pilot sections: Scope, Product Boundaries, Route Map, API Schema Plan, Data Model Plan, Seed Data Plan, Feature Flags and Blocked Acceptance Tests, Test Checklist, Acceptance Checks, Next Steps.
+- Added Variant Architecture Notes section with five subsections: React Native, Flutter, Expo, Native iOS (Swift/SwiftUI), Native Android (Kotlin/Jetpack Compose).
+- Each variant covers: navigation library, state management, networking layer, local storage/offline strategy, platform API access patterns, project structure.
+- 43 unique `{{UPPER_SNAKE}}` placeholders for script-driven substitution (Step 9.2).
+- Exactly one H1, pure Markdown with no logic — all conditional content resolved by generation script.
+
 ## 2026-05-07 - Roadmap Extension: Phases 9-27 (1000-App Multi-Variant Implementation Pipeline)
 
 - Extended `tasks/roadmap.md` from 8 phases to 27 phases.
