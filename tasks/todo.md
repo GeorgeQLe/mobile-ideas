@@ -1,87 +1,88 @@
 # Todo — Mobile Ideas
 
-> Current phase: 8 of 8 — 1000-App Extension Pipeline (IDs 201-1000) — **Complete**
+> Current phase: 9 of 27 — Detailed Build Plans (All 1000 Apps)
 > Source roadmap: `tasks/roadmap.md`
 > Test strategy: none
 
-## Priority Task Queue
-
-- [ ] `/plan-phase 9` - decompose Phase 9 (Detailed Build Plans for all 1000 apps) into implementation steps, then load it as the active phase.
-
-## Phase 8: 1000-App Extension Pipeline (IDs 201-1000)
+## Phase 9: Detailed Build Plans (All 1000 Apps)
 
 ### Goal
 
-Extend the canonical spec store from 200 to 1000 mobile app clone ideas. IDs 201-1000 have backlog rows, canonical Draft 1 scaffold specs, and private scaffold downstream repos. Future work promotes specs to implementation-ready public-source V1 and reconciles planning queues without claiming implementation-ready parity from scaffold-only repos.
+Generate app-specific build plans in every downstream repo's `docs/plans/README.md`, following the Todoist pilot pattern (Phase 4). Each plan covers route map, API schema, data model, seed data, feature flags, and blocked acceptance tests — tailored to the app's spec.
 
 ### Scope
 
-- IDs 201-1000 in `tasks/ideas.md` (already appended).
-- Spec batches: `specs/batch-11/` through `specs/batch-50/` (Draft 1 scaffolds present).
-- Extend `tasks/roadmap.md` Phase 5 plan queue after readiness upgrades; keep the already-extended 1000-row `tasks/repo-seeding.md` manifest aligned with source-spec updates.
-- Keep all downstream repos PRIVATE; scaffold seeding allowed at Draft 1 with no implementation-ready parity claim until Step 8.3 lands.
-- Same lawful functional-parity guardrails.
+- All 1000 downstream repos get a completed `docs/plans/README.md` with app-specific content derived from `docs/source-specs/`.
+- Plans define five variant targets per app: React Native, Flutter, Expo, Native iOS (Swift/SwiftUI), Native Android (Kotlin/Jetpack Compose).
+- Each plan includes variant-specific architectural notes (e.g., navigation library choices, state management, platform API access patterns).
+- Category batches processed in parallel — each category's apps are independent repos.
 
 ### Acceptance Criteria
 
-- [x] 800 new backlog rows exist in `tasks/ideas.md` for IDs 201-1000.
-- [x] 800 new spec files exist under `specs/batch-11/` through `specs/batch-50/`.
-- [x] Every new spec has exactly one H1 and canonical sections including Build Plan and Next Steps.
-- [x] IDs 101-1000 replace source-discovery links with exact first-party URLs.
-- [x] IDs 101-1000 pass implementation-readiness gate.
-- [x] Phase 5 implementation-plan queue grows to 1000 rows.
-- [x] `tasks/repo-seeding.md` manifest has 1000 checked rows, each verified PRIVATE + non-empty with README and copied source spec.
-- [x] No downstream repo is made public during scaffold seeding; no proprietary assets introduced.
+- [ ] All 1000 downstream repos have a completed `docs/plans/README.md` with route map, API schema, data model, seed data, and test checklist.
+- [ ] Each plan defines variant-specific build notes for all five targets.
+- [ ] Plans reference exact source spec sections and preserve manual verification blockers.
+- [ ] No proprietary assets, trademarks, or copyrighted content introduced.
 
 ### Execution Profile
 
-**Parallel mode:** serial (especially for Step 8.6 seeding — required by CLAUDE.md)
+**Parallel mode:** serial
 **Integration owner:** main agent
-**Conflict risk:** low for seeding (one repo at a time); medium for Step 8.3 (900 specs across categories)
-**Review gates:** structural (one H1, canonical sections), legal scope, category-specific risk review for sensitive categories, PRIVATE visibility verification for every seeded repo
+**Conflict risk:** low (all changes to this repo are sequential; downstream repos are independent)
+**Review gates:** structural (route map completeness, API schema coverage, variant sections present, blocker preservation), legal scope
 
 ### Implementation
 
-- [x] Step 8.1: Add 800 backlog rows for IDs 201-1000 in `tasks/ideas.md`.
-- [x] Step 8.2: Create canonical Draft 1 scaffold specs under `specs/batch-11/` through `specs/batch-50/`.
+- [ ] Step 9.1: Design multi-variant build plan template
+  - Files: create `templates/build-plan-template.md`
+  - Extend the Todoist pilot pattern (`tasks/todoist-downstream-build-plan.md`) with five variant-specific architecture sections.
+  - Template sections: Scope, Product Boundaries, Route Map, API Schema Plan, Data Model Plan, Seed Data Plan, Feature Flags and Blocked Acceptance Tests, Variant Architecture Notes (React Native, Flutter, Expo, Native iOS Swift/SwiftUI, Native Android Kotlin/Jetpack Compose), Test Checklist.
+  - Each variant section covers: navigation library, state management, networking layer, local storage, platform API access patterns, recommended project structure.
+  - Template uses placeholders (`{{APP_NAME}}`, `{{APP_ID}}`, `{{CATEGORY}}`, `{{SOURCE_SPEC_PATH}}`, etc.) for script-driven generation.
 
-- [x] Step 8.3: Promote IDs 101-1000 from Draft 1 to implementation-ready public-source V1 (absorbs Phase 7 Step 7.3; scope = 900 specs). **Complete as of 2026-05-06: all 900 specs (IDs 101-1000) promoted to implementation-ready public-source V1.** Final slice: IDs 981-1000 (`Gumroad` through `TomTom GO`) promoted across creator-commerce (981-993) and international-navigation (994-1000) sub-categories spanning Shopping, Business, Social Networking, and Navigation categories. The slice preserved creator-first digital product selling with Stripe Connect payouts and license key generation (Gumroad), all-in-one creator business platform with course/coaching/membership/community and Kajabi Payments (Kajabi), online course platform with drag-and-drop builder and Teachable Payments (Teachable), knowledge commerce platform with branded mobile app and Thinkific Communities (Thinkific), creator storefront combining courses/downloads/coaching/webinars/community with Podia Payments (Podia), community-powered course and membership platform with Mighty Pro white-label native app and AI Co-Host (Mighty Networks), modern community platform with Spaces/courses/events/gamification and headless API (Circle Communities), gamified community and course platform with points/levels/leaderboard (Skool), link-in-bio store with integrated commerce and coaching calendar booking (Stan Store), link-in-bio platform with customizable themes and commerce/analytics integration (Linktree), AI-powered link-in-bio with store/email marketing/invoicing/media kit (Beacons), Instagram grid mirroring shoppable link-in-bio with Later scheduling integration (Linkin.bio), micro-landing page builder with rich content blocks and integrated CRM/payments/messaging (Taplink), comprehensive Russia/CIS mapping with real-time traffic and Yandex Taxi integration (Yandex Maps), detailed city maps with building-level mapping and full offline business directory (2GIS), multi-modal navigation with offline maps for 100+ countries and ride-hailing comparison (HERE WeGo), offline-first OpenStreetMap navigation with travel guides and hotel booking integration (MAPS.ME), open-source offline mapping with topographic/nautical/ski plugins and OSM editing (OsmAnd), premium GPS navigation with TomTom data, HUD mode, and dashcam recording (Sygic), and premium turn-by-turn navigation with TomTom Traffic, speed cameras, and EV charging search (TomTom GO). Validation: 0 residual source-discovery strings, 1000 implementation-ready specs (IDs 101-1000), all with exactly one H1.
+- [ ] Step 9.2: Create build plan generation script
+  - Files: create `scripts/generate-build-plans.mjs`
+  - Script reads the source spec from each downstream repo's `docs/source-specs/NNN-slug.md`.
+  - Extracts: app name, category, screens/routes from spec, API contracts, data model entities, manual verification blockers, edge cases.
+  - Generates an app-specific `docs/plans/README.md` using the template from Step 9.1.
+  - Route map rows derived from spec's Screens section; API families from spec's Data Contracts/API section; data model from spec's Data Model section.
+  - Supports `--from <id> --to <id>`, `--dry-run`, `--execute`, and `--delay-ms` flags (same pattern as `scripts/seed-downstream-batch.mjs`).
+  - Serial execution with configurable delay between repos. Stops on first failure.
+  - Clones each downstream repo to a temp directory, writes the plan, commits, and pushes.
 
-- [x] Step 8.4: Extend `tasks/roadmap.md` Phase 5 plan queue to 1000 rows. Append 900 rows for IDs 101-1000 (ID | App | Source Spec | High-Level Implementation Plan). **Complete as of 2026-05-06: 1000 plan rows in Phase 5 table (IDs 001-1000), each with correct spec path and app-specific one-sentence plan derived from spec Overview section.**
+- [ ] Step 9.3: Pilot on 3 diverse apps
+  - Files: modify `tasks/todo.md` (mark pilot complete)
+  - Run `scripts/generate-build-plans.mjs` on 3 apps from different categories: one AI app (e.g., ID 001), one shopping app (e.g., ID 046), one health app (e.g., ID 086).
+  - Validate each generated plan has: complete route map matching spec screens, API schema families matching spec data contracts, data model matching spec entities, all five variant architecture sections, correct source spec references, preserved manual blockers.
+  - Fix any template or script issues before proceeding to bulk generation.
 
+- [ ] Step 9.4: Generate build plans — AI & Assistants cluster (~26 apps)
+- [ ] Step 9.5: Generate build plans — Social, Dating & Community cluster (~31 apps)
+- [ ] Step 9.6: Generate build plans — Messaging & Email cluster (~37 apps)
+- [ ] Step 9.7: Generate build plans — Video & Music Streaming cluster (~53 apps)
+- [ ] Step 9.8: Generate build plans — Podcasts, Books & Reading cluster (~42 apps)
+- [ ] Step 9.9: Generate build plans — Photo & Video Creation cluster (~47 apps)
+- [ ] Step 9.10: Generate build plans — Shopping, Commerce & Classifieds cluster (~65 apps)
+- [ ] Step 9.11: Generate build plans — Food, Delivery & Grocery cluster (~77 apps)
+- [ ] Step 9.12: Generate build plans — Finance & Payments cluster (~65 apps)
+- [ ] Step 9.13: Generate build plans — Travel & Transportation cluster (~79 apps)
+- [ ] Step 9.14: Generate build plans — Health, Fitness & Wellness cluster (~81 apps)
+- [ ] Step 9.15: Generate build plans — Education & Learning cluster (~31 apps)
+- [ ] Step 9.16: Generate build plans — Productivity & Collaboration cluster (~72 apps)
+- [ ] Step 9.17: Generate build plans — News, Maps & Navigation cluster (~57 apps)
+- [ ] Step 9.18: Generate build plans — Home, Security, Cloud & Enterprise cluster (~137 apps)
 
-- [x] Step 8.5: Extend and verify `tasks/repo-seeding.md` Per-Repo Checklist manifest to 1000 rows. Verified 2026-05-01: 1000 checked rows, 0 unchecked rows. Audit again after Step 8.3 lands only if source spec paths or readiness labels change.
-
-- [x] Step 8.6: Seed downstream private scaffold repos for IDs 201-1000 in serial 20-ID batches via `scripts/seed-downstream-batch.mjs`. **Complete as of 2026-05-01: IDs 201-1000 seeded (PRIVATE + non-empty verified per `tasks/repo-seeding.md` Batch evidence sections).**
-
-  #### Completed final batch 991-1000
-
-  - Pre-batch and post-batch `gh api rate_limit` snapshots are recorded in `tasks/repo-seeding.md`.
-  - Ran `node scripts/seed-downstream-batch.mjs --from 991 --to 1000 --execute` with the rolling hourly cap enabled.
-  - For each repo, the script verified: created `--private`, `visibility == PRIVATE`, `README.md` present, `docs/source-specs/NNN-<slug>.md` present, and root commit exists. Manifest rows were marked `[x]` only after verification.
-  - No GitHub `403`, `429`, secondary-rate-limit, auth/permission/naming/clone-propagation/template-placeholder/non-private result occurred.
-  - Appended `### Batch 991-1000 Seeding Evidence - 2026-05-01T15:29:41.931Z` to `tasks/repo-seeding.md`.
-  - Commit pattern: `feat(seeding): seed private batch 991-1000`.
-  - Acceptance: `grep -cE "^\| \[x\] \| (99[1-9]|1000) " tasks/repo-seeding.md` reflects 10 completions for the 991-1000 range; no new public repos.
+- [ ] Step 9.19: Verify completeness and update tracking
+  - Files: create `tasks/build-plan-tracking.md`, modify `tasks/todo.md`
+  - Verify all 1000 downstream repos have a non-empty `docs/plans/README.md` via `gh api`.
+  - Spot-check 5 repos per cluster (75 total) for plan quality: route map completeness, API schema coverage, variant sections present, blocker preservation.
+  - Create `tasks/build-plan-tracking.md` with per-repo completion status.
+  - Record any repos that failed or need manual intervention.
 
 ### Reference
 
-- Canonical spec template (implementation-ready): `specs/batch-01/001-chatgpt.md`.
-- Seeding script + cadence rules: `scripts/seed-downstream-batch.mjs` and CLAUDE.md `## Downstream Repo Seeding`.
-- Seeding manifest + evidence log: `tasks/repo-seeding.md`.
-- Phase 7 archive (full Step 7.3 detail absorbed into Step 8.3): `tasks/phases/phase-7.md`.
-- Backlog source of truth: `tasks/ideas.md` rows 201-1000.
-
-## Development Docs Reconciliation
-
-Resolved 2026-04-23 following `/reconcile-dev-docs`:
-
-- **Step 7.3 absorbed into Phase 8 Step 8.3.** CLAUDE.md:41 allows planning/scaffold seeding at Draft 1; downstream repos for IDs 101-1000 do not claim implementation-ready parity. Step 8.3 now covers IDs 101-1000 (900 specs) in one pass.
-- **Phase 6 stays Complete** (original 100-repo scope). Post-100 seeding accounted for under Phase 7 Step 7.5 (101-200, done) and Phase 8 Step 8.6 (201-1000, completed at 1000/1000 as of 2026-05-01).
-- **Duplicate Phase 6 block in `tasks/roadmap.md` collapsed.**
-- **`tasks/todoist-downstream-build-plan.md` kept as Phase 4 pilot artifact**; per-repo build plans live in each downstream repo's `docs/plans/README.md`.
-
-Remaining open:
-
-- **`tasks/implementation-readiness.md` counts.** Refresh when Step 8.3 lands in category batches.
-- **Phase 8 Step 8.6 progress tracking.** Completed in this todo.md; remaining Phase 8 work is implementation-readiness promotion and plan-queue reconciliation.
+- Todoist pilot build plan (Phase 4 pattern): `tasks/todoist-downstream-build-plan.md`
+- Seeding script (CLI pattern to follow): `scripts/seed-downstream-batch.mjs`
+- Source specs: `specs/batch-01/` through `specs/batch-50/`
+- Downstream repo manifest: `tasks/repo-seeding.md`
+- Phase 5 plan queue (app-to-spec mapping): `tasks/roadmap.md` Phase 5 table

@@ -16,7 +16,7 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 | Phase 6 | Complete | Seeded 100 private downstream repos; spec store published public 2026-04-20. |
 | Phase 7 | Complete | Backlog extension pipeline for IDs 101-200 (Draft 0 -> readiness -> seeding). |
 | Phase 8 | Complete | 1000-app backlog, implementation-ready specs, plan queue, and private downstream repos. |
-| Phase 9 | Pending | Detailed build plans for all 1000 apps in downstream repos. |
+| Phase 9 | Active | Detailed build plans for all 1000 apps in downstream repos. |
 | Phase 10 | Pending | Benchmarking infrastructure, CI/CD templates, and multi-variant repo structure. |
 | Phase 11 | Pending | Implementation: AI & Assistants cluster (~26 apps × 5 variants). |
 | Phase 12 | Pending | Implementation: Social, Dating & Community cluster (~31 apps × 5 variants). |
@@ -1292,9 +1292,109 @@ Phase 8 completed 2026-05-06. All 1000 IDs have backlog rows, implementation-rea
 - [ ] Plans reference exact source spec sections and preserve manual verification blockers.
 - [ ] No proprietary assets, trademarks, or copyrighted content introduced.
 
-**Parallelization:** agent-team
+**Parallelization:** serial
 
-**Coordination Notes:** Each downstream repo is fully independent. Category batches can run concurrently with no shared file ownership. Build plans are generated from the source spec already present in each repo.
+**Coordination Notes:** All changes to this planning repo (template, script, manifest) are sequential. The generation script handles downstream repo parallelism internally — each downstream repo is independent. Downgraded from agent-team to serial because the only files modified in this repo are the shared template, generation script, and tracking manifest.
+
+### Implementation
+
+- Step 9.1: Design multi-variant build plan template
+  - Files: create `templates/build-plan-template.md`
+  - Extend the Todoist pilot pattern (`tasks/todoist-downstream-build-plan.md`) with five variant-specific architecture sections.
+  - Template sections: Scope, Product Boundaries, Route Map, API Schema Plan, Data Model Plan, Seed Data Plan, Feature Flags and Blocked Acceptance Tests, Variant Architecture Notes (React Native, Flutter, Expo, Native iOS Swift/SwiftUI, Native Android Kotlin/Jetpack Compose), Test Checklist.
+  - Each variant section covers: navigation library, state management, networking layer, local storage, platform API access patterns, recommended project structure.
+  - Template uses placeholders (`{{APP_NAME}}`, `{{APP_ID}}`, `{{CATEGORY}}`, `{{SOURCE_SPEC_PATH}}`, etc.) for script-driven generation.
+
+- Step 9.2: Create build plan generation script
+  - Files: create `scripts/generate-build-plans.mjs`
+  - Script reads the source spec from each downstream repo's `docs/source-specs/NNN-slug.md`.
+  - Extracts: app name, category, screens/routes from spec, API contracts, data model entities, manual verification blockers, edge cases.
+  - Generates an app-specific `docs/plans/README.md` using the template from Step 9.1.
+  - Route map rows derived from spec's Screens section; API families from spec's Data Contracts/API section; data model from spec's Data Model section.
+  - Supports `--from <id> --to <id>`, `--dry-run`, `--execute`, and `--delay-ms` flags (same pattern as `scripts/seed-downstream-batch.mjs`).
+  - Serial execution with configurable delay between repos. Stops on first failure.
+  - Clones each downstream repo to a temp directory, writes the plan, commits, and pushes.
+
+- Step 9.3: Pilot on 3 diverse apps
+  - Files: modify `tasks/todo.md` (mark pilot complete)
+  - Run `scripts/generate-build-plans.mjs` on 3 apps from different categories: one AI app (e.g., ID 001), one shopping app (e.g., ID 046), one health app (e.g., ID 086).
+  - Validate each generated plan has: complete route map matching spec screens, API schema families matching spec data contracts, data model matching spec entities, all five variant architecture sections, correct source spec references, preserved manual blockers.
+  - Fix any template or script issues before proceeding to bulk generation.
+
+- Step 9.4: Generate build plans — AI & Assistants cluster
+  - Files: downstream repos for AI & Assistants category apps
+  - Run `scripts/generate-build-plans.mjs` for all apps in the AI & Assistants cluster (~26 apps).
+  - Verify each repo's `docs/plans/README.md` exists and is non-empty after generation.
+
+- Step 9.5: Generate build plans — Social, Dating & Community cluster
+  - Files: downstream repos for Social, Dating & Community category apps
+  - Run generation for ~31 apps in this cluster.
+
+- Step 9.6: Generate build plans — Messaging & Email cluster
+  - Files: downstream repos for Messaging & Email category apps
+  - Run generation for ~37 apps in this cluster.
+
+- Step 9.7: Generate build plans — Video & Music Streaming cluster
+  - Files: downstream repos for Video & Music Streaming category apps
+  - Run generation for ~53 apps in this cluster.
+
+- Step 9.8: Generate build plans — Podcasts, Books & Reading cluster
+  - Files: downstream repos for Podcasts, Books & Reading category apps
+  - Run generation for ~42 apps in this cluster.
+
+- Step 9.9: Generate build plans — Photo & Video Creation cluster
+  - Files: downstream repos for Photo & Video Creation category apps
+  - Run generation for ~47 apps in this cluster.
+
+- Step 9.10: Generate build plans — Shopping, Commerce & Classifieds cluster
+  - Files: downstream repos for Shopping, Commerce & Classifieds category apps
+  - Run generation for ~65 apps in this cluster.
+
+- Step 9.11: Generate build plans — Food, Delivery & Grocery cluster
+  - Files: downstream repos for Food, Delivery & Grocery category apps
+  - Run generation for ~77 apps in this cluster.
+
+- Step 9.12: Generate build plans — Finance & Payments cluster
+  - Files: downstream repos for Finance & Payments category apps
+  - Run generation for ~65 apps in this cluster.
+
+- Step 9.13: Generate build plans — Travel & Transportation cluster
+  - Files: downstream repos for Travel & Transportation category apps
+  - Run generation for ~79 apps in this cluster.
+
+- Step 9.14: Generate build plans — Health, Fitness & Wellness cluster
+  - Files: downstream repos for Health, Fitness & Wellness category apps
+  - Run generation for ~81 apps in this cluster.
+
+- Step 9.15: Generate build plans — Education & Learning cluster
+  - Files: downstream repos for Education & Learning category apps
+  - Run generation for ~31 apps in this cluster.
+
+- Step 9.16: Generate build plans — Productivity & Collaboration cluster
+  - Files: downstream repos for Productivity & Collaboration category apps
+  - Run generation for ~72 apps in this cluster.
+
+- Step 9.17: Generate build plans — News, Maps & Navigation cluster
+  - Files: downstream repos for News, Maps & Navigation category apps
+  - Run generation for ~57 apps in this cluster.
+
+- Step 9.18: Generate build plans — Home, Security, Cloud & Enterprise cluster
+  - Files: downstream repos for Home, Security, Cloud & Enterprise category apps
+  - Run generation for ~137 apps in this cluster.
+
+- Step 9.19: Verify completeness and update tracking
+  - Files: modify `tasks/build-plan-tracking.md` (new), modify `tasks/todo.md`
+  - Verify all 1000 downstream repos have a non-empty `docs/plans/README.md` via `gh api`.
+  - Spot-check 5 repos per cluster (75 total) for plan quality: route map completeness, API schema coverage, variant sections present, blocker preservation.
+  - Create `tasks/build-plan-tracking.md` with per-repo completion status.
+  - Record any repos that failed or need manual intervention.
+
+### Milestone: Phase 9 — Build Plans Complete
+**Acceptance Criteria:** (preserved from roadmap)
+- [ ] All 1000 downstream repos have a completed `docs/plans/README.md` with route map, API schema, data model, seed data, and test checklist.
+- [ ] Each plan defines variant-specific build notes for all five targets.
+- [ ] Plans reference exact source spec sections and preserve manual verification blockers.
+- [ ] No proprietary assets, trademarks, or copyrighted content introduced.
 
 **On Completion** (fill in when phase is done):
 - Deviations from plan: 
