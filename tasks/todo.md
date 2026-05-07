@@ -175,7 +175,7 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
 
   **Ship-one-step handoff contract:** Implement only Step 9.4. Validate it. Mark Step 9.4 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.5's plan. Enter plan mode for Step 9.5, and stop.
 
-- [ ] Step 9.5: Generate build plans — Social, Dating & Community cluster (~31 apps)
+- [x] Step 9.5: Generate build plans — Social, Dating & Community cluster (~31 apps)
 
   ### Step 9.5 Implementation Plan
 
@@ -203,6 +203,32 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
 
   **Ship-one-step handoff contract:** Implement only Step 9.5. Validate it. Mark Step 9.5 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.6's plan. Enter plan mode for Step 9.6, and stop.
 - [ ] Step 9.6: Generate build plans — Messaging & Email cluster (~37 apps)
+
+  ### Step 9.6 Implementation Plan
+
+  **What to build:** Generate and push build plans for all Messaging & Email cluster apps (~37 apps).
+
+  **Files:**
+  - Modify: `tasks/todo.md` (mark 9.6 done)
+  - Modify: `tasks/history.md` (add 9.6 entry)
+
+  **Technical approach:**
+  1. Identify Messaging/Email app IDs from the manifest (grep for messaging, email, chat, communication categories).
+  2. Run `scripts/generate-build-plans.mjs --execute` in batch ranges covering those IDs.
+  3. After each batch run, verify via `gh api` that `docs/plans/README.md` exists in each downstream repo with 0 unfilled placeholders.
+  4. Spot-check 3 plans for content quality and category-appropriate variant architecture (messaging defaults: conversation list, thread view, real-time sync, E2E encryption patterns, typing indicators, read receipts).
+
+  **Acceptance criteria:**
+  - All Messaging & Email cluster apps have `docs/plans/README.md` with 0 unfilled placeholders.
+  - Variant architecture uses messaging-specific defaults (WebSocket real-time, local message cache, encryption layer, push notifications).
+  - No script errors or push failures during the run.
+
+  **Execution Profile:**
+  - Mode: serial
+  - Integration owner: main agent
+  - Test strategy: `gh api` reads + placeholder grep on each pushed plan
+
+  **Ship-one-step handoff contract:** Implement only Step 9.6. Validate it. Mark Step 9.6 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.7's plan. Enter plan mode for Step 9.7, and stop.
 - [ ] Step 9.7: Generate build plans — Video & Music Streaming cluster (~53 apps)
 - [ ] Step 9.8: Generate build plans — Podcasts, Books & Reading cluster (~42 apps)
 - [ ] Step 9.9: Generate build plans — Photo & Video Creation cluster (~47 apps)

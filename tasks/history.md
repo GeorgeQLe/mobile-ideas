@@ -1,5 +1,28 @@
 # History
 
+## 2026-05-07 - Phase 9 Step 9.5: Generate Build Plans — Social, Dating & Community Cluster (39 Apps)
+
+- Ran `scripts/generate-build-plans.mjs --execute` on four ID ranges:
+  - `--from 6 --to 15`: TikTok, Instagram, Snapchat, BeReal, Reddit, X, Bluesky, Threads, Pinterest, Lemon8 (10 social media apps)
+  - `--from 101 --to 106`: Tinder, Bumble, Hinge, Grindr, Match, Coffee Meets Bagel (6 dating apps)
+  - `--from 915 --to 934`: Mastodon, Tumblr, Flickr, 500px, Clubhouse, Amino, Weverse, Patreon, Buy Me a Coffee, Ko-fi, Cameo, Guilded, Geneva, Fizz, Yubo, Poparazzi, NGL, Tellonym, Rumble, Truth Social (20 social/community apps)
+  - `--from 986 --to 988`: Mighty Networks, Circle Communities, Skool (3 community platforms)
+- All 39 downstream repos verified via `gh api`: `docs/plans/README.md` exists with 0 unfilled `{{...}}` placeholders.
+- Spot-checked 3 plans from different subcategories:
+  - TikTok (social media): detailed route map with Video Feed, Creator Camera, Editor, Sound/Effect pages, Remix Composer; social-specific API families (feed, uploads, remixes, search).
+  - Hinge (dating): dating-specific routes (Discovery, Inbound Likes, Featured Queue, Verification); prompt-based profile data model; OTP auth with age gate.
+  - Skool (community platform): community routes (Workspace, Templates, Permissions); creator commerce category; Workspace/Document/Template data model.
+- No push failures or script errors across any batch.
+
+### Ship Manifest
+
+- User goal: generate build plans for all Social, Dating & Community cluster apps (Step 9.5).
+- Changed files: `tasks/todo.md` (marked 9.5 done, added 9.6 plan), `tasks/history.md` (this entry).
+- Tests run: `gh api` verification for file existence and placeholder absence on all 39 repos; content spot-checks on 3 plans.
+- Skipped tests: no runtime test suite (planning repo).
+- Rollback note: revert downstream commits in the 39 repos to remove `docs/plans/README.md`.
+- Next command: `/run` (Step 9.6 — Messaging & Email cluster).
+
 ## 2026-05-07 - Phase 9 Step 9.4: Generate Build Plans — AI & Assistants Cluster (27 Apps)
 
 - Ran `scripts/generate-build-plans.mjs --execute` on two ID ranges:
