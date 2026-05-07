@@ -107,7 +107,7 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
 
   **Ship-one-step handoff contract:** Implement only Step 9.2. Validate it. Mark Step 9.2 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.3's plan. Ensure `.claude/settings.local.json` has `showClearContextOnPlanAccept: true` and `defaultMode: acceptEdits`. Enter plan mode, write brief pass-through plan, exit plan mode, and stop.
 
-- [ ] Step 9.3: Pilot on 3 diverse apps
+- [x] Step 9.3: Pilot on 3 diverse apps
   - Files: modify `tasks/todo.md` (mark pilot complete)
   - Run `scripts/generate-build-plans.mjs` on 3 apps from different categories: one AI app (e.g., ID 001), one shopping app (e.g., ID 046), one health app (e.g., ID 086).
   - Validate each generated plan has: complete route map matching spec screens, API schema families matching spec data contracts, data model matching spec entities, all five variant architecture sections, correct source spec references, preserved manual blockers.
@@ -142,6 +142,39 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
   **Ship-one-step handoff contract:** Implement only Step 9.3. Validate it. Mark Step 9.3 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.4's plan. Enter plan mode for Step 9.4's approval UI, and stop.
 
 - [ ] Step 9.4: Generate build plans — AI & Assistants cluster (~26 apps)
+  - Files: modify `tasks/todo.md` (mark 9.4 done)
+  - Run `scripts/generate-build-plans.mjs --execute` for all AI & Assistants apps (IDs scattered across batches).
+  - Since the script filters by ID range and seeded status, run in batch ranges that cover AI apps: `--from 1 --to 25` (batch-01), then targeted runs for later-batch AI apps (IDs 200-225 area, etc.).
+  - Verify each pushed plan via `gh api` — file exists, 0 unfilled placeholders.
+  - Note: non-AI apps in these ranges will also get build plans; this is fine and expected — it advances progress for later cluster steps.
+
+  ### Step 9.4 Implementation Plan
+
+  **What to build:** Generate and push build plans for all AI & Assistants cluster apps (~26 apps), plus any other apps in the same ID ranges.
+
+  **Files:**
+  - Modify: `tasks/todo.md` (mark 9.4 done)
+  - Modify: `tasks/history.md` (add 9.4 entry)
+
+  **Technical approach:**
+  1. Identify AI/assistant app IDs from the manifest (grep for AI, assistant, chatbot, LLM, GPT categories).
+  2. Run `scripts/generate-build-plans.mjs --execute` in batch ranges covering those IDs. Use `--delay-ms 5000` (default) for rate-limit safety.
+  3. Skip ID 001 (already pushed in Step 9.3 pilot) — the script will see existing plan and can either skip or overwrite (idempotent).
+  4. After each batch run, verify via `gh api` that `docs/plans/README.md` exists in each downstream repo.
+  5. Spot-check 3 plans for placeholder completeness and category-appropriate variant architecture.
+
+  **Acceptance criteria:**
+  - All AI & Assistants cluster apps have `docs/plans/README.md` with 0 unfilled placeholders.
+  - Variant architecture uses AI-specific defaults (SSE streaming, conversation cache, voice I/O patterns).
+  - No script errors or push failures during the run.
+
+  **Execution Profile:**
+  - Mode: serial
+  - Integration owner: main agent
+  - Test strategy: `gh api` reads + placeholder grep on each pushed plan
+
+  **Ship-one-step handoff contract:** Implement only Step 9.4. Validate it. Mark Step 9.4 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.5's plan. Enter plan mode for Step 9.5, and stop.
+
 - [ ] Step 9.5: Generate build plans — Social, Dating & Community cluster (~31 apps)
 - [ ] Step 9.6: Generate build plans — Messaging & Email cluster (~37 apps)
 - [ ] Step 9.7: Generate build plans — Video & Music Streaming cluster (~53 apps)

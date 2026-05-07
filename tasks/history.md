@@ -1,5 +1,29 @@
 # History
 
+## 2026-05-07 - Phase 9 Step 9.3: Pilot Build Plan Generation on 3 Diverse Apps
+
+- Ran `scripts/generate-build-plans.mjs --execute` on 3 pilot apps from different categories:
+  - ID 001 ChatGPT (AI assistant) → `GeorgeQLe/chatgpt-mobile-clone`
+  - ID 046 Amazon (Shopping) → `GeorgeQLe/amazon-mobile-clone`
+  - ID 086 MyFitnessPal (Health/fitness) → `GeorgeQLe/myfitnesspal-mobile-clone`
+- All 3 downstream repos received `docs/plans/README.md` with 0 unfilled `{{...}}` placeholders.
+- Verified via `gh api` that each file exists and decoded content has zero placeholder matches.
+- Spot-checked:
+  - Route map rows present and derived from spec Screen Inventory for each app.
+  - All 5 variant architecture sections (React Native, Flutter, Expo, Native iOS, Native Android) present in each plan.
+  - Variant architectures differ correctly by category: AI gets SSE/streaming/conversation patterns, Shopping gets cart/checkout/catalog patterns, Health gets dashboard/log/workout patterns.
+  - Manual verification blockers from specs appear in Feature Flags table (native screen capture, account lifecycle, signup/login).
+- No script issues found; no fixes needed.
+
+### Ship Manifest
+
+- User goal: pilot the build plan generation on 3 diverse apps (Step 9.3).
+- Changed files: `tasks/todo.md` (marked 9.3 done, added 9.4 plan), `tasks/history.md` (this entry).
+- Tests run: `gh api` verification for file existence and placeholder absence; content spot-checks for route maps, variant sections, and feature flags.
+- Skipped tests: no runtime test suite (planning repo).
+- Rollback note: revert downstream commits in the 3 repos to remove `docs/plans/README.md`.
+- Next command: `/run` (Step 9.4 — AI & Assistants cluster).
+
 ## 2026-05-07 - Phase 9 Step 9.2: Create Build Plan Generation Script
 
 - Created `scripts/generate-build-plans.mjs` — Node.js script that reads source specs, fills the build plan template, and pushes `docs/plans/README.md` to downstream repos.
