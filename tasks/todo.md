@@ -4,6 +4,10 @@
 > Source roadmap: `tasks/roadmap.md`
 > Test strategy: none
 
+## Priority Task Queue
+
+- [ ] `/research-roadmap` - scan documentation health and queue missing or stale documentation work because all 8 roadmap phases are complete and no documentation scan has been queued yet.
+
 ## Phase 8: 1000-App Extension Pipeline (IDs 201-1000)
 
 ### Goal
