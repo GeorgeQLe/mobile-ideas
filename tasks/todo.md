@@ -40,7 +40,7 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
   - Each variant section covers: navigation library, state management, networking layer, local storage, platform API access patterns, recommended project structure.
   - Template uses placeholders (`{{APP_NAME}}`, `{{APP_ID}}`, `{{CATEGORY}}`, `{{SOURCE_SPEC_PATH}}`, etc.) for script-driven generation.
 
-- [ ] Step 9.2: Create build plan generation script
+- [x] Step 9.2: Create build plan generation script
   - Files: create `scripts/generate-build-plans.mjs`
   - Script reads the source spec from each downstream repo's `docs/source-specs/NNN-slug.md`.
   - Extracts: app name, category, screens/routes from spec, API contracts, data model entities, manual verification blockers, edge cases.
@@ -112,6 +112,34 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
   - Run `scripts/generate-build-plans.mjs` on 3 apps from different categories: one AI app (e.g., ID 001), one shopping app (e.g., ID 046), one health app (e.g., ID 086).
   - Validate each generated plan has: complete route map matching spec screens, API schema families matching spec data contracts, data model matching spec entities, all five variant architecture sections, correct source spec references, preserved manual blockers.
   - Fix any template or script issues before proceeding to bulk generation.
+
+  ### Step 9.3 Implementation Plan
+
+  **What to build:** Run the build plan generation script in execute mode against 3 pilot apps from different categories, validate the pushed plans, and fix any issues.
+
+  **Files:**
+  - Modify: `tasks/todo.md` (mark 9.3 done)
+
+  **Technical approach:**
+  1. Run `node scripts/generate-build-plans.mjs --execute --from 1 --to 1` (ChatGPT — AI assistant category).
+  2. Run `node scripts/generate-build-plans.mjs --execute --from 46 --to 46` (Amazon — shopping category).
+  3. Run `node scripts/generate-build-plans.mjs --execute --from 86 --to 86` (MyFitnessPal — health category).
+  4. For each pushed plan, verify via `gh api` that `docs/plans/README.md` exists in the downstream repo and contains no `{{...}}` placeholders.
+  5. Spot-check: route map rows match spec Screen Inventory count, API families match spec API section, data model rows match spec Data Model entities, all 5 variant sections present, manual blockers preserved in feature flags table.
+  6. If any issue found, fix the script and re-run the affected app(s).
+
+  **Acceptance criteria:**
+  - All 3 downstream repos have a non-empty `docs/plans/README.md` with 0 unfilled placeholders.
+  - Route map completeness matches spec Screen Inventory for each app.
+  - Variant architecture sections differ across the 3 categories.
+  - Manual verification blockers from each spec appear in the Feature Flags table.
+
+  **Execution Profile:**
+  - Mode: serial
+  - Integration owner: main agent
+  - Test strategy: validation via `gh api` reads of downstream repos
+
+  **Ship-one-step handoff contract:** Implement only Step 9.3. Validate it. Mark Step 9.3 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.4's plan. Enter plan mode for Step 9.4's approval UI, and stop.
 
 - [ ] Step 9.4: Generate build plans — AI & Assistants cluster (~26 apps)
 - [ ] Step 9.5: Generate build plans — Social, Dating & Community cluster (~31 apps)

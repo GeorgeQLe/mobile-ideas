@@ -1,5 +1,22 @@
 # History
 
+## 2026-05-07 - Phase 9 Step 9.2: Create Build Plan Generation Script
+
+- Created `scripts/generate-build-plans.mjs` — Node.js script that reads source specs, fills the build plan template, and pushes `docs/plans/README.md` to downstream repos.
+- CLI mirrors `seed-downstream-batch.mjs`: `--from`, `--to`, `--dry-run`, `--execute`, `--delay-ms`, `--limit`, serial execution, stop on first failure.
+- Spec extraction via heading-based regex: H1 for app name, metadata block for category, Screen Inventory for route map, API And Backend Contracts for API schema, Data Model for entities, Edge Cases + manual blockers for feature flags, Test Plan for test checklist.
+- Category-aware variant defaults for 12 categories (ai, messaging, social, shopping, food, finance, travel, health, media, productivity, education, general) produce different navigation/state/networking/storage/platform/structure recommendations per category.
+- Validated: `--dry-run --from 1 --to 1` (AI), `--from 46 --to 46` (shopping), `--from 86 --to 86` (health) — all 43 placeholders filled, no `{{...}}` tokens in output, variant architecture differs across categories.
+
+### Ship Manifest
+
+- User goal: create the build plan generation script (Step 9.2).
+- Changed files: `scripts/generate-build-plans.mjs` (created), `tasks/todo.md` (marked 9.2 done), `tasks/history.md` (this entry).
+- Tests run: dry-run validation for 3 apps across 3 categories; placeholder count = 0 in all outputs; variant differentiation confirmed.
+- Skipped tests: no runtime test suite (planning repo).
+- Rollback note: revert the shipping commit to remove the script and unmark Step 9.2.
+- Next command: `$run` (Step 9.3 — pilot on 3 diverse apps).
+
 ## 2026-05-07 - Phase 9 Step 9.1: Design Multi-Variant Build Plan Template
 
 - Created `templates/build-plan-template.md` — parameterized build plan template for all 1000 downstream repos.
