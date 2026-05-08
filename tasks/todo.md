@@ -342,7 +342,7 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
   - Test strategy: `gh api` reads + placeholder grep on each pushed plan
 
   **Ship-one-step handoff contract:** Implement only Step 9.10. Validate it. Mark Step 9.10 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.11's plan. Enter plan mode for Step 9.11, and stop.
-- [ ] Step 9.11: Generate build plans — Food, Delivery & Grocery cluster (~66 apps)
+- [x] Step 9.11: Generate build plans — Food, Delivery & Grocery cluster (~66 apps)
 
   ### Step 9.11 Implementation Plan
 
@@ -370,7 +370,34 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
   - Test strategy: `gh api` reads + placeholder grep on each pushed plan
 
   **Ship-one-step handoff contract:** Implement only Step 9.11. Validate it. Mark Step 9.11 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.12's plan. Enter plan mode for Step 9.12, and stop.
-- [ ] Step 9.12: Generate build plans — Finance & Payments cluster (~65 apps)
+- [ ] Step 9.12: Generate build plans — Finance & Payments cluster (~72 apps)
+
+  ### Step 9.12 Implementation Plan
+
+  **What to build:** Generate and push build plans for all Finance & Payments cluster apps (~72 apps).
+
+  **Files:**
+  - Modify: `tasks/todo.md` (mark 9.12 done)
+  - Modify: `tasks/history.md` (add 9.12 entry)
+
+  **Technical approach:**
+  1. Run `scripts/generate-build-plans.mjs --execute --from 56 --to 65` (batch-03/04 partial: Cash App, Venmo, PayPal, Zelle, Robinhood, Coinbase, Mint/Credit Karma, YNAB, Rocket Money, Apple Wallet — 10 apps).
+  2. Run `scripts/generate-build-plans.mjs --execute --from 137 --to 147` (batch-07/08 partial: Bloomberg, Yahoo Finance, StockTwits, Public, Acorns, Stash, Wealthfront, Betterment, Chime, Revolut, Wise — 11 apps).
+  3. Run `scripts/generate-build-plans.mjs --execute --from 472 --to 522` (batch-24/25/26/27 partial: Chase, Bank of America, Wells Fargo, Citi, Capital One, Amex, Discover, US Bank, PNC, TD Bank, Truist, USAA, Navy Federal, SoFi, Ally, Marcus, Fidelity, Schwab, E*Trade, Webull, Moomoo, Interactive Brokers, Vanguard, Monzo, N26, Starling Bank, Skrill, Neteller, Remitly, WorldRemit, Western Union, MoneyGram, Xoom, Crypto.com, Binance, Kraken, Gemini Crypto, Phantom, MetaMask, Trust Wallet, Exodus, Ledger Live, MoonPay, Strike, Current, Dave, Empower, Earnin, Klarna, Afterpay, Affirm — 51 apps).
+  4. After each batch run, verify via `gh api` that `docs/plans/README.md` exists in each downstream repo with 0 unfilled placeholders.
+  5. Spot-check 3 plans from different subcategories (e.g., traditional banking, brokerage/investing, crypto wallet, P2P payments, BNPL) for finance-appropriate variant architecture (account management, transaction history, payments/transfers, investment portfolio, market data, KYC/identity verification, security/biometrics, card management, budgeting tools).
+
+  **Acceptance criteria:**
+  - All Finance & Payments cluster apps have `docs/plans/README.md` with 0 unfilled placeholders.
+  - Variant architecture uses finance-specific defaults (account management, transaction history, payments, security, compliance).
+  - No script errors or push failures during the run.
+
+  **Execution Profile:**
+  - Mode: serial
+  - Integration owner: main agent
+  - Test strategy: `gh api` reads + placeholder grep on each pushed plan
+
+  **Ship-one-step handoff contract:** Implement only Step 9.12. Validate it. Mark Step 9.12 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.13's plan. Enter plan mode for Step 9.13, and stop.
 - [ ] Step 9.13: Generate build plans — Travel & Transportation cluster (~79 apps)
 - [ ] Step 9.14: Generate build plans — Health, Fitness & Wellness cluster (~81 apps)
 - [ ] Step 9.15: Generate build plans — Education & Learning cluster (~31 apps)
