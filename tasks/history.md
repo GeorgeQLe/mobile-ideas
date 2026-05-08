@@ -1,5 +1,27 @@
 # History
 
+## 2026-05-08 - Phase 9 Step 9.8: Generate Build Plans — Podcasts, Books & Reading Cluster (54 Apps)
+
+- Ran `scripts/generate-build-plans.mjs --execute` on three ID ranges:
+  - `--from 119 --to 134`: Medium, Substack, Wattpad, WEBTOON, Goodreads, Kindle, Libby, Apple Books, Scribd, Readwise, Pocket, Instapaper, Feedly, Apple News, The New York Times, Flipboard (16 apps)
+  - `--from 293 --to 312`: Overcast, Castro, Podbean, Spotify for Podcasters, Anchor, Podcast Addict, Podimo, Acast, Player FM, Castbox, RadioPublic, NPR One, BBC Sounds, Libsyn, Podchaser, Pocket FM, Storytel, Audacy, iVoox, Goodpods (20 apps)
+  - `--from 897 --to 914`: Kobo Books, Google Play Books, Nook, The StoryGraph, Bookmate, Blinkist, Headway, Serial Reader, Inkitt, Dreame, Tapas, Radish, Webnovel, MANGA Plus, Shonen Jump, VIZ Manga, Marvel Unlimited, DC Universe Infinite (18 apps)
+- All 54 downstream repos verified via `gh api`: `docs/plans/README.md` exists with 0 unfilled `{{...}}` placeholders.
+- Spot-checked 3 plans from different subcategories:
+  - Overcast (podcast): Player/Reader, Library, Downloads routes; PlaybackOrReadSession, QueueItem, Download entities; streaming player state machine in variant notes; content licensing blockers flagged.
+  - Kindle (e-reader): rich spec-derived route map with Reader, Typography, Highlights/Notes, Dictionary Popup, TTS Player; domain-specific entities (ReadingProgress, Highlight, Note, Annotation, DownloadPackage, TTSSession); DRM key and loan edge cases.
+  - MANGA Plus (manga/comics): reading-appropriate routes with Player/Reader, Library, Downloads, Creator/Source, Comments/Reviews; CatalogItem, PlaybackOrReadSession, Collection entities; licensed media and copyright flagged as launch-blocking review areas.
+- No push failures or script errors across any batch.
+
+### Ship Manifest
+
+- User goal: generate build plans for all Podcasts, Books & Reading cluster apps (Step 9.8).
+- Changed files: `tasks/todo.md` (marked 9.8 done, added 9.9 plan), `tasks/history.md` (this entry).
+- Tests run: `gh api` verification for file existence and placeholder absence on all 54 repos; content spot-checks on 3 plans.
+- Skipped tests: no runtime test suite (planning repo).
+- Rollback note: revert downstream commits in the 54 repos to remove `docs/plans/README.md`.
+- Next command: `/run` (Step 9.9 — Photo & Video Creation cluster).
+
 ## 2026-05-08 - Phase 9 Step 9.7: Generate Build Plans — Video & Music Streaming Cluster (59 Apps)
 
 - Ran `scripts/generate-build-plans.mjs --execute` on three ID ranges:

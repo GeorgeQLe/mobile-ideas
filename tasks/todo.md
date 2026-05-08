@@ -259,7 +259,7 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
   - Test strategy: `gh api` reads + placeholder grep on each pushed plan
 
   **Ship-one-step handoff contract:** Implement only Step 9.7. Validate it. Mark Step 9.7 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.8's plan. Enter plan mode for Step 9.8, and stop.
-- [ ] Step 9.8: Generate build plans — Podcasts, Books & Reading cluster (~42 apps)
+- [x] Step 9.8: Generate build plans — Podcasts, Books & Reading cluster (~42 apps)
 
   ### Step 9.8 Implementation Plan
 
@@ -285,7 +285,34 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
   - Test strategy: `gh api` reads + placeholder grep on each pushed plan
 
   **Ship-one-step handoff contract:** Implement only Step 9.8. Validate it. Mark Step 9.8 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.9's plan. Enter plan mode for Step 9.9, and stop.
-- [ ] Step 9.9: Generate build plans — Photo & Video Creation cluster (~47 apps)
+- [ ] Step 9.9: Generate build plans — Photo & Video Creation cluster (~42 apps)
+
+  ### Step 9.9 Implementation Plan
+
+  **What to build:** Generate and push build plans for all Photo & Video Creation cluster apps (~42 apps).
+
+  **Files:**
+  - Modify: `tasks/todo.md` (mark 9.9 done)
+  - Modify: `tasks/history.md` (add 9.9 entry)
+
+  **Technical approach:**
+  1. Run `scripts/generate-build-plans.mjs --execute --from 96 --to 99` (batch-05 partial: CapCut, Canva, Lightroom, Google Photos — 4 apps).
+  2. Run `scripts/generate-build-plans.mjs --execute --from 223 --to 240` (batch-12: Picsart through Pixelcut — 18 photo editing/retouching apps).
+  3. Run `scripts/generate-build-plans.mjs --execute --from 241 --to 260` (batch-13: Lensa through VivaVideo — 20 video editing/creation apps).
+  4. After each batch run, verify via `gh api` that `docs/plans/README.md` exists in each downstream repo with 0 unfilled placeholders.
+  5. Spot-check 3 plans for content quality and category-appropriate variant architecture (photo/video defaults: canvas/editor, export pipeline, layer management, filter/effects engine, media import, timeline/sequencer, asset library).
+
+  **Acceptance criteria:**
+  - All Photo & Video Creation cluster apps have `docs/plans/README.md` with 0 unfilled placeholders.
+  - Variant architecture uses creation-specific defaults (canvas/editor view, export pipeline, media processing, filter engine, timeline).
+  - No script errors or push failures during the run.
+
+  **Execution Profile:**
+  - Mode: serial
+  - Integration owner: main agent
+  - Test strategy: `gh api` reads + placeholder grep on each pushed plan
+
+  **Ship-one-step handoff contract:** Implement only Step 9.9. Validate it. Mark Step 9.9 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.10's plan. Enter plan mode for Step 9.10, and stop.
 - [ ] Step 9.10: Generate build plans — Shopping, Commerce & Classifieds cluster (~65 apps)
 - [ ] Step 9.11: Generate build plans — Food, Delivery & Grocery cluster (~77 apps)
 - [ ] Step 9.12: Generate build plans — Finance & Payments cluster (~65 apps)
