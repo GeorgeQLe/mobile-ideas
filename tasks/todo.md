@@ -285,7 +285,7 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
   - Test strategy: `gh api` reads + placeholder grep on each pushed plan
 
   **Ship-one-step handoff contract:** Implement only Step 9.8. Validate it. Mark Step 9.8 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.9's plan. Enter plan mode for Step 9.9, and stop.
-- [ ] Step 9.9: Generate build plans — Photo & Video Creation cluster (~42 apps)
+- [x] Step 9.9: Generate build plans — Photo & Video Creation cluster (~42 apps)
 
   ### Step 9.9 Implementation Plan
 
@@ -314,6 +314,34 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
 
   **Ship-one-step handoff contract:** Implement only Step 9.9. Validate it. Mark Step 9.9 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.10's plan. Enter plan mode for Step 9.10, and stop.
 - [ ] Step 9.10: Generate build plans — Shopping, Commerce & Classifieds cluster (~65 apps)
+
+  ### Step 9.10 Implementation Plan
+
+  **What to build:** Generate and push build plans for all Shopping, Commerce & Classifieds cluster apps (~65 apps).
+
+  **Files:**
+  - Modify: `tasks/todo.md` (mark 9.10 done)
+  - Modify: `tasks/history.md` (add 9.10 entry)
+
+  **Technical approach:**
+  1. Run `scripts/generate-build-plans.mjs --execute --from 46 --to 55` (batch-03 partial: Amazon, Temu, SHEIN, Etsy, eBay, Facebook Marketplace, Poshmark, Depop, StockX, Shop — 10 apps).
+  2. Run `scripts/generate-build-plans.mjs --execute --from 393 --to 406` (batch-20 partial: Walmart, Target, Costco, Sam's Club, Kroger, Albertsons, Aldi, Trader Joe's, Whole Foods, Publix, H-E-B, Meijer, Hy-Vee, Lidl — 14 apps).
+  3. Run `scripts/generate-build-plans.mjs --execute --from 442 --to 471` (batch-22/23: Best Buy, Home Depot, Lowe's, IKEA, Wayfair, Kohl's, Macy's, Nordstrom, Sephora, Ulta, Nike, Adidas, Zara, H&M, Uniqlo, Lululemon, GOAT, Grailed, Mercari, Vinted, OfferUp, Craigslist, AliExpress, Wish, Lazada, Shopee, Flipkart, Myntra, Rakuten, Newegg — 30 apps).
+  4. Run `scripts/generate-build-plans.mjs --execute --from 968 --to 981` (batch-49 partial: Letgo, VarageSale, Kijiji, Gumtree, CarGurus, Autotrader, Cars.com, Carvana, CarMax, TrueCar, Copart, Bring a Trailer, Autolist, Gumroad — 14 apps).
+  5. After each batch run, verify via `gh api` that `docs/plans/README.md` exists in each downstream repo with 0 unfilled placeholders.
+  6. Spot-check 3 plans from different subcategories (e.g., general marketplace, fashion retail, classifieds/auto) for commerce-appropriate variant architecture (product catalog, cart/checkout, order tracking, seller tools, payment integration, search/filter, ratings/reviews).
+
+  **Acceptance criteria:**
+  - All Shopping, Commerce & Classifieds cluster apps have `docs/plans/README.md` with 0 unfilled placeholders.
+  - Variant architecture uses commerce-specific defaults (product catalog, cart, checkout flow, order tracking, seller tools, payments).
+  - No script errors or push failures during the run.
+
+  **Execution Profile:**
+  - Mode: serial
+  - Integration owner: main agent
+  - Test strategy: `gh api` reads + placeholder grep on each pushed plan
+
+  **Ship-one-step handoff contract:** Implement only Step 9.10. Validate it. Mark Step 9.10 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.11's plan. Enter plan mode for Step 9.11, and stop.
 - [ ] Step 9.11: Generate build plans — Food, Delivery & Grocery cluster (~77 apps)
 - [ ] Step 9.12: Generate build plans — Finance & Payments cluster (~65 apps)
 - [ ] Step 9.13: Generate build plans — Travel & Transportation cluster (~79 apps)

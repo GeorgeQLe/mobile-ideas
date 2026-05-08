@@ -1,5 +1,27 @@
 # History
 
+## 2026-05-08 - Phase 9 Step 9.9: Generate Build Plans — Photo & Video Creation Cluster (42 Apps)
+
+- Ran `scripts/generate-build-plans.mjs --execute` on three ID ranges:
+  - `--from 96 --to 99`: CapCut, Canva, Lightroom, Google Photos (4 apps)
+  - `--from 223 --to 240`: Picsart, VSCO, Snapseed, Adobe Express, Photoshop Express, Procreate Pocket, Sketchbook, ibis Paint X, Clip Studio Paint, Bazaart, Prequel, Facetune, BeautyPlus, SNOW, Meitu, Polish, PhotoRoom, Pixelcut (18 apps)
+  - `--from 241 --to 260`: Lensa, Remini, PicCollage, Layout, Hypic, Tezza, Unfold, InShot, VN Video Editor, KineMaster, Splice, LumaFusion, Videoleap, Filmora, Alight Motion, Mojo, Apple Clips, Magisto, GoPro Quik, VivaVideo (20 apps)
+- All 42 downstream repos verified via `gh api`: `docs/plans/README.md` exists with 0 unfilled `{{...}}` placeholders.
+- Spot-checked 3 plans from different subcategories:
+  - Canva (design/canvas): rich spec-derived route map with Home/Templates, Design Editor, Photo Editor, Video Editor, AI Magic Studio, Brand Hub, Content Library, Share/Publish, Team Comments, Settings/Billing; 18 API families including designs, editor, templates, media, brand, comments, sharing, AI, exports, teams; domain-specific entities (Design, Page, Element).
+  - Facetune (photo editor): photo editing routes with Welcome/Auth, Home/Workspace, Create/Edit, Detail/Preview, Templates/Library; auth, search, notifications, entitlements, privacy API families; creation-appropriate entities (Document, Asset, Project, Version).
+  - KineMaster (video editor): video creation routes with Create/Edit, Templates/Library, Share; same core API pattern with auth, search, entitlements, privacy; project/asset/version lifecycle entities for video editing workflows.
+- No push failures or script errors across any batch.
+
+### Ship Manifest
+
+- User goal: generate build plans for all Photo & Video Creation cluster apps (Step 9.9).
+- Changed files: `tasks/todo.md` (marked 9.9 done, added 9.10 plan), `tasks/history.md` (this entry).
+- Tests run: `gh api` verification for file existence and placeholder absence on all 42 repos; content spot-checks on 3 plans.
+- Skipped tests: no runtime test suite (planning repo).
+- Rollback note: revert downstream commits in the 42 repos to remove `docs/plans/README.md`.
+- Next command: `/run` (Step 9.10 — Shopping, Commerce & Classifieds cluster).
+
 ## 2026-05-08 - Phase 9 Step 9.8: Generate Build Plans — Podcasts, Books & Reading Cluster (54 Apps)
 
 - Ran `scripts/generate-build-plans.mjs --execute` on three ID ranges:
