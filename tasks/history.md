@@ -1,5 +1,27 @@
 # History
 
+## 2026-05-08 - Phase 9 Step 9.7: Generate Build Plans — Video & Music Streaming Cluster (59 Apps)
+
+- Ran `scripts/generate-build-plans.mjs --execute` on three ID ranges:
+  - `--from 66 --to 76`: Spotify, Apple Music, YouTube Music, SoundCloud, Audible, Pocket Casts, Netflix, YouTube, Twitch, Letterboxd, IMDb (11 apps)
+  - `--from 270 --to 289`: Shazam, Bandcamp, Deezer, TIDAL, Pandora, iHeartRadio, SiriusXM, TuneIn Radio, Amazon Music, Qobuz, Anghami, Musixmatch, GarageBand, BandLab, Voloco, Smule, StarMaker, SoundHound, Sonos, Bose Music (20 apps)
+  - `--from 313 --to 340`: Hulu, Disney+, Max, Peacock TV, Paramount+, Prime Video, Crunchyroll, Plex, Tubi, Pluto TV, Roku, Fandango at Home, Vudu, MUBI, The Criterion Channel, Kanopy, Hoopla, Nebula, Curiosity Stream, Gaia, Dropout, BritBox, Acorn TV, YouTube TV, Sling TV, ESPN, The Athletic, Bleacher Report (28 apps)
+- All 59 downstream repos verified via `gh api`: `docs/plans/README.md` exists with 0 unfilled `{{...}}` placeholders.
+- Spot-checked 3 plans from different subcategories:
+  - Spotify (music streaming): rich route map with 18 routes including Now Playing, Queue, Downloads/Offline, Devices/Connect, Jam/Shared Listening, Podcasts, Audiobooks, Creator Tools, Ads/Promotions; 20 API families; streaming-specific data model with PlaybackSession, DownloadAsset, RecommendationSlot entities.
+  - Netflix (video streaming): detailed route map with Profile Picker, Player, Episodes/Seasons, Downloads, Kids/Parental Controls, Membership/Billing; DRM-backed playback sessions; profile-scoped catalog; ad-plan entitlements.
+  - YouTube TV (live TV): generic streaming template with 10 routes covering Welcome/Auth through Settings; streaming-appropriate API schema with auth, search, entitlements, privacy endpoints.
+- No push failures or script errors across any batch.
+
+### Ship Manifest
+
+- User goal: generate build plans for all Video & Music Streaming cluster apps (Step 9.7).
+- Changed files: `tasks/todo.md` (marked 9.7 done, added 9.8 plan), `tasks/history.md` (this entry).
+- Tests run: `gh api` verification for file existence and placeholder absence on all 59 repos; content spot-checks on 3 plans.
+- Skipped tests: no runtime test suite (planning repo).
+- Rollback note: revert downstream commits in the 59 repos to remove `docs/plans/README.md`.
+- Next command: `/run` (Step 9.8 — Podcasts, Books & Reading cluster).
+
 ## 2026-05-08 - Phase 9 Step 9.6: Generate Build Plans — Messaging & Email Cluster (43 Apps)
 
 - Ran `scripts/generate-build-plans.mjs --execute` on two ID ranges:
