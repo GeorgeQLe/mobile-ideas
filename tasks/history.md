@@ -1,5 +1,26 @@
 # History
 
+## 2026-05-08 - Phase 9 Step 9.6: Generate Build Plans — Messaging & Email Cluster (43 Apps)
+
+- Ran `scripts/generate-build-plans.mjs --execute` on two ID ranges:
+  - `--from 16 --to 25`: WhatsApp, Telegram, Signal, Discord, Slack, Messenger, FaceTime, Zoom, Gmail, Outlook (10 apps)
+  - `--from 935 --to 967`: Viber, WeChat, LINE, KakaoTalk, Skype, Google Voice, TextNow, TextFree, GroupMe, Marco Polo, Voxer, Microsoft Teams, Cisco Webex, Google Meet, GoTo, BlueJeans, Jitsi Meet, Proton Mail, Yahoo Mail, AOL Mail, Spark Mail, Edison Mail, BlueMail, Canary Mail, Fastmail, HEY, Tuta Mail, Zoho Mail, Spike, Superhuman, Shortwave, Clean Email, Unroll.Me (33 apps)
+- All 43 downstream repos verified via `gh api`: `docs/plans/README.md` exists with 0 unfilled `{{...}}` placeholders.
+- Spot-checked 3 plans from different subcategories:
+  - Signal (instant messaging): detailed route map with Chat Thread, Voice Note Recorder, Group Settings, Calls, Stories, Backup/Transfer, Privacy And Security; messaging-specific variant architecture (WebSocket real-time, WatermelonDB/Drift message history, voice message patterns, conversation/thread navigation).
+  - Zoom (video conferencing): video-specific routes (Meeting Room, Host Controls, Waiting Room, Screen Share); AI meeting assistant and enterprise admin boundaries.
+  - Proton Mail (email client): email-specific routes and privacy/encryption product boundaries; generic data model with User, Workspace, Document entities.
+- No push failures or script errors across either batch.
+
+### Ship Manifest
+
+- User goal: generate build plans for all Messaging & Email cluster apps (Step 9.6).
+- Changed files: `tasks/todo.md` (marked 9.6 done, added 9.7 plan), `tasks/history.md` (this entry).
+- Tests run: `gh api` verification for file existence and placeholder absence on all 43 repos; content spot-checks on 3 plans.
+- Skipped tests: no runtime test suite (planning repo).
+- Rollback note: revert downstream commits in the 43 repos to remove `docs/plans/README.md`.
+- Next command: `/run` (Step 9.7 — Video & Music Streaming cluster).
+
 ## 2026-05-07 - Phase 9 Step 9.5: Generate Build Plans — Social, Dating & Community Cluster (39 Apps)
 
 - Ran `scripts/generate-build-plans.mjs --execute` on four ID ranges:

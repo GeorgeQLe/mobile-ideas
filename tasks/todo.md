@@ -202,7 +202,7 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
   - Test strategy: `gh api` reads + placeholder grep on each pushed plan
 
   **Ship-one-step handoff contract:** Implement only Step 9.5. Validate it. Mark Step 9.5 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.6's plan. Enter plan mode for Step 9.6, and stop.
-- [ ] Step 9.6: Generate build plans — Messaging & Email cluster (~37 apps)
+- [x] Step 9.6: Generate build plans — Messaging & Email cluster (~37 apps)
 
   ### Step 9.6 Implementation Plan
 
@@ -230,6 +230,35 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
 
   **Ship-one-step handoff contract:** Implement only Step 9.6. Validate it. Mark Step 9.6 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.7's plan. Enter plan mode for Step 9.7, and stop.
 - [ ] Step 9.7: Generate build plans — Video & Music Streaming cluster (~53 apps)
+
+  ### Step 9.7 Implementation Plan
+
+  **What to build:** Generate and push build plans for all Video & Music Streaming cluster apps (~53 apps).
+
+  **Files:**
+  - Modify: `tasks/todo.md` (mark 9.7 done)
+  - Modify: `tasks/history.md` (add 9.7 entry)
+
+  **Technical approach:**
+  1. Run `scripts/generate-build-plans.mjs --execute` in batch ranges covering streaming IDs:
+     - `--from 66 --to 76` (Spotify, Apple Music, YouTube Music, SoundCloud, Audible, Pocket Casts, Netflix, YouTube, Twitch, Letterboxd, IMDb — 11 apps)
+     - `--from 270 --to 289` (Shazam, Bandcamp, Deezer, TIDAL, Pandora, iHeartRadio, SiriusXM, TuneIn Radio, Amazon Music, Qobuz, Anghami, Musixmatch, GarageBand, BandLab, Voloco, Smule, StarMaker, SoundHound, Sonos, Bose Music — 20 apps)
+     - `--from 313 --to 340` (Hulu, Disney+, Max, Peacock TV, Paramount+, Prime Video, Crunchyroll, Plex, Tubi, Pluto TV, Roku, Fandango at Home, Vudu, MUBI, The Criterion Channel, Kanopy, Hoopla, Nebula, Curiosity Stream, Gaia, Dropout, BritBox, Acorn TV, YouTube TV, Sling TV, ESPN, The Athletic, Bleacher Report — 28 apps)
+  2. Some apps in these ranges may belong to adjacent clusters (sports, podcasts) — the script handles them idempotently, which advances overall progress.
+  3. After each batch run, verify via `gh api` that `docs/plans/README.md` exists in each downstream repo with 0 unfilled placeholders.
+  4. Spot-check 3 plans for content quality and category-appropriate variant architecture (streaming defaults: media player, download/offline, subscription entitlements, adaptive bitrate, continue-watching, library/playlist management).
+
+  **Acceptance criteria:**
+  - All Video & Music Streaming cluster apps have `docs/plans/README.md` with 0 unfilled placeholders.
+  - Variant architecture uses streaming-specific defaults (media playback, offline downloads, subscription management, adaptive streaming).
+  - No script errors or push failures during the run.
+
+  **Execution Profile:**
+  - Mode: serial
+  - Integration owner: main agent
+  - Test strategy: `gh api` reads + placeholder grep on each pushed plan
+
+  **Ship-one-step handoff contract:** Implement only Step 9.7. Validate it. Mark Step 9.7 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.8's plan. Enter plan mode for Step 9.8, and stop.
 - [ ] Step 9.8: Generate build plans — Podcasts, Books & Reading cluster (~42 apps)
 - [ ] Step 9.9: Generate build plans — Photo & Video Creation cluster (~47 apps)
 - [ ] Step 9.10: Generate build plans — Shopping, Commerce & Classifieds cluster (~65 apps)
