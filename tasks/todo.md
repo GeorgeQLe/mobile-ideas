@@ -313,7 +313,7 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
   - Test strategy: `gh api` reads + placeholder grep on each pushed plan
 
   **Ship-one-step handoff contract:** Implement only Step 9.9. Validate it. Mark Step 9.9 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.10's plan. Enter plan mode for Step 9.10, and stop.
-- [ ] Step 9.10: Generate build plans — Shopping, Commerce & Classifieds cluster (~65 apps)
+- [x] Step 9.10: Generate build plans — Shopping, Commerce & Classifieds cluster (~68 apps)
 
   ### Step 9.10 Implementation Plan
 
@@ -342,7 +342,34 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
   - Test strategy: `gh api` reads + placeholder grep on each pushed plan
 
   **Ship-one-step handoff contract:** Implement only Step 9.10. Validate it. Mark Step 9.10 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.11's plan. Enter plan mode for Step 9.11, and stop.
-- [ ] Step 9.11: Generate build plans — Food, Delivery & Grocery cluster (~77 apps)
+- [ ] Step 9.11: Generate build plans — Food, Delivery & Grocery cluster (~66 apps)
+
+  ### Step 9.11 Implementation Plan
+
+  **What to build:** Generate and push build plans for all Food, Delivery & Grocery cluster apps (~66 apps).
+
+  **Files:**
+  - Modify: `tasks/todo.md` (mark 9.11 done)
+  - Modify: `tasks/history.md` (add 9.11 entry)
+
+  **Technical approach:**
+  1. Run `scripts/generate-build-plans.mjs --execute --from 38 --to 45` (batch-02/03 partial: DoorDash, Uber Eats, Instacart, Starbucks, McDonald's, OpenTable, Yelp, Too Good To Go — 8 apps).
+  2. Run `scripts/generate-build-plans.mjs --execute --from 369 --to 392` (batch-19/20 partial: Chick-fil-A, Dunkin', Chipotle, Taco Bell, Subway, Panera Bread, Wendy's, Burger King, Domino's, Pizza Hut, Papa Johns, Little Caesars, KFC, Popeyes, Sonic Drive-In, Shake Shack, Sweetgreen, Cava, Wingstop, Dairy Queen, Dutch Bros, 7-Eleven, Krispy Kreme, Jamba — 24 apps).
+  3. Run `scripts/generate-build-plans.mjs --execute --from 407 --to 440` (batch-21/22 partial: Food Lion, Giant Eagle, Stop and Shop, ShopRite, FreshDirect, Misfits Market, Thrive Market, Ocado, Carrefour, Tesco, Sainsbury's, Grubhub, Gopuff, Deliveroo, Just Eat, Glovo, Bolt Food, Foodpanda, Swiggy, Zomato, Rappi, Grab, Gojek, DidiFood, Meituan, Ele.me, Deliveroo Rider, DoorDash Dasher, Uber Driver, Instacart Shopper, Shipt, Favor, SkipTheDishes, Talabat — 34 apps).
+  4. After each batch run, verify via `gh api` that `docs/plans/README.md` exists in each downstream repo with 0 unfilled placeholders.
+  5. Spot-check 3 plans from different subcategories (e.g., food delivery platform, QSR/fast food, online grocery, delivery driver app) for food/delivery-appropriate variant architecture (menu/catalog browsing, cart/ordering, real-time order tracking, delivery dispatch, restaurant/store management, pickup/delivery scheduling, loyalty/rewards, driver tools).
+
+  **Acceptance criteria:**
+  - All Food, Delivery & Grocery cluster apps have `docs/plans/README.md` with 0 unfilled placeholders.
+  - Variant architecture uses food/delivery-specific defaults (menu browsing, ordering, real-time tracking, delivery/pickup, loyalty programs).
+  - No script errors or push failures during the run.
+
+  **Execution Profile:**
+  - Mode: serial
+  - Integration owner: main agent
+  - Test strategy: `gh api` reads + placeholder grep on each pushed plan
+
+  **Ship-one-step handoff contract:** Implement only Step 9.11. Validate it. Mark Step 9.11 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.12's plan. Enter plan mode for Step 9.12, and stop.
 - [ ] Step 9.12: Generate build plans — Finance & Payments cluster (~65 apps)
 - [ ] Step 9.13: Generate build plans — Travel & Transportation cluster (~79 apps)
 - [ ] Step 9.14: Generate build plans — Health, Fitness & Wellness cluster (~81 apps)

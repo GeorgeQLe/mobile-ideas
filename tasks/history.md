@@ -1,5 +1,28 @@
 # History
 
+## 2026-05-08 - Phase 9 Step 9.10: Generate Build Plans — Shopping, Commerce & Classifieds Cluster (68 Apps)
+
+- Ran `scripts/generate-build-plans.mjs --execute` on four ID ranges:
+  - `--from 46 --to 55`: Amazon, Temu, SHEIN, Etsy, eBay, Facebook Marketplace, Poshmark, Depop, StockX, Shop (10 apps)
+  - `--from 393 --to 406`: Walmart, Target, Costco, Sam's Club, Kroger, Safeway, Albertsons, Whole Foods Market, Publix, H-E-B, Meijer, Aldi, Lidl, Wegmans (14 apps)
+  - `--from 442 --to 471`: Best Buy, Home Depot, Lowe's, IKEA, Wayfair, Kohl's, Macy's, Nordstrom, Sephora, Ulta Beauty, Nike, Adidas, Zara, H&M, Uniqlo, Lululemon, GOAT, Grailed, Mercari, Vinted, OfferUp, Craigslist, AliExpress, Wish, Lazada, Shopee, Flipkart, Myntra, Rakuten, Newegg (30 apps)
+  - `--from 968 --to 981`: letgo, VarageSale, Kijiji, Gumtree, CarGurus, AutoTrader, Cars.com, Carvana, CarMax, TrueCar, Copart, Bring a Trailer, Autolist, Gumroad (14 apps)
+- All 68 downstream repos verified via `gh api`: `docs/plans/README.md` exists with 0 unfilled `{{...}}` placeholders.
+- Spot-checked 3 plans from different subcategories:
+  - Amazon (general marketplace): rich spec-derived route map with 20+ routes covering Welcome/Auth, Address/Region, Marketplace Home, Search, Category/Deal Browse, Product Detail, Offer/Seller Selector, Cart, Checkout, Orders, Package Tracking, Returns/Replacements, Lists/Price Alerts, Prime-Style Membership, Subscribe & Save, Reviews/Q&A, Customer Service, Seller Product Manager, Seller Orders/Returns, Ads Campaign Manager, Settings/Privacy; 18 API families covering full marketplace lifecycle; commerce-specific entities and product boundaries.
+  - Nordstrom (fashion retail): shopping-appropriate routes with Welcome/Auth, Browse/Search, Product Detail, Cart, Checkout, Order Status, Messages, Reviews, Returns/Support, Seller/Admin Tools; auth, search, notifications, entitlements, privacy API families; payment security, consumer protection, and fraud flagged as launch-blocking review areas.
+  - CarGurus (auto classifieds): classifieds-appropriate routes with Welcome/Auth, Home/Workspace, Create/Edit, Detail/Preview, Search, Share, Sync/Activity, Templates/Library, Permissions, Settings; data loss, permission leakage, and copyrighted assets flagged as launch-blocking review areas.
+- No push failures or script errors across any batch.
+
+### Ship Manifest
+
+- User goal: generate build plans for all Shopping, Commerce & Classifieds cluster apps (Step 9.10).
+- Changed files: `tasks/todo.md` (marked 9.10 done, added 9.11 plan), `tasks/history.md` (this entry).
+- Tests run: `gh api` verification for file existence and placeholder absence on all 68 repos; content spot-checks on 3 plans.
+- Skipped tests: no runtime test suite (planning repo).
+- Rollback note: revert downstream commits in the 68 repos to remove `docs/plans/README.md`.
+- Next command: `/run` (Step 9.11 — Food, Delivery & Grocery cluster).
+
 ## 2026-05-08 - Phase 9 Step 9.9: Generate Build Plans — Photo & Video Creation Cluster (42 Apps)
 
 - Ran `scripts/generate-build-plans.mjs --execute` on three ID ranges:
