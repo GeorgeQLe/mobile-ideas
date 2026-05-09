@@ -370,7 +370,7 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
   - Test strategy: `gh api` reads + placeholder grep on each pushed plan
 
   **Ship-one-step handoff contract:** Implement only Step 9.11. Validate it. Mark Step 9.11 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.12's plan. Enter plan mode for Step 9.12, and stop.
-- [ ] Step 9.12: Generate build plans — Finance & Payments cluster (~72 apps)
+- [x] Step 9.12: Generate build plans — Finance & Payments cluster (~72 apps)
 
   ### Step 9.12 Implementation Plan
 
@@ -399,6 +399,33 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
 
   **Ship-one-step handoff contract:** Implement only Step 9.12. Validate it. Mark Step 9.12 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.13's plan. Enter plan mode for Step 9.13, and stop.
 - [ ] Step 9.13: Generate build plans — Travel & Transportation cluster (~79 apps)
+
+  ### Step 9.13 Implementation Plan
+
+  **What to build:** Generate and push build plans for all Travel & Transportation cluster apps (~79 apps).
+
+  **Files:**
+  - Modify: `tasks/todo.md` (mark 9.13 done)
+  - Modify: `tasks/history.md` (add 9.13 entry)
+
+  **Technical approach:**
+  1. Run `scripts/generate-build-plans.mjs --execute --from 29 --to 37` (batch-02 partial: Uber, Lyft, Lime, Turo, Airbnb, Booking.com, Expedia, Hopper, TripIt — 9 rideshare/travel booking apps).
+  2. Run `scripts/generate-build-plans.mjs --execute --from 523 --to 560` (batch-27/28: Delta, United, American, Southwest, JetBlue, Alaska, Spirit, Frontier, Hawaiian, Air Canada, British Airways, Lufthansa, Air France, KLM, Emirates, Qatar Airways, Singapore Airlines, Turkish Airlines, Ryanair, easyJet, Wizz Air, ANA, JAL, Cathay Pacific, Marriott Bonvoy, Hilton Honors, Hyatt, IHG, Wyndham, Choice Hotels, Accor ALL, Hotels.com, Vrbo, Hostelworld, Couchsurfing, Klook, GetYourGuide, Viator — 38 airlines/hotels/activities apps).
+  3. Run `scripts/generate-build-plans.mjs --execute --from 561 --to 600` (batch-29/30: Tripadvisor, Rome2Rio, Skyscanner, KAYAK, momondo, Priceline, Agoda, trivago, HotelTonight, Roadtrippers, Transit, Citymapper, Moovit, Curb, Via, Bolt, FREE NOW, BlaBlaCar, Zipcar, Getaround, Enterprise, Hertz, Avis, SpotHero, ParkMobile, Passport Parking, PlugShare, ChargePoint, Electrify America, Tesla, FordPass, myChevrolet, Toyota, Hyundai Bluelink, BMW, Mercedes me, Gaia GPS, onX Hunt, Trailforks, Wikiloc — 40 travel search/transit/rental/auto/outdoor apps).
+  4. After each batch run, verify via `gh api` that `docs/plans/README.md` exists in each downstream repo with 0 unfilled placeholders.
+  5. Spot-check 3 plans from different subcategories (e.g., airline, hotel, rideshare, travel search, car rental, EV charging) for travel-appropriate variant architecture (booking flows, itinerary management, real-time tracking, maps integration, loyalty programs, check-in, boarding passes, reservation management).
+
+  **Acceptance criteria:**
+  - All Travel & Transportation cluster apps have `docs/plans/README.md` with 0 unfilled placeholders.
+  - Variant architecture uses travel-specific defaults (booking/reservation flows, maps/location, real-time tracking, loyalty/rewards).
+  - No script errors or push failures during the run.
+
+  **Execution Profile:**
+  - Mode: serial
+  - Integration owner: main agent
+  - Test strategy: `gh api` reads + placeholder grep on each pushed plan
+
+  **Ship-one-step handoff contract:** Implement only Step 9.13. Validate it. Mark Step 9.13 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.14's plan. Enter plan mode for Step 9.14, and stop.
 - [ ] Step 9.14: Generate build plans — Health, Fitness & Wellness cluster (~81 apps)
 - [ ] Step 9.15: Generate build plans — Education & Learning cluster (~31 apps)
 - [ ] Step 9.16: Generate build plans — Productivity & Collaboration cluster (~72 apps)
