@@ -1,5 +1,27 @@
 # History
 
+## 2026-05-08 - Phase 9 Step 9.13: Generate Build Plans — Travel & Transportation Cluster (87 Apps)
+
+- Ran `scripts/generate-build-plans.mjs --execute` on three ID ranges:
+  - `--from 29 --to 37`: Uber, Lyft, Lime, Turo, Airbnb, Booking.com, Expedia, Hopper, TripIt (9 rideshare/travel booking apps)
+  - `--from 523 --to 560`: Delta, United, American, Southwest, JetBlue, Alaska, Spirit, Frontier, Hawaiian, Air Canada, British Airways, Lufthansa, Air France, KLM, Emirates, Qatar Airways, Singapore Airlines, Turkish Airlines, Ryanair, easyJet, Wizz Air, ANA, JAL, Cathay Pacific, Marriott Bonvoy, Hilton Honors, Hyatt, IHG, Wyndham, Choice Hotels, Accor ALL, Hotels.com, Vrbo, Hostelworld, Couchsurfing, Klook, GetYourGuide, Viator (38 airlines/hotels/activities apps)
+  - `--from 561 --to 600`: Tripadvisor, Rome2Rio, Skyscanner, KAYAK, momondo, Priceline, Agoda, trivago, HotelTonight, Roadtrippers, Transit, Citymapper, Moovit, Curb, Via, Bolt, FREE NOW, BlaBlaCar, Zipcar, Getaround, Enterprise, Hertz, Avis, SpotHero, ParkMobile, Passport Parking, PlugShare, ChargePoint, Electrify America, Tesla, FordPass, myChevrolet, Toyota, Hyundai Bluelink, BMW, Mercedes me, Gaia GPS, onX Hunt, Trailforks, Wikiloc (40 travel search/transit/rental/auto/outdoor apps)
+- All 87 downstream repos verified via `gh api`: `docs/plans/README.md` exists with 0 unfilled `{{...}}` placeholders.
+- Spot-checked 3 plans from different subcategories:
+  - Delta (airline): route map with Welcome/Auth, Search, Map/List Results, Detail, Booking/Plan, Checkout/Confirm, Live Status, Messages, History, Support; airline travel category; 12 data model entities including Location, Booking, Route; KYC/location privacy, payment disputes, fraud flagged as launch-blocking review areas.
+  - Marriott Bonvoy (hotel loyalty): travel booking category; route map covering search, detail, booking, checkout, live status, history, support; Location, Listing, Availability, Booking entities for hotel reservation flows.
+  - ChargePoint (EV charging): transportation category; route map covering search, map/list results, detail, booking, checkout, live status; Location and Availability entities for charging station management; payment and location privacy flagged as launch-blocking.
+- No push failures or script errors across any batch.
+
+### Ship Manifest
+
+- User goal: generate build plans for all Travel & Transportation cluster apps (Step 9.13).
+- Changed files: `tasks/todo.md` (marked 9.13 done, added 9.14 plan), `tasks/history.md` (this entry).
+- Tests run: `gh api` verification for file existence and placeholder absence on all 87 repos; content spot-checks on 3 plans.
+- Skipped tests: no runtime test suite (planning repo).
+- Rollback note: revert downstream commits in the 87 repos to remove `docs/plans/README.md`.
+- Next command: `/run` (Step 9.14 — Health, Fitness & Wellness cluster).
+
 ## 2026-05-08 - Phase 9 Step 9.12: Generate Build Plans — Finance & Payments Cluster (72 Apps)
 
 - Ran `scripts/generate-build-plans.mjs --execute` on three ID ranges:

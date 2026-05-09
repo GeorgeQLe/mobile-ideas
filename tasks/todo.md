@@ -398,7 +398,7 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
   - Test strategy: `gh api` reads + placeholder grep on each pushed plan
 
   **Ship-one-step handoff contract:** Implement only Step 9.12. Validate it. Mark Step 9.12 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.13's plan. Enter plan mode for Step 9.13, and stop.
-- [ ] Step 9.13: Generate build plans — Travel & Transportation cluster (~79 apps)
+- [x] Step 9.13: Generate build plans — Travel & Transportation cluster (~79 apps)
 
   ### Step 9.13 Implementation Plan
 
@@ -426,7 +426,35 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
   - Test strategy: `gh api` reads + placeholder grep on each pushed plan
 
   **Ship-one-step handoff contract:** Implement only Step 9.13. Validate it. Mark Step 9.13 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.14's plan. Enter plan mode for Step 9.14, and stop.
-- [ ] Step 9.14: Generate build plans — Health, Fitness & Wellness cluster (~81 apps)
+- [ ] Step 9.14: Generate build plans — Health, Fitness & Wellness cluster (~87 apps)
+
+  ### Step 9.14 Implementation Plan
+
+  **What to build:** Generate and push build plans for all Health, Fitness & Wellness cluster apps (~87 apps).
+
+  **Files:**
+  - Modify: `tasks/todo.md` (mark 9.14 done)
+  - Modify: `tasks/history.md` (add 9.14 entry)
+
+  **Technical approach:**
+  1. Run `scripts/generate-build-plans.mjs --execute --from 82 --to 88` (batch-05 partial: Headspace, Calm, Strava, Nike Run Club, MyFitnessPal, Fitbit, Flo — 7 meditation/fitness/tracking apps).
+  2. Run `scripts/generate-build-plans.mjs --execute --from 150 --to 164` (batch-08 partial: GoodRx, Walgreens, Zocdoc, Teladoc, BetterHelp, Talkspace, Hims & Hers, Ro, Oura, Whoop, Sleep Cycle, Clue, Ovia, BabyCenter, Huckleberry — 15 pharmacy/telehealth/wellness/parenting apps).
+  3. Run `scripts/generate-build-plans.mjs --execute --from 341 --to 368` (batch-18/19: Yahoo Sports, CBS Sports, Fox Sports, NBA, NFL, MLB, NHL, MLS, PGA Tour, ESPN Fantasy, FanDuel, DraftKings, Sleeper, Peloton, SWEAT, Fitbod, Zwift, Garmin Connect, Nike Training Club, Fitbod, Strong, Hevy, Runkeeper, MapMyRun, Komoot, Relive, TrainerRoad, TrainingPeaks — 28 sports/fitness apps).
+  4. Run `scripts/generate-build-plans.mjs --execute --from 661 --to 697` (batch-34/35: Express Scripts, Amwell, MDLIVE, Doctor on Demand, HealthTap, One Medical, Carbon Health, Nurx, Maven Clinic, Noom, Lose It!, Cronometer, Lifesum, WaterMinder, Pillow, AutoSleep, SleepScore, Withings Health Mate, Samsung Health, Apple Health, Google Fit, Athlytic, Welltory, Rise Sleep, Pzizz, The Bump, What to Expect, Peanut, Find My Kids, Family Link, OurPact, Circle, FamCal, Winnie, Kinedu, Sprout Baby, FamilyAlbum — 37 health/medical/sleep/parenting apps).
+  5. After each batch run, verify via `gh api` that `docs/plans/README.md` exists in each downstream repo with 0 unfilled placeholders.
+  6. Spot-check 3 plans from different subcategories (e.g., telehealth, fitness wearable, sports, nutrition, sleep tracking, parenting) for health-appropriate variant architecture (health data sync, wearable integration, HIPAA/health privacy, workout tracking, meal/nutrition logging, sleep analysis, appointment booking, prescription management, cycle tracking).
+
+  **Acceptance criteria:**
+  - All Health, Fitness & Wellness cluster apps have `docs/plans/README.md` with 0 unfilled placeholders.
+  - Variant architecture uses health-specific defaults (health data sync, wearable APIs, privacy/HIPAA, workout/nutrition tracking, appointment scheduling).
+  - No script errors or push failures during the run.
+
+  **Execution Profile:**
+  - Mode: serial
+  - Integration owner: main agent
+  - Test strategy: `gh api` reads + placeholder grep on each pushed plan
+
+  **Ship-one-step handoff contract:** Implement only Step 9.14. Validate it. Mark Step 9.14 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.15's plan. Enter plan mode for Step 9.15, and stop.
 - [ ] Step 9.15: Generate build plans — Education & Learning cluster (~31 apps)
 - [ ] Step 9.16: Generate build plans — Productivity & Collaboration cluster (~72 apps)
 - [ ] Step 9.17: Generate build plans — News, Maps & Navigation cluster (~57 apps)
