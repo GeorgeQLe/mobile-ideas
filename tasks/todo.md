@@ -426,7 +426,7 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
   - Test strategy: `gh api` reads + placeholder grep on each pushed plan
 
   **Ship-one-step handoff contract:** Implement only Step 9.13. Validate it. Mark Step 9.13 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.14's plan. Enter plan mode for Step 9.14, and stop.
-- [ ] Step 9.14: Generate build plans — Health, Fitness & Wellness cluster (~87 apps)
+- [x] Step 9.14: Generate build plans — Health, Fitness & Wellness cluster (~87 apps)
 
   ### Step 9.14 Implementation Plan
 
@@ -456,6 +456,33 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
 
   **Ship-one-step handoff contract:** Implement only Step 9.14. Validate it. Mark Step 9.14 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.15's plan. Enter plan mode for Step 9.15, and stop.
 - [ ] Step 9.15: Generate build plans — Education & Learning cluster (~31 apps)
+
+  ### Step 9.15 Implementation Plan
+
+  **What to build:** Generate and push build plans for all Education & Learning cluster apps (~31 apps).
+
+  **Files:**
+  - Modify: `tasks/todo.md` (mark 9.15 done)
+  - Modify: `tasks/history.md` (add 9.15 entry)
+
+  **Technical approach:**
+  1. Run `scripts/generate-build-plans.mjs --execute --from 89 --to 95` (batch-05 partial: Duolingo, Khan Academy, Quizlet, Photomath, Coursera, Udemy, Skillshare — 7 language/learning apps).
+  2. Run `scripts/generate-build-plans.mjs --execute --from 165 --to 180` (batch-09 partial: Chegg, Brainly, Socratic, StudyBlue, Anki, Memrise, Babbel, Rosetta Stone, Busuu, HelloTalk, Tandem, Preply, Cambly, italki, Lingoda, Speechling — 16 study/language apps).
+  3. Run `scripts/generate-build-plans.mjs --execute --from 698 --to 705` (batch-35 partial: Blackboard Learn, Moodle, Google Classroom, Seesaw, ClassDojo, Remind, Schoology, Canvas — 8 classroom/LMS apps).
+  4. After each batch run, verify via `gh api` that `docs/plans/README.md` exists in each downstream repo with 0 unfilled placeholders.
+  5. Spot-check 3 plans from different subcategories (e.g., language learning, tutoring/study, LMS/classroom) for education-appropriate variant architecture (lesson/course progression, quiz/assessment engine, spaced repetition, student/teacher roles, assignment submission, grading, flashcards, progress tracking, classroom management).
+
+  **Acceptance criteria:**
+  - All Education & Learning cluster apps have `docs/plans/README.md` with 0 unfilled placeholders.
+  - Variant architecture uses education-specific defaults (lesson progression, quiz engine, spaced repetition, student/teacher roles, progress tracking).
+  - No script errors or push failures during the run.
+
+  **Execution Profile:**
+  - Mode: serial
+  - Integration owner: main agent
+  - Test strategy: `gh api` reads + placeholder grep on each pushed plan
+
+  **Ship-one-step handoff contract:** Implement only Step 9.15. Validate it. Mark Step 9.15 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.16's plan. Enter plan mode for Step 9.16, and stop.
 - [ ] Step 9.16: Generate build plans — Productivity & Collaboration cluster (~72 apps)
 - [ ] Step 9.17: Generate build plans — News, Maps & Navigation cluster (~57 apps)
 - [ ] Step 9.18: Generate build plans — Home, Security, Cloud & Enterprise cluster (~137 apps)
