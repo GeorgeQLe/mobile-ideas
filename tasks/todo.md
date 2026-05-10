@@ -152,6 +152,79 @@ Build all five variants for every app in the AI & Assistants category cluster to
   - Implement: conversational threads, file/context ingestion, project organization, artifact-style outputs, privacy controls, usage limits, subscriptions, safety review gates.
   - Reuse streaming and conversation patterns from Step 11.2; extend with project/workspace concepts and artifact rendering.
 
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  A Claude-style mobile AI assistant app across 5 variant stacks. The source spec is at `specs/batch-01/002-claude.md` in the `mobile-ideas` repo. The downstream repo is `GeorgeQLe/claude-mobile-clone` (PRIVATE, scaffold already in place with variant dirs, shared dirs, and CI workflows).
+
+  **Spec Summary (from `002-claude.md`):**
+  - 11 screens: Welcome/Auth, Assistant Home, Chat Thread, Attachment & File Picker, Voice Dictation, Projects/Knowledge, Artifacts Preview, History Search, Privacy Controls, Subscription, Support & Safety.
+  - 12 data models: User, DeviceSession, Conversation, Message, Attachment, ProjectSpace, GeneratedArtifact, VoiceDraft, PrivacySetting, Entitlement, SafetyReport, AuditEvent.
+  - 20+ API endpoints for auth, account/settings, threads, messages, uploads, search, reports/blocks/mutes, notifications, entitlements/billing, data export/deletion, support.
+  - Build plan phases: (1) app shell + auth + home + streaming, (2) conversation + uploads + drafts + offline, (3) search + history + projects + artifacts + notifications, (4) privacy + export + deletion, (5) entitlements/billing, (6) safety + accessibility.
+
+  **Distinct from ChatGPT clone (Step 11.2):**
+  - ProjectSpace entity: workspace/knowledge base with uploaded documents, context ingestion
+  - GeneratedArtifact entity: structured outputs (code, documents, visualizations) rendered in preview pane
+  - VoiceDraft entity: dictation-first input (not real-time voice conversation like ChatGPT)
+  - PrivacySetting as standalone entity (not embedded in PersonalizationSettings)
+  - No MemoryRecord, UsageLimit, ContentPart, VoiceSession (different model shape)
+  - Search endpoint with suggestions (`POST /search`, `GET /search/suggestions`)
+  - Block/mute lifecycle (`POST /blocks`, `POST /mutes`)
+
+  **Per-Variant File Structure:**
+  Each variant dir (`variants/{react-native,flutter,expo,ios-native,android-native}/`) gets:
+  - App entry point, navigation setup, screen components for all 11 screens.
+  - Data models / types matching the spec's 12 entities.
+  - API service layer with typed contracts for all endpoints.
+  - State management (Zustand for RN/Expo, Riverpod for Flutter, @Observable for iOS, ViewModel for Android).
+  - Streaming message renderer (SSE/WebSocket consumer — reuse patterns from ChatGPT clone).
+  - Artifact preview renderer (code blocks, markdown, structured output).
+  - Basic test suite (unit tests for data models, state machines; integration tests for API contracts).
+  - README updated from "scaffold" to "V1 implementation".
+
+  **Approach:**
+  1. Clone the downstream repo to `/tmp/claude-mobile-clone`.
+  2. Create shared API contracts and test fixtures in `shared/`.
+  3. Implement all 5 variants in parallel (independent directories, different languages).
+  4. For each variant: create project structure, implement all screens, wire navigation, add data models, create API service stubs, add streaming + artifact renderer, write tests.
+  5. Commit each variant as a separate commit, push all at end.
+  6. Verify key files exist on remote via `gh api`.
+
+  **Key Technical Decisions:**
+  - Mock/stub API backend — no real AI provider integration in V1.
+  - SSE streaming patterns reused from ChatGPT clone with same event protocol.
+  - Artifact preview renders markdown/code blocks with syntax highlighting stubs.
+  - ProjectSpace is a collection of conversations + uploaded documents.
+  - Voice dictation is input-only (speech-to-text stub), not bidirectional voice mode.
+  - Auth flow uses placeholder — real OAuth/social auth deferred.
+
+  **Constraints:**
+  - Serial commit, parallel implementation via subagents.
+  - Must not copy Anthropic/Claude branding, plan names, model names, or proprietary UI artwork.
+  - Manual verification blockers (native screenshots, paid flows, push notifications, dictation behavior) remain documented as open questions.
+
+  **Acceptance Criteria:**
+  - All 5 variants have complete source code pushed to `GeorgeQLe/claude-mobile-clone`.
+  - All 11 screens have component stubs with navigation wiring.
+  - All 12 data models are typed and used in state management.
+  - API service layer has typed contracts for all documented endpoints.
+  - Streaming message renderer handles token events, completion, and error states.
+  - Artifact preview renderer handles code, markdown, and structured output types.
+  - Variant READMEs updated from "scaffold" to "V1 implementation" status.
+  - No proprietary assets, no trademark infringement, no copied code.
+
+  **Execution Profile:**
+  - Parallel mode: serial (one variant at a time within the single downstream repo, but subagents can parallelize)
+  - Integration owner: main agent
+  - Test strategy: tests-after (write tests as part of implementation)
+  - Conflict risk: none (single repo, single branch)
+
+  **Ship-one-step handoff contract:** Implement only Step 11.3, validate it (all 5 variants have complete source, key files verified on remote), then run `/ship` when done.
+
+  **Next work:** Step 11.3 — Implement Claude clone across all 5 variants
+  **Recommended next command:** `/run`
+
 - [ ] Step 11.4: Implement pilot app 3 — Perplexity clone (all 5 variants)
   - Files: `GeorgeQLe/perplexity-mobile-clone` — all 5 `variants/` directories
   - Read source spec `specs/batch-01/003-perplexity.md` and build plan.
