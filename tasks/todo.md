@@ -349,7 +349,7 @@ Build all five variants for every app in the AI & Assistants category cluster to
   **Next work:** Step 11.5 — Implement Character.AI clone across all 5 variants
   **Recommended next command:** `/run`
 
-- [ ] Step 11.6: Implement pilot app 5 — Replika clone (all 5 variants)
+- [x] Step 11.6: Implement pilot app 5 — Replika clone (all 5 variants)
   - Files: `GeorgeQLe/replika-mobile-clone` — all 5 `variants/` directories
   - Read source spec `specs/batch-01/005-replika.md` and build plan.
   - Implement: relationship onboarding, memory/profile state, mood and journal loops, voice/chat surfaces, avatar feature gates, wellbeing safeguards, subscription controls.
