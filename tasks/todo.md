@@ -254,58 +254,69 @@ Build the shared CI/CD templates, benchmarking harness, and multi-variant branch
   **Ship-one-step handoff contract:**
   Implement only Step 10.6. Validate it. Mark Step 10.6 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 10.7's plan. Then run `/ship` when done.
 
-- [ ] Step 10.7: Design and document multi-variant repo structure convention
+- [x] Step 10.7: Design and document multi-variant repo structure convention
   - Files: create `templates/variant-structure.md`, modify `templates/downstream/README.md`
   - Document the directory convention: `variants/react-native/`, `variants/flutter/`, `variants/expo/`, `variants/ios-native/`, `variants/android-native/`.
   - Each variant directory contains: `src/`, `package.json` or equivalent, variant-specific config, `README.md` with build/run instructions.
   - Shared assets directory: `shared/assets/`, `shared/api-contracts/`, `shared/test-fixtures/`.
   - Document how CI/CD templates reference variant paths.
 
-  **Implementation Plan — Step 10.7:**
-
-  **What to build:**
-  Two documentation files in the `mobile-ideas` repo: `templates/variant-structure.md` (comprehensive multi-variant directory convention) and an updated `templates/downstream/README.md` (downstream repo README template referencing the variant structure). These documents define the standard layout that all 1000 downstream repos will follow during implementation phases.
-
-  **Steps:**
-  1. Read existing `templates/downstream/README.md` to understand current template structure.
-  2. Create `templates/variant-structure.md`:
-     - Top-level directory tree showing `variants/`, `shared/`, `.github/workflows/`, and root config files.
-     - Per-variant directory spec: `variants/react-native/` (package.json, metro.config.js, src/, ios/, android/), `variants/flutter/` (pubspec.yaml, lib/, ios/, android/), `variants/expo/` (app.json, package.json, src/), `variants/ios-native/` (Xcode project, Sources/, Resources/), `variants/android-native/` (Gradle project, app/src/main/).
-     - Shared directory spec: `shared/assets/` (images, fonts, icons), `shared/api-contracts/` (OpenAPI specs, TypeScript types), `shared/test-fixtures/` (mock data, test snapshots).
-     - CI/CD integration: how workflow templates reference `variants/<name>/` paths for build/test/benchmark steps.
-     - Naming conventions, gitignore patterns, and variant-specific config files.
-  3. Update `templates/downstream/README.md`:
-     - Add a "Project Structure" section referencing the variant layout.
-     - Add per-variant build/run instructions as subsections.
-     - Link to `variant-structure.md` for full convention details.
-  4. Verify Markdown structure (one H1, stable headings).
-  5. Commit and push.
-
-  **Key decisions:**
-  - Documentation-only step — no code changes in the harness repo.
-  - Variant directories are peers under `variants/`, not branches — keeps all variants visible and diffable.
-  - Shared directory is at repo root, not duplicated per variant.
-  - CI templates will use matrix strategy over variant paths (detailed in Step 10.8).
-
-  **Execution Profile:**
-  - Parallel mode: serial
-  - Integration owner: main agent
-  - Test strategy: Markdown structure validation only
-
-  **Acceptance Criteria:**
-  - `templates/variant-structure.md` exists with complete directory convention for all 5 variants.
-  - `templates/downstream/README.md` references the variant structure and includes per-variant build instructions.
-  - Both files have one H1 and stable Markdown headings.
-  - Committed and pushed to mobile-ideas repo.
-
-  **Ship-one-step handoff contract:**
-  Implement only Step 10.7. Validate it. Mark Step 10.7 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 10.8's plan. Then run `/ship` when done.
-
 - [ ] Step 10.8: Create CI/CD workflow templates for all 5 variant stacks
   - Files: create `templates/ci/react-native.yml`, `templates/ci/flutter.yml`, `templates/ci/expo.yml`, `templates/ci/ios-native.yml`, `templates/ci/android-native.yml`, `templates/ci/benchmark.yml`
   - Each template: build, lint, type check, test, and benchmark for its variant stack.
   - Benchmark workflow: runs after build, invokes the harness, uploads scorecard JSON as artifact.
   - Templates use reusable workflow patterns (GitHub Actions composite actions or reusable workflows).
+
+  **Implementation Plan — Step 10.8:**
+
+  **What to build:**
+  Six GitHub Actions workflow template files in `templates/ci/`: one per variant stack (react-native, flutter, expo, ios-native, android-native) plus a shared benchmark workflow. Each variant workflow handles build, lint, type check, and test. The benchmark workflow runs after build, invokes `mobile-benchmark-harness`, and uploads the scorecard JSON as a workflow artifact.
+
+  **Steps:**
+  1. Create `templates/ci/` directory.
+  2. Create `templates/ci/react-native.yml`:
+     - Trigger: push/PR to `variants/react-native/**` or `shared/**`.
+     - Steps: checkout, setup-node, `npm ci`, `npx eslint src/`, `npx tsc --noEmit`, `npx jest --ci`, build iOS/Android.
+  3. Create `templates/ci/flutter.yml`:
+     - Trigger: push/PR to `variants/flutter/**` or `shared/**`.
+     - Steps: checkout, setup flutter (subosito/flutter-action), `flutter pub get`, `flutter analyze`, `flutter test`, `flutter build apk --debug`.
+  4. Create `templates/ci/expo.yml`:
+     - Trigger: push/PR to `variants/expo/**` or `shared/**`.
+     - Steps: checkout, setup-node, `npm ci`, `npx eslint src/`, `npx tsc --noEmit`, `npx jest --ci`, `npx expo export --platform web` (CI validation).
+  5. Create `templates/ci/ios-native.yml`:
+     - Trigger: push/PR to `variants/ios-native/**` or `shared/**`.
+     - Runner: `macos-latest`.
+     - Steps: checkout, select Xcode, `xcodebuild build`, `swiftlint`, `xcodebuild test`.
+  6. Create `templates/ci/android-native.yml`:
+     - Trigger: push/PR to `variants/android-native/**` or `shared/**`.
+     - Steps: checkout, setup-java, `./gradlew ktlintCheck`, `./gradlew assembleDebug`, `./gradlew test`.
+  7. Create `templates/ci/benchmark.yml`:
+     - Trigger: workflow_call (reusable) or manual dispatch.
+     - Matrix: all 5 variants.
+     - Steps: run harness `npx @mobile-benchmark/harness --variant ${{ matrix.variant }}`, upload `benchmark-results.json` as artifact.
+  8. Validate YAML syntax for all 6 files.
+  9. Commit and push.
+
+  **Key decisions:**
+  - Workflows are templates (copied into downstream repos), not reusable workflows called from a central repo — simpler for 1000 repos to manage independently.
+  - Path-filtered triggers minimize CI cost — only the changed variant rebuilds.
+  - Benchmark is a separate workflow (not embedded in each variant workflow) to keep scoring centralized and consistent.
+  - iOS workflow requires macOS runner; all others use ubuntu-latest.
+
+  **Execution Profile:**
+  - Parallel mode: serial
+  - Integration owner: main agent
+  - Test strategy: YAML syntax validation only (no live GitHub Actions runs)
+
+  **Acceptance Criteria:**
+  - 6 workflow files exist in `templates/ci/` with correct YAML syntax.
+  - Each variant workflow covers build, lint, type check, and test for its stack.
+  - Benchmark workflow uses matrix strategy and uploads scorecard artifact.
+  - Path-filtered triggers match the variant structure from `templates/variant-structure.md`.
+  - Committed and pushed to mobile-ideas repo.
+
+  **Ship-one-step handoff contract:**
+  Implement only Step 10.8. Validate it. Mark Step 10.8 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 10.9's plan. Then run `/ship` when done.
 
 - [ ] Step 10.9: Scaffold multi-variant structure in pilot repo
   - Files: modify pilot downstream repo (Todoist: `GeorgeQLe/todoist-mobile-clone`)

@@ -37,8 +37,70 @@ All visual assets, icons, seed records, fixtures, demos, and screenshots committ
 
 Features that require a real account, paid subscription, regulated sandbox, regional availability, device permission, native device behavior, third-party approval, physical hardware, or sensitive data handling remain blocked until verified and recorded in the task docs.
 
+## Project Structure
+
+This repository uses the multi-variant directory convention. Each app is implemented in up to five variant stacks, all in a single repository under `variants/`. Shared resources live in `shared/`.
+
+```
+variants/
+├── react-native/     # React Native CLI + TypeScript
+├── flutter/          # Flutter + Dart
+├── expo/             # Expo + TypeScript
+├── ios-native/       # Swift (SwiftUI / UIKit)
+└── android-native/   # Kotlin (Jetpack Compose)
+
+shared/
+├── assets/           # Icons, images, fonts (original only)
+├── api-contracts/    # OpenAPI specs, shared types
+└── test-fixtures/    # Mock data, snapshots, golden files
+```
+
+See [`variant-structure.md`](../variant-structure.md) for the full directory convention, per-variant file layouts, CI/CD integration, naming conventions, and gitignore patterns.
+
+## Build and Run
+
+### React Native
+
+```bash
+cd variants/react-native
+npm install
+npx react-native run-ios    # or run-android
+```
+
+### Flutter
+
+```bash
+cd variants/flutter
+flutter pub get
+flutter run
+```
+
+### Expo
+
+```bash
+cd variants/expo
+npm install
+npx expo start
+```
+
+### iOS Native
+
+```bash
+cd variants/ios-native
+xcodebuild -scheme {{PROJECT_NAME}} -destination 'platform=iOS Simulator,name=iPhone 16'
+```
+
+### Android Native
+
+```bash
+cd variants/android-native
+./gradlew assembleDebug
+```
+
 ## Repository Map
 
+- `variants/` - variant implementations (one per stack).
+- `shared/` - cross-variant assets, API contracts, and test fixtures.
 - `docs/source-specs/` - seeded copy of the source spec from the canonical spec store.
 - `docs/plans/` - implementation planning notes and phase plans.
 - `tasks/roadmap.md` - downstream implementation roadmap.

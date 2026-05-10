@@ -1803,3 +1803,21 @@
 - Residual risk: health-specific regulatory compliance (HIPAA, FDA, COPPA for parenting apps) requires category-specific risk review before implementation per CLAUDE.md.
 - Rollback note: revert shipping commit to restore Step 9.14 to incomplete state; downstream plans remain in repos independently.
 - Next command: `$run`.
+
+## 2026-05-09 - Phase 10 Step 10.7 Multi-Variant Repo Structure Convention
+
+- Created `templates/variant-structure.md` — comprehensive multi-variant directory convention covering all 5 stacks (react-native, flutter, expo, ios-native, android-native), shared directory layout, CI/CD integration patterns, naming conventions, and gitignore patterns.
+- Updated `templates/downstream/README.md` — added "Project Structure" section with variant tree overview, per-variant build/run instructions, link to variant-structure.md, and updated Repository Map to include `variants/` and `shared/` entries.
+- Validated both files have exactly one H1 (outside code fences) and stable Markdown headings.
+- Wrote Step 10.8 implementation plan (CI/CD workflow templates for all 5 variant stacks).
+
+### Ship Manifest
+
+- User goal: execute Step 10.7 — design and document multi-variant repo structure convention.
+- Changed files: `templates/variant-structure.md` (new), `templates/downstream/README.md` (modified), `tasks/todo.md` (Step 10.7 marked done, Step 10.8 plan added), `tasks/history.md`.
+- Per-file purpose: variant-structure.md defines the standard directory layout for all 1000 downstream repos; downstream README template references the convention and adds build instructions.
+- Tests run: H1 count validation (awk-based, excludes fenced code blocks) — both files have exactly 1 H1.
+- Skipped tests: no runtime code in this repo.
+- Residual risk: none — documentation-only step.
+- Rollback note: revert shipping commit to remove variant-structure.md and restore downstream README template.
+- Next command: `/run` (Step 10.8 — CI/CD workflow templates).
