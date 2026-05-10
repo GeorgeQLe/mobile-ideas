@@ -420,6 +420,61 @@ Build all five variants for every app in the AI & Assistants category cluster to
   - Reuse shared AI chat patterns from pilot apps; differentiate per app's unique features (model routing for Poe, workspace integration for Copilot, etc.).
   - Serial within each app, but apps are independent repos.
 
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **Prerequisite — Specs must be created first:**
+  The batch app specs (201-205) are listed as "Draft 1" in the App Inventory but the spec files do NOT exist yet under `specs/`. Before implementation can begin, specs must be written for all 5 apps:
+  - `specs/batch-03/201-poe.md`
+  - `specs/batch-03/202-gemini.md`
+  - `specs/batch-03/203-microsoft-copilot.md`
+  - `specs/batch-03/204-grok.md`
+  - `specs/batch-03/205-deepseek.md`
+
+  Each spec must follow the same structure as the pilot specs (`specs/batch-01/001-chatgpt.md` etc.): Research Sources table with exact first-party URLs, Screen Inventory, Data Model, API And Backend Contracts, SSE events, Edge Cases, Test Plan, Build Plan. Use `/spec-interview` or research-based spec generation to create implementation-ready specs before coding.
+
+  **What to Build (after specs exist):**
+  5 conversational AI assistant apps, each across 5 variant stacks. All share a common AI chat architecture but each has distinct features:
+
+  | App | Repo | Key Differentiator |
+  |-----|------|--------------------|
+  | 201 Poe | `GeorgeQLe/poe-mobile-clone` | Multi-model routing, bot marketplace, creator tools |
+  | 202 Gemini | `GeorgeQLe/gemini-mobile-clone` | Google integration, multimodal (images, code), Extensions |
+  | 203 Microsoft Copilot | `GeorgeQLe/microsoft-copilot-mobile-clone` | M365 workspace integration, GPT Builder, Copilot GPTs |
+  | 204 Grok | `GeorgeQLe/grok-mobile-clone` | X/Twitter integration, real-time data, image generation |
+  | 205 DeepSeek | `GeorgeQLe/deepseek-mobile-clone` | Deep thinking mode, code interpreter, reasoning chain display |
+
+  **Per-App Approach (serial, one app at a time):**
+  1. Read the app's spec from `specs/batch-03/`
+  2. Create shared API contracts and test fixtures in the downstream repo's `shared/`
+  3. Launch 5 parallel subagents (one per variant)
+  4. Commit per variant, push, verify key files on remote
+
+  **Reusable patterns from pilot apps:**
+  - SSE streaming with token/completion/error events (all 5 pilots)
+  - Auth/session model (all 5 pilots)
+  - Zustand (RN/Expo), Riverpod (Flutter), @Observable (iOS), ViewModel (Android) state patterns
+  - Test suite structure (6 files: models, auth, primary-store, chat, streaming, API)
+
+  **Execution Profile:**
+  - Parallel mode: serial across apps (5 apps × 5 variants = 25 variant implementations), parallel within each app (5 subagents)
+  - Integration owner: main agent
+  - Test strategy: tests-after
+  - Estimated scope: ~1250 files across 5 repos
+
+  **Step 1 (this execution): Create the 5 specs first.**
+  If specs do not exist when execution begins, the session must create them before proceeding to implementation. Use public marketplace listings, help centers, and product pages as research sources. Each spec should be implementation-ready.
+
+  **Acceptance Criteria:**
+  - All 5 specs exist and are implementation-ready
+  - All 5 repos have complete source code pushed (5 variants each)
+  - Key files verified on remote via `gh api`
+  - No proprietary assets or trademark infringement
+
+  **Ship-one-step handoff contract:** Implement only Step 11.7. If specs don't exist, create them first, then implement all 5 apps × 5 variants. Validate (all variants have complete source, key files verified on remote). Then run `/ship` when done.
+
+  **Next work:** Step 11.7 — Create specs and implement batch apps 201-205
+  **Recommended next command:** `/run`
+
 - [ ] Step 11.8: Implement batch apps 206-210 — Meta AI, You.com, Pi, Phind, HuggingChat (all 5 variants each)
   - Files: 5 downstream repos (meta-ai, you-com, pi, phind, huggingchat)
   - Similar conversational AI architecture. Each app has distinct UX focus (social integration for Meta AI, developer focus for Phind, open-source emphasis for HuggingChat).
