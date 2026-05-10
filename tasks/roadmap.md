@@ -17,7 +17,7 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 | Phase 7 | Complete | Backlog extension pipeline for IDs 101-200 (Draft 0 -> readiness -> seeding). |
 | Phase 8 | Complete | 1000-app backlog, implementation-ready specs, plan queue, and private downstream repos. |
 | Phase 9 | Active | Detailed build plans for all 1000 apps in downstream repos. |
-| Phase 10 | Pending | Benchmarking infrastructure, CI/CD templates, and multi-variant repo structure. |
+| Phase 10 | Done | Benchmarking infrastructure, CI/CD templates, and multi-variant repo structure. |
 | Phase 11 | Pending | Implementation: AI & Assistants cluster (~26 apps × 5 variants). |
 | Phase 12 | Pending | Implementation: Social, Dating & Community cluster (~31 apps × 5 variants). |
 | Phase 13 | Pending | Implementation: Messaging & Email cluster (~37 apps × 5 variants). |
@@ -1514,16 +1514,16 @@ Phase 8 completed 2026-05-06. All 1000 IDs have backlog rows, implementation-rea
 ### Milestone: Phase 10 — Benchmarking Infrastructure & Multi-Variant Repo Structure
 
 **Acceptance Criteria:**
-- [ ] Benchmarking harness repo exists with automated scoring for all 7 benchmark dimensions.
-- [ ] CI/CD templates cover build, test, lint, and benchmark for all 5 variant stacks.
-- [ ] Multi-variant directory convention is documented and scaffolded in at least one pilot repo.
-- [ ] Scorecard template produces a normalized 0-100 composite score per variant.
-- [ ] Aggregation schema supports cross-app comparison and category-level rollups.
+- [x] Benchmarking harness repo exists with automated scoring for all 7 benchmark dimensions.
+- [x] CI/CD templates cover build, test, lint, and benchmark for all 5 variant stacks.
+- [x] Multi-variant directory convention is documented and scaffolded in at least one pilot repo.
+- [x] Scorecard template produces a normalized 0-100 composite score per variant.
+- [x] Aggregation schema supports cross-app comparison and category-level rollups.
 
-**On Completion** (fill in when phase is done):
-- Deviations from plan: 
-- Tech debt / follow-ups: 
-- Ready for next phase: 
+**On Completion** (filled 2026-05-10):
+- Deviations from plan: None. All 10 steps completed as planned.
+- Tech debt / follow-ups: GitHub Actions disabled on pilot repo until implementation begins. CLI entry point in harness is a stub (Step 10.6 deferred full CLI ergonomics).
+- Ready for next phase: Yes — Phase 11 (Implementation: AI & Assistants).
 
 ---
 
