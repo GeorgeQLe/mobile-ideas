@@ -1,5 +1,25 @@
 # History
 
+## 2026-05-09 - Phase 10 Step 10.5: Implement Developer Velocity, Accessibility, and Store Compliance Benchmark Modules
+
+- Created `src/dimensions/dev-velocity.ts`: 4 metrics (cleanBuildTimeSec, incrementalBuildTimeSec, hotReloadTimeSec, ciPipelineDurationSec), all lower-better, `measure()` via timed `npm run build` shell-outs, `score()` with 4-tier interpolation, weight 0.10.
+- Created `src/dimensions/accessibility.ts`: 3 metrics (a11yAuditScore, contrastRatioCompliance, touchTargetCompliance), all higher-better, `measure()` reads from `reports/accessibility.json`, `score()` with standard interpolation, weight 0.10.
+- Created `src/dimensions/store-compliance.ts`: 4 metrics (metadataCompleteness, policyCompliance, screenshotCoverage, privacyManifestAccuracy), all higher-better percentages, `measure()` reads from `reports/store-compliance.json`, `score()` with standard interpolation, weight 0.10.
+- Updated `src/dimensions/index.ts` to re-export all 7 modules (performance, bundleSize, uxFidelity, codeQuality, devVelocity, accessibility, storeCompliance).
+- `tsc --noEmit` passes with zero errors.
+- Committed and pushed to `GeorgeQLe/mobile-benchmark-harness` main branch.
+
+### Ship Manifest
+
+- User goal: implement final three benchmark dimension modules to complete all 7 dimensions.
+- Changed files (harness repo): `src/dimensions/dev-velocity.ts` (created), `src/dimensions/accessibility.ts` (created), `src/dimensions/store-compliance.ts` (created), `src/dimensions/index.ts` (updated).
+- Changed files (mobile-ideas): `tasks/todo.md` (marked 10.5 done, wrote 10.6 plan), `tasks/history.md` (this entry).
+- Tests run: `tsc --noEmit` — passed.
+- Skipped tests: no runtime test suite (measurement functions require real tools/projects).
+- Residual risk: measure() functions return fallback/zero values when tools or report files are unavailable — expected for this step.
+- Rollback note: revert commit `a591440` in harness repo; revert shipping commit in mobile-ideas.
+- Next command: Step 10.6 — build composite scoring engine and aggregation dashboard schema.
+
 ## 2026-05-09 - Phase 10 Step 10.4: Implement UX Fidelity and Code Quality Benchmark Modules
 
 - Created `src/dimensions/ux-fidelity.ts`: 4 metrics (screenCoverage, interactionCoverage, edgeCaseCoverage, specCompliance), `measure()` reads from `reports/ux-fidelity.json`, `score()` with weighted composite scoring (specCompliance = weighted sum, not simple average), weight 0.25.

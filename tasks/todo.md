@@ -194,39 +194,49 @@ Build the shared CI/CD templates, benchmarking harness, and multi-variant branch
   **Ship-one-step handoff contract:**
   Implement only Step 10.4. Validate it. Mark Step 10.4 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 10.5's plan. Then run `/ship` when done.
 
-- [ ] Step 10.5: Implement developer velocity, accessibility, and store compliance modules
+- [x] Step 10.5: Implement developer velocity, accessibility, and store compliance modules
   - Files: create `src/dimensions/dev-velocity.ts`, `src/dimensions/accessibility.ts`, `src/dimensions/store-compliance.ts` in harness repo
   - Dev velocity: time clean build, incremental build, hot/live reload, CI pipeline duration.
   - Accessibility: run automated a11y audits (axe-core for RN/Expo, accessibility_scanner for Android, Accessibility Inspector for iOS), measure contrast ratios, touch target sizes.
   - Store compliance: check metadata completeness (app name, description, screenshots, privacy policy URL, categories), policy compliance checklist, privacy manifest accuracy.
 
-  **Implementation Plan — Step 10.5:**
+- [ ] Step 10.6: Build composite scoring engine and aggregation dashboard schema
+  - Files: create `src/scoring/composite.ts`, `src/aggregation/schema.ts`, `src/aggregation/rollup.ts` in harness repo
+  - Composite scoring: weighted average across 7 dimensions (configurable weights with sensible defaults).
+  - Aggregation: produce cross-app comparison JSON, category-level rollup summaries, variant-vs-variant comparison tables.
+  - CLI entry point: `npx benchmark --app <repo> --variant <variant> --output <path>`.
+
+  **Implementation Plan — Step 10.6:**
 
   **What to build:**
-  Three dimension modules in `GeorgeQLe/mobile-benchmark-harness`: `src/dimensions/dev-velocity.ts` (4 metrics), `src/dimensions/accessibility.ts` (3 metrics), and `src/dimensions/store-compliance.ts` (4 metrics). Each module defines TypeScript types for its metrics, implements `measure()` and `score()` functions following the established pattern. Update `src/dimensions/index.ts` to re-export all 7 dimension modules.
+  Three modules in `GeorgeQLe/mobile-benchmark-harness`: `src/scoring/composite.ts` (weighted composite scoring across all 7 dimensions), `src/aggregation/schema.ts` (scorecard output types and cross-app comparison schema), and `src/aggregation/rollup.ts` (category-level rollup and variant-vs-variant comparison). Update barrel exports in `src/scoring/index.ts` and `src/aggregation/index.ts`. Optionally wire up `src/cli/index.ts` with a minimal CLI entry point.
 
   **Steps:**
-  1. Clone or use existing clone of harness repo at `/tmp/mobile-benchmark-harness`.
-  2. Create `src/dimensions/dev-velocity.ts`:
-     - Define `DevVelocityMetrics` type with 4 fields: `cleanBuildTimeSec`, `incrementalBuildTimeSec`, `hotReloadTimeSec`, `ciPipelineDurationSec` (all in seconds, lower-better).
-     - Implement `measure(projectDir: string, variant: Variant): Promise<DevVelocityMetrics>` — time builds via child_process, parse CI duration from GitHub Actions API or local timing.
-     - Implement `score(metrics: DevVelocityMetrics): DimensionResult` — apply thresholds from benchmark-config.md, weight 0.10.
-  3. Create `src/dimensions/accessibility.ts`:
-     - Define `AccessibilityMetrics` type with 3 fields: `a11yAuditScore` (0-100), `contrastRatioCompliance` (percentage), `touchTargetCompliance` (percentage).
-     - Implement `measure(projectDir: string, variant: Variant): Promise<AccessibilityMetrics>` — shell out to axe-core/accessibility_scanner/Accessibility Inspector depending on variant.
-     - Implement `score(metrics: AccessibilityMetrics): DimensionResult` — apply thresholds, weight 0.10.
-  4. Create `src/dimensions/store-compliance.ts`:
-     - Define `StoreComplianceMetrics` type with 4 fields: `metadataCompleteness` (percentage), `policyCompliance` (percentage), `screenshotCoverage` (percentage), `privacyManifestAccuracy` (percentage).
-     - Implement `measure(projectDir: string, variant: Variant): Promise<StoreComplianceMetrics>` — parse metadata files, check required fields, validate privacy manifest.
-     - Implement `score(metrics: StoreComplianceMetrics): DimensionResult` — apply thresholds, weight 0.10.
-  5. Update `src/dimensions/index.ts` to re-export all 7 modules.
-  6. Run `npx tsc --noEmit` to verify type correctness.
-  7. Commit and push.
+  1. Use existing clone at `/tmp/mobile-benchmark-harness`.
+  2. Create `src/scoring/composite.ts`:
+     - Define `WeightConfig` type: `Record<DimensionName, number>` with default weights summing to 1.0 (performance 0.20, bundleSize 0.10, uxFidelity 0.25, codeQuality 0.15, devVelocity 0.10, accessibility 0.10, storeCompliance 0.10).
+     - Implement `computeComposite(results: Record<DimensionName, DimensionResult>, weights?: Partial<WeightConfig>): ScorecardResult` — weighted average of dimension scores, clamped 0-100.
+     - Define `ScorecardResult` type: `{ composite: number; dimensions: Record<string, DimensionResult>; metadata: ScorecardMetadata }`.
+     - Define `ScorecardMetadata`: `{ appId: string; category: string; variant: Variant; timestamp: string; ciRunId?: string }`.
+  3. Create `src/aggregation/schema.ts`:
+     - Define `CrossAppComparison` type: array of `{ appId, category, variant, composite, dimensions }`.
+     - Define `CategoryRollup` type: `{ category, avgComposite, variantBreakdown: Record<Variant, number>, appCount }`.
+     - Define `VariantComparison` type: per-variant averages across a set of apps.
+  4. Create `src/aggregation/rollup.ts`:
+     - Implement `rollupByCategory(scorecards: ScorecardResult[]): CategoryRollup[]` — group by category, compute averages.
+     - Implement `compareVariants(scorecards: ScorecardResult[]): VariantComparison[]` — group by variant, compute per-dimension averages.
+     - Implement `crossAppTable(scorecards: ScorecardResult[]): CrossAppComparison[]` — flat table for dashboard consumption.
+  5. Update `src/scoring/index.ts` to re-export composite module.
+  6. Update `src/aggregation/index.ts` to re-export schema and rollup modules.
+  7. Optionally create minimal `src/cli/index.ts` that parses `--app`, `--variant`, `--output` args and orchestrates measure → score → composite → output.
+  8. Run `npx tsc --noEmit` to verify type correctness.
+  9. Commit and push.
 
   **Key decisions:**
-  - All dev velocity metrics are lower-better (time in seconds).
-  - Accessibility uses variant-specific tool dispatch for a11y audits.
-  - Store compliance reads structured metadata files (JSON/YAML) from the project rather than querying live stores.
+  - Default weights match the scorecard schema from Step 10.1 (sum to 1.0).
+  - Custom weights are optional and normalized if they don't sum to 1.0.
+  - Aggregation functions are pure (no I/O) — they take scorecard arrays and return rollup structures.
+  - CLI is minimal — full CLI ergonomics deferred to a later step if needed.
 
   **Execution Profile:**
   - Parallel mode: serial
@@ -234,19 +244,15 @@ Build the shared CI/CD templates, benchmarking harness, and multi-variant branch
   - Test strategy: `tsc --noEmit` type check only
 
   **Acceptance Criteria:**
-  - `src/dimensions/dev-velocity.ts`, `src/dimensions/accessibility.ts`, and `src/dimensions/store-compliance.ts` exist with typed `measure()` and `score()` functions.
+  - `src/scoring/composite.ts` exists with `computeComposite()` function and scorecard types.
+  - `src/aggregation/schema.ts` defines cross-app, category rollup, and variant comparison types.
+  - `src/aggregation/rollup.ts` implements `rollupByCategory()`, `compareVariants()`, and `crossAppTable()`.
   - `tsc --noEmit` passes with no errors.
-  - `src/dimensions/index.ts` re-exports all 7 dimension modules.
+  - Barrel exports updated in `src/scoring/index.ts` and `src/aggregation/index.ts`.
   - Committed and pushed to `GeorgeQLe/mobile-benchmark-harness`.
 
   **Ship-one-step handoff contract:**
-  Implement only Step 10.5. Validate it. Mark Step 10.5 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 10.6's plan. Then run `/ship` when done.
-
-- [ ] Step 10.6: Build composite scoring engine and aggregation dashboard schema
-  - Files: create `src/scoring/composite.ts`, `src/aggregation/schema.ts`, `src/aggregation/rollup.ts` in harness repo
-  - Composite scoring: weighted average across 7 dimensions (configurable weights with sensible defaults).
-  - Aggregation: produce cross-app comparison JSON, category-level rollup summaries, variant-vs-variant comparison tables.
-  - CLI entry point: `npx benchmark --app <repo> --variant <variant> --output <path>`.
+  Implement only Step 10.6. Validate it. Mark Step 10.6 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 10.7's plan. Then run `/ship` when done.
 
 - [ ] Step 10.7: Design and document multi-variant repo structure convention
   - Files: create `templates/variant-structure.md`, modify `templates/downstream/README.md`
