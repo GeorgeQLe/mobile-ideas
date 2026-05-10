@@ -1,5 +1,24 @@
 # History
 
+## 2026-05-09 - Phase 10 Step 10.4: Implement UX Fidelity and Code Quality Benchmark Modules
+
+- Created `src/dimensions/ux-fidelity.ts`: 4 metrics (screenCoverage, interactionCoverage, edgeCaseCoverage, specCompliance), `measure()` reads from `reports/ux-fidelity.json`, `score()` with weighted composite scoring (specCompliance = weighted sum, not simple average), weight 0.25.
+- Created `src/dimensions/code-quality.ts`: 5 metrics (lintScore, typeCoverage, testCoverage, cyclomaticComplexity, maintainabilityIndex), `measure()` via ESLint/type-coverage/jest/es-complex shell-outs, `score()` with cyclomaticComplexity as lower-better, weight 0.15.
+- Updated `src/dimensions/index.ts` to re-export all 4 modules (performance, bundleSize, uxFidelity, codeQuality).
+- `tsc --noEmit` passes with zero errors.
+- Committed and pushed to `GeorgeQLe/mobile-benchmark-harness` main branch.
+
+### Ship Manifest
+
+- User goal: implement UX fidelity and code quality benchmark dimension modules in harness repo.
+- Changed files (harness repo): `src/dimensions/ux-fidelity.ts` (created), `src/dimensions/code-quality.ts` (created), `src/dimensions/index.ts` (updated).
+- Changed files (mobile-ideas): `tasks/todo.md` (marked 10.4 done, wrote 10.5 plan), `tasks/history.md` (this entry).
+- Tests run: `tsc --noEmit` — passed.
+- Skipped tests: no runtime test suite (measurement functions require real tools/projects).
+- Residual risk: measure() functions return fallback values when tools are unavailable — expected for this step.
+- Rollback note: revert commit `7005c87` in harness repo; revert shipping commit in mobile-ideas.
+- Next command: Step 10.5 — implement developer velocity, accessibility, and store compliance modules.
+
 ## 2026-05-09 - Phase 10 Step 10.3: Implement Performance and Bundle Size Benchmark Modules
 
 - Created `src/types.ts` with shared types: `MetricResult`, `DimensionResult`, `Variant` enum, `MeasureOptions` interface.

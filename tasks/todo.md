@@ -151,7 +151,7 @@ Build the shared CI/CD templates, benchmarking harness, and multi-variant branch
   **Ship-one-step handoff contract:**
   Implement only Step 10.3. Validate it. Mark Step 10.3 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 10.4's plan. Then run `/ship` when done.
 
-- [ ] Step 10.4: Implement UX fidelity and code quality benchmark modules
+- [x] Step 10.4: Implement UX fidelity and code quality benchmark modules
   - Files: create `src/dimensions/ux-fidelity.ts`, `src/dimensions/code-quality.ts` in harness repo
   - UX fidelity module: parse the build plan's route map and compare against implemented screens (directory listing), check interaction coverage against spec edge cases, output spec compliance percentage.
   - Code quality module: run lint (ESLint/SwiftLint/ktlint/flutter analyze), type coverage (tsc --noEmit/strict), test coverage (jest/xctest/gradle), compute cyclomatic complexity and maintainability index.
@@ -199,6 +199,48 @@ Build the shared CI/CD templates, benchmarking harness, and multi-variant branch
   - Dev velocity: time clean build, incremental build, hot/live reload, CI pipeline duration.
   - Accessibility: run automated a11y audits (axe-core for RN/Expo, accessibility_scanner for Android, Accessibility Inspector for iOS), measure contrast ratios, touch target sizes.
   - Store compliance: check metadata completeness (app name, description, screenshots, privacy policy URL, categories), policy compliance checklist, privacy manifest accuracy.
+
+  **Implementation Plan — Step 10.5:**
+
+  **What to build:**
+  Three dimension modules in `GeorgeQLe/mobile-benchmark-harness`: `src/dimensions/dev-velocity.ts` (4 metrics), `src/dimensions/accessibility.ts` (3 metrics), and `src/dimensions/store-compliance.ts` (4 metrics). Each module defines TypeScript types for its metrics, implements `measure()` and `score()` functions following the established pattern. Update `src/dimensions/index.ts` to re-export all 7 dimension modules.
+
+  **Steps:**
+  1. Clone or use existing clone of harness repo at `/tmp/mobile-benchmark-harness`.
+  2. Create `src/dimensions/dev-velocity.ts`:
+     - Define `DevVelocityMetrics` type with 4 fields: `cleanBuildTimeSec`, `incrementalBuildTimeSec`, `hotReloadTimeSec`, `ciPipelineDurationSec` (all in seconds, lower-better).
+     - Implement `measure(projectDir: string, variant: Variant): Promise<DevVelocityMetrics>` — time builds via child_process, parse CI duration from GitHub Actions API or local timing.
+     - Implement `score(metrics: DevVelocityMetrics): DimensionResult` — apply thresholds from benchmark-config.md, weight 0.10.
+  3. Create `src/dimensions/accessibility.ts`:
+     - Define `AccessibilityMetrics` type with 3 fields: `a11yAuditScore` (0-100), `contrastRatioCompliance` (percentage), `touchTargetCompliance` (percentage).
+     - Implement `measure(projectDir: string, variant: Variant): Promise<AccessibilityMetrics>` — shell out to axe-core/accessibility_scanner/Accessibility Inspector depending on variant.
+     - Implement `score(metrics: AccessibilityMetrics): DimensionResult` — apply thresholds, weight 0.10.
+  4. Create `src/dimensions/store-compliance.ts`:
+     - Define `StoreComplianceMetrics` type with 4 fields: `metadataCompleteness` (percentage), `policyCompliance` (percentage), `screenshotCoverage` (percentage), `privacyManifestAccuracy` (percentage).
+     - Implement `measure(projectDir: string, variant: Variant): Promise<StoreComplianceMetrics>` — parse metadata files, check required fields, validate privacy manifest.
+     - Implement `score(metrics: StoreComplianceMetrics): DimensionResult` — apply thresholds, weight 0.10.
+  5. Update `src/dimensions/index.ts` to re-export all 7 modules.
+  6. Run `npx tsc --noEmit` to verify type correctness.
+  7. Commit and push.
+
+  **Key decisions:**
+  - All dev velocity metrics are lower-better (time in seconds).
+  - Accessibility uses variant-specific tool dispatch for a11y audits.
+  - Store compliance reads structured metadata files (JSON/YAML) from the project rather than querying live stores.
+
+  **Execution Profile:**
+  - Parallel mode: serial
+  - Integration owner: main agent
+  - Test strategy: `tsc --noEmit` type check only
+
+  **Acceptance Criteria:**
+  - `src/dimensions/dev-velocity.ts`, `src/dimensions/accessibility.ts`, and `src/dimensions/store-compliance.ts` exist with typed `measure()` and `score()` functions.
+  - `tsc --noEmit` passes with no errors.
+  - `src/dimensions/index.ts` re-exports all 7 dimension modules.
+  - Committed and pushed to `GeorgeQLe/mobile-benchmark-harness`.
+
+  **Ship-one-step handoff contract:**
+  Implement only Step 10.5. Validate it. Mark Step 10.5 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 10.6's plan. Then run `/ship` when done.
 
 - [ ] Step 10.6: Build composite scoring engine and aggregation dashboard schema
   - Files: create `src/scoring/composite.ts`, `src/aggregation/schema.ts`, `src/aggregation/rollup.ts` in harness repo
