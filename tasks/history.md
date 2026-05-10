@@ -1954,3 +1954,17 @@
 - Residual risk: none — Phase 10 infrastructure validated end-to-end.
 - Rollback note: revert validation commit in harness repo.
 - Phase 10 complete. Next: Phase 11.
+
+## Step 11.4 — Implement Perplexity Clone (All 5 Variants) — 2026-05-10
+
+- Implemented Perplexity-style AI search/answer clone across all 5 variants in `GeorgeQLe/perplexity-mobile-clone`.
+- Created shared API contracts: `endpoints.json` (25+ endpoints), `models.json` (12 entities), `sse-events.json` (6 event types).
+- Created shared test fixtures: threads, answers, citations, sources, library items, users.
+- **React Native** (45 files): 12 screens, 12 typed models with factory functions, Zustand stores (auth/search/library), SSE streaming, CitationCard/AnswerRenderer/SearchProgressBar components, 6 test suites.
+- **Flutter** (42 files): 12 screens, 12 Dart models with fromJson/toJson, Riverpod StateNotifier providers, SSE with sealed event classes, citation card/answer renderer widgets, 6 test suites.
+- **Expo** (33 files): 12 screens, 12 TypeScript interfaces, Zustand stores, SSE streaming with ReadableStream, citation/progress/answer components, 6 test suites.
+- **iOS Native** (42 files): 12 SwiftUI screens, 12 Codable/Identifiable structs, @Observable view models, URLSession SSE streaming, citation card/answer renderer views, 6 test suites.
+- **Android Native** (35 files): 12 Compose screens, 12 @Serializable data classes, ViewModels with StateFlow, OkHttp SSE streaming, citation card/answer renderer composables, 6 test suites.
+- Total: ~209 new files, 6 commits, all pushed and verified (PRIVATE, key files confirmed via `gh api`).
+- Distinct from ChatGPT/Claude clones: search-first paradigm with SearchThread, Citation, SourceDocument, LibraryItem, AssistantAction, DataDeletionRequest entities; citation card UI pattern; search progress phases; source detail views; discover/library surfaces.
+- CI/Actions remain disabled per plan. 30 test suites across 5 variants.

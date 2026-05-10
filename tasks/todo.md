@@ -225,7 +225,7 @@ Build all five variants for every app in the AI & Assistants category cluster to
   **Next work:** Step 11.4 — Implement Perplexity clone across all 5 variants
   **Recommended next command:** `/run`
 
-- [ ] Step 11.4: Implement pilot app 3 — Perplexity clone (all 5 variants)
+- [x] Step 11.4: Implement pilot app 3 — Perplexity clone (all 5 variants)
   - Files: `GeorgeQLe/perplexity-mobile-clone` — all 5 `variants/` directories
   - Read source spec `specs/batch-01/003-perplexity.md` and build plan.
   - Implement: query threads, cited source cards, follow-up exploration, collections, freshness controls, provider-backed retrieval, subscription gates, citation-quality tests.
@@ -291,6 +291,63 @@ Build all five variants for every app in the AI & Assistants category cluster to
   - Read source spec `specs/batch-01/004-character-ai.md` and build plan.
   - Implement: character catalog, persona profiles, conversation rooms, creator tools, moderation, teen-safety controls, subscriptions, abuse reporting.
   - Distinct pattern: persona/character system, multi-character selection, safety controls for minors.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  A Character.AI-style mobile AI companion/entertainment app across 5 variant stacks. The source spec is at `specs/batch-01/004-character-ai.md` in the `mobile-ideas` repo. The downstream repo is `GeorgeQLe/character-ai-mobile-clone` (PRIVATE, scaffold already in place with variant dirs, shared dirs).
+
+  **Spec Summary (from `004-character-ai.md`):**
+  - 11 screens: Welcome/Age Gate, For You Characters, Character Detail, Chat Thread, Voice/Call Session, Create Character, Creator Profile, Search, Reports & Blocks, Subscription & Ads, Settings.
+  - 12 data models: User, DeviceSession, Character, CreatorProfile, ChatThread, Message, CharacterMemory, VoiceSession, ModerationCase, Report, Entitlement, AuditEvent.
+  - 20+ API endpoints for auth, account/settings, threads, messages, uploads, search/suggestions, reports/blocks/mutes, notifications, entitlements/billing, data export/deletion, support.
+  - SSE streaming events: token, completion, error, typing_indicator, memory_update.
+
+  **Distinct from Perplexity clone (Step 11.4):**
+  - Character entity: persona name, greeting, visibility, example dialogue, avatar, tags, safety classification, popularity signals
+  - CreatorProfile entity: creator identity, published characters, follower count, verification status
+  - ChatThread entity: character-scoped conversation with persona context, not search-first
+  - Message entity: user/character role with retry/edit affordances, not citation-based answers
+  - CharacterMemory entity: per-character memory context for persona continuity
+  - VoiceSession entity: call-style voice interaction with character
+  - ModerationCase entity: content moderation lifecycle with policy categories
+  - Report entity: user/character/creator reports with evidence, categories, and appeal path
+  - No Citation, SourceDocument, LibraryItem, AssistantAction, DataDeletionRequest (different model shape)
+  - Character discovery and creation UX (for-you feed, categories, creator profiles)
+  - Teen/minor safety controls: age gates, content filtering, crisis escalation
+  - Ad placement and ad-free subscription tier
+
+  **Per-Variant Implementation:**
+  Each variant (`react-native`, `flutter`, `expo`, `ios-native`, `android-native`) gets:
+  - App entry point + navigation (all 11 screens wired)
+  - Typed data models for all 12 entities
+  - API service layer with typed contracts
+  - Streaming character response renderer (SSE with typing_indicator and memory_update events)
+  - Character card component (avatar, name, creator, description, popularity, tags)
+  - Character detail view (full persona info, greeting, example dialogue, start chat)
+  - Create character form (persona, greeting, visibility, avatar, tags, safety classification)
+  - Age gate component (birth date entry, teen/adult routing)
+  - State management (Zustand for RN/Expo, Riverpod for Flutter, @Observable for iOS, ViewModel for Android)
+  - Basic test suite (6 files: models, auth store, character store, chat store, streaming, API)
+  - README updated from "scaffold" to "V1 implementation"
+
+  **Approach:**
+  1. Clone `GeorgeQLe/character-ai-mobile-clone` to `/tmp/`
+  2. Create shared API contracts and test fixtures in `shared/` (endpoints.json, models.json, sse-events.json, test fixtures for characters, threads, messages, creators)
+  3. Launch 5 parallel subagents (one per variant — independent directories, different languages)
+  4. Each variant committed separately, all pushed at end
+  5. Verify key files on remote via `gh api`
+
+  **Execution Profile:**
+  - Parallel mode: serial commits, parallel subagent implementation
+  - Integration owner: main agent
+  - Test strategy: tests-after (write tests as part of implementation)
+  - Conflict risk: none (single repo, single branch)
+
+  **Ship-one-step handoff contract:** Implement only Step 11.5, validate it (all 5 variants have complete source, key files verified on remote), then run `/ship` when done.
+
+  **Next work:** Step 11.5 — Implement Character.AI clone across all 5 variants
+  **Recommended next command:** `/run`
 
 - [ ] Step 11.6: Implement pilot app 5 — Replika clone (all 5 variants)
   - Files: `GeorgeQLe/replika-mobile-clone` — all 5 `variants/` directories
