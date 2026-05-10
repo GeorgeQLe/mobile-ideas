@@ -43,7 +43,7 @@ Build the shared CI/CD templates, benchmarking harness, and multi-variant branch
 
 ### Implementation
 
-- [ ] Step 10.1: Design benchmarking dimensions, scoring rubric, and scorecard schema
+- [x] Step 10.1: Design benchmarking dimensions, scoring rubric, and scorecard schema
   - Files: create `templates/scorecard-template.json`, create `templates/benchmark-config.md`
   - Define the 7 benchmark dimensions with concrete metrics, measurement methods, and per-metric scoring rubrics (raw → normalized 0-100).
   - Design composite scoring formula (weighted average across dimensions).

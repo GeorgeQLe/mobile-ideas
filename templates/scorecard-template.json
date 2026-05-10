@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mobile-benchmark-scorecard-v1",
+  "title": "Mobile Benchmark Scorecard",
+  "description": "Per-variant benchmark scorecard for a single mobile app clone across all 7 benchmark dimensions.",
+  "type": "object",
+  "required": ["meta", "dimensions", "composite"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["appId", "appName", "category", "variant", "timestamp", "ciRunId", "harnessVersion"],
+      "properties": {
+        "appId": { "type": "integer", "minimum": 1, "maximum": 1000, "description": "Spec ID from the mobile-ideas backlog (1-1000)." },
+        "appName": { "type": "string", "description": "Human-readable app name (e.g. 'Todoist')." },
+        "category": { "type": "string", "description": "Cluster category (e.g. 'Productivity & Collaboration')." },
+        "variant": { "type": "string", "enum": ["react-native", "flutter", "expo", "ios-native", "android-native"] },
+        "timestamp": { "type": "string", "format": "date-time", "description": "ISO 8601 UTC timestamp of the benchmark run." },
+        "ciRunId": { "type": "string", "description": "GitHub Actions run ID or local run identifier." },
+        "harnessVersion": { "type": "string", "description": "Semantic version of the benchmark harness." }
+      }
+    },
+    "dimensions": {
+      "type": "object",
+      "required": ["performance", "bundleSize", "uxFidelity", "codeQuality", "devVelocity", "accessibility", "storeCompliance"],
+      "properties": {
+        "performance": {
+          "type": "object",
+          "required": ["score", "weight", "metrics"],
+          "properties": {
+            "score": { "type": "number", "minimum": 0, "maximum": 100 },
+            "weight": { "type": "number", "default": 0.20 },
+            "metrics": {
+              "type": "object",
+              "required": ["coldStartMs", "warmStartMs", "frameRate", "jankPercent", "memoryPeakMb", "memoryAvgMb", "cpuPercent", "batteryDrainPerHour"],
+              "properties": {
+                "coldStartMs": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "warmStartMs": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "frameRate": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "jankPercent": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "memoryPeakMb": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "memoryAvgMb": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "cpuPercent": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "batteryDrainPerHour": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } }
+              }
+            }
+          }
+        },
+        "bundleSize": {
+          "type": "object",
+          "required": ["score", "weight", "metrics"],
+          "properties": {
+            "score": { "type": "number", "minimum": 0, "maximum": 100 },
+            "weight": { "type": "number", "default": 0.10 },
+            "metrics": {
+              "type": "object",
+              "required": ["ipaSizeMb", "apkSizeMb", "otaUpdateSizeMb", "jsBundleSizeKb", "nativeLibsSizeMb", "assetsSizeMb"],
+              "properties": {
+                "ipaSizeMb": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "apkSizeMb": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "otaUpdateSizeMb": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "jsBundleSizeKb": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "nativeLibsSizeMb": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "assetsSizeMb": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } }
+              }
+            }
+          }
+        },
+        "uxFidelity": {
+          "type": "object",
+          "required": ["score", "weight", "metrics"],
+          "properties": {
+            "score": { "type": "number", "minimum": 0, "maximum": 100 },
+            "weight": { "type": "number", "default": 0.25 },
+            "metrics": {
+              "type": "object",
+              "required": ["screenCoveragePercent", "interactionCoveragePercent", "edgeCaseCoveragePercent", "specCompliancePercent"],
+              "properties": {
+                "screenCoveragePercent": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "interactionCoveragePercent": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "edgeCaseCoveragePercent": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "specCompliancePercent": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } }
+              }
+            }
+          }
+        },
+        "codeQuality": {
+          "type": "object",
+          "required": ["score", "weight", "metrics"],
+          "properties": {
+            "score": { "type": "number", "minimum": 0, "maximum": 100 },
+            "weight": { "type": "number", "default": 0.15 },
+            "metrics": {
+              "type": "object",
+              "required": ["lintScore", "typeCoveragePercent", "testCoveragePercent", "cyclomaticComplexity", "maintainabilityIndex"],
+              "properties": {
+                "lintScore": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "typeCoveragePercent": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "testCoveragePercent": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "cyclomaticComplexity": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "maintainabilityIndex": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } }
+              }
+            }
+          }
+        },
+        "devVelocity": {
+          "type": "object",
+          "required": ["score", "weight", "metrics"],
+          "properties": {
+            "score": { "type": "number", "minimum": 0, "maximum": 100 },
+            "weight": { "type": "number", "default": 0.10 },
+            "metrics": {
+              "type": "object",
+              "required": ["cleanBuildSec", "incrementalBuildSec", "hotReloadSec", "ciPipelineSec"],
+              "properties": {
+                "cleanBuildSec": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "incrementalBuildSec": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "hotReloadSec": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "ciPipelineSec": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } }
+              }
+            }
+          }
+        },
+        "accessibility": {
+          "type": "object",
+          "required": ["score", "weight", "metrics"],
+          "properties": {
+            "score": { "type": "number", "minimum": 0, "maximum": 100 },
+            "weight": { "type": "number", "default": 0.10 },
+            "metrics": {
+              "type": "object",
+              "required": ["auditScore", "contrastRatioCompliance", "touchTargetCompliance", "screenReaderCoverage"],
+              "properties": {
+                "auditScore": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "contrastRatioCompliance": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "touchTargetCompliance": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "screenReaderCoverage": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } }
+              }
+            }
+          }
+        },
+        "storeCompliance": {
+          "type": "object",
+          "required": ["score", "weight", "metrics"],
+          "properties": {
+            "score": { "type": "number", "minimum": 0, "maximum": 100 },
+            "weight": { "type": "number", "default": 0.10 },
+            "metrics": {
+              "type": "object",
+              "required": ["metadataCompleteness", "policyCompliance", "screenshotCoverage", "privacyManifestAccuracy"],
+              "properties": {
+                "metadataCompleteness": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "policyCompliance": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "screenshotCoverage": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } },
+                "privacyManifestAccuracy": { "type": "object", "required": ["raw", "score"], "properties": { "raw": { "type": "number" }, "score": { "type": "number", "minimum": 0, "maximum": 100 } } }
+              }
+            }
+          }
+        }
+      }
+    },
+    "composite": {
+      "type": "object",
+      "required": ["score", "formula", "weights"],
+      "properties": {
+        "score": { "type": "number", "minimum": 0, "maximum": 100, "description": "Weighted average across all 7 dimension scores." },
+        "formula": { "type": "string", "const": "weighted-average", "description": "Scoring formula identifier." },
+        "weights": {
+          "type": "object",
+          "required": ["performance", "bundleSize", "uxFidelity", "codeQuality", "devVelocity", "accessibility", "storeCompliance"],
+          "properties": {
+            "performance": { "type": "number", "default": 0.20 },
+            "bundleSize": { "type": "number", "default": 0.10 },
+            "uxFidelity": { "type": "number", "default": 0.25 },
+            "codeQuality": { "type": "number", "default": 0.15 },
+            "devVelocity": { "type": "number", "default": 0.10 },
+            "accessibility": { "type": "number", "default": 0.10 },
+            "storeCompliance": { "type": "number", "default": 0.10 }
+          }
+        }
+      }
+    },
+    "aggregation": {
+      "type": "object",
+      "description": "Optional aggregation context populated when scorecards are combined for cross-app or category-level comparison.",
+      "properties": {
+        "categoryRank": { "type": "integer", "description": "Rank within the app's category for this variant." },
+        "globalRank": { "type": "integer", "description": "Rank across all 1000 apps for this variant." },
+        "variantRanks": {
+          "type": "object",
+          "description": "This app's composite score rank among its own variants.",
+          "properties": {
+            "rank": { "type": "integer", "minimum": 1, "maximum": 5 },
+            "of": { "type": "integer", "const": 5 }
+          }
+        },
+        "categoryAvgComposite": { "type": "number", "minimum": 0, "maximum": 100, "description": "Average composite score across all apps in this category." },
+        "globalAvgComposite": { "type": "number", "minimum": 0, "maximum": 100, "description": "Average composite score across all 1000 apps." }
+      }
+    }
+  }
+}

@@ -1,5 +1,26 @@
 # History
 
+## 2026-05-09 - Phase 10 Step 10.1: Benchmarking Dimensions, Scoring Rubric, and Scorecard Schema
+
+- Created `templates/scorecard-template.json`: JSON schema defining per-variant scorecard structure with all 7 benchmark dimensions, per-metric raw+normalized breakdowns, composite scoring, metadata (app ID, category, variant, timestamp, CI run ID, harness version), and optional aggregation context (category/global ranks, averages).
+- Created `templates/benchmark-config.md`: human-readable reference defining:
+  - 7 benchmark dimensions with 35 total metrics: Performance (8 metrics), Bundle Size (6), UX Fidelity (4), Code Quality (5), Developer Velocity (4), Accessibility (4), Store Compliance (4).
+  - Per-metric scoring rubrics with concrete thresholds mapping raw values to normalized 0-100 scores (4-tier: 100/75/50/25).
+  - Measurement methods for each metric (specific CLI tools, profilers, and analyzers per platform).
+  - Composite scoring formula: weighted average with configurable weights summing to 1.00.
+  - Default weights: Performance 20%, Bundle Size 10%, UX Fidelity 25%, Code Quality 15%, Dev Velocity 10%, Accessibility 10%, Store Compliance 10%.
+  - Aggregation schema: cross-app comparison table, category-level rollup (15 clusters), variant-vs-variant comparison with winner/margin.
+
+### Ship Manifest
+
+- User goal: design benchmarking infrastructure foundations for Phase 10.
+- Changed files: `templates/scorecard-template.json` (created), `templates/benchmark-config.md` (created), `tasks/todo.md` (marked 10.1 done), `tasks/history.md` (this entry).
+- Tests run: N/A (planning repo, no runtime code).
+- Skipped tests: no runtime test suite.
+- Residual risk: thresholds are initial estimates — will be calibrated during Phase 10.10 pilot validation.
+- Rollback note: revert shipping commit to remove both template files and restore Step 10.1 to incomplete state.
+- Next command: Step 10.2 — create benchmarking harness repo on GitHub.
+
 ## 2026-05-09 - Phase 9 Step 9.19: Full Completeness Verification Across All 1000 Repos
 
 - Exhaustive verification: all 1000 downstream repos confirmed to have `docs/plans/README.md` via HTTP 200 status check (not just content-length heuristic).
