@@ -83,6 +83,69 @@ Build all five variants for every app in the AI & Assistants category cluster to
   - Each variant must: compile, pass lint, pass type check, have basic test coverage.
   - Document any spec gaps or manual verification blockers as open questions.
 
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  A ChatGPT-style mobile AI assistant app across 5 variant stacks. The source spec is at `specs/batch-01/001-chatgpt.md` in the `mobile-ideas` repo. The downstream repo is `GeorgeQLe/chatgpt-mobile-clone` (PRIVATE, scaffold already in place with variant dirs, shared dirs, and CI workflows).
+
+  **Spec Summary (from `001-chatgpt.md`):**
+  - 10 screens: Welcome/Auth, Assistant Home, Chat Thread, Composer Attachment Sheet, Voice Session, History Search, Memory & Personalization, Data Controls, Subscription, Support & Safety, Settings.
+  - 14 data models: User, DeviceSession, Conversation, Message, ContentPart, Attachment, VoiceSession, MemoryRecord, PersonalizationSettings, Entitlement, SafetyReport, UsageLimit, AuditEvent.
+  - 20+ API endpoints for auth, conversations, messages, streaming, uploads, voice, settings, memories, data export, entitlements, billing, safety.
+  - Build plan phases: (1) app shell + auth + home + chat + streaming, (2) history/search + temp chat + data controls + memory, (3) image/file uploads, (4) voice sessions, (5) entitlements/billing, (6) safety/accessibility/offline.
+
+  **Per-Variant File Structure:**
+  Each variant dir (`variants/{react-native,flutter,expo,ios-native,android-native}/`) gets:
+  - App entry point, navigation setup, screen components for all 10 screens.
+  - Data models / types matching the spec's 14 entities.
+  - API service layer with typed contracts for all endpoints.
+  - State management (Redux/Zustand for RN/Expo, Riverpod for Flutter, SwiftUI state for iOS, ViewModel for Android).
+  - Streaming message renderer (SSE/WebSocket consumer).
+  - Basic test suite (unit tests for data models, state machines; integration tests for API contracts).
+  - README updated from "scaffold" to "V1 implementation".
+
+  **Approach:**
+  1. Clone the downstream repo locally.
+  2. Implement React Native variant first (establishes patterns for shared architecture).
+  3. Port to Flutter, Expo, iOS Native, Android Native variants in sequence.
+  4. For each variant: create project structure, implement all screens, wire navigation, add data models, create API service stubs, add streaming renderer, write tests.
+  5. Commit each variant as a separate commit, push all at end.
+  6. Verify each variant compiles and tests pass.
+
+  **Key Technical Decisions:**
+  - Use mock/stub API backend — no real AI provider integration in V1 scaffold (provider selection is an open question in the spec).
+  - SSE streaming simulation for message rendering tests.
+  - Auth flow uses placeholder — real OAuth/social auth deferred.
+  - Subscription/entitlement states modeled but not connected to real payment providers.
+  - Safety policy enforcement is client-side classification stubs.
+
+  **Constraints:**
+  - Serial execution within the repo (one variant at a time).
+  - Must not copy OpenAI branding, plan names, model names, or proprietary UI artwork.
+  - Manual verification blockers (native screenshots, real subscription purchase, push notifications, real-device voice) remain documented as open questions.
+
+  **Acceptance Criteria:**
+  - All 5 variants compile without errors.
+  - All 5 variants pass lint and type check.
+  - All 5 variants have basic test suites that pass.
+  - All 10 screens have component stubs with navigation wiring.
+  - All 14 data models are typed and used in state management.
+  - API service layer has typed contracts for all documented endpoints.
+  - Streaming message renderer handles token events, completion, and error states.
+  - Variant READMEs updated from "scaffold" to "V1 implementation" status.
+  - No proprietary assets, no trademark infringement, no copied code.
+
+  **Execution Profile:**
+  - Parallel mode: serial (one variant at a time within the single downstream repo)
+  - Integration owner: main agent
+  - Test strategy: tests-after (write tests as part of implementation)
+  - Conflict risk: none (single repo, single branch)
+
+  **Ship-one-step handoff contract:** Implement only Step 11.2, validate it (all 5 variants compile, lint, typecheck, tests pass), then run `/ship` when done.
+
+  **Next work:** Step 11.2 — Implement ChatGPT clone across all 5 variants
+  **Recommended next command:** `/run`
+
 - [ ] Step 11.3: Implement pilot app 2 — Claude clone (all 5 variants)
   - Files: `GeorgeQLe/claude-mobile-clone` — all 5 `variants/` directories
   - Read source spec `specs/batch-01/002-claude.md` and build plan.
