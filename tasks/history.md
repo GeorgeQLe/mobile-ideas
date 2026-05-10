@@ -1,5 +1,26 @@
 # History
 
+## 2026-05-09 - Phase 10 Step 10.3: Implement Performance and Bundle Size Benchmark Modules
+
+- Created `src/types.ts` with shared types: `MetricResult`, `DimensionResult`, `Variant` enum, `MeasureOptions` interface.
+- Created `src/dimensions/performance.ts`: 8 metrics (coldStartMs, warmStartMs, frameRate, jankPercent, memoryPeakMb, memoryAvgMb, cpuPercent, batteryDrainPerHour), `measure()` via `adb`/`xcrun` shell-outs, `score()` with 4-tier linear interpolation thresholds from benchmark-config.md.
+- Created `src/dimensions/bundle-size.ts`: 6 metrics (ipaSizeMb, apkSizeMb, otaUpdateSizeMb, jsBundleSizeKb, nativeLibsSizeMb, assetsSizeMb), `measure()` via file stat/bundletool, `score()` with N/A handling (non-applicable metrics default to score 100).
+- Updated `src/dimensions/index.ts` to re-export both modules.
+- Updated `src/index.ts` to export shared types.
+- `tsc --noEmit` passes with zero errors.
+- Committed and pushed to `GeorgeQLe/mobile-benchmark-harness` main branch.
+
+### Ship Manifest
+
+- User goal: implement first two benchmark dimension modules in harness repo.
+- Changed files (harness repo): `src/types.ts` (created), `src/dimensions/performance.ts` (created), `src/dimensions/bundle-size.ts` (created), `src/dimensions/index.ts` (updated), `src/index.ts` (updated).
+- Changed files (mobile-ideas): `tasks/todo.md` (marked 10.3 done, wrote 10.4 plan), `tasks/history.md` (this entry).
+- Tests run: `tsc --noEmit` — passed.
+- Skipped tests: no runtime test suite (measurement functions require real devices/tools).
+- Residual risk: measure() functions return zeroed metrics without real profiling toolchain — expected for this step.
+- Rollback note: revert commit `9dc4a15` in harness repo; revert shipping commit in mobile-ideas.
+- Next command: Step 10.4 — implement UX fidelity and code quality benchmark modules.
+
 ## 2026-05-09 - Phase 10 Step 10.2: Create Benchmarking Harness Repo on GitHub
 
 - Created private GitHub repo `GeorgeQLe/mobile-benchmark-harness` with `visibility == PRIVATE`.

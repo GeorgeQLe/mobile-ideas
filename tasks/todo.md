@@ -102,7 +102,7 @@ Build the shared CI/CD templates, benchmarking harness, and multi-variant branch
   **Ship-one-step handoff contract:**
   Implement only Step 10.2. Validate it. Mark Step 10.2 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 10.3's plan. Then run `/ship` when done.
 
-- [ ] Step 10.3: Implement performance and bundle size benchmark modules
+- [x] Step 10.3: Implement performance and bundle size benchmark modules
   - Files: create `src/dimensions/performance.ts`, `src/dimensions/bundle-size.ts` in harness repo
   - Performance module: measure cold start (via `adb shell am start` / Xcode Instruments), warm start, frame rate (systrace/Instruments), memory (profiler snapshots), CPU, battery drain (estimated via power profiler).
   - Bundle size module: measure IPA size, APK/AAB size, OTA update size, asset breakdown (images, fonts, JS bundle, native libs).
@@ -155,6 +155,44 @@ Build the shared CI/CD templates, benchmarking harness, and multi-variant branch
   - Files: create `src/dimensions/ux-fidelity.ts`, `src/dimensions/code-quality.ts` in harness repo
   - UX fidelity module: parse the build plan's route map and compare against implemented screens (directory listing), check interaction coverage against spec edge cases, output spec compliance percentage.
   - Code quality module: run lint (ESLint/SwiftLint/ktlint/flutter analyze), type coverage (tsc --noEmit/strict), test coverage (jest/xctest/gradle), compute cyclomatic complexity and maintainability index.
+
+  **Implementation Plan — Step 10.4:**
+
+  **What to build:**
+  Two dimension modules in `GeorgeQLe/mobile-benchmark-harness`: `src/dimensions/ux-fidelity.ts` (4 metrics) and `src/dimensions/code-quality.ts` (5 metrics). Each module defines TypeScript types for its metrics, implements `measure()` and `score()` functions following the same pattern as performance and bundle-size modules. Update `src/dimensions/index.ts` to re-export.
+
+  **Steps:**
+  1. Clone or use existing clone of harness repo at `/tmp/mobile-benchmark-harness`.
+  2. Create `src/dimensions/ux-fidelity.ts`:
+     - Define `UxFidelityMetrics` type with 4 fields: `screenCoverage`, `interactionCoverage`, `edgeCaseCoverage`, `specCompliance` (all percentages).
+     - Implement `measure(buildPlanPath: string, implementationDir: string, variant: Variant): Promise<UxFidelityMetrics>` — parse route map JSON, list implemented screen files, compare interactions and edge cases against spec.
+     - Implement `score(metrics: UxFidelityMetrics): DimensionResult` — apply thresholds from benchmark-config.md. Dimension score = specCompliance score (the weighted composite metric, not the average).
+  3. Create `src/dimensions/code-quality.ts`:
+     - Define `CodeQualityMetrics` type with 5 fields: `lintScore`, `typeCoverage`, `testCoverage` (percentages), `cyclomaticComplexity` (avg per function), `maintainabilityIndex` (0-100).
+     - Implement `measure(projectDir: string, variant: Variant): Promise<CodeQualityMetrics>` — shell out to ESLint/SwiftLint/ktlint/flutter analyze for lint, tsc/dart analyzer for type coverage, jest/xctest/gradle for test coverage, lizard for complexity.
+     - Implement `score(metrics: CodeQualityMetrics): DimensionResult` — apply thresholds. Note cyclomaticComplexity is lower-better (inverted scoring).
+  4. Update `src/dimensions/index.ts` to re-export uxFidelity and codeQuality.
+  5. Run `npx tsc --noEmit` to verify type correctness.
+  6. Commit and push.
+
+  **Key decisions:**
+  - UX fidelity dimension score uses specCompliance (the weighted composite) rather than averaging all 4 metrics, per benchmark-config.md.
+  - Cyclomatic complexity uses lower-better scoring (same interpolation pattern as performance metrics).
+  - Variant-specific tool dispatch: lint tool depends on variant stack (ESLint for RN/Expo, SwiftLint for iOS, ktlint for Android, flutter analyze for Flutter).
+
+  **Execution Profile:**
+  - Parallel mode: serial
+  - Integration owner: main agent
+  - Test strategy: `tsc --noEmit` type check only
+
+  **Acceptance Criteria:**
+  - `src/dimensions/ux-fidelity.ts` and `src/dimensions/code-quality.ts` exist with typed `measure()` and `score()` functions.
+  - `tsc --noEmit` passes with no errors.
+  - `src/dimensions/index.ts` re-exports all 4 dimension modules.
+  - Committed and pushed to `GeorgeQLe/mobile-benchmark-harness`.
+
+  **Ship-one-step handoff contract:**
+  Implement only Step 10.4. Validate it. Mark Step 10.4 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 10.5's plan. Then run `/ship` when done.
 
 - [ ] Step 10.5: Implement developer velocity, accessibility, and store compliance modules
   - Files: create `src/dimensions/dev-velocity.ts`, `src/dimensions/accessibility.ts`, `src/dimensions/store-compliance.ts` in harness repo
