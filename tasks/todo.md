@@ -286,7 +286,7 @@ Build all five variants for every app in the AI & Assistants category cluster to
   **Next work:** Step 11.4 — Implement Perplexity clone across all 5 variants
   **Recommended next command:** `/run`
 
-- [ ] Step 11.5: Implement pilot app 4 — Character.AI clone (all 5 variants)
+- [x] Step 11.5: Implement pilot app 4 — Character.AI clone (all 5 variants)
   - Files: `GeorgeQLe/character-ai-mobile-clone` — all 5 `variants/` directories
   - Read source spec `specs/batch-01/004-character-ai.md` and build plan.
   - Implement: character catalog, persona profiles, conversation rooms, creator tools, moderation, teen-safety controls, subscriptions, abuse reporting.
@@ -354,6 +354,64 @@ Build all five variants for every app in the AI & Assistants category cluster to
   - Read source spec `specs/batch-01/005-replika.md` and build plan.
   - Implement: relationship onboarding, memory/profile state, mood and journal loops, voice/chat surfaces, avatar feature gates, wellbeing safeguards, subscription controls.
   - Distinct pattern: relationship-oriented companion, mood tracking, diary/journal integration.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  A Replika-style AI companion/relationship app across 5 variant stacks. The source spec is at `specs/batch-01/005-replika.md` in the `mobile-ideas` repo. The downstream repo is `GeorgeQLe/replika-mobile-clone` (PRIVATE, scaffold already in place with variant dirs, shared dirs).
+
+  **Spec Summary (from `005-replika.md`):**
+  - 12 screens: Welcome/Age Gate, Companion Home, Chat Thread, Voice/Video Session, Avatar Studio, Memory & Profile, Activities, Image Generation, Integrations, Subscription, Privacy & Safety, Support.
+  - 13 data models: User, DeviceSession, Companion, Conversation, Message, MemoryRecord, AvatarAsset, CheckInRule, IntegrationGrant, GeneratedMedia, Entitlement, SafetyReport, AuditEvent.
+  - 20+ API endpoints for auth, account/settings, conversations, messages, uploads, search/suggestions, reports/blocks/mutes, notifications, entitlements/billing, data export/deletion, support.
+  - SSE streaming events: token, completion, error, typing_indicator, mood_update.
+
+  **Distinct from Character.AI clone (Step 11.5):**
+  - Companion entity: single long-running relationship companion (not multi-character catalog), relationship level, mood state, personality traits, relationship type
+  - Conversation entity: ongoing companion conversation with mood/context tracking (not character-scoped threads)
+  - MemoryRecord entity: relationship memory with categories (facts, preferences, experiences, emotions), not per-character persona memory
+  - AvatarAsset entity: 3D avatar customization (body, clothing, accessories, background), entitlement-gated items
+  - CheckInRule entity: proactive companion check-ins with scheduling, mood triggers, wellness prompts
+  - IntegrationGrant entity: third-party app connections (calendar, music, fitness)
+  - GeneratedMedia entity: AI-generated images within conversation
+  - SafetyReport entity: wellbeing-focused safety reports with crisis escalation
+  - No Character, CreatorProfile, ModerationCase, Report (different safety model)
+  - Companion home with mood/relationship status, not character discovery feed
+  - Avatar studio with 3D customization, not character creation form
+  - Activities (guided conversations, games, journaling), not character search
+  - Wellbeing safeguards with crisis resources, not teen/adult age gating
+
+  **Per-Variant Implementation:**
+  Each variant (`react-native`, `flutter`, `expo`, `ios-native`, `android-native`) gets:
+  - App entry point + navigation (all 12 screens wired)
+  - Typed data models for all 13 entities
+  - API service layer with typed contracts
+  - Streaming companion response renderer (SSE with typing_indicator and mood_update events)
+  - Companion home component (avatar, mood, relationship level, recent activity)
+  - Avatar studio view (customization categories, entitlement-gated items)
+  - Memory & profile view (memory categories, relationship facts, personality)
+  - Activities view (guided conversations, journaling prompts, games)
+  - State management (Zustand for RN/Expo, Riverpod for Flutter, @Observable for iOS, ViewModel for Android)
+  - Basic test suite (6 files: models, auth store, companion store, chat store, streaming, API)
+  - README updated from "scaffold" to "V1 implementation"
+
+  **Approach:**
+  1. Clone `GeorgeQLe/replika-mobile-clone` to `/tmp/`
+  2. Create shared API contracts and test fixtures in `shared/` (endpoints.json, models.json, sse-events.json, test fixtures for companions, conversations, messages, memories, avatars)
+  3. Launch 5 parallel subagents (one per variant — independent directories, different languages)
+  4. Each variant committed separately, all pushed at end
+  5. Verify key files on remote via `gh api`
+
+  **Execution Profile:**
+  - Parallel mode: serial commits, parallel subagent implementation
+  - Integration owner: main agent
+  - Test strategy: tests-after (write tests as part of implementation)
+  - Conflict risk: none (single repo, single branch)
+
+  **Ship-one-step handoff contract:** Implement only Step 11.6, validate it (all 5 variants have complete source, key files verified on remote), then run `/ship` when done.
+
+  **Next work:** Step 11.6 — Implement Replika clone across all 5 variants
+  **Recommended next command:** `/run`
 
 - [ ] Step 11.7: Implement batch apps 201-205 — Poe, Gemini, Copilot, Grok, DeepSeek (all 5 variants each)
   - Files: 5 downstream repos (poe, gemini, microsoft-copilot, grok, deepseek)
