@@ -57,6 +57,51 @@ Build the shared CI/CD templates, benchmarking harness, and multi-variant branch
   - Include the scorecard schema from Step 10.1.
   - Seed with `gh repo create` following the same private-repo pattern as downstream seeding.
 
+  **Implementation Plan — Step 10.2:**
+
+  **What to build:**
+  Create a new private GitHub repo `GeorgeQLe/mobile-benchmark-harness` and scaffold it with the directory structure, TypeScript configuration, package manifest, and documentation needed for the benchmarking harness that Steps 10.3–10.6 will populate with measurement modules.
+
+  **Steps:**
+  1. Create the repo: `gh repo create GeorgeQLe/mobile-benchmark-harness --private --description "Mobile app benchmark harness — scoring and comparison across 7 dimensions and 5 variant stacks"`.
+  2. Clone it locally to `/tmp/mobile-benchmark-harness`.
+  3. Create directory structure:
+     - `src/dimensions/` — will hold performance.ts, bundle-size.ts, ux-fidelity.ts, code-quality.ts, dev-velocity.ts, accessibility.ts, store-compliance.ts (placeholder index.ts only for now)
+     - `src/scoring/` — will hold composite.ts (placeholder index.ts)
+     - `src/aggregation/` — will hold schema.ts, rollup.ts (placeholder index.ts)
+     - `src/cli/` — will hold CLI entry point (placeholder index.ts)
+     - `templates/` — copy `scorecard-template.json` from mobile-ideas repo
+     - `docs/` — copy `benchmark-config.md` from mobile-ideas repo as `docs/benchmark-config.md`
+  4. Create `package.json` with name `@mobile-benchmark/harness`, TypeScript/Node dependencies (`typescript`, `@types/node`), and scripts (`build`, `lint`, `test`, `benchmark`).
+  5. Create `tsconfig.json` with strict mode, ES2022 target, Node16 module resolution, `outDir: dist/`.
+  6. Create `README.md` with project overview, directory structure, usage instructions, and link to benchmark-config.md.
+  7. Create placeholder `src/index.ts` that re-exports from dimensions, scoring, and aggregation.
+  8. Create placeholder `src/dimensions/index.ts`, `src/scoring/index.ts`, `src/aggregation/index.ts`, `src/cli/index.ts` with TODO stubs.
+  9. Commit and push the scaffold.
+  10. Verify: `gh repo view GeorgeQLe/mobile-benchmark-harness --json visibility` returns `PRIVATE`, README exists, scorecard schema exists under `templates/`.
+
+  **Key decisions:**
+  - Node.js/TypeScript runtime (consistent with `scripts/` in mobile-ideas repo).
+  - Strict TypeScript for type safety in metric handling.
+  - Flat directory structure under `src/` — one file per dimension module.
+  - CLI entry via `npx benchmark` (configured in package.json `bin` field).
+
+  **Execution Profile:**
+  - Parallel mode: serial
+  - Integration owner: main agent
+  - Test strategy: none (scaffold only, no runtime logic yet)
+
+  **Acceptance Criteria:**
+  - Private repo `GeorgeQLe/mobile-benchmark-harness` exists on GitHub with `visibility == PRIVATE`.
+  - Directory structure matches: `src/dimensions/`, `src/scoring/`, `src/aggregation/`, `src/cli/`, `templates/`, `docs/`.
+  - `package.json` and `tsconfig.json` are valid.
+  - `README.md` exists with project overview.
+  - `templates/scorecard-template.json` matches the schema from Step 10.1.
+  - Root commit exists and is pushed to `main`.
+
+  **Ship-one-step handoff contract:**
+  Implement only Step 10.2. Validate it. Mark Step 10.2 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 10.3's plan. Then run `/ship` when done.
+
 - [ ] Step 10.3: Implement performance and bundle size benchmark modules
   - Files: create `src/dimensions/performance.ts`, `src/dimensions/bundle-size.ts` in harness repo
   - Performance module: measure cold start (via `adb shell am start` / Xcode Instruments), warm start, frame rate (systrace/Instruments), memory (profiler snapshots), CPU, battery drain (estimated via power profiler).
