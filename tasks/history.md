@@ -1847,3 +1847,27 @@
 - Residual risk: none — template files only, validated for syntax. Actual CI runs depend on downstream repo implementation.
 - Rollback note: revert shipping commit to remove `templates/ci/` directory.
 - Next command: `/run` (Step 10.9 — scaffold multi-variant structure in pilot repo).
+
+## 2026-05-10 - Phase 10 Step 10.9 Scaffold Multi-Variant Structure in Pilot Repo
+
+- Scaffolded multi-variant directory structure in pilot downstream repo `GeorgeQLe/todoist-mobile-clone`:
+  - Created 5 variant directories with placeholder READMEs: `variants/react-native/`, `variants/flutter/`, `variants/expo/`, `variants/ios-native/`, `variants/android-native/`.
+  - Each README includes variant stack, build/run, test, and lint commands; status marked as "scaffold (implementation pending)".
+  - Created shared directory scaffold: `shared/assets/.gitkeep`, `shared/api-contracts/.gitkeep`, `shared/test-fixtures/.gitkeep`.
+  - Copied 6 CI/CD workflow templates from `mobile-ideas/templates/ci/` into `.github/workflows/`: react-native.yml, flutter.yml, expo.yml, ios-native.yml, android-native.yml, benchmark.yml.
+- Disabled GitHub Actions on the pilot repo (`enabled: false`) to prevent workflow failures on pushes before implementation begins.
+- Verified all 14 files exist via `gh api` (5 variant READMEs, 6 workflow files, 3 shared .gitkeep files).
+- Verified repo visibility remains PRIVATE.
+- Wrote Step 10.10 implementation plan (end-to-end pilot validation).
+
+### Ship Manifest
+
+- User goal: execute Step 10.9 — scaffold multi-variant structure in pilot repo.
+- Changed files (pilot repo): `variants/react-native/README.md` (new), `variants/flutter/README.md` (new), `variants/expo/README.md` (new), `variants/ios-native/README.md` (new), `variants/android-native/README.md` (new), `shared/assets/.gitkeep` (new), `shared/api-contracts/.gitkeep` (new), `shared/test-fixtures/.gitkeep` (new), `.github/workflows/react-native.yml` (new), `.github/workflows/flutter.yml` (new), `.github/workflows/expo.yml` (new), `.github/workflows/ios-native.yml` (new), `.github/workflows/android-native.yml` (new), `.github/workflows/benchmark.yml` (new).
+- Changed files (mobile-ideas): `tasks/todo.md` (Step 10.9 marked done, Step 10.10 plan added), `tasks/history.md`.
+- Per-file purpose: variant READMEs document stack and build commands; .gitkeep files ensure shared directories are tracked; workflow files enable CI/CD when implementation begins.
+- Tests run: `gh api` verification of all 14 files and repo visibility (PRIVATE).
+- Skipped tests: no runtime code; GitHub Actions disabled until implementation.
+- Residual risk: none — scaffold only, Actions disabled.
+- Rollback note: revert scaffold commit in pilot repo; re-enable Actions if needed.
+- Next command: `/run` (Step 10.10 — end-to-end pilot validation).

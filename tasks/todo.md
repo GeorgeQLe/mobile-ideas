@@ -318,7 +318,7 @@ Build the shared CI/CD templates, benchmarking harness, and multi-variant branch
   **Ship-one-step handoff contract:**
   Implement only Step 10.8. Validate it. Mark Step 10.8 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 10.9's plan. Then run `/ship` when done.
 
-- [ ] Step 10.9: Scaffold multi-variant structure in pilot repo
+- [x] Step 10.9: Scaffold multi-variant structure in pilot repo
   - Files: modify pilot downstream repo (Todoist: `GeorgeQLe/todoist-mobile-clone`)
   - Create `variants/` directory structure with placeholder READMEs for each variant.
   - Copy CI/CD templates into `.github/workflows/`.
@@ -378,6 +378,51 @@ Build the shared CI/CD templates, benchmarking harness, and multi-variant branch
   - Verify CI/CD templates parse correctly (GitHub Actions syntax validation).
   - Verify aggregation schema produces valid cross-app comparison output.
   - Document any issues and fix before marking Phase 10 complete.
+
+  **Implementation Plan — Step 10.10:**
+
+  **What to build:**
+  End-to-end validation of the entire Phase 10 benchmarking and multi-variant infrastructure by running the harness against the pilot repo scaffold, validating scorecard output, CI template syntax, and aggregation output. Document any issues found and fix them before marking Phase 10 complete.
+
+  **Steps:**
+  1. Clone `GeorgeQLe/mobile-benchmark-harness` to `/tmp/mobile-benchmark-harness` (or use existing clone).
+  2. Install dependencies (`npm ci`) and compile (`npx tsc`).
+  3. Run harness against the pilot repo scaffold (`GeorgeQLe/todoist-mobile-clone`) for each variant:
+     - Expect baseline/zero scores since no implementation exists.
+     - Verify the harness exits cleanly (no crashes on empty scaffold).
+  4. Validate scorecard JSON output:
+     - All 7 dimensions present (performance, bundleSize, uxFidelity, codeQuality, devVelocity, accessibility, storeCompliance).
+     - Composite score is 0 or baseline.
+     - Metadata fields populated (appId, category, variant, timestamp).
+  5. Validate CI/CD templates syntax:
+     - Parse all 6 workflow files from `GeorgeQLe/todoist-mobile-clone/.github/workflows/` with a YAML parser.
+     - Verify each has valid `on`, `jobs`, and `steps` keys.
+  6. Validate aggregation output:
+     - Feed baseline scorecards into `rollupByCategory()`, `compareVariants()`, `crossAppTable()`.
+     - Verify output shapes match the defined TypeScript types.
+  7. Document any issues found. Fix blocking issues before marking done.
+  8. Mark Phase 10 complete if all checks pass.
+
+  **Key decisions:**
+  - Zero/baseline scores are expected and valid — this validates the harness handles empty projects gracefully.
+  - GitHub Actions is disabled on the pilot repo until implementation begins, so no live CI validation — syntax-only.
+  - If harness crashes on empty scaffold, that's a bug to fix before marking Phase 10 done.
+
+  **Execution Profile:**
+  - Parallel mode: serial
+  - Integration owner: main agent
+  - Test strategy: harness runtime validation, YAML syntax validation, TypeScript type checking
+
+  **Acceptance Criteria:**
+  - Harness runs against pilot repo scaffold without crashing.
+  - Scorecard JSON has all 7 dimensions and correct metadata structure.
+  - All 6 CI/CD workflow files pass YAML syntax validation.
+  - Aggregation functions produce valid output from baseline scorecards.
+  - Any issues found are documented and fixed.
+  - Phase 10 marked complete.
+
+  **Ship-one-step handoff contract:**
+  Implement only Step 10.10. Validate it. Mark Step 10.10 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Then run `/ship` when done.
 
 ### Reference
 
