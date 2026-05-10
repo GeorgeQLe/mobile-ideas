@@ -1,5 +1,27 @@
 # History
 
+## 2026-05-10 - Phase 11 Step 11.1: Scaffold Multi-Variant Structure Across All 27 AI & Assistants Repos
+
+- Scaffolded multi-variant directory structure across all 27 AI & Assistants downstream repos (IDs 001-005, 201-222).
+- For each repo, created 14 files:
+  - 5 variant directories with placeholder READMEs: `variants/react-native/`, `variants/flutter/`, `variants/expo/`, `variants/ios-native/`, `variants/android-native/`.
+  - 3 shared directory scaffolds: `shared/assets/.gitkeep`, `shared/api-contracts/.gitkeep`, `shared/test-fixtures/.gitkeep`.
+  - 6 CI/CD workflow templates copied from `mobile-ideas/templates/ci/` into `.github/workflows/`.
+- Disabled GitHub Actions on all 27 repos (no app code yet).
+- Verified all 27 repos: 14/14 files exist, visibility remains PRIVATE, Actions disabled.
+- Serial execution with 30s minimum delay between repos per CLAUDE.md seeding rules.
+- Pre-batch rate limit: 5000/5000. Post-batch rate limit: 4544/5000.
+- Zero failures across all 27 repos.
+
+### Ship Manifest
+
+- User goal: execute Step 11.1 — scaffold multi-variant structure across all 27 AI & Assistants repos.
+- Changed files (27 downstream repos): 14 new files each (5 variant READMEs, 6 workflow files, 3 shared .gitkeep files).
+- Changed files (mobile-ideas): `tasks/todo.md` (Step 11.1 marked done), `tasks/history.md`, `scripts/scaffold-variants.sh` (new), `scripts/scaffold-results.log` (new).
+- Tests run: `gh api` verification of all 14 files per repo, visibility check (PRIVATE), Actions disabled check.
+- Residual risk: none — scaffold only, Actions disabled.
+- Next: Step 11.2 — Implement pilot app 1 (ChatGPT clone, all 5 variants).
+
 ## 2026-05-09 - Phase 10 Step 10.6: Build Composite Scoring Engine and Aggregation Dashboard Schema
 
 - Created `src/scoring/composite.ts`: `DimensionKey` type, `WeightConfig` with default weights summing to 1.0 (performance 0.20, bundleSize 0.10, uxFidelity 0.25, codeQuality 0.15, devVelocity 0.10, accessibility 0.10, storeCompliance 0.10), `ScorecardMetadata` and `ScorecardResult` types, `computeComposite()` weighted average with weight-sum validation, `buildScorecard()` convenience function.

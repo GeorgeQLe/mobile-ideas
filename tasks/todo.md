@@ -68,7 +68,7 @@ Build all five variants for every app in the AI & Assistants category cluster to
 
 ### Implementation
 
-- [ ] Step 11.1: Scaffold multi-variant structure across all 27 AI & Assistants repos
+- [x] Step 11.1: Scaffold multi-variant structure across all 27 AI & Assistants repos
   - Files: all 27 downstream repos listed in App Inventory
   - For each repo: create `variants/` directories (react-native, flutter, expo, ios-native, android-native) with placeholder READMEs, `shared/` directories (assets, api-contracts, test-fixtures) with `.gitkeep`, and copy 6 CI/CD workflow templates from `mobile-ideas/templates/ci/` into `.github/workflows/`.
   - Disable GitHub Actions on each repo (Actions disabled until implementation is ready).
