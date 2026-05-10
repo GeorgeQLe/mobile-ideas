@@ -1546,7 +1546,32 @@ Phase 8 completed 2026-05-06. All 1000 IDs have backlog rows, implementation-rea
 
 **Parallelization:** agent-team
 
-**Coordination Notes:** All apps in this cluster are independent repos. All 26 apps (and all 5 variants within each) can build in parallel. Share architectural patterns for LLM integration, streaming responses, conversation persistence, and tool/function calling across AI apps.
+**Coordination Notes:** All apps in this cluster are independent repos. All 27 apps (and all 5 variants within each) can build in parallel. Share architectural patterns for LLM integration, streaming responses, conversation persistence, and tool/function calling across AI apps.
+
+### Execution Profile
+
+**Parallel mode:** agent-team
+**Integration owner:** main agent
+**Conflict risk:** low (each app is an independent GitHub repo)
+**Review gates:** CI passing, benchmark scores, spec compliance, legal/asset review
+
+**Subagent lanes:** none (per-step lanes defined at execution time — each step scaffolds or implements one app in its own downstream repo with no cross-repo writes)
+
+### Implementation
+
+- Step 11.1: Scaffold multi-variant structure across all 27 AI & Assistants repos
+- Step 11.2: Implement pilot app 1 — ChatGPT clone (all 5 variants)
+- Step 11.3: Implement pilot app 2 — Claude clone (all 5 variants)
+- Step 11.4: Implement pilot app 3 — Perplexity clone (all 5 variants)
+- Step 11.5: Implement pilot app 4 — Character.AI clone (all 5 variants)
+- Step 11.6: Implement pilot app 5 — Replika clone (all 5 variants)
+- Step 11.7: Implement batch apps 201-205 — Poe, Gemini, Copilot, Grok, DeepSeek (all 5 variants each)
+- Step 11.8: Implement batch apps 206-210 — Meta AI, You.com, Pi, Phind, HuggingChat (all 5 variants each)
+- Step 11.9: Implement batch apps 211-216 — Wysa, ELSA Speak, OtterPilot, Grammarly Keyboard, Wordtune, QuillBot (all 5 variants each)
+- Step 11.10: Implement batch apps 217-222 — Ask AI, Genie, Monica, Notion AI, Forefront AI, Consensus (all 5 variants each)
+- Step 11.11: Enable GitHub Actions and run CI validation across all 27 repos
+- Step 11.12: Run benchmarking harness and record scorecards
+- Step 11.13: Phase 11 final validation and cleanup
 
 **On Completion** (fill in when phase is done):
 - Deviations from plan: 
