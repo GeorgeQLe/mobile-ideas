@@ -1821,3 +1821,29 @@
 - Residual risk: none — documentation-only step.
 - Rollback note: revert shipping commit to remove variant-structure.md and restore downstream README template.
 - Next command: `/run` (Step 10.8 — CI/CD workflow templates).
+
+## 2026-05-09 - Phase 10 Step 10.8 CI/CD Workflow Templates
+
+- Created 6 GitHub Actions workflow templates in `templates/ci/`:
+  - `react-native.yml` — lint (eslint), type check (tsc --noEmit), test (jest), build Android (gradlew assembleDebug), build iOS (xcodebuild). Path-filtered to `variants/react-native/**` and `shared/**`.
+  - `flutter.yml` — lint (flutter analyze), test (flutter test), build Android (flutter build apk), build iOS (flutter build ios). Path-filtered to `variants/flutter/**` and `shared/**`.
+  - `expo.yml` — lint (eslint), type check (tsc --noEmit), test (jest), build web export (expo export). Path-filtered to `variants/expo/**` and `shared/**`.
+  - `ios-native.yml` — lint (swiftlint), build (xcodebuild), test (xcodebuild test). macOS runner. Path-filtered to `variants/ios-native/**` and `shared/**`.
+  - `android-native.yml` — lint (ktlintCheck), build (gradlew assembleDebug), test (gradlew test). Path-filtered to `variants/android-native/**` and `shared/**`.
+  - `benchmark.yml` — reusable/manual dispatch workflow with matrix strategy across all 5 variants. Supports variant filtering via input. Invokes `@mobile-benchmark/harness`, uploads scorecard JSON as artifact.
+- All workflows use `actions/checkout@v4`, appropriate setup actions (setup-node, setup-java, flutter-action), `actions/upload-artifact@v4`.
+- iOS-related jobs use `macos-latest` runner; all others use `ubuntu-latest`.
+- Lint/typecheck/test run in parallel where possible; build jobs depend on passing checks.
+- Validated all 6 files with Ruby YAML parser — no syntax errors.
+- Wrote Step 10.9 implementation plan (scaffold multi-variant structure in pilot repo).
+
+### Ship Manifest
+
+- User goal: execute Step 10.8 — create CI/CD workflow templates for all 5 variant stacks.
+- Changed files: `templates/ci/react-native.yml` (new), `templates/ci/flutter.yml` (new), `templates/ci/expo.yml` (new), `templates/ci/ios-native.yml` (new), `templates/ci/android-native.yml` (new), `templates/ci/benchmark.yml` (new), `tasks/todo.md` (Step 10.8 marked done, Step 10.9 plan added), `tasks/history.md`.
+- Per-file purpose: 5 variant CI workflows + 1 benchmark workflow template for downstream repos; tracking docs updated.
+- Tests run: YAML syntax validation (Ruby yaml parser) on all 6 files.
+- Skipped tests: no live GitHub Actions runs (templates only, not deployed).
+- Residual risk: none — template files only, validated for syntax. Actual CI runs depend on downstream repo implementation.
+- Rollback note: revert shipping commit to remove `templates/ci/` directory.
+- Next command: `/run` (Step 10.9 — scaffold multi-variant structure in pilot repo).

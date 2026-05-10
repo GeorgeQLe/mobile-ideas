@@ -261,7 +261,7 @@ Build the shared CI/CD templates, benchmarking harness, and multi-variant branch
   - Shared assets directory: `shared/assets/`, `shared/api-contracts/`, `shared/test-fixtures/`.
   - Document how CI/CD templates reference variant paths.
 
-- [ ] Step 10.8: Create CI/CD workflow templates for all 5 variant stacks
+- [x] Step 10.8: Create CI/CD workflow templates for all 5 variant stacks
   - Files: create `templates/ci/react-native.yml`, `templates/ci/flutter.yml`, `templates/ci/expo.yml`, `templates/ci/ios-native.yml`, `templates/ci/android-native.yml`, `templates/ci/benchmark.yml`
   - Each template: build, lint, type check, test, and benchmark for its variant stack.
   - Benchmark workflow: runs after build, invokes the harness, uploads scorecard JSON as artifact.
@@ -324,6 +324,52 @@ Build the shared CI/CD templates, benchmarking harness, and multi-variant branch
   - Copy CI/CD templates into `.github/workflows/`.
   - Add `shared/` directory scaffold.
   - Push and verify the structure is correct via `gh api`.
+
+  **Implementation Plan — Step 10.9:**
+
+  **What to build:**
+  Scaffold the multi-variant directory structure in the pilot downstream repo `GeorgeQLe/todoist-mobile-clone`. Create all 5 variant directories with placeholder READMEs, the shared directory scaffold, and copy the 6 CI/CD workflow templates into `.github/workflows/`. This validates the convention from `templates/variant-structure.md` against a real downstream repo.
+
+  **Steps:**
+  1. Clone `GeorgeQLe/todoist-mobile-clone` to `/tmp/todoist-mobile-clone`.
+  2. Create variant directories with placeholder READMEs:
+     - `variants/react-native/README.md`
+     - `variants/flutter/README.md`
+     - `variants/expo/README.md`
+     - `variants/ios-native/README.md`
+     - `variants/android-native/README.md`
+  3. Create shared directory scaffold:
+     - `shared/assets/.gitkeep`
+     - `shared/api-contracts/.gitkeep`
+     - `shared/test-fixtures/.gitkeep`
+  4. Copy CI/CD templates from `mobile-ideas/templates/ci/` into `.github/workflows/`:
+     - `react-native.yml`, `flutter.yml`, `expo.yml`, `ios-native.yml`, `android-native.yml`, `benchmark.yml`
+  5. Commit and push.
+  6. Verify via `gh api`:
+     - All 5 variant READMEs exist.
+     - All 6 workflow files exist under `.github/workflows/`.
+     - `shared/` directories exist.
+     - Repo visibility remains PRIVATE.
+
+  **Key decisions:**
+  - Placeholder READMEs include variant name, build/run commands, and a note that implementation is pending.
+  - Shared directories use `.gitkeep` since Git does not track empty directories.
+  - Workflow files are direct copies (not symlinks) — each downstream repo owns its workflows independently.
+
+  **Execution Profile:**
+  - Parallel mode: serial
+  - Integration owner: main agent
+  - Test strategy: `gh api` verification of file existence and repo visibility
+
+  **Acceptance Criteria:**
+  - All 5 `variants/<stack>/README.md` files exist in the pilot repo.
+  - All 6 `.github/workflows/*.yml` files exist in the pilot repo.
+  - `shared/assets/`, `shared/api-contracts/`, `shared/test-fixtures/` directories exist.
+  - Repo remains PRIVATE.
+  - Committed and pushed to `GeorgeQLe/todoist-mobile-clone`.
+
+  **Ship-one-step handoff contract:**
+  Implement only Step 10.9. Validate it. Mark Step 10.9 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 10.10's plan. Then run `/ship` when done.
 
 - [ ] Step 10.10: End-to-end pilot validation
   - Files: modify `tasks/todo.md` (mark 10.10 done), modify `tasks/history.md`

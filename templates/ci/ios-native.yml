@@ -1,0 +1,59 @@
+name: iOS Native CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'variants/ios-native/**'
+      - 'shared/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'variants/ios-native/**'
+      - 'shared/**'
+
+defaults:
+  run:
+    working-directory: variants/ios-native
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: brew install swiftlint
+      - run: swiftlint lint --strict
+
+  build:
+    name: Build
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+      - run: |
+          xcodebuild build \
+            -scheme ${{ github.event.repository.name }} \
+            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            -configuration Debug \
+            CODE_SIGNING_ALLOWED=NO
+
+  test:
+    name: Test
+    runs-on: macos-latest
+    needs: [lint, build]
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+      - run: |
+          xcodebuild test \
+            -scheme ${{ github.event.repository.name }} \
+            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            -configuration Debug \
+            CODE_SIGNING_ALLOWED=NO \
+            -resultBundlePath TestResults.xcresult
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results
+          path: variants/ios-native/TestResults.xcresult
