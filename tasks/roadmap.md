@@ -1287,14 +1287,19 @@ Phase 8 completed 2026-05-06. All 1000 IDs have backlog rows, implementation-rea
 - Category batches processed in parallel — each category's apps are independent repos.
 
 **Acceptance Criteria:**
-- [ ] All 1000 downstream repos have a completed `docs/plans/README.md` with route map, API schema, data model, seed data, and test checklist.
-- [ ] Each plan defines variant-specific build notes for all five targets.
-- [ ] Plans reference exact source spec sections and preserve manual verification blockers.
-- [ ] No proprietary assets, trademarks, or copyrighted content introduced.
+- [x] All 1000 downstream repos have a completed `docs/plans/README.md` with route map, API schema, data model, seed data, and test checklist.
+- [x] Each plan defines variant-specific build notes for all five targets.
+- [x] Plans reference exact source spec sections and preserve manual verification blockers.
+- [x] No proprietary assets, trademarks, or copyrighted content introduced.
 
 **Parallelization:** serial
 
 **Coordination Notes:** All changes to this planning repo (template, script, manifest) are sequential. The generation script handles downstream repo parallelism internally — each downstream repo is independent. Downgraded from agent-team to serial because the only files modified in this repo are the shared template, generation script, and tracking manifest.
+
+**On Completion:**
+- Deviations from plan: Two plan formats emerged — full 5-variant template (majority) and simpler single-stack format (subset from later batch runs). Both contain substantive app-specific content.
+- Tech debt / follow-ups: Simpler-format plans could be upgraded to full 5-variant template in a future pass if needed.
+- Ready for next phase: Yes — Phase 10 (Benchmarking Infrastructure & Multi-Variant Repo Structure).
 
 ### Implementation
 
@@ -1430,6 +1435,90 @@ Phase 8 completed 2026-05-06. All 1000 IDs have backlog rows, implementation-rea
 **Parallelization:** serial
 
 **Coordination Notes:** This phase produces shared infrastructure consumed by all subsequent implementation phases. Must complete before Phases 11-25 begin. Pilot with 1-2 apps from different categories to validate the full pipeline end-to-end.
+
+### Execution Profile
+**Parallel mode:** serial
+**Integration owner:** main agent
+**Conflict risk:** low (new infrastructure repo and templates — no contention with downstream repos)
+**Review gates:** structural (benchmark dimension coverage, CI template correctness, variant scaffolding)
+
+**Subagent lanes:** none
+
+### Implementation
+
+- Step 10.1: Design benchmarking dimensions, scoring rubric, and scorecard schema
+  - Files: create `templates/scorecard-template.json`, create `templates/benchmark-config.md`
+  - Define the 7 benchmark dimensions with concrete metrics, measurement methods, and per-metric scoring rubrics (raw → normalized 0-100).
+  - Design composite scoring formula (weighted average across dimensions).
+  - Define scorecard JSON schema: per-variant scores, per-dimension breakdowns, metadata (app ID, category, variant, timestamp, CI run ID).
+  - Define aggregation schema: cross-app comparison tables, category-level rollups, variant-vs-variant comparison.
+
+- Step 10.2: Create benchmarking harness repo on GitHub
+  - Files: new repo `GeorgeQLe/mobile-benchmark-harness` (private)
+  - Scaffold repo structure: `src/dimensions/`, `src/scoring/`, `src/aggregation/`, `templates/`, `docs/`, `package.json`, `tsconfig.json`, `README.md`.
+  - Use Node.js/TypeScript as the harness runtime (consistent with existing scripts in this repo).
+  - Include the scorecard schema from Step 10.1.
+  - Seed with `gh repo create` following the same private-repo pattern as downstream seeding.
+
+- Step 10.3: Implement performance and bundle size benchmark modules
+  - Files: create `src/dimensions/performance.ts`, `src/dimensions/bundle-size.ts` in harness repo
+  - Performance module: measure cold start (via `adb shell am start` / Xcode Instruments), warm start, frame rate (systrace/Instruments), memory (profiler snapshots), CPU, battery drain (estimated via power profiler).
+  - Bundle size module: measure IPA size, APK/AAB size, OTA update size, asset breakdown (images, fonts, JS bundle, native libs).
+  - Each module exports a `measure()` function returning raw metrics and a `score()` function returning normalized 0-100.
+
+- Step 10.4: Implement UX fidelity and code quality benchmark modules
+  - Files: create `src/dimensions/ux-fidelity.ts`, `src/dimensions/code-quality.ts` in harness repo
+  - UX fidelity module: parse the build plan's route map and compare against implemented screens (directory listing), check interaction coverage against spec edge cases, output spec compliance percentage.
+  - Code quality module: run lint (ESLint/SwiftLint/ktlint/flutter analyze), type coverage (tsc --noEmit/strict), test coverage (jest/xctest/gradle), compute cyclomatic complexity and maintainability index.
+
+- Step 10.5: Implement developer velocity, accessibility, and store compliance modules
+  - Files: create `src/dimensions/dev-velocity.ts`, `src/dimensions/accessibility.ts`, `src/dimensions/store-compliance.ts` in harness repo
+  - Dev velocity: time clean build, incremental build, hot/live reload, CI pipeline duration.
+  - Accessibility: run automated a11y audits (axe-core for RN/Expo, accessibility_scanner for Android, Accessibility Inspector for iOS), measure contrast ratios, touch target sizes.
+  - Store compliance: check metadata completeness (app name, description, screenshots, privacy policy URL, categories), policy compliance checklist, privacy manifest accuracy.
+
+- Step 10.6: Build composite scoring engine and aggregation dashboard schema
+  - Files: create `src/scoring/composite.ts`, `src/aggregation/schema.ts`, `src/aggregation/rollup.ts` in harness repo
+  - Composite scoring: weighted average across 7 dimensions (configurable weights with sensible defaults).
+  - Aggregation: produce cross-app comparison JSON, category-level rollup summaries, variant-vs-variant comparison tables.
+  - CLI entry point: `npx benchmark --app <repo> --variant <variant> --output <path>`.
+
+- Step 10.7: Design and document multi-variant repo structure convention
+  - Files: create `templates/variant-structure.md`, modify `templates/downstream/README.md`
+  - Document the directory convention: `variants/react-native/`, `variants/flutter/`, `variants/expo/`, `variants/ios-native/`, `variants/android-native/`.
+  - Each variant directory contains: `src/`, `package.json` or equivalent, variant-specific config, `README.md` with build/run instructions.
+  - Shared assets directory: `shared/assets/`, `shared/api-contracts/`, `shared/test-fixtures/`.
+  - Document how CI/CD templates reference variant paths.
+
+- Step 10.8: Create CI/CD workflow templates for all 5 variant stacks
+  - Files: create `templates/ci/react-native.yml`, `templates/ci/flutter.yml`, `templates/ci/expo.yml`, `templates/ci/ios-native.yml`, `templates/ci/android-native.yml`, `templates/ci/benchmark.yml`
+  - Each template: build, lint, type check, test, and benchmark for its variant stack.
+  - Benchmark workflow: runs after build, invokes the harness, uploads scorecard JSON as artifact.
+  - Templates use reusable workflow patterns (GitHub Actions composite actions or reusable workflows).
+
+- Step 10.9: Scaffold multi-variant structure in pilot repo
+  - Files: modify pilot downstream repo (Todoist: `GeorgeQLe/todoist-mobile-clone`)
+  - Create `variants/` directory structure with placeholder READMEs for each variant.
+  - Copy CI/CD templates into `.github/workflows/`.
+  - Add `shared/` directory scaffold.
+  - Push and verify the structure is correct via `gh api`.
+
+- Step 10.10: End-to-end pilot validation
+  - Files: modify `tasks/todo.md` (mark 10.10 done), modify `tasks/history.md`
+  - Run the benchmarking harness against the pilot repo's scaffold (expect baseline/zero scores since no implementation exists yet).
+  - Verify scorecard JSON output has all 7 dimensions, composite score, and correct metadata.
+  - Verify CI/CD templates parse correctly (GitHub Actions syntax validation).
+  - Verify aggregation schema produces valid cross-app comparison output.
+  - Document any issues and fix before marking Phase 10 complete.
+
+### Milestone: Phase 10 — Benchmarking Infrastructure & Multi-Variant Repo Structure
+
+**Acceptance Criteria:**
+- [ ] Benchmarking harness repo exists with automated scoring for all 7 benchmark dimensions.
+- [ ] CI/CD templates cover build, test, lint, and benchmark for all 5 variant stacks.
+- [ ] Multi-variant directory convention is documented and scaffolded in at least one pilot repo.
+- [ ] Scorecard template produces a normalized 0-100 composite score per variant.
+- [ ] Aggregation schema supports cross-app comparison and category-level rollups.
 
 **On Completion** (fill in when phase is done):
 - Deviations from plan: 
