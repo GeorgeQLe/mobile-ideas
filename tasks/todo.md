@@ -455,7 +455,7 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
   - Test strategy: `gh api` reads + placeholder grep on each pushed plan
 
   **Ship-one-step handoff contract:** Implement only Step 9.14. Validate it. Mark Step 9.14 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.15's plan. Enter plan mode for Step 9.15, and stop.
-- [ ] Step 9.15: Generate build plans — Education & Learning cluster (~31 apps)
+- [x] Step 9.15: Generate build plans — Education & Learning cluster (~31 apps)
 
   ### Step 9.15 Implementation Plan
 
@@ -484,6 +484,32 @@ Generate app-specific build plans in every downstream repo's `docs/plans/README.
 
   **Ship-one-step handoff contract:** Implement only Step 9.15. Validate it. Mark Step 9.15 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.16's plan. Enter plan mode for Step 9.16, and stop.
 - [ ] Step 9.16: Generate build plans — Productivity & Collaboration cluster (~72 apps)
+
+  ### Step 9.16 Implementation Plan
+
+  **What to build:** Generate and push build plans for all Productivity & Collaboration cluster apps (~72 apps).
+
+  **Files:**
+  - Modify: `tasks/todo.md` (mark 9.16 done)
+  - Modify: `tasks/history.md` (add 9.16 entry)
+
+  **Technical approach:**
+  1. Run `scripts/generate-build-plans.mjs --execute --from 89 --to 128` (batch-05/06/07 partial: productivity, collaboration, and communication apps — ~40 apps).
+  2. Run `scripts/generate-build-plans.mjs --execute --from 601 --to 632` (batch-31 partial: enterprise/collaboration/productivity apps — ~32 apps).
+  3. After each batch run, verify via `gh api` that `docs/plans/README.md` exists in each downstream repo with 0 unfilled placeholders.
+  4. Spot-check 3 plans from different subcategories (e.g., note-taking, project management, communication/chat) for productivity-appropriate variant architecture (document/note models, collaboration/sharing, real-time sync, workspace/team organization, task/project management, rich text editing, file storage, notification systems).
+
+  **Acceptance criteria:**
+  - All Productivity & Collaboration cluster apps have `docs/plans/README.md` with 0 unfilled placeholders.
+  - Variant architecture uses productivity-specific defaults (document models, collaboration, real-time sync, workspace organization).
+  - No script errors or push failures during the run.
+
+  **Execution Profile:**
+  - Mode: serial
+  - Integration owner: main agent
+  - Test strategy: `gh api` reads + placeholder grep on each pushed plan
+
+  **Ship-one-step handoff contract:** Implement only Step 9.16. Validate it. Mark Step 9.16 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 9.17's plan. Enter plan mode for Step 9.17, and stop.
 - [ ] Step 9.17: Generate build plans — News, Maps & Navigation cluster (~57 apps)
 - [ ] Step 9.18: Generate build plans — Home, Security, Cloud & Enterprise cluster (~137 apps)
 

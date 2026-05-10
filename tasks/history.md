@@ -1595,6 +1595,29 @@
 - Rollback note: revert the shipping commit to restore IDs 801-820 to their previous Draft 1 scaffold state and previous readiness counts.
 - Next command: `$run`.
 
+## 2026-05-09 - Phase 9 Step 9.15 Education & Learning Build Plans
+
+- All Education & Learning cluster apps (~31 apps) already had `docs/plans/README.md` from prior steps' overlapping ID ranges.
+- Also pushed plans to 7 Productivity apps (IDs 89–95: Notion, Todoist, Trello, Google Calendar, Evernote, Dropbox, Google Drive) which were in the plan's first range — these are valid plans that advance Step 9.16.
+- Verified 9 representative education repos via `gh api`: 0 unfilled `{{...}}` placeholders across Duolingo, Khan Academy, ClassDojo, Blackboard Learn, Brainly, Canvas Student, Google Classroom, Babbel, Moodle.
+- Verified 7 newly-pushed productivity repos: 0 placeholders.
+- Spot-checked 3 plans:
+  - Duolingo (language learning): rich education architecture — lesson progression, placement, spaced repetition, exercise types, classroom integration, streak/XP motivation, course/unit/lesson/exercise data model.
+  - Blackboard Learn (LMS): scaffold-level plan with route map, manual verification blockers for institutional/account-gated features, appropriate for Draft 1 spec status.
+  - Brainly (study/tutoring): scaffold-level plan with route map, data model, and API mock contracts; verification blockers for account-gated features.
+- No script errors or push failures.
+
+### Ship Manifest
+
+- User goal: execute Step 9.15 — generate build plans for Education & Learning cluster.
+- Changed files: `tasks/todo.md`, `tasks/history.md`.
+- Downstream changes: 7 repos (IDs 89–95) received new `docs/plans/README.md`; remaining education repos already had plans.
+- Tests run: `gh api` verification on 16 repos (file existence + placeholder grep); spot-checked 3 plans for education-appropriate architecture.
+- Skipped tests: no runtime code in this repo.
+- Residual risk: education apps serving minors (ClassDojo, Khan Academy Kids, ABCmouse, ScratchJr) require COPPA compliance review before implementation per CLAUDE.md.
+- Rollback note: revert shipping commit; downstream plans remain in repos independently.
+- Next command: `/run` (Step 9.16 — Productivity & Collaboration cluster).
+
 ## 2026-05-08 - Phase 9 Step 9.14 Health, Fitness & Wellness Build Plans
 
 - Generated and pushed `docs/plans/README.md` to 87 Health, Fitness & Wellness cluster downstream repos across 4 ID ranges: 82-88 (meditation/fitness/tracking), 150-164 (pharmacy/telehealth/wellness/parenting), 341-368 (sports/fitness), 661-697 (health/medical/sleep/parenting).
