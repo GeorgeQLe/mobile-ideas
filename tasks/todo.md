@@ -75,7 +75,7 @@ Build all five variants for every app in the AI & Assistants category cluster to
   - Serial execution per CLAUDE.md seeding constraints (30s minimum between repos).
   - Verify via `gh api`: variant READMEs exist, workflow files exist, shared dirs exist, visibility remains PRIVATE.
 
-- [ ] Step 11.2: Implement pilot app 1 — ChatGPT clone (all 5 variants)
+- [x] Step 11.2: Implement pilot app 1 — ChatGPT clone (all 5 variants)
   - Files: `GeorgeQLe/chatgpt-mobile-clone` — all 5 `variants/` directories
   - Read source spec `specs/batch-01/001-chatgpt.md` and build plan `docs/plans/README.md` from the downstream repo.
   - Implement all screens, navigation, data models, API contracts, and edge cases per spec across all 5 variants.
