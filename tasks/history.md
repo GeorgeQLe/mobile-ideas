@@ -1,5 +1,15 @@
 # History
 
+## 2026-05-10 - Phase 11 Step 11.3: Implement Pilot App 2 — Claude Clone (All 5 Variants)
+
+- Implemented full V1 Claude-style AI assistant across all 5 variant stacks in `GeorgeQLe/claude-mobile-clone`.
+- 230 files total, 6 commits (shared contracts + 5 variant commits), all pushed.
+- Distinct from ChatGPT clone: ProjectSpace (workspace/knowledge), GeneratedArtifact (code/markdown/structured preview), VoiceDraft (dictation-only input), Artifacts Preview screen, Projects/Knowledge screen.
+- Shared API contracts: endpoints.json (20+ routes), models.json (12 entities), sse-events.json (6 event types including artifact_start/chunk/end).
+- Per variant: 11 screens wired, 12 typed models, SSE streaming with artifact events, artifact preview renderer, project store, 6 test suites.
+- Verification: repo PRIVATE, key files confirmed on remote via `gh api` (models, streaming, artifacts preview, projects screen across all 5 variants).
+- 30 test suites total across 5 variants.
+
 ## 2026-05-10 - Phase 11 Step 11.2: Implement Pilot App 1 — ChatGPT Clone (All 5 Variants)
 
 - Implemented full V1 ChatGPT-style AI assistant across all 5 variant stacks in `GeorgeQLe/chatgpt-mobile-clone`.

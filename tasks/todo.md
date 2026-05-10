@@ -231,6 +231,61 @@ Build all five variants for every app in the AI & Assistants category cluster to
   - Implement: query threads, cited source cards, follow-up exploration, collections, freshness controls, provider-backed retrieval, subscription gates, citation-quality tests.
   - Distinct pattern: citation/source attribution UI, search-first rather than chat-first paradigm.
 
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  A Perplexity-style mobile AI search/answer app across 5 variant stacks. The source spec is at `specs/batch-01/003-perplexity.md` in the `mobile-ideas` repo. The downstream repo is `GeorgeQLe/perplexity-mobile-clone` (PRIVATE, scaffold already in place with variant dirs, shared dirs).
+
+  **Spec Summary (from `003-perplexity.md`):**
+  - 12 screens: Welcome/Auth, Ask Home, Answer Thread, Source Detail, Discover, Library, Voice Search, Attachment Prompt, Assistant Actions, Account & Data, Subscription, Support.
+  - 12 data models: User, DeviceSession, SearchThread, Answer, Citation, SourceDocument, LibraryItem, AssistantAction, Upload, Entitlement, DataDeletionRequest, AuditEvent.
+  - 20+ API endpoints for auth, account/settings, threads, messages, uploads, search/suggestions, reports/blocks/mutes, notifications, entitlements/billing, data export/deletion, support.
+  - SSE streaming events: token, completion, error, citation_found, source_loaded, search_progress.
+
+  **Distinct from Claude clone (Step 11.3):**
+  - SearchThread entity: search-first paradigm with query mode (quick/pro/deep research)
+  - Citation entity: source URL, title, snippet, relevance score, retrieval timestamp
+  - SourceDocument entity: full source page metadata, domain, favicon, content type
+  - LibraryItem entity: saved threads/answers for personal research library
+  - AssistantAction entity: scheduling, drafting, booking integrations (opt-in)
+  - DataDeletionRequest entity: self-serve deletion with 30-day window
+  - Source Detail screen: full source view with citation context
+  - Discover screen: public/community trending topics and curated content
+  - Library screen: saved research, collections, history
+  - Assistant Actions screen: integration-based actions
+  - No ProjectSpace, GeneratedArtifact, or VoiceDraft (different model shape)
+  - Citation-card UI pattern: every answer carries source attribution cards with domain, title, snippet
+
+  **Per-Variant Implementation:**
+  Each variant (`react-native`, `flutter`, `expo`, `ios-native`, `android-native`) gets:
+  - App entry point + navigation (all 12 screens wired)
+  - Typed data models for all 12 entities
+  - API service layer with typed contracts
+  - Streaming answer renderer (SSE with citation_found and source_loaded events)
+  - Citation card component (source attribution: domain, favicon, title, snippet, relevance)
+  - Source detail view (expandable source content)
+  - State management (Zustand for RN/Expo, Riverpod for Flutter, @Observable for iOS, ViewModel for Android)
+  - Basic test suite (6 files: models, auth store, search store, library store, streaming, API)
+  - README updated from "scaffold" to "V1 implementation"
+
+  **Approach:**
+  1. Clone `GeorgeQLe/perplexity-mobile-clone` to `/tmp/`
+  2. Create shared API contracts and test fixtures in `shared/` (endpoints.json, models.json, sse-events.json, test fixtures for threads, answers, citations, sources)
+  3. Launch 5 parallel subagents (one per variant — independent directories, different languages)
+  4. Each variant committed separately, all pushed at end
+  5. Verify key files on remote via `gh api`
+
+  **Execution Profile:**
+  - Parallel mode: serial commits, parallel subagent implementation
+  - Integration owner: main agent
+  - Test strategy: tests-after (write tests as part of implementation)
+  - Conflict risk: none (single repo, single branch)
+
+  **Ship-one-step handoff contract:** Implement only Step 11.4, validate it (all 5 variants have complete source, key files verified on remote), then run `/ship` when done.
+
+  **Next work:** Step 11.4 — Implement Perplexity clone across all 5 variants
+  **Recommended next command:** `/run`
+
 - [ ] Step 11.5: Implement pilot app 4 — Character.AI clone (all 5 variants)
   - Files: `GeorgeQLe/character-ai-mobile-clone` — all 5 `variants/` directories
   - Read source spec `specs/batch-01/004-character-ai.md` and build plan.
