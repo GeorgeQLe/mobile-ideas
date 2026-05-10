@@ -146,7 +146,7 @@ Build all five variants for every app in the AI & Assistants category cluster to
   **Next work:** Step 11.2 — Implement ChatGPT clone across all 5 variants
   **Recommended next command:** `/run`
 
-- [ ] Step 11.3: Implement pilot app 2 — Claude clone (all 5 variants)
+- [x] Step 11.3: Implement pilot app 2 — Claude clone (all 5 variants)
   - Files: `GeorgeQLe/claude-mobile-clone` — all 5 `variants/` directories
   - Read source spec `specs/batch-01/002-claude.md` and build plan.
   - Implement: conversational threads, file/context ingestion, project organization, artifact-style outputs, privacy controls, usage limits, subscriptions, safety review gates.
@@ -220,9 +220,9 @@ Build all five variants for every app in the AI & Assistants category cluster to
   - Test strategy: tests-after (write tests as part of implementation)
   - Conflict risk: none (single repo, single branch)
 
-  **Ship-one-step handoff contract:** Implement only Step 11.3, validate it (all 5 variants have complete source, key files verified on remote), then run `/ship` when done.
+  **Ship-one-step handoff contract:** Step 11.3 complete — implemented Claude clone across all 5 variants in `GeorgeQLe/claude-mobile-clone`. 230 files, 6 commits, all pushed and verified (PRIVATE, key files confirmed via `gh api`).
 
-  **Next work:** Step 11.3 — Implement Claude clone across all 5 variants
+  **Next work:** Step 11.4 — Implement Perplexity clone across all 5 variants
   **Recommended next command:** `/run`
 
 - [ ] Step 11.4: Implement pilot app 3 — Perplexity clone (all 5 variants)
