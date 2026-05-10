@@ -1,5 +1,29 @@
 # History
 
+## 2026-05-09 - Phase 10 Step 10.2: Create Benchmarking Harness Repo on GitHub
+
+- Created private GitHub repo `GeorgeQLe/mobile-benchmark-harness` with `visibility == PRIVATE`.
+- Scaffolded directory structure: `src/dimensions/`, `src/scoring/`, `src/aggregation/`, `src/cli/`, `templates/`, `docs/`.
+- Created `package.json` (`@mobile-benchmark/harness`, Node.js/TypeScript, ES module, `bin` entry for CLI).
+- Created `tsconfig.json` (strict, ES2022 target, Node16 module resolution, `outDir: dist/`).
+- Created `README.md` with project overview, directory structure, usage instructions, and links to config docs.
+- Copied `templates/scorecard-template.json` from mobile-ideas Step 10.1 output.
+- Copied `templates/benchmark-config.md` to `docs/benchmark-config.md` in harness repo.
+- Created placeholder `index.ts` files in `src/`, `src/dimensions/`, `src/scoring/`, `src/aggregation/`, `src/cli/` with TODO stubs for Steps 10.3–10.6.
+- Root commit pushed to `main` branch.
+- Verified: visibility == PRIVATE, README.md exists, scorecard-template.json exists.
+
+### Ship Manifest
+
+- User goal: scaffold the benchmarking harness repo for Phase 10 infrastructure.
+- Changed files (harness repo): `package.json`, `tsconfig.json`, `README.md`, `src/index.ts`, `src/dimensions/index.ts`, `src/scoring/index.ts`, `src/aggregation/index.ts`, `src/cli/index.ts`, `templates/scorecard-template.json`, `docs/benchmark-config.md` (all created).
+- Changed files (mobile-ideas): `tasks/todo.md` (marked 10.2 done, wrote 10.3 plan), `tasks/history.md` (this entry).
+- Tests run: N/A (scaffold only, no runtime code).
+- Skipped tests: no runtime test suite.
+- Residual risk: none — scaffold only, no logic to break.
+- Rollback note: `gh repo delete GeorgeQLe/mobile-benchmark-harness --yes` to remove; revert shipping commit to restore Step 10.2 to incomplete state.
+- Next command: Step 10.3 — implement performance and bundle size benchmark modules.
+
 ## 2026-05-09 - Phase 10 Step 10.1: Benchmarking Dimensions, Scoring Rubric, and Scorecard Schema
 
 - Created `templates/scorecard-template.json`: JSON schema defining per-variant scorecard structure with all 7 benchmark dimensions, per-metric raw+normalized breakdowns, composite scoring, metadata (app ID, category, variant, timestamp, CI run ID, harness version), and optional aggregation context (category/global ranks, averages).

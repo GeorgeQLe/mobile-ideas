@@ -50,7 +50,7 @@ Build the shared CI/CD templates, benchmarking harness, and multi-variant branch
   - Define scorecard JSON schema: per-variant scores, per-dimension breakdowns, metadata (app ID, category, variant, timestamp, CI run ID).
   - Define aggregation schema: cross-app comparison tables, category-level rollups, variant-vs-variant comparison.
 
-- [ ] Step 10.2: Create benchmarking harness repo on GitHub
+- [x] Step 10.2: Create benchmarking harness repo on GitHub
   - Files: new repo `GeorgeQLe/mobile-benchmark-harness` (private)
   - Scaffold repo structure: `src/dimensions/`, `src/scoring/`, `src/aggregation/`, `templates/`, `docs/`, `package.json`, `tsconfig.json`, `README.md`.
   - Use Node.js/TypeScript as the harness runtime (consistent with existing scripts in this repo).
@@ -107,6 +107,49 @@ Build the shared CI/CD templates, benchmarking harness, and multi-variant branch
   - Performance module: measure cold start (via `adb shell am start` / Xcode Instruments), warm start, frame rate (systrace/Instruments), memory (profiler snapshots), CPU, battery drain (estimated via power profiler).
   - Bundle size module: measure IPA size, APK/AAB size, OTA update size, asset breakdown (images, fonts, JS bundle, native libs).
   - Each module exports a `measure()` function returning raw metrics and a `score()` function returning normalized 0-100.
+
+  **Implementation Plan — Step 10.3:**
+
+  **What to build:**
+  Two dimension modules in `GeorgeQLe/mobile-benchmark-harness`: `src/dimensions/performance.ts` and `src/dimensions/bundle-size.ts`. Each module defines TypeScript types for its metrics, implements a `measure()` function that shells out to platform-specific profiling tools and returns raw metric values, and a `score()` function that applies the rubric thresholds from `docs/benchmark-config.md` to produce normalized 0-100 scores. Also create shared types in `src/types.ts` and update `src/dimensions/index.ts` to export the new modules.
+
+  **Steps:**
+  1. Clone harness repo to `/tmp/mobile-benchmark-harness` (or use existing clone).
+  2. Create `src/types.ts` with shared types: `MetricResult` (`{ raw: number; score: number }`), `DimensionResult` (`{ score: number; weight: number; metrics: Record<string, MetricResult> }`), `Variant` enum, `MeasureOptions` interface.
+  3. Create `src/dimensions/performance.ts`:
+     - Define `PerformanceMetrics` type with 8 metric fields matching the scorecard schema.
+     - Implement `measure(appPath: string, variant: Variant, opts?: MeasureOptions): Promise<PerformanceMetrics>` — shells out to `adb shell am start` (Android) or parses Xcode Instruments output (iOS) for cold/warm start; uses systrace/Instruments for frame rate; reads profiler snapshots for memory/CPU; estimates battery drain.
+     - Implement `score(metrics: PerformanceMetrics): DimensionResult` — applies 4-tier thresholds (100/75/50/25) from benchmark-config.md with linear interpolation within tiers.
+     - Export both functions.
+  4. Create `src/dimensions/bundle-size.ts`:
+     - Define `BundleSizeMetrics` type with 6 metric fields.
+     - Implement `measure(buildDir: string, variant: Variant): Promise<BundleSizeMetrics>` — reads file sizes from build output directories, uses `bundletool` for AAB, `xcrun altool` for IPA, Metro output for JS bundle.
+     - Implement `score(metrics: BundleSizeMetrics, variant: Variant): DimensionResult` — applies thresholds, marks N/A metrics as 100 for non-applicable variants.
+     - Export both functions.
+  5. Update `src/dimensions/index.ts` to re-export performance and bundle-size modules.
+  6. Update `src/index.ts` if needed to export new types.
+  7. Run `npx tsc --noEmit` to verify type correctness.
+  8. Commit and push.
+
+  **Key decisions:**
+  - Shell-out approach for measurement (child_process.execFile) — harness orchestrates external tools rather than embedding profilers.
+  - Linear interpolation between rubric tiers for finer granularity (e.g., cold start of 3000ms scores 87.5, midway between 100-tier and 75-tier).
+  - N/A handling: metrics not applicable to a variant (e.g., JS bundle size for native) default to score 100.
+
+  **Execution Profile:**
+  - Parallel mode: serial
+  - Integration owner: main agent
+  - Test strategy: `tsc --noEmit` type check only (no runtime tests for measurement stubs)
+
+  **Acceptance Criteria:**
+  - `src/dimensions/performance.ts` and `src/dimensions/bundle-size.ts` exist with typed `measure()` and `score()` functions.
+  - `src/types.ts` defines shared metric types.
+  - `tsc --noEmit` passes with no errors.
+  - `src/dimensions/index.ts` re-exports both modules.
+  - Committed and pushed to `GeorgeQLe/mobile-benchmark-harness`.
+
+  **Ship-one-step handoff contract:**
+  Implement only Step 10.3. Validate it. Mark Step 10.3 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 10.4's plan. Then run `/ship` when done.
 
 - [ ] Step 10.4: Implement UX fidelity and code quality benchmark modules
   - Files: create `src/dimensions/ux-fidelity.ts`, `src/dimensions/code-quality.ts` in harness repo
