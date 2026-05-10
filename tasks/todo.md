@@ -371,7 +371,7 @@ Build the shared CI/CD templates, benchmarking harness, and multi-variant branch
   **Ship-one-step handoff contract:**
   Implement only Step 10.9. Validate it. Mark Step 10.9 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 10.10's plan. Then run `/ship` when done.
 
-- [ ] Step 10.10: End-to-end pilot validation
+- [x] Step 10.10: End-to-end pilot validation
   - Files: modify `tasks/todo.md` (mark 10.10 done), modify `tasks/history.md`
   - Run the benchmarking harness against the pilot repo's scaffold (expect baseline/zero scores since no implementation exists yet).
   - Verify scorecard JSON output has all 7 dimensions, composite score, and correct metadata.
