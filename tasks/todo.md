@@ -200,7 +200,7 @@ Build the shared CI/CD templates, benchmarking harness, and multi-variant branch
   - Accessibility: run automated a11y audits (axe-core for RN/Expo, accessibility_scanner for Android, Accessibility Inspector for iOS), measure contrast ratios, touch target sizes.
   - Store compliance: check metadata completeness (app name, description, screenshots, privacy policy URL, categories), policy compliance checklist, privacy manifest accuracy.
 
-- [ ] Step 10.6: Build composite scoring engine and aggregation dashboard schema
+- [x] Step 10.6: Build composite scoring engine and aggregation dashboard schema
   - Files: create `src/scoring/composite.ts`, `src/aggregation/schema.ts`, `src/aggregation/rollup.ts` in harness repo
   - Composite scoring: weighted average across 7 dimensions (configurable weights with sensible defaults).
   - Aggregation: produce cross-app comparison JSON, category-level rollup summaries, variant-vs-variant comparison tables.
@@ -260,6 +260,46 @@ Build the shared CI/CD templates, benchmarking harness, and multi-variant branch
   - Each variant directory contains: `src/`, `package.json` or equivalent, variant-specific config, `README.md` with build/run instructions.
   - Shared assets directory: `shared/assets/`, `shared/api-contracts/`, `shared/test-fixtures/`.
   - Document how CI/CD templates reference variant paths.
+
+  **Implementation Plan — Step 10.7:**
+
+  **What to build:**
+  Two documentation files in the `mobile-ideas` repo: `templates/variant-structure.md` (comprehensive multi-variant directory convention) and an updated `templates/downstream/README.md` (downstream repo README template referencing the variant structure). These documents define the standard layout that all 1000 downstream repos will follow during implementation phases.
+
+  **Steps:**
+  1. Read existing `templates/downstream/README.md` to understand current template structure.
+  2. Create `templates/variant-structure.md`:
+     - Top-level directory tree showing `variants/`, `shared/`, `.github/workflows/`, and root config files.
+     - Per-variant directory spec: `variants/react-native/` (package.json, metro.config.js, src/, ios/, android/), `variants/flutter/` (pubspec.yaml, lib/, ios/, android/), `variants/expo/` (app.json, package.json, src/), `variants/ios-native/` (Xcode project, Sources/, Resources/), `variants/android-native/` (Gradle project, app/src/main/).
+     - Shared directory spec: `shared/assets/` (images, fonts, icons), `shared/api-contracts/` (OpenAPI specs, TypeScript types), `shared/test-fixtures/` (mock data, test snapshots).
+     - CI/CD integration: how workflow templates reference `variants/<name>/` paths for build/test/benchmark steps.
+     - Naming conventions, gitignore patterns, and variant-specific config files.
+  3. Update `templates/downstream/README.md`:
+     - Add a "Project Structure" section referencing the variant layout.
+     - Add per-variant build/run instructions as subsections.
+     - Link to `variant-structure.md` for full convention details.
+  4. Verify Markdown structure (one H1, stable headings).
+  5. Commit and push.
+
+  **Key decisions:**
+  - Documentation-only step — no code changes in the harness repo.
+  - Variant directories are peers under `variants/`, not branches — keeps all variants visible and diffable.
+  - Shared directory is at repo root, not duplicated per variant.
+  - CI templates will use matrix strategy over variant paths (detailed in Step 10.8).
+
+  **Execution Profile:**
+  - Parallel mode: serial
+  - Integration owner: main agent
+  - Test strategy: Markdown structure validation only
+
+  **Acceptance Criteria:**
+  - `templates/variant-structure.md` exists with complete directory convention for all 5 variants.
+  - `templates/downstream/README.md` references the variant structure and includes per-variant build instructions.
+  - Both files have one H1 and stable Markdown headings.
+  - Committed and pushed to mobile-ideas repo.
+
+  **Ship-one-step handoff contract:**
+  Implement only Step 10.7. Validate it. Mark Step 10.7 done in `tasks/todo.md`. Update `tasks/history.md`. Commit and push. Write Step 10.8's plan. Then run `/ship` when done.
 
 - [ ] Step 10.8: Create CI/CD workflow templates for all 5 variant stacks
   - Files: create `templates/ci/react-native.yml`, `templates/ci/flutter.yml`, `templates/ci/expo.yml`, `templates/ci/ios-native.yml`, `templates/ci/android-native.yml`, `templates/ci/benchmark.yml`

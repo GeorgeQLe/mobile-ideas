@@ -1,5 +1,26 @@
 # History
 
+## 2026-05-09 - Phase 10 Step 10.6: Build Composite Scoring Engine and Aggregation Dashboard Schema
+
+- Created `src/scoring/composite.ts`: `DimensionKey` type, `WeightConfig` with default weights summing to 1.0 (performance 0.20, bundleSize 0.10, uxFidelity 0.25, codeQuality 0.15, devVelocity 0.10, accessibility 0.10, storeCompliance 0.10), `ScorecardMetadata` and `ScorecardResult` types, `computeComposite()` weighted average with weight-sum validation, `buildScorecard()` convenience function.
+- Created `src/aggregation/schema.ts`: `CrossAppRow`, `CrossAppComparison`, `CategoryRollup`, `VariantDelta`, and `VariantComparison` types for dashboard consumption.
+- Created `src/aggregation/rollup.ts`: `crossAppTable()` (flat ranked table), `rollupByCategory()` (group by category with avg/min/max composite and per-dimension averages), `compareVariants()` (pairwise variant delta across all 7 dimensions).
+- Updated `src/scoring/index.ts` to re-export composite module.
+- Updated `src/aggregation/index.ts` to re-export schema and rollup modules.
+- `tsc --noEmit` passes with zero errors.
+- Committed and pushed to `GeorgeQLe/mobile-benchmark-harness` main branch.
+
+### Ship Manifest
+
+- User goal: build composite scoring engine wiring all 7 dimensions together, plus aggregation functions for cross-app and variant comparisons.
+- Changed files (harness repo): `src/scoring/composite.ts` (created), `src/aggregation/schema.ts` (created), `src/aggregation/rollup.ts` (created), `src/scoring/index.ts` (updated), `src/aggregation/index.ts` (updated).
+- Changed files (mobile-ideas): `tasks/todo.md` (marked 10.6 done, wrote 10.7 plan), `tasks/history.md` (this entry).
+- Tests run: `tsc --noEmit` — passed.
+- Skipped tests: no runtime test suite (aggregation functions are pure but no test harness configured yet).
+- Residual risk: none — all functions are pure and type-safe.
+- Rollback note: revert commit `1ad3454` in harness repo; revert shipping commit in mobile-ideas.
+- Next command: Step 10.7 — design and document multi-variant repo structure convention.
+
 ## 2026-05-09 - Phase 10 Step 10.5: Implement Developer Velocity, Accessibility, and Store Compliance Benchmark Modules
 
 - Created `src/dimensions/dev-velocity.ts`: 4 metrics (cleanBuildTimeSec, incrementalBuildTimeSec, hotReloadTimeSec, ciPipelineDurationSec), all lower-better, `measure()` via timed `npm run build` shell-outs, `score()` with 4-tier interpolation, weight 0.10.
