@@ -2080,3 +2080,25 @@
 - Residual risk: only two iOS Native packages were compiled before stopping; additional failures may exist across the remaining 25 downstream repos and non-iOS variants.
 - Rollback note: revert this planning commit to remove the blocked validation note; downstream repos were only refreshed locally and left clean after removing Swift build artifacts.
 - Next command: `$run` for Step 11.11 remediation.
+
+## 2026-05-11 - Phase 11 Step 11.11 Swift Remediation Attempt
+
+- Re-ran the Step 11.11 remediation slice for the first two blocked iOS Native variants: `GeorgeQLe/chatgpt-mobile-clone` and `GeorgeQLe/claude-mobile-clone`.
+- Tested the narrow package-platform hypothesis by temporarily adding `.macOS(.v14)` to each downstream `variants/ios-native/Package.swift` in `/tmp`.
+- Result: the original SwiftUI Observation/macOS availability class cleared, but `swift test --package-path variants/ios-native` still failed because SwiftPM builds the package on macOS while the iOS Native sources use iOS/UIKit-only APIs and modifiers.
+- ChatGPT remaining compiler blockers include `UIDevice`, `.keyboardType`, `.textInputAutocapitalization`, `.navigationBarTitleDisplayMode`, SwiftUI `Tab` requiring macOS 15, `Color(.systemGray6)`, and `Conversation` lacking `Hashable` for `navigationDestination(item:)`.
+- Claude remaining compiler blockers include `UIScreen`, `UIPasteboard`, `.keyboardType`, `.autocapitalization`, `.navigationBarTitleDisplayMode`, `Color(.systemGray6)`, and `Color(.systemGroupedBackground)`.
+- The temporary downstream package edits were reverted and not pushed because they did not produce a passing validation state.
+- Revised remediation path: implement a broader iOS Native validation strategy before resuming broad serial validation. Viable options are macOS-compatible shims/source exclusions for SwiftPM tests, or an iOS simulator build/test command that compiles against UIKit/SwiftUI iOS APIs.
+
+### Ship Manifest
+
+- User goal: execute the next Step 11.11 remediation unit for Swift package platform availability.
+- Changed files: `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: `tasks/todo.md` updates the active Step 11.11 blocker with the narrower remediation evidence; `tasks/history.md` records the attempted fix, validation output class, and revised next path.
+- Tests run: `swift test --package-path variants/ios-native` in `/tmp/chatgpt-mobile-clone` after temporary `.macOS(.v14)` package edit (failed compile); `swift test --package-path variants/ios-native` in `/tmp/claude-mobile-clone` after temporary `.macOS(.v14)` package edit (failed compile).
+- Skipped tests: broad 27-repo validation was not resumed because the first two iOS Native remediation checks remain red; React Native/Expo/Flutter/Android checks remain as documented in the prior Step 11.11 attempt.
+- Adversarial review: pushing the package-only fix would misrepresent validation health because it merely moves the failure from availability declarations to macOS-host incompatibilities.
+- Residual risk: the selected validation strategy may need to apply across all 27 iOS Native variants, not just ChatGPT and Claude.
+- Rollback note: revert this planning commit to remove the refined blocker note; no downstream commits were pushed.
+- Next command: `$run` for Step 11.11 iOS Native validation-strategy remediation.

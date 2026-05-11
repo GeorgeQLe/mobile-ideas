@@ -716,7 +716,17 @@ Build all five variants for every app in the AI & Assistants category cluster to
 
   **Current Status:** blocked — fix Swift package platform declarations and then rerun Step 11.11 serial validation.
 
-  **Next work:** Step 11.11 remediation — fix iOS Native Swift package platform availability in downstream repos, starting with ChatGPT and Claude.
+  **Remediation Attempt — 2026-05-11:**
+  - Tested the proposed narrow fix locally in `/tmp/chatgpt-mobile-clone` and `/tmp/claude-mobile-clone` by adding `.macOS(.v14)` beside `.iOS(.v17)` in each iOS Native `Package.swift`.
+  - Result: the original SwiftUI Observation/macOS availability errors cleared, but `swift test --package-path variants/ios-native` still failed in both repos because SwiftPM builds the package on the macOS test host and the sources use iOS/UIKit-only APIs and modifiers.
+  - ChatGPT remaining blockers include `UIDevice`, `.keyboardType`, `.textInputAutocapitalization`, `.navigationBarTitleDisplayMode`, SwiftUI `Tab`, `Color(.systemGray6)`, and `Conversation` lacking `Hashable` for `navigationDestination(item:)`.
+  - Claude remaining blockers include `UIScreen`, `UIPasteboard`, `.keyboardType`, `.autocapitalization`, `.navigationBarTitleDisplayMode`, `Color(.systemGray6)`, and `Color(.systemGroupedBackground)`.
+  - The temporary downstream `Package.swift` edits were not pushed because validation remained red after the change.
+  - Revised blocker: Step 11.11 needs a broader iOS Native validation remediation plan: either add macOS-compatible shims/source exclusions for SwiftPM tests or switch this validation lane to an iOS simulator build/test command that can compile UIKit/SwiftUI iOS-only code.
+
+  **Current Status:** blocked — package platform declarations alone are insufficient; choose and implement an iOS Native validation strategy before resuming broad serial validation.
+
+  **Next work:** Step 11.11 remediation — implement an iOS Native validation strategy for downstream Swift packages, starting with ChatGPT and Claude.
   **Recommended next command:** `$run`
 
 - [ ] Step 11.12: Run benchmarking harness and record scorecards
