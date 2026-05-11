@@ -540,6 +540,77 @@ Build all five variants for every app in the AI & Assistants category cluster to
   - Distinct patterns: keyboard extension UI (Grammarly, QuillBot), audio processing (ELSA, OtterPilot), wellbeing safeguards (Wysa).
   - Category-specific risk review required for Wysa (mental health) per CLAUDE.md.
 
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **Prerequisite — Specs must be created first:**
+  Create implementation-ready specs under `specs/batch-03/` following the canonical 18 H2 section structure:
+  - `specs/batch-03/211-wysa.md` — Mental health AI companion (wellbeing safeguards, crisis detection, CBT/DBT exercises, mood tracking, journaling, therapist referral)
+  - `specs/batch-03/212-elsa-speak.md` — AI pronunciation coach (speech recognition, phoneme analysis, pronunciation scoring, lesson curriculum, progress tracking)
+  - `specs/batch-03/213-otterpilot.md` — AI meeting assistant (audio transcription, speaker diarization, action items, summary generation, calendar integration)
+  - `specs/batch-03/214-grammarly-keyboard.md` — AI writing assistant keyboard (grammar/spell check, tone detection, rewrite suggestions, custom keyboard UI, text field integration)
+  - `specs/batch-03/215-wordtune.md` — AI rewriting tool (sentence rewriting, tone adjustment, length control, translation, summary generation)
+  - `specs/batch-03/216-quillbot.md` — AI paraphrasing tool (paraphrase modes, grammar check, summarizer, citation generator, co-writer)
+
+  **Category-Specific Risk Reviews Required (per CLAUDE.md):**
+  - Wysa (211): health-adjacent, mental health — requires category-specific risk review before implementation. Include crisis detection safeguards, therapist referral disclaimers, and content safety for self-harm discussions.
+  - ELSA Speak (212): no special category risk.
+  - OtterPilot (213): no special category risk (audio processing, but not health/finance/child-directed).
+  - Grammarly Keyboard (214), Wordtune (215), QuillBot (216): no special category risk.
+
+  **What to Build (after specs exist):**
+  6 specialized AI tool apps × 5 variants = 30 variant implementations:
+
+  | App | Repo | Key Differentiator |
+  |-----|------|--------------------|
+  | 211 Wysa | `GeorgeQLe/wysa-mobile-clone` | Mental health companion, CBT/DBT exercises, mood tracking, crisis safeguards |
+  | 212 ELSA Speak | `GeorgeQLe/elsa-speak-mobile-clone` | Pronunciation coach, phoneme analysis, speech scoring, lesson curriculum |
+  | 213 OtterPilot | `GeorgeQLe/otterpilot-mobile-clone` | Meeting transcription, speaker diarization, action items, summaries |
+  | 214 Grammarly Keyboard | `GeorgeQLe/grammarly-keyboard-mobile-clone` | Custom keyboard, grammar/spell check, tone detection, rewrite suggestions |
+  | 215 Wordtune | `GeorgeQLe/wordtune-mobile-clone` | Sentence rewriting, tone/length control, translation, summaries |
+  | 216 QuillBot | `GeorgeQLe/quillbot-mobile-clone` | Paraphrase modes, grammar check, summarizer, citation generator |
+
+  **Per-App Approach (serial, one app at a time):**
+  1. Create spec if it doesn't exist (research from public sources, canonical 18 H2 sections)
+  2. Clone the downstream repo locally
+  3. Launch 5 parallel subagents (one per variant: React Native, Expo, Flutter, iOS Native, Android Native)
+  4. Each variant gets: all screens, typed models, API layer, SSE streaming, state management, 6 test suites, README update
+  5. Commit, push, verify key files on remote (PRIVATE, file counts)
+  6. Repeat for next app
+
+  **Reusable patterns from Steps 11.7-11.8:**
+  - SSE streaming with app-specific event types
+  - Auth/session model
+  - Zustand (RN/Expo), Riverpod (Flutter), @Observable (iOS), ViewModel (Android)
+  - Test suite structure: 6 files (models, auth, primary-store, feature-store, streaming, API)
+  - File structure: models/, api/, stores|providers/, screens|views/, services/, navigation/, tests/
+  - ~35-42 files per variant, 10 screens per app
+
+  **New patterns for this batch:**
+  - Audio input/recording (ELSA Speak, OtterPilot) — AVFoundation/MediaRecorder/audio_service
+  - Custom keyboard extension UI (Grammarly, QuillBot) — InputMethodService (Android), Custom Keyboard Extension (iOS), keyboard overlay (RN/Flutter/Expo)
+  - Speech-to-text and phoneme analysis (ELSA Speak)
+  - Real-time transcription streaming (OtterPilot)
+  - Wellbeing safeguards and crisis detection (Wysa) — content safety filters, crisis resource referral, therapist referral CTA
+
+  **Execution Profile:**
+  - Parallel mode: serial across apps (6 apps), parallel within each app (5 subagents)
+  - Integration owner: main agent
+  - Test strategy: tests-after
+  - Estimated scope: ~1500 files across 6 repos (250 per app)
+
+  **Acceptance Criteria:**
+  - All 6 specs exist and are implementation-ready (canonical 18 H2 sections)
+  - Wysa spec includes documented risk review for mental health category
+  - All 6 repos have complete V1 source code pushed (5 variants each)
+  - Key files verified on remote via `gh api` (visibility == PRIVATE, variant file counts confirmed)
+  - No proprietary assets or trademark infringement
+  - 36 test suites across 6 apps (6 per app × 6 apps)
+
+  **Ship-one-step handoff contract:** Implement only Step 11.9. Create specs if they don't exist, then implement all 6 apps × 5 variants. Validate (all variants have complete source, key files verified on remote). Then run `/ship` when done.
+
+  **Next work:** Step 11.9 — Create specs and implement batch apps 211-216
+  **Recommended next command:** `/run`
+
 - [ ] Step 11.10: Implement batch apps 217-222 — Ask AI, Genie, Monica, Notion AI, Forefront AI, Consensus (all 5 variants each)
   - Files: 6 downstream repos
   - Mixed AI assistants and productivity-AI hybrids.
