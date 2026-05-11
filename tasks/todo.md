@@ -726,7 +726,18 @@ Build all five variants for every app in the AI & Assistants category cluster to
 
   **Current Status:** blocked — package platform declarations alone are insufficient; choose and implement an iOS Native validation strategy before resuming broad serial validation.
 
-  **Next work:** Step 11.11 remediation — implement an iOS Native validation strategy for downstream Swift packages, starting with ChatGPT and Claude.
+  **Remediation Success — 2026-05-11:**
+  - Implemented the iOS Native SwiftPM validation strategy in the first two blocked downstream repos: `GeorgeQLe/chatgpt-mobile-clone` and `GeorgeQLe/claude-mobile-clone`.
+  - Strategy: declare `.macOS(.v14)` beside `.iOS(.v17)` for local SwiftPM validation, keep the app entry point compiled only for iOS to avoid duplicate test runner symbols, and replace or guard iOS/UIKit-only APIs in source paths that SwiftPM compiles on macOS.
+  - ChatGPT fixes included conditional `UIDevice` use, legacy-compatible `TabView` items, macOS-safe SwiftUI colors/modifiers, `Conversation: Hashable`, and an exhaustive API error test catch.
+  - Claude fixes included macOS-safe SwiftUI colors/modifiers, fixed-width message bubble layout for SwiftPM validation, conditional pasteboard/keyboard APIs, iOS-only app entry point, and stricter URL validation in `APIClient`.
+  - Validation passed locally without GitHub Actions: `swift test --package-path variants/ios-native` in `/tmp/chatgpt-mobile-clone` passed 35 tests; `swift test --package-path variants/ios-native` in `/tmp/claude-mobile-clone` passed 37 tests.
+  - Both downstream fixes were committed and pushed to their private `main` branches.
+  - Step 11.11 remains incomplete until the same SwiftPM validation strategy is applied to the remaining 25 iOS Native variants and the broader non-iOS validation lanes are handled or explicitly documented as toolchain-blocked.
+
+  **Current Status:** in progress — first two iOS Native validation blockers are fixed and validated; roll the strategy through remaining AI & Assistants iOS Native repos, then resume serial validation.
+
+  **Next work:** Step 11.11 remediation — apply the proven iOS Native SwiftPM validation strategy to the remaining 25 downstream iOS Native packages and rerun serial validation where local toolchains exist.
   **Recommended next command:** `$run`
 
 - [ ] Step 11.12: Run benchmarking harness and record scorecards

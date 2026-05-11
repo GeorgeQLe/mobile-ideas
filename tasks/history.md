@@ -2102,3 +2102,23 @@
 - Residual risk: the selected validation strategy may need to apply across all 27 iOS Native variants, not just ChatGPT and Claude.
 - Rollback note: revert this planning commit to remove the refined blocker note; no downstream commits were pushed.
 - Next command: `$run` for Step 11.11 iOS Native validation-strategy remediation.
+
+## 2026-05-11 - Phase 11 Step 11.11 iOS Native Validation Strategy
+
+- Implemented and pushed the first successful Step 11.11 iOS Native remediation slice in the downstream private repos `GeorgeQLe/chatgpt-mobile-clone` and `GeorgeQLe/claude-mobile-clone`.
+- ChatGPT remediation: added `.macOS(.v14)` to `variants/ios-native/Package.swift`, compiled the `@main` app entry only for iOS, replaced iOS-only SwiftUI tab/color/navigation modifiers with validation-safe equivalents, guarded `UIDevice`, made `Conversation` hashable for navigation, and made the API error test catch exhaustive.
+- Claude remediation: added `.macOS(.v14)`, compiled the `@main` app entry only for iOS, replaced iOS/UIKit-only colors, screen sizing, navigation modifiers, and pasteboard/keyboard APIs with macOS-safe or conditional equivalents, and tightened `APIClient` URL validation.
+- Validation: `swift test --package-path variants/ios-native` passed in `/tmp/chatgpt-mobile-clone` with 35 tests and 0 failures; `swift test --package-path variants/ios-native` passed in `/tmp/claude-mobile-clone` with 37 tests and 0 failures.
+- GitHub Actions were not used.
+
+### Ship Manifest
+
+- User goal: execute the next Step 11.11 remediation unit and establish an iOS Native validation strategy without GitHub Actions.
+- Changed files: downstream `variants/ios-native` Swift package files in `GeorgeQLe/chatgpt-mobile-clone` and `GeorgeQLe/claude-mobile-clone`; source planning files `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: downstream package/source/test files make local SwiftPM validation pass for the first two iOS Native variants; source planning files record evidence and the next remediation scope.
+- Tests run: `swift test --package-path variants/ios-native` in `/tmp/chatgpt-mobile-clone` (35 passed); `swift test --package-path variants/ios-native` in `/tmp/claude-mobile-clone` (37 passed).
+- Skipped tests: the remaining 25 iOS Native packages were not run in this single-step remediation slice; React Native/Expo dependencies are not installed, Flutter is not installed, and Gradle/`gradlew` is unavailable for Android Native.
+- Adversarial review: this proves the strategy on the two originally blocked packages, but does not prove all 27 iOS Native packages share identical blockers or that non-iOS variants are healthy.
+- Residual risk: remaining downstream repos may need app-specific SwiftUI/API portability fixes before the full Step 11.11 validation can pass.
+- Rollback note: revert the two downstream commits and this planning commit to return to the prior blocked-validation state.
+- Next command: `$run` to apply the proven iOS Native SwiftPM validation strategy to the remaining 25 downstream repos.
