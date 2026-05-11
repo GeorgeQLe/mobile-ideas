@@ -1,5 +1,28 @@
 # History
 
+## 2026-05-11 - Phase 11 Step 11.11: iOS Native SwiftPM Validation Remediation Attempt
+
+- Continued Step 11.11 local validation without GitHub Actions.
+- Refreshed the remaining AI & Assistants downstream repos into `/tmp/*-mobile-clone` from private `origin/main`.
+- Confirmed local Swift is available; Flutter and Gradle remain unavailable on PATH.
+- Added local-only SwiftPM manifests and compatibility fixes in `/tmp` so iOS Native core logic tests could run on the macOS SwiftPM host.
+- Local validation passed through these repos before the run stopped: Perplexity (118 tests), Character.AI (64 tests), Replika (78 tests), Poe, Gemini, Microsoft Copilot (54 tests), Grok, DeepSeek (73 tests), Meta AI, and You.com.
+- Stopped at Pi because `swift test --no-parallel --package-path variants/ios-native` hung in `APITests.testRequestWithPathConstructsCorrectURL` after compiling and starting the test suite. The hanging Swift/XCTest processes were killed.
+- No downstream commits were pushed from this attempt; fixes remain local in `/tmp` and should be reviewed after the Pi blocker is remediated.
+
+### Ship Manifest
+
+- User goal: continue Step 11.11 validation remediation for downstream AI & Assistants iOS Native variants.
+- Changed files: `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: `tasks/todo.md` records the Step 11.11 blocker and next work; `tasks/history.md` records validation evidence from this attempt.
+- User-goal mapping: preserves exact progress and prevents the next run from repeating already diagnosed work.
+- Tests run: `swift test --package-path /tmp/perplexity-mobile-clone/variants/ios-native`; `swift test --no-parallel --package-path` for Character.AI, Replika, Poe, Gemini, Microsoft Copilot, Grok, DeepSeek, Meta AI, You.com, and Pi.
+- Skipped tests: remaining repos after Pi were not run because Step 11.11 stops on validation blockers; Flutter and Android lanes remain toolchain-blocked locally because `flutter` and `gradle` are unavailable.
+- Adversarial review: stopped instead of claiming phase validation because Pi hung and no downstream fixes were pushed.
+- Residual risk: local `/tmp` downstream fixes are not persisted to GitHub; next run must either apply/push the validated fixes or regenerate them after resolving Pi.
+- Rollback note: revert this planning commit to remove the blocker record; no downstream remote rollback is needed.
+- Next command: `$run`.
+
 ## 2026-05-11 - Phase 11 Step 11.9: Implement Batch Apps 211-216 — Wysa, ELSA Speak, OtterPilot, Grammarly Keyboard, Wordtune, QuillBot (All 5 Variants Each)
 
 - Third batch implementation step — 6 specialized AI tool apps, each across 5 variants (30 variant implementations total).

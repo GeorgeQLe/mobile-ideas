@@ -740,6 +740,21 @@ Build all five variants for every app in the AI & Assistants category cluster to
   **Next work:** Step 11.11 remediation — apply the proven iOS Native SwiftPM validation strategy to the remaining 25 downstream iOS Native packages and rerun serial validation where local toolchains exist.
   **Recommended next command:** `$run`
 
+  **Remediation Attempt — 2026-05-11 (Codex):**
+  - Refreshed the remaining downstream repos into `/tmp/*-mobile-clone` from private `origin/main`.
+  - Found that the remaining iOS Native variants did not yet include `variants/ios-native/Package.swift`, so SwiftPM validation could not run until package manifests were added locally.
+  - Applied a local SwiftPM validation strategy in `/tmp` only: add SwiftPM manifests, target macOS 14 beside iOS 17, exclude iOS-only app/screen/navigation/view folders from SwiftPM core tests, and run `swift test --no-parallel --package-path variants/ios-native`.
+  - Local SwiftPM validation passed after targeted fixes for: Perplexity (118 tests), Character.AI (64 tests), Replika (78 tests), Poe, Gemini, Microsoft Copilot (54 tests), Grok, DeepSeek (73 tests), Meta AI, and You.com.
+  - Targeted local fixes included URL acronym coding-key handling, test fixture wrapper extraction, macOS-safe `UIDevice` handling, generated model/test mismatches, and SwiftPM package manifests.
+  - No downstream commits were pushed from this attempt because the serial validation run hit a new blocker before the remaining 25 repos completed.
+  - New blocker: `pi-mobile-clone/variants/ios-native` compiles after guarding `AVAudioSession`, but `swift test --no-parallel --package-path variants/ios-native` hangs in `APITests.testRequestWithPathConstructsCorrectURL`. The hanging test process was killed after it made no progress.
+  - Remaining repos after Pi were not validated in this attempt: Phind, HuggingChat, Wysa, ELSA Speak, OtterPilot, Grammarly Keyboard, Wordtune, QuillBot, Ask AI, Genie, Monica, Notion AI, Forefront AI, and Consensus.
+
+  **Current Status:** blocked — remediate the Pi iOS Native API test hang before resuming the remaining serial SwiftPM validation and deciding which local downstream fixes to commit/push.
+
+  **Next work:** Step 11.11 remediation — fix or isolate the Pi iOS Native API test hang, rerun Pi SwiftPM validation, then resume from Phind through Consensus.
+  **Recommended next command:** `$run`
+
 - [ ] Step 11.12: Run benchmarking harness and record scorecards
   - Run `mobile-benchmark-harness` against each of the 27 repos × 5 variants.
   - Record scorecard JSON output for each variant.
