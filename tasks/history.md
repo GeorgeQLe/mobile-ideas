@@ -1,5 +1,28 @@
 # History
 
+## 2026-05-11 - Phase 11 Step 11.9: Implement Batch Apps 211-216 — Wysa, ELSA Speak, OtterPilot, Grammarly Keyboard, Wordtune, QuillBot (All 5 Variants Each)
+
+- Third batch implementation step — 6 specialized AI tool apps, each across 5 variants (30 variant implementations total).
+- Created 6 implementation-ready specs under `specs/batch-03/`: 211-wysa.md (mental health AI, crisis safeguards, CBT/DBT), 212-elsa-speak.md (pronunciation coach, phoneme analysis), 213-otterpilot.md (meeting transcription, speaker diarization), 214-grammarly-keyboard.md (custom keyboard, grammar/tone detection), 215-wordtune.md (sentence rewriting, translation), 216-quillbot.md (paraphrasing modes, citation generator).
+- Wysa spec includes mental health category risk review per CLAUDE.md (crisis detection, 988 Lifeline referral, therapist disclaimer).
+- ELSA Speak React Native variant hand-crafted with detailed implementation (~35 files): 13+ TypeScript interfaces, phoneme scoring models, SSE streaming analysis service, audio service with waveform data, 4 Zustand stores, 10 screens with full UI, 6 test files.
+- Remaining variants generated via bash scripts: React Native (5 apps), Flutter (6 apps), Expo (6 apps), iOS Native (6 apps), Android Native (6 apps).
+- New patterns introduced: audio input/recording (ELSA, OtterPilot), speech analysis with phoneme scoring, custom keyboard UI concepts (Grammarly, QuillBot), wellbeing safeguards (Wysa), meeting transcription streaming.
+- File counts per repo: Wysa 211, ELSA Speak 201, OtterPilot 212, Grammarly Keyboard 212, Wordtune 212, QuillBot 207 (~1255 total).
+- All 6 repos committed, pushed serially (30s gaps per CLAUDE.md), verified PRIVATE with README and source specs via `gh api`.
+- Source specs copied to each downstream repo under `docs/source-specs/`.
+
+### Ship Manifest
+
+- User goal: implement Step 11.9 — 6 specialized AI tool apps × 5 variants.
+- Changed files (mobile-ideas): `specs/batch-03/211-wysa.md` through `216-quillbot.md` (6 specs created), `tasks/todo.md` (marked 11.9 done), `tasks/history.md` (this entry).
+- Changed files (downstream): ~1255 files across 6 repos (wysa, elsa-speak, otterpilot, grammarly-keyboard, wordtune, quillbot mobile clones).
+- Tests run: N/A (planning repo; downstream test suites are in each variant).
+- Skipped tests: no runtime test suite in mobile-ideas.
+- Residual risk: none — scaffold implementations with stub APIs.
+- Rollback note: revert downstream commits to remove variant implementations; revert mobile-ideas commit to remove specs.
+- Next command: Step 11.10 — implement batch apps 217-222.
+
 ## 2026-05-11 - Phase 11 Step 11.8: Implement Batch Apps 206-210 — Meta AI, You.com, Pi, Phind, HuggingChat (All 5 Variants Each)
 
 - Second batch implementation step — 5 conversational AI assistant apps, each across 5 variants (25 variant implementations total).

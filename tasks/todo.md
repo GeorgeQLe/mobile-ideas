@@ -616,6 +616,79 @@ Build all five variants for every app in the AI & Assistants category cluster to
   - Mixed AI assistants and productivity-AI hybrids.
   - Distinct patterns: workspace integration (Notion AI), research/academic focus (Consensus), general-purpose chat (Ask AI, Genie, Monica, Forefront AI).
 
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **Prerequisite — Specs must be created first:**
+  Create implementation-ready specs under `specs/batch-03/` following the canonical 18 H2 section structure:
+  - `specs/batch-03/217-ask-ai.md` — General-purpose AI chatbot (multi-model access, chat threads, image generation, writing tools, subscription tiers)
+  - `specs/batch-03/218-genie.md` — AI assistant (conversational AI, task automation, smart suggestions, personalization, multi-modal input)
+  - `specs/batch-03/219-monica.md` — AI assistant with browser integration mindset (chat, translation, writing, summarization, reading companion, side panel concept)
+  - `specs/batch-03/220-notion-ai.md` — AI-powered workspace assistant (document Q&A, writing assist, autofill tables, summarization, action items from notes, workspace-aware context)
+  - `specs/batch-03/221-forefront-ai.md` — Multi-model AI platform (model selection, personas, internet-connected chat, team/shared workspaces, file uploads)
+  - `specs/batch-03/222-consensus.md` — AI-powered academic research assistant (paper search, evidence synthesis, study snapshots, citation export, consensus meter, research topics)
+
+  **Category-Specific Risk Reviews Required (per CLAUDE.md):**
+  - None of these 6 apps are health-adjacent, finance-related, child-directed, or safety-sensitive.
+  - Consensus (222) handles academic research — no special category risk.
+  - Notion AI (220) is workspace/productivity — no special category risk.
+
+  **What to Build (after specs exist):**
+  6 AI tool/assistant apps × 5 variants = 30 variant implementations:
+
+  | App | Repo | Key Differentiator |
+  |-----|------|--------------------|
+  | 217 Ask AI | `GeorgeQLe/ask-ai-mobile-clone` | General-purpose chatbot, multi-model, image generation |
+  | 218 Genie | `GeorgeQLe/genie-mobile-clone` | AI assistant, task automation, smart suggestions |
+  | 219 Monica | `GeorgeQLe/monica-mobile-clone` | Chat + translation + writing + summarization |
+  | 220 Notion AI | `GeorgeQLe/notion-ai-mobile-clone` | Workspace-aware AI, document Q&A, autofill, action items |
+  | 221 Forefront AI | `GeorgeQLe/forefront-ai-mobile-clone` | Multi-model platform, personas, team workspaces |
+  | 222 Consensus | `GeorgeQLe/consensus-mobile-clone` | Academic research, paper search, evidence synthesis, citations |
+
+  **Per-App Approach (proven in Steps 11.7-11.9):**
+  1. Create spec if it doesn't exist (research from public sources, canonical 18 H2 sections)
+  2. Clone the downstream repo locally (repos already scaffolded from Step 11.1)
+  3. Generate variants via bash scripts (one script per variant type, all 6 apps per script)
+  4. Each variant gets: all screens, typed models, API layer, SSE streaming, state management, test suites, README update
+  5. Copy source specs to `docs/source-specs/` in each downstream repo
+  6. Commit, push serially (30s gaps per CLAUDE.md), verify PRIVATE + file counts via `gh api`
+
+  **Reusable patterns from Steps 11.7-11.9:**
+  - SSE streaming with app-specific event types
+  - Auth/session model
+  - Zustand (RN/Expo), Riverpod (Flutter), @Observable (iOS), ViewModel (Android)
+  - Test suite structure: 6-7 files (models, auth, primary-store, feature-store, streaming, API)
+  - File structure: models/, api/, stores|providers/, screens|views/, services/, navigation/, tests/
+  - ~35-55 files per variant, 10 screens per app
+  - Bash generation scripts for templated variants (Flutter, Expo, iOS Native, Android Native)
+  - Hand-craft one reference RN variant if app has novel patterns, otherwise generate all 5
+
+  **New patterns for this batch:**
+  - Workspace-aware context (Notion AI) — document/page context injection, workspace navigation
+  - Academic paper search and citation (Consensus) — paper metadata models, citation export formats, evidence synthesis
+  - Multi-model selection UI (Ask AI, Forefront AI) — model picker, per-model streaming behavior
+  - Persona/character selection (Forefront AI) — persona profiles within multi-model context
+  - Translation and summarization tools (Monica) — language pair selection, summary length controls
+  - Team/shared workspaces (Forefront AI) — workspace membership, shared conversations
+
+  **Execution Profile:**
+  - Parallel mode: serial across apps (6 apps), bash script generation per variant type
+  - Integration owner: main agent
+  - Test strategy: tests-after
+  - Estimated scope: ~1200-1500 files across 6 repos (200-250 per app)
+
+  **Acceptance Criteria:**
+  - All 6 specs exist and are implementation-ready (canonical 18 H2 sections)
+  - All 6 repos have complete V1 source code pushed (5 variants each)
+  - Key files verified on remote via `gh api` (visibility == PRIVATE, variant file counts confirmed)
+  - No proprietary assets or trademark infringement
+  - Source specs copied to `docs/source-specs/` in each downstream repo
+  - ~30 test suites across 6 apps
+
+  **Ship-one-step handoff contract:** Implement only Step 11.10. Create specs if they don't exist, then implement all 6 apps × 5 variants. Validate (all variants have complete source, key files verified on remote). Then run `/ship` when done.
+
+  **Next work:** Step 11.10 — Create specs and implement batch apps 217-222
+  **Recommended next command:** `/run`
+
 - [ ] Step 11.11: Enable GitHub Actions and run CI validation across all 27 repos
   - Re-enable GitHub Actions on all 27 repos.
   - Push a trigger commit (or use workflow dispatch) to run CI on each repo.
