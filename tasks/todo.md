@@ -480,6 +480,60 @@ Build all five variants for every app in the AI & Assistants category cluster to
   - Similar conversational AI architecture. Each app has distinct UX focus (social integration for Meta AI, developer focus for Phind, open-source emphasis for HuggingChat).
   - Read specs and build plans. Implement all 5 variants per app.
 
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **Prerequisite — Specs must be created first:**
+  The batch app specs (206-210) are listed as "Draft 1" and do NOT exist yet under `specs/batch-03/`. Before implementation, create:
+  - `specs/batch-03/206-meta-ai.md`
+  - `specs/batch-03/207-you-com.md`
+  - `specs/batch-03/208-pi.md`
+  - `specs/batch-03/209-phind.md`
+  - `specs/batch-03/210-huggingchat.md`
+
+  Each spec must follow the canonical section structure (18 H2s) as in batch-01/batch-03 specs.
+
+  **What to Build (after specs exist):**
+  5 conversational AI apps × 5 variants = 25 variant implementations:
+
+  | App | Repo | Key Differentiator |
+  |-----|------|--------------------|
+  | 206 Meta AI | `GeorgeQLe/meta-ai-mobile-clone` | Meta ecosystem, social sharing, Imagine image gen, Llama models |
+  | 207 You.com | `GeorgeQLe/you-com-mobile-clone` | Source-cited search, YouChat modes, custom AI agents |
+  | 208 Pi | `GeorgeQLe/pi-mobile-clone` | Emotional intelligence, voice-first, conversational warmth |
+  | 209 Phind | `GeorgeQLe/phind-mobile-clone` | Developer-focused, code generation, technical search, pair programming |
+  | 210 HuggingChat | `GeorgeQLe/huggingchat-mobile-clone` | Open-source models, model selection, community, web search |
+
+  **Per-App Approach (serial, one app at a time):**
+  1. Clone the downstream repo to `/tmp/`
+  2. Launch 5 parallel subagents (one per variant)
+  3. Each variant gets: all screens, typed models, API layer, SSE streaming, state management, 6 test suites, README update
+  4. Commit per variant, push, verify key files on remote
+
+  **Reusable patterns from Step 11.7:**
+  - SSE streaming with app-specific event types (all 5 apps from 11.7)
+  - Auth/session model (all prior apps)
+  - Zustand (RN/Expo), Riverpod (Flutter), @Observable (iOS), ViewModel (Android)
+  - Test suite structure: 6 files (models, auth, primary-store, feature-store, streaming, API)
+  - File structure: models/, api/, stores|providers/, screens|views/, services/, navigation/, tests/
+
+  **Execution Profile:**
+  - Parallel mode: serial across apps (5 apps), parallel within each app (5 subagents)
+  - Integration owner: main agent
+  - Test strategy: tests-after
+  - Estimated scope: ~1250 files across 5 repos
+
+  **Acceptance Criteria:**
+  - All 5 specs exist and are implementation-ready
+  - All 5 repos have complete V1 source code pushed (5 variants each)
+  - Key files verified on remote via `gh api` (visibility == PRIVATE, variant file counts confirmed)
+  - No proprietary assets or trademark infringement
+  - 30 test suites across 5 apps
+
+  **Ship-one-step handoff contract:** Implement only Step 11.8. Create specs if they don't exist, then implement all 5 apps × 5 variants. Validate (all variants have complete source, key files verified on remote). Then run `/ship` when done.
+
+  **Next work:** Step 11.8 — Create specs and implement batch apps 206-210
+  **Recommended next command:** `/run`
+
 - [ ] Step 11.9: Implement batch apps 211-216 — Wysa, ELSA Speak, OtterPilot, Grammarly Keyboard, Wordtune, QuillBot (all 5 variants each)
   - Files: 6 downstream repos
   - These are specialized AI tools (mental health, language learning, transcription, writing assistance).
