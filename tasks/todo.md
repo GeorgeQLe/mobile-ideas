@@ -475,7 +475,7 @@ Build all five variants for every app in the AI & Assistants category cluster to
   **Next work:** Step 11.8 — Implement batch apps 206-210
   **Recommended next command:** `/run`
 
-- [ ] Step 11.8: Implement batch apps 206-210 — Meta AI, You.com, Pi, Phind, HuggingChat (all 5 variants each)
+- [x] Step 11.8: Implement batch apps 206-210 — Meta AI, You.com, Pi, Phind, HuggingChat (all 5 variants each)
   - Files: 5 downstream repos (meta-ai, you-com, pi, phind, huggingchat)
   - Similar conversational AI architecture. Each app has distinct UX focus (social integration for Meta AI, developer focus for Phind, open-source emphasis for HuggingChat).
   - Read specs and build plans. Implement all 5 variants per app.
@@ -531,7 +531,7 @@ Build all five variants for every app in the AI & Assistants category cluster to
 
   **Ship-one-step handoff contract:** Implement only Step 11.8. Create specs if they don't exist, then implement all 5 apps × 5 variants. Validate (all variants have complete source, key files verified on remote). Then run `/ship` when done.
 
-  **Next work:** Step 11.8 — Create specs and implement batch apps 206-210
+  **Next work:** Step 11.9 — Implement batch apps 211-216
   **Recommended next command:** `/run`
 
 - [ ] Step 11.9: Implement batch apps 211-216 — Wysa, ELSA Speak, OtterPilot, Grammarly Keyboard, Wordtune, QuillBot (all 5 variants each)
