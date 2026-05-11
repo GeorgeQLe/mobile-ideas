@@ -611,7 +611,7 @@ Build all five variants for every app in the AI & Assistants category cluster to
   **Next work:** Step 11.10 — Implement batch apps 217-222
   **Recommended next command:** `/run`
 
-- [ ] Step 11.10: Implement batch apps 217-222 — Ask AI, Genie, Monica, Notion AI, Forefront AI, Consensus (all 5 variants each)
+- [x] Step 11.10: Implement batch apps 217-222 — Ask AI, Genie, Monica, Notion AI, Forefront AI, Consensus (all 5 variants each)
   - Files: 6 downstream repos
   - Mixed AI assistants and productivity-AI hybrids.
   - Distinct patterns: workspace integration (Notion AI), research/academic focus (Consensus), general-purpose chat (Ask AI, Genie, Monica, Forefront AI).
@@ -684,9 +684,17 @@ Build all five variants for every app in the AI & Assistants category cluster to
   - Source specs copied to `docs/source-specs/` in each downstream repo
   - ~30 test suites across 6 apps
 
-  **Ship-one-step handoff contract:** Implement only Step 11.10. Create specs if they don't exist, then implement all 6 apps × 5 variants. Validate (all variants have complete source, key files verified on remote). Then run `/ship` when done.
+  **Acceptance Criteria:**
+  - All 6 specs exist and are implementation-ready (canonical 18 H2 sections)
+  - All 6 repos have complete V1 source code pushed (5 variants each)
+  - Key files verified on remote via `gh api` (visibility == PRIVATE, variant file counts confirmed)
+  - No proprietary assets or trademark infringement
+  - Source specs copied to `docs/source-specs/` in each downstream repo
+  - ~30 test suites across 6 apps
 
-  **Next work:** Step 11.10 — Create specs and implement batch apps 217-222
+  **Ship-one-step handoff contract:** Step 11.10 complete — created 6 specs (217-222) and implemented all 6 apps × 5 variants (30 variant implementations total). ~1236 files across 6 repos, all pushed and verified (PRIVATE, README and source spec confirmed via `gh api`). File counts: Ask AI 193, Genie 193, Monica 201, Notion AI 226, Forefront AI 222, Consensus 201. No category-specific risk reviews required.
+
+  **Next work:** Step 11.11 — Enable GitHub Actions and run CI validation across all 27 repos
   **Recommended next command:** `/run`
 
 - [ ] Step 11.11: Enable GitHub Actions and run CI validation across all 27 repos
