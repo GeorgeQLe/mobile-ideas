@@ -2050,3 +2050,11 @@
 - Total: ~196 new files, 6 commits (shared + 5 variants), all pushed and verified (PRIVATE, 22 key files confirmed via `gh api`).
 - Distinct from prior clones: persona/character system with user-created characters, CreatorProfile entity, CharacterMemory for persona continuity, VoiceSession for call-style interaction, ModerationCase + Report for content moderation lifecycle, age gate with teen/adult routing, safety classification system, character discovery UX (for-you feed, categories, creator profiles), character creation form.
 - CI/Actions remain disabled per plan. 30 test suites across 5 variants.
+
+## 2026-05-11 - GitHub Actions Prohibition Correction
+
+- User corrected the Step 11.11 execution direction: GitHub Actions must not be used for this project or downstream repos.
+- Added explicit prohibitions to `AGENTS.md` and `CLAUDE.md`: keep Actions disabled; do not enable Actions, trigger workflows, dispatch workflow runs, or rely on Actions as validation unless the user gives a new explicit approval naming GitHub Actions.
+- Updated Step 11.11 in `tasks/todo.md` to require local or direct downstream validation without GitHub Actions.
+- Remediation performed: cancelled queued/in-progress Actions runs where GitHub accepted cancellation requests, disabled Actions permissions on all 27 AI & Assistants downstream repos, and removed the accidental `shared/ci-trigger.txt` marker from each downstream repo.
+- Verification: all 27 downstream repos reported `actions.permissions.enabled=false`; all 27 reported `active_runs=0`; all 27 returned `404` for `shared/ci-trigger.txt`.

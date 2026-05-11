@@ -694,14 +694,14 @@ Build all five variants for every app in the AI & Assistants category cluster to
 
   **Ship-one-step handoff contract:** Step 11.10 complete — created 6 specs (217-222) and implemented all 6 apps × 5 variants (30 variant implementations total). ~1236 files across 6 repos, all pushed and verified (PRIVATE, README and source spec confirmed via `gh api`). File counts: Ask AI 193, Genie 193, Monica 201, Notion AI 226, Forefront AI 222, Consensus 201. No category-specific risk reviews required.
 
-  **Next work:** Step 11.11 — Enable GitHub Actions and run CI validation across all 27 repos
+  **Next work:** Step 11.11 — Validate all 27 repos without GitHub Actions
   **Recommended next command:** `/run`
 
-- [ ] Step 11.11: Enable GitHub Actions and run CI validation across all 27 repos
-  - Re-enable GitHub Actions on all 27 repos.
-  - Push a trigger commit (or use workflow dispatch) to run CI on each repo.
-  - Verify: build passes, lint passes, type check passes, tests pass for all 5 variants in each repo.
-  - Document any CI failures and fix before proceeding.
+- [ ] Step 11.11: Validate all 27 repos without GitHub Actions
+  - Do not enable GitHub Actions, dispatch workflows, push CI trigger commits, or rely on Actions as validation.
+  - Keep Actions disabled on all downstream repos unless the user gives a new explicit approval that names GitHub Actions.
+  - Validate each repo serially using local or direct downstream commands only: build, lint, type check, and tests for all 5 variants where toolchains are available.
+  - Document any local validation failures, missing toolchains, or manual blockers and fix before proceeding.
 
 - [ ] Step 11.12: Run benchmarking harness and record scorecards
   - Run `mobile-benchmark-harness` against each of the 27 repos × 5 variants.
