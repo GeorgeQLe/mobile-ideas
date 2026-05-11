@@ -703,6 +703,22 @@ Build all five variants for every app in the AI & Assistants category cluster to
   - Validate each repo serially using local or direct downstream commands only: build, lint, type check, and tests for all 5 variants where toolchains are available.
   - Document any local validation failures, missing toolchains, or manual blockers and fix before proceeding.
 
+  **Execution Attempt — 2026-05-11:**
+  - Refreshed or cloned all 27 AI & Assistants downstream repos locally from `origin/main`.
+  - Confirmed available local toolchains: Node/npm/pnpm and Swift are present; Flutter and Gradle are not available on PATH.
+  - Attempted executable local validation with `swift test --package-path` on available iOS Native Swift packages.
+  - Blocker found: `chatgpt-mobile-clone/variants/ios-native` fails compilation because `Package.swift` targets default macOS availability while source uses newer APIs: `URLSession.AsyncBytes`, `URLSession.data(for:)`, `URLSession.bytes(for:)`, SwiftUI `@Observable`, and typed `@Environment`.
+  - Same blocker class found in `claude-mobile-clone/variants/ios-native`: SwiftUI Observation and related APIs require newer platform availability than the package declares.
+  - The broad validation run stopped after these failures per the Step 11.11 rule to document and fix validation failures before proceeding.
+  - Node-based React Native/Expo checks were not run because dependencies are not installed in the downstream variant directories; running install/test across 54 JS variants remains a follow-up once the Swift blocker is fixed or explicitly scoped.
+  - Flutter checks were not run because `flutter` is not installed locally.
+  - Android Native checks were not run because neither `gradle` nor repo-local `gradlew` is available for the downstream Android variants.
+
+  **Current Status:** blocked — fix Swift package platform declarations and then rerun Step 11.11 serial validation.
+
+  **Next work:** Step 11.11 remediation — fix iOS Native Swift package platform availability in downstream repos, starting with ChatGPT and Claude.
+  **Recommended next command:** `$run`
+
 - [ ] Step 11.12: Run benchmarking harness and record scorecards
   - Run `mobile-benchmark-harness` against each of the 27 repos × 5 variants.
   - Record scorecard JSON output for each variant.

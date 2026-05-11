@@ -2058,3 +2058,25 @@
 - Updated Step 11.11 in `tasks/todo.md` to require local or direct downstream validation without GitHub Actions.
 - Remediation performed: cancelled queued/in-progress Actions runs where GitHub accepted cancellation requests, disabled Actions permissions on all 27 AI & Assistants downstream repos, and removed the accidental `shared/ci-trigger.txt` marker from each downstream repo.
 - Verification: all 27 downstream repos reported `actions.permissions.enabled=false`; all 27 reported `active_runs=0`; all 27 returned `404` for `shared/ci-trigger.txt`.
+
+## 2026-05-11 - Phase 11 Step 11.11 Local Validation Attempt
+
+- Refreshed or cloned all 27 AI & Assistants downstream repos locally for direct validation without GitHub Actions.
+- Confirmed local toolchain availability: Node/npm/pnpm and Swift are present; Flutter and Gradle are not available on PATH.
+- Ran `swift test --package-path ../chatgpt-mobile-clone/variants/ios-native`; it failed to compile because the Swift package does not declare a high enough platform target for source APIs including `URLSession.AsyncBytes`, `URLSession.data(for:)`, `URLSession.bytes(for:)`, SwiftUI `@Observable`, and typed `@Environment`.
+- Ran `swift test --package-path ../claude-mobile-clone/variants/ios-native`; it failed with the same platform-availability class around SwiftUI Observation and newer SwiftUI APIs.
+- Stopped Step 11.11 after executable failures rather than continuing to produce noisy downstream failures.
+- Cleaned generated Swift `.build` directories from the two attempted downstream repos.
+- Step 11.11 remains incomplete and blocked until the iOS Native Swift package platform declarations are fixed, then serial validation can resume.
+
+### Ship Manifest
+
+- User goal: execute Step 11.11 — validate all 27 AI & Assistants repos without GitHub Actions.
+- Changed files: `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: `tasks/todo.md` records the blocked Step 11.11 execution attempt and next remediation; `tasks/history.md` records validation evidence and residual blockers.
+- Tests run: `swift test --package-path ../chatgpt-mobile-clone/variants/ios-native` (failed compile), `swift test --package-path ../claude-mobile-clone/variants/ios-native` (failed compile).
+- Skipped tests: React Native/Expo lint/typecheck/test/build were not run because dependencies are not installed in the 54 JS variant directories; Flutter checks were skipped because `flutter` is not installed; Android checks were skipped because Gradle/`gradlew` is unavailable; GitHub Actions were intentionally not used.
+- Adversarial review: the validation cannot be marked complete because the first executable iOS checks failed and several toolchains are missing.
+- Residual risk: only two iOS Native packages were compiled before stopping; additional failures may exist across the remaining 25 downstream repos and non-iOS variants.
+- Rollback note: revert this planning commit to remove the blocked validation note; downstream repos were only refreshed locally and left clean after removing Swift build artifacts.
+- Next command: `$run` for Step 11.11 remediation.
