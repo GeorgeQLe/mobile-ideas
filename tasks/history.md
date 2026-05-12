@@ -1,5 +1,30 @@
 # History
 
+## 2026-05-12 - Phase 11 Step 11.11 Gemini JS Validation
+
+- Continued Step 11.11 without GitHub Actions and validated the Gemini React Native/Expo local JS variants.
+- Fixed and pushed downstream JS validation support to `GeorgeQLe/gemini-mobile-clone` at commit `ef1174d` (`test: validate Gemini JavaScript variants`).
+- React Native fixes: added npm lockfile, local TypeScript ESLint config, `tsconfig.json`, Jest/Node globals, a `typecheck` script, pinned React/React Native and React test renderer versions, removed the stale Reanimated Babel plugin from the validation path, preserved significant SSE token whitespace, and block-scoped generated switch declarations.
+- Expo fixes: added npm lockfile, pinned React test renderer, added Jest/TypeScript validation dependencies, local ESLint config, removed invalid Jest config, replaced dynamic import test setup with Jest-compatible `require`, made logout clear local auth state even if remote revoke fails, and fixed a generated streaming lint error.
+- Local executable validation passed:
+  - Gemini React Native: `npm run typecheck`; `npm test -- --runInBand` (83 tests); `npm run lint` (0 errors, 17 warnings).
+  - Gemini Expo: `npm run typecheck`; `npm test -- --runInBand` (62 tests); `npm run lint` (0 errors, 38 warnings).
+- npm install warnings were accepted as dependency-maintenance noise for generated scaffold dependencies. npm audit still reports known third-party vulnerabilities after install: Gemini React Native 14 total (3 moderate, 11 high); Gemini Expo 46 total (6 low, 6 moderate, 31 high, 3 critical). No `npm audit fix --force` was run because it would introduce breaking dependency churn outside this validation slice.
+- Step 11.11 remains incomplete: Microsoft Copilot through HuggingChat still need serial JS validation, and the 13 placeholder-only React Native/Expo repos need implementation or explicit implementation-gap treatment before JS validation can be complete.
+
+### Ship Manifest
+
+- User goal: continue Step 11.11 non-iOS validation without GitHub Actions.
+- Changed files: downstream JS validation files in `GeorgeQLe/gemini-mobile-clone`; source planning files `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: downstream package/config/source fixes make Gemini React Native/Expo installable and locally validatable; planning files record evidence, accepted warnings, blockers, and next work.
+- User-goal mapping: advances the serial React Native/Expo validation lane from Poe through Gemini while preserving the no-GitHub-Actions constraint.
+- Tests run: Gemini RN typecheck/test/lint; Gemini Expo typecheck/test/lint.
+- Skipped tests: Flutter remains local toolchain-blocked because `flutter` is unavailable; Android Native remains local toolchain-blocked because Java/Gradle/`gradlew` are unavailable; GitHub Actions intentionally not used; broader remaining JS-manifest repos not run in this one-step slice.
+- Adversarial review: this proves the dependency/lint strategy on Gemini only. It does not prove the remaining 8 JS-manifest repos install or pass checks, and it leaves the known implementation gap in 13 placeholder-only React Native/Expo repos.
+- Residual risk: accepted npm audit findings and lint warnings remain dependency/generated-scaffold cleanup work outside this validation slice.
+- Rollback note: revert downstream Gemini commit `ef1174d` and this mobile-ideas planning commit to remove the recorded validation evidence.
+- Next command: `$run` for Step 11.11 JS validation continuation starting at Microsoft Copilot.
+
 ## 2026-05-11 - Phase 11 Step 11.11: iOS Native SwiftPM Validation Remediation Attempt
 
 - Continued Step 11.11 local validation without GitHub Actions.
