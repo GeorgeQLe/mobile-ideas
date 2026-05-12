@@ -1,5 +1,30 @@
 # History
 
+## 2026-05-12 - Phase 11 Step 11.11 Grok JS Validation
+
+- Continued Step 11.11 without GitHub Actions and validated the Grok React Native/Expo local JS variants.
+- Fixed and pushed downstream JS validation support to `GeorgeQLe/grok-mobile-clone` at commit `237be83` (`test: validate Grok JavaScript variants`).
+- React Native fixes: added npm lockfile, local TypeScript ESLint config, a `typecheck` script, Jest AsyncStorage setup, and a local TypeScript project; rewrote the streaming read loop to avoid generated constant-condition lint failure while preserving abort behavior.
+- Expo fixes: added npm lockfile, local ESLint config, pinned React test renderer to React 18.2.0, added Jest/Node globals for typechecking, typed chat-store test fixtures, and rewrote the SSE client read loop to avoid generated constant-condition lint failure.
+- Local executable validation passed:
+  - Grok React Native: `npm run typecheck`; `npm test -- --runInBand` (66 tests); `npm run lint` (0 errors, 6 warnings).
+  - Grok Expo: `npm run typecheck`; `npm test -- --runInBand` (50 tests); `npm run lint` (0 errors, 11 warnings).
+- npm install warnings were accepted as dependency-maintenance noise for generated scaffold dependencies. npm audit still reports known third-party vulnerabilities after install: Grok React Native 14 total (3 moderate, 11 high); Grok Expo 38 total (2 low, 4 moderate, 29 high, 3 critical). No `npm audit fix --force` was run because it would introduce breaking dependency churn outside this validation slice.
+- Step 11.11 remains incomplete: DeepSeek through HuggingChat still need serial JS validation, and the 13 placeholder-only React Native/Expo repos need implementation or explicit implementation-gap treatment before JS validation can be complete.
+
+### Ship Manifest
+
+- User goal: continue Step 11.11 non-iOS validation without GitHub Actions.
+- Changed files: downstream JS validation files in `GeorgeQLe/grok-mobile-clone`; source planning files `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: downstream package/config/source/test fixes make Grok React Native/Expo installable and locally validatable; planning files record evidence, accepted warnings, blockers, and next work.
+- User-goal mapping: advances the serial React Native/Expo validation lane from Microsoft Copilot through Grok while preserving the no-GitHub-Actions constraint.
+- Tests run: Grok RN typecheck/test/lint; Grok Expo typecheck/test/lint.
+- Skipped tests: Flutter remains local toolchain-blocked because `flutter` is unavailable; Android Native remains local toolchain-blocked because Java/Gradle/`gradlew` are unavailable; GitHub Actions intentionally not used; broader remaining JS-manifest repos not run in this one-step slice.
+- Adversarial review: this proves the dependency/lint strategy on Grok only. It does not prove the remaining 6 JS-manifest repos install or pass checks, and it leaves the known implementation gap in 13 placeholder-only React Native/Expo repos.
+- Residual risk: accepted npm audit findings and lint warnings remain dependency/generated-scaffold cleanup work outside this validation slice.
+- Rollback note: revert downstream Grok commit `237be83` and this mobile-ideas planning commit to remove the recorded validation evidence.
+- Next command: `$run` for Step 11.11 JS validation continuation starting at DeepSeek.
+
 ## 2026-05-12 - Phase 11 Step 11.11 Microsoft Copilot JS Validation
 
 - Continued Step 11.11 without GitHub Actions and validated the Microsoft Copilot React Native/Expo local JS variants.
