@@ -2390,3 +2390,27 @@
 - Residual risk: npm audit warnings remain in installed dependency trees; generated lint warnings remain but exit zero; remaining JS variants may require app-specific remediation.
 - Rollback note: revert downstream commit `627ec4e`, then revert this planning commit to return to the previous non-iOS validation state.
 - Next command: `$run` for Step 11.11 JS validation continuation starting at You.com.
+
+## 2026-05-12 - Phase 11 Step 11.11 You.com JS Validation
+
+- Continued Step 11.11 without GitHub Actions and validated the You.com React Native/Expo local JS variants.
+- Fixed and pushed downstream JS validation support to `GeorgeQLe/you-com-mobile-clone` at commit `058b2a1` (`test: enable js validation`).
+- React Native fixes: added npm lockfile, local TypeScript ESLint config, `tsconfig.json`, Jest globals, a `typecheck` script, and pinned `react-test-renderer` to React 18.
+- Expo fixes: added npm lockfile, local Expo ESLint config, `typecheck` script, Jest/Node type globals, switched tests to `jest-expo`, added the missing Babel module resolver dependency, fixed generated streaming test typing, and escaped JSX query quotes.
+- Validation passed locally:
+  - You.com React Native: `npm run typecheck`; `npm test -- --runInBand` (66 tests); `npm run lint` (0 errors, 40 warnings).
+  - You.com Expo: `npm run typecheck`; `npm test -- --runInBand` (62 tests); `npm run lint` (0 errors, 36 warnings).
+- Accepted warnings: generated-test `any`/unused placeholder usage, generated unused imports/props/placeholders, hook-dependency warnings in generated screens, npm package deprecation warnings, and npm audit warnings. No `npm audit fix --force` was run because it would broaden dependency churn beyond this validation slice.
+- Step 11.11 remains incomplete: Pi, Phind, and HuggingChat still need serial JS validation, and the 13 placeholder-only React Native/Expo repos need implementation or explicit implementation-gap treatment before JS validation can be complete.
+
+### Ship Manifest
+
+- User goal: continue Step 11.11 non-iOS validation without GitHub Actions.
+- Changed files: downstream JS validation files in `GeorgeQLe/you-com-mobile-clone`; source planning files `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: downstream package/config/test/source fixes make You.com React Native/Expo installable and locally validatable; planning files record evidence, accepted warnings, blockers, and next work.
+- Tests run: You.com RN typecheck/test/lint; You.com Expo typecheck/test/lint.
+- Skipped tests: remaining JS-manifest repos were not run after completing the next serial repo in this remediation slice; Flutter skipped because `flutter` is missing; Android skipped because Gradle and Java are missing; GitHub Actions intentionally not used.
+- Adversarial review: this proves the dependency/lint strategy on You.com only. It does not prove the remaining 3 JS-manifest repos install or pass checks, and it leaves the known implementation gap in 13 placeholder-only React Native/Expo repos.
+- Residual risk: npm audit warnings remain in installed dependency trees; generated lint warnings remain but exit zero; remaining JS variants may require app-specific remediation.
+- Rollback note: revert downstream commit `058b2a1`, then revert this planning commit to return to the previous non-iOS validation state.
+- Next command: `$run` for Step 11.11 JS validation continuation starting at Pi.
