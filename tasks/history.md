@@ -2219,3 +2219,27 @@
 - Residual risk: npm audit warnings remain in installed dependency trees; generated lint warnings remain but exit zero; remaining JS variants may require app-specific remediation.
 - Rollback note: revert downstream commit `c2a70a0`, then revert this planning commit to return to the previous non-iOS validation state.
 - Next command: `$run` for Step 11.11 JS validation continuation starting at Replika.
+
+## 2026-05-12 - Phase 11 Step 11.11 Replika JS Validation
+
+- Continued Step 11.11 without GitHub Actions and validated the Replika React Native/Expo local JS variants.
+- Fixed and pushed downstream JS validation support to `GeorgeQLe/replika-mobile-clone` at commit `3b1557e` (`fix: validate replika js variants`).
+- React Native fixes: added local TypeScript ESLint config, fixed the lint script, corrected shared fixture imports for TypeScript resolution, removed the stale Jest fixture mapper, and rewrote the generated streaming read loop to satisfy lint.
+- Expo fixes: added npm lockfile, added TypeScript/React ESLint dependencies and config, fixed the lint script, escaped JSX text in privacy/safety copy, and rewrote the generated streaming read loop to satisfy lint.
+- Validation passed locally:
+  - Replika React Native: `npm run typecheck`; `npm test -- --runInBand` (96 tests); `npm run lint` (0 errors, 31 warnings).
+  - Replika Expo: `npm run typecheck`; `npm test -- --runInBand` (71 tests); `npm run lint` (0 errors, 13 warnings).
+- Accepted warnings: generated `any` types, generated unused imports/props/placeholders, hook-dependency warnings in generated screens, npm package deprecation warnings, and npm audit warnings. No `npm audit fix --force` was run because it would broaden dependency churn beyond this validation slice.
+- Step 11.11 remains incomplete: Poe through HuggingChat still need serial JS validation, and the 13 placeholder-only React Native/Expo repos need implementation or explicit implementation-gap treatment before JS validation can be complete.
+
+### Ship Manifest
+
+- User goal: continue Step 11.11 non-iOS validation without GitHub Actions.
+- Changed files: downstream JS validation files in `GeorgeQLe/replika-mobile-clone`; source planning files `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: downstream package/config/source fixes make Replika React Native/Expo installable and locally validatable; planning files record evidence, accepted warnings, blockers, and next work.
+- Tests run: Replika RN typecheck/test/lint; Replika Expo typecheck/test/lint.
+- Skipped tests: remaining JS-manifest repos were not run after completing the next serial repo in this remediation slice; Flutter skipped because `flutter` is missing; Android skipped because Gradle and Java are missing; GitHub Actions intentionally not used.
+- Adversarial review: this proves the dependency/lint strategy on Replika only. It does not prove the remaining 10 JS-manifest repos install or pass checks, and it leaves the known implementation gap in 13 placeholder-only React Native/Expo repos.
+- Residual risk: npm audit warnings remain in installed dependency trees; generated lint warnings remain but exit zero; remaining JS variants may require app-specific remediation.
+- Rollback note: revert downstream commit `3b1557e`, then revert this planning commit to return to the previous non-iOS validation state.
+- Next command: `$run` for Step 11.11 JS validation continuation starting at Poe.

@@ -800,6 +800,19 @@ Build all five variants for every app in the AI & Assistants category cluster to
   **Next work:** Step 11.11 JS validation continuation — validate/remediate Replika React Native and Expo, then continue serially through Poe, Gemini, Microsoft Copilot, Grok, DeepSeek, Meta AI, You.com, Pi, Phind, and HuggingChat.
   **Recommended next command:** `$run`
 
+  **Remediation Progress — 2026-05-12 (Codex):**
+  - Continued the non-iOS local validation lane without GitHub Actions.
+  - Fixed and pushed JS validation support for `GeorgeQLe/replika-mobile-clone` at commit `3b1557e`: added React Native/Expo npm lockfiles where missing, added local ESLint configs, fixed React Native shared fixture imports, removed the stale Jest shared-fixture mapper, added Expo lint dependencies, fixed lint script file extensions, escaped JSX text in Expo privacy/safety copy, and rewrote generated streaming loops to satisfy lint.
+  - Local executable validation passed without GitHub Actions:
+    - Replika React Native: `npm run typecheck`, `npm test -- --runInBand` (96 tests), `npm run lint` (0 errors, 31 accepted warnings).
+    - Replika Expo: `npm run typecheck`, `npm test -- --runInBand` (71 tests), `npm run lint` (0 errors, 13 accepted warnings).
+  - npm install warnings were accepted as dependency-maintenance noise for generated scaffold dependencies; npm audit still reports known third-party vulnerabilities after install (Replika React Native 8 total: 3 moderate, 5 high; Replika Expo 8 total: 2 moderate, 6 high). No `npm audit fix --force` was run because it would introduce breaking dependency churn outside this validation slice.
+
+  **Current Status:** in progress — iOS Native is validated across all 27 repos, and JS validation now passes for ChatGPT, Claude, Perplexity, and Replika React Native/Expo. Step 11.11 remains incomplete until the remaining 10 JS-manifest repos are validated/remediated and the 13 placeholder-only React Native/Expo repos are either implemented or documented as implementation gaps.
+
+  **Next work:** Step 11.11 JS validation continuation — validate/remediate Poe React Native and Expo, then continue serially through Gemini, Microsoft Copilot, Grok, DeepSeek, Meta AI, You.com, Pi, Phind, and HuggingChat.
+  **Recommended next command:** `$run`
+
 - [ ] Step 11.12: Run benchmarking harness and record scorecards
   - Run `mobile-benchmark-harness` against each of the 27 repos × 5 variants.
   - Record scorecard JSON output for each variant.
