@@ -2166,3 +2166,32 @@
 - Residual risk: DeepSeek generated Swift warnings remain despite passing tests; non-iOS variants may expose dependency or compile failures once their toolchains are available.
 - Rollback note: revert the downstream remediation commits and this planning commit to return to the prior partially blocked validation state.
 - Next command: `$run` for Step 11.11 non-iOS validation.
+
+## 2026-05-12 - Phase 11 Step 11.11 JS Validation Start
+
+- Continued Step 11.11 without GitHub Actions and started the React Native/Expo local validation lane.
+- Confirmed local JS toolchains are available: Node `v25.2.1`, npm `11.6.2`, and pnpm `10.22.0`.
+- Confirmed local non-JS blockers: `flutter` and `gradle` are not installed, and Java runtime is unavailable.
+- Inventory result: 14 AI & Assistants repos have React Native/Expo package manifests; 13 repos only have React Native/Expo README placeholders locally and cannot be validated as JS apps yet.
+- Fixed and pushed downstream JS validation commits:
+  - `GeorgeQLe/chatgpt-mobile-clone` `009164c` (`test: enable js variant validation`).
+  - `GeorgeQLe/claude-mobile-clone` `358c370` (`test: enable js variant validation`).
+- Validation passed locally:
+  - ChatGPT React Native: `npm run typecheck`, `npm test -- --runInBand` (55 tests), `npm run lint` (0 errors, 13 warnings).
+  - ChatGPT Expo: `npm run typecheck`, `npm test -- --runInBand` (44 tests), `npm run lint` (0 errors, 2 warnings).
+  - Claude React Native: `npm run type-check`, `npm test -- --runInBand` (81 tests), `npm run lint` (0 errors, 26 warnings).
+  - Claude Expo: `npm run typecheck`, `npm test -- --runInBand` (62 tests), `npm run lint` (0 errors, 19 warnings).
+- Accepted warnings: generated-test `any`/`require` usage, stale generated hook-dependency warnings, unused generated imports/props, and npm package deprecation/audit warnings. No `npm audit fix --force` was run because it would broaden the dependency changes beyond this validation slice.
+- Step 11.11 remains incomplete: Perplexity through HuggingChat still need serial JS validation, and the 13 placeholder-only React Native/Expo repos need implementation or explicit implementation-gap treatment before JS validation can be complete.
+
+### Ship Manifest
+
+- User goal: continue Step 11.11 non-iOS validation without GitHub Actions.
+- Changed files: downstream JS validation files in `GeorgeQLe/chatgpt-mobile-clone` and `GeorgeQLe/claude-mobile-clone`; source planning files `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: downstream package/config/source fixes make ChatGPT and Claude React Native/Expo installable and locally validatable; planning files record evidence, accepted warnings, blockers, and next work.
+- Tests run: ChatGPT RN typecheck/test/lint; ChatGPT Expo typecheck/test/lint; Claude RN type-check/test/lint; Claude Expo typecheck/test/lint.
+- Skipped tests: remaining JS-manifest repos were not run after completing the first two repos in this remediation slice; Flutter skipped because `flutter` is missing; Android skipped because Gradle and Java are missing; GitHub Actions intentionally not used.
+- Adversarial review: this proves the dependency/lint strategy on ChatGPT and Claude only. It does not prove the remaining 12 JS-manifest repos install or pass checks, and it exposes a larger implementation gap in 13 placeholder-only React Native/Expo repos.
+- Residual risk: npm audit warnings remain in installed dependency trees; generated lint warnings remain but exit zero; remaining JS variants may require app-specific remediation.
+- Rollback note: revert downstream commits `009164c` and `358c370`, then revert this planning commit to return to the previous non-IOS validation state.
+- Next command: `$run` for Step 11.11 JS validation continuation starting at Perplexity.
