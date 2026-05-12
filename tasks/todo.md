@@ -932,6 +932,20 @@ Build all five variants for every app in the AI & Assistants category cluster to
   **Next work:** Step 11.11 JS validation continuation — validate/remediate HuggingChat React Native and Expo.
   **Recommended next command:** `$run`
 
+  **Remediation Progress — 2026-05-12 (Codex):**
+  - Continued the non-iOS local validation lane without GitHub Actions.
+  - Fixed and pushed JS validation support for `GeorgeQLe/huggingchat-mobile-clone` at commit `d33eef7`: added React Native/Expo npm lockfiles, local ESLint configs, React Native TypeScript validation, Expo typecheck script, pinned React test renderer, added Jest/Node validation dependencies, typed citation indexes before rendering, and normalized conditional license-link styles for React Native text style typing.
+  - Local executable validation passed without GitHub Actions:
+    - HuggingChat React Native: `npm run typecheck`, `npm test -- --runInBand` (92 tests), `npm run lint` (0 errors, 9 accepted warnings).
+    - HuggingChat Expo: `npm run typecheck`, `npm test -- --runInBand` (92 tests), `npm run lint` (0 errors, 7 accepted warnings).
+  - npm install warnings were accepted as dependency-maintenance noise for generated scaffold dependencies; npm audit still reports known third-party vulnerabilities after install (HuggingChat React Native 14 total: 3 moderate, 11 high; HuggingChat Expo 38 total: 6 low, 4 moderate, 25 high, 3 critical). No `npm audit fix --force` was run because it would introduce breaking dependency churn outside this validation slice.
+  - Remote verification: `gh api repos/GeorgeQLe/huggingchat-mobile-clone --jq '{visibility, default_branch, pushed_at}'` returned `visibility: private`, `default_branch: main`, `pushed_at: 2026-05-12T19:07:50Z`.
+
+  **Current Status:** in progress — iOS Native is validated across all 27 repos, and JS validation now passes for all 14 repos that currently have React Native/Expo package manifests: ChatGPT, Claude, Perplexity, Replika, Poe, Gemini, Microsoft Copilot, Grok, DeepSeek, Meta AI, You.com, Pi, Phind, and HuggingChat. Step 11.11 remains incomplete until the 13 placeholder-only React Native/Expo repos are implemented or formally documented as implementation gaps, and Flutter/Android remain local toolchain-blocked.
+
+  **Next work:** Step 11.11 implementation-gap treatment — resolve or document the 13 placeholder-only React Native/Expo repos: Character.AI, Wysa, ELSA Speak, OtterPilot, Grammarly Keyboard, Wordtune, QuillBot, Ask AI, Genie, Monica, Notion AI, Forefront AI, and Consensus.
+  **Recommended next command:** `$run`
+
 - [ ] Step 11.12: Run benchmarking harness and record scorecards
   - Run `mobile-benchmark-harness` against each of the 27 repos × 5 variants.
   - Record scorecard JSON output for each variant.

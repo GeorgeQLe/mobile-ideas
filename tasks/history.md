@@ -1,5 +1,31 @@
 # History
 
+## 2026-05-12 - Phase 11 Step 11.11 HuggingChat JS Validation
+
+- Continued Step 11.11 without GitHub Actions and validated the HuggingChat React Native/Expo local JS variants.
+- Fixed and pushed downstream JS validation support to `GeorgeQLe/huggingchat-mobile-clone` at commit `d33eef7` (`test: validate HuggingChat JavaScript variants`).
+- React Native fixes: added npm lockfile, local TypeScript ESLint config, `tsconfig.json`, Jest globals, a `typecheck` script, pinned React test renderer, and fixed citation index/style typing in generated screens.
+- Expo fixes: added npm lockfile, local ESLint config, a `typecheck` script, Jest/Node validation dependencies, pinned React test renderer, and fixed the same generated citation index/style typing issues.
+- Local executable validation passed:
+  - HuggingChat React Native: `npm run typecheck`; `npm test -- --runInBand` (92 tests); `npm run lint` (0 errors, 9 warnings).
+  - HuggingChat Expo: `npm run typecheck`; `npm test -- --runInBand` (92 tests); `npm run lint` (0 errors, 7 warnings).
+- npm install warnings were accepted as dependency-maintenance noise for generated scaffold dependencies. npm audit still reports known third-party vulnerabilities after install: HuggingChat React Native 14 total (3 moderate, 11 high); HuggingChat Expo 38 total (6 low, 4 moderate, 25 high, 3 critical). No `npm audit fix --force` was run because it would introduce breaking dependency churn outside this validation slice.
+- Remote verification confirmed `GeorgeQLe/huggingchat-mobile-clone` is private, default branch is `main`, and latest push time is `2026-05-12T19:07:50Z`.
+- Step 11.11 remains incomplete: all JS-manifest repos now pass React Native/Expo validation, but 13 placeholder-only React Native/Expo repos still need implementation or formal implementation-gap treatment; Flutter remains blocked by missing `flutter`; Android Native remains blocked by missing Java/Gradle/`gradlew`.
+
+### Ship Manifest
+
+- User goal: continue Step 11.11 non-iOS validation without GitHub Actions.
+- Changed files: downstream JS validation files in `GeorgeQLe/huggingchat-mobile-clone`; source planning files `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: downstream package/config/source fixes make HuggingChat React Native/Expo installable and locally validatable; planning files record evidence, accepted warnings, blockers, and next work.
+- User-goal mapping: completes the serial React Native/Expo validation lane for the 14 repos that currently have JS package manifests while preserving the no-GitHub-Actions constraint.
+- Tests run: HuggingChat RN typecheck/test/lint; HuggingChat Expo typecheck/test/lint.
+- Skipped tests: Flutter remains local toolchain-blocked because `flutter` is unavailable; Android Native remains local toolchain-blocked because Java/Gradle/`gradlew` are unavailable; GitHub Actions intentionally not used; the 13 placeholder-only React Native/Expo repos have no package manifests to validate in this slice.
+- Adversarial review: this proves HuggingChat and completes the known JS-manifest repo queue, but it does not prove the 13 placeholder-only React Native/Expo repos are implemented or validatable.
+- Residual risk: accepted npm audit findings and lint warnings remain dependency/generated-scaffold cleanup work outside this validation slice.
+- Rollback note: revert downstream HuggingChat commit `d33eef7` and this mobile-ideas planning commit to remove the recorded validation evidence.
+- Next command: `$run` for Step 11.11 implementation-gap treatment on the 13 placeholder-only React Native/Expo repos.
+
 ## 2026-05-12 - Phase 11 Step 11.11 Grok JS Validation
 
 - Continued Step 11.11 without GitHub Actions and validated the Grok React Native/Expo local JS variants.
