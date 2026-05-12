@@ -865,6 +865,19 @@ Build all five variants for every app in the AI & Assistants category cluster to
   **Next work:** Step 11.11 JS validation continuation — validate/remediate DeepSeek React Native and Expo, then continue serially through Meta AI, You.com, Pi, Phind, and HuggingChat.
   **Recommended next command:** `$run`
 
+  **Remediation Progress — 2026-05-12 (Codex):**
+  - Continued the non-iOS local validation lane without GitHub Actions.
+  - Fixed and pushed JS validation support for `GeorgeQLe/deepseek-mobile-clone` at commit `4fb5548`: corrected the React Native AsyncStorage package name, added React Native/Expo npm lockfiles, local ESLint configs, React Native TypeScript validation, Jest globals, pinned Expo React test renderer, removed the stale React Native Reanimated Babel plugin from the local test path, typed React Native streaming events, fixed generated test mock typing, and normalized Expo route params before store access.
+  - Local executable validation passed without GitHub Actions:
+    - DeepSeek React Native: `npm run typecheck`, `npm test -- --runInBand` (79 tests), `npm run lint` (0 errors, 31 accepted warnings).
+    - DeepSeek Expo: `npm run typecheck`, `npm test -- --runInBand` (47 tests), `npm run lint` (0 errors, 12 accepted warnings).
+  - npm install warnings were accepted as dependency-maintenance noise for generated scaffold dependencies; npm audit still reports known third-party vulnerabilities after install (DeepSeek React Native 14 total: 3 moderate, 11 high; DeepSeek Expo 38 total: 2 low, 4 moderate, 29 high, 3 critical). No `npm audit fix --force` was run because it would introduce breaking dependency churn outside this validation slice.
+
+  **Current Status:** in progress — iOS Native is validated across all 27 repos, and JS validation now passes for ChatGPT, Claude, Perplexity, Replika, Poe, Gemini, Microsoft Copilot, Grok, and DeepSeek React Native/Expo. Step 11.11 remains incomplete until the remaining 5 JS-manifest repos are validated/remediated and the 13 placeholder-only React Native/Expo repos are either implemented or documented as implementation gaps.
+
+  **Next work:** Step 11.11 JS validation continuation — validate/remediate Meta AI React Native and Expo, then continue serially through You.com, Pi, Phind, and HuggingChat.
+  **Recommended next command:** `$run`
+
 - [ ] Step 11.12: Run benchmarking harness and record scorecards
   - Run `mobile-benchmark-harness` against each of the 27 repos × 5 variants.
   - Record scorecard JSON output for each variant.

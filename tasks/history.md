@@ -2342,3 +2342,27 @@
 - Residual risk: npm audit warnings remain in installed dependency trees; generated lint warnings remain but exit zero; remaining JS variants may require app-specific remediation.
 - Rollback note: revert downstream commit `53c346f`, then revert this planning commit to return to the previous non-iOS validation state.
 - Next command: `$run` for Step 11.11 JS validation continuation starting at Gemini.
+
+## 2026-05-12 - Phase 11 Step 11.11 DeepSeek JS Validation
+
+- Continued Step 11.11 without GitHub Actions and validated the DeepSeek React Native/Expo local JS variants.
+- Fixed and pushed downstream JS validation support to `GeorgeQLe/deepseek-mobile-clone` at commit `4fb5548` (`fix: validate deepseek js variants`).
+- React Native fixes: corrected the AsyncStorage package name, added npm lockfile, local TypeScript ESLint config, Jest globals, a `typecheck` script, removed the stale Reanimated Babel plugin from the validation path, typed streaming events, and fixed generated test mock typing.
+- Expo fixes: added npm lockfile, pinned React test renderer to React 18, added Jest globals, local TypeScript ESLint config, normalized Expo route params before store access, and fixed generated lint errors in auth tests and streaming switch cases.
+- Validation passed locally:
+  - DeepSeek React Native: `npm run typecheck`; `npm test -- --runInBand` (79 tests); `npm run lint` (0 errors, 31 warnings).
+  - DeepSeek Expo: `npm run typecheck`; `npm test -- --runInBand` (47 tests); `npm run lint` (0 errors, 12 warnings).
+- Accepted warnings: generated-test `any`/unused placeholder usage, generated unused imports/props/placeholders, npm package deprecation warnings, and npm audit warnings. No `npm audit fix --force` was run because it would broaden dependency churn beyond this validation slice.
+- Step 11.11 remains incomplete: Meta AI through HuggingChat still need serial JS validation, and the 13 placeholder-only React Native/Expo repos need implementation or explicit implementation-gap treatment before JS validation can be complete.
+
+### Ship Manifest
+
+- User goal: continue Step 11.11 non-iOS validation without GitHub Actions.
+- Changed files: downstream JS validation files in `GeorgeQLe/deepseek-mobile-clone`; source planning files `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: downstream package/config/source fixes make DeepSeek React Native/Expo installable and locally validatable; planning files record evidence, accepted warnings, blockers, and next work.
+- Tests run: DeepSeek RN typecheck/test/lint; DeepSeek Expo typecheck/test/lint.
+- Skipped tests: remaining JS-manifest repos were not run after completing the next serial repo in this remediation slice; Flutter skipped because `flutter` is missing; Android skipped because Gradle and Java are missing; GitHub Actions intentionally not used.
+- Adversarial review: this proves the dependency/lint strategy on DeepSeek only. It does not prove the remaining 5 JS-manifest repos install or pass checks, and it leaves the known implementation gap in 13 placeholder-only React Native/Expo repos.
+- Residual risk: npm audit warnings remain in installed dependency trees; generated lint warnings remain but exit zero; remaining JS variants may require app-specific remediation.
+- Rollback note: revert downstream commit `4fb5548`, then revert this planning commit to return to the previous non-iOS validation state.
+- Next command: `$run` for Step 11.11 JS validation continuation starting at Meta AI.
