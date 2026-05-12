@@ -2439,3 +2439,28 @@
 - Residual risk: npm audit warnings remain in installed dependency trees; generated lint warnings remain but exit zero; remaining JS variants may require app-specific remediation.
 - Rollback note: revert downstream commit `1b5b680`, then revert this planning commit to return to the previous non-iOS validation state.
 - Next command: `$run` for Step 11.11 JS validation continuation starting at Phind.
+
+## 2026-05-12 - Phase 11 Step 11.11 Phind JS Validation
+
+- Continued Step 11.11 without GitHub Actions and validated the Phind React Native/Expo local JS variants.
+- Fixed and pushed downstream JS validation support to `GeorgeQLe/phind-mobile-clone` at commit `7f112f6` (`test: enable phind js validation`).
+- React Native fixes: added npm lockfile, local TypeScript ESLint config, `tsconfig.json`, Jest globals, a `typecheck` script, escaped a JSX chevron, and replaced an unsafe generated `Function` test type with an explicit resolver signature.
+- Expo fixes: added npm lockfile, local Expo ESLint config, Jest/Node validation dependencies, `typecheck` script, escaped JSX chevrons, normalized route params before store/API use, fixed an empty catch block, and replaced an unsafe generated `Function` test type.
+- Validation passed locally:
+  - Phind React Native: `npm run typecheck`; `npm test -- --runInBand` (70 tests); `npm run lint` (0 errors, 26 warnings).
+  - Phind Expo: `npm run typecheck`; `npm test -- --runInBand` (70 tests); `npm run lint` (0 errors, 25 warnings).
+- Remote verification passed: `GeorgeQLe/phind-mobile-clone` remains private on `main`, pushed at `2026-05-12T18:56:20Z`.
+- Accepted warnings: generated-test `any`/unused placeholder usage, generated unused imports/props/placeholders, npm package deprecation warnings, and npm audit warnings. No `npm audit fix --force` was run because it would broaden dependency churn beyond this validation slice.
+- Step 11.11 remains incomplete: HuggingChat still needs serial JS validation, and the 13 placeholder-only React Native/Expo repos need implementation or explicit implementation-gap treatment before JS validation can be complete.
+
+### Ship Manifest
+
+- User goal: continue Step 11.11 non-iOS validation without GitHub Actions.
+- Changed files: downstream JS validation files in `GeorgeQLe/phind-mobile-clone`; source planning files `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: downstream package/config/test/source fixes make Phind React Native/Expo installable and locally validatable; planning files record evidence, accepted warnings, blockers, and next work.
+- Tests run: Phind RN typecheck/test/lint; Phind Expo typecheck/test/lint.
+- Skipped tests: remaining HuggingChat JS-manifest repo was not run after completing the next serial repo in this remediation slice; Flutter skipped because `flutter` is missing; Android skipped because Gradle and Java are missing; GitHub Actions intentionally not used.
+- Adversarial review: this proves the dependency/lint strategy on Phind only. It does not prove HuggingChat install or checks, and it leaves the known implementation gap in 13 placeholder-only React Native/Expo repos.
+- Residual risk: npm audit warnings remain in installed dependency trees; generated lint warnings remain but exit zero; remaining JS variants may require app-specific remediation.
+- Rollback note: revert downstream commit `7f112f6`, then revert this planning commit to return to the previous non-iOS validation state.
+- Next command: `$run` for Step 11.11 JS validation continuation starting at HuggingChat.
