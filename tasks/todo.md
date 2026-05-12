@@ -755,6 +755,19 @@ Build all five variants for every app in the AI & Assistants category cluster to
   **Next work:** Step 11.11 remediation — fix or isolate the Pi iOS Native API test hang, rerun Pi SwiftPM validation, then resume from Phind through Consensus.
   **Recommended next command:** `$run`
 
+  **Remediation Success — 2026-05-12 (Codex):**
+  - Fixed the Pi iOS Native SwiftPM hang by making placeholder API calls fail fast for the local stub host, avoiding unauthenticated sign-out network calls, keeping topic suggestion dismissal local, and correcting empty emotional-tone labels.
+  - Applied and pushed the SwiftPM validation strategy across all remaining AI & Assistants iOS Native variants. Every downstream repo now has a pushed `variants/ios-native/Package.swift` or equivalent SwiftPM-compatible source remediation on `main`.
+  - Pushed downstream validation commits to all 27 private repos. Latest pushed remediation commits include: ChatGPT `14329fe`, Claude unchanged from prior successful remediation, Perplexity `20a7ba6`, Character.AI `3f7a221`, Replika `8f92c44`, Poe `77963c2`, Gemini `ca52b7f`, Microsoft Copilot `5cb2635`, Grok `279adbf`, DeepSeek `fb7cba0`, Meta AI `fdd618a`, You.com `0de4632`, Pi `60c1384`, Phind `a2cb531`, HuggingChat `d589b1a`, Wysa `56dca9c`, ELSA Speak `1d495fe`, OtterPilot `003359a`, Grammarly Keyboard `4fb384f`, Wordtune `b58a4ed`, QuillBot `4104079`, Ask AI `5d11aa9`, Genie `36b7ec3`, Monica `6e97a1e`, Notion AI `a8e2209`, Forefront AI `8b6215f`, Consensus `1f8596d`.
+  - Local executable validation passed without GitHub Actions: `swift test --no-parallel --package-path variants/ios-native` passed for all 27 iOS Native downstream variants. Test counts observed in the final passes included: ChatGPT 35, Claude 37, Perplexity 118, Character.AI 64, Replika 78, Poe 57, Gemini 57, Microsoft Copilot 54, Grok 58, DeepSeek 73, Meta AI 69, You.com 78, Pi 150, Phind 34, HuggingChat 40, and 6 each for Wysa, ELSA Speak, OtterPilot, Grammarly Keyboard, Wordtune, QuillBot, Ask AI, Genie, Monica, Notion AI, Forefront AI, and Consensus.
+  - Warning handling: the final warning-fatal sweep passed for the 15-repo Pi-through-Consensus set with no warning matches. The earlier-repo pass/fail sweep passed for ChatGPT through You.com; DeepSeek still emits generated Swift warnings in async/test stubs, accepted as residual generated-code cleanup because executable validation is green and this step's blocker was SwiftPM validation enablement.
+  - Non-iOS lanes remain blocked or deferred exactly as previously documented: React Native/Expo dependencies are not installed in downstream variant directories, Flutter is not installed locally, and Gradle/`gradlew` is unavailable for Android Native.
+
+  **Current Status:** in progress — all 27 iOS Native variants now pass local SwiftPM validation without GitHub Actions; Step 11.11 remains incomplete until non-iOS local validation lanes are run where toolchains/dependencies exist or explicitly documented as toolchain/dependency-blocked.
+
+  **Next work:** Step 11.11 non-iOS validation — validate React Native/Expo where dependencies can be installed, and document Flutter/Android toolchain blockers or install toolchains if approved.
+  **Recommended next command:** `$run`
+
 - [ ] Step 11.12: Run benchmarking harness and record scorecards
   - Run `mobile-benchmark-harness` against each of the 27 repos × 5 variants.
   - Record scorecard JSON output for each variant.

@@ -2145,3 +2145,24 @@
 - Residual risk: remaining downstream repos may need app-specific SwiftUI/API portability fixes before the full Step 11.11 validation can pass.
 - Rollback note: revert the two downstream commits and this planning commit to return to the prior blocked-validation state.
 - Next command: `$run` to apply the proven iOS Native SwiftPM validation strategy to the remaining 25 downstream repos.
+
+## 2026-05-12 - Phase 11 Step 11.11 iOS Native Sweep
+
+- Continued Step 11.11 remediation without GitHub Actions and applied the local SwiftPM validation strategy across all 27 AI & Assistants iOS Native downstream variants.
+- Fixed the Pi blocker by eliminating slow placeholder-network paths in unauthenticated sign-out, suggestion dismissal, and default stub API calls; corrected empty emotional-tone labels; then validated `pi-mobile-clone` with `swift test --no-parallel --package-path variants/ios-native` (150 tests, 0 failures).
+- Pushed downstream `test: enable ios swiftpm validation` commits to the 25 remaining private repos beyond the prior ChatGPT/Claude slice, plus a follow-up ChatGPT validation tweak. All pushes landed on downstream `main`.
+- Validation evidence: local `swift test --no-parallel --package-path variants/ios-native` passed for all 27 iOS Native variants. Final observed test counts included ChatGPT 35, Claude 37, Perplexity 118, Character.AI 64, Replika 78, Poe 57, Gemini 57, Microsoft Copilot 54, Grok 58, DeepSeek 73, Meta AI 69, You.com 78, Pi 150, Phind 34, HuggingChat 40, and 6 each for Wysa, ELSA Speak, OtterPilot, Grammarly Keyboard, Wordtune, QuillBot, Ask AI, Genie, Monica, Notion AI, Forefront AI, and Consensus.
+- Warning handling: fixed warning classes in Perplexity, Replika, Poe, Microsoft Copilot, Grok, and the generated batch repos where they blocked a warning-fatal sweep. DeepSeek still emits generated Swift warnings in async/test stubs; accepted as residual generated-code cleanup because pass/fail SwiftPM validation is green and the Step 11.11 blocker was compile/test enablement.
+- Non-iOS validation remains incomplete: React Native/Expo dependencies are not installed in downstream variant directories, Flutter is not installed locally, and Gradle/`gradlew` is unavailable for Android Native.
+
+### Ship Manifest
+
+- User goal: continue Step 11.11 remediation and validate remaining AI & Assistants downstream repos without GitHub Actions.
+- Changed files: downstream `variants/ios-native` SwiftPM manifests/source/tests across 27 private repos; source planning files `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: downstream files enable local SwiftPM validation for iOS Native variants; planning files record exact evidence, residual blockers, and next work.
+- Tests run: `swift test --no-parallel --package-path variants/ios-native` across all 27 downstream iOS Native variants, all passed.
+- Skipped tests: React Native/Expo dependency installs and checks were not run; Flutter skipped because `flutter` is not installed; Android skipped because Gradle/`gradlew` is unavailable; GitHub Actions intentionally not used.
+- Adversarial review: Step 11.11 cannot be marked complete because only iOS Native has executable local validation evidence across all 27 apps.
+- Residual risk: DeepSeek generated Swift warnings remain despite passing tests; non-iOS variants may expose dependency or compile failures once their toolchains are available.
+- Rollback note: revert the downstream remediation commits and this planning commit to return to the prior partially blocked validation state.
+- Next command: `$run` for Step 11.11 non-iOS validation.
