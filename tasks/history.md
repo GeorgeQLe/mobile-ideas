@@ -2414,3 +2414,28 @@
 - Residual risk: npm audit warnings remain in installed dependency trees; generated lint warnings remain but exit zero; remaining JS variants may require app-specific remediation.
 - Rollback note: revert downstream commit `058b2a1`, then revert this planning commit to return to the previous non-iOS validation state.
 - Next command: `$run` for Step 11.11 JS validation continuation starting at Pi.
+
+## 2026-05-12 - Phase 11 Step 11.11 Pi JS Validation
+
+- Continued Step 11.11 without GitHub Actions and validated the Pi React Native/Expo local JS variants.
+- Fixed and pushed downstream JS validation support to `GeorgeQLe/pi-mobile-clone` at commit `1b5b680` (`chore: add Pi JS validation support`).
+- React Native fixes: added npm lockfile, local TypeScript ESLint config, `tsconfig.json`, Jest globals, a `typecheck` script, pinned `react-test-renderer` to React 18, replaced invalid Jest config, and stabilized the streaming disconnect test.
+- Expo fixes: added npm lockfile, local Expo ESLint config, Jest/Node validation dependencies, pinned React test renderer, fixed invalid Ionicons names, and made local logout resilient when remote token revocation fails.
+- Validation passed locally:
+  - Pi React Native: `npm run typecheck`; `npm test -- --runInBand` (87 tests); `npm run lint` (0 errors, 33 warnings).
+  - Pi Expo: `npm run typecheck`; `npm test -- --runInBand` (96 tests); `npm run lint` (0 errors, 16 warnings).
+- Remote verification passed: `GeorgeQLe/pi-mobile-clone` remains private on `main`, pushed at `2026-05-12T18:44:45Z`.
+- Accepted warnings: generated-test `any`/unused placeholder usage, generated unused imports/props/placeholders, generated constant streaming loop warning, npm package deprecation warnings, and npm audit warnings. No `npm audit fix --force` was run because it would broaden dependency churn beyond this validation slice.
+- Step 11.11 remains incomplete: Phind and HuggingChat still need serial JS validation, and the 13 placeholder-only React Native/Expo repos need implementation or explicit implementation-gap treatment before JS validation can be complete.
+
+### Ship Manifest
+
+- User goal: continue Step 11.11 non-iOS validation without GitHub Actions.
+- Changed files: downstream JS validation files in `GeorgeQLe/pi-mobile-clone`; source planning files `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: downstream package/config/test/source fixes make Pi React Native/Expo installable and locally validatable; planning files record evidence, accepted warnings, blockers, and next work.
+- Tests run: Pi RN typecheck/test/lint; Pi Expo typecheck/test/lint.
+- Skipped tests: remaining JS-manifest repos were not run after completing the next serial repo in this remediation slice; Flutter skipped because `flutter` is missing; Android skipped because Gradle and Java are missing; GitHub Actions intentionally not used.
+- Adversarial review: this proves the dependency/lint strategy on Pi only. It does not prove the remaining 2 JS-manifest repos install or pass checks, and it leaves the known implementation gap in 13 placeholder-only React Native/Expo repos.
+- Residual risk: npm audit warnings remain in installed dependency trees; generated lint warnings remain but exit zero; remaining JS variants may require app-specific remediation.
+- Rollback note: revert downstream commit `1b5b680`, then revert this planning commit to return to the previous non-iOS validation state.
+- Next command: `$run` for Step 11.11 JS validation continuation starting at Phind.

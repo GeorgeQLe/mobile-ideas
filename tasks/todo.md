@@ -904,6 +904,20 @@ Build all five variants for every app in the AI & Assistants category cluster to
   **Next work:** Step 11.11 JS validation continuation — validate/remediate Pi React Native and Expo, then continue serially through Phind and HuggingChat.
   **Recommended next command:** `$run`
 
+  **Remediation Progress — 2026-05-12 (Codex):**
+  - Continued the non-iOS local validation lane without GitHub Actions.
+  - Fixed and pushed JS validation support for `GeorgeQLe/pi-mobile-clone` at commit `1b5b680`: added React Native/Expo npm lockfiles, local ESLint configs, React Native TypeScript validation, Jest globals, pinned React test renderer, added Expo Jest/Node validation dependencies, fixed invalid Ionicons names, made Expo logout clear local state when remote token revocation fails, and stabilized the React Native streaming disconnect test.
+  - Local executable validation passed without GitHub Actions:
+    - Pi React Native: `npm run typecheck`, `npm test -- --runInBand` (87 tests), `npm run lint` (0 errors, 33 accepted warnings).
+    - Pi Expo: `npm run typecheck`, `npm test -- --runInBand` (96 tests), `npm run lint` (0 errors, 16 accepted warnings).
+  - npm install warnings were accepted as dependency-maintenance noise for generated scaffold dependencies; npm audit still reports known third-party vulnerabilities after install (Pi React Native 31 total: 1 low, 4 moderate, 26 high; Pi Expo 37 total: 6 low, 4 moderate, 24 high, 3 critical). No `npm audit fix --force` was run because it would introduce breaking dependency churn outside this validation slice.
+  - Remote verification: `gh api repos/GeorgeQLe/pi-mobile-clone --jq '{visibility, default_branch, pushed_at}'` returned `visibility: private`, `default_branch: main`, `pushed_at: 2026-05-12T18:44:45Z`.
+
+  **Current Status:** in progress — iOS Native is validated across all 27 repos, and JS validation now passes for ChatGPT, Claude, Perplexity, Replika, Poe, Gemini, Microsoft Copilot, Grok, DeepSeek, Meta AI, You.com, and Pi React Native/Expo. Step 11.11 remains incomplete until the remaining 2 JS-manifest repos are validated/remediated and the 13 placeholder-only React Native/Expo repos are either implemented or documented as implementation gaps.
+
+  **Next work:** Step 11.11 JS validation continuation — validate/remediate Phind React Native and Expo, then continue serially through HuggingChat.
+  **Recommended next command:** `$run`
+
 - [ ] Step 11.12: Run benchmarking harness and record scorecards
   - Run `mobile-benchmark-harness` against each of the 27 repos × 5 variants.
   - Record scorecard JSON output for each variant.
