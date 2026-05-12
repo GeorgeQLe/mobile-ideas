@@ -2243,3 +2243,27 @@
 - Residual risk: npm audit warnings remain in installed dependency trees; generated lint warnings remain but exit zero; remaining JS variants may require app-specific remediation.
 - Rollback note: revert downstream commit `3b1557e`, then revert this planning commit to return to the previous non-iOS validation state.
 - Next command: `$run` for Step 11.11 JS validation continuation starting at Poe.
+
+## 2026-05-12 - Phase 11 Step 11.11 Poe JS Validation
+
+- Continued Step 11.11 without GitHub Actions and validated the Poe React Native/Expo local JS variants.
+- Fixed and pushed downstream JS validation support to `GeorgeQLe/poe-mobile-clone` at commit `53c346f` (`test: validate Poe JavaScript variants`).
+- React Native fixes: added npm lockfile, local TypeScript ESLint config, `tsconfig.json`, Jest/Node globals, a `typecheck` script, removed the stale Reanimated Babel plugin from the validation path, and reset the streaming test reader mock between cases.
+- Expo fixes: added npm lockfile, local TypeScript ESLint config, removed an invalid Jest config key, set the TypeScript module target for dynamic imports, made logout clear local auth state even when remote revoke fails, and fixed a generated streaming lint error.
+- Validation passed locally:
+  - Poe React Native: `npm run typecheck`; `npm test -- --runInBand` (76 tests); `npm run lint` (0 errors, 7 warnings).
+  - Poe Expo: `npm run typecheck`; `npm test -- --runInBand` (80 tests); `npm run lint` (0 errors, 47 warnings).
+- Accepted warnings: generated-test `any`/`require` usage, generated unused imports/props/placeholders, npm package deprecation warnings, and npm audit warnings. No `npm audit fix --force` was run because it would broaden dependency churn beyond this validation slice.
+- Step 11.11 remains incomplete: Gemini through HuggingChat still need serial JS validation, and the 13 placeholder-only React Native/Expo repos need implementation or explicit implementation-gap treatment before JS validation can be complete.
+
+### Ship Manifest
+
+- User goal: continue Step 11.11 non-iOS validation without GitHub Actions.
+- Changed files: downstream JS validation files in `GeorgeQLe/poe-mobile-clone`; source planning files `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: downstream package/config/source fixes make Poe React Native/Expo installable and locally validatable; planning files record evidence, accepted warnings, blockers, and next work.
+- Tests run: Poe RN typecheck/test/lint; Poe Expo typecheck/test/lint.
+- Skipped tests: remaining JS-manifest repos were not run after completing the next serial repo in this remediation slice; Flutter skipped because `flutter` is missing; Android skipped because Gradle and Java are missing; GitHub Actions intentionally not used.
+- Adversarial review: this proves the dependency/lint strategy on Poe only. It does not prove the remaining 9 JS-manifest repos install or pass checks, and it leaves the known implementation gap in 13 placeholder-only React Native/Expo repos.
+- Residual risk: npm audit warnings remain in installed dependency trees; generated lint warnings remain but exit zero; remaining JS variants may require app-specific remediation.
+- Rollback note: revert downstream commit `53c346f`, then revert this planning commit to return to the previous non-iOS validation state.
+- Next command: `$run` for Step 11.11 JS validation continuation starting at Gemini.
