@@ -2195,3 +2195,27 @@
 - Residual risk: npm audit warnings remain in installed dependency trees; generated lint warnings remain but exit zero; remaining JS variants may require app-specific remediation.
 - Rollback note: revert downstream commits `009164c` and `358c370`, then revert this planning commit to return to the previous non-IOS validation state.
 - Next command: `$run` for Step 11.11 JS validation continuation starting at Perplexity.
+
+## 2026-05-12 - Phase 11 Step 11.11 Perplexity JS Validation
+
+- Continued Step 11.11 without GitHub Actions and validated the Perplexity React Native/Expo local JS variants.
+- Fixed and pushed downstream JS validation support to `GeorgeQLe/perplexity-mobile-clone` at commit `c2a70a0` (`test: enable js variant validation`).
+- React Native fixes: added npm lockfile, pinned React test renderer to React 18, added Jest globals, added local TypeScript ESLint config, fixed the lint script, replaced the invalid Jest `testPathPattern`, removed a custom matcher namespace, and rewrote the streaming read loop to satisfy lint.
+- Expo fixes: added npm lockfile, pinned React test renderer to React 18, added Jest globals, added local TypeScript ESLint config, added `tsconfig.json`, fixed the lint script, removed a custom matcher namespace, tightened markdown special-character parsing, and rewrote streaming read loops to satisfy lint.
+- Validation passed locally:
+  - Perplexity React Native: `npm run typecheck`; `npm test -- --runInBand` (108 tests); `npm run lint` (0 errors, 34 warnings).
+  - Perplexity Expo: `npm run typecheck`; `npm test -- --runInBand` (104 tests); `npm run lint` (0 errors, 5 warnings).
+- Accepted warnings: generated-test `any` usage, generated unused imports/props/placeholders, npm package deprecation warnings, and npm audit warnings. No `npm audit fix --force` was run because it would broaden dependency churn beyond this validation slice.
+- Step 11.11 remains incomplete: Replika through HuggingChat still need serial JS validation, and the 13 placeholder-only React Native/Expo repos need implementation or explicit implementation-gap treatment before JS validation can be complete.
+
+### Ship Manifest
+
+- User goal: continue Step 11.11 non-iOS validation without GitHub Actions.
+- Changed files: downstream JS validation files in `GeorgeQLe/perplexity-mobile-clone`; source planning files `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: downstream package/config/source fixes make Perplexity React Native/Expo installable and locally validatable; planning files record evidence, accepted warnings, blockers, and next work.
+- Tests run: Perplexity RN typecheck/test/lint; Perplexity Expo typecheck/test/lint.
+- Skipped tests: remaining JS-manifest repos were not run after completing the next serial repo in this remediation slice; Flutter skipped because `flutter` is missing; Android skipped because Gradle and Java are missing; GitHub Actions intentionally not used.
+- Adversarial review: this proves the dependency/lint strategy on Perplexity only. It does not prove the remaining 11 JS-manifest repos install or pass checks, and it leaves the known implementation gap in 13 placeholder-only React Native/Expo repos.
+- Residual risk: npm audit warnings remain in installed dependency trees; generated lint warnings remain but exit zero; remaining JS variants may require app-specific remediation.
+- Rollback note: revert downstream commit `c2a70a0`, then revert this planning commit to return to the previous non-iOS validation state.
+- Next command: `$run` for Step 11.11 JS validation continuation starting at Replika.

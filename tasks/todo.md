@@ -787,6 +787,19 @@ Build all five variants for every app in the AI & Assistants category cluster to
   **Next work:** Step 11.11 JS validation continuation — validate/remediate Perplexity React Native and Expo, then continue serially through Replika, Poe, Gemini, Microsoft Copilot, Grok, DeepSeek, Meta AI, You.com, Pi, Phind, and HuggingChat.
   **Recommended next command:** `$run`
 
+  **Remediation Progress — 2026-05-12 (Codex):**
+  - Continued the non-iOS local validation lane without GitHub Actions.
+  - Fixed and pushed JS validation support for `GeorgeQLe/perplexity-mobile-clone` at commit `c2a70a0`: added npm lockfiles, local ESLint configs, React test renderer pinning, Jest globals, a real Expo `tsconfig.json`, valid Jest test matching, and generated lint-error fixes in API tests and streaming loops.
+  - Local executable validation passed without GitHub Actions:
+    - Perplexity React Native: `npm run typecheck`, `npm test -- --runInBand` (108 tests), `npm run lint` (0 errors, 34 accepted warnings).
+    - Perplexity Expo: `npm run typecheck`, `npm test -- --runInBand` (104 tests), `npm run lint` (0 errors, 5 accepted warnings).
+  - npm install warnings were accepted as dependency-maintenance noise for generated scaffold dependencies; npm audit still reports known third-party vulnerabilities after install (Perplexity React Native 9 moderate; Perplexity Expo 40 total: 2 low, 6 moderate, 29 high, 3 critical). No `npm audit fix --force` was run because it would introduce breaking dependency churn outside this validation slice.
+
+  **Current Status:** in progress — iOS Native is validated across all 27 repos, and JS validation now passes for ChatGPT, Claude, and Perplexity React Native/Expo. Step 11.11 remains incomplete until the remaining 11 JS-manifest repos are validated/remediated and the 13 placeholder-only React Native/Expo repos are either implemented or documented as implementation gaps.
+
+  **Next work:** Step 11.11 JS validation continuation — validate/remediate Replika React Native and Expo, then continue serially through Poe, Gemini, Microsoft Copilot, Grok, DeepSeek, Meta AI, You.com, Pi, Phind, and HuggingChat.
+  **Recommended next command:** `$run`
+
 - [ ] Step 11.12: Run benchmarking harness and record scorecards
   - Run `mobile-benchmark-harness` against each of the 27 repos × 5 variants.
   - Record scorecard JSON output for each variant.
