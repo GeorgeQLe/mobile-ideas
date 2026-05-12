@@ -1,5 +1,30 @@
 # History
 
+## 2026-05-12 - Phase 11 Step 11.11 Microsoft Copilot JS Validation
+
+- Continued Step 11.11 without GitHub Actions and validated the Microsoft Copilot React Native/Expo local JS variants.
+- Fixed and pushed downstream JS validation support to `GeorgeQLe/microsoft-copilot-mobile-clone` at commit `f4b9117` (`test: validate Microsoft Copilot JavaScript variants`).
+- React Native fixes: added npm lockfile, local TypeScript ESLint config, a `typecheck` script, removed a nonexistent `react-native-voice` dependency, made local logout resilient to remote revoke failure, fixed generated switch-case lint structure, and kept production streaming retry delay intact while allowing tests to use a fast retry override.
+- Expo fixes: added npm lockfile, local ESLint config, pinned React test renderer to React 18.3.1, added Node test globals for typechecking, removed an invalid Jest config key, fixed streaming loop lint, and aligned GPT list calls with the typed API signature.
+- Local executable validation passed:
+  - Microsoft Copilot React Native: `npm run typecheck`; `npm test -- --runInBand` (84 tests); `npm run lint` (0 errors, 26 warnings).
+  - Microsoft Copilot Expo: `npm run typecheck`; `npm test -- --runInBand` (62 tests); `npm run lint` (0 errors, 13 warnings).
+- npm install warnings were accepted as dependency-maintenance noise for generated scaffold dependencies. npm audit still reports known third-party vulnerabilities after install: Microsoft Copilot React Native 16 total (5 moderate, 11 high); Microsoft Copilot Expo 15 total (5 low, 4 moderate, 6 high). No `npm audit fix --force` was run because it would introduce breaking dependency churn outside this validation slice.
+- Step 11.11 remains incomplete: Grok through HuggingChat still need serial JS validation, and the 13 placeholder-only React Native/Expo repos need implementation or explicit implementation-gap treatment before JS validation can be complete.
+
+### Ship Manifest
+
+- User goal: continue Step 11.11 non-iOS validation without GitHub Actions.
+- Changed files: downstream JS validation files in `GeorgeQLe/microsoft-copilot-mobile-clone`; source planning files `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: downstream package/config/source fixes make Microsoft Copilot React Native/Expo installable and locally validatable; planning files record evidence, accepted warnings, blockers, and next work.
+- User-goal mapping: advances the serial React Native/Expo validation lane from Gemini through Microsoft Copilot while preserving the no-GitHub-Actions constraint.
+- Tests run: Microsoft Copilot RN typecheck/test/lint; Microsoft Copilot Expo typecheck/test/lint.
+- Skipped tests: Flutter remains local toolchain-blocked because `flutter` is unavailable; Android Native remains local toolchain-blocked because Java/Gradle/`gradlew` are unavailable; GitHub Actions intentionally not used; broader remaining JS-manifest repos not run in this one-step slice.
+- Adversarial review: this proves the dependency/lint strategy on Microsoft Copilot only. It does not prove the remaining 7 JS-manifest repos install or pass checks, and it leaves the known implementation gap in 13 placeholder-only React Native/Expo repos.
+- Residual risk: accepted npm audit findings and lint warnings remain dependency/generated-scaffold cleanup work outside this validation slice.
+- Rollback note: revert downstream Microsoft Copilot commit `f4b9117` and this mobile-ideas planning commit to remove the recorded validation evidence.
+- Next command: `$run` for Step 11.11 JS validation continuation starting at Grok.
+
 ## 2026-05-12 - Phase 11 Step 11.11 Gemini JS Validation
 
 - Continued Step 11.11 without GitHub Actions and validated the Gemini React Native/Expo local JS variants.
