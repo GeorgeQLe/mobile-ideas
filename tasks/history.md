@@ -1,5 +1,27 @@
 # History
 
+## 2026-05-13 - Phase 11 Step 11.11 Validation Gap Treatment
+
+- Completed Step 11.11 as a no-GitHub-Actions local validation pass with explicit blockers documented.
+- Added `tasks/phase-11-validation-report.md` to separate executable validation evidence from implementation gaps and local toolchain blockers.
+- Verified via read-only `gh api` checks that the 13 remaining React Native/Expo gap repos are private on `main`, have iOS Native SwiftPM manifests, and lack both `variants/react-native/package.json` and `variants/expo/package.json`.
+- Recorded the 13 affected repos: Character.AI, Wysa, ELSA Speak, OtterPilot, Grammarly Keyboard, Wordtune, QuillBot, Ask AI, Genie, Monica, Notion AI, Forefront AI, and Consensus.
+- Reconfirmed local toolchain status: Node `v25.2.1`, npm `11.6.2`, and pnpm `10.22.0` are available; `flutter`, `gradle`, and Java runtime are unavailable.
+- Step 11.12 now has a self-contained execution plan to benchmark buildable variants and emit blocker records for manifest-missing or toolchain-blocked variants instead of inventing scores.
+
+### Ship Manifest
+
+- User goal: continue Step 11.11 implementation-gap treatment without GitHub Actions.
+- Changed files: `tasks/phase-11-validation-report.md`, `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: validation report records the formal evidence and blockers; todo marks Step 11.11 complete with documented blockers and adds the Step 11.12 plan; history records the shipped validation disposition.
+- User-goal mapping: closes the remaining Step 11.11 documentation gap while preserving the constraint that missing variants are not falsely claimed as passing.
+- Tests run: read-only `gh api` content checks for the 13 downstream repos; local toolchain probe; Markdown structure checks listed in final validation output.
+- Skipped tests: no runtime app tests were rerun in this planning repo because this step only records validation disposition; Flutter/Android remain locally toolchain-blocked; GitHub Actions intentionally unused.
+- Adversarial review: the report explicitly prevents Step 11.12 and Step 11.13 from treating blocked variants as passing or benchmarked.
+- Residual risk: the 13 React Native/Expo repo pairs still need package manifests and executable validation before Phase 11 can satisfy all implementation acceptance criteria.
+- Rollback note: revert this planning commit to restore Step 11.11 to the previous in-progress gap-treatment state.
+- Next command: `$run` for Step 11.12 benchmarking and blocker record generation.
+
 ## 2026-05-12 - Phase 11 Step 11.11 HuggingChat JS Validation
 
 - Continued Step 11.11 without GitHub Actions and validated the HuggingChat React Native/Expo local JS variants.

@@ -697,7 +697,7 @@ Build all five variants for every app in the AI & Assistants category cluster to
   **Next work:** Step 11.11 — Validate all 27 repos without GitHub Actions
   **Recommended next command:** `/run`
 
-- [ ] Step 11.11: Validate all 27 repos without GitHub Actions
+- [x] Step 11.11: Validate all 27 repos without GitHub Actions
   - Do not enable GitHub Actions, dispatch workflows, push CI trigger commits, or rely on Actions as validation.
   - Keep Actions disabled on all downstream repos unless the user gives a new explicit approval that names GitHub Actions.
   - Validate each repo serially using local or direct downstream commands only: build, lint, type check, and tests for all 5 variants where toolchains are available.
@@ -946,12 +946,59 @@ Build all five variants for every app in the AI & Assistants category cluster to
   **Next work:** Step 11.11 implementation-gap treatment — resolve or document the 13 placeholder-only React Native/Expo repos: Character.AI, Wysa, ELSA Speak, OtterPilot, Grammarly Keyboard, Wordtune, QuillBot, Ask AI, Genie, Monica, Notion AI, Forefront AI, and Consensus.
   **Recommended next command:** `$run`
 
+  **Implementation-Gap Treatment — 2026-05-13 (Codex):**
+  - Added formal validation report at `tasks/phase-11-validation-report.md`.
+  - Verified via read-only `gh api` checks that the 13 gap repositories remain `private` on `main`, have iOS Native SwiftPM manifests, and lack both `variants/react-native/package.json` and `variants/expo/package.json`.
+  - Recorded those 26 React Native/Expo validations as implementation gaps, not skipped passes.
+  - Reconfirmed local toolchain status: Node `v25.2.1`, npm `11.6.2`, and pnpm `10.22.0` are available; `flutter` and `gradle` are unavailable; Java runtime is unavailable.
+  - Step 11.11 is complete as a no-GitHub-Actions local validation pass with explicit blockers: all executable iOS Native and JS-manifest variants passed, 13 React Native/Expo repo pairs are manifest-missing, Flutter is toolchain-blocked, and Android Native is Java/Gradle-blocked.
+
+  **Current Status:** complete with blockers documented — do not treat Phase 11 acceptance criteria as satisfied until Step 11.13 resolves or obtains approved executable evidence for the manifest-missing React Native/Expo variants and Flutter/Android lanes.
+
+  **Next work:** Step 11.12 — run benchmarking harness and record scorecards for buildable variants, documenting benchmark blockers for manifest-missing and toolchain-blocked variants.
+  **Recommended next command:** `$run`
+
 - [ ] Step 11.12: Run benchmarking harness and record scorecards
   - Run `mobile-benchmark-harness` against each of the 27 repos × 5 variants.
   - Record scorecard JSON output for each variant.
   - Verify all 7 benchmark dimensions are populated.
   - Generate cross-app comparison table and category rollup for AI & Assistants cluster.
   - Document any benchmark issues.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Run:**
+  Run `GeorgeQLe/mobile-benchmark-harness` locally against Phase 11 AI & Assistants downstream variants where a local build/test target exists, without GitHub Actions.
+
+  **Inputs:**
+  - Validation status report: `tasks/phase-11-validation-report.md`
+  - Harness repo: `GeorgeQLe/mobile-benchmark-harness`
+  - App inventory: this file's Phase 11 App Inventory table
+  - Scorecard schema: `templates/scorecard-template.json`
+  - Benchmark rubric: `templates/benchmark-config.md`
+
+  **Approach:**
+  1. Clone or refresh `/tmp/mobile-benchmark-harness` from `GeorgeQLe/mobile-benchmark-harness`.
+  2. Build and test the harness locally.
+  3. For each of the 27 downstream repos, run benchmark commands serially against variants with executable local support.
+  4. For variants blocked by Step 11.11 evidence, emit blocker records instead of placeholder scores:
+     - React Native/Expo missing package manifests in the 13 documented repos.
+     - Flutter blocked by missing `flutter` local toolchain.
+     - Android Native blocked by missing Java/Gradle local toolchain.
+  5. Store scorecards or blocker records under a deterministic task artifact path, for example `tasks/scorecards/phase-11/`.
+  6. Generate a cross-app comparison table and category rollup from valid scorecards only, with blocked variants excluded from averages and listed separately.
+
+  **Constraints:**
+  - Do not use GitHub Actions.
+  - Do not invent benchmark scores for blocked variants.
+  - Do not mark Phase 11 acceptance criteria complete if any variant lacks a valid scorecard or approved blocker disposition.
+  - Keep downstream repo operations serial.
+
+  **Expected Output:**
+  - Scorecard JSON files for buildable variants.
+  - Blocker JSON or Markdown records for manifest-missing/toolchain-blocked variants.
+  - Cross-app comparison and category rollup.
+  - Updated `tasks/todo.md` and `tasks/history.md` with exact benchmark results and residual blockers.
 
 - [ ] Step 11.13: Phase 11 final validation and cleanup
   - Verify all acceptance criteria:
