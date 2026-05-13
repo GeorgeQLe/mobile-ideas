@@ -2585,3 +2585,29 @@
 - Residual risk: benchmark scores are local structural scorecards, not full device performance or store compliance proof; Phase 11 acceptance criteria remain open until manifest/toolchain blockers are resolved or dispositioned.
 - Rollback note: revert the benchmark-harness commit, then revert the planning commit that records the scorecards.
 - Next command: `$run` for Step 11.13 final validation and cleanup.
+
+## 2026-05-13 - Phase 11 Step 11.13 Character.AI JS Remediation
+
+- Continued Step 11.13 remediation without GitHub Actions and resolved the first manifest-missing React Native/Expo repo pair.
+- Fixed and pushed downstream JS validation support to `GeorgeQLe/character-ai-mobile-clone` at commit `f6c56da` (`test: enable character ai js validation`).
+- React Native fixes: added package manifest, npm lockfile, TypeScript config, Babel config, ESLint config, root `App.tsx`, local logout resilience when remote token revocation fails, report-route prop alignment, typed voice-session test setup, and lint-safe streaming loop.
+- Expo fixes: added package manifest, npm lockfile, Expo app/config files, TypeScript config, Babel config, ESLint config, Expo Router/datetime dependencies, ESM-aware Jest mocks, static `Text` import in navigation, and lint-safe streaming loop.
+- Validation passed locally:
+  - Character.AI React Native: `npm run typecheck`; `npm test -- --runInBand` (76 tests); `npm run lint` (0 errors, 14 warnings).
+  - Character.AI Expo: `npm run typecheck`; `npm test -- --runInBand` (79 tests); `npm run lint` (0 errors, 15 warnings).
+- Remote verification passed: `GeorgeQLe/character-ai-mobile-clone` remains private on `main`, pushed at `2026-05-13T02:23:13Z`.
+- Updated `tasks/phase-11-validation-report.md`: React Native/Expo validation now passes for 15 repos, leaving 12 manifest-missing repo pairs.
+- Accepted warnings: generated unused imports/props/placeholders, npm package deprecation warnings, and npm audit warnings. No `npm audit fix --force` was run because it would broaden dependency churn beyond this validation slice.
+- Step 11.13 remains blocked: Wysa, ELSA Speak, OtterPilot, Grammarly Keyboard, Wordtune, QuillBot, Ask AI, Genie, Monica, Notion AI, Forefront AI, and Consensus still need React Native/Expo manifest remediation and validation; Flutter and Android remain local toolchain-blocked.
+
+### Ship Manifest
+
+- User goal: continue Step 11.13 remediation by implementing and validating the first manifest-missing React Native/Expo pair.
+- Changed files: downstream JS validation files in `GeorgeQLe/character-ai-mobile-clone`; source planning files `tasks/todo.md`, `tasks/history.md`, `tasks/phase-11-validation-report.md`.
+- Per-file purpose: downstream package/config/source/test fixes make Character.AI React Native/Expo installable and locally validatable; planning files record evidence, blocker reduction, and next work.
+- Tests run: Character.AI RN typecheck/test/lint; Character.AI Expo typecheck/test/lint; Markdown heading sanity check; git status checks.
+- Skipped tests: remaining 12 manifest-missing React Native/Expo repo pairs were not run after completing this serial remediation slice; Flutter skipped because `flutter` is missing; Android skipped because Java/Gradle are missing; GitHub Actions intentionally not used.
+- Adversarial review: Character.AI now has executable local JS evidence, but benchmark scorecard blockers were not regenerated in this slice and Phase 11 remains open.
+- Residual risk: npm audit warnings remain in installed dependency trees; generated lint warnings remain but exit zero; no real-device smoke test was performed.
+- Rollback note: revert downstream commit `f6c56da`, then revert this planning commit to return to the previous manifest-gap state.
+- Next command: `$run` for Step 11.13 remediation starting at Wysa.

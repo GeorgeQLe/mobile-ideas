@@ -1114,6 +1114,34 @@ Build all five variants for every app in the AI & Assistants category cluster to
   **Next work:** Step 11.13 remediation — implement and validate the 13 manifest-missing React Native/Expo repo pairs, starting with Character.AI React Native and Expo package manifests.
   **Recommended next command:** `$run`
 
+  **Remediation Progress — 2026-05-13 (Codex):**
+  - Continued Step 11.13 remediation without GitHub Actions by resolving the first manifest-missing React Native/Expo pair: `GeorgeQLe/character-ai-mobile-clone`.
+  - Fixed and pushed downstream JS validation support at commit `f6c56da`: added React Native and Expo `package.json`, lockfiles, TypeScript configs, Babel configs, ESLint configs, React Native root `App.tsx`, and Expo `app.json`.
+  - Targeted source/test fixes: made React Native logout clear local auth state when remote token revocation fails, aligned the React Native reports route prop with `ReportsBlocksScreen`, replaced an unsafe voice-session test cast with `createVoiceSession`, changed generated streaming loops to lint-safe abort-aware loops, fixed Expo ESM mocks, and replaced a generated dynamic `require` in Expo navigation with a static `Text` import.
+  - Local executable validation passed without GitHub Actions:
+    - Character.AI React Native: `npm run typecheck`, `npm test -- --runInBand` (76 tests), `npm run lint` (0 errors, 14 accepted warnings).
+    - Character.AI Expo: `npm run typecheck`, `npm test -- --runInBand` (79 tests), `npm run lint` (0 errors, 15 accepted warnings).
+  - npm install warnings were accepted as dependency-maintenance noise for generated scaffold dependencies; npm audit still reports known third-party vulnerabilities after install (Character.AI React Native 14 total: 3 moderate, 11 high; Character.AI Expo 43 total: 6 low, 4 moderate, 30 high, 3 critical). No `npm audit fix --force` was run because it would introduce breaking dependency churn outside this validation slice.
+  - Remote verification: `gh api repos/GeorgeQLe/character-ai-mobile-clone --jq '{visibility, default_branch, pushed_at}'` returned `visibility: private`, `default_branch: main`, `pushed_at: 2026-05-13T02:23:13Z`.
+  - Updated `tasks/phase-11-validation-report.md`: React Native/Expo validation now passes for 15 repos, and the manifest-missing implementation gap is reduced from 13 repo pairs to 12 repo pairs.
+
+  **Current Status:** blocked — Step 11.13 remains unchecked. Phase 11 cannot be marked complete until the remaining 12 manifest-missing React Native/Expo repo pairs are implemented and validated, Flutter validation/benchmarking has executable evidence or approved external disposition, and Android Native validation/benchmarking has executable evidence or approved external disposition.
+
+  **Ship Manifest — 2026-05-13 (Codex):**
+  - User goal: continue Step 11.13 remediation by implementing and validating the first manifest-missing React Native/Expo pair.
+  - Changed files: downstream Character.AI React Native/Expo package/config/source/test files; `tasks/todo.md`, `tasks/history.md`, and `tasks/phase-11-validation-report.md`.
+  - Per-file purpose: downstream files make Character.AI React Native/Expo installable and locally validatable; task/report/history docs record evidence, accepted warnings, and remaining blockers.
+  - User-goal mapping: removes Character.AI from the manifest-missing blocker set and provides executable local validation evidence for both JS variants.
+  - Tests run: Character.AI RN typecheck/test/lint; Character.AI Expo typecheck/test/lint; Markdown heading sanity check; git status checks.
+  - Skipped tests: remaining 12 manifest-missing React Native/Expo repo pairs were not run after completing this serial remediation slice; Flutter remains blocked because `flutter` is unavailable; Android remains blocked because Java/Gradle are unavailable; GitHub Actions intentionally not used.
+  - Adversarial review: this proves Character.AI only and does not count as benchmark scorecard remediation yet; Step 11.12 scorecard blockers still need regeneration after enough build evidence exists.
+  - Residual risk: generated lint warnings and npm audit findings remain; Expo/RN validation is local structural validation, not device smoke testing.
+  - Rollback note: revert downstream commit `f6c56da`, then revert this planning commit.
+  - Next command: `$run` for the next Step 11.13 remediation slice.
+
+  **Next work:** Step 11.13 remediation — implement and validate the next manifest-missing React Native/Expo repo pair, Wysa.
+  **Recommended next command:** `$run`
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`
