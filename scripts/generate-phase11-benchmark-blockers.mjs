@@ -1,164 +1,209 @@
 #!/usr/bin/env node
-import { mkdir, writeFile } from "node:fs/promises";
-import path from "node:path";
+import { spawnSync } from "node:child_process";
+import { existsSync } from "node:fs";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { join } from "node:path";
 
-const GENERATED_AT = "2026-05-13T00:00:00.000Z";
+const ROOT = process.cwd();
+const HARNESS = process.env.MOBILE_BENCHMARK_HARNESS ?? "/tmp/mobile-benchmark-harness";
+const DOWNSTREAM_ROOT = process.env.MOBILE_DOWNSTREAM_ROOT ?? "/tmp";
+const OUT_DIR = join(ROOT, "tasks", "scorecards", "phase-11");
+const RUN_ID = "phase-11-local-2026-05-13";
 const CATEGORY = "AI & Assistants";
-const OUT_DIR = path.join("tasks", "scorecards", "phase-11");
+const VARIANTS = ["react-native", "flutter", "expo", "ios-native", "android-native"];
 
-const apps = [
-  [1, "ChatGPT", "GeorgeQLe/chatgpt-mobile-clone", true],
-  [2, "Claude", "GeorgeQLe/claude-mobile-clone", true],
-  [3, "Perplexity", "GeorgeQLe/perplexity-mobile-clone", true],
-  [4, "Character.AI", "GeorgeQLe/character-ai-mobile-clone", false],
-  [5, "Replika", "GeorgeQLe/replika-mobile-clone", true],
-  [201, "Poe", "GeorgeQLe/poe-mobile-clone", true],
-  [202, "Gemini", "GeorgeQLe/gemini-mobile-clone", true],
-  [203, "Microsoft Copilot", "GeorgeQLe/microsoft-copilot-mobile-clone", true],
-  [204, "Grok", "GeorgeQLe/grok-mobile-clone", true],
-  [205, "DeepSeek", "GeorgeQLe/deepseek-mobile-clone", true],
-  [206, "Meta AI", "GeorgeQLe/meta-ai-mobile-clone", true],
-  [207, "You.com", "GeorgeQLe/you-com-mobile-clone", true],
-  [208, "Pi", "GeorgeQLe/pi-mobile-clone", true],
-  [209, "Phind", "GeorgeQLe/phind-mobile-clone", true],
-  [210, "HuggingChat", "GeorgeQLe/huggingchat-mobile-clone", true],
-  [211, "Wysa", "GeorgeQLe/wysa-mobile-clone", false],
-  [212, "ELSA Speak", "GeorgeQLe/elsa-speak-mobile-clone", false],
-  [213, "OtterPilot", "GeorgeQLe/otterpilot-mobile-clone", false],
-  [214, "Grammarly Keyboard", "GeorgeQLe/grammarly-keyboard-mobile-clone", false],
-  [215, "Wordtune", "GeorgeQLe/wordtune-mobile-clone", false],
-  [216, "QuillBot", "GeorgeQLe/quillbot-mobile-clone", false],
-  [217, "Ask AI", "GeorgeQLe/ask-ai-mobile-clone", false],
-  [218, "Genie", "GeorgeQLe/genie-mobile-clone", false],
-  [219, "Monica", "GeorgeQLe/monica-mobile-clone", false],
-  [220, "Notion AI", "GeorgeQLe/notion-ai-mobile-clone", false],
-  [221, "Forefront AI", "GeorgeQLe/forefront-ai-mobile-clone", false],
-  [222, "Consensus", "GeorgeQLe/consensus-mobile-clone", false],
+const APPS = [
+  [1, "ChatGPT", "chatgpt-mobile-clone"],
+  [2, "Claude", "claude-mobile-clone"],
+  [3, "Perplexity", "perplexity-mobile-clone"],
+  [4, "Character.AI", "character-ai-mobile-clone"],
+  [5, "Replika", "replika-mobile-clone"],
+  [201, "Poe", "poe-mobile-clone"],
+  [202, "Gemini", "gemini-mobile-clone"],
+  [203, "Microsoft Copilot", "microsoft-copilot-mobile-clone"],
+  [204, "Grok", "grok-mobile-clone"],
+  [205, "DeepSeek", "deepseek-mobile-clone"],
+  [206, "Meta AI", "meta-ai-mobile-clone"],
+  [207, "You.com", "you-com-mobile-clone"],
+  [208, "Pi", "pi-mobile-clone"],
+  [209, "Phind", "phind-mobile-clone"],
+  [210, "HuggingChat", "huggingchat-mobile-clone"],
+  [211, "Wysa", "wysa-mobile-clone"],
+  [212, "ELSA Speak", "elsa-speak-mobile-clone"],
+  [213, "OtterPilot", "otterpilot-mobile-clone"],
+  [214, "Grammarly Keyboard", "grammarly-keyboard-mobile-clone"],
+  [215, "Wordtune", "wordtune-mobile-clone"],
+  [216, "QuillBot", "quillbot-mobile-clone"],
+  [217, "Ask AI", "ask-ai-mobile-clone"],
+  [218, "Genie", "genie-mobile-clone"],
+  [219, "Monica", "monica-mobile-clone"],
+  [220, "Notion AI", "notion-ai-mobile-clone"],
+  [221, "Forefront AI", "forefront-ai-mobile-clone"],
+  [222, "Consensus", "consensus-mobile-clone"],
 ];
 
-const variants = ["react-native", "flutter", "expo", "ios-native", "android-native"];
-
-function blockerFor(hasJsManifest, variant) {
-  if (variant === "react-native" || variant === "expo") {
-    if (!hasJsManifest) {
-      return {
-        code: "missing-package-manifest",
-        summary: `${variant} package manifest is absent on main`,
-        evidence: "tasks/phase-11-validation-report.md#formal-implementation-gaps",
-      };
-    }
-    return {
-      code: "benchmark-harness-cli-unimplemented",
-      summary: "mobile-benchmark-harness CLI exits before producing scorecard output",
-      evidence: "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message",
-    };
-  }
-
-  if (variant === "ios-native") {
-    return {
-      code: "benchmark-harness-cli-unimplemented",
-      summary: "iOS Native validation passed, but benchmark harness CLI is not implemented",
-      evidence: "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement",
-    };
-  }
-
-  if (variant === "flutter") {
-    return {
-      code: "missing-local-flutter-toolchain",
-      summary: "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-      evidence: "tasks/phase-11-validation-report.md#toolchain-blockers",
-    };
-  }
-
-  return {
-    code: "missing-local-android-toolchain",
-    summary: "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-    evidence: "tasks/phase-11-validation-report.md#toolchain-blockers",
-  };
+function slug(value) {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
 
-function buildRecords() {
-  return apps.flatMap(([appId, appName, repo, hasJsManifest]) =>
-    variants.map((variant) => ({
-      appId,
-      appName,
-      category: CATEGORY,
-      repo,
-      variant,
-      status: "blocked",
-      generatedAt: GENERATED_AT,
-      blocker: blockerFor(hasJsManifest, variant),
-      scorecardProduced: false,
-    })),
-  );
-}
-
-function summarize(records) {
-  const byCode = {};
-  const byVariant = {};
-  for (const record of records) {
-    byCode[record.blocker.code] = (byCode[record.blocker.code] ?? 0) + 1;
-    byVariant[record.variant] = (byVariant[record.variant] ?? 0) + 1;
-  }
+function blocker(appId, appName, repo, variant, reason, detail) {
   return {
-    generatedAt: GENERATED_AT,
+    appId,
+    appName,
+    repo: `GeorgeQLe/${repo}`,
     category: CATEGORY,
-    appCount: apps.length,
-    variantCount: records.length,
-    scorecardsProduced: 0,
-    blockersProduced: records.length,
-    byCode,
-    byVariant,
-    harnessValidation: {
-      build: "passed",
-      test: "failed: node --test cannot resolve src/scoring/composite.js from test/validate-pilot.ts",
-      cli: "failed: dist/cli/index.js prints placeholder and exits 1",
-    },
+    variant,
+    status: "blocked",
+    reason,
+    detail,
+    runId: RUN_ID,
   };
 }
 
-function markdown(summary) {
-  const codeRows = Object.entries(summary.byCode)
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([code, count]) => `| ${code} | ${count} |`)
-    .join("\n");
-
-  return `# Phase 11 Benchmark Blocker Report
-
-## Summary
-
-Step 11.12 could not produce valid benchmark scorecards because the local benchmark harness has no implemented CLI runner.
-
-- Generated at: ${summary.generatedAt}
-- Category: ${summary.category}
-- Apps covered: ${summary.appCount}
-- Variants covered: ${summary.variantCount}
-- Scorecards produced: ${summary.scorecardsProduced}
-- Blocker records produced: ${summary.blockersProduced}
-
-## Harness Evidence
-
-- Build: ${summary.harnessValidation.build}
-- Test: ${summary.harnessValidation.test}
-- CLI: ${summary.harnessValidation.cli}
-
-## Blockers By Code
-
-| Blocker | Count |
-| --- | ---: |
-${codeRows}
-
-## Disposition
-
-No benchmark scores were invented. Step 11.12 remains blocked until the harness CLI can produce schema-valid scorecards or an alternate approved benchmark runner exists. The generated JSON records cover all 27 apps x 5 variants and preserve the Step 11.11 manifest/toolchain blockers.
-`;
+function average(values) {
+  if (values.length === 0) return 0;
+  return Math.round((values.reduce((sum, value) => sum + value, 0) / values.length) * 100) / 100;
 }
 
 await mkdir(OUT_DIR, { recursive: true });
-const records = buildRecords();
-const summary = summarize(records);
 
-await writeFile(path.join(OUT_DIR, "benchmark-blockers.json"), `${JSON.stringify({ summary, records }, null, 2)}\n`);
-await writeFile(path.join(OUT_DIR, "README.md"), markdown(summary));
+const scorecards = [];
+const blockers = [];
 
-console.log(`Wrote ${records.length} blocker records to ${OUT_DIR}`);
+for (const [appId, appName, repo] of APPS) {
+  const appPath = join(DOWNSTREAM_ROOT, repo);
+
+  for (const variant of VARIANTS) {
+    const variantPath = join(appPath, "variants", variant);
+    const hasPackage = existsSync(join(variantPath, "package.json"));
+    const hasSwiftPackage = existsSync(join(variantPath, "Package.swift"));
+    const output = join(OUT_DIR, `${String(appId).padStart(3, "0")}-${slug(appName)}-${variant}.json`);
+
+    if (variant === "flutter") {
+      blockers.push(blocker(appId, appName, repo, variant, "missing-local-flutter-toolchain", "`flutter` is unavailable on PATH in the local validation environment."));
+      continue;
+    }
+
+    if (variant === "android-native") {
+      blockers.push(blocker(appId, appName, repo, variant, "missing-local-android-toolchain", "Java/Gradle are unavailable in the local validation environment."));
+      continue;
+    }
+
+    if (!hasPackage && !hasSwiftPackage) {
+      blockers.push(blocker(appId, appName, repo, variant, "missing-package-manifest", `No executable manifest found at variants/${variant}.`));
+      continue;
+    }
+
+    const result = spawnSync("npm", [
+      "run",
+      "benchmark",
+      "--",
+      "--app",
+      appPath,
+      "--variant",
+      variant,
+      "--output",
+      output,
+      "--app-id",
+      String(appId),
+      "--app-name",
+      appName,
+      "--category",
+      CATEGORY,
+      "--run-id",
+      RUN_ID,
+    ], { cwd: HARNESS, encoding: "utf-8" });
+
+    if (result.status !== 0) {
+      throw new Error(`benchmark failed for ${repo} ${variant}\n${result.stdout}\n${result.stderr}`);
+    }
+
+    const card = JSON.parse(await readFile(output, "utf-8"));
+    scorecards.push({
+      appId,
+      appName,
+      repo: `GeorgeQLe/${repo}`,
+      variant,
+      composite: card.composite.score,
+      dimensions: Object.fromEntries(Object.entries(card.dimensions).map(([key, value]) => [key, value.score])),
+      file: output.replace(`${ROOT}/`, ""),
+    });
+  }
+}
+
+scorecards.sort((a, b) => b.composite - a.composite || a.appId - b.appId || a.variant.localeCompare(b.variant));
+
+const byReason = blockers.reduce((acc, item) => {
+  acc[item.reason] = (acc[item.reason] ?? 0) + 1;
+  return acc;
+}, {});
+
+const byVariant = Object.fromEntries(VARIANTS.map((variant) => [
+  variant,
+  {
+    scorecards: scorecards.filter((item) => item.variant === variant).length,
+    blockers: blockers.filter((item) => item.variant === variant).length,
+  },
+]));
+
+const summary = {
+  generatedAt: new Date().toISOString(),
+  runId: RUN_ID,
+  category: CATEGORY,
+  totalTargets: APPS.length * VARIANTS.length,
+  scorecardCount: scorecards.length,
+  blockerCount: blockers.length,
+  averageComposite: average(scorecards.map((item) => item.composite)),
+  byVariant,
+  byReason,
+  scorecards,
+};
+
+await writeFile(join(OUT_DIR, "benchmark-blockers.json"), `${JSON.stringify({ generatedAt: summary.generatedAt, runId: RUN_ID, blockers }, null, 2)}\n`);
+await writeFile(join(OUT_DIR, "summary.json"), `${JSON.stringify(summary, null, 2)}\n`);
+
+const rows = scorecards
+  .map((item) => `| ${String(item.appId).padStart(3, "0")} | ${item.appName} | ${item.variant} | ${item.composite.toFixed(2)} | ${item.file} |`)
+  .join("\n");
+const blockerRows = Object.entries(byReason)
+  .map(([reason, count]) => `| ${reason} | ${count} |`)
+  .join("\n");
+
+await writeFile(join(OUT_DIR, "README.md"), `# Phase 11 Benchmark Scorecards
+
+Generated: ${summary.generatedAt}
+Run ID: \`${RUN_ID}\`
+
+## Summary
+
+- Total benchmark targets: ${summary.totalTargets}
+- Scorecards produced: ${summary.scorecardCount}
+- Blocker records produced: ${summary.blockerCount}
+- Average composite across scored variants: ${summary.averageComposite.toFixed(2)}
+
+## Blockers By Reason
+
+| Reason | Count |
+| --- | ---: |
+${blockerRows}
+
+## Scorecards
+
+| ID | App | Variant | Composite | File |
+| ---: | --- | --- | ---: | --- |
+${rows}
+
+## Notes
+
+- GitHub Actions were not used.
+- Flutter and Android Native targets remain local-toolchain blocked.
+- React Native/Expo targets without package manifests remain implementation gaps, not passing benchmark results.
+- Performance, accessibility, and store-compliance dimensions are conservative when no local report/device evidence exists.
+`);
+
+console.log(JSON.stringify({
+  scorecards: scorecards.length,
+  blockers: blockers.length,
+  byReason,
+  averageComposite: summary.averageComposite,
+}, null, 2));

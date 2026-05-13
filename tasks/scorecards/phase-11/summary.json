@@ -1,0 +1,973 @@
+{
+  "generatedAt": "2026-05-13T02:04:44.936Z",
+  "runId": "phase-11-local-2026-05-13",
+  "category": "AI & Assistants",
+  "totalTargets": 135,
+  "scorecardCount": 55,
+  "blockerCount": 80,
+  "averageComposite": 37.89,
+  "byVariant": {
+    "react-native": {
+      "scorecards": 14,
+      "blockers": 13
+    },
+    "flutter": {
+      "scorecards": 0,
+      "blockers": 27
+    },
+    "expo": {
+      "scorecards": 14,
+      "blockers": 13
+    },
+    "ios-native": {
+      "scorecards": 27,
+      "blockers": 0
+    },
+    "android-native": {
+      "scorecards": 0,
+      "blockers": 27
+    }
+  },
+  "byReason": {
+    "missing-local-flutter-toolchain": 27,
+    "missing-local-android-toolchain": 27,
+    "missing-package-manifest": 26
+  },
+  "scorecards": [
+    {
+      "appId": 3,
+      "appName": "Perplexity",
+      "repo": "GeorgeQLe/perplexity-mobile-clone",
+      "variant": "react-native",
+      "composite": 40.94,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 83.25,
+        "codeQuality": 86.95,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/003-perplexity-react-native.json"
+    },
+    {
+      "appId": 5,
+      "appName": "Replika",
+      "repo": "GeorgeQLe/replika-mobile-clone",
+      "variant": "ios-native",
+      "composite": 40.37,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 93.75,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/005-replika-ios-native.json"
+    },
+    {
+      "appId": 5,
+      "appName": "Replika",
+      "repo": "GeorgeQLe/replika-mobile-clone",
+      "variant": "react-native",
+      "composite": 40.29,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 80.25,
+        "codeQuality": 87.63,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/005-replika-react-native.json"
+    },
+    {
+      "appId": 5,
+      "appName": "Replika",
+      "repo": "GeorgeQLe/replika-mobile-clone",
+      "variant": "expo",
+      "composite": 39.97,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 78.75,
+        "codeQuality": 88,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/005-replika-expo.json"
+    },
+    {
+      "appId": 207,
+      "appName": "You.com",
+      "repo": "GeorgeQLe/you-com-mobile-clone",
+      "variant": "expo",
+      "composite": 39.97,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 78.75,
+        "codeQuality": 88,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/207-you-com-expo.json"
+    },
+    {
+      "appId": 220,
+      "appName": "Notion AI",
+      "repo": "GeorgeQLe/notion-ai-mobile-clone",
+      "variant": "ios-native",
+      "composite": 39.62,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 90.75,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/220-notion-ai-ios-native.json"
+    },
+    {
+      "appId": 203,
+      "appName": "Microsoft Copilot",
+      "repo": "GeorgeQLe/microsoft-copilot-mobile-clone",
+      "variant": "expo",
+      "composite": 39.34,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 75.75,
+        "codeQuality": 88.79,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/203-microsoft-copilot-expo.json"
+    },
+    {
+      "appId": 2,
+      "appName": "Claude",
+      "repo": "GeorgeQLe/claude-mobile-clone",
+      "variant": "ios-native",
+      "composite": 39.25,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 89.25,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/002-claude-ios-native.json"
+    },
+    {
+      "appId": 2,
+      "appName": "Claude",
+      "repo": "GeorgeQLe/claude-mobile-clone",
+      "variant": "expo",
+      "composite": 38.97,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 74,
+        "codeQuality": 89.22,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/002-claude-expo.json"
+    },
+    {
+      "appId": 203,
+      "appName": "Microsoft Copilot",
+      "repo": "GeorgeQLe/microsoft-copilot-mobile-clone",
+      "variant": "react-native",
+      "composite": 38.97,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 74,
+        "codeQuality": 89.22,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/203-microsoft-copilot-react-native.json"
+    },
+    {
+      "appId": 205,
+      "appName": "DeepSeek",
+      "repo": "GeorgeQLe/deepseek-mobile-clone",
+      "variant": "expo",
+      "composite": 38.97,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 74,
+        "codeQuality": 89.22,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/205-deepseek-expo.json"
+    },
+    {
+      "appId": 221,
+      "appName": "Forefront AI",
+      "repo": "GeorgeQLe/forefront-ai-mobile-clone",
+      "variant": "ios-native",
+      "composite": 38.87,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 87.75,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/221-forefront-ai-ios-native.json"
+    },
+    {
+      "appId": 2,
+      "appName": "Claude",
+      "repo": "GeorgeQLe/claude-mobile-clone",
+      "variant": "react-native",
+      "composite": 38.53,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 72,
+        "codeQuality": 89.67,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/002-claude-react-native.json"
+    },
+    {
+      "appId": 201,
+      "appName": "Poe",
+      "repo": "GeorgeQLe/poe-mobile-clone",
+      "variant": "expo",
+      "composite": 38.53,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 72,
+        "codeQuality": 89.67,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/201-poe-expo.json"
+    },
+    {
+      "appId": 202,
+      "appName": "Gemini",
+      "repo": "GeorgeQLe/gemini-mobile-clone",
+      "variant": "expo",
+      "composite": 38.53,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 72,
+        "codeQuality": 89.67,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/202-gemini-expo.json"
+    },
+    {
+      "appId": 204,
+      "appName": "Grok",
+      "repo": "GeorgeQLe/grok-mobile-clone",
+      "variant": "expo",
+      "composite": 38.53,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 72,
+        "codeQuality": 89.67,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/204-grok-expo.json"
+    },
+    {
+      "appId": 204,
+      "appName": "Grok",
+      "repo": "GeorgeQLe/grok-mobile-clone",
+      "variant": "react-native",
+      "composite": 38.53,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 72,
+        "codeQuality": 89.67,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/204-grok-react-native.json"
+    },
+    {
+      "appId": 205,
+      "appName": "DeepSeek",
+      "repo": "GeorgeQLe/deepseek-mobile-clone",
+      "variant": "react-native",
+      "composite": 38.53,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 72,
+        "codeQuality": 89.67,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/205-deepseek-react-native.json"
+    },
+    {
+      "appId": 206,
+      "appName": "Meta AI",
+      "repo": "GeorgeQLe/meta-ai-mobile-clone",
+      "variant": "expo",
+      "composite": 38.53,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 72,
+        "codeQuality": 89.67,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/206-meta-ai-expo.json"
+    },
+    {
+      "appId": 207,
+      "appName": "You.com",
+      "repo": "GeorgeQLe/you-com-mobile-clone",
+      "variant": "react-native",
+      "composite": 38.53,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 72,
+        "codeQuality": 89.67,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/207-you-com-react-native.json"
+    },
+    {
+      "appId": 210,
+      "appName": "HuggingChat",
+      "repo": "GeorgeQLe/huggingchat-mobile-clone",
+      "variant": "expo",
+      "composite": 38.53,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 72,
+        "codeQuality": 89.67,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/210-huggingchat-expo.json"
+    },
+    {
+      "appId": 1,
+      "appName": "ChatGPT",
+      "repo": "GeorgeQLe/chatgpt-mobile-clone",
+      "variant": "ios-native",
+      "composite": 38.5,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 86.25,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/001-chatgpt-ios-native.json"
+    },
+    {
+      "appId": 203,
+      "appName": "Microsoft Copilot",
+      "repo": "GeorgeQLe/microsoft-copilot-mobile-clone",
+      "variant": "ios-native",
+      "composite": 38.5,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 86.25,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/203-microsoft-copilot-ios-native.json"
+    },
+    {
+      "appId": 222,
+      "appName": "Consensus",
+      "repo": "GeorgeQLe/consensus-mobile-clone",
+      "variant": "ios-native",
+      "composite": 38.12,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 84.75,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/222-consensus-ios-native.json"
+    },
+    {
+      "appId": 201,
+      "appName": "Poe",
+      "repo": "GeorgeQLe/poe-mobile-clone",
+      "variant": "react-native",
+      "composite": 38.1,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 70,
+        "codeQuality": 90.14,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/201-poe-react-native.json"
+    },
+    {
+      "appId": 202,
+      "appName": "Gemini",
+      "repo": "GeorgeQLe/gemini-mobile-clone",
+      "variant": "react-native",
+      "composite": 38.1,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 70,
+        "codeQuality": 90.14,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/202-gemini-react-native.json"
+    },
+    {
+      "appId": 209,
+      "appName": "Phind",
+      "repo": "GeorgeQLe/phind-mobile-clone",
+      "variant": "expo",
+      "composite": 38.1,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 70,
+        "codeQuality": 90.14,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/209-phind-expo.json"
+    },
+    {
+      "appId": 213,
+      "appName": "OtterPilot",
+      "repo": "GeorgeQLe/otterpilot-mobile-clone",
+      "variant": "ios-native",
+      "composite": 37.75,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 83.25,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/213-otterpilot-ios-native.json"
+    },
+    {
+      "appId": 214,
+      "appName": "Grammarly Keyboard",
+      "repo": "GeorgeQLe/grammarly-keyboard-mobile-clone",
+      "variant": "ios-native",
+      "composite": 37.75,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 83.25,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/214-grammarly-keyboard-ios-native.json"
+    },
+    {
+      "appId": 215,
+      "appName": "Wordtune",
+      "repo": "GeorgeQLe/wordtune-mobile-clone",
+      "variant": "ios-native",
+      "composite": 37.75,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 83.25,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/215-wordtune-ios-native.json"
+    },
+    {
+      "appId": 206,
+      "appName": "Meta AI",
+      "repo": "GeorgeQLe/meta-ai-mobile-clone",
+      "variant": "react-native",
+      "composite": 37.68,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 68,
+        "codeQuality": 90.65,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/206-meta-ai-react-native.json"
+    },
+    {
+      "appId": 208,
+      "appName": "Pi",
+      "repo": "GeorgeQLe/pi-mobile-clone",
+      "variant": "expo",
+      "composite": 37.68,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 68,
+        "codeQuality": 90.65,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/208-pi-expo.json"
+    },
+    {
+      "appId": 209,
+      "appName": "Phind",
+      "repo": "GeorgeQLe/phind-mobile-clone",
+      "variant": "react-native",
+      "composite": 37.68,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 68,
+        "codeQuality": 90.65,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/209-phind-react-native.json"
+    },
+    {
+      "appId": 210,
+      "appName": "HuggingChat",
+      "repo": "GeorgeQLe/huggingchat-mobile-clone",
+      "variant": "react-native",
+      "composite": 37.68,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 68,
+        "codeQuality": 90.65,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/210-huggingchat-react-native.json"
+    },
+    {
+      "appId": 3,
+      "appName": "Perplexity",
+      "repo": "GeorgeQLe/perplexity-mobile-clone",
+      "variant": "ios-native",
+      "composite": 37.37,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 81.75,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/003-perplexity-ios-native.json"
+    },
+    {
+      "appId": 205,
+      "appName": "DeepSeek",
+      "repo": "GeorgeQLe/deepseek-mobile-clone",
+      "variant": "ios-native",
+      "composite": 37.37,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 81.75,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/205-deepseek-ios-native.json"
+    },
+    {
+      "appId": 211,
+      "appName": "Wysa",
+      "repo": "GeorgeQLe/wysa-mobile-clone",
+      "variant": "ios-native",
+      "composite": 37.37,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 81.75,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/211-wysa-ios-native.json"
+    },
+    {
+      "appId": 216,
+      "appName": "QuillBot",
+      "repo": "GeorgeQLe/quillbot-mobile-clone",
+      "variant": "ios-native",
+      "composite": 37.37,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 81.75,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/216-quillbot-ios-native.json"
+    },
+    {
+      "appId": 219,
+      "appName": "Monica",
+      "repo": "GeorgeQLe/monica-mobile-clone",
+      "variant": "ios-native",
+      "composite": 37.37,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 81.75,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/219-monica-ios-native.json"
+    },
+    {
+      "appId": 212,
+      "appName": "ELSA Speak",
+      "repo": "GeorgeQLe/elsa-speak-mobile-clone",
+      "variant": "ios-native",
+      "composite": 37,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 80.25,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/212-elsa-speak-ios-native.json"
+    },
+    {
+      "appId": 208,
+      "appName": "Pi",
+      "repo": "GeorgeQLe/pi-mobile-clone",
+      "variant": "react-native",
+      "composite": 36.85,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 64,
+        "codeQuality": 91.75,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/208-pi-react-native.json"
+    },
+    {
+      "appId": 202,
+      "appName": "Gemini",
+      "repo": "GeorgeQLe/gemini-mobile-clone",
+      "variant": "ios-native",
+      "composite": 36.62,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 78.75,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/202-gemini-ios-native.json"
+    },
+    {
+      "appId": 204,
+      "appName": "Grok",
+      "repo": "GeorgeQLe/grok-mobile-clone",
+      "variant": "ios-native",
+      "composite": 36.62,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 78.75,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/204-grok-ios-native.json"
+    },
+    {
+      "appId": 207,
+      "appName": "You.com",
+      "repo": "GeorgeQLe/you-com-mobile-clone",
+      "variant": "ios-native",
+      "composite": 36.62,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 78.75,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/207-you-com-ios-native.json"
+    },
+    {
+      "appId": 217,
+      "appName": "Ask AI",
+      "repo": "GeorgeQLe/ask-ai-mobile-clone",
+      "variant": "ios-native",
+      "composite": 36.62,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 78.75,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/217-ask-ai-ios-native.json"
+    },
+    {
+      "appId": 218,
+      "appName": "Genie",
+      "repo": "GeorgeQLe/genie-mobile-clone",
+      "variant": "ios-native",
+      "composite": 36.62,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 78.75,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/218-genie-ios-native.json"
+    },
+    {
+      "appId": 3,
+      "appName": "Perplexity",
+      "repo": "GeorgeQLe/perplexity-mobile-clone",
+      "variant": "expo",
+      "composite": 36.44,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 62,
+        "codeQuality": 92.35,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/003-perplexity-expo.json"
+    },
+    {
+      "appId": 1,
+      "appName": "ChatGPT",
+      "repo": "GeorgeQLe/chatgpt-mobile-clone",
+      "variant": "expo",
+      "composite": 36.38,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 64,
+        "codeQuality": 88.63,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/001-chatgpt-expo.json"
+    },
+    {
+      "appId": 1,
+      "appName": "ChatGPT",
+      "repo": "GeorgeQLe/chatgpt-mobile-clone",
+      "variant": "react-native",
+      "composite": 36.38,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 64,
+        "codeQuality": 88.63,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/001-chatgpt-react-native.json"
+    },
+    {
+      "appId": 4,
+      "appName": "Character.AI",
+      "repo": "GeorgeQLe/character-ai-mobile-clone",
+      "variant": "ios-native",
+      "composite": 36.25,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 77.25,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/004-character-ai-ios-native.json"
+    },
+    {
+      "appId": 201,
+      "appName": "Poe",
+      "repo": "GeorgeQLe/poe-mobile-clone",
+      "variant": "ios-native",
+      "composite": 36.25,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 77.25,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/201-poe-ios-native.json"
+    },
+    {
+      "appId": 206,
+      "appName": "Meta AI",
+      "repo": "GeorgeQLe/meta-ai-mobile-clone",
+      "variant": "ios-native",
+      "composite": 35.87,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 75.75,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/206-meta-ai-ios-native.json"
+    },
+    {
+      "appId": 209,
+      "appName": "Phind",
+      "repo": "GeorgeQLe/phind-mobile-clone",
+      "variant": "ios-native",
+      "composite": 35.87,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 75.75,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/209-phind-ios-native.json"
+    },
+    {
+      "appId": 210,
+      "appName": "HuggingChat",
+      "repo": "GeorgeQLe/huggingchat-mobile-clone",
+      "variant": "ios-native",
+      "composite": 35.87,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 75.75,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/210-huggingchat-ios-native.json"
+    },
+    {
+      "appId": 208,
+      "appName": "Pi",
+      "repo": "GeorgeQLe/pi-mobile-clone",
+      "variant": "ios-native",
+      "composite": 34.93,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 72,
+        "codeQuality": 74,
+        "devVelocity": 25,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/208-pi-ios-native.json"
+    }
+  ]
+}

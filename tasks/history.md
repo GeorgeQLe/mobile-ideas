@@ -2535,3 +2535,30 @@
 - Residual risk: npm audit warnings remain in installed dependency trees; generated lint warnings remain but exit zero; remaining JS variants may require app-specific remediation.
 - Rollback note: revert downstream commit `7f112f6`, then revert this planning commit to return to the previous non-iOS validation state.
 - Next command: `$run` for Step 11.11 JS validation continuation starting at HuggingChat.
+
+## 2026-05-13 - Phase 11 Step 11.12 Benchmark Harness And Scorecards
+
+- Completed Step 11.12 by repairing the benchmark harness and generating local Phase 11 benchmark artifacts without GitHub Actions.
+- Fixed and pushed `GeorgeQLe/mobile-benchmark-harness` on `main` at commit `63d2bec`: implemented `src/cli/index.ts` for `benchmark --app --variant --output` and updated `test/validate-pilot.ts` to import compiled `dist/` modules.
+- Harness validation passed:
+  - `/tmp/mobile-benchmark-harness`: `npm run build`
+  - `/tmp/mobile-benchmark-harness`: `npm test` (71 assertions)
+  - `/tmp/mobile-benchmark-harness`: CLI smoke benchmark wrote `/tmp/mobile-benchmark-harness-sample.json`
+- Generated Phase 11 artifacts under `tasks/scorecards/phase-11/`: 55 per-variant scorecards, `summary.json`, `benchmark-blockers.json`, and `README.md`.
+- Scorecard coverage: 27 iOS Native variants, 14 React Native variants with manifests, and 14 Expo variants with manifests.
+- Blocker coverage: 80 records total: 27 missing Flutter toolchain, 27 missing Android Java/Gradle toolchain, and 26 missing React Native/Expo package manifests.
+- Average composite across scored variants: `37.89`.
+- Scoring is conservative: performance, accessibility, and store-compliance are zero-scored where no local report/device evidence exists rather than filled with invented scores.
+
+### Ship Manifest
+
+- User goal: run Step 11.12 by repairing the benchmark harness and recording Phase 11 scorecards/blockers.
+- Changed files: `/tmp/mobile-benchmark-harness/src/cli/index.ts`, `/tmp/mobile-benchmark-harness/test/validate-pilot.ts`, `tasks/scorecards/phase-11/*`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: harness files enable local CLI scoring; scorecard files preserve benchmark output and blockers; task/history docs record evidence and next work.
+- User-goal mapping: every Phase 11 target now has either a scorecard artifact or an explicit blocker record.
+- Tests run: harness build, harness test, harness CLI smoke, and serial Phase 11 benchmark artifact generation.
+- Skipped tests: Flutter and Android benchmark runs remain blocked by missing local toolchains; React Native/Expo benchmark runs remain blocked for 13 repos without package manifests; GitHub Actions intentionally not used.
+- Adversarial review: verified that 55 scorecards plus 80 blockers equals the full 135-target Phase 11 benchmark surface and that blocker reasons match Step 11.11 evidence.
+- Residual risk: benchmark scores are local structural scorecards, not full device performance or store compliance proof; Phase 11 acceptance criteria remain open until manifest/toolchain blockers are resolved or dispositioned.
+- Rollback note: revert the benchmark-harness commit, then revert the planning commit that records the scorecards.
+- Next command: `$run` for Step 11.13 final validation and cleanup.

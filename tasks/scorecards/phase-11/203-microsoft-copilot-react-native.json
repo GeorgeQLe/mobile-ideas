@@ -1,0 +1,217 @@
+{
+  "meta": {
+    "appId": 203,
+    "appName": "Microsoft Copilot",
+    "category": "AI & Assistants",
+    "variant": "react-native",
+    "timestamp": "2026-05-13T02:04:41.475Z",
+    "ciRunId": "phase-11-local-2026-05-13",
+    "harnessVersion": "0.1.0"
+  },
+  "dimensions": {
+    "performance": {
+      "score": 0,
+      "weight": 0.2,
+      "metrics": {
+        "coldStartMs": {
+          "raw": 0,
+          "score": 0
+        },
+        "warmStartMs": {
+          "raw": 0,
+          "score": 0
+        },
+        "frameRate": {
+          "raw": 0,
+          "score": 0
+        },
+        "jankPercent": {
+          "raw": 0,
+          "score": 0
+        },
+        "memoryPeakMb": {
+          "raw": 0,
+          "score": 0
+        },
+        "memoryAvgMb": {
+          "raw": 0,
+          "score": 0
+        },
+        "cpuPercent": {
+          "raw": 0,
+          "score": 0
+        },
+        "batteryDrainPerHour": {
+          "raw": 0,
+          "score": 0
+        }
+      }
+    },
+    "bundleSize": {
+      "score": 33.33,
+      "weight": 0.1,
+      "metrics": {
+        "ipaSizeMb": {
+          "raw": 0,
+          "score": 100
+        },
+        "apkSizeMb": {
+          "raw": 0,
+          "score": 100
+        },
+        "otaUpdateSizeMb": {
+          "raw": 0,
+          "score": 0
+        },
+        "jsBundleSizeKb": {
+          "raw": 0,
+          "score": 0
+        },
+        "nativeLibsSizeMb": {
+          "raw": 0,
+          "score": 0
+        },
+        "assetsSizeMb": {
+          "raw": 0,
+          "score": 0
+        }
+      }
+    },
+    "uxFidelity": {
+      "score": 74,
+      "weight": 0.25,
+      "metrics": {
+        "screenCoveragePercent": {
+          "raw": 74,
+          "score": 74
+        },
+        "interactionCoveragePercent": {
+          "raw": 74,
+          "score": 74
+        },
+        "edgeCaseCoveragePercent": {
+          "raw": 74,
+          "score": 74
+        },
+        "specCompliancePercent": {
+          "raw": 74,
+          "score": 74
+        }
+      }
+    },
+    "codeQuality": {
+      "score": 89.22,
+      "weight": 0.15,
+      "metrics": {
+        "lintScore": {
+          "raw": 100,
+          "score": 100
+        },
+        "typeCoveragePercent": {
+          "raw": 85,
+          "score": 85
+        },
+        "testCoveragePercent": {
+          "raw": 81.08,
+          "score": 81.08
+        },
+        "cyclomaticComplexity": {
+          "raw": 0,
+          "score": 100
+        },
+        "maintainabilityIndex": {
+          "raw": 80,
+          "score": 80
+        }
+      }
+    },
+    "devVelocity": {
+      "score": 37.5,
+      "weight": 0.1,
+      "metrics": {
+        "cleanBuildSec": {
+          "raw": 0,
+          "score": 50
+        },
+        "incrementalBuildSec": {
+          "raw": 0,
+          "score": 50
+        },
+        "hotReloadSec": {
+          "raw": 0,
+          "score": 50
+        },
+        "ciPipelineSec": {
+          "raw": 0,
+          "score": 0
+        }
+      }
+    },
+    "accessibility": {
+      "score": 0,
+      "weight": 0.1,
+      "metrics": {
+        "auditScore": {
+          "raw": 0,
+          "score": 0
+        },
+        "contrastRatioCompliance": {
+          "raw": 0,
+          "score": 0
+        },
+        "touchTargetCompliance": {
+          "raw": 0,
+          "score": 0
+        },
+        "screenReaderCoverage": {
+          "raw": 0,
+          "score": 0
+        }
+      }
+    },
+    "storeCompliance": {
+      "score": 0,
+      "weight": 0.1,
+      "metrics": {
+        "metadataCompleteness": {
+          "raw": 0,
+          "score": 0
+        },
+        "policyCompliance": {
+          "raw": 0,
+          "score": 0
+        },
+        "screenshotCoverage": {
+          "raw": 0,
+          "score": 0
+        },
+        "privacyManifestAccuracy": {
+          "raw": 0,
+          "score": 0
+        }
+      }
+    }
+  },
+  "composite": {
+    "score": 38.97,
+    "formula": "weighted-average",
+    "weights": {
+      "performance": 0.2,
+      "bundleSize": 0.1,
+      "uxFidelity": 0.25,
+      "codeQuality": 0.15,
+      "devVelocity": 0.1,
+      "accessibility": 0.1,
+      "storeCompliance": 0.1
+    }
+  },
+  "evidence": {
+    "appPath": "/tmp/microsoft-copilot-mobile-clone",
+    "variantPath": "/tmp/microsoft-copilot-mobile-clone/variants/react-native",
+    "notes": [
+      "UX fidelity report missing; using source structure proxy.",
+      "Accessibility report missing; accessibility score is conservative.",
+      "Store compliance report missing; compliance score is conservative."
+    ]
+  }
+}

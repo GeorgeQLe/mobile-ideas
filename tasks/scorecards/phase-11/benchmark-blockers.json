@@ -1,2055 +1,886 @@
 {
-  "summary": {
-    "generatedAt": "2026-05-13T00:00:00.000Z",
-    "category": "AI & Assistants",
-    "appCount": 27,
-    "variantCount": 135,
-    "scorecardsProduced": 0,
-    "blockersProduced": 135,
-    "byCode": {
-      "benchmark-harness-cli-unimplemented": 55,
-      "missing-local-flutter-toolchain": 27,
-      "missing-local-android-toolchain": 27,
-      "missing-package-manifest": 26
-    },
-    "byVariant": {
-      "react-native": 27,
-      "flutter": 27,
-      "expo": 27,
-      "ios-native": 27,
-      "android-native": 27
-    },
-    "harnessValidation": {
-      "build": "passed",
-      "test": "failed: node --test cannot resolve src/scoring/composite.js from test/validate-pilot.ts",
-      "cli": "failed: dist/cli/index.js prints placeholder and exits 1"
-    }
-  },
-  "records": [
+  "generatedAt": "2026-05-13T02:04:44.936Z",
+  "runId": "phase-11-local-2026-05-13",
+  "blockers": [
     {
       "appId": 1,
       "appName": "ChatGPT",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/chatgpt-mobile-clone",
-      "variant": "react-native",
+      "category": "AI & Assistants",
+      "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 1,
       "appName": "ChatGPT",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/chatgpt-mobile-clone",
-      "variant": "flutter",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 1,
-      "appName": "ChatGPT",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/chatgpt-mobile-clone",
-      "variant": "expo",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 1,
-      "appName": "ChatGPT",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/chatgpt-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 1,
-      "appName": "ChatGPT",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/chatgpt-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 2,
       "appName": "Claude",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/claude-mobile-clone",
-      "variant": "react-native",
+      "category": "AI & Assistants",
+      "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 2,
       "appName": "Claude",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/claude-mobile-clone",
-      "variant": "flutter",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 2,
-      "appName": "Claude",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/claude-mobile-clone",
-      "variant": "expo",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 2,
-      "appName": "Claude",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/claude-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 2,
-      "appName": "Claude",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/claude-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 3,
       "appName": "Perplexity",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/perplexity-mobile-clone",
-      "variant": "react-native",
+      "category": "AI & Assistants",
+      "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 3,
       "appName": "Perplexity",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/perplexity-mobile-clone",
-      "variant": "flutter",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 3,
-      "appName": "Perplexity",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/perplexity-mobile-clone",
-      "variant": "expo",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 3,
-      "appName": "Perplexity",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/perplexity-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 3,
-      "appName": "Perplexity",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/perplexity-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 4,
       "appName": "Character.AI",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/character-ai-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "react-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "react-native package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/react-native.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 4,
       "appName": "Character.AI",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/character-ai-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 4,
       "appName": "Character.AI",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/character-ai-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "expo",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "expo package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/expo.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 4,
       "appName": "Character.AI",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/character-ai-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 4,
-      "appName": "Character.AI",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/character-ai-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 5,
       "appName": "Replika",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/replika-mobile-clone",
-      "variant": "react-native",
+      "category": "AI & Assistants",
+      "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 5,
       "appName": "Replika",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/replika-mobile-clone",
-      "variant": "flutter",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 5,
-      "appName": "Replika",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/replika-mobile-clone",
-      "variant": "expo",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 5,
-      "appName": "Replika",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/replika-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 5,
-      "appName": "Replika",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/replika-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 201,
       "appName": "Poe",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/poe-mobile-clone",
-      "variant": "react-native",
+      "category": "AI & Assistants",
+      "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 201,
       "appName": "Poe",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/poe-mobile-clone",
-      "variant": "flutter",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 201,
-      "appName": "Poe",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/poe-mobile-clone",
-      "variant": "expo",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 201,
-      "appName": "Poe",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/poe-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 201,
-      "appName": "Poe",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/poe-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 202,
       "appName": "Gemini",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/gemini-mobile-clone",
-      "variant": "react-native",
+      "category": "AI & Assistants",
+      "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 202,
       "appName": "Gemini",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/gemini-mobile-clone",
-      "variant": "flutter",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 202,
-      "appName": "Gemini",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/gemini-mobile-clone",
-      "variant": "expo",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 202,
-      "appName": "Gemini",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/gemini-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 202,
-      "appName": "Gemini",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/gemini-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 203,
       "appName": "Microsoft Copilot",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/microsoft-copilot-mobile-clone",
-      "variant": "react-native",
+      "category": "AI & Assistants",
+      "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 203,
       "appName": "Microsoft Copilot",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/microsoft-copilot-mobile-clone",
-      "variant": "flutter",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 203,
-      "appName": "Microsoft Copilot",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/microsoft-copilot-mobile-clone",
-      "variant": "expo",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 203,
-      "appName": "Microsoft Copilot",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/microsoft-copilot-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 203,
-      "appName": "Microsoft Copilot",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/microsoft-copilot-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 204,
       "appName": "Grok",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/grok-mobile-clone",
-      "variant": "react-native",
+      "category": "AI & Assistants",
+      "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 204,
       "appName": "Grok",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/grok-mobile-clone",
-      "variant": "flutter",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 204,
-      "appName": "Grok",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/grok-mobile-clone",
-      "variant": "expo",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 204,
-      "appName": "Grok",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/grok-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 204,
-      "appName": "Grok",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/grok-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 205,
       "appName": "DeepSeek",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/deepseek-mobile-clone",
-      "variant": "react-native",
+      "category": "AI & Assistants",
+      "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 205,
       "appName": "DeepSeek",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/deepseek-mobile-clone",
-      "variant": "flutter",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 205,
-      "appName": "DeepSeek",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/deepseek-mobile-clone",
-      "variant": "expo",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 205,
-      "appName": "DeepSeek",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/deepseek-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 205,
-      "appName": "DeepSeek",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/deepseek-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 206,
       "appName": "Meta AI",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/meta-ai-mobile-clone",
-      "variant": "react-native",
+      "category": "AI & Assistants",
+      "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 206,
       "appName": "Meta AI",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/meta-ai-mobile-clone",
-      "variant": "flutter",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 206,
-      "appName": "Meta AI",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/meta-ai-mobile-clone",
-      "variant": "expo",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 206,
-      "appName": "Meta AI",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/meta-ai-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 206,
-      "appName": "Meta AI",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/meta-ai-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 207,
       "appName": "You.com",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/you-com-mobile-clone",
-      "variant": "react-native",
+      "category": "AI & Assistants",
+      "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 207,
       "appName": "You.com",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/you-com-mobile-clone",
-      "variant": "flutter",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 207,
-      "appName": "You.com",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/you-com-mobile-clone",
-      "variant": "expo",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 207,
-      "appName": "You.com",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/you-com-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 207,
-      "appName": "You.com",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/you-com-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 208,
       "appName": "Pi",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/pi-mobile-clone",
-      "variant": "react-native",
+      "category": "AI & Assistants",
+      "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 208,
       "appName": "Pi",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/pi-mobile-clone",
-      "variant": "flutter",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 208,
-      "appName": "Pi",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/pi-mobile-clone",
-      "variant": "expo",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 208,
-      "appName": "Pi",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/pi-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 208,
-      "appName": "Pi",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/pi-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 209,
       "appName": "Phind",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/phind-mobile-clone",
-      "variant": "react-native",
+      "category": "AI & Assistants",
+      "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 209,
       "appName": "Phind",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/phind-mobile-clone",
-      "variant": "flutter",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 209,
-      "appName": "Phind",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/phind-mobile-clone",
-      "variant": "expo",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 209,
-      "appName": "Phind",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/phind-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 209,
-      "appName": "Phind",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/phind-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 210,
       "appName": "HuggingChat",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/huggingchat-mobile-clone",
-      "variant": "react-native",
+      "category": "AI & Assistants",
+      "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 210,
       "appName": "HuggingChat",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/huggingchat-mobile-clone",
-      "variant": "flutter",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 210,
-      "appName": "HuggingChat",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/huggingchat-mobile-clone",
-      "variant": "expo",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "mobile-benchmark-harness CLI exits before producing scorecard output",
-        "evidence": "`npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exited 1 with placeholder CLI message"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 210,
-      "appName": "HuggingChat",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/huggingchat-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 210,
-      "appName": "HuggingChat",
-      "category": "AI & Assistants",
-      "repo": "GeorgeQLe/huggingchat-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 211,
       "appName": "Wysa",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/wysa-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "react-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "react-native package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/react-native.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 211,
       "appName": "Wysa",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/wysa-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 211,
       "appName": "Wysa",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/wysa-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "expo",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "expo package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/expo.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 211,
       "appName": "Wysa",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/wysa-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 211,
-      "appName": "Wysa",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/wysa-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 212,
       "appName": "ELSA Speak",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/elsa-speak-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "react-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "react-native package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/react-native.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 212,
       "appName": "ELSA Speak",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/elsa-speak-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 212,
       "appName": "ELSA Speak",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/elsa-speak-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "expo",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "expo package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/expo.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 212,
       "appName": "ELSA Speak",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/elsa-speak-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 212,
-      "appName": "ELSA Speak",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/elsa-speak-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 213,
       "appName": "OtterPilot",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/otterpilot-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "react-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "react-native package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/react-native.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 213,
       "appName": "OtterPilot",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/otterpilot-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 213,
       "appName": "OtterPilot",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/otterpilot-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "expo",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "expo package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/expo.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 213,
       "appName": "OtterPilot",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/otterpilot-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 213,
-      "appName": "OtterPilot",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/otterpilot-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 214,
       "appName": "Grammarly Keyboard",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/grammarly-keyboard-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "react-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "react-native package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/react-native.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 214,
       "appName": "Grammarly Keyboard",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/grammarly-keyboard-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 214,
       "appName": "Grammarly Keyboard",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/grammarly-keyboard-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "expo",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "expo package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/expo.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 214,
       "appName": "Grammarly Keyboard",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/grammarly-keyboard-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 214,
-      "appName": "Grammarly Keyboard",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/grammarly-keyboard-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 215,
       "appName": "Wordtune",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/wordtune-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "react-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "react-native package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/react-native.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 215,
       "appName": "Wordtune",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/wordtune-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 215,
       "appName": "Wordtune",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/wordtune-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "expo",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "expo package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/expo.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 215,
       "appName": "Wordtune",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/wordtune-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 215,
-      "appName": "Wordtune",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/wordtune-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 216,
       "appName": "QuillBot",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/quillbot-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "react-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "react-native package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/react-native.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 216,
       "appName": "QuillBot",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/quillbot-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 216,
       "appName": "QuillBot",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/quillbot-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "expo",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "expo package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/expo.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 216,
       "appName": "QuillBot",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/quillbot-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 216,
-      "appName": "QuillBot",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/quillbot-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 217,
       "appName": "Ask AI",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/ask-ai-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "react-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "react-native package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/react-native.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 217,
       "appName": "Ask AI",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/ask-ai-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 217,
       "appName": "Ask AI",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/ask-ai-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "expo",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "expo package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/expo.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 217,
       "appName": "Ask AI",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/ask-ai-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 217,
-      "appName": "Ask AI",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/ask-ai-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 218,
       "appName": "Genie",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/genie-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "react-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "react-native package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/react-native.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 218,
       "appName": "Genie",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/genie-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 218,
       "appName": "Genie",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/genie-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "expo",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "expo package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/expo.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 218,
       "appName": "Genie",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/genie-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 218,
-      "appName": "Genie",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/genie-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 219,
       "appName": "Monica",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/monica-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "react-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "react-native package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/react-native.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 219,
       "appName": "Monica",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/monica-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 219,
       "appName": "Monica",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/monica-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "expo",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "expo package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/expo.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 219,
       "appName": "Monica",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/monica-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 219,
-      "appName": "Monica",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/monica-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 220,
       "appName": "Notion AI",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/notion-ai-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "react-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "react-native package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/react-native.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 220,
       "appName": "Notion AI",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/notion-ai-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 220,
       "appName": "Notion AI",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/notion-ai-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "expo",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "expo package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/expo.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 220,
       "appName": "Notion AI",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/notion-ai-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 220,
-      "appName": "Notion AI",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/notion-ai-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 221,
       "appName": "Forefront AI",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/forefront-ai-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "react-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "react-native package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/react-native.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 221,
       "appName": "Forefront AI",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/forefront-ai-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 221,
       "appName": "Forefront AI",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/forefront-ai-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "expo",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "expo package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/expo.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 221,
       "appName": "Forefront AI",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/forefront-ai-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 221,
-      "appName": "Forefront AI",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/forefront-ai-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 222,
       "appName": "Consensus",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/consensus-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "react-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "react-native package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/react-native.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 222,
       "appName": "Consensus",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/consensus-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-flutter-toolchain",
-        "summary": "Flutter is unavailable on PATH, so Flutter variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "`flutter` is unavailable on PATH in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 222,
       "appName": "Consensus",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/consensus-mobile-clone",
+      "category": "AI & Assistants",
       "variant": "expo",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-package-manifest",
-        "summary": "expo package manifest is absent on main",
-        "evidence": "tasks/phase-11-validation-report.md#formal-implementation-gaps"
-      },
-      "scorecardProduced": false
+      "reason": "missing-package-manifest",
+      "detail": "No executable manifest found at variants/expo.",
+      "runId": "phase-11-local-2026-05-13"
     },
     {
       "appId": 222,
       "appName": "Consensus",
-      "category": "AI & Assistants",
       "repo": "GeorgeQLe/consensus-mobile-clone",
-      "variant": "ios-native",
-      "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "benchmark-harness-cli-unimplemented",
-        "summary": "iOS Native validation passed, but benchmark harness CLI is not implemented",
-        "evidence": "`npm run build` passed in /tmp/mobile-benchmark-harness; CLI still exits 1 before measurement"
-      },
-      "scorecardProduced": false
-    },
-    {
-      "appId": 222,
-      "appName": "Consensus",
       "category": "AI & Assistants",
-      "repo": "GeorgeQLe/consensus-mobile-clone",
       "variant": "android-native",
       "status": "blocked",
-      "generatedAt": "2026-05-13T00:00:00.000Z",
-      "blocker": {
-        "code": "missing-local-android-toolchain",
-        "summary": "Java/Gradle are unavailable, so Android Native variants cannot be benchmarked locally",
-        "evidence": "tasks/phase-11-validation-report.md#toolchain-blockers"
-      },
-      "scorecardProduced": false
+      "reason": "missing-local-android-toolchain",
+      "detail": "Java/Gradle are unavailable in the local validation environment.",
+      "runId": "phase-11-local-2026-05-13"
     }
   ]
 }
