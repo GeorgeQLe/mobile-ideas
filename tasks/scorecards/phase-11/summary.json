@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-05-13T14:25:43.884Z",
+  "generatedAt": "2026-05-13T14:35:35.237Z",
   "runId": "phase-11-local-2026-05-13",
   "category": "AI & Assistants",
   "totalTargets": 135,
-  "scorecardCount": 79,
-  "blockerCount": 56,
+  "scorecardCount": 81,
+  "blockerCount": 54,
   "averageComposite": 38.42,
   "byVariant": {
     "react-native": {
-      "scorecards": 26,
-      "blockers": 1
+      "scorecards": 27,
+      "blockers": 0
     },
     "flutter": {
       "scorecards": 0,
       "blockers": 27
     },
     "expo": {
-      "scorecards": 26,
-      "blockers": 1
+      "scorecards": 27,
+      "blockers": 0
     },
     "ios-native": {
       "scorecards": 27,
@@ -30,8 +30,7 @@
   },
   "byReason": {
     "missing-local-flutter-toolchain": 27,
-    "missing-local-android-toolchain": 27,
-    "missing-package-manifest": 2
+    "missing-local-android-toolchain": 27
   },
   "scorecards": [
     {
@@ -373,6 +372,23 @@
         "storeCompliance": 0
       },
       "file": "tasks/scorecards/phase-11/220-notion-ai-ios-native.json"
+    },
+    {
+      "appId": 222,
+      "appName": "Consensus",
+      "repo": "GeorgeQLe/consensus-mobile-clone",
+      "variant": "react-native",
+      "composite": 39.37,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 74,
+        "codeQuality": 91.92,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/222-consensus-react-native.json"
     },
     {
       "appId": 203,
@@ -1019,6 +1035,23 @@
         "storeCompliance": 0
       },
       "file": "tasks/scorecards/phase-11/210-huggingchat-react-native.json"
+    },
+    {
+      "appId": 222,
+      "appName": "Consensus",
+      "repo": "GeorgeQLe/consensus-mobile-clone",
+      "variant": "expo",
+      "composite": 37.53,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 66,
+        "codeQuality": 93,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/222-consensus-expo.json"
     },
     {
       "appId": 3,

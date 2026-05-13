@@ -1,13 +1,13 @@
 # Phase 11 Benchmark Scorecards
 
-Generated: 2026-05-13T14:25:43.884Z
+Generated: 2026-05-13T14:35:35.237Z
 Run ID: `phase-11-local-2026-05-13`
 
 ## Summary
 
 - Total benchmark targets: 135
-- Scorecards produced: 79
-- Blocker records produced: 56
+- Scorecards produced: 81
+- Blocker records produced: 54
 - Average composite across scored variants: 38.42
 
 ## Blockers By Reason
@@ -16,7 +16,6 @@ Run ID: `phase-11-local-2026-05-13`
 | --- | ---: |
 | missing-local-flutter-toolchain | 27 |
 | missing-local-android-toolchain | 27 |
-| missing-package-manifest | 2 |
 
 ## Scorecards
 
@@ -42,6 +41,7 @@ Run ID: `phase-11-local-2026-05-13`
 | 221 | Forefront AI | expo | 39.97 | tasks/scorecards/phase-11/221-forefront-ai-expo.json |
 | 216 | QuillBot | react-native | 39.73 | tasks/scorecards/phase-11/216-quillbot-react-native.json |
 | 220 | Notion AI | ios-native | 39.62 | tasks/scorecards/phase-11/220-notion-ai-ios-native.json |
+| 222 | Consensus | react-native | 39.37 | tasks/scorecards/phase-11/222-consensus-react-native.json |
 | 203 | Microsoft Copilot | expo | 39.34 | tasks/scorecards/phase-11/203-microsoft-copilot-expo.json |
 | 002 | Claude | ios-native | 39.25 | tasks/scorecards/phase-11/002-claude-ios-native.json |
 | 002 | Claude | expo | 38.97 | tasks/scorecards/phase-11/002-claude-expo.json |
@@ -80,6 +80,7 @@ Run ID: `phase-11-local-2026-05-13`
 | 208 | Pi | expo | 37.68 | tasks/scorecards/phase-11/208-pi-expo.json |
 | 209 | Phind | react-native | 37.68 | tasks/scorecards/phase-11/209-phind-react-native.json |
 | 210 | HuggingChat | react-native | 37.68 | tasks/scorecards/phase-11/210-huggingchat-react-native.json |
+| 222 | Consensus | expo | 37.53 | tasks/scorecards/phase-11/222-consensus-expo.json |
 | 003 | Perplexity | ios-native | 37.37 | tasks/scorecards/phase-11/003-perplexity-ios-native.json |
 | 205 | DeepSeek | ios-native | 37.37 | tasks/scorecards/phase-11/205-deepseek-ios-native.json |
 | 211 | Wysa | ios-native | 37.37 | tasks/scorecards/phase-11/211-wysa-ios-native.json |

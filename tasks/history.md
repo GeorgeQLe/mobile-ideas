@@ -1,5 +1,32 @@
 # History
 
+## 2026-05-13 - Phase 11 Step 11.13 Consensus JS Remediation
+
+- Continued Step 11.13 remediation without GitHub Actions for `GeorgeQLe/consensus-mobile-clone`.
+- Fixed and pushed downstream JS validation support at commit `dc8a183`.
+- Added React Native and Expo package manifests, npm lockfiles, TypeScript configs, Babel configs, ESLint configs, React Native root `App.tsx`, and Expo `app.json`.
+- Fixed generated streaming-service lint errors with typed stream-event parsing and non-abort error reporting.
+- Local executable validation passed:
+  - Consensus React Native: `npm run typecheck`; `npm test -- --runInBand` (7 tests); `npm run lint` (0 errors, 0 warnings).
+  - Consensus Expo: `npm run typecheck`; `npm test -- --runInBand` (7 tests); `npm run lint` (0 errors, 0 warnings).
+- Remote verification confirmed `visibility: private`, `default_branch: main`, and `pushed_at: 2026-05-13T14:35:08Z`.
+- Updated `tasks/phase-11-validation-report.md`: React Native/Expo validation now passes for all 27 repos; the manifest-missing implementation gap is closed.
+- Regenerated Phase 11 benchmark artifacts: `tasks/scorecards/phase-11/summary.json` now reports 81 scorecards and 54 blockers; React Native, Expo, and iOS Native each have 27 scored variants, with blockers only for Flutter and Android Native local toolchains.
+- Step 11.13 remains blocked by Flutter and Android local toolchain blockers.
+
+### Ship Manifest
+
+- User goal: continue Step 11.13 remediation by implementing and validating the final manifest-missing React Native/Expo pair.
+- Changed files: downstream Consensus React Native/Expo package/config/source files; `tasks/todo.md`, `tasks/history.md`, `tasks/phase-11-validation-report.md`, and regenerated `tasks/scorecards/phase-11/*` artifacts.
+- Per-file purpose: downstream files make Consensus React Native/Expo installable and locally validatable; task/report/history docs record evidence, blocker reduction, and remaining blockers; scorecard artifacts replace stale manifest blockers with Consensus React Native/Expo benchmark scorecards.
+- User-goal mapping: removes the final manifest-missing JS blocker set and provides executable local validation plus local benchmark evidence for both Consensus JS variants.
+- Tests run: Consensus RN typecheck/test/lint; Consensus Expo typecheck/test/lint; remote privacy/default-branch verification; `node scripts/generate-phase11-benchmark-blockers.mjs`.
+- Skipped tests: Flutter remains blocked because `flutter` is unavailable; Android remains blocked because Java/Gradle are unavailable; GitHub Actions intentionally not used.
+- Adversarial review: scorecard/blocker accounting now sums to 135 targets with 81 scorecards and 54 explicit blockers; Phase 11 remains blocked because all Flutter and Android executable evidence remains unresolved.
+- Residual risk: generated npm audit findings remain; benchmark scores are local structural scores, not real-device performance/accessibility/store-compliance proof.
+- Rollback note: revert downstream commit `dc8a183`, then revert this planning commit and rerun `node scripts/generate-phase11-benchmark-blockers.mjs` from a checkout without Consensus JS manifests.
+- Next command: `$run`.
+
 ## 2026-05-13 - Phase 11 Step 11.13 Forefront AI JS Remediation
 
 - Continued Step 11.13 remediation without GitHub Actions for `GeorgeQLe/forefront-ai-mobile-clone`.

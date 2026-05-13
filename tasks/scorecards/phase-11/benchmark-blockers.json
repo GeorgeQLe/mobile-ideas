@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-13T14:25:43.884Z",
+  "generatedAt": "2026-05-13T14:35:35.237Z",
   "runId": "phase-11-local-2026-05-13",
   "blockers": [
     {
@@ -579,32 +579,10 @@
       "appName": "Consensus",
       "repo": "GeorgeQLe/consensus-mobile-clone",
       "category": "AI & Assistants",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "missing-package-manifest",
-      "detail": "No executable manifest found at variants/react-native.",
-      "runId": "phase-11-local-2026-05-13"
-    },
-    {
-      "appId": 222,
-      "appName": "Consensus",
-      "repo": "GeorgeQLe/consensus-mobile-clone",
-      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
       "reason": "missing-local-flutter-toolchain",
       "detail": "`flutter` is unavailable on PATH in the local validation environment.",
-      "runId": "phase-11-local-2026-05-13"
-    },
-    {
-      "appId": 222,
-      "appName": "Consensus",
-      "repo": "GeorgeQLe/consensus-mobile-clone",
-      "category": "AI & Assistants",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "missing-package-manifest",
-      "detail": "No executable manifest found at variants/expo.",
       "runId": "phase-11-local-2026-05-13"
     },
     {
