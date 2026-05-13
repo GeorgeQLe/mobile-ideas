@@ -51,7 +51,7 @@ React Native and Expo validation passed for all 27 AI & Assistants downstream re
 ## Toolchain Blockers
 
 - Flutter validation is locally blocked because `flutter` is not available on `PATH`.
-- Android Native validation is locally blocked because Java is not installed and neither `gradle` nor repo-local `gradlew` is available for these downstream variants.
+- Android Native validation is locally blocked because the macOS Java launcher is present but reports that no Java runtime is installed, and `gradle` is not available on `PATH`.
 - GitHub Actions validation remains intentionally unused and disabled by project policy.
 
 ## Accepted Warnings

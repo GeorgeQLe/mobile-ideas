@@ -85,7 +85,7 @@ for (const [appId, appName, repo] of APPS) {
     }
 
     if (variant === "android-native") {
-      blockers.push(blocker(appId, appName, repo, variant, "missing-local-android-toolchain", "Java/Gradle are unavailable in the local validation environment."));
+      blockers.push(blocker(appId, appName, repo, variant, "missing-local-android-toolchain", "The macOS Java launcher is present but no Java runtime is installed, and Gradle is unavailable in the local validation environment."));
       continue;
     }
 

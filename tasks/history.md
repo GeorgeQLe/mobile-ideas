@@ -2941,3 +2941,34 @@
 - Residual risk: npm audit warnings remain in installed dependency trees; generated benchmark scores are local structural scores, not real-device performance/accessibility/store-compliance proof.
 - Rollback note: revert downstream commit `1e8d136`, then revert this planning commit and regenerate Phase 11 scorecard artifacts from a checkout without Monica JS manifests.
 - Next command: `$run` for Step 11.13 remediation starting at Notion AI.
+
+## 2026-05-13 - Phase 11 Step 11.13 Flutter/Android Toolchain Disposition Attempt
+
+- Continued Step 11.13 remediation without GitHub Actions after all React Native/Expo manifest gaps were closed.
+- Reconfirmed local toolchain status:
+  - `command -v flutter` failed; Flutter remains unavailable on `PATH`.
+  - `command -v gradle` failed; Gradle remains unavailable on `PATH`.
+  - `command -v java` and `command -v javac` resolve to macOS launcher shims, but `java -version` fails because no Java runtime is installed.
+- Regenerated Phase 11 benchmark artifacts with `node scripts/generate-phase11-benchmark-blockers.mjs`:
+  - Scorecards: 81.
+  - Blockers: 54.
+  - React Native: 27 scored / 0 blocked.
+  - Expo: 27 scored / 0 blocked.
+  - iOS Native: 27 scored / 0 blocked.
+  - Flutter: 0 scored / 27 blocked.
+  - Android Native: 0 scored / 27 blocked.
+- Updated the benchmark blocker generator and validation report so Android blocker wording accurately distinguishes the present macOS Java launcher from a usable Java runtime.
+- Step 11.13 remains blocked because no executable Flutter/Android evidence exists and no user-approved external disposition has been granted for carrying the 54 toolchain-blocked targets forward.
+
+### Ship Manifest
+
+- User goal: continue Step 11.13 remediation by resolving or precisely documenting the remaining Flutter and Android local toolchain blockers.
+- Changed files: `scripts/generate-phase11-benchmark-blockers.mjs`, `tasks/phase-11-validation-report.md`, `tasks/scorecards/phase-11/*`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: generator and scorecard artifacts record precise blocker details; task/report/history docs record the current blocker decision boundary.
+- User-goal mapping: confirms Phase 11 is blocked only by Flutter/Android toolchain evidence or explicit user-approved external disposition.
+- Tests run: local toolchain checks; `node scripts/generate-phase11-benchmark-blockers.mjs`; JSON scorecard/blocker accounting check.
+- Skipped tests: Flutter validation/benchmarking skipped because `flutter` is unavailable; Android Native validation/benchmarking skipped because the Java runtime and Gradle are unavailable; GitHub Actions intentionally not used.
+- Adversarial review: the run does not self-approve external disposition and does not mark Step 11.13 complete while 54 targets lack executable evidence.
+- Residual risk: no real-device Flutter or Android validation evidence exists; generated benchmark scorecards remain local structural evidence.
+- Rollback note: revert this planning commit and rerun the scorecard generator from the previous revision if the old blocker wording must be restored.
+- Next command: `$guide` for the remaining blocker decision: install/enable Flutter and Android local toolchains, or explicitly approve external disposition for the 54 toolchain-blocked targets.
