@@ -2717,3 +2717,29 @@
 - Residual risk: npm audit warnings remain in installed dependency trees; no real-device smoke test was performed.
 - Rollback note: revert downstream commit `6dcf4aa`, then revert this planning commit to return to the previous manifest-gap state.
 - Next command: `$run` for Step 11.13 remediation starting at Wordtune.
+
+## 2026-05-13 - Phase 11 Step 11.13 Wordtune JS Remediation
+
+- Continued Step 11.13 remediation without GitHub Actions and resolved the next manifest-missing React Native/Expo repo pair.
+- Fixed and pushed downstream JS validation support to `GeorgeQLe/wordtune-mobile-clone` at commit `ea77b03` (`chore: enable wordtune js validation`): added React Native and Expo package manifests, npm lockfiles, TypeScript configs, Babel configs, ESLint configs, React Native root `App.tsx`, and Expo `app.json`.
+- Targeted source fixes: replaced generated streaming-service empty catch / `any` handling with typed stream-event parsing and non-abort error reporting, and removed unused Expo tab placeholder imports.
+- Validation passed locally:
+  - Wordtune React Native: `npm run typecheck`; `npm test -- --runInBand` (7 tests); `npm run lint` (0 errors, 0 warnings).
+  - Wordtune Expo: `npm run typecheck`; `npm test -- --runInBand` (7 tests); `npm run lint` (0 errors, 0 warnings).
+- Accepted warnings: npm package deprecation warnings and npm audit warnings remain after install (React Native 14 total: 3 moderate, 11 high; Expo 43 total: 6 low, 4 moderate, 30 high, 3 critical). No `npm audit fix --force` was run because it would broaden dependency churn beyond this validation slice.
+- Updated `tasks/phase-11-validation-report.md`: React Native/Expo validation now passes for 20 repos, leaving 7 manifest-missing repo pairs.
+- Remote verification passed: `GeorgeQLe/wordtune-mobile-clone` remains private on `main`, pushed at `2026-05-13T13:41:17Z`.
+- Step 11.13 remains blocked: QuillBot, Ask AI, Genie, Monica, Notion AI, Forefront AI, and Consensus still need React Native/Expo manifest remediation and validation; Flutter and Android remain local toolchain-blocked.
+
+### Ship Manifest
+
+- User goal: continue Step 11.13 remediation by implementing and validating the next manifest-missing React Native/Expo pair.
+- Changed files: downstream JS validation files in `GeorgeQLe/wordtune-mobile-clone`; source planning files `tasks/todo.md`, `tasks/history.md`, `tasks/phase-11-validation-report.md`.
+- Per-file purpose: downstream package/config/source fixes make Wordtune React Native/Expo installable and locally validatable; planning files record evidence, blocker reduction, and next work.
+- User-goal mapping: Wordtune now has executable local JS evidence and is removed from the manifest-missing blocker set.
+- Tests run: Wordtune RN typecheck/test/lint; Wordtune Expo typecheck/test/lint; remote privacy/default-branch verification.
+- Skipped tests: remaining 7 manifest-missing React Native/Expo repo pairs were not run after completing this serial remediation slice; Flutter skipped because `flutter` is missing; Android skipped because Java/Gradle are missing; GitHub Actions intentionally not used.
+- Adversarial review: Wordtune now has executable local JS evidence, but benchmark scorecard blockers were not regenerated in this slice and Phase 11 remains open.
+- Residual risk: npm audit warnings remain in installed dependency trees; no real-device smoke test was performed.
+- Rollback note: revert downstream commit `ea77b03`, then revert this planning commit to return to the previous manifest-gap state.
+- Next command: `$run` for Step 11.13 remediation starting at QuillBot.
