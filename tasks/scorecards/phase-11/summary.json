@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-05-13T14:11:06.099Z",
+  "generatedAt": "2026-05-13T14:19:17.964Z",
   "runId": "phase-11-local-2026-05-13",
   "category": "AI & Assistants",
   "totalTargets": 135,
-  "scorecardCount": 75,
-  "blockerCount": 60,
-  "averageComposite": 38.29,
+  "scorecardCount": 77,
+  "blockerCount": 58,
+  "averageComposite": 38.35,
   "byVariant": {
     "react-native": {
-      "scorecards": 24,
-      "blockers": 3
+      "scorecards": 25,
+      "blockers": 2
     },
     "flutter": {
       "scorecards": 0,
       "blockers": 27
     },
     "expo": {
-      "scorecards": 24,
-      "blockers": 3
+      "scorecards": 25,
+      "blockers": 2
     },
     "ios-native": {
       "scorecards": 27,
@@ -31,9 +31,26 @@
   "byReason": {
     "missing-local-flutter-toolchain": 27,
     "missing-local-android-toolchain": 27,
-    "missing-package-manifest": 6
+    "missing-package-manifest": 4
   },
   "scorecards": [
+    {
+      "appId": 220,
+      "appName": "Notion AI",
+      "repo": "GeorgeQLe/notion-ai-mobile-clone",
+      "variant": "react-native",
+      "composite": 41.64,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 83.25,
+        "codeQuality": 91.6,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/220-notion-ai-react-native.json"
+    },
     {
       "appId": 3,
       "appName": "Perplexity",
@@ -271,6 +288,23 @@
         "storeCompliance": 0
       },
       "file": "tasks/scorecards/phase-11/218-genie-react-native.json"
+    },
+    {
+      "appId": 220,
+      "appName": "Notion AI",
+      "repo": "GeorgeQLe/notion-ai-mobile-clone",
+      "variant": "expo",
+      "composite": 39.97,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 75.75,
+        "codeQuality": 93,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/220-notion-ai-expo.json"
     },
     {
       "appId": 216,

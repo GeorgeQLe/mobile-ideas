@@ -1,14 +1,14 @@
 # Phase 11 Benchmark Scorecards
 
-Generated: 2026-05-13T14:11:06.099Z
+Generated: 2026-05-13T14:19:17.964Z
 Run ID: `phase-11-local-2026-05-13`
 
 ## Summary
 
 - Total benchmark targets: 135
-- Scorecards produced: 75
-- Blocker records produced: 60
-- Average composite across scored variants: 38.29
+- Scorecards produced: 77
+- Blocker records produced: 58
+- Average composite across scored variants: 38.35
 
 ## Blockers By Reason
 
@@ -16,12 +16,13 @@ Run ID: `phase-11-local-2026-05-13`
 | --- | ---: |
 | missing-local-flutter-toolchain | 27 |
 | missing-local-android-toolchain | 27 |
-| missing-package-manifest | 6 |
+| missing-package-manifest | 4 |
 
 ## Scorecards
 
 | ID | App | Variant | Composite | File |
 | ---: | --- | --- | ---: | --- |
+| 220 | Notion AI | react-native | 41.64 | tasks/scorecards/phase-11/220-notion-ai-react-native.json |
 | 003 | Perplexity | react-native | 40.94 | tasks/scorecards/phase-11/003-perplexity-react-native.json |
 | 004 | Character.AI | react-native | 40.61 | tasks/scorecards/phase-11/004-character-ai-react-native.json |
 | 005 | Replika | ios-native | 40.37 | tasks/scorecards/phase-11/005-replika-ios-native.json |
@@ -36,6 +37,7 @@ Run ID: `phase-11-local-2026-05-13`
 | 207 | You.com | expo | 39.97 | tasks/scorecards/phase-11/207-you-com-expo.json |
 | 217 | Ask AI | react-native | 39.97 | tasks/scorecards/phase-11/217-ask-ai-react-native.json |
 | 218 | Genie | react-native | 39.97 | tasks/scorecards/phase-11/218-genie-react-native.json |
+| 220 | Notion AI | expo | 39.97 | tasks/scorecards/phase-11/220-notion-ai-expo.json |
 | 216 | QuillBot | react-native | 39.73 | tasks/scorecards/phase-11/216-quillbot-react-native.json |
 | 220 | Notion AI | ios-native | 39.62 | tasks/scorecards/phase-11/220-notion-ai-ios-native.json |
 | 203 | Microsoft Copilot | expo | 39.34 | tasks/scorecards/phase-11/203-microsoft-copilot-expo.json |
