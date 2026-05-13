@@ -1170,6 +1170,34 @@ Build all five variants for every app in the AI & Assistants category cluster to
   **Next work:** Step 11.13 remediation — implement and validate the next manifest-missing React Native/Expo repo pair, ELSA Speak.
   **Recommended next command:** `$run`
 
+  **Remediation Progress — 2026-05-13 (Codex):**
+  - Continued Step 11.13 remediation without GitHub Actions by resolving the next manifest-missing React Native/Expo pair: `GeorgeQLe/elsa-speak-mobile-clone`.
+  - Fixed and pushed downstream JS validation support at commit `c53c02d`: added React Native and Expo package manifests, npm lockfiles, TypeScript configs, Babel configs, ESLint configs, React Native root `App.tsx`, and Expo `app.json`.
+  - Targeted source/test fixes: aligned React Native registration and lesson filter calls with existing typed stores, fixed conversation scenario fixture fields, made the pronunciation analysis screen use the existing store signature, aligned the React Native streaming test with `StreamingAnalysisService`, and replaced generated streaming-service empty catch / `any` handling with typed stream-event parsing and non-abort error reporting.
+  - Local executable validation passed without GitHub Actions:
+    - ELSA Speak React Native: `npm run typecheck`, `npm test -- --runInBand` (15 tests), `npm run lint` (0 errors, 0 warnings).
+    - ELSA Speak Expo: `npm run typecheck`, `npm test -- --runInBand` (7 tests), `npm run lint` (0 errors, 0 warnings).
+  - npm install warnings were accepted as dependency-maintenance noise for generated scaffold dependencies; npm audit still reports known third-party vulnerabilities after install (ELSA Speak React Native 14 total: 3 moderate, 11 high; ELSA Speak Expo 43 total: 6 low, 4 moderate, 30 high, 3 critical). No `npm audit fix --force` was run because it would introduce breaking dependency churn outside this validation slice.
+  - Remote verification: `gh api repos/GeorgeQLe/elsa-speak-mobile-clone --jq '{visibility, default_branch, pushed_at}'` returned `visibility: private`, `default_branch: main`, `pushed_at: 2026-05-13T04:24:28Z`.
+  - Updated `tasks/phase-11-validation-report.md`: React Native/Expo validation now passes for 17 repos, and the manifest-missing implementation gap is reduced from 11 repo pairs to 10 repo pairs.
+
+  **Current Status:** blocked — Step 11.13 remains unchecked. Phase 11 cannot be marked complete until the remaining 10 manifest-missing React Native/Expo repo pairs are implemented and validated, Flutter validation/benchmarking has executable evidence or approved external disposition, and Android Native validation/benchmarking has executable evidence or approved external disposition.
+
+  **Ship Manifest — 2026-05-13 (Codex):**
+  - User goal: continue Step 11.13 remediation by implementing and validating the next manifest-missing React Native/Expo pair.
+  - Changed files: downstream ELSA Speak React Native/Expo package/config/source/test files; `tasks/todo.md`, `tasks/history.md`, and `tasks/phase-11-validation-report.md`.
+  - Per-file purpose: downstream files make ELSA Speak React Native/Expo installable and locally validatable; task/report/history docs record evidence and remaining blockers.
+  - User-goal mapping: removes ELSA Speak from the manifest-missing blocker set and provides executable local validation evidence for both JS variants.
+  - Tests run: ELSA Speak RN typecheck/test/lint; ELSA Speak Expo typecheck/test/lint; remote privacy/default-branch verification.
+  - Skipped tests: remaining 10 manifest-missing React Native/Expo repo pairs were not run after completing this serial remediation slice; Flutter remains blocked because `flutter` is unavailable; Android remains blocked because Java/Gradle are unavailable; GitHub Actions intentionally not used.
+  - Adversarial review: this proves ELSA Speak only and does not count as benchmark scorecard remediation yet; Step 11.12 scorecard blockers still need regeneration after enough build evidence exists.
+  - Residual risk: generated npm audit findings remain; validation is local structural validation, not device smoke testing.
+  - Rollback note: revert downstream commit `c53c02d`, then revert this planning commit.
+  - Next command: `$run` for the next Step 11.13 remediation slice.
+
+  **Next work:** Step 11.13 remediation — implement and validate the next manifest-missing React Native/Expo repo pair, OtterPilot.
+  **Recommended next command:** `$run`
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`
