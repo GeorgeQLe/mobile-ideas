@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-05-13T14:19:17.964Z",
+  "generatedAt": "2026-05-13T14:25:43.884Z",
   "runId": "phase-11-local-2026-05-13",
   "category": "AI & Assistants",
   "totalTargets": 135,
-  "scorecardCount": 77,
-  "blockerCount": 58,
-  "averageComposite": 38.35,
+  "scorecardCount": 79,
+  "blockerCount": 56,
+  "averageComposite": 38.42,
   "byVariant": {
     "react-native": {
-      "scorecards": 25,
-      "blockers": 2
+      "scorecards": 26,
+      "blockers": 1
     },
     "flutter": {
       "scorecards": 0,
       "blockers": 27
     },
     "expo": {
-      "scorecards": 25,
-      "blockers": 2
+      "scorecards": 26,
+      "blockers": 1
     },
     "ios-native": {
       "scorecards": 27,
@@ -31,9 +31,26 @@
   "byReason": {
     "missing-local-flutter-toolchain": 27,
     "missing-local-android-toolchain": 27,
-    "missing-package-manifest": 4
+    "missing-package-manifest": 2
   },
   "scorecards": [
+    {
+      "appId": 221,
+      "appName": "Forefront AI",
+      "repo": "GeorgeQLe/forefront-ai-mobile-clone",
+      "variant": "react-native",
+      "composite": 41.85,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 83.25,
+        "codeQuality": 93,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/221-forefront-ai-react-native.json"
+    },
     {
       "appId": 220,
       "appName": "Notion AI",
@@ -305,6 +322,23 @@
         "storeCompliance": 0
       },
       "file": "tasks/scorecards/phase-11/220-notion-ai-expo.json"
+    },
+    {
+      "appId": 221,
+      "appName": "Forefront AI",
+      "repo": "GeorgeQLe/forefront-ai-mobile-clone",
+      "variant": "expo",
+      "composite": 39.97,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 75.75,
+        "codeQuality": 93,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/221-forefront-ai-expo.json"
     },
     {
       "appId": 216,
