@@ -2611,3 +2611,30 @@
 - Residual risk: npm audit warnings remain in installed dependency trees; generated lint warnings remain but exit zero; no real-device smoke test was performed.
 - Rollback note: revert downstream commit `f6c56da`, then revert this planning commit to return to the previous manifest-gap state.
 - Next command: `$run` for Step 11.13 remediation starting at Wysa.
+
+## 2026-05-13 - Phase 11 Step 11.13 Wysa JS Remediation
+
+- Continued Step 11.13 remediation without GitHub Actions and resolved the next manifest-missing React Native/Expo repo pair.
+- Fixed and pushed downstream JS validation support to `GeorgeQLe/wysa-mobile-clone` at commit `2e32c36` (`chore: enable wysa js validation`).
+- React Native fixes: added package manifest, npm lockfile, TypeScript config, Babel config, ESLint config, root `App.tsx`, and typed streaming-service parse/error handling.
+- Expo fixes: added package manifest, npm lockfile, Expo app/config files, TypeScript config, Babel config, ESLint config, and typed streaming-service parse/error handling.
+- Validation passed locally:
+  - Wysa React Native: `npm run typecheck`; `npm test -- --runInBand` (7 tests); `npm run lint` (0 errors, 0 warnings).
+  - Wysa Expo: `npm run typecheck`; `npm test -- --runInBand` (7 tests); `npm run lint` (0 errors, 4 warnings).
+- Remote verification passed: `GeorgeQLe/wysa-mobile-clone` remains private on `main`, pushed at `2026-05-13T02:44:00Z`.
+- Updated `tasks/phase-11-validation-report.md`: React Native/Expo validation now passes for 16 repos, leaving 11 manifest-missing repo pairs.
+- Accepted warnings: generated unused imports in Expo tab placeholders, npm package deprecation warnings, and npm audit warnings. No `npm audit fix --force` was run because it would broaden dependency churn beyond this validation slice.
+- Step 11.13 remains blocked: ELSA Speak, OtterPilot, Grammarly Keyboard, Wordtune, QuillBot, Ask AI, Genie, Monica, Notion AI, Forefront AI, and Consensus still need React Native/Expo manifest remediation and validation; Flutter and Android remain local toolchain-blocked.
+
+### Ship Manifest
+
+- User goal: continue Step 11.13 remediation by implementing and validating the next manifest-missing React Native/Expo pair.
+- Changed files: downstream JS validation files in `GeorgeQLe/wysa-mobile-clone`; source planning files `tasks/todo.md`, `tasks/history.md`, `tasks/phase-11-validation-report.md`.
+- Per-file purpose: downstream package/config/source fixes make Wysa React Native/Expo installable and locally validatable; planning files record evidence, blocker reduction, and next work.
+- User-goal mapping: Wysa now has executable local JS evidence and is removed from the manifest-missing blocker set.
+- Tests run: Wysa RN typecheck/test/lint; Wysa Expo typecheck/test/lint; remote privacy/default-branch verification.
+- Skipped tests: remaining 11 manifest-missing React Native/Expo repo pairs were not run after completing this serial remediation slice; Flutter skipped because `flutter` is missing; Android skipped because Java/Gradle are missing; GitHub Actions intentionally not used.
+- Adversarial review: Wysa now has executable local JS evidence, but benchmark scorecard blockers were not regenerated in this slice and Phase 11 remains open.
+- Residual risk: npm audit warnings remain in installed dependency trees; generated Expo lint warnings remain but exit zero; no real-device smoke test was performed.
+- Rollback note: revert downstream commit `2e32c36`, then revert this planning commit to return to the previous manifest-gap state.
+- Next command: `$run` for Step 11.13 remediation starting at ELSA Speak.

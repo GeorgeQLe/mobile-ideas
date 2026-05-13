@@ -1142,6 +1142,34 @@ Build all five variants for every app in the AI & Assistants category cluster to
   **Next work:** Step 11.13 remediation — implement and validate the next manifest-missing React Native/Expo repo pair, Wysa.
   **Recommended next command:** `$run`
 
+  **Remediation Progress — 2026-05-13 (Codex):**
+  - Continued Step 11.13 remediation without GitHub Actions by resolving the next manifest-missing React Native/Expo pair: `GeorgeQLe/wysa-mobile-clone`.
+  - Fixed and pushed downstream JS validation support at commit `2e32c36`: added React Native and Expo package manifests, npm lockfiles, TypeScript configs, Babel configs, ESLint configs, React Native root `App.tsx`, and Expo `app.json`.
+  - Targeted source fixes: pointed the React Native entry point at the generated navigator and replaced generated streaming-service empty catch / `any` handling with typed stream-event parsing and non-abort error reporting.
+  - Local executable validation passed without GitHub Actions:
+    - Wysa React Native: `npm run typecheck`, `npm test -- --runInBand` (7 tests), `npm run lint` (0 errors, 0 warnings).
+    - Wysa Expo: `npm run typecheck`, `npm test -- --runInBand` (7 tests), `npm run lint` (0 errors, 4 accepted warnings).
+  - npm install warnings were accepted as dependency-maintenance noise for generated scaffold dependencies; npm audit still reports known third-party vulnerabilities after install (Wysa React Native 14 total: 3 moderate, 11 high; Wysa Expo 43 total: 6 low, 4 moderate, 30 high, 3 critical). No `npm audit fix --force` was run because it would introduce breaking dependency churn outside this validation slice.
+  - Remote verification: `gh api repos/GeorgeQLe/wysa-mobile-clone --jq '{visibility, default_branch, pushed_at}'` returned `visibility: private`, `default_branch: main`, `pushed_at: 2026-05-13T02:44:00Z`.
+  - Updated `tasks/phase-11-validation-report.md`: React Native/Expo validation now passes for 16 repos, and the manifest-missing implementation gap is reduced from 12 repo pairs to 11 repo pairs.
+
+  **Current Status:** blocked — Step 11.13 remains unchecked. Phase 11 cannot be marked complete until the remaining 11 manifest-missing React Native/Expo repo pairs are implemented and validated, Flutter validation/benchmarking has executable evidence or approved external disposition, and Android Native validation/benchmarking has executable evidence or approved external disposition.
+
+  **Ship Manifest — 2026-05-13 (Codex):**
+  - User goal: continue Step 11.13 remediation by implementing and validating the next manifest-missing React Native/Expo pair.
+  - Changed files: downstream Wysa React Native/Expo package/config/source files; `tasks/todo.md`, `tasks/history.md`, and `tasks/phase-11-validation-report.md`.
+  - Per-file purpose: downstream files make Wysa React Native/Expo installable and locally validatable; task/report/history docs record evidence, accepted warnings, and remaining blockers.
+  - User-goal mapping: removes Wysa from the manifest-missing blocker set and provides executable local validation evidence for both JS variants.
+  - Tests run: Wysa RN typecheck/test/lint; Wysa Expo typecheck/test/lint; remote privacy/default-branch verification.
+  - Skipped tests: remaining 11 manifest-missing React Native/Expo repo pairs were not run after completing this serial remediation slice; Flutter remains blocked because `flutter` is unavailable; Android remains blocked because Java/Gradle are unavailable; GitHub Actions intentionally not used.
+  - Adversarial review: this proves Wysa only and does not count as benchmark scorecard remediation yet; Step 11.12 scorecard blockers still need regeneration after enough build evidence exists.
+  - Residual risk: generated npm audit findings remain; Expo lint has four accepted unused-import warnings in generated tab placeholders; validation is local structural validation, not device smoke testing.
+  - Rollback note: revert downstream commit `2e32c36`, then revert this planning commit.
+  - Next command: `$run` for the next Step 11.13 remediation slice.
+
+  **Next work:** Step 11.13 remediation — implement and validate the next manifest-missing React Native/Expo repo pair, ELSA Speak.
+  **Recommended next command:** `$run`
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`
