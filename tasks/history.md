@@ -1,5 +1,28 @@
 # History
 
+## 2026-05-13 - Phase 11 Step 11.12 Benchmark Harness Blocker
+
+- Attempted Step 11.12 benchmarking without GitHub Actions using `/tmp/mobile-benchmark-harness`.
+- Harness build passed with `npm run build`.
+- Harness tests failed with `ERR_MODULE_NOT_FOUND` because `test/validate-pilot.ts` imports source `.js` paths that do not exist under `src/`.
+- Harness CLI failed with the placeholder message `mobile-benchmark-harness CLI — not yet implemented` and exited 1 before writing scorecard output.
+- Added `scripts/generate-phase11-benchmark-blockers.mjs` to generate deterministic Step 11.12 blocker artifacts.
+- Generated `tasks/scorecards/phase-11/README.md` and `tasks/scorecards/phase-11/benchmark-blockers.json` covering all 135 Phase 11 app/variant slots.
+- No benchmark scores were invented. Step 11.12 remains blocked until the harness CLI/test runner is implemented or an alternate approved local benchmark runner exists.
+
+### Ship Manifest
+
+- User goal: continue `$run` from the next incomplete Phase 11 step and run benchmarking where valid.
+- Changed files: `scripts/generate-phase11-benchmark-blockers.mjs`, `tasks/scorecards/phase-11/README.md`, `tasks/scorecards/phase-11/benchmark-blockers.json`, `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: generator makes blocker records reproducible; scorecard artifacts record benchmark blockers for every Phase 11 variant; todo/history record the failed harness evidence and next remediation.
+- User-goal mapping: preserves Step 11.12 evidence without claiming benchmark scores that the harness did not produce.
+- Tests run: `/tmp/mobile-benchmark-harness` `npm run build` passed; `npm test` failed as described; `npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` failed as described; generated JSON parsed successfully and contains 135 records.
+- Skipped tests: no downstream variant benchmark commands could be run because the harness CLI exits before measurement; Flutter and Android remain locally toolchain-blocked from Step 11.11; GitHub Actions intentionally unused.
+- Adversarial review: the artifacts separate harness failure, missing React Native/Expo manifests, and missing local toolchains so Phase 11 cannot treat blocker records as passing scorecards.
+- Residual risk: once the harness CLI is implemented, buildable variants still need real benchmark measurements and schema-valid scorecard JSON.
+- Rollback note: revert this planning commit to remove the generated blocker artifacts and restore Step 11.12 to its previous unattempted state.
+- Next command: `$run` after the benchmark harness CLI/test runner is available or after an approved alternate runner is selected.
+
 ## 2026-05-13 - Phase 11 Step 11.11 Validation Gap Treatment
 
 - Completed Step 11.11 as a no-GitHub-Actions local validation pass with explicit blockers documented.

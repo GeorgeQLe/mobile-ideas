@@ -1000,6 +1000,22 @@ Build all five variants for every app in the AI & Assistants category cluster to
   - Cross-app comparison and category rollup.
   - Updated `tasks/todo.md` and `tasks/history.md` with exact benchmark results and residual blockers.
 
+  **Benchmark Attempt — 2026-05-13 (Codex):**
+  - Located the local harness checkout at `/tmp/mobile-benchmark-harness`.
+  - Harness build passed: `npm run build`.
+  - Harness test failed: `npm test` exits 1 because `test/validate-pilot.ts` imports `../src/scoring/composite.js`, but no compiled `.js` file exists under `src/`.
+  - Harness CLI failed: `npm run benchmark -- --app /tmp/example --variant ios-native --output /tmp/example.json` exits 1 with `mobile-benchmark-harness CLI — not yet implemented`.
+  - Generated deterministic blocker artifacts instead of scorecards:
+    - `tasks/scorecards/phase-11/README.md`
+    - `tasks/scorecards/phase-11/benchmark-blockers.json`
+  - Blocker record coverage: 135 records for all 27 apps x 5 variants.
+  - Blocker summary: 55 `benchmark-harness-cli-unimplemented`, 26 `missing-package-manifest`, 27 `missing-local-flutter-toolchain`, and 27 `missing-local-android-toolchain`.
+
+  **Current Status:** blocked — Step 11.12 cannot produce valid benchmark scorecards until `GeorgeQLe/mobile-benchmark-harness` has an implemented CLI/test path or an alternate approved local runner exists. No benchmark scores were invented.
+
+  **Next work:** Step 11.12 remediation — implement or repair the `mobile-benchmark-harness` CLI/test runner, then rerun Phase 11 scorecard generation for buildable variants.
+  **Recommended next command:** `$run`
+
 - [ ] Step 11.13: Phase 11 final validation and cleanup
   - Verify all acceptance criteria:
     - All 27 apps × 5 variants = 135 app builds exist and compile.
