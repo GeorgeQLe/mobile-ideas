@@ -1087,6 +1087,33 @@ Build all five variants for every app in the AI & Assistants category cluster to
   - If blockers remain, Step 11.13 stays unchecked and names the next concrete remediation slice.
   - If all blockers are resolved with executable evidence, mark Step 11.13 and Phase 11 acceptance criteria complete.
 
+  **Final Validation Result — 2026-05-13 (Codex):**
+  - Re-read `tasks/phase-11-validation-report.md`, `tasks/scorecards/phase-11/summary.json`, and `tasks/scorecards/phase-11/benchmark-blockers.json`.
+  - Verified scorecard/blocker accounting: 135 total targets = 55 scorecards + 80 blockers.
+  - Verified per-variant benchmark coverage: React Native 14 scored / 13 blocked, Flutter 0 scored / 27 blocked, Expo 14 scored / 13 blocked, iOS Native 27 scored / 0 blocked, Android Native 0 scored / 27 blocked.
+  - Verified blocker reasons: 26 `missing-package-manifest`, 27 `missing-local-flutter-toolchain`, and 27 `missing-local-android-toolchain`.
+  - Verified every scored benchmark entry in `summary.json` includes all seven benchmark dimensions: performance, bundle size, UX fidelity, code quality, dev velocity, accessibility, and store compliance.
+  - Phase 11 acceptance criteria remain unsatisfied because not all 135 app builds compile locally, not all variants have benchmark scores, and no user-approved blocker disposition exists for carrying the 80 blocked targets forward as complete.
+  - Legal/asset hygiene remains documented by the Step 11 implementation constraints and source-spec scope, but a final source/assets audit cannot close Phase 11 while implementation and benchmark blockers remain.
+  - Manual verification blockers remain documented and are not claimed as resolved.
+
+  **Current Status:** blocked — Step 11.13 remains unchecked. Phase 11 cannot be marked complete until the 13 manifest-missing React Native/Expo repo pairs are implemented and validated, Flutter validation/benchmarking has executable evidence or approved external disposition, and Android Native validation/benchmarking has executable evidence or approved external disposition.
+
+  **Ship Manifest — 2026-05-13 (Codex):**
+  - User goal: complete the next `$run` unit by performing Phase 11 final validation and cleanup.
+  - Changed files: `tasks/todo.md`, `tasks/history.md`.
+  - Per-file purpose: `tasks/todo.md` records the final validation result while keeping Step 11.13 open; `tasks/history.md` records the evidence and next remediation path.
+  - User-goal mapping: prevents false completion of Phase 11 while preserving exact validation and benchmark accounting.
+  - Tests run: JSON/count validation for Phase 11 scorecards and blockers; scorecard seven-dimension schema check; Markdown heading sanity check; git status check.
+  - Skipped tests: no downstream app test suites were rerun because this step audits existing Step 11.11 and 11.12 evidence; Flutter and Android remain locally toolchain-blocked; 26 React Native/Expo targets remain package-manifest blocked; GitHub Actions intentionally unused.
+  - Adversarial review: the result explicitly fails Phase 11 closeout instead of accepting blocker artifacts as passing scorecards.
+  - Residual risk: source/assets legal hygiene has not been re-audited across all downstream repos in this closeout slice because implementation completeness is already blocked.
+  - Rollback note: revert this planning commit to restore Step 11.13 to its pre-validation state.
+  - Next command: `$run` for the next remediation slice.
+
+  **Next work:** Step 11.13 remediation — implement and validate the 13 manifest-missing React Native/Expo repo pairs, starting with Character.AI React Native and Expo package manifests.
+  **Recommended next command:** `$run`
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`

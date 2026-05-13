@@ -1,5 +1,28 @@
 # History
 
+## 2026-05-13 - Phase 11 Step 11.13 Final Validation
+
+- Performed Phase 11 final validation against `tasks/phase-11-validation-report.md` and `tasks/scorecards/phase-11/`.
+- Verified benchmark artifact accounting: 135 total targets = 55 scorecards + 80 blockers.
+- Verified per-variant coverage: React Native 14 scored / 13 blocked, Flutter 0 scored / 27 blocked, Expo 14 scored / 13 blocked, iOS Native 27 scored / 0 blocked, Android Native 0 scored / 27 blocked.
+- Verified blocker reason counts: 26 `missing-package-manifest`, 27 `missing-local-flutter-toolchain`, and 27 `missing-local-android-toolchain`.
+- Verified every scored entry has all seven benchmark dimensions.
+- Did not mark Phase 11 complete. Acceptance criteria remain unsatisfied because not all 135 app builds compile locally, not all variants have benchmark scores, and no user-approved blocker disposition exists for treating the 80 blocked targets as complete.
+- Next remediation is to implement and validate the 13 manifest-missing React Native/Expo repo pairs, starting with Character.AI React Native and Expo.
+
+### Ship Manifest
+
+- User goal: continue `$run` with Phase 11 final validation and cleanup.
+- Changed files: `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: `tasks/todo.md` records the failed final validation result and next remediation path; `tasks/history.md` records the evidence and ship manifest.
+- User-goal mapping: preserves exact closeout evidence without falsely checking Step 11.13 or Phase 11 acceptance criteria.
+- Tests run: scorecard/blocker JSON accounting; scorecard seven-dimension schema check; Markdown heading sanity check; git status check.
+- Skipped tests: downstream app tests were not rerun because this step audits existing validation/benchmark artifacts; Flutter and Android remain locally toolchain-blocked; 26 React Native/Expo targets remain package-manifest blocked; GitHub Actions intentionally unused.
+- Adversarial review: validation intentionally fails the phase closeout because blocker records are not scorecards and cannot prove compile or benchmark success.
+- Residual risk: final source/assets legal audit remains pending after implementation completeness blockers are resolved.
+- Rollback note: revert this planning commit to remove the Step 11.13 final validation record.
+- Next command: `$run`.
+
 ## 2026-05-13 - Phase 11 Step 11.12 Benchmark Harness Blocker
 
 - Attempted Step 11.12 benchmarking without GitHub Actions using `/tmp/mobile-benchmark-harness`.
