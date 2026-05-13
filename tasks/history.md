@@ -1,5 +1,31 @@
 # History
 
+## 2026-05-13 - Phase 11 Step 11.13 QuillBot JS Remediation
+
+- Continued Step 11.13 remediation without GitHub Actions for `GeorgeQLe/quillbot-mobile-clone`.
+- Fixed and pushed downstream JS validation support at commit `5ce16f5`.
+- Added React Native and Expo package manifests, npm lockfiles, TypeScript configs, Babel configs, ESLint configs, React Native root `App.tsx`, and Expo `app.json`.
+- Fixed generated streaming-service lint errors with typed stream-event parsing and non-abort error reporting; removed unused Expo tab imports.
+- Local executable validation passed:
+  - QuillBot React Native: `npm run typecheck`; `npm test -- --runInBand` (7 tests); `npm run lint` (0 errors, 0 warnings).
+  - QuillBot Expo: `npm run typecheck`; `npm test -- --runInBand` (7 tests); `npm run lint` (0 errors, 0 warnings).
+- Remote verification confirmed `visibility: private`, `default_branch: main`, and `pushed_at: 2026-05-13T13:49:05Z`.
+- Updated `tasks/phase-11-validation-report.md`: React Native/Expo validation now passes for 21 repos; manifest-missing implementation gap is reduced to 6 repo pairs.
+- Step 11.13 remains blocked by the remaining 6 React Native/Expo repo pairs plus Flutter and Android local toolchain blockers.
+
+### Ship Manifest
+
+- User goal: continue Step 11.13 remediation by implementing and validating the next manifest-missing React Native/Expo pair.
+- Changed files: downstream QuillBot React Native/Expo package/config/source files; `tasks/todo.md`, `tasks/history.md`, and `tasks/phase-11-validation-report.md`.
+- Per-file purpose: downstream files make QuillBot React Native/Expo installable and locally validatable; task/report/history docs record evidence, blocker reduction, and remaining blockers.
+- User-goal mapping: removes QuillBot from the manifest-missing blocker set and provides executable local validation evidence for both JS variants.
+- Tests run: QuillBot RN typecheck/test/lint; QuillBot Expo typecheck/test/lint; remote privacy/default-branch verification.
+- Skipped tests: remaining 6 manifest-missing React Native/Expo repo pairs were not run after completing this serial remediation slice; Flutter remains blocked because `flutter` is unavailable; Android remains blocked because Java/Gradle are unavailable; GitHub Actions intentionally not used.
+- Adversarial review: this proves QuillBot only and does not count as benchmark scorecard remediation yet; Step 11.12 scorecard blockers still need regeneration after enough build evidence exists.
+- Residual risk: generated npm audit findings remain; validation is local structural validation, not device smoke testing.
+- Rollback note: revert downstream commit `5ce16f5`, then revert this planning commit.
+- Next command: `$run`.
+
 ## 2026-05-13 - Phase 11 Step 11.13 OtterPilot JS Remediation
 
 - Continued Step 11.13 remediation without GitHub Actions for `GeorgeQLe/otterpilot-mobile-clone`.

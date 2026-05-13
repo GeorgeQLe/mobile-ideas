@@ -1282,6 +1282,34 @@ Build all five variants for every app in the AI & Assistants category cluster to
   **Next work:** Step 11.13 remediation — implement and validate the next manifest-missing React Native/Expo repo pair, QuillBot.
   **Recommended next command:** `$run`
 
+  **Remediation Progress — 2026-05-13 (Codex):**
+  - Continued Step 11.13 remediation without GitHub Actions by resolving the next manifest-missing React Native/Expo pair: `GeorgeQLe/quillbot-mobile-clone`.
+  - Fixed and pushed downstream JS validation support at commit `5ce16f5`: added React Native and Expo package manifests, npm lockfiles, TypeScript configs, Babel configs, ESLint configs, React Native root `App.tsx`, and Expo `app.json`.
+  - Targeted source fixes: replaced generated streaming-service empty catch / `any` handling with typed stream-event parsing and non-abort error reporting, and removed unused Expo tab placeholder imports.
+  - Local executable validation passed without GitHub Actions:
+    - QuillBot React Native: `npm run typecheck`, `npm test -- --runInBand` (7 tests), `npm run lint` (0 errors, 0 warnings).
+    - QuillBot Expo: `npm run typecheck`, `npm test -- --runInBand` (7 tests), `npm run lint` (0 errors, 0 warnings).
+  - npm install warnings were accepted as dependency-maintenance noise for generated scaffold dependencies; npm audit still reports known third-party vulnerabilities after install (QuillBot React Native 8 moderate; QuillBot Expo 24 total: 1 low, 9 moderate, 14 high). No `npm audit fix --force` was run because it would introduce breaking dependency churn outside this validation slice.
+  - Remote verification: `gh api repos/GeorgeQLe/quillbot-mobile-clone --jq '{visibility, default_branch, pushed_at}'` returned `visibility: private`, `default_branch: main`, `pushed_at: 2026-05-13T13:49:05Z`.
+  - Updated `tasks/phase-11-validation-report.md`: React Native/Expo validation now passes for 21 repos, and the manifest-missing implementation gap is reduced from 7 repo pairs to 6 repo pairs.
+
+  **Current Status:** blocked — Step 11.13 remains unchecked. Phase 11 cannot be marked complete until the remaining 6 manifest-missing React Native/Expo repo pairs are implemented and validated, Flutter validation/benchmarking has executable evidence or approved external disposition, and Android Native validation/benchmarking has executable evidence or approved external disposition.
+
+  **Ship Manifest — 2026-05-13 (Codex):**
+  - User goal: continue Step 11.13 remediation by implementing and validating the next manifest-missing React Native/Expo pair.
+  - Changed files: downstream QuillBot React Native/Expo package/config/source files; `tasks/todo.md`, `tasks/history.md`, and `tasks/phase-11-validation-report.md`.
+  - Per-file purpose: downstream files make QuillBot React Native/Expo installable and locally validatable; task/report/history docs record evidence, blocker reduction, and remaining blockers.
+  - User-goal mapping: removes QuillBot from the manifest-missing blocker set and provides executable local validation evidence for both JS variants.
+  - Tests run: QuillBot RN typecheck/test/lint; QuillBot Expo typecheck/test/lint; remote privacy/default-branch verification.
+  - Skipped tests: remaining 6 manifest-missing React Native/Expo repo pairs were not run after completing this serial remediation slice; Flutter remains blocked because `flutter` is unavailable; Android remains blocked because Java/Gradle are unavailable; GitHub Actions intentionally not used.
+  - Adversarial review: this proves QuillBot only and does not count as benchmark scorecard remediation yet; Step 11.12 scorecard blockers still need regeneration after enough build evidence exists.
+  - Residual risk: generated npm audit findings remain; validation is local structural validation, not device smoke testing.
+  - Rollback note: revert downstream commit `5ce16f5`, then revert this planning commit.
+  - Next command: `$run` for the next Step 11.13 remediation slice.
+
+  **Next work:** Step 11.13 remediation — implement and validate the next manifest-missing React Native/Expo repo pair, Ask AI.
+  **Recommended next command:** `$run`
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`
