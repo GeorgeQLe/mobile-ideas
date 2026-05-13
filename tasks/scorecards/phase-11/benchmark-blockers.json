@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-13T14:03:37.484Z",
+  "generatedAt": "2026-05-13T14:11:06.099Z",
   "runId": "phase-11-local-2026-05-13",
   "blockers": [
     {
@@ -513,32 +513,10 @@
       "appName": "Monica",
       "repo": "GeorgeQLe/monica-mobile-clone",
       "category": "AI & Assistants",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "missing-package-manifest",
-      "detail": "No executable manifest found at variants/react-native.",
-      "runId": "phase-11-local-2026-05-13"
-    },
-    {
-      "appId": 219,
-      "appName": "Monica",
-      "repo": "GeorgeQLe/monica-mobile-clone",
-      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
       "reason": "missing-local-flutter-toolchain",
       "detail": "`flutter` is unavailable on PATH in the local validation environment.",
-      "runId": "phase-11-local-2026-05-13"
-    },
-    {
-      "appId": 219,
-      "appName": "Monica",
-      "repo": "GeorgeQLe/monica-mobile-clone",
-      "category": "AI & Assistants",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "missing-package-manifest",
-      "detail": "No executable manifest found at variants/expo.",
       "runId": "phase-11-local-2026-05-13"
     },
     {

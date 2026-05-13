@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-05-13T14:03:37.484Z",
+  "generatedAt": "2026-05-13T14:11:06.099Z",
   "runId": "phase-11-local-2026-05-13",
   "category": "AI & Assistants",
   "totalTargets": 135,
-  "scorecardCount": 73,
-  "blockerCount": 62,
-  "averageComposite": 38.25,
+  "scorecardCount": 75,
+  "blockerCount": 60,
+  "averageComposite": 38.29,
   "byVariant": {
     "react-native": {
-      "scorecards": 23,
-      "blockers": 4
+      "scorecards": 24,
+      "blockers": 3
     },
     "flutter": {
       "scorecards": 0,
       "blockers": 27
     },
     "expo": {
-      "scorecards": 23,
-      "blockers": 4
+      "scorecards": 24,
+      "blockers": 3
     },
     "ios-native": {
       "scorecards": 27,
@@ -31,7 +31,7 @@
   "byReason": {
     "missing-local-flutter-toolchain": 27,
     "missing-local-android-toolchain": 27,
-    "missing-package-manifest": 8
+    "missing-package-manifest": 6
   },
   "scorecards": [
     {
@@ -152,6 +152,23 @@
         "storeCompliance": 0
       },
       "file": "tasks/scorecards/phase-11/215-wordtune-react-native.json"
+    },
+    {
+      "appId": 219,
+      "appName": "Monica",
+      "repo": "GeorgeQLe/monica-mobile-clone",
+      "variant": "react-native",
+      "composite": 40.35,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 77.25,
+        "codeQuality": 93,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/219-monica-react-native.json"
     },
     {
       "appId": 4,
@@ -628,6 +645,23 @@
         "storeCompliance": 0
       },
       "file": "tasks/scorecards/phase-11/210-huggingchat-expo.json"
+    },
+    {
+      "appId": 219,
+      "appName": "Monica",
+      "repo": "GeorgeQLe/monica-mobile-clone",
+      "variant": "expo",
+      "composite": 38.53,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 70,
+        "codeQuality": 93,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/219-monica-expo.json"
     },
     {
       "appId": 1,

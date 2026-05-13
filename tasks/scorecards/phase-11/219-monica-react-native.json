@@ -1,10 +1,10 @@
 {
   "meta": {
-    "appId": 218,
-    "appName": "Genie",
+    "appId": 219,
+    "appName": "Monica",
     "category": "AI & Assistants",
-    "variant": "expo",
-    "timestamp": "2026-05-13T14:11:05.398Z",
+    "variant": "react-native",
+    "timestamp": "2026-05-13T14:11:05.596Z",
     "ciRunId": "phase-11-local-2026-05-13",
     "harnessVersion": "0.1.0"
   },
@@ -78,24 +78,24 @@
       }
     },
     "uxFidelity": {
-      "score": 68,
+      "score": 77.25,
       "weight": 0.25,
       "metrics": {
         "screenCoveragePercent": {
-          "raw": 68,
-          "score": 68
+          "raw": 78,
+          "score": 78
         },
         "interactionCoveragePercent": {
-          "raw": 68,
-          "score": 68
+          "raw": 78,
+          "score": 78
         },
         "edgeCaseCoveragePercent": {
-          "raw": 68,
-          "score": 68
+          "raw": 75,
+          "score": 75
         },
         "specCompliancePercent": {
-          "raw": 68,
-          "score": 68
+          "raw": 78,
+          "score": 78
         }
       }
     },
@@ -193,7 +193,7 @@
     }
   },
   "composite": {
-    "score": 38.03,
+    "score": 40.35,
     "formula": "weighted-average",
     "weights": {
       "performance": 0.2,
@@ -206,8 +206,8 @@
     }
   },
   "evidence": {
-    "appPath": "/tmp/genie-mobile-clone",
-    "variantPath": "/tmp/genie-mobile-clone/variants/expo",
+    "appPath": "/tmp/monica-mobile-clone",
+    "variantPath": "/tmp/monica-mobile-clone/variants/react-native",
     "notes": [
       "UX fidelity report missing; using source structure proxy.",
       "Accessibility report missing; accessibility score is conservative.",

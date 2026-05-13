@@ -16,7 +16,7 @@ All 27 AI & Assistants downstream repositories pass local SwiftPM validation wit
 
 ### React Native and Expo
 
-React Native and Expo validation passed for the 23 downstream repositories that currently have package manifests.
+React Native and Expo validation passed for the 24 downstream repositories that currently have package manifests.
 
 | App | Repo | React Native | Expo |
 | --- | --- | --- | --- |
@@ -43,14 +43,14 @@ React Native and Expo validation passed for the 23 downstream repositories that 
 | QuillBot | `GeorgeQLe/quillbot-mobile-clone` | Passed typecheck, tests, lint | Passed typecheck, tests, lint |
 | Ask AI | `GeorgeQLe/ask-ai-mobile-clone` | Passed typecheck, tests, lint | Passed typecheck, tests, lint |
 | Genie | `GeorgeQLe/genie-mobile-clone` | Passed typecheck, tests, lint | Passed typecheck, tests, lint |
+| Monica | `GeorgeQLe/monica-mobile-clone` | Passed typecheck, tests, lint | Passed typecheck, tests, lint |
 
 ## Formal Implementation Gaps
 
-The following 4 downstream repositories are not validatable as React Native or Expo packages because both `variants/react-native/package.json` and `variants/expo/package.json` are absent on `main`.
+The following 3 downstream repositories are not validatable as React Native or Expo packages because both `variants/react-native/package.json` and `variants/expo/package.json` are absent on `main`.
 
 | App | Repo | React Native status | Expo status |
 | --- | --- | --- | --- |
-| Monica | `GeorgeQLe/monica-mobile-clone` | Missing package manifest | Missing package manifest |
 | Notion AI | `GeorgeQLe/notion-ai-mobile-clone` | Missing package manifest | Missing package manifest |
 | Forefront AI | `GeorgeQLe/forefront-ai-mobile-clone` | Missing package manifest | Missing package manifest |
 | Consensus | `GeorgeQLe/consensus-mobile-clone` | Missing package manifest | Missing package manifest |
@@ -72,7 +72,7 @@ Several React Native and Expo validation runs emitted generated-scaffold lint wa
 Step 11.11 is complete as a local, no-GitHub-Actions validation pass with explicit blockers:
 
 - Proven: all iOS Native variants and all React Native/Expo variants with manifests pass local executable validation.
-- Not proven: 8 React Native/Expo package validations for the 4 manifest-missing repos.
+- Not proven: 6 React Native/Expo package validations for the 3 manifest-missing repos.
 - Toolchain-blocked: all Flutter and Android Native local validations.
 
 Step 11.12 may run only against buildable/validatable variants or must record benchmark blockers for the same manifest and toolchain gaps. Step 11.13 must not mark Phase 11 acceptance criteria complete until the manifest-missing React Native/Expo variants are implemented and Flutter/Android validation has executable evidence or approved external verification.

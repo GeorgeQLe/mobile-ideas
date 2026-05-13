@@ -2828,3 +2828,35 @@
 - Residual risk: npm audit warnings remain in installed dependency trees; generated benchmark scores are local structural scores, not real-device performance/accessibility/store-compliance proof.
 - Rollback note: revert downstream commit `d6bfbaa`, then revert this planning commit and regenerate Phase 11 scorecard artifacts from a checkout without Ask AI JS manifests.
 - Next command: `$run` for Step 11.13 remediation starting at Genie.
+
+## 2026-05-13 - Phase 11 Step 11.13 Monica JS Remediation
+
+- Continued Step 11.13 remediation without GitHub Actions and resolved the next manifest-missing React Native/Expo repo pair.
+- Fixed and pushed downstream JS validation support to `GeorgeQLe/monica-mobile-clone` at commit `1e8d136` (`feat: add monica js variant validation`): added React Native and Expo package manifests, npm lockfiles, TypeScript configs, Babel configs, ESLint configs, React Native root `App.tsx`, and Expo `app.json`.
+- Targeted source fixes: replaced generated streaming-service empty catch / `any` handling with typed stream-event parsing and non-abort error reporting.
+- Validation passed locally:
+  - Monica React Native: `npm run typecheck`; `npm test -- --runInBand` (8 tests); `npm run lint` (0 errors, 0 warnings).
+  - Monica Expo: `npm run typecheck`; `npm test -- --runInBand` (8 tests); `npm run lint` (0 errors, 0 warnings).
+- Accepted warnings: npm package deprecation warnings and npm audit warnings remain after install (React Native 8 moderate; Expo 24 total: 1 low, 9 moderate, 14 high). No `npm audit fix --force` was run because it would broaden dependency churn beyond this validation slice.
+- Remote verification passed: `GeorgeQLe/monica-mobile-clone` remains private on `main`, pushed at `2026-05-13T14:10:47Z`.
+- Regenerated Phase 11 benchmark artifacts with `node scripts/generate-phase11-benchmark-blockers.mjs`:
+  - Scorecards: 75.
+  - Blockers: 60.
+  - React Native: 24 scored / 3 blocked.
+  - Expo: 24 scored / 3 blocked.
+  - Remaining manifest blockers: Notion AI, Forefront AI, and Consensus React Native/Expo.
+- Updated `tasks/phase-11-validation-report.md`: React Native/Expo validation now passes for 24 repos, leaving 3 manifest-missing repo pairs.
+- Step 11.13 remains blocked: Notion AI, Forefront AI, and Consensus still need React Native/Expo manifest remediation and validation; Flutter and Android remain local toolchain-blocked.
+
+### Ship Manifest
+
+- User goal: continue Step 11.13 remediation by implementing and validating the next manifest-missing React Native/Expo pair.
+- Changed files: downstream JS validation files in `GeorgeQLe/monica-mobile-clone`; source planning files `tasks/todo.md`, `tasks/history.md`, `tasks/phase-11-validation-report.md`, and regenerated `tasks/scorecards/phase-11/*`.
+- Per-file purpose: downstream package/config/source fixes make Monica React Native/Expo installable and locally validatable; planning files record evidence, blocker reduction, and next work; scorecard artifacts replace stale manifest blockers with generated Monica JS scorecards.
+- User-goal mapping: Monica now has executable local JS validation and benchmark evidence, reducing the Phase 11 manifest blocker set.
+- Tests run: Monica RN typecheck/test/lint; Monica Expo typecheck/test/lint; remote privacy/default-branch verification; `node scripts/generate-phase11-benchmark-blockers.mjs`.
+- Skipped tests: remaining 3 manifest-missing React Native/Expo repo pairs were not run after completing this serial remediation slice; Flutter skipped because `flutter` is missing; Android skipped because Java/Gradle are missing; GitHub Actions intentionally not used.
+- Adversarial review: scorecard/blocker accounting still sums to 135 targets, and Phase 11 remains open because 6 JS variant manifests plus Flutter/Android executable evidence remain unresolved.
+- Residual risk: npm audit warnings remain in installed dependency trees; generated benchmark scores are local structural scores, not real-device performance/accessibility/store-compliance proof.
+- Rollback note: revert downstream commit `1e8d136`, then revert this planning commit and regenerate Phase 11 scorecard artifacts from a checkout without Monica JS manifests.
+- Next command: `$run` for Step 11.13 remediation starting at Notion AI.

@@ -1,14 +1,14 @@
 # Phase 11 Benchmark Scorecards
 
-Generated: 2026-05-13T14:03:37.484Z
+Generated: 2026-05-13T14:11:06.099Z
 Run ID: `phase-11-local-2026-05-13`
 
 ## Summary
 
 - Total benchmark targets: 135
-- Scorecards produced: 73
-- Blocker records produced: 62
-- Average composite across scored variants: 38.25
+- Scorecards produced: 75
+- Blocker records produced: 60
+- Average composite across scored variants: 38.29
 
 ## Blockers By Reason
 
@@ -16,7 +16,7 @@ Run ID: `phase-11-local-2026-05-13`
 | --- | ---: |
 | missing-local-flutter-toolchain | 27 |
 | missing-local-android-toolchain | 27 |
-| missing-package-manifest | 8 |
+| missing-package-manifest | 6 |
 
 ## Scorecards
 
@@ -29,6 +29,7 @@ Run ID: `phase-11-local-2026-05-13`
 | 213 | OtterPilot | react-native | 40.35 | tasks/scorecards/phase-11/213-otterpilot-react-native.json |
 | 214 | Grammarly Keyboard | react-native | 40.35 | tasks/scorecards/phase-11/214-grammarly-keyboard-react-native.json |
 | 215 | Wordtune | react-native | 40.35 | tasks/scorecards/phase-11/215-wordtune-react-native.json |
+| 219 | Monica | react-native | 40.35 | tasks/scorecards/phase-11/219-monica-react-native.json |
 | 004 | Character.AI | expo | 40.29 | tasks/scorecards/phase-11/004-character-ai-expo.json |
 | 005 | Replika | react-native | 40.29 | tasks/scorecards/phase-11/005-replika-react-native.json |
 | 005 | Replika | expo | 39.97 | tasks/scorecards/phase-11/005-replika-expo.json |
@@ -57,6 +58,7 @@ Run ID: `phase-11-local-2026-05-13`
 | 206 | Meta AI | expo | 38.53 | tasks/scorecards/phase-11/206-meta-ai-expo.json |
 | 207 | You.com | react-native | 38.53 | tasks/scorecards/phase-11/207-you-com-react-native.json |
 | 210 | HuggingChat | expo | 38.53 | tasks/scorecards/phase-11/210-huggingchat-expo.json |
+| 219 | Monica | expo | 38.53 | tasks/scorecards/phase-11/219-monica-expo.json |
 | 001 | ChatGPT | ios-native | 38.50 | tasks/scorecards/phase-11/001-chatgpt-ios-native.json |
 | 203 | Microsoft Copilot | ios-native | 38.50 | tasks/scorecards/phase-11/203-microsoft-copilot-ios-native.json |
 | 222 | Consensus | ios-native | 38.12 | tasks/scorecards/phase-11/222-consensus-ios-native.json |
