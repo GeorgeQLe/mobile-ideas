@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-13T02:04:44.936Z",
+  "generatedAt": "2026-05-13T13:57:37.152Z",
   "runId": "phase-11-local-2026-05-13",
   "blockers": [
     {
@@ -73,32 +73,10 @@
       "appName": "Character.AI",
       "repo": "GeorgeQLe/character-ai-mobile-clone",
       "category": "AI & Assistants",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "missing-package-manifest",
-      "detail": "No executable manifest found at variants/react-native.",
-      "runId": "phase-11-local-2026-05-13"
-    },
-    {
-      "appId": 4,
-      "appName": "Character.AI",
-      "repo": "GeorgeQLe/character-ai-mobile-clone",
-      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
       "reason": "missing-local-flutter-toolchain",
       "detail": "`flutter` is unavailable on PATH in the local validation environment.",
-      "runId": "phase-11-local-2026-05-13"
-    },
-    {
-      "appId": 4,
-      "appName": "Character.AI",
-      "repo": "GeorgeQLe/character-ai-mobile-clone",
-      "category": "AI & Assistants",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "missing-package-manifest",
-      "detail": "No executable manifest found at variants/expo.",
       "runId": "phase-11-local-2026-05-13"
     },
     {
@@ -359,32 +337,10 @@
       "appName": "Wysa",
       "repo": "GeorgeQLe/wysa-mobile-clone",
       "category": "AI & Assistants",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "missing-package-manifest",
-      "detail": "No executable manifest found at variants/react-native.",
-      "runId": "phase-11-local-2026-05-13"
-    },
-    {
-      "appId": 211,
-      "appName": "Wysa",
-      "repo": "GeorgeQLe/wysa-mobile-clone",
-      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
       "reason": "missing-local-flutter-toolchain",
       "detail": "`flutter` is unavailable on PATH in the local validation environment.",
-      "runId": "phase-11-local-2026-05-13"
-    },
-    {
-      "appId": 211,
-      "appName": "Wysa",
-      "repo": "GeorgeQLe/wysa-mobile-clone",
-      "category": "AI & Assistants",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "missing-package-manifest",
-      "detail": "No executable manifest found at variants/expo.",
       "runId": "phase-11-local-2026-05-13"
     },
     {
@@ -403,32 +359,10 @@
       "appName": "ELSA Speak",
       "repo": "GeorgeQLe/elsa-speak-mobile-clone",
       "category": "AI & Assistants",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "missing-package-manifest",
-      "detail": "No executable manifest found at variants/react-native.",
-      "runId": "phase-11-local-2026-05-13"
-    },
-    {
-      "appId": 212,
-      "appName": "ELSA Speak",
-      "repo": "GeorgeQLe/elsa-speak-mobile-clone",
-      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
       "reason": "missing-local-flutter-toolchain",
       "detail": "`flutter` is unavailable on PATH in the local validation environment.",
-      "runId": "phase-11-local-2026-05-13"
-    },
-    {
-      "appId": 212,
-      "appName": "ELSA Speak",
-      "repo": "GeorgeQLe/elsa-speak-mobile-clone",
-      "category": "AI & Assistants",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "missing-package-manifest",
-      "detail": "No executable manifest found at variants/expo.",
       "runId": "phase-11-local-2026-05-13"
     },
     {
@@ -447,32 +381,10 @@
       "appName": "OtterPilot",
       "repo": "GeorgeQLe/otterpilot-mobile-clone",
       "category": "AI & Assistants",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "missing-package-manifest",
-      "detail": "No executable manifest found at variants/react-native.",
-      "runId": "phase-11-local-2026-05-13"
-    },
-    {
-      "appId": 213,
-      "appName": "OtterPilot",
-      "repo": "GeorgeQLe/otterpilot-mobile-clone",
-      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
       "reason": "missing-local-flutter-toolchain",
       "detail": "`flutter` is unavailable on PATH in the local validation environment.",
-      "runId": "phase-11-local-2026-05-13"
-    },
-    {
-      "appId": 213,
-      "appName": "OtterPilot",
-      "repo": "GeorgeQLe/otterpilot-mobile-clone",
-      "category": "AI & Assistants",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "missing-package-manifest",
-      "detail": "No executable manifest found at variants/expo.",
       "runId": "phase-11-local-2026-05-13"
     },
     {
@@ -491,32 +403,10 @@
       "appName": "Grammarly Keyboard",
       "repo": "GeorgeQLe/grammarly-keyboard-mobile-clone",
       "category": "AI & Assistants",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "missing-package-manifest",
-      "detail": "No executable manifest found at variants/react-native.",
-      "runId": "phase-11-local-2026-05-13"
-    },
-    {
-      "appId": 214,
-      "appName": "Grammarly Keyboard",
-      "repo": "GeorgeQLe/grammarly-keyboard-mobile-clone",
-      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
       "reason": "missing-local-flutter-toolchain",
       "detail": "`flutter` is unavailable on PATH in the local validation environment.",
-      "runId": "phase-11-local-2026-05-13"
-    },
-    {
-      "appId": 214,
-      "appName": "Grammarly Keyboard",
-      "repo": "GeorgeQLe/grammarly-keyboard-mobile-clone",
-      "category": "AI & Assistants",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "missing-package-manifest",
-      "detail": "No executable manifest found at variants/expo.",
       "runId": "phase-11-local-2026-05-13"
     },
     {
@@ -535,32 +425,10 @@
       "appName": "Wordtune",
       "repo": "GeorgeQLe/wordtune-mobile-clone",
       "category": "AI & Assistants",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "missing-package-manifest",
-      "detail": "No executable manifest found at variants/react-native.",
-      "runId": "phase-11-local-2026-05-13"
-    },
-    {
-      "appId": 215,
-      "appName": "Wordtune",
-      "repo": "GeorgeQLe/wordtune-mobile-clone",
-      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
       "reason": "missing-local-flutter-toolchain",
       "detail": "`flutter` is unavailable on PATH in the local validation environment.",
-      "runId": "phase-11-local-2026-05-13"
-    },
-    {
-      "appId": 215,
-      "appName": "Wordtune",
-      "repo": "GeorgeQLe/wordtune-mobile-clone",
-      "category": "AI & Assistants",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "missing-package-manifest",
-      "detail": "No executable manifest found at variants/expo.",
       "runId": "phase-11-local-2026-05-13"
     },
     {
@@ -579,32 +447,10 @@
       "appName": "QuillBot",
       "repo": "GeorgeQLe/quillbot-mobile-clone",
       "category": "AI & Assistants",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "missing-package-manifest",
-      "detail": "No executable manifest found at variants/react-native.",
-      "runId": "phase-11-local-2026-05-13"
-    },
-    {
-      "appId": 216,
-      "appName": "QuillBot",
-      "repo": "GeorgeQLe/quillbot-mobile-clone",
-      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
       "reason": "missing-local-flutter-toolchain",
       "detail": "`flutter` is unavailable on PATH in the local validation environment.",
-      "runId": "phase-11-local-2026-05-13"
-    },
-    {
-      "appId": 216,
-      "appName": "QuillBot",
-      "repo": "GeorgeQLe/quillbot-mobile-clone",
-      "category": "AI & Assistants",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "missing-package-manifest",
-      "detail": "No executable manifest found at variants/expo.",
       "runId": "phase-11-local-2026-05-13"
     },
     {
@@ -623,32 +469,10 @@
       "appName": "Ask AI",
       "repo": "GeorgeQLe/ask-ai-mobile-clone",
       "category": "AI & Assistants",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "missing-package-manifest",
-      "detail": "No executable manifest found at variants/react-native.",
-      "runId": "phase-11-local-2026-05-13"
-    },
-    {
-      "appId": 217,
-      "appName": "Ask AI",
-      "repo": "GeorgeQLe/ask-ai-mobile-clone",
-      "category": "AI & Assistants",
       "variant": "flutter",
       "status": "blocked",
       "reason": "missing-local-flutter-toolchain",
       "detail": "`flutter` is unavailable on PATH in the local validation environment.",
-      "runId": "phase-11-local-2026-05-13"
-    },
-    {
-      "appId": 217,
-      "appName": "Ask AI",
-      "repo": "GeorgeQLe/ask-ai-mobile-clone",
-      "category": "AI & Assistants",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "missing-package-manifest",
-      "detail": "No executable manifest found at variants/expo.",
       "runId": "phase-11-local-2026-05-13"
     },
     {

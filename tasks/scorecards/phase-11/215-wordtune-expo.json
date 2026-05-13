@@ -1,10 +1,10 @@
 {
   "meta": {
-    "appId": 214,
-    "appName": "Grammarly Keyboard",
+    "appId": 215,
+    "appName": "Wordtune",
     "category": "AI & Assistants",
-    "variant": "ios-native",
-    "timestamp": "2026-05-13T13:57:35.779Z",
+    "variant": "expo",
+    "timestamp": "2026-05-13T13:57:35.974Z",
     "ciRunId": "phase-11-local-2026-05-13",
     "harnessVersion": "0.1.0"
   },
@@ -53,7 +53,7 @@
       "metrics": {
         "ipaSizeMb": {
           "raw": 0,
-          "score": 0
+          "score": 100
         },
         "apkSizeMb": {
           "raw": 0,
@@ -65,7 +65,7 @@
         },
         "jsBundleSizeKb": {
           "raw": 0,
-          "score": 100
+          "score": 0
         },
         "nativeLibsSizeMb": {
           "raw": 0,
@@ -78,29 +78,29 @@
       }
     },
     "uxFidelity": {
-      "score": 83.25,
+      "score": 72,
       "weight": 0.25,
       "metrics": {
         "screenCoveragePercent": {
-          "raw": 86,
-          "score": 86
+          "raw": 72,
+          "score": 72
         },
         "interactionCoveragePercent": {
-          "raw": 86,
-          "score": 86
+          "raw": 72,
+          "score": 72
         },
         "edgeCaseCoveragePercent": {
-          "raw": 75,
-          "score": 75
+          "raw": 72,
+          "score": 72
         },
         "specCompliancePercent": {
-          "raw": 86,
-          "score": 86
+          "raw": 72,
+          "score": 72
         }
       }
     },
     "codeQuality": {
-      "score": 74,
+      "score": 92.44,
       "weight": 0.15,
       "metrics": {
         "lintScore": {
@@ -108,12 +108,12 @@
           "score": 100
         },
         "typeCoveragePercent": {
-          "raw": 90,
-          "score": 90
+          "raw": 85,
+          "score": 85
         },
         "testCoveragePercent": {
-          "raw": 0,
-          "score": 0
+          "raw": 97.22,
+          "score": 97.22
         },
         "cyclomaticComplexity": {
           "raw": 0,
@@ -126,7 +126,7 @@
       }
     },
     "devVelocity": {
-      "score": 25,
+      "score": 37.5,
       "weight": 0.1,
       "metrics": {
         "cleanBuildSec": {
@@ -139,7 +139,7 @@
         },
         "hotReloadSec": {
           "raw": 0,
-          "score": 0
+          "score": 50
         },
         "ciPipelineSec": {
           "raw": 0,
@@ -193,7 +193,7 @@
     }
   },
   "composite": {
-    "score": 37.75,
+    "score": 38.95,
     "formula": "weighted-average",
     "weights": {
       "performance": 0.2,
@@ -206,8 +206,8 @@
     }
   },
   "evidence": {
-    "appPath": "/tmp/grammarly-keyboard-mobile-clone",
-    "variantPath": "/tmp/grammarly-keyboard-mobile-clone/variants/ios-native",
+    "appPath": "/tmp/wordtune-mobile-clone",
+    "variantPath": "/tmp/wordtune-mobile-clone/variants/expo",
     "notes": [
       "UX fidelity report missing; using source structure proxy.",
       "Accessibility report missing; accessibility score is conservative.",

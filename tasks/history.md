@@ -2769,3 +2769,35 @@
 - Residual risk: npm audit warnings remain in installed dependency trees; no real-device smoke test was performed.
 - Rollback note: revert downstream commit `ea77b03`, then revert this planning commit to return to the previous manifest-gap state.
 - Next command: `$run` for Step 11.13 remediation starting at QuillBot.
+
+## 2026-05-13 - Phase 11 Step 11.13 Ask AI JS Remediation
+
+- Continued Step 11.13 remediation without GitHub Actions and resolved the next manifest-missing React Native/Expo repo pair.
+- Fixed and pushed downstream JS validation support to `GeorgeQLe/ask-ai-mobile-clone` at commit `d6bfbaa` (`test: validate Ask AI JavaScript variants`): added React Native and Expo package manifests, npm lockfiles, TypeScript configs, Babel configs, ESLint configs, React Native root `App.tsx`, and Expo `app.json`.
+- Targeted source fixes: replaced generated streaming-service empty catch / `any` handling with typed stream-event parsing and non-abort error reporting.
+- Validation passed locally:
+  - Ask AI React Native: `npm run typecheck`; `npm test -- --runInBand` (8 tests); `npm run lint` (0 errors, 0 warnings).
+  - Ask AI Expo: `npm run typecheck`; `npm test -- --runInBand` (8 tests); `npm run lint` (0 errors, 0 warnings).
+- Accepted warnings: npm package deprecation warnings and npm audit warnings remain after install (React Native 8 moderate; Expo 24 total: 1 low, 9 moderate, 14 high). No `npm audit fix --force` was run because it would broaden dependency churn beyond this validation slice.
+- Remote verification passed: `GeorgeQLe/ask-ai-mobile-clone` remains private on `main`, pushed at `2026-05-13T13:56:53Z`.
+- Regenerated Phase 11 benchmark artifacts with `node scripts/generate-phase11-benchmark-blockers.mjs` after refreshing stale local Wordtune state:
+  - Scorecards: 71.
+  - Blockers: 64.
+  - React Native: 22 scored / 5 blocked.
+  - Expo: 22 scored / 5 blocked.
+  - Remaining manifest blockers: Genie, Monica, Notion AI, Forefront AI, and Consensus React Native/Expo.
+- Updated `tasks/phase-11-validation-report.md`: React Native/Expo validation now passes for 22 repos, leaving 5 manifest-missing repo pairs.
+- Step 11.13 remains blocked: Genie, Monica, Notion AI, Forefront AI, and Consensus still need React Native/Expo manifest remediation and validation; Flutter and Android remain local toolchain-blocked.
+
+### Ship Manifest
+
+- User goal: continue Step 11.13 remediation by implementing and validating the next manifest-missing React Native/Expo pair.
+- Changed files: downstream JS validation files in `GeorgeQLe/ask-ai-mobile-clone`; source planning files `tasks/todo.md`, `tasks/history.md`, `tasks/phase-11-validation-report.md`, and regenerated `tasks/scorecards/phase-11/*`.
+- Per-file purpose: downstream package/config/source fixes make Ask AI React Native/Expo installable and locally validatable; planning files record evidence, blocker reduction, and next work; scorecard artifacts replace stale manifest blockers with generated Ask AI JS scorecards.
+- User-goal mapping: Ask AI now has executable local JS validation and benchmark evidence, reducing the Phase 11 manifest blocker set.
+- Tests run: Ask AI RN typecheck/test/lint; Ask AI Expo typecheck/test/lint; remote privacy/default-branch verification; `node scripts/generate-phase11-benchmark-blockers.mjs`.
+- Skipped tests: remaining 5 manifest-missing React Native/Expo repo pairs were not run after completing this serial remediation slice; Flutter skipped because `flutter` is missing; Android skipped because Java/Gradle are missing; GitHub Actions intentionally not used.
+- Adversarial review: scorecard/blocker accounting still sums to 135 targets, and Phase 11 remains open because 10 JS variant manifests plus Flutter/Android executable evidence remain unresolved.
+- Residual risk: npm audit warnings remain in installed dependency trees; generated benchmark scores are local structural scores, not real-device performance/accessibility/store-compliance proof.
+- Rollback note: revert downstream commit `d6bfbaa`, then revert this planning commit and regenerate Phase 11 scorecard artifacts from a checkout without Ask AI JS manifests.
+- Next command: `$run` for Step 11.13 remediation starting at Genie.

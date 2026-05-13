@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-05-13T02:04:44.936Z",
+  "generatedAt": "2026-05-13T13:57:37.152Z",
   "runId": "phase-11-local-2026-05-13",
   "category": "AI & Assistants",
   "totalTargets": 135,
-  "scorecardCount": 55,
-  "blockerCount": 80,
-  "averageComposite": 37.89,
+  "scorecardCount": 71,
+  "blockerCount": 64,
+  "averageComposite": 38.23,
   "byVariant": {
     "react-native": {
-      "scorecards": 14,
-      "blockers": 13
+      "scorecards": 22,
+      "blockers": 5
     },
     "flutter": {
       "scorecards": 0,
       "blockers": 27
     },
     "expo": {
-      "scorecards": 14,
-      "blockers": 13
+      "scorecards": 22,
+      "blockers": 5
     },
     "ios-native": {
       "scorecards": 27,
@@ -31,7 +31,7 @@
   "byReason": {
     "missing-local-flutter-toolchain": 27,
     "missing-local-android-toolchain": 27,
-    "missing-package-manifest": 26
+    "missing-package-manifest": 10
   },
   "scorecards": [
     {
@@ -52,6 +52,23 @@
       "file": "tasks/scorecards/phase-11/003-perplexity-react-native.json"
     },
     {
+      "appId": 4,
+      "appName": "Character.AI",
+      "repo": "GeorgeQLe/character-ai-mobile-clone",
+      "variant": "react-native",
+      "composite": 40.61,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 81.75,
+        "codeQuality": 87.29,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/004-character-ai-react-native.json"
+    },
+    {
       "appId": 5,
       "appName": "Replika",
       "repo": "GeorgeQLe/replika-mobile-clone",
@@ -67,6 +84,91 @@
         "storeCompliance": 0
       },
       "file": "tasks/scorecards/phase-11/005-replika-ios-native.json"
+    },
+    {
+      "appId": 211,
+      "appName": "Wysa",
+      "repo": "GeorgeQLe/wysa-mobile-clone",
+      "variant": "react-native",
+      "composite": 40.35,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 78.75,
+        "codeQuality": 90.5,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/211-wysa-react-native.json"
+    },
+    {
+      "appId": 213,
+      "appName": "OtterPilot",
+      "repo": "GeorgeQLe/otterpilot-mobile-clone",
+      "variant": "react-native",
+      "composite": 40.35,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 78.75,
+        "codeQuality": 90.5,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/213-otterpilot-react-native.json"
+    },
+    {
+      "appId": 214,
+      "appName": "Grammarly Keyboard",
+      "repo": "GeorgeQLe/grammarly-keyboard-mobile-clone",
+      "variant": "react-native",
+      "composite": 40.35,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 78.75,
+        "codeQuality": 90.5,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/214-grammarly-keyboard-react-native.json"
+    },
+    {
+      "appId": 215,
+      "appName": "Wordtune",
+      "repo": "GeorgeQLe/wordtune-mobile-clone",
+      "variant": "react-native",
+      "composite": 40.35,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 78.75,
+        "codeQuality": 90.5,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/215-wordtune-react-native.json"
+    },
+    {
+      "appId": 4,
+      "appName": "Character.AI",
+      "repo": "GeorgeQLe/character-ai-mobile-clone",
+      "variant": "expo",
+      "composite": 40.29,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 80.25,
+        "codeQuality": 87.63,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/004-character-ai-expo.json"
     },
     {
       "appId": 5,
@@ -118,6 +220,40 @@
         "storeCompliance": 0
       },
       "file": "tasks/scorecards/phase-11/207-you-com-expo.json"
+    },
+    {
+      "appId": 217,
+      "appName": "Ask AI",
+      "repo": "GeorgeQLe/ask-ai-mobile-clone",
+      "variant": "react-native",
+      "composite": 39.97,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 75.75,
+        "codeQuality": 93,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/217-ask-ai-react-native.json"
+    },
+    {
+      "appId": 216,
+      "appName": "QuillBot",
+      "repo": "GeorgeQLe/quillbot-mobile-clone",
+      "variant": "react-native",
+      "composite": 39.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 75.75,
+        "codeQuality": 91.42,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/216-quillbot-react-native.json"
     },
     {
       "appId": 220,
@@ -220,6 +356,91 @@
         "storeCompliance": 0
       },
       "file": "tasks/scorecards/phase-11/205-deepseek-expo.json"
+    },
+    {
+      "appId": 212,
+      "appName": "ELSA Speak",
+      "repo": "GeorgeQLe/elsa-speak-mobile-clone",
+      "variant": "react-native",
+      "composite": 38.97,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 74,
+        "codeQuality": 89.22,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/212-elsa-speak-react-native.json"
+    },
+    {
+      "appId": 211,
+      "appName": "Wysa",
+      "repo": "GeorgeQLe/wysa-mobile-clone",
+      "variant": "expo",
+      "composite": 38.95,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 72,
+        "codeQuality": 92.44,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/211-wysa-expo.json"
+    },
+    {
+      "appId": 213,
+      "appName": "OtterPilot",
+      "repo": "GeorgeQLe/otterpilot-mobile-clone",
+      "variant": "expo",
+      "composite": 38.95,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 72,
+        "codeQuality": 92.44,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/213-otterpilot-expo.json"
+    },
+    {
+      "appId": 214,
+      "appName": "Grammarly Keyboard",
+      "repo": "GeorgeQLe/grammarly-keyboard-mobile-clone",
+      "variant": "expo",
+      "composite": 38.95,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 72,
+        "codeQuality": 92.44,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/214-grammarly-keyboard-expo.json"
+    },
+    {
+      "appId": 215,
+      "appName": "Wordtune",
+      "repo": "GeorgeQLe/wordtune-mobile-clone",
+      "variant": "expo",
+      "composite": 38.95,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 72,
+        "codeQuality": 92.44,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/215-wordtune-expo.json"
     },
     {
       "appId": 221,
@@ -492,6 +713,57 @@
         "storeCompliance": 0
       },
       "file": "tasks/scorecards/phase-11/209-phind-expo.json"
+    },
+    {
+      "appId": 212,
+      "appName": "ELSA Speak",
+      "repo": "GeorgeQLe/elsa-speak-mobile-clone",
+      "variant": "expo",
+      "composite": 38.03,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 68,
+        "codeQuality": 93,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/212-elsa-speak-expo.json"
+    },
+    {
+      "appId": 216,
+      "appName": "QuillBot",
+      "repo": "GeorgeQLe/quillbot-mobile-clone",
+      "variant": "expo",
+      "composite": 38.03,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 68,
+        "codeQuality": 93,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/216-quillbot-expo.json"
+    },
+    {
+      "appId": 217,
+      "appName": "Ask AI",
+      "repo": "GeorgeQLe/ask-ai-mobile-clone",
+      "variant": "expo",
+      "composite": 38.03,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 68,
+        "codeQuality": 93,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/217-ask-ai-expo.json"
     },
     {
       "appId": 213,

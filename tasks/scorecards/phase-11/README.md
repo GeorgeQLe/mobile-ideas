@@ -1,14 +1,14 @@
 # Phase 11 Benchmark Scorecards
 
-Generated: 2026-05-13T02:04:44.936Z
+Generated: 2026-05-13T13:57:37.152Z
 Run ID: `phase-11-local-2026-05-13`
 
 ## Summary
 
 - Total benchmark targets: 135
-- Scorecards produced: 55
-- Blocker records produced: 80
-- Average composite across scored variants: 37.89
+- Scorecards produced: 71
+- Blocker records produced: 64
+- Average composite across scored variants: 38.23
 
 ## Blockers By Reason
 
@@ -16,23 +16,36 @@ Run ID: `phase-11-local-2026-05-13`
 | --- | ---: |
 | missing-local-flutter-toolchain | 27 |
 | missing-local-android-toolchain | 27 |
-| missing-package-manifest | 26 |
+| missing-package-manifest | 10 |
 
 ## Scorecards
 
 | ID | App | Variant | Composite | File |
 | ---: | --- | --- | ---: | --- |
 | 003 | Perplexity | react-native | 40.94 | tasks/scorecards/phase-11/003-perplexity-react-native.json |
+| 004 | Character.AI | react-native | 40.61 | tasks/scorecards/phase-11/004-character-ai-react-native.json |
 | 005 | Replika | ios-native | 40.37 | tasks/scorecards/phase-11/005-replika-ios-native.json |
+| 211 | Wysa | react-native | 40.35 | tasks/scorecards/phase-11/211-wysa-react-native.json |
+| 213 | OtterPilot | react-native | 40.35 | tasks/scorecards/phase-11/213-otterpilot-react-native.json |
+| 214 | Grammarly Keyboard | react-native | 40.35 | tasks/scorecards/phase-11/214-grammarly-keyboard-react-native.json |
+| 215 | Wordtune | react-native | 40.35 | tasks/scorecards/phase-11/215-wordtune-react-native.json |
+| 004 | Character.AI | expo | 40.29 | tasks/scorecards/phase-11/004-character-ai-expo.json |
 | 005 | Replika | react-native | 40.29 | tasks/scorecards/phase-11/005-replika-react-native.json |
 | 005 | Replika | expo | 39.97 | tasks/scorecards/phase-11/005-replika-expo.json |
 | 207 | You.com | expo | 39.97 | tasks/scorecards/phase-11/207-you-com-expo.json |
+| 217 | Ask AI | react-native | 39.97 | tasks/scorecards/phase-11/217-ask-ai-react-native.json |
+| 216 | QuillBot | react-native | 39.73 | tasks/scorecards/phase-11/216-quillbot-react-native.json |
 | 220 | Notion AI | ios-native | 39.62 | tasks/scorecards/phase-11/220-notion-ai-ios-native.json |
 | 203 | Microsoft Copilot | expo | 39.34 | tasks/scorecards/phase-11/203-microsoft-copilot-expo.json |
 | 002 | Claude | ios-native | 39.25 | tasks/scorecards/phase-11/002-claude-ios-native.json |
 | 002 | Claude | expo | 38.97 | tasks/scorecards/phase-11/002-claude-expo.json |
 | 203 | Microsoft Copilot | react-native | 38.97 | tasks/scorecards/phase-11/203-microsoft-copilot-react-native.json |
 | 205 | DeepSeek | expo | 38.97 | tasks/scorecards/phase-11/205-deepseek-expo.json |
+| 212 | ELSA Speak | react-native | 38.97 | tasks/scorecards/phase-11/212-elsa-speak-react-native.json |
+| 211 | Wysa | expo | 38.95 | tasks/scorecards/phase-11/211-wysa-expo.json |
+| 213 | OtterPilot | expo | 38.95 | tasks/scorecards/phase-11/213-otterpilot-expo.json |
+| 214 | Grammarly Keyboard | expo | 38.95 | tasks/scorecards/phase-11/214-grammarly-keyboard-expo.json |
+| 215 | Wordtune | expo | 38.95 | tasks/scorecards/phase-11/215-wordtune-expo.json |
 | 221 | Forefront AI | ios-native | 38.87 | tasks/scorecards/phase-11/221-forefront-ai-ios-native.json |
 | 002 | Claude | react-native | 38.53 | tasks/scorecards/phase-11/002-claude-react-native.json |
 | 201 | Poe | expo | 38.53 | tasks/scorecards/phase-11/201-poe-expo.json |
@@ -49,6 +62,9 @@ Run ID: `phase-11-local-2026-05-13`
 | 201 | Poe | react-native | 38.10 | tasks/scorecards/phase-11/201-poe-react-native.json |
 | 202 | Gemini | react-native | 38.10 | tasks/scorecards/phase-11/202-gemini-react-native.json |
 | 209 | Phind | expo | 38.10 | tasks/scorecards/phase-11/209-phind-expo.json |
+| 212 | ELSA Speak | expo | 38.03 | tasks/scorecards/phase-11/212-elsa-speak-expo.json |
+| 216 | QuillBot | expo | 38.03 | tasks/scorecards/phase-11/216-quillbot-expo.json |
+| 217 | Ask AI | expo | 38.03 | tasks/scorecards/phase-11/217-ask-ai-expo.json |
 | 213 | OtterPilot | ios-native | 37.75 | tasks/scorecards/phase-11/213-otterpilot-ios-native.json |
 | 214 | Grammarly Keyboard | ios-native | 37.75 | tasks/scorecards/phase-11/214-grammarly-keyboard-ios-native.json |
 | 215 | Wordtune | ios-native | 37.75 | tasks/scorecards/phase-11/215-wordtune-ios-native.json |

@@ -1310,6 +1310,35 @@ Build all five variants for every app in the AI & Assistants category cluster to
   **Next work:** Step 11.13 remediation — implement and validate the next manifest-missing React Native/Expo repo pair, Ask AI.
   **Recommended next command:** `$run`
 
+  **Remediation Progress — 2026-05-13 (Codex):**
+  - Continued Step 11.13 remediation without GitHub Actions by resolving the next manifest-missing React Native/Expo pair: `GeorgeQLe/ask-ai-mobile-clone`.
+  - Fixed and pushed downstream JS validation support at commit `d6bfbaa`: added React Native and Expo package manifests, npm lockfiles, TypeScript configs, Babel configs, ESLint configs, React Native root `App.tsx`, Expo `app.json`, and ESLint configs.
+  - Targeted source fixes: replaced generated streaming-service empty catch / `any` handling with typed stream-event parsing and non-abort error reporting.
+  - Local executable validation passed without GitHub Actions:
+    - Ask AI React Native: `npm run typecheck`, `npm test -- --runInBand` (8 tests), `npm run lint` (0 errors, 0 warnings).
+    - Ask AI Expo: `npm run typecheck`, `npm test -- --runInBand` (8 tests), `npm run lint` (0 errors, 0 warnings).
+  - npm install warnings were accepted as dependency-maintenance noise for generated scaffold dependencies; npm audit still reports known third-party vulnerabilities after install (Ask AI React Native 8 moderate; Ask AI Expo 24 total: 1 low, 9 moderate, 14 high). No `npm audit fix --force` was run because it would introduce breaking dependency churn outside this validation slice.
+  - Remote verification: `gh api repos/GeorgeQLe/ask-ai-mobile-clone --jq '{visibility, default_branch, pushed_at}'` returned `visibility: private`, `default_branch: main`, `pushed_at: 2026-05-13T13:56:53Z`.
+  - Updated `tasks/phase-11-validation-report.md`: React Native/Expo validation now passes for 22 repos, and the manifest-missing implementation gap is reduced from 6 repo pairs to 5 repo pairs.
+  - Regenerated Phase 11 benchmark artifacts after refreshing the stale local Wordtune checkout: `tasks/scorecards/phase-11/summary.json` now reports 71 scorecards and 64 blockers; React Native and Expo each have 22 scored variants and 5 manifest blockers.
+
+  **Current Status:** blocked — Step 11.13 remains unchecked. Phase 11 cannot be marked complete until the remaining 5 manifest-missing React Native/Expo repo pairs are implemented and validated, Flutter validation/benchmarking has executable evidence or approved external disposition, and Android Native validation/benchmarking has executable evidence or approved external disposition.
+
+  **Ship Manifest — 2026-05-13 (Codex):**
+  - User goal: continue Step 11.13 remediation by implementing and validating the next manifest-missing React Native/Expo pair.
+  - Changed files: downstream Ask AI React Native/Expo package/config/source files; `tasks/todo.md`, `tasks/history.md`, `tasks/phase-11-validation-report.md`, and regenerated `tasks/scorecards/phase-11/*` artifacts.
+  - Per-file purpose: downstream files make Ask AI React Native/Expo installable and locally validatable; task/report/history docs record evidence, blocker reduction, and remaining blockers; scorecard artifacts replace stale manifest blockers with Ask AI React Native/Expo benchmark scorecards.
+  - User-goal mapping: removes Ask AI from the manifest-missing blocker set and provides executable local validation plus local benchmark evidence for both JS variants.
+  - Tests run: Ask AI RN typecheck/test/lint; Ask AI Expo typecheck/test/lint; remote privacy/default-branch verification; `node scripts/generate-phase11-benchmark-blockers.mjs`.
+  - Skipped tests: remaining 5 manifest-missing React Native/Expo repo pairs were not run after completing this serial remediation slice; Flutter remains blocked because `flutter` is unavailable; Android remains blocked because Java/Gradle are unavailable; GitHub Actions intentionally not used.
+  - Adversarial review: scorecard/blocker accounting now sums to 135 targets with 71 scorecards and 64 explicit blockers; Phase 11 remains blocked because 10 JS variant manifests plus all Flutter/Android executable evidence remain unresolved.
+  - Residual risk: generated npm audit findings remain; benchmark scores are local structural scores, not real-device performance/accessibility/store-compliance proof.
+  - Rollback note: revert downstream commit `d6bfbaa`, then revert this planning commit and rerun `node scripts/generate-phase11-benchmark-blockers.mjs` from a checkout without Ask AI JS manifests.
+  - Next command: `$run` for the next Step 11.13 remediation slice.
+
+  **Next work:** Step 11.13 remediation — implement and validate the next manifest-missing React Native/Expo repo pair, Genie.
+  **Recommended next command:** `$run`
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`
