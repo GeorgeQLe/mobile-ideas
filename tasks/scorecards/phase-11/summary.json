@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-05-13T13:57:37.152Z",
+  "generatedAt": "2026-05-13T14:03:37.484Z",
   "runId": "phase-11-local-2026-05-13",
   "category": "AI & Assistants",
   "totalTargets": 135,
-  "scorecardCount": 71,
-  "blockerCount": 64,
-  "averageComposite": 38.23,
+  "scorecardCount": 73,
+  "blockerCount": 62,
+  "averageComposite": 38.25,
   "byVariant": {
     "react-native": {
-      "scorecards": 22,
-      "blockers": 5
+      "scorecards": 23,
+      "blockers": 4
     },
     "flutter": {
       "scorecards": 0,
       "blockers": 27
     },
     "expo": {
-      "scorecards": 22,
-      "blockers": 5
+      "scorecards": 23,
+      "blockers": 4
     },
     "ios-native": {
       "scorecards": 27,
@@ -31,7 +31,7 @@
   "byReason": {
     "missing-local-flutter-toolchain": 27,
     "missing-local-android-toolchain": 27,
-    "missing-package-manifest": 10
+    "missing-package-manifest": 8
   },
   "scorecards": [
     {
@@ -237,6 +237,23 @@
         "storeCompliance": 0
       },
       "file": "tasks/scorecards/phase-11/217-ask-ai-react-native.json"
+    },
+    {
+      "appId": 218,
+      "appName": "Genie",
+      "repo": "GeorgeQLe/genie-mobile-clone",
+      "variant": "react-native",
+      "composite": 39.97,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 75.75,
+        "codeQuality": 93,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/218-genie-react-native.json"
     },
     {
       "appId": 216,
@@ -764,6 +781,23 @@
         "storeCompliance": 0
       },
       "file": "tasks/scorecards/phase-11/217-ask-ai-expo.json"
+    },
+    {
+      "appId": 218,
+      "appName": "Genie",
+      "repo": "GeorgeQLe/genie-mobile-clone",
+      "variant": "expo",
+      "composite": 38.03,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 68,
+        "codeQuality": 93,
+        "devVelocity": 37.5,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "file": "tasks/scorecards/phase-11/218-genie-expo.json"
     },
     {
       "appId": 213,

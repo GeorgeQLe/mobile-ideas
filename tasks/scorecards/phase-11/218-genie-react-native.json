@@ -1,10 +1,10 @@
 {
   "meta": {
-    "appId": 202,
-    "appName": "Gemini",
+    "appId": 218,
+    "appName": "Genie",
     "category": "AI & Assistants",
-    "variant": "ios-native",
-    "timestamp": "2026-05-13T14:03:32.215Z",
+    "variant": "react-native",
+    "timestamp": "2026-05-13T14:03:36.858Z",
     "ciRunId": "phase-11-local-2026-05-13",
     "harnessVersion": "0.1.0"
   },
@@ -53,7 +53,7 @@
       "metrics": {
         "ipaSizeMb": {
           "raw": 0,
-          "score": 0
+          "score": 100
         },
         "apkSizeMb": {
           "raw": 0,
@@ -65,7 +65,7 @@
         },
         "jsBundleSizeKb": {
           "raw": 0,
-          "score": 100
+          "score": 0
         },
         "nativeLibsSizeMb": {
           "raw": 0,
@@ -78,29 +78,29 @@
       }
     },
     "uxFidelity": {
-      "score": 78.75,
+      "score": 75.75,
       "weight": 0.25,
       "metrics": {
         "screenCoveragePercent": {
-          "raw": 80,
-          "score": 80
+          "raw": 76,
+          "score": 76
         },
         "interactionCoveragePercent": {
-          "raw": 80,
-          "score": 80
+          "raw": 76,
+          "score": 76
         },
         "edgeCaseCoveragePercent": {
           "raw": 75,
           "score": 75
         },
         "specCompliancePercent": {
-          "raw": 80,
-          "score": 80
+          "raw": 76,
+          "score": 76
         }
       }
     },
     "codeQuality": {
-      "score": 74,
+      "score": 93,
       "weight": 0.15,
       "metrics": {
         "lintScore": {
@@ -108,12 +108,12 @@
           "score": 100
         },
         "typeCoveragePercent": {
-          "raw": 90,
-          "score": 90
+          "raw": 85,
+          "score": 85
         },
         "testCoveragePercent": {
-          "raw": 0,
-          "score": 0
+          "raw": 100,
+          "score": 100
         },
         "cyclomaticComplexity": {
           "raw": 0,
@@ -126,7 +126,7 @@
       }
     },
     "devVelocity": {
-      "score": 25,
+      "score": 37.5,
       "weight": 0.1,
       "metrics": {
         "cleanBuildSec": {
@@ -139,7 +139,7 @@
         },
         "hotReloadSec": {
           "raw": 0,
-          "score": 0
+          "score": 50
         },
         "ciPipelineSec": {
           "raw": 0,
@@ -193,7 +193,7 @@
     }
   },
   "composite": {
-    "score": 36.62,
+    "score": 39.97,
     "formula": "weighted-average",
     "weights": {
       "performance": 0.2,
@@ -206,8 +206,8 @@
     }
   },
   "evidence": {
-    "appPath": "/tmp/gemini-mobile-clone",
-    "variantPath": "/tmp/gemini-mobile-clone/variants/ios-native",
+    "appPath": "/tmp/genie-mobile-clone",
+    "variantPath": "/tmp/genie-mobile-clone/variants/react-native",
     "notes": [
       "UX fidelity report missing; using source structure proxy.",
       "Accessibility report missing; accessibility score is conservative.",

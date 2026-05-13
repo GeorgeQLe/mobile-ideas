@@ -1,5 +1,32 @@
 # History
 
+## 2026-05-13 - Phase 11 Step 11.13 Genie JS Remediation
+
+- Continued Step 11.13 remediation without GitHub Actions for `GeorgeQLe/genie-mobile-clone`.
+- Fixed and pushed downstream JS validation support at commit `b99dd40`.
+- Added React Native and Expo package manifests, npm lockfiles, TypeScript configs, Babel configs, ESLint configs, React Native root `App.tsx`, and Expo `app.json`.
+- Fixed generated streaming-service lint errors with typed stream-event parsing and non-abort error reporting.
+- Local executable validation passed:
+  - Genie React Native: `npm run typecheck`; `npm test -- --runInBand` (8 tests); `npm run lint` (0 errors, 0 warnings).
+  - Genie Expo: `npm run typecheck`; `npm test -- --runInBand` (8 tests); `npm run lint` (0 errors, 0 warnings).
+- Remote verification confirmed `visibility: private`, `default_branch: main`, and `pushed_at: 2026-05-13T14:03:20Z`.
+- Updated `tasks/phase-11-validation-report.md`: React Native/Expo validation now passes for 23 repos; manifest-missing implementation gap is reduced to 4 repo pairs.
+- Regenerated Phase 11 benchmark artifacts: `tasks/scorecards/phase-11/summary.json` now reports 73 scorecards and 62 blockers; React Native and Expo each have 23 scored variants and 4 manifest blockers.
+- Step 11.13 remains blocked by the remaining 4 React Native/Expo repo pairs plus Flutter and Android local toolchain blockers.
+
+### Ship Manifest
+
+- User goal: continue Step 11.13 remediation by implementing and validating the next manifest-missing React Native/Expo pair.
+- Changed files: downstream Genie React Native/Expo package/config/source files; `tasks/todo.md`, `tasks/history.md`, `tasks/phase-11-validation-report.md`, and regenerated `tasks/scorecards/phase-11/*` artifacts.
+- Per-file purpose: downstream files make Genie React Native/Expo installable and locally validatable; task/report/history docs record evidence, blocker reduction, and remaining blockers; scorecard artifacts replace stale manifest blockers with Genie React Native/Expo benchmark scorecards.
+- User-goal mapping: removes Genie from the manifest-missing blocker set and provides executable local validation plus local benchmark evidence for both JS variants.
+- Tests run: Genie RN typecheck/test/lint; Genie Expo typecheck/test/lint; remote privacy/default-branch verification; `node scripts/generate-phase11-benchmark-blockers.mjs`.
+- Skipped tests: remaining 4 manifest-missing React Native/Expo repo pairs were not run after completing this serial remediation slice; Flutter remains blocked because `flutter` is unavailable; Android remains blocked because Java/Gradle are unavailable; GitHub Actions intentionally not used.
+- Adversarial review: scorecard/blocker accounting now sums to 135 targets with 73 scorecards and 62 explicit blockers; Phase 11 remains blocked because 8 JS variant manifests plus all Flutter/Android executable evidence remain unresolved.
+- Residual risk: generated npm audit findings remain; benchmark scores are local structural scores, not real-device performance/accessibility/store-compliance proof.
+- Rollback note: revert downstream commit `b99dd40`, then revert this planning commit and rerun `node scripts/generate-phase11-benchmark-blockers.mjs` from a checkout without Genie JS manifests.
+- Next command: `$run`.
+
 ## 2026-05-13 - Phase 11 Step 11.13 QuillBot JS Remediation
 
 - Continued Step 11.13 remediation without GitHub Actions for `GeorgeQLe/quillbot-mobile-clone`.
