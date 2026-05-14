@@ -110,6 +110,14 @@ Build all five variants for every app in the Social, Dating & Community cluster.
     - `242` is listed here as HER (`GeorgeQLe/her-mobile-clone`, `specs/batch-03/242-her.md`), but `tasks/roadmap.md` and `tasks/repo-seeding.md` map `242` to Remini (`GeorgeQLe/remini-mobile-clone`, `specs/batch-13/242-remini.md`).
   - Required next action: reconcile Phase 12 app inventory against `tasks/roadmap.md` and `tasks/repo-seeding.md` before rerunning Step 12.1 repairs.
 
+## Development Docs Reconciliation
+
+- [ ] Resolve Phase 12 inventory contradiction before downstream mutations
+  - Finding: `tasks/todo.md` Phase 12 combines Social, Dating & Community labels with app IDs/spec paths that belong to other roadmap clusters. The clearest hard conflicts are `010` (todo says Facebook but roadmap/manifest say Reddit), `223-248` (todo says social/community/dating apps but `tasks/ideas.md`, `specs/`, and `tasks/repo-seeding.md` map these IDs to photo/video creation apps), `237` (todo says OnlyFans but roadmap/manifest say Meitu), and `242` (todo says HER but roadmap/manifest say Remini).
+  - Evidence: `tasks/roadmap.md` Phase Overview marks Phase 12 as Social, Dating & Community; `tasks/repo-seeding.md` maps `010` to `GeorgeQLe/reddit-mobile-clone`, `237` to `GeorgeQLe/meitu-mobile-clone`, and `242` to `GeorgeQLe/remini-mobile-clone`; `specs/batch-12/README.md` and `specs/batch-13/` map `223-248` to photo/video creation specs.
+  - Required decision: choose the canonical Phase 12 app inventory from the roadmap taxonomy and manifest before Step 12.1 performs any repo writes.
+  - Stop condition: do not scaffold, clone, commit, push, or verify downstream Phase 12 repos from the current inventory until this contradiction is resolved.
+
 - [ ] Step 12.2: Implement pilot app 1 — Instagram clone (all 5 variants)
   - Files: `GeorgeQLe/instagram-mobile-clone` — all 5 `variants/` directories.
   - Read source spec `specs/batch-01/006-instagram.md` and downstream build plan.

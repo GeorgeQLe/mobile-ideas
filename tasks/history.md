@@ -1,5 +1,25 @@
 # History
 
+## 2026-05-14 - Development Docs Reconciliation
+
+- Ran `$reconcile-dev-docs fix tasks` against roadmap, todo, history, phase archives, record/recurring todos, and recent git evidence.
+- Fixed unambiguous roadmap drift: Phase 9 is now consistently marked complete in the Phase Overview and duplicate Phase 9 milestone acceptance criteria, matching `tasks/phases/phase-9.md` and the checked Phase 9 acceptance criteria already present in `tasks/roadmap.md`.
+- Added a `tasks/todo.md` `Development Docs Reconciliation` blocker for the unresolved Phase 12 inventory contradiction.
+- Rewrote `tasks/reconciliation-report.md` with resolved, deferred, remaining, and evidence sections for this run.
+- Deferred the actual Phase 12 inventory rewrite because the canonical Social, Dating & Community app set requires a roadmap taxonomy decision, not a mechanical docs fix.
+
+### Ship Manifest
+
+- User goal: `$reconcile-dev-docs fix tasks`.
+- Changed files: `tasks/roadmap.md`, `tasks/todo.md`, `tasks/history.md`, and `tasks/reconciliation-report.md`.
+- Per-file purpose: roadmap now consistently reflects Phase 9 completion; todo now blocks unsafe Phase 12 downstream mutations until inventory is corrected; history records the reconciliation; report captures resolved and remaining findings.
+- Tests run: task doc grep checks; git evidence review; Markdown structure validation.
+- Skipped tests: no downstream repo checks or GitHub Actions were run because this task only reconciled planning docs.
+- Adversarial review: the Phase 12 inventory was not guessed or rewritten from partial evidence; it is explicitly blocked for user/taxonomy resolution.
+- Residual risk: Step 12.1 remains blocked until the Phase 12 inventory and batch steps are rewritten to a canonical app set.
+- Rollback note: revert this planning commit to restore the prior reconciliation state.
+- Next command: `$reconcile-dev-docs fix tasks` after choosing the canonical Phase 12 inventory, or `$roadmap` to redefine the Phase 12 taxonomy.
+
 ## 2026-05-13 - Phase 11 Step 11.13 Consensus JS Remediation
 
 - Continued Step 11.13 remediation without GitHub Actions for `GeorgeQLe/consensus-mobile-clone`.

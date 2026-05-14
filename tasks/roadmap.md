@@ -16,7 +16,7 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 | Phase 6 | Complete | Seeded 100 private downstream repos; spec store published public 2026-04-20. |
 | Phase 7 | Complete | Backlog extension pipeline for IDs 101-200 (Draft 0 -> readiness -> seeding). |
 | Phase 8 | Complete | 1000-app backlog, implementation-ready specs, plan queue, and private downstream repos. |
-| Phase 9 | Active | Detailed build plans for all 1000 apps in downstream repos. |
+| Phase 9 | Complete | Detailed build plans for all 1000 apps in downstream repos. |
 | Phase 10 | Done | Benchmarking infrastructure, CI/CD templates, and multi-variant repo structure. |
 | Phase 11 | Complete with carry-forward blockers | Implementation: AI & Assistants cluster advanced with 54 Flutter/Android Native toolchain blockers explicitly deferred by user approval on 2026-05-14. |
 | Phase 12 | Active | Implementation: Social, Dating & Community cluster (~31 apps × 5 variants). |
@@ -1396,10 +1396,10 @@ Phase 8 completed 2026-05-06. All 1000 IDs have backlog rows, implementation-rea
 
 ### Milestone: Phase 9 — Build Plans Complete
 **Acceptance Criteria:** (preserved from roadmap)
-- [ ] All 1000 downstream repos have a completed `docs/plans/README.md` with route map, API schema, data model, seed data, and test checklist.
-- [ ] Each plan defines variant-specific build notes for all five targets.
-- [ ] Plans reference exact source spec sections and preserve manual verification blockers.
-- [ ] No proprietary assets, trademarks, or copyrighted content introduced.
+- [x] All 1000 downstream repos have a completed `docs/plans/README.md` with route map, API schema, data model, seed data, and test checklist.
+- [x] Each plan defines variant-specific build notes for all five targets.
+- [x] Plans reference exact source spec sections and preserve manual verification blockers.
+- [x] No proprietary assets, trademarks, or copyrighted content introduced.
 
 **On Completion**:
 - Deviations from plan: GitHub Actions stayed disabled per project rules; local validation and benchmark artifacts replaced CI evidence. Flutter and Android Native validation/benchmarking remain unresolved because local Flutter, Java runtime, and Gradle toolchains are unavailable. User approved carrying those 54 blocker records forward on 2026-05-14 so development can continue.
