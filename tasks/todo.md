@@ -4,6 +4,11 @@
 > Source roadmap: `tasks/roadmap.md`
 > Test strategy: tests-after, local validation only; GitHub Actions remain disabled unless separately approved
 
+## Priority Task Queue
+
+- [ ] `$reconcile-dev-docs fix tasks` - resolve the Phase 12 inventory contradiction before continuing implementation because `tasks/todo.md` Step 12.1 is blocked as of 2026-05-14 by conflicts with `tasks/roadmap.md`, `tasks/repo-seeding.md`, and `specs/` mappings for IDs `010`, `223-248`, `237`, and `242`.
+- [ ] Review `tasks/recurring-todo.md`: "Refresh research roadmap" — trigger condition may be eligible after the 2026-05-14 roadmap/todo/history reconciliation; promote to `tasks/todo.md` only if this requires concrete documentation execution before Phase 12 resumes.
+
 ## Phase 12: Implementation — Social, Dating & Community (~31 Apps × 5 Variants)
 
 ### Goal
