@@ -1,5 +1,26 @@
 # History
 
+## 2026-05-14 - Phase 12 Task Inventory Reconciliation
+
+- Continued `$reconcile-dev-docs fix tasks` after the prior run deferred the Phase 12 inventory contradiction.
+- Resolved the contradiction using existing project evidence rather than a new taxonomy: `tasks/history.md` Phase 9 Step 9.5 records the Social, Dating & Community cluster as 39 apps across ID ranges `006-015`, `101-106`, `915-934`, and `986-988`.
+- Updated `tasks/roadmap.md` Phase 12 counts from ~31 apps / ~155 builds to 39 apps / 195 builds.
+- Rewrote `tasks/todo.md` Phase 12 app inventory, Step 12.1 scaffold scope, implementation batches, validation/benchmark step numbers, and source-spec references to match the canonical 39 seeded downstream repos.
+- Removed the stale Development Docs Reconciliation blocker from `tasks/todo.md` because the inventory is now aligned with `tasks/history.md`, `tasks/repo-seeding.md`, `tasks/roadmap.md`, `tasks/ideas.md`, and existing spec paths.
+- Updated `tasks/reconciliation-report.md` with the resolved inventory, deferred recurring-roadmap advisory, remaining Step 12.1 verification work, and evidence.
+
+### Ship Manifest
+
+- User goal: `$reconcile-dev-docs fix tasks`.
+- Changed files: `tasks/roadmap.md`, `tasks/todo.md`, `tasks/history.md`, and `tasks/reconciliation-report.md`.
+- Per-file purpose: roadmap count matches shipped Phase 9 evidence; todo now has a valid Phase 12 execution contract; history records this reconciliation; report records resolved and remaining findings.
+- Tests run: task-doc grep checks; spec file existence checks for corrected Phase 12 ranges; manifest evidence review; git status review.
+- Skipped tests: no downstream repo mutations, downstream builds, or GitHub Actions were run because this was a task-doc reconciliation.
+- Adversarial review: the prior 31-app inventory was not preserved because it contradicted the append-only Phase 9 history and manifest; the corrected 39-app set is traceable to already-shipped build-plan evidence.
+- Residual risk: Step 12.1 still needs live downstream verification before any scaffold row is marked complete.
+- Rollback note: revert this planning commit to restore the prior blocked Phase 12 task inventory.
+- Next command: `$run`.
+
 ## 2026-05-14 - Development Docs Reconciliation
 
 - Ran `$reconcile-dev-docs fix tasks` against roadmap, todo, history, phase archives, record/recurring todos, and recent git evidence.
