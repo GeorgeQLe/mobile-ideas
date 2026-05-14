@@ -83,7 +83,7 @@ Build all five variants for every app in the Social, Dating & Community cluster.
 
 ### Implementation
 
-- [ ] Step 12.1: Scaffold multi-variant structure across all 39 Social, Dating & Community repos
+- [x] Step 12.1: Scaffold multi-variant structure across all 39 Social, Dating & Community repos
   - Files: all 39 downstream repos listed in App Inventory.
   - For each repo: verify private visibility, root commit, copied source spec under `docs/source-specs/`, `docs/plans/README.md`, and `variants/` directories for React Native, Flutter, Expo, iOS Native, and Android Native.
   - Create or repair missing `shared/` directories (`assets`, `api-contracts`, `test-fixtures`) with `.gitkeep`.
@@ -111,13 +111,53 @@ Build all five variants for every app in the Social, Dating & Community cluster.
   - All 39 repos have source specs copied under `docs/source-specs/`.
   - No GitHub Actions are enabled, dispatched, or used as validation.
 
-  **Next work:** Step 12.1 — scaffold and verify Phase 12 downstream repos.
+  **Review — 2026-05-14:**
+  - Added `scripts/verify-phase12-scaffold.mjs` to make downstream scaffold checks reproducible.
+  - Pre-repair verification confirmed all 39 repos were private, had root commits, had `README.md`, had `docs/plans/README.md`, and had copied source specs under `docs/source-specs/`.
+  - Repaired missing scaffold directories in all 39 downstream repos by adding `.gitkeep` files under `variants/react-native`, `variants/flutter`, `variants/expo`, `variants/ios-native`, `variants/android-native`, `shared/assets`, `shared/api-contracts`, and `shared/test-fixtures`.
+  - Downstream repair command: `node scripts/verify-phase12-scaffold.mjs --repair`; result: `checked=39`, `repairedCount=39`, `failures=0`.
+  - Final verification command: `node scripts/verify-phase12-scaffold.mjs`; result: `checked=39`, `repairedCount=0`, `failures=0`.
+  - No GitHub Actions were enabled, dispatched, or used. No repo visibility changes were made.
+
+  **Ship Manifest:**
+  - User goal: execute Phase 12 Step 12.1 and prepare every Social, Dating & Community downstream repo for five-variant implementation.
+  - Changed files: 39 downstream repos received scaffold `.gitkeep` files; this repo changed `scripts/verify-phase12-scaffold.mjs`, `tasks/todo.md`, `tasks/history.md`, and `tasks/repo-seeding.md`.
+  - Per-file purpose: downstream repos now have the required empty variant/shared directories; verifier script preserves the exact scaffold contract; task/history/seeding docs record evidence and next work.
+  - User-goal mapping: satisfies Step 12.1 without app code, proprietary assets, public visibility changes, or GitHub Actions.
+  - Tests run: final `node scripts/verify-phase12-scaffold.mjs` network verification across all 39 private repos.
+  - Skipped tests: local app builds/lint/typecheck/tests were skipped because Step 12.1 is scaffold-only; those belong to implementation and validation steps 12.2-12.13.
+  - Adversarial review: the verifier checks privacy, root commit/default branch, seed docs, source spec copy, five variant directories, and three shared directories; it avoids claiming implementation or validation parity.
+  - Residual risk: scaffold directories are intentionally empty placeholders; future implementation steps must add real code and executable evidence.
+  - Rollback note: revert the downstream `chore: add multi-variant scaffold` commits and this planning commit if the scaffold convention changes.
+  - Next command: `$run` for Step 12.2.
+
+  **Next work:** Step 12.2 — implement pilot app 1, TikTok clone, across all five variants.
   **Recommended next command:** `$run`
 
 - [ ] Step 12.2: Implement pilot app 1 — TikTok clone (all 5 variants)
   - Files: `GeorgeQLe/tiktok-mobile-clone` — all 5 `variants/` directories.
   - Read source spec `specs/batch-01/006-tiktok.md` and downstream build plan.
   - Implement: vertical video feed, creator profile, upload/edit flow, sound metadata, comments, sharing, discovery/search, moderation/reporting, privacy controls, and age-appropriate safety gates.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Implement the TikTok-inspired lawful clone in `GeorgeQLe/tiktok-mobile-clone` across React Native, Flutter, Expo, iOS Native, and Android Native variants, using original UI/content/data only.
+
+  **Approach:**
+  1. Clone or refresh `GeorgeQLe/tiktok-mobile-clone` and verify it remains `PRIVATE`.
+  2. Read `docs/source-specs/006-tiktok.md`, `docs/plans/README.md`, and any downstream task docs before coding.
+  3. Implement shared synthetic fixtures and API contracts for video feed, creator profiles, uploads, sound metadata, comments, discovery/search, sharing, moderation/reporting, privacy controls, and age/safety gates.
+  4. Build each variant inside its own `variants/*` directory, preserving stack-local conventions and avoiding shared code that forces one framework's assumptions onto another.
+  5. Add focused local tests or smoke checks per variant where the stack has available tooling; record explicit blockers for Flutter/Android if the inherited local toolchain gap still applies.
+  6. Run validation locally only; do not enable, dispatch, or rely on GitHub Actions.
+  7. Commit and push downstream implementation work serially on the repo primary branch, then record evidence back in this planning repo.
+
+  **Acceptance Criteria:**
+  - All five TikTok variant directories contain runnable implementation code or an explicit local toolchain blocker.
+  - Core social video workflows, safety/moderation flows, and privacy/age gates are represented with original assets and synthetic data.
+  - Local validation evidence or blocker records exist for every variant.
+  - No proprietary TikTok assets, trademarks as branding, copied media, private APIs, production data, or GitHub Actions are introduced.
 
 - [ ] Step 12.3: Implement pilot app 2 — Instagram clone (all 5 variants)
   - Files: `GeorgeQLe/instagram-mobile-clone` — all 5 `variants/` directories.

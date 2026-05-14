@@ -2925,6 +2925,7 @@ Guardrails:
 
 ## Next Steps
 
+- 2026-05-14 Phase 12 Step 12.1 scaffold repair: pre-repair rate limit was `{"core":{"limit":5000,"used":30,"remaining":4970},"graphql":{"limit":5000,"used":35,"remaining":4965}}`. Repaired the 39 Social, Dating & Community repos serially with `node scripts/verify-phase12-scaffold.mjs --repair`, adding only `.gitkeep` scaffold files under `variants/*` and `shared/*`. Final verification reported `checked=39`, `repairedCount=0`, `failures=0`. Post-run rate limit was `{"core":{"limit":5000,"used":671,"remaining":4329},"graphql":{"limit":5000,"used":71,"remaining":4929}}`. All touched repos remained private; no GitHub Actions were enabled or used.
 - Review repo names for legal/public-facing suitability before creating public repos.
 - Create private downstream repos by batch after the dry-run seed passes.
 - Keep this repository as the canonical spec store and publish it only after the open-source checklist is complete.

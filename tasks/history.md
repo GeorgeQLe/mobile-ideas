@@ -3076,3 +3076,31 @@
 - Residual risk: the other 28 repos still need serial scaffold repair after inventory reconciliation.
 - Rollback note: revert this planning commit to remove the blocker record after replacing it with a corrected Phase 12 inventory.
 - Next command: `$reconcile-dev-docs fix tasks` to align Phase 12 inventory with the canonical roadmap and seeding manifest.
+
+## 2026-05-14 - Phase 12 Step 12.1 Scaffold Completed
+
+- Verified the corrected 39-repo Phase 12 inventory against GitHub after the inventory reconciliation.
+- Added `scripts/verify-phase12-scaffold.mjs` so Phase 12 scaffold verification can be rerun reproducibly.
+- Confirmed all 39 repos are `PRIVATE`, have root commits/default branches, include `README.md`, include `docs/plans/README.md`, and include copied source specs under `docs/source-specs/`.
+- Repaired all 39 downstream repos by adding placeholder `.gitkeep` files under the five required variant directories and three required shared directories:
+  - `variants/react-native`, `variants/flutter`, `variants/expo`, `variants/ios-native`, `variants/android-native`
+  - `shared/assets`, `shared/api-contracts`, `shared/test-fixtures`
+- Repair command: `node scripts/verify-phase12-scaffold.mjs --repair`.
+- Repair result: `checked=39`, `repairedCount=39`, `failures=0`.
+- Final verification command: `node scripts/verify-phase12-scaffold.mjs`.
+- Final verification result: `checked=39`, `repairedCount=0`, `failures=0`.
+- GitHub API rate limit after the repair/verification run: core remaining `4329/5000`, GraphQL remaining `4929/5000`.
+- No GitHub Actions were enabled, dispatched, or used. No downstream repo was made public.
+
+### Ship Manifest
+
+- User goal: execute Phase 12 Step 12.1 and prepare the Social, Dating & Community downstream repos for five-variant implementation.
+- Changed files: `scripts/verify-phase12-scaffold.mjs`, `tasks/todo.md`, `tasks/history.md`, `tasks/repo-seeding.md`, plus scaffold `.gitkeep` files in 39 private downstream repos.
+- Per-file purpose: verifier script codifies the scaffold contract; task/history/seeding docs record evidence and next work; downstream repos now have the required empty implementation surfaces.
+- User-goal mapping: completes Step 12.1 without app code, proprietary assets, public visibility changes, or GitHub Actions.
+- Tests run: `node scripts/verify-phase12-scaffold.mjs --repair`; final `node scripts/verify-phase12-scaffold.mjs`; `gh api rate_limit`.
+- Skipped tests: app build/lint/typecheck/test commands were skipped because this was a scaffold-only downstream preparation step; Step 12.11 owns broad local validation.
+- Adversarial review: the final verifier requires privacy, default branch/root commit, seed docs, copied source spec, all five variant dirs, and all three shared dirs before reporting success.
+- Residual risk: the created directories are placeholders only; implementation quality and executable app validation remain future Phase 12 work.
+- Rollback note: revert the downstream `chore: add multi-variant scaffold` commits and this planning commit if the scaffold contract changes.
+- Next command: `$run` for Step 12.2, TikTok all-variant implementation.
