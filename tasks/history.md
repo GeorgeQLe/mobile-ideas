@@ -3012,3 +3012,26 @@
 - Residual risk: Phase 12 inherits the unresolved Flutter/Android toolchain evidence problem until a later run installs toolchains or receives a newer approved disposition.
 - Rollback note: restore `tasks/todo.md` from `tasks/phases/phase-11.md`, revert the roadmap status change, and remove this history entry.
 - Next command: `$run` for Phase 12 Step 12.1.
+
+## 2026-05-14 - Phase 12 Step 12.1 Blocked By Inventory Drift
+
+- Started Step 12.1 with a read-only GitHub audit of the 31 repos listed in `tasks/todo.md`.
+- Verified 28 listed repos resolve as `PRIVATE`, have a root commit, have no `.github/workflows/`, and are missing the Step 12.1 variant/shared scaffold paths.
+- Stopped before downstream mutations because three listed repos/specs do not exist and conflict with the canonical roadmap and seeding manifest:
+  - `010` is listed in `tasks/todo.md` as Facebook, but `tasks/roadmap.md` and `tasks/repo-seeding.md` map `010` to Reddit.
+  - `237` is listed in `tasks/todo.md` as OnlyFans, but `tasks/roadmap.md` and `tasks/repo-seeding.md` map `237` to Meitu.
+  - `242` is listed in `tasks/todo.md` as HER, but `tasks/roadmap.md` and `tasks/repo-seeding.md` map `242` to Remini.
+- Step 12.1 remains unchecked until the Phase 12 inventory is reconciled against `tasks/roadmap.md` and `tasks/repo-seeding.md`.
+
+### Ship Manifest
+
+- User goal: execute the next `$run` step for Phase 12.
+- Changed files: `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: `tasks/todo.md` records the blocker at the active step; `tasks/history.md` preserves the audit result and stop reason.
+- User-goal mapping: prevents downstream mutations against nonexistent or incorrect target repos.
+- Tests run: read-only GitHub audit with `gh repo view` and `gh api`; `rg` cross-check of conflicting IDs in `tasks/roadmap.md`, `tasks/repo-seeding.md`, and `tasks/todo.md`.
+- Skipped tests: downstream scaffold repair, local builds, and benchmarks were skipped because the active inventory is inconsistent; GitHub Actions intentionally unused.
+- Adversarial review: continuing with 28 partial repairs would leave Step 12.1 unable to satisfy its 31-repo acceptance criteria and could scaffold the wrong repos for mismatched IDs.
+- Residual risk: the other 28 repos still need serial scaffold repair after inventory reconciliation.
+- Rollback note: revert this planning commit to remove the blocker record after replacing it with a corrected Phase 12 inventory.
+- Next command: `$reconcile-dev-docs fix tasks` to align Phase 12 inventory with the canonical roadmap and seeding manifest.

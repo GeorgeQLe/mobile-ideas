@@ -102,6 +102,14 @@ Build all five variants for every app in the Social, Dating & Community cluster.
   **Next work:** Step 12.1 — scaffold and verify Phase 12 downstream repos.
   **Recommended next command:** `$run`
 
+  **Blocked 2026-05-14: inventory drift discovered during read-only GitHub audit.**
+  - Verified via `gh api`/`gh repo view` that 28 listed repos exist, are `PRIVATE`, have a root commit, have no `.github/workflows/`, and are missing the Step 12.1 scaffold paths.
+  - Blocked before downstream mutation because three inventory rows do not resolve and conflict with the canonical manifest/roadmap:
+    - `010` is listed here as Facebook (`GeorgeQLe/facebook-mobile-clone`, `specs/batch-01/010-facebook.md`), but `tasks/roadmap.md` and `tasks/repo-seeding.md` map `010` to Reddit (`GeorgeQLe/reddit-mobile-clone`, `specs/batch-01/010-reddit.md`).
+    - `237` is listed here as OnlyFans (`GeorgeQLe/onlyfans-mobile-clone`, `specs/batch-03/237-onlyfans.md`), but `tasks/roadmap.md` and `tasks/repo-seeding.md` map `237` to Meitu (`GeorgeQLe/meitu-mobile-clone`, `specs/batch-12/237-meitu.md`).
+    - `242` is listed here as HER (`GeorgeQLe/her-mobile-clone`, `specs/batch-03/242-her.md`), but `tasks/roadmap.md` and `tasks/repo-seeding.md` map `242` to Remini (`GeorgeQLe/remini-mobile-clone`, `specs/batch-13/242-remini.md`).
+  - Required next action: reconcile Phase 12 app inventory against `tasks/roadmap.md` and `tasks/repo-seeding.md` before rerunning Step 12.1 repairs.
+
 - [ ] Step 12.2: Implement pilot app 1 — Instagram clone (all 5 variants)
   - Files: `GeorgeQLe/instagram-mobile-clone` — all 5 `variants/` directories.
   - Read source spec `specs/batch-01/006-instagram.md` and downstream build plan.
