@@ -18,8 +18,8 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 | Phase 8 | Complete | 1000-app backlog, implementation-ready specs, plan queue, and private downstream repos. |
 | Phase 9 | Active | Detailed build plans for all 1000 apps in downstream repos. |
 | Phase 10 | Done | Benchmarking infrastructure, CI/CD templates, and multi-variant repo structure. |
-| Phase 11 | Pending | Implementation: AI & Assistants cluster (~26 apps × 5 variants). |
-| Phase 12 | Pending | Implementation: Social, Dating & Community cluster (~31 apps × 5 variants). |
+| Phase 11 | Complete with carry-forward blockers | Implementation: AI & Assistants cluster advanced with 54 Flutter/Android Native toolchain blockers explicitly deferred by user approval on 2026-05-14. |
+| Phase 12 | Active | Implementation: Social, Dating & Community cluster (~31 apps × 5 variants). |
 | Phase 13 | Pending | Implementation: Messaging & Email cluster (~37 apps × 5 variants). |
 | Phase 14 | Pending | Implementation: Video & Music Streaming cluster (~53 apps × 5 variants). |
 | Phase 15 | Pending | Implementation: Podcasts, Books & Reading cluster (~42 apps × 5 variants). |
@@ -1401,10 +1401,10 @@ Phase 8 completed 2026-05-06. All 1000 IDs have backlog rows, implementation-rea
 - [ ] Plans reference exact source spec sections and preserve manual verification blockers.
 - [ ] No proprietary assets, trademarks, or copyrighted content introduced.
 
-**On Completion** (fill in when phase is done):
-- Deviations from plan: 
-- Tech debt / follow-ups: 
-- Ready for next phase: 
+**On Completion**:
+- Deviations from plan: GitHub Actions stayed disabled per project rules; local validation and benchmark artifacts replaced CI evidence. Flutter and Android Native validation/benchmarking remain unresolved because local Flutter, Java runtime, and Gradle toolchains are unavailable. User approved carrying those 54 blocker records forward on 2026-05-14 so development can continue.
+- Tech debt / follow-ups: Install or otherwise provide approved executable evidence for Flutter and Android Native validation/benchmarking, then regenerate Phase 11 scorecards and blocker artifacts.
+- Ready for next phase: Yes, with carry-forward blockers preserved in `tasks/phase-11-validation-report.md` and `tasks/scorecards/phase-11/benchmark-blockers.json`.
 
 ---
 
