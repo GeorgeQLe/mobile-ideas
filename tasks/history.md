@@ -3128,3 +3128,27 @@
 - Residual risk: the created directories are placeholders only; implementation quality and executable app validation remain future Phase 12 work.
 - Rollback note: revert the downstream `chore: add multi-variant scaffold` commits and this planning commit if the scaffold contract changes.
 - Next command: `$run` for Step 12.2, TikTok all-variant implementation.
+
+## 2026-05-14 - Phase 12 Step 12.3 Instagram Prototype Completed
+
+- Implemented the downstream `LumenLane` media-social prototype for `GeorgeQLe/instagram-mobile-clone`.
+- Used branch-backed lane `phase12-instagram-variants`, opened PR `https://github.com/GeorgeQLe/instagram-mobile-clone/pull/1`, and squash-merged to `main` at commit `00fca5c`.
+- Added shared synthetic fixtures and API contracts for auth/onboarding, home feed, stories, short video, profile grid, media creation, direct messaging, notifications, privacy controls, reporting/blocking, content moderation, and minor safety.
+- Added stack-local variant files under React Native, Expo, Flutter, iOS Native, and Android Native directories.
+- Added downstream validation evidence at `tasks/validation/phase12-step12-3.md`.
+- Verified the downstream repo remains `PRIVATE` with default branch `main`.
+- Preserved launch blockers for creator payouts, ad targeting, public minor messaging, external shopping, cross-account import, native screenshots, real account lifecycle, entitlement flows, notification payloads, deletion/export completion, and region/device parity.
+- No GitHub Actions were enabled, dispatched, or used.
+
+### Ship Manifest
+
+- User goal: execute Phase 12 Step 12.3 and implement the Instagram-inspired lawful clone across all five downstream variants.
+- Changed files: downstream `GeorgeQLe/instagram-mobile-clone` received shared fixtures/contracts, variant source files, validation script, validation record, and package scripts; this planning repo changed `tasks/todo.md` and `tasks/history.md`.
+- Per-file purpose: downstream files provide original synthetic app surfaces and reproducible contract checks; planning files record evidence and next work.
+- User-goal mapping: completes Step 12.3 without proprietary Instagram assets, brand claims, private APIs, production data, public visibility changes, or GitHub Actions.
+- Tests run: downstream `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compilation/run, downstream `git diff --cached --check`, and remote privacy/default-branch verification.
+- Skipped tests: Flutter and Android Native runtime checks are blocked by missing local Dart/Flutter and Kotlin toolchains; real-device account, notification, purchase, data export/deletion, and native screenshot verification remains blocked.
+- Adversarial review: implementation uses original `LumenLane` naming and synthetic data, keeps high-risk monetization/messaging/shopping/cross-account features gated, and records blocked native parity rather than claiming full launch readiness.
+- Residual risk: variant code is a lightweight baseline, not production device builds; full stack manifests and real toolchain/device validation remain future work.
+- Rollback note: revert downstream commit `00fca5c`, then revert this planning commit.
+- Next command: `$run` for Step 12.4, Snapchat all-variant implementation.

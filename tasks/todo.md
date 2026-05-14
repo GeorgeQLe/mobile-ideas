@@ -190,15 +190,86 @@ Build all five variants for every app in the Social, Dating & Community cluster.
   - Rollback note: revert downstream commit `44f892d`, then revert this planning commit.
   - Next command: `$run` for Step 12.3.
 
-- [ ] Step 12.3: Implement pilot app 2 — Instagram clone (all 5 variants)
+- [x] Step 12.3: Implement pilot app 2 — Instagram clone (all 5 variants)
   - Files: `GeorgeQLe/instagram-mobile-clone` — all 5 `variants/` directories.
   - Read source spec `specs/batch-01/007-instagram.md` and downstream build plan.
   - Implement: auth/onboarding, home feed, stories/reels-like short video surfaces, profile grid, media creation, direct messaging, notifications, privacy controls, reporting/blocking, and content moderation.
   - Category-specific safety review: creator/community content, minor safety, harassment/reporting, public profile privacy, and media upload constraints.
 
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Implement the Instagram-inspired lawful clone in `GeorgeQLe/instagram-mobile-clone` across React Native, Flutter, Expo, iOS Native, and Android Native variants, using original UI/content/data only.
+
+  **Approach:**
+  1. Clone or refresh `GeorgeQLe/instagram-mobile-clone` and verify it remains `PRIVATE`.
+  2. Read `docs/source-specs/007-instagram.md`, `docs/plans/README.md`, and downstream task docs before coding.
+  3. Implement shared synthetic fixtures and API contracts for auth/onboarding, home feed, stories, short video, profile grid, media creation, direct messaging, notifications, privacy controls, reporting/blocking, moderation, and minor safety.
+  4. Build each variant inside its own `variants/*` directory, preserving stack-local conventions and avoiding shared framework assumptions.
+  5. Add focused local contract checks where the stack has available tooling; record explicit blockers for Flutter/Android if inherited local toolchain gaps still apply.
+  6. Run validation locally only; do not enable, dispatch, or rely on GitHub Actions.
+  7. Commit and push downstream implementation work through a non-primary branch and consolidation PR, then record evidence back in this planning repo.
+
+  **Acceptance Criteria:**
+  - All five Instagram variant directories contain runnable implementation code or an explicit local toolchain blocker.
+  - Core media-social workflows, safety/moderation flows, privacy defaults, and minor-safety gates are represented with original assets and synthetic data.
+  - Local validation evidence or blocker records exist for every variant.
+  - No proprietary Instagram assets, trademarks as branding, copied media, private APIs, production data, or GitHub Actions are introduced.
+
+  **Review — 2026-05-14:**
+  - Implemented the downstream `LumenLane` media-social prototype in `GeorgeQLe/instagram-mobile-clone`.
+  - Used branch-backed lane `phase12-instagram-variants`, opened PR `https://github.com/GeorgeQLe/instagram-mobile-clone/pull/1`, and squash-merged to `main` at commit `00fca5c`.
+  - Added shared synthetic fixture and API contract coverage for auth/onboarding, home feed, stories, short video, profile grid, media creation, direct messaging, notifications, privacy controls, reporting/blocking, content moderation, and minor safety.
+  - Added variant code under React Native, Expo, Flutter, iOS Native, and Android Native directories.
+  - Added downstream validation evidence at `tasks/validation/phase12-step12-3.md`.
+  - Verified downstream repo remains `PRIVATE` with default branch `main`.
+  - Preserved launch blockers for creator payouts, ad targeting, public minor messaging, external shopping, cross-account import, native screenshots, real account lifecycle, entitlement flows, notification payloads, deletion/export completion, and region/device parity.
+  - No GitHub Actions were enabled, dispatched, or used.
+
+  **Validation — 2026-05-14:**
+  - `npm run validate` passed in `/tmp/instagram-mobile-clone`.
+  - `npm run test:react-native` passed in `/tmp/instagram-mobile-clone`.
+  - `npm run test:expo` passed in `/tmp/instagram-mobile-clone`.
+  - `swiftc -module-cache-path /tmp/swift-module-cache variants/ios-native/Sources/MediaSocialClone/AppModel.swift variants/ios-native/Sources/MediaSocialClone/main.swift -o /tmp/lumenlane-ios && /tmp/lumenlane-ios` passed and printed the model summary.
+  - `git diff --cached --check` passed before downstream commit.
+  - Flutter runtime validation remains blocked because `dart` and `flutter` are not installed locally.
+  - Android Native runtime validation remains blocked because `kotlinc` is not installed locally.
+
+  **Ship Manifest:**
+  - User goal: execute Phase 12 Step 12.3 and implement the Instagram-inspired lawful clone across all five downstream variants.
+  - Changed files: downstream `GeorgeQLe/instagram-mobile-clone` received shared fixtures/contracts, variant source files, validation script, validation record, and package scripts; this planning repo changed `tasks/todo.md` and `tasks/history.md`.
+  - Per-file purpose: downstream files provide original synthetic app surfaces and reproducible contract checks; planning files record evidence and next work.
+  - User-goal mapping: satisfies Step 12.3 without proprietary Instagram assets, brand claims, private APIs, production data, public visibility changes, or GitHub Actions.
+  - Tests run: downstream `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compilation/run, downstream `git diff --cached --check`, and remote privacy/default-branch verification.
+  - Skipped tests: Flutter and Android Native runtime checks are blocked by missing local Dart/Flutter and Kotlin toolchains; real-device account, notification, purchase, data export/deletion, and native screenshot verification remains blocked.
+  - Adversarial review: implementation uses original `LumenLane` naming and synthetic data, keeps high-risk monetization/messaging/shopping/cross-account features gated, and records blocked native parity rather than claiming full launch readiness.
+  - Residual risk: variant code is a lightweight baseline, not production device builds; full stack manifests and real toolchain/device validation remain future work.
+  - Rollback note: revert downstream commit `00fca5c`, then revert this planning commit.
+  - Next command: `$run` for Step 12.4.
+
 - [ ] Step 12.4: Implement pilot app 3 — Snapchat clone (all 5 variants)
   - Files: `GeorgeQLe/snapchat-mobile-clone` — all 5 `variants/` directories.
   - Implement: camera-first shell, ephemeral messaging model, stories, friends, chat, memories, location/privacy controls, reporting/blocking, and safety gates.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Implement the Snapchat-inspired lawful clone in `GeorgeQLe/snapchat-mobile-clone` across React Native, Flutter, Expo, iOS Native, and Android Native variants, using original UI/content/data only.
+
+  **Approach:**
+  1. Clone or refresh `GeorgeQLe/snapchat-mobile-clone` and verify it remains `PRIVATE`.
+  2. Read `docs/source-specs/008-snapchat.md`, `docs/plans/README.md`, and downstream task docs before coding.
+  3. Use a non-primary branch-backed downstream lane for implementation and consolidation, because Phase 12 uses `agent-team` profile.
+  4. Implement shared synthetic fixtures and API contracts for camera-first shell, ephemeral messages, stories, friends graph, chat, memories, location/privacy controls, reporting/blocking, and safety gates.
+  5. Build each variant inside its own `variants/*` directory, preserving stack-local conventions and explicitly recording unavailable local toolchains.
+  6. Run local validation only; do not enable, dispatch, or rely on GitHub Actions.
+  7. Merge through a consolidation PR, then record validation evidence and blocker status back in this planning repo.
+
+  **Acceptance Criteria:**
+  - All five Snapchat variant directories contain implementation code or explicit local toolchain blockers.
+  - Camera, ephemeral messaging, story, memory, friend/chat, location/privacy, reporting/blocking, and safety workflows are represented with original assets and synthetic data.
+  - Local validation evidence or blocker records exist for every variant.
+  - No proprietary Snapchat assets, trademarks as branding, copied media, private APIs, production data, or GitHub Actions are introduced.
 
 - [ ] Step 12.5: Implement batch apps 009-015 — BeReal, Reddit, X, Bluesky, Threads, Pinterest, Lemon8 (all 5 variants each)
   - Files: 7 downstream repos.
