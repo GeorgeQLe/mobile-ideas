@@ -1,5 +1,29 @@
 # History
 
+## 2026-05-14 - Phase 12 Step 12.2 TikTok Variant Implementation
+
+- Executed `$run` Step 12.2 for `GeorgeQLe/tiktok-mobile-clone` without GitHub Actions.
+- Implemented the downstream `PulseFrame` short-video prototype across React Native, Expo, Flutter, iOS Native, and Android Native variant directories.
+- Added shared synthetic fixtures and API contracts covering feed, creator profiles, uploads/editor metadata, sound attribution, comments, sharing, discovery/search, reporting/moderation, privacy controls, recommendation reset, and age safety gates.
+- Preserved blockers for direct messages, LIVE, commerce, gifts/coins, native permissions, push payloads, real account lifecycle, and one-for-one native parity.
+- Downstream commit: `44f892d` on `main`; remote verification confirmed `visibility: PRIVATE` and default branch `main`.
+- Local executable validation passed: `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, downstream `git diff --check`, planning repo `git diff --check`, and planning repo `node scripts/verify-phase12-scaffold.mjs` (`checked=39`, `repairedCount=0`, `failures=0`).
+- Flutter/Dart validation remains blocked because `dart` and `flutter` are not installed locally. Android Native runtime validation remains blocked because `kotlinc` is not installed locally.
+- No GitHub Actions were enabled, dispatched, or used.
+
+### Ship Manifest
+
+- User goal: execute Phase 12 Step 12.2 and implement the TikTok-inspired lawful clone across all five downstream variants.
+- Changed files: downstream `GeorgeQLe/tiktok-mobile-clone` received shared fixtures/contracts, variant source files, validation script, validation record, package scripts, and task/history updates; this planning repo changed `tasks/todo.md` and `tasks/history.md`.
+- Per-file purpose: downstream files provide original synthetic app surfaces and reproducible contract checks; planning files record evidence and next work.
+- User-goal mapping: satisfies Step 12.2 without proprietary TikTok assets, brand claims, private APIs, production data, public visibility changes, or GitHub Actions.
+- Tests run: downstream `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compilation/run, downstream `git diff --check`, planning repo `git diff --check`, planning repo `node scripts/verify-phase12-scaffold.mjs`, and remote privacy/default-branch verification.
+- Skipped tests: Flutter and Android Native runtime checks are blocked by missing local Dart/Flutter and Kotlin toolchains; real-device camera/push/account verification remains a manual blocker.
+- Adversarial review: implementation uses original `PulseFrame` naming and synthetic data, keeps high-risk LIVE/commerce/DM features gated, and records blocked native parity rather than claiming full launch readiness.
+- Residual risk: variant code is a lightweight baseline, not production device builds; full stack manifests and real toolchain/device validation remain future work.
+- Rollback note: revert downstream commit `44f892d`, then revert this planning commit.
+- Next command: `$run`.
+
 ## 2026-05-14 - Phase 12 Task Inventory Reconciliation
 
 - Continued `$reconcile-dev-docs fix tasks` after the prior run deferred the Phase 12 inventory contradiction.

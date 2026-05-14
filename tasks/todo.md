@@ -134,7 +134,7 @@ Build all five variants for every app in the Social, Dating & Community cluster.
   **Next work:** Step 12.2 — implement pilot app 1, TikTok clone, across all five variants.
   **Recommended next command:** `$run`
 
-- [ ] Step 12.2: Implement pilot app 1 — TikTok clone (all 5 variants)
+- [x] Step 12.2: Implement pilot app 1 — TikTok clone (all 5 variants)
   - Files: `GeorgeQLe/tiktok-mobile-clone` — all 5 `variants/` directories.
   - Read source spec `specs/batch-01/006-tiktok.md` and downstream build plan.
   - Implement: vertical video feed, creator profile, upload/edit flow, sound metadata, comments, sharing, discovery/search, moderation/reporting, privacy controls, and age-appropriate safety gates.
@@ -158,6 +158,37 @@ Build all five variants for every app in the Social, Dating & Community cluster.
   - Core social video workflows, safety/moderation flows, and privacy/age gates are represented with original assets and synthetic data.
   - Local validation evidence or blocker records exist for every variant.
   - No proprietary TikTok assets, trademarks as branding, copied media, private APIs, production data, or GitHub Actions are introduced.
+
+  **Review — 2026-05-14:**
+  - Implemented the downstream `PulseFrame` short-video prototype in `GeorgeQLe/tiktok-mobile-clone` at commit `44f892d` on `main`.
+  - Added shared synthetic fixture and API contract coverage for vertical feed, creator profiles, upload/edit metadata, sound attribution, comments, sharing, discovery/search, reporting/moderation, privacy controls, recommendation reset, and age safety gates.
+  - Added variant code under React Native, Expo, Flutter, iOS Native, and Android Native directories.
+  - Added downstream validation evidence at `tasks/validation/phase12-step12-2.md`.
+  - Verified downstream repo remains `PRIVATE` with default branch `main`.
+  - Preserved launch blockers for direct messages, LIVE, commerce, gifts/coins, native permissions, push payloads, real account lifecycle, and exact native parity.
+  - No GitHub Actions were enabled, dispatched, or used.
+
+  **Validation — 2026-05-14:**
+  - `npm run validate` passed in `/tmp/tiktok-mobile-clone`.
+  - `npm run test:react-native` passed in `/tmp/tiktok-mobile-clone`.
+  - `npm run test:expo` passed in `/tmp/tiktok-mobile-clone`.
+  - `swiftc variants/ios-native/Sources/ShortVideoClone/AppModel.swift variants/ios-native/Sources/ShortVideoClone/main.swift -o /tmp/pulseframe-ios && /tmp/pulseframe-ios` passed and printed the model summary.
+  - `git diff --check` passed before downstream commit.
+  - `node scripts/verify-phase12-scaffold.mjs` passed in this planning repo: `checked=39`, `repairedCount=0`, `failures=0`.
+  - Flutter runtime validation remains blocked because `dart` and `flutter` are not installed locally.
+  - Android Native runtime validation remains blocked because `kotlinc` is not installed locally.
+
+  **Ship Manifest:**
+  - User goal: execute Phase 12 Step 12.2 and implement the TikTok-inspired lawful clone across all five downstream variants.
+  - Changed files: downstream `GeorgeQLe/tiktok-mobile-clone` received shared fixtures/contracts, variant source files, validation script, validation record, package scripts, and task/history updates; this planning repo changed `tasks/todo.md` and `tasks/history.md`.
+  - Per-file purpose: downstream files provide original synthetic app surfaces and reproducible contract checks; planning files record evidence and next work.
+  - User-goal mapping: satisfies Step 12.2 without proprietary TikTok assets, brand claims, private APIs, production data, public visibility changes, or GitHub Actions.
+  - Tests run: downstream `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compilation/run, downstream `git diff --check`, planning repo `git diff --check`, planning repo `node scripts/verify-phase12-scaffold.mjs`, and remote privacy/default-branch verification.
+  - Skipped tests: Flutter and Android Native runtime checks are blocked by missing local Dart/Flutter and Kotlin toolchains; real-device camera/push/account verification remains a manual blocker.
+  - Adversarial review: implementation uses original `PulseFrame` naming and synthetic data, keeps high-risk LIVE/commerce/DM features gated, and records blocked native parity rather than claiming full launch readiness.
+  - Residual risk: variant code is a lightweight baseline, not production device builds; full stack manifests and real toolchain/device validation remain future work.
+  - Rollback note: revert downstream commit `44f892d`, then revert this planning commit.
+  - Next command: `$run` for Step 12.3.
 
 - [ ] Step 12.3: Implement pilot app 2 — Instagram clone (all 5 variants)
   - Files: `GeorgeQLe/instagram-mobile-clone` — all 5 `variants/` directories.
