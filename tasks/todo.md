@@ -542,13 +542,90 @@ Build all five variants for every app in the Social, Dating & Community cluster.
   - Rollback note: revert downstream commits `e53bf5c`, `5c6be6c`, `2601f36`, `7fc0a3a`, `5e178b1`, and `1f3a8e1`, then revert this planning commit.
   - Next command: `$run` for Step 12.9.
 
-- [ ] Step 12.9: Implement social/community apps 927-934 — Geneva, Fizz, Yubo, Poparazzi, NGL, Tellonym, Rumble, Truth Social (all 5 variants each)
+- [x] Step 12.9: Implement social/community apps 927-934 — Geneva, Fizz, Yubo, Poparazzi, NGL, Tellonym, Rumble, Truth Social (all 5 variants each)
   - Files: 8 downstream repos.
   - Shared patterns: communities/groups, real-time chat or interaction loops, creator profiles, local/community safety, reporting, and moderation.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Implement the eight social/community apps in Phase 12 batch 927-934 across React Native, Flutter, Expo, iOS Native, and Android Native variants, using original UI/content/data only.
+
+  **Approach:**
+  1. Process repos serially: `GeorgeQLe/geneva-mobile-clone`, `GeorgeQLe/fizz-mobile-clone`, `GeorgeQLe/yubo-mobile-clone`, `GeorgeQLe/poparazzi-mobile-clone`, `GeorgeQLe/ngl-mobile-clone`, `GeorgeQLe/tellonym-mobile-clone`, `GeorgeQLe/rumble-mobile-clone`, and `GeorgeQLe/truth-social-mobile-clone`.
+  2. For each repo, verify `PRIVATE` visibility, clone or refresh, read `docs/source-specs/*`, `docs/plans/README.md`, and downstream task docs.
+  3. Use one non-primary branch-backed downstream lane per repo; merge each through a consolidation PR before recording completion.
+  4. Implement shared synthetic fixtures and API contracts for communities/groups, real-time chat/live/media stubs, anonymous or public interaction loops, creator/profile surfaces, reporting/blocking, privacy controls, moderation queues, and app-specific safety gates.
+  5. Build each variant inside its own `variants/*` directory, preserving stack-local conventions and explicitly recording unavailable local toolchains.
+  6. Run local validation only; do not enable, dispatch, or rely on GitHub Actions.
+  7. Record downstream commit/PR URLs, validation evidence, privacy verification, community-specific risk review, blocker status, and legal/asset review back in this planning repo.
+
+  **Acceptance Criteria:**
+  - All eight downstream repos contain implementation code or explicit local toolchain blockers for all five variants.
+  - Communities/groups, chat/live/media stubs, creator/profile surfaces, local/community safety, reporting/blocking, moderation, privacy, and age/region workflows are represented with original assets and synthetic data.
+  - Local validation evidence or blocker records exist for every repo and every variant.
+  - No proprietary assets, trademarks as branding, copied media, private APIs, production data, public visibility changes, real payment processing, or GitHub Actions are introduced.
+
+  **Review — 2026-05-14:**
+  - Implemented eight downstream lawful social/community prototypes:
+    - `GeorgeQLe/geneva-mobile-clone` as `RoomCircle`, PR `https://github.com/GeorgeQLe/geneva-mobile-clone/pull/1`, merged to `main` at commit `23fc686`.
+    - `GeorgeQLe/fizz-mobile-clone` as `CampusPulse`, PR `https://github.com/GeorgeQLe/fizz-mobile-clone/pull/1`, merged to `main` at commit `8face06`.
+    - `GeorgeQLe/yubo-mobile-clone` as `LiveCircle`, PR `https://github.com/GeorgeQLe/yubo-mobile-clone/pull/1`, merged to `main` at commit `9917684`.
+    - `GeorgeQLe/poparazzi-mobile-clone` as `FriendFrame`, PR `https://github.com/GeorgeQLe/poparazzi-mobile-clone/pull/1`, merged to `main` at commit `9db9ec4`.
+    - `GeorgeQLe/ngl-mobile-clone` as `AskCove`, PR `https://github.com/GeorgeQLe/ngl-mobile-clone/pull/1`, merged to `main` at commit `fc0a380`.
+    - `GeorgeQLe/tellonym-mobile-clone` as `TellBox`, PR `https://github.com/GeorgeQLe/tellonym-mobile-clone/pull/1`, merged to `main` at commit `ee51802`.
+    - `GeorgeQLe/rumble-mobile-clone` as `VideoCommons`, PR `https://github.com/GeorgeQLe/rumble-mobile-clone/pull/1`, merged to `main` at commit `8d61679`.
+    - `GeorgeQLe/truth-social-mobile-clone` as `CivicStream`, PR `https://github.com/GeorgeQLe/truth-social-mobile-clone/pull/1`, merged to `main` at commit `039e1bf`.
+  - Added `scripts/implement-phase12-step12-9.mjs` in this planning repo so the community/chat/video/anonymous-social batch scaffold is reproducible and auditable.
+  - Added downstream shared synthetic fixtures, API contracts, React Native/Expo JS models and tests, Flutter model stubs, iOS Swift models, Android Kotlin model stubs, package scripts, and validation records for each repo.
+  - Covered communities/groups, real-time chat/live/media stubs, anonymous or public interaction loops, creator/profile surfaces, reporting/blocking, privacy controls, moderation queues, age/region gates, and app-specific safety gates.
+  - Verified every touched downstream repo remains `PRIVATE` with default branch `main`.
+  - No GitHub Actions were enabled, dispatched, or used.
+
+  **Validation — 2026-05-14:**
+  - For all eight downstream repos, `npm run validate` passed.
+  - For all eight downstream repos, `npm run test:react-native` passed.
+  - For all eight downstream repos, `npm run test:expo` passed.
+  - Swift compile/run passed for all eight iOS Native models: `GroupCommunityClone`, `CampusAnonymousClone`, `LiveFriendCommunityClone`, `FriendPhotoClone`, `AnonymousQuestionClone`, `SocialQuestionClone`, `CreatorVideoCommunityClone`, and `PublicPostCommunityClone`.
+  - `git diff --check` passed for all eight downstream repos before commit.
+  - Flutter runtime validation remains blocked because `dart` and `flutter` are not installed locally.
+  - Android Native runtime validation remains blocked because `kotlinc` is not installed locally.
+
+  **Ship Manifest:**
+  - User goal: execute Phase 12 Step 12.9 and implement Geneva, Fizz, Yubo, Poparazzi, NGL, Tellonym, Rumble, and Truth Social-inspired lawful clones across all five downstream variants each.
+  - Changed files: eight downstream repos received shared fixtures/contracts, validation scripts, React Native/Expo/Flutter/iOS Native/Android Native variant files, package scripts, and validation records; this planning repo changed `scripts/implement-phase12-step12-9.mjs`, `tasks/todo.md`, and `tasks/history.md`.
+  - Per-file purpose: downstream files provide original synthetic social/community app surfaces and reproducible local checks; the generator preserves the repeated community-safety batch contract; planning docs record evidence and next work.
+  - User-goal mapping: satisfies Step 12.9 without proprietary app assets, brand claims, copied media, private APIs, production data, public visibility changes, real payment processing, real identity/campus verification, live streaming infrastructure, or GitHub Actions.
+  - Tests run: downstream `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compilation/run, downstream `git diff --check`, and remote privacy/default-branch verification.
+  - Skipped tests: Flutter and Android Native runtime checks are blocked by missing local Dart/Flutter and Kotlin toolchains; real identity/campus/account verification, production chat/live/video infrastructure, ranking/trend algorithm parity, payment/subscription/marketplace processing, licensed media handling, push payloads, data export/deletion, region, age, and device-specific verification remain blocked.
+  - Adversarial review: implementations use original product names and synthetic data, block real identity/payment/live-provider flows, disable private/sensitive analytics, require report/block routes and moderation queues, preserve age/region gates, and record provider/toolchain/device parity blockers rather than claiming launch-ready parity.
+  - Residual risk: variant code is a lightweight baseline, not production device builds; future steps still need full manifests, provider integrations, real toolchains, real device verification, and benchmarking evidence.
+  - Rollback note: revert downstream commits `23fc686`, `8face06`, `9917684`, `9db9ec4`, `fc0a380`, `ee51802`, `8d61679`, and `039e1bf`, then revert this planning commit.
+  - Next command: `$run` for Step 12.10.
 
 - [ ] Step 12.10: Implement creator community platforms 986-988 — Mighty Networks, Circle Communities, Skool (all 5 variants each)
   - Files: 3 downstream repos.
   - Shared patterns: paid communities, courses/resources, member directories, creator monetization, admin moderation, notifications, and privacy controls.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Implement the three creator community platforms in Phase 12 batch 986-988 across React Native, Flutter, Expo, iOS Native, and Android Native variants, using original UI/content/data only.
+
+  **Approach:**
+  1. Process repos serially: `GeorgeQLe/mighty-networks-mobile-clone`, `GeorgeQLe/circle-communities-mobile-clone`, and `GeorgeQLe/skool-mobile-clone`.
+  2. For each repo, verify `PRIVATE` visibility, clone or refresh, read `docs/source-specs/*`, `docs/plans/README.md`, and downstream task docs.
+  3. Use one non-primary branch-backed downstream lane per repo; merge each through a consolidation PR before recording completion.
+  4. Implement shared synthetic fixtures and API contracts for paid/community memberships, courses/resources, member directories, creator/admin surfaces, notifications, reporting/blocking, privacy controls, moderation queues, age/region restrictions, and payment/entitlement stubs.
+  5. Build each variant inside its own `variants/*` directory, preserving stack-local conventions and explicitly recording unavailable local toolchains.
+  6. Run local validation only; do not enable, dispatch, or rely on GitHub Actions.
+  7. Record downstream commit/PR URLs, validation evidence, privacy verification, creator-community monetization risk review, blocker status, and legal/asset review back in this planning repo.
+
+  **Acceptance Criteria:**
+  - All three downstream repos contain implementation code or explicit local toolchain blockers for all five variants.
+  - Paid/community memberships, courses/resources, member directories, admin moderation, notifications, privacy controls, and creator monetization stubs are represented with original assets and synthetic data.
+  - Local validation evidence or blocker records exist for every repo and every variant.
+  - No proprietary assets, trademarks as branding, copied course content, private APIs, production data, public visibility changes, real payment processing, or GitHub Actions are introduced.
 
 - [ ] Step 12.11: Validate all 39 repos without GitHub Actions
   - Run local build, lint, type check, and tests where toolchains are available.
