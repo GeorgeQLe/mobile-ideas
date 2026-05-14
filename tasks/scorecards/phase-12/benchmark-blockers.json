@@ -1,0 +1,1410 @@
+{
+  "generatedAt": "2026-05-14T18:46:16.611Z",
+  "runId": "phase-12-local-2026-05-14",
+  "blockers": [
+    {
+      "appId": 6,
+      "appName": "TikTok",
+      "repo": "GeorgeQLe/tiktok-mobile-clone",
+      "repoPath": "/tmp/tiktok-mobile-clone",
+      "commit": "44f892d",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 6,
+      "appName": "TikTok",
+      "repo": "GeorgeQLe/tiktok-mobile-clone",
+      "repoPath": "/tmp/tiktok-mobile-clone",
+      "commit": "44f892d",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 7,
+      "appName": "Instagram",
+      "repo": "GeorgeQLe/instagram-mobile-clone",
+      "repoPath": "/tmp/instagram-mobile-clone",
+      "commit": "00fca5c",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 7,
+      "appName": "Instagram",
+      "repo": "GeorgeQLe/instagram-mobile-clone",
+      "repoPath": "/tmp/instagram-mobile-clone",
+      "commit": "00fca5c",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 8,
+      "appName": "Snapchat",
+      "repo": "GeorgeQLe/snapchat-mobile-clone",
+      "repoPath": "/tmp/snapchat-mobile-clone",
+      "commit": "3e6ea28",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 8,
+      "appName": "Snapchat",
+      "repo": "GeorgeQLe/snapchat-mobile-clone",
+      "repoPath": "/tmp/snapchat-mobile-clone",
+      "commit": "3e6ea28",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 9,
+      "appName": "BeReal",
+      "repo": "GeorgeQLe/bereal-mobile-clone",
+      "repoPath": "/tmp/bereal-mobile-clone",
+      "commit": "7c29106",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 9,
+      "appName": "BeReal",
+      "repo": "GeorgeQLe/bereal-mobile-clone",
+      "repoPath": "/tmp/bereal-mobile-clone",
+      "commit": "7c29106",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 10,
+      "appName": "Reddit",
+      "repo": "GeorgeQLe/reddit-mobile-clone",
+      "repoPath": "/tmp/reddit-mobile-clone",
+      "commit": "32fca8e",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 10,
+      "appName": "Reddit",
+      "repo": "GeorgeQLe/reddit-mobile-clone",
+      "repoPath": "/tmp/reddit-mobile-clone",
+      "commit": "32fca8e",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 11,
+      "appName": "X",
+      "repo": "GeorgeQLe/x-mobile-clone",
+      "repoPath": "/tmp/x-mobile-clone",
+      "commit": "200c396",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 11,
+      "appName": "X",
+      "repo": "GeorgeQLe/x-mobile-clone",
+      "repoPath": "/tmp/x-mobile-clone",
+      "commit": "200c396",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 12,
+      "appName": "Bluesky",
+      "repo": "GeorgeQLe/bluesky-mobile-clone",
+      "repoPath": "/tmp/bluesky-mobile-clone",
+      "commit": "8285b5b",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 12,
+      "appName": "Bluesky",
+      "repo": "GeorgeQLe/bluesky-mobile-clone",
+      "repoPath": "/tmp/bluesky-mobile-clone",
+      "commit": "8285b5b",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 13,
+      "appName": "Threads",
+      "repo": "GeorgeQLe/threads-mobile-clone",
+      "repoPath": "/tmp/threads-mobile-clone",
+      "commit": "f785884",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 13,
+      "appName": "Threads",
+      "repo": "GeorgeQLe/threads-mobile-clone",
+      "repoPath": "/tmp/threads-mobile-clone",
+      "commit": "f785884",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 14,
+      "appName": "Pinterest",
+      "repo": "GeorgeQLe/pinterest-mobile-clone",
+      "repoPath": "/tmp/pinterest-mobile-clone",
+      "commit": "f2bdbd1",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 14,
+      "appName": "Pinterest",
+      "repo": "GeorgeQLe/pinterest-mobile-clone",
+      "repoPath": "/tmp/pinterest-mobile-clone",
+      "commit": "f2bdbd1",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 15,
+      "appName": "Lemon8",
+      "repo": "GeorgeQLe/lemon8-mobile-clone",
+      "repoPath": "/tmp/lemon8-mobile-clone",
+      "commit": "54a9847",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 15,
+      "appName": "Lemon8",
+      "repo": "GeorgeQLe/lemon8-mobile-clone",
+      "repoPath": "/tmp/lemon8-mobile-clone",
+      "commit": "54a9847",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 101,
+      "appName": "Tinder",
+      "repo": "GeorgeQLe/tinder-mobile-clone",
+      "repoPath": "/tmp/tinder-mobile-clone",
+      "commit": "7e0c5bf",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 101,
+      "appName": "Tinder",
+      "repo": "GeorgeQLe/tinder-mobile-clone",
+      "repoPath": "/tmp/tinder-mobile-clone",
+      "commit": "7e0c5bf",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 102,
+      "appName": "Bumble",
+      "repo": "GeorgeQLe/bumble-mobile-clone",
+      "repoPath": "/tmp/bumble-mobile-clone",
+      "commit": "a8c331b",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 102,
+      "appName": "Bumble",
+      "repo": "GeorgeQLe/bumble-mobile-clone",
+      "repoPath": "/tmp/bumble-mobile-clone",
+      "commit": "a8c331b",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 103,
+      "appName": "Hinge",
+      "repo": "GeorgeQLe/hinge-mobile-clone",
+      "repoPath": "/tmp/hinge-mobile-clone",
+      "commit": "0fcf927",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 103,
+      "appName": "Hinge",
+      "repo": "GeorgeQLe/hinge-mobile-clone",
+      "repoPath": "/tmp/hinge-mobile-clone",
+      "commit": "0fcf927",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 104,
+      "appName": "Grindr",
+      "repo": "GeorgeQLe/grindr-mobile-clone",
+      "repoPath": "/tmp/grindr-mobile-clone",
+      "commit": "8188fd7",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 104,
+      "appName": "Grindr",
+      "repo": "GeorgeQLe/grindr-mobile-clone",
+      "repoPath": "/tmp/grindr-mobile-clone",
+      "commit": "8188fd7",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 105,
+      "appName": "Match",
+      "repo": "GeorgeQLe/match-mobile-clone",
+      "repoPath": "/tmp/match-mobile-clone",
+      "commit": "f8c4549",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 105,
+      "appName": "Match",
+      "repo": "GeorgeQLe/match-mobile-clone",
+      "repoPath": "/tmp/match-mobile-clone",
+      "commit": "f8c4549",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 106,
+      "appName": "Coffee Meets Bagel",
+      "repo": "GeorgeQLe/coffee-meets-bagel-mobile-clone",
+      "repoPath": "/tmp/coffee-meets-bagel-mobile-clone",
+      "commit": "80c676e",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 106,
+      "appName": "Coffee Meets Bagel",
+      "repo": "GeorgeQLe/coffee-meets-bagel-mobile-clone",
+      "repoPath": "/tmp/coffee-meets-bagel-mobile-clone",
+      "commit": "80c676e",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 915,
+      "appName": "Mastodon",
+      "repo": "GeorgeQLe/mastodon-mobile-clone",
+      "repoPath": "/tmp/mastodon-mobile-clone",
+      "commit": "d7f3fd5",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 915,
+      "appName": "Mastodon",
+      "repo": "GeorgeQLe/mastodon-mobile-clone",
+      "repoPath": "/tmp/mastodon-mobile-clone",
+      "commit": "d7f3fd5",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 916,
+      "appName": "Tumblr",
+      "repo": "GeorgeQLe/tumblr-mobile-clone",
+      "repoPath": "/tmp/tumblr-mobile-clone",
+      "commit": "ee164e5",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 916,
+      "appName": "Tumblr",
+      "repo": "GeorgeQLe/tumblr-mobile-clone",
+      "repoPath": "/tmp/tumblr-mobile-clone",
+      "commit": "ee164e5",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 917,
+      "appName": "Flickr",
+      "repo": "GeorgeQLe/flickr-mobile-clone",
+      "repoPath": "/tmp/flickr-mobile-clone",
+      "commit": "aa2e720",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 917,
+      "appName": "Flickr",
+      "repo": "GeorgeQLe/flickr-mobile-clone",
+      "repoPath": "/tmp/flickr-mobile-clone",
+      "commit": "aa2e720",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 918,
+      "appName": "500px",
+      "repo": "GeorgeQLe/500px-mobile-clone",
+      "repoPath": "/tmp/500px-mobile-clone",
+      "commit": "69b4223",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 918,
+      "appName": "500px",
+      "repo": "GeorgeQLe/500px-mobile-clone",
+      "repoPath": "/tmp/500px-mobile-clone",
+      "commit": "69b4223",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 919,
+      "appName": "Clubhouse",
+      "repo": "GeorgeQLe/clubhouse-mobile-clone",
+      "repoPath": "/tmp/clubhouse-mobile-clone",
+      "commit": "f2a34a7",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 919,
+      "appName": "Clubhouse",
+      "repo": "GeorgeQLe/clubhouse-mobile-clone",
+      "repoPath": "/tmp/clubhouse-mobile-clone",
+      "commit": "f2a34a7",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 920,
+      "appName": "Amino",
+      "repo": "GeorgeQLe/amino-mobile-clone",
+      "repoPath": "/tmp/amino-mobile-clone",
+      "commit": "b180659",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 920,
+      "appName": "Amino",
+      "repo": "GeorgeQLe/amino-mobile-clone",
+      "repoPath": "/tmp/amino-mobile-clone",
+      "commit": "b180659",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 921,
+      "appName": "Weverse",
+      "repo": "GeorgeQLe/weverse-mobile-clone",
+      "repoPath": "/tmp/weverse-mobile-clone",
+      "commit": "e53bf5c",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 921,
+      "appName": "Weverse",
+      "repo": "GeorgeQLe/weverse-mobile-clone",
+      "repoPath": "/tmp/weverse-mobile-clone",
+      "commit": "e53bf5c",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 922,
+      "appName": "Patreon",
+      "repo": "GeorgeQLe/patreon-mobile-clone",
+      "repoPath": "/tmp/patreon-mobile-clone",
+      "commit": "5c6be6c",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 922,
+      "appName": "Patreon",
+      "repo": "GeorgeQLe/patreon-mobile-clone",
+      "repoPath": "/tmp/patreon-mobile-clone",
+      "commit": "5c6be6c",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 923,
+      "appName": "Buy Me a Coffee",
+      "repo": "GeorgeQLe/buy-me-a-coffee-mobile-clone",
+      "repoPath": "/tmp/buy-me-a-coffee-mobile-clone",
+      "commit": "2601f36",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 923,
+      "appName": "Buy Me a Coffee",
+      "repo": "GeorgeQLe/buy-me-a-coffee-mobile-clone",
+      "repoPath": "/tmp/buy-me-a-coffee-mobile-clone",
+      "commit": "2601f36",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 924,
+      "appName": "Ko-fi",
+      "repo": "GeorgeQLe/ko-fi-mobile-clone",
+      "repoPath": "/tmp/ko-fi-mobile-clone",
+      "commit": "7fc0a3a",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 924,
+      "appName": "Ko-fi",
+      "repo": "GeorgeQLe/ko-fi-mobile-clone",
+      "repoPath": "/tmp/ko-fi-mobile-clone",
+      "commit": "7fc0a3a",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 925,
+      "appName": "Cameo",
+      "repo": "GeorgeQLe/cameo-mobile-clone",
+      "repoPath": "/tmp/cameo-mobile-clone",
+      "commit": "5e178b1",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 925,
+      "appName": "Cameo",
+      "repo": "GeorgeQLe/cameo-mobile-clone",
+      "repoPath": "/tmp/cameo-mobile-clone",
+      "commit": "5e178b1",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 926,
+      "appName": "Guilded",
+      "repo": "GeorgeQLe/guilded-mobile-clone",
+      "repoPath": "/tmp/guilded-mobile-clone",
+      "commit": "1f3a8e1",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 926,
+      "appName": "Guilded",
+      "repo": "GeorgeQLe/guilded-mobile-clone",
+      "repoPath": "/tmp/guilded-mobile-clone",
+      "commit": "1f3a8e1",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 927,
+      "appName": "Geneva",
+      "repo": "GeorgeQLe/geneva-mobile-clone",
+      "repoPath": "/tmp/geneva-mobile-clone",
+      "commit": "23fc686",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 927,
+      "appName": "Geneva",
+      "repo": "GeorgeQLe/geneva-mobile-clone",
+      "repoPath": "/tmp/geneva-mobile-clone",
+      "commit": "23fc686",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 928,
+      "appName": "Fizz",
+      "repo": "GeorgeQLe/fizz-mobile-clone",
+      "repoPath": "/tmp/fizz-mobile-clone",
+      "commit": "8face06",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 928,
+      "appName": "Fizz",
+      "repo": "GeorgeQLe/fizz-mobile-clone",
+      "repoPath": "/tmp/fizz-mobile-clone",
+      "commit": "8face06",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 929,
+      "appName": "Yubo",
+      "repo": "GeorgeQLe/yubo-mobile-clone",
+      "repoPath": "/tmp/yubo-mobile-clone",
+      "commit": "9917684",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 929,
+      "appName": "Yubo",
+      "repo": "GeorgeQLe/yubo-mobile-clone",
+      "repoPath": "/tmp/yubo-mobile-clone",
+      "commit": "9917684",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 930,
+      "appName": "Poparazzi",
+      "repo": "GeorgeQLe/poparazzi-mobile-clone",
+      "repoPath": "/tmp/poparazzi-mobile-clone",
+      "commit": "9db9ec4",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 930,
+      "appName": "Poparazzi",
+      "repo": "GeorgeQLe/poparazzi-mobile-clone",
+      "repoPath": "/tmp/poparazzi-mobile-clone",
+      "commit": "9db9ec4",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 931,
+      "appName": "NGL",
+      "repo": "GeorgeQLe/ngl-mobile-clone",
+      "repoPath": "/tmp/ngl-mobile-clone",
+      "commit": "fc0a380",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 931,
+      "appName": "NGL",
+      "repo": "GeorgeQLe/ngl-mobile-clone",
+      "repoPath": "/tmp/ngl-mobile-clone",
+      "commit": "fc0a380",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 932,
+      "appName": "Tellonym",
+      "repo": "GeorgeQLe/tellonym-mobile-clone",
+      "repoPath": "/tmp/tellonym-mobile-clone",
+      "commit": "ee51802",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 932,
+      "appName": "Tellonym",
+      "repo": "GeorgeQLe/tellonym-mobile-clone",
+      "repoPath": "/tmp/tellonym-mobile-clone",
+      "commit": "ee51802",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 933,
+      "appName": "Rumble",
+      "repo": "GeorgeQLe/rumble-mobile-clone",
+      "repoPath": "/tmp/rumble-mobile-clone",
+      "commit": "8d61679",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 933,
+      "appName": "Rumble",
+      "repo": "GeorgeQLe/rumble-mobile-clone",
+      "repoPath": "/tmp/rumble-mobile-clone",
+      "commit": "8d61679",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 934,
+      "appName": "Truth Social",
+      "repo": "GeorgeQLe/truth-social-mobile-clone",
+      "repoPath": "/tmp/truth-social-mobile-clone",
+      "commit": "039e1bf",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 934,
+      "appName": "Truth Social",
+      "repo": "GeorgeQLe/truth-social-mobile-clone",
+      "repoPath": "/tmp/truth-social-mobile-clone",
+      "commit": "039e1bf",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 986,
+      "appName": "Mighty Networks",
+      "repo": "GeorgeQLe/mighty-networks-mobile-clone",
+      "repoPath": "/tmp/mighty-networks-mobile-clone",
+      "commit": "5258ca8",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 986,
+      "appName": "Mighty Networks",
+      "repo": "GeorgeQLe/mighty-networks-mobile-clone",
+      "repoPath": "/tmp/mighty-networks-mobile-clone",
+      "commit": "5258ca8",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 987,
+      "appName": "Circle Communities",
+      "repo": "GeorgeQLe/circle-communities-mobile-clone",
+      "repoPath": "/tmp/circle-communities-mobile-clone",
+      "commit": "3947f61",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 987,
+      "appName": "Circle Communities",
+      "repo": "GeorgeQLe/circle-communities-mobile-clone",
+      "repoPath": "/tmp/circle-communities-mobile-clone",
+      "commit": "3947f61",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 988,
+      "appName": "Skool",
+      "repo": "GeorgeQLe/skool-mobile-clone",
+      "repoPath": "/tmp/skool-mobile-clone",
+      "commit": "f56f14a",
+      "category": "Social, Dating & Community",
+      "variant": "flutter",
+      "status": "blocked",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
+      "validationEvidence": {
+        "command": "Flutter runtime validation",
+        "status": "blocker",
+        "detail": "dart/flutter are not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    },
+    {
+      "appId": 988,
+      "appName": "Skool",
+      "repo": "GeorgeQLe/skool-mobile-clone",
+      "repoPath": "/tmp/skool-mobile-clone",
+      "commit": "f56f14a",
+      "category": "Social, Dating & Community",
+      "variant": "android-native",
+      "status": "blocked",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
+      "validationEvidence": {
+        "command": "Android Native runtime validation",
+        "status": "blocker",
+        "detail": "kotlinc is not installed locally"
+      },
+      "runId": "phase-12-local-2026-05-14"
+    }
+  ]
+}

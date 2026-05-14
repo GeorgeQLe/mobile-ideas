@@ -3378,3 +3378,26 @@
 - Residual risk: variant code is a lightweight baseline, not production device builds; future steps still need full manifests, provider integrations, real toolchains, real device verification, and benchmarking evidence.
 - Rollback note: revert downstream commits `5258ca8`, `3947f61`, and `f56f14a`, then revert this planning commit.
 - Next command: `$run` for Step 12.11, validate all 39 repos without GitHub Actions.
+
+## 2026-05-14 - Phase 12 Step 12.12 Benchmark Scorecards Completed
+
+- Added `scripts/generate-phase12-benchmarks.mjs` to generate Phase 12 benchmark artifacts from the Step 12.11 validation summary.
+- Used the local `mobile-benchmark-harness` CLI at `/tmp/mobile-benchmark-harness/dist/cli/index.js`.
+- Generated 117 scorecards for locally benchmarkable React Native, Expo, and iOS Native variants across all 39 Social, Dating & Community repos.
+- Generated 78 blocker records for Flutter and Android Native variants tied to missing local Dart/Flutter and Kotlin toolchains.
+- Updated `tasks/scorecards/phase-12/README.md`, `tasks/scorecards/phase-12/summary.json`, and `tasks/scorecards/phase-12/benchmark-blockers.json`.
+- Reconciled benchmark accounting to 195 total Phase 12 variant slots.
+- No GitHub Actions were enabled, dispatched, or used.
+
+### Ship Manifest
+
+- User goal: execute Phase 12 Step 12.12 and record benchmark scorecards/blockers for all Social, Dating & Community variants.
+- Changed files: `scripts/generate-phase12-benchmarks.mjs`, generated Phase 12 scorecard JSON files, `tasks/scorecards/phase-12/README.md`, `tasks/scorecards/phase-12/summary.json`, `tasks/scorecards/phase-12/benchmark-blockers.json`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: generator preserves the benchmark contract; scorecards provide per-variant harness evidence; blocker records preserve unavailable-toolchain status; task/history docs record completion and next work.
+- User-goal mapping: completes Step 12.12 without inventing scores for blocked variants and without using GitHub Actions.
+- Tests run: `node scripts/generate-phase12-benchmarks.mjs`, `node scripts/verify-phase12-scaffold.mjs`, and `git diff --check`.
+- Skipped tests: downstream app validation was not rerun because Step 12.11 already produced the source validation evidence consumed here; Flutter and Android benchmarks remain blocked by missing local Dart/Flutter and Kotlin toolchains.
+- Adversarial review: accounting asserts `scorecardCount + blockerCount == totalTargets`, refuses non-private validation rows, and fails on missing local repo paths or benchmark command errors.
+- Residual risk: benchmark scores are conservative source-structure proxies where device, accessibility, performance trace, and store-compliance reports are absent.
+- Rollback note: revert this planning commit to remove generated Phase 12 benchmark artifacts and reopen Step 12.12.
+- Next command: `$run` for Step 12.13, Phase 12 final validation and cleanup.

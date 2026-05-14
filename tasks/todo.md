@@ -713,7 +713,7 @@ Build all five variants for every app in the Social, Dating & Community cluster.
   - Rollback note: revert this planning commit to remove the Phase 12 validation script/report artifacts and reopen Step 12.11.
   - Next command: `$run` for Step 12.12.
 
-- [ ] Step 12.12: Run benchmarking harness and record scorecards
+- [x] Step 12.12: Run benchmarking harness and record scorecards
   - Run `mobile-benchmark-harness` serially against locally benchmarkable variants.
   - Record scorecards and blocker artifacts under `tasks/scorecards/phase-12/`.
   - Do not invent scores for blocked variants.
@@ -739,11 +739,57 @@ Build all five variants for every app in the Social, Dating & Community cluster.
   - No GitHub Actions workflows are created, modified, enabled, dispatched, or used.
   - Benchmark failures are fixed or recorded as explicit blockers only when they require unavailable toolchains, providers, real devices, or unsupported harness surfaces.
 
+  **Review — 2026-05-14:**
+  - Added `scripts/generate-phase12-benchmarks.mjs` to make Phase 12 benchmark generation reproducible from Step 12.11 validation evidence.
+  - Used `/tmp/mobile-benchmark-harness/dist/cli/index.js` as the local `mobile-benchmark-harness` CLI entry point.
+  - Generated 117 benchmark scorecards for locally benchmarkable React Native, Expo, and iOS Native variants across all 39 repos.
+  - Generated 78 blocker records for Flutter and Android Native variants tied to the missing local Dart/Flutter and Kotlin toolchains from Step 12.11.
+  - Updated `tasks/scorecards/phase-12/README.md`, `tasks/scorecards/phase-12/summary.json`, and `tasks/scorecards/phase-12/benchmark-blockers.json`.
+  - Scorecard/blocker accounting reconciles to 195 Phase 12 variant slots.
+  - No GitHub Actions were enabled, dispatched, or used.
+
+  **Validation — 2026-05-14:**
+  - `node scripts/generate-phase12-benchmarks.mjs` passed: `scorecards=117`, `blockers=78`, `totalTargets=195`, `averageComposite=5.68`.
+  - `node scripts/verify-phase12-scaffold.mjs` passed: `checked=39`, `repairedCount=0`, `failures=0`.
+  - `git diff --check` passed.
+
+  **Ship Manifest:**
+  - User goal: execute Phase 12 Step 12.12 and record benchmark scorecards/blockers for all Social, Dating & Community variants.
+  - Changed files: `scripts/generate-phase12-benchmarks.mjs`, generated Phase 12 scorecard JSON files, `tasks/scorecards/phase-12/README.md`, `tasks/scorecards/phase-12/summary.json`, `tasks/scorecards/phase-12/benchmark-blockers.json`, `tasks/todo.md`, and `tasks/history.md`.
+  - Per-file purpose: generator preserves the benchmark contract; scorecards provide per-variant harness evidence; blocker records preserve unavailable-toolchain status; task/history docs record completion and next work.
+  - User-goal mapping: satisfies Step 12.12 without inventing scores for blocked variants and without using GitHub Actions.
+  - Tests run: `node scripts/generate-phase12-benchmarks.mjs`, `node scripts/verify-phase12-scaffold.mjs`, and `git diff --check`.
+  - Skipped tests: downstream app validation was not rerun because Step 12.11 already produced the source validation evidence consumed here; Flutter and Android benchmarks remain blocked by missing local Dart/Flutter and Kotlin toolchains.
+  - Adversarial review: accounting asserts `scorecardCount + blockerCount == totalTargets`, refuses non-private validation rows, and fails on missing local repo paths or benchmark command errors.
+  - Residual risk: benchmark scores are conservative source-structure proxies where device, accessibility, performance trace, and store-compliance reports are absent.
+  - Rollback note: revert this planning commit to remove generated Phase 12 benchmark artifacts and reopen Step 12.12.
+  - Next command: `$run` for Step 12.13.
+
 - [ ] Step 12.13: Phase 12 final validation and cleanup
   - Verify acceptance criteria.
   - Audit source/assets for legal hygiene and copied-brand risks.
   - Document manual verification blockers.
   - Mark Phase 12 complete only if validation and benchmark evidence are complete or explicitly approved for carry-forward.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Produce the final Phase 12 validation and cleanup record, confirming acceptance criteria, legal/asset hygiene, blocker carry-forward, and benchmark/validation completeness.
+
+  **Approach:**
+  1. Read `tasks/phase-12-validation-report.md`, `tasks/scorecards/phase-12/README.md`, `tasks/scorecards/phase-12/summary.json`, and `tasks/scorecards/phase-12/benchmark-blockers.json`.
+  2. Re-run structural checks: `node scripts/verify-phase12-scaffold.mjs`, `node scripts/validate-phase12-repos.mjs`, and `node scripts/generate-phase12-benchmarks.mjs` unless current-session evidence is still sufficient.
+  3. Audit generated scorecards and validation summaries for 39 apps × 5 variants = 195 accounted slots.
+  4. Confirm every downstream repo remains `PRIVATE` and no GitHub Actions were used.
+  5. Perform a legal/asset hygiene scan across Phase 12 planning artifacts and downstream implementation evidence for proprietary assets, copied media, private APIs, public visibility changes, or brand-claim risks.
+  6. Document manual/toolchain blockers for Flutter, Android Native, real devices, provider integrations, accounts, payments, notifications, data export/deletion, region/age behavior, and exact native parity.
+  7. Update this step's review, acceptance criteria status where supported, and `tasks/history.md`.
+
+  **Acceptance Criteria:**
+  - Phase 12 validation and benchmark artifacts reconcile all 195 variant slots.
+  - Legal/asset hygiene has no known proprietary-source, copied-media, private-API, trademark-as-branding, or GitHub Actions violations.
+  - Carry-forward blockers are explicit and not counted as passing parity.
+  - Phase 12 is marked complete only if the evidence supports it or the user explicitly approves carry-forward.
 
 ### Reference
 

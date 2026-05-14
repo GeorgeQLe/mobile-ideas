@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "appId": 987,
+    "appName": "Circle Communities",
+    "category": "Social, Dating & Community",
+    "variant": "ios-native",
+    "timestamp": "2026-05-14T18:46:16.513Z",
+    "ciRunId": "phase-12-local-2026-05-14",
+    "harnessVersion": "0.1.0"
+  },
+  "dimensions": {
+    "performance": {
+      "score": 0,
+      "weight": 0.2,
+      "metrics": {
+        "coldStartMs": {
+          "raw": 0,
+          "score": 0
+        },
+        "warmStartMs": {
+          "raw": 0,
+          "score": 0
+        },
+        "frameRate": {
+          "raw": 0,
+          "score": 0
+        },
+        "jankPercent": {
+          "raw": 0,
+          "score": 0
+        },
+        "memoryPeakMb": {
+          "raw": 0,
+          "score": 0
+        },
+        "memoryAvgMb": {
+          "raw": 0,
+          "score": 0
+        },
+        "cpuPercent": {
+          "raw": 0,
+          "score": 0
+        },
+        "batteryDrainPerHour": {
+          "raw": 0,
+          "score": 0
+        }
+      }
+    },
+    "bundleSize": {
+      "score": 33.33,
+      "weight": 0.1,
+      "metrics": {
+        "ipaSizeMb": {
+          "raw": 0,
+          "score": 0
+        },
+        "apkSizeMb": {
+          "raw": 0,
+          "score": 100
+        },
+        "otaUpdateSizeMb": {
+          "raw": 0,
+          "score": 0
+        },
+        "jsBundleSizeKb": {
+          "raw": 0,
+          "score": 100
+        },
+        "nativeLibsSizeMb": {
+          "raw": 0,
+          "score": 0
+        },
+        "assetsSizeMb": {
+          "raw": 0,
+          "score": 0
+        }
+      }
+    },
+    "uxFidelity": {
+      "score": 4,
+      "weight": 0.25,
+      "metrics": {
+        "screenCoveragePercent": {
+          "raw": 4,
+          "score": 4
+        },
+        "interactionCoveragePercent": {
+          "raw": 4,
+          "score": 4
+        },
+        "edgeCaseCoveragePercent": {
+          "raw": 4,
+          "score": 4
+        },
+        "specCompliancePercent": {
+          "raw": 4,
+          "score": 4
+        }
+      }
+    },
+    "codeQuality": {
+      "score": 36,
+      "weight": 0.15,
+      "metrics": {
+        "lintScore": {
+          "raw": 0,
+          "score": 0
+        },
+        "typeCoveragePercent": {
+          "raw": 0,
+          "score": 0
+        },
+        "testCoveragePercent": {
+          "raw": 0,
+          "score": 0
+        },
+        "cyclomaticComplexity": {
+          "raw": 0,
+          "score": 100
+        },
+        "maintainabilityIndex": {
+          "raw": 80,
+          "score": 80
+        }
+      }
+    },
+    "devVelocity": {
+      "score": 0,
+      "weight": 0.1,
+      "metrics": {
+        "cleanBuildSec": {
+          "raw": 0,
+          "score": 0
+        },
+        "incrementalBuildSec": {
+          "raw": 0,
+          "score": 0
+        },
+        "hotReloadSec": {
+          "raw": 0,
+          "score": 0
+        },
+        "ciPipelineSec": {
+          "raw": 0,
+          "score": 0
+        }
+      }
+    },
+    "accessibility": {
+      "score": 0,
+      "weight": 0.1,
+      "metrics": {
+        "auditScore": {
+          "raw": 0,
+          "score": 0
+        },
+        "contrastRatioCompliance": {
+          "raw": 0,
+          "score": 0
+        },
+        "touchTargetCompliance": {
+          "raw": 0,
+          "score": 0
+        },
+        "screenReaderCoverage": {
+          "raw": 0,
+          "score": 0
+        }
+      }
+    },
+    "storeCompliance": {
+      "score": 0,
+      "weight": 0.1,
+      "metrics": {
+        "metadataCompleteness": {
+          "raw": 0,
+          "score": 0
+        },
+        "policyCompliance": {
+          "raw": 0,
+          "score": 0
+        },
+        "screenshotCoverage": {
+          "raw": 0,
+          "score": 0
+        },
+        "privacyManifestAccuracy": {
+          "raw": 0,
+          "score": 0
+        }
+      }
+    }
+  },
+  "composite": {
+    "score": 9.73,
+    "formula": "weighted-average",
+    "weights": {
+      "performance": 0.2,
+      "bundleSize": 0.1,
+      "uxFidelity": 0.25,
+      "codeQuality": 0.15,
+      "devVelocity": 0.1,
+      "accessibility": 0.1,
+      "storeCompliance": 0.1
+    }
+  },
+  "evidence": {
+    "appPath": "/tmp/circle-communities-mobile-clone",
+    "variantPath": "/tmp/circle-communities-mobile-clone/variants/ios-native",
+    "notes": [
+      "No package manifest found for executable local validation.",
+      "UX fidelity report missing; using source structure proxy.",
+      "Accessibility report missing; accessibility score is conservative.",
+      "Store compliance report missing; compliance score is conservative."
+    ]
+  }
+}

@@ -1,0 +1,2972 @@
+{
+  "generatedAt": "2026-05-14T18:46:16.611Z",
+  "runId": "phase-12-local-2026-05-14",
+  "category": "Social, Dating & Community",
+  "harnessCli": "/tmp/mobile-benchmark-harness/dist/cli/index.js",
+  "sourceValidationSummary": "tasks/scorecards/phase-12/validation-summary.json",
+  "totalApps": 39,
+  "variants": [
+    "react-native",
+    "flutter",
+    "expo",
+    "ios-native",
+    "android-native"
+  ],
+  "totalTargets": 195,
+  "scorecardCount": 117,
+  "blockerCount": 78,
+  "averageComposite": 5.68,
+  "byVariant": {
+    "react-native": {
+      "scorecards": 39,
+      "blockers": 0
+    },
+    "flutter": {
+      "scorecards": 0,
+      "blockers": 39
+    },
+    "expo": {
+      "scorecards": 39,
+      "blockers": 0
+    },
+    "ios-native": {
+      "scorecards": 39,
+      "blockers": 0
+    },
+    "android-native": {
+      "scorecards": 0,
+      "blockers": 39
+    }
+  },
+  "byReason": {
+    "missing-local-flutter-toolchain": 39,
+    "missing-local-android-toolchain": 39
+  },
+  "scorecards": [
+    {
+      "appId": 6,
+      "appName": "TikTok",
+      "repo": "GeorgeQLe/tiktok-mobile-clone",
+      "repoPath": "/tmp/tiktok-mobile-clone",
+      "commit": "44f892d",
+      "variant": "expo",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/tiktok-mobile-clone --variant expo --output tasks/scorecards/phase-12/006-tiktok-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/lib/contractCheck.js | expo contract ok"
+      },
+      "file": "tasks/scorecards/phase-12/006-tiktok-expo.json"
+    },
+    {
+      "appId": 6,
+      "appName": "TikTok",
+      "repo": "GeorgeQLe/tiktok-mobile-clone",
+      "repoPath": "/tmp/tiktok-mobile-clone",
+      "commit": "44f892d",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/tiktok-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/006-tiktok-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "PulseFrame: 2 feed cards, 6 editor tools, 9 moderation policies, 3 blocked launch gates"
+      },
+      "file": "tasks/scorecards/phase-12/006-tiktok-ios-native.json"
+    },
+    {
+      "appId": 6,
+      "appName": "TikTok",
+      "repo": "GeorgeQLe/tiktok-mobile-clone",
+      "repoPath": "/tmp/tiktok-mobile-clone",
+      "commit": "44f892d",
+      "variant": "react-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/tiktok-mobile-clone --variant react-native --output tasks/scorecards/phase-12/006-tiktok-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/tests/fixture-contract.test.js | react-native fixture contract ok"
+      },
+      "file": "tasks/scorecards/phase-12/006-tiktok-react-native.json"
+    },
+    {
+      "appId": 7,
+      "appName": "Instagram",
+      "repo": "GeorgeQLe/instagram-mobile-clone",
+      "repoPath": "/tmp/instagram-mobile-clone",
+      "commit": "00fca5c",
+      "variant": "expo",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/instagram-mobile-clone --variant expo --output tasks/scorecards/phase-12/007-instagram-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/lib/contractCheck.js | expo contract ok: 10 routes"
+      },
+      "file": "tasks/scorecards/phase-12/007-instagram-expo.json"
+    },
+    {
+      "appId": 7,
+      "appName": "Instagram",
+      "repo": "GeorgeQLe/instagram-mobile-clone",
+      "repoPath": "/tmp/instagram-mobile-clone",
+      "commit": "00fca5c",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/instagram-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/007-instagram-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "LumenLane: 2 feed cards, 2 stories, 6 editor tools, 9 moderation policies, 3 blocked launch gates"
+      },
+      "file": "tasks/scorecards/phase-12/007-instagram-ios-native.json"
+    },
+    {
+      "appId": 7,
+      "appName": "Instagram",
+      "repo": "GeorgeQLe/instagram-mobile-clone",
+      "repoPath": "/tmp/instagram-mobile-clone",
+      "commit": "00fca5c",
+      "variant": "react-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/instagram-mobile-clone --variant react-native --output tasks/scorecards/phase-12/007-instagram-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/tests/fixture-contract.test.js | react-native contract ok: 2 feed items"
+      },
+      "file": "tasks/scorecards/phase-12/007-instagram-react-native.json"
+    },
+    {
+      "appId": 8,
+      "appName": "Snapchat",
+      "repo": "GeorgeQLe/snapchat-mobile-clone",
+      "repoPath": "/tmp/snapchat-mobile-clone",
+      "commit": "3e6ea28",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/snapchat-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/008-snapchat-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "FlickerFrame: tabs=5, snaps=2, screenshots=1, blockedFlags=5"
+      },
+      "file": "tasks/scorecards/phase-12/008-snapchat-ios-native.json"
+    },
+    {
+      "appId": 9,
+      "appName": "BeReal",
+      "repo": "GeorgeQLe/bereal-mobile-clone",
+      "repoPath": "/tmp/bereal-mobile-clone",
+      "commit": "7c29106",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/bereal-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/009-bereal-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "MomentPair: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/009-bereal-ios-native.json"
+    },
+    {
+      "appId": 10,
+      "appName": "Reddit",
+      "repo": "GeorgeQLe/reddit-mobile-clone",
+      "repoPath": "/tmp/reddit-mobile-clone",
+      "commit": "32fca8e",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/reddit-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/010-reddit-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "ForumNest: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/010-reddit-ios-native.json"
+    },
+    {
+      "appId": 11,
+      "appName": "X",
+      "repo": "GeorgeQLe/x-mobile-clone",
+      "repoPath": "/tmp/x-mobile-clone",
+      "commit": "200c396",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/x-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/011-x-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "SignalPost: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/011-x-ios-native.json"
+    },
+    {
+      "appId": 12,
+      "appName": "Bluesky",
+      "repo": "GeorgeQLe/bluesky-mobile-clone",
+      "repoPath": "/tmp/bluesky-mobile-clone",
+      "commit": "8285b5b",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/bluesky-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/012-bluesky-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "SkyThread: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/012-bluesky-ios-native.json"
+    },
+    {
+      "appId": 13,
+      "appName": "Threads",
+      "repo": "GeorgeQLe/threads-mobile-clone",
+      "repoPath": "/tmp/threads-mobile-clone",
+      "commit": "f785884",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/threads-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/013-threads-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "LoopLine: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/013-threads-ios-native.json"
+    },
+    {
+      "appId": 14,
+      "appName": "Pinterest",
+      "repo": "GeorgeQLe/pinterest-mobile-clone",
+      "repoPath": "/tmp/pinterest-mobile-clone",
+      "commit": "f2bdbd1",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/pinterest-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/014-pinterest-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "PinwheelBoards: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/014-pinterest-ios-native.json"
+    },
+    {
+      "appId": 15,
+      "appName": "Lemon8",
+      "repo": "GeorgeQLe/lemon8-mobile-clone",
+      "repoPath": "/tmp/lemon8-mobile-clone",
+      "commit": "54a9847",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/lemon8-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/015-lemon8-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "CitrusJournal: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/015-lemon8-ios-native.json"
+    },
+    {
+      "appId": 101,
+      "appName": "Tinder",
+      "repo": "GeorgeQLe/tinder-mobile-clone",
+      "repoPath": "/tmp/tinder-mobile-clone",
+      "commit": "7e0c5bf",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/tinder-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/101-tinder-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "SparkMatch: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/101-tinder-ios-native.json"
+    },
+    {
+      "appId": 102,
+      "appName": "Bumble",
+      "repo": "GeorgeQLe/bumble-mobile-clone",
+      "repoPath": "/tmp/bumble-mobile-clone",
+      "commit": "a8c331b",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/bumble-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/102-bumble-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "FirstMove: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/102-bumble-ios-native.json"
+    },
+    {
+      "appId": 103,
+      "appName": "Hinge",
+      "repo": "GeorgeQLe/hinge-mobile-clone",
+      "repoPath": "/tmp/hinge-mobile-clone",
+      "commit": "0fcf927",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/hinge-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/103-hinge-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "PromptPair: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/103-hinge-ios-native.json"
+    },
+    {
+      "appId": 104,
+      "appName": "Grindr",
+      "repo": "GeorgeQLe/grindr-mobile-clone",
+      "repoPath": "/tmp/grindr-mobile-clone",
+      "commit": "8188fd7",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/grindr-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/104-grindr-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "NearbyKind: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/104-grindr-ios-native.json"
+    },
+    {
+      "appId": 105,
+      "appName": "Match",
+      "repo": "GeorgeQLe/match-mobile-clone",
+      "repoPath": "/tmp/match-mobile-clone",
+      "commit": "f8c4549",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/match-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/105-match-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "EverAfter: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/105-match-ios-native.json"
+    },
+    {
+      "appId": 106,
+      "appName": "Coffee Meets Bagel",
+      "repo": "GeorgeQLe/coffee-meets-bagel-mobile-clone",
+      "repoPath": "/tmp/coffee-meets-bagel-mobile-clone",
+      "commit": "80c676e",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/coffee-meets-bagel-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/106-coffee-meets-bagel-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "DailyBean: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/106-coffee-meets-bagel-ios-native.json"
+    },
+    {
+      "appId": 915,
+      "appName": "Mastodon",
+      "repo": "GeorgeQLe/mastodon-mobile-clone",
+      "repoPath": "/tmp/mastodon-mobile-clone",
+      "commit": "d7f3fd5",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/mastodon-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/915-mastodon-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "FederatedSquare: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/915-mastodon-ios-native.json"
+    },
+    {
+      "appId": 916,
+      "appName": "Tumblr",
+      "repo": "GeorgeQLe/tumblr-mobile-clone",
+      "repoPath": "/tmp/tumblr-mobile-clone",
+      "commit": "ee164e5",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/tumblr-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/916-tumblr-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "ReblogGarden: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/916-tumblr-ios-native.json"
+    },
+    {
+      "appId": 917,
+      "appName": "Flickr",
+      "repo": "GeorgeQLe/flickr-mobile-clone",
+      "repoPath": "/tmp/flickr-mobile-clone",
+      "commit": "aa2e720",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/flickr-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/917-flickr-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "PhotoCommons: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/917-flickr-ios-native.json"
+    },
+    {
+      "appId": 918,
+      "appName": "500px",
+      "repo": "GeorgeQLe/500px-mobile-clone",
+      "repoPath": "/tmp/500px-mobile-clone",
+      "commit": "69b4223",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/500px-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/918-500px-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "LensGuild: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/918-500px-ios-native.json"
+    },
+    {
+      "appId": 919,
+      "appName": "Clubhouse",
+      "repo": "GeorgeQLe/clubhouse-mobile-clone",
+      "repoPath": "/tmp/clubhouse-mobile-clone",
+      "commit": "f2a34a7",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/clubhouse-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/919-clubhouse-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "RoomWave: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/919-clubhouse-ios-native.json"
+    },
+    {
+      "appId": 920,
+      "appName": "Amino",
+      "repo": "GeorgeQLe/amino-mobile-clone",
+      "repoPath": "/tmp/amino-mobile-clone",
+      "commit": "b180659",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/amino-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/920-amino-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "FandomHarbor: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/920-amino-ios-native.json"
+    },
+    {
+      "appId": 921,
+      "appName": "Weverse",
+      "repo": "GeorgeQLe/weverse-mobile-clone",
+      "repoPath": "/tmp/weverse-mobile-clone",
+      "commit": "e53bf5c",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/weverse-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/921-weverse-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "FanVerseHub: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/921-weverse-ios-native.json"
+    },
+    {
+      "appId": 922,
+      "appName": "Patreon",
+      "repo": "GeorgeQLe/patreon-mobile-clone",
+      "repoPath": "/tmp/patreon-mobile-clone",
+      "commit": "5c6be6c",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/patreon-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/922-patreon-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "MemberStudio: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/922-patreon-ios-native.json"
+    },
+    {
+      "appId": 923,
+      "appName": "Buy Me a Coffee",
+      "repo": "GeorgeQLe/buy-me-a-coffee-mobile-clone",
+      "repoPath": "/tmp/buy-me-a-coffee-mobile-clone",
+      "commit": "2601f36",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/buy-me-a-coffee-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/923-buy-me-a-coffee-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "SupportCup: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/923-buy-me-a-coffee-ios-native.json"
+    },
+    {
+      "appId": 924,
+      "appName": "Ko-fi",
+      "repo": "GeorgeQLe/ko-fi-mobile-clone",
+      "repoPath": "/tmp/ko-fi-mobile-clone",
+      "commit": "7fc0a3a",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/ko-fi-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/924-ko-fi-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "KindFund: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/924-ko-fi-ios-native.json"
+    },
+    {
+      "appId": 925,
+      "appName": "Cameo",
+      "repo": "GeorgeQLe/cameo-mobile-clone",
+      "repoPath": "/tmp/cameo-mobile-clone",
+      "commit": "5e178b1",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/cameo-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/925-cameo-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "ShoutRequest: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/925-cameo-ios-native.json"
+    },
+    {
+      "appId": 926,
+      "appName": "Guilded",
+      "repo": "GeorgeQLe/guilded-mobile-clone",
+      "repoPath": "/tmp/guilded-mobile-clone",
+      "commit": "1f3a8e1",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/guilded-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/926-guilded-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "TeamHaven: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/926-guilded-ios-native.json"
+    },
+    {
+      "appId": 927,
+      "appName": "Geneva",
+      "repo": "GeorgeQLe/geneva-mobile-clone",
+      "repoPath": "/tmp/geneva-mobile-clone",
+      "commit": "23fc686",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/geneva-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/927-geneva-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "RoomCircle: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/927-geneva-ios-native.json"
+    },
+    {
+      "appId": 928,
+      "appName": "Fizz",
+      "repo": "GeorgeQLe/fizz-mobile-clone",
+      "repoPath": "/tmp/fizz-mobile-clone",
+      "commit": "8face06",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/fizz-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/928-fizz-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "CampusPulse: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/928-fizz-ios-native.json"
+    },
+    {
+      "appId": 929,
+      "appName": "Yubo",
+      "repo": "GeorgeQLe/yubo-mobile-clone",
+      "repoPath": "/tmp/yubo-mobile-clone",
+      "commit": "9917684",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/yubo-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/929-yubo-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "LiveCircle: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/929-yubo-ios-native.json"
+    },
+    {
+      "appId": 930,
+      "appName": "Poparazzi",
+      "repo": "GeorgeQLe/poparazzi-mobile-clone",
+      "repoPath": "/tmp/poparazzi-mobile-clone",
+      "commit": "9db9ec4",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/poparazzi-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/930-poparazzi-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "FriendFrame: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/930-poparazzi-ios-native.json"
+    },
+    {
+      "appId": 931,
+      "appName": "NGL",
+      "repo": "GeorgeQLe/ngl-mobile-clone",
+      "repoPath": "/tmp/ngl-mobile-clone",
+      "commit": "fc0a380",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/ngl-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/931-ngl-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "AskCove: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/931-ngl-ios-native.json"
+    },
+    {
+      "appId": 932,
+      "appName": "Tellonym",
+      "repo": "GeorgeQLe/tellonym-mobile-clone",
+      "repoPath": "/tmp/tellonym-mobile-clone",
+      "commit": "ee51802",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/tellonym-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/932-tellonym-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "TellBox: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/932-tellonym-ios-native.json"
+    },
+    {
+      "appId": 933,
+      "appName": "Rumble",
+      "repo": "GeorgeQLe/rumble-mobile-clone",
+      "repoPath": "/tmp/rumble-mobile-clone",
+      "commit": "8d61679",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/rumble-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/933-rumble-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "VideoCommons: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/933-rumble-ios-native.json"
+    },
+    {
+      "appId": 934,
+      "appName": "Truth Social",
+      "repo": "GeorgeQLe/truth-social-mobile-clone",
+      "repoPath": "/tmp/truth-social-mobile-clone",
+      "commit": "039e1bf",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/truth-social-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/934-truth-social-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "CivicStream: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/934-truth-social-ios-native.json"
+    },
+    {
+      "appId": 986,
+      "appName": "Mighty Networks",
+      "repo": "GeorgeQLe/mighty-networks-mobile-clone",
+      "repoPath": "/tmp/mighty-networks-mobile-clone",
+      "commit": "5258ca8",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/mighty-networks-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/986-mighty-networks-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "GatherCourse: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/986-mighty-networks-ios-native.json"
+    },
+    {
+      "appId": 987,
+      "appName": "Circle Communities",
+      "repo": "GeorgeQLe/circle-communities-mobile-clone",
+      "repoPath": "/tmp/circle-communities-mobile-clone",
+      "commit": "3947f61",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/circle-communities-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/987-circle-communities-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "CircleForge: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/987-circle-communities-ios-native.json"
+    },
+    {
+      "appId": 988,
+      "appName": "Skool",
+      "repo": "GeorgeQLe/skool-mobile-clone",
+      "repoPath": "/tmp/skool-mobile-clone",
+      "commit": "f56f14a",
+      "variant": "ios-native",
+      "composite": 9.73,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 4,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/skool-mobile-clone --variant ios-native --output tasks/scorecards/phase-12/988-skool-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "LearnGuild: tabs=5, risks=4, routes=6"
+      },
+      "file": "tasks/scorecards/phase-12/988-skool-ios-native.json"
+    },
+    {
+      "appId": 8,
+      "appName": "Snapchat",
+      "repo": "GeorgeQLe/snapchat-mobile-clone",
+      "repoPath": "/tmp/snapchat-mobile-clone",
+      "commit": "3e6ea28",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/snapchat-mobile-clone --variant expo --output tasks/scorecards/phase-12/008-snapchat-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | expo routes ok"
+      },
+      "file": "tasks/scorecards/phase-12/008-snapchat-expo.json"
+    },
+    {
+      "appId": 8,
+      "appName": "Snapchat",
+      "repo": "GeorgeQLe/snapchat-mobile-clone",
+      "repoPath": "/tmp/snapchat-mobile-clone",
+      "commit": "3e6ea28",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/snapchat-mobile-clone --variant react-native --output tasks/scorecards/phase-12/008-snapchat-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | react-native model ok"
+      },
+      "file": "tasks/scorecards/phase-12/008-snapchat-react-native.json"
+    },
+    {
+      "appId": 9,
+      "appName": "BeReal",
+      "repo": "GeorgeQLe/bereal-mobile-clone",
+      "repoPath": "/tmp/bereal-mobile-clone",
+      "commit": "7c29106",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/bereal-mobile-clone --variant expo --output tasks/scorecards/phase-12/009-bereal-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | MomentPair: tabs=5, feeds=2, content=5, blockers=8"
+      },
+      "file": "tasks/scorecards/phase-12/009-bereal-expo.json"
+    },
+    {
+      "appId": 9,
+      "appName": "BeReal",
+      "repo": "GeorgeQLe/bereal-mobile-clone",
+      "repoPath": "/tmp/bereal-mobile-clone",
+      "commit": "7c29106",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/bereal-mobile-clone --variant react-native --output tasks/scorecards/phase-12/009-bereal-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | MomentPair: tabs=5, feeds=2, content=5, blockers=8"
+      },
+      "file": "tasks/scorecards/phase-12/009-bereal-react-native.json"
+    },
+    {
+      "appId": 10,
+      "appName": "Reddit",
+      "repo": "GeorgeQLe/reddit-mobile-clone",
+      "repoPath": "/tmp/reddit-mobile-clone",
+      "commit": "32fca8e",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/reddit-mobile-clone --variant expo --output tasks/scorecards/phase-12/010-reddit-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | ForumNest: tabs=5, feeds=2, content=5, blockers=8"
+      },
+      "file": "tasks/scorecards/phase-12/010-reddit-expo.json"
+    },
+    {
+      "appId": 10,
+      "appName": "Reddit",
+      "repo": "GeorgeQLe/reddit-mobile-clone",
+      "repoPath": "/tmp/reddit-mobile-clone",
+      "commit": "32fca8e",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/reddit-mobile-clone --variant react-native --output tasks/scorecards/phase-12/010-reddit-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | ForumNest: tabs=5, feeds=2, content=5, blockers=8"
+      },
+      "file": "tasks/scorecards/phase-12/010-reddit-react-native.json"
+    },
+    {
+      "appId": 11,
+      "appName": "X",
+      "repo": "GeorgeQLe/x-mobile-clone",
+      "repoPath": "/tmp/x-mobile-clone",
+      "commit": "200c396",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/x-mobile-clone --variant expo --output tasks/scorecards/phase-12/011-x-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | SignalPost: tabs=5, feeds=2, content=5, blockers=8"
+      },
+      "file": "tasks/scorecards/phase-12/011-x-expo.json"
+    },
+    {
+      "appId": 11,
+      "appName": "X",
+      "repo": "GeorgeQLe/x-mobile-clone",
+      "repoPath": "/tmp/x-mobile-clone",
+      "commit": "200c396",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/x-mobile-clone --variant react-native --output tasks/scorecards/phase-12/011-x-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | SignalPost: tabs=5, feeds=2, content=5, blockers=8"
+      },
+      "file": "tasks/scorecards/phase-12/011-x-react-native.json"
+    },
+    {
+      "appId": 12,
+      "appName": "Bluesky",
+      "repo": "GeorgeQLe/bluesky-mobile-clone",
+      "repoPath": "/tmp/bluesky-mobile-clone",
+      "commit": "8285b5b",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/bluesky-mobile-clone --variant expo --output tasks/scorecards/phase-12/012-bluesky-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | SkyThread: tabs=5, feeds=2, content=5, blockers=8"
+      },
+      "file": "tasks/scorecards/phase-12/012-bluesky-expo.json"
+    },
+    {
+      "appId": 12,
+      "appName": "Bluesky",
+      "repo": "GeorgeQLe/bluesky-mobile-clone",
+      "repoPath": "/tmp/bluesky-mobile-clone",
+      "commit": "8285b5b",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/bluesky-mobile-clone --variant react-native --output tasks/scorecards/phase-12/012-bluesky-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | SkyThread: tabs=5, feeds=2, content=5, blockers=8"
+      },
+      "file": "tasks/scorecards/phase-12/012-bluesky-react-native.json"
+    },
+    {
+      "appId": 13,
+      "appName": "Threads",
+      "repo": "GeorgeQLe/threads-mobile-clone",
+      "repoPath": "/tmp/threads-mobile-clone",
+      "commit": "f785884",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/threads-mobile-clone --variant expo --output tasks/scorecards/phase-12/013-threads-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | LoopLine: tabs=5, feeds=2, content=5, blockers=8"
+      },
+      "file": "tasks/scorecards/phase-12/013-threads-expo.json"
+    },
+    {
+      "appId": 13,
+      "appName": "Threads",
+      "repo": "GeorgeQLe/threads-mobile-clone",
+      "repoPath": "/tmp/threads-mobile-clone",
+      "commit": "f785884",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/threads-mobile-clone --variant react-native --output tasks/scorecards/phase-12/013-threads-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | LoopLine: tabs=5, feeds=2, content=5, blockers=8"
+      },
+      "file": "tasks/scorecards/phase-12/013-threads-react-native.json"
+    },
+    {
+      "appId": 14,
+      "appName": "Pinterest",
+      "repo": "GeorgeQLe/pinterest-mobile-clone",
+      "repoPath": "/tmp/pinterest-mobile-clone",
+      "commit": "f2bdbd1",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/pinterest-mobile-clone --variant expo --output tasks/scorecards/phase-12/014-pinterest-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | PinwheelBoards: tabs=5, feeds=2, content=5, blockers=8"
+      },
+      "file": "tasks/scorecards/phase-12/014-pinterest-expo.json"
+    },
+    {
+      "appId": 14,
+      "appName": "Pinterest",
+      "repo": "GeorgeQLe/pinterest-mobile-clone",
+      "repoPath": "/tmp/pinterest-mobile-clone",
+      "commit": "f2bdbd1",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/pinterest-mobile-clone --variant react-native --output tasks/scorecards/phase-12/014-pinterest-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | PinwheelBoards: tabs=5, feeds=2, content=5, blockers=8"
+      },
+      "file": "tasks/scorecards/phase-12/014-pinterest-react-native.json"
+    },
+    {
+      "appId": 15,
+      "appName": "Lemon8",
+      "repo": "GeorgeQLe/lemon8-mobile-clone",
+      "repoPath": "/tmp/lemon8-mobile-clone",
+      "commit": "54a9847",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/lemon8-mobile-clone --variant expo --output tasks/scorecards/phase-12/015-lemon8-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | CitrusJournal: tabs=5, feeds=2, content=5, blockers=8"
+      },
+      "file": "tasks/scorecards/phase-12/015-lemon8-expo.json"
+    },
+    {
+      "appId": 15,
+      "appName": "Lemon8",
+      "repo": "GeorgeQLe/lemon8-mobile-clone",
+      "repoPath": "/tmp/lemon8-mobile-clone",
+      "commit": "54a9847",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/lemon8-mobile-clone --variant react-native --output tasks/scorecards/phase-12/015-lemon8-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | CitrusJournal: tabs=5, feeds=2, content=5, blockers=8"
+      },
+      "file": "tasks/scorecards/phase-12/015-lemon8-react-native.json"
+    },
+    {
+      "appId": 101,
+      "appName": "Tinder",
+      "repo": "GeorgeQLe/tinder-mobile-clone",
+      "repoPath": "/tmp/tinder-mobile-clone",
+      "commit": "7e0c5bf",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/tinder-mobile-clone --variant expo --output tasks/scorecards/phase-12/101-tinder-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | SparkMatch: tabs=5, profiles=5, matches=1, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/101-tinder-expo.json"
+    },
+    {
+      "appId": 101,
+      "appName": "Tinder",
+      "repo": "GeorgeQLe/tinder-mobile-clone",
+      "repoPath": "/tmp/tinder-mobile-clone",
+      "commit": "7e0c5bf",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/tinder-mobile-clone --variant react-native --output tasks/scorecards/phase-12/101-tinder-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | SparkMatch: tabs=5, profiles=5, matches=1, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/101-tinder-react-native.json"
+    },
+    {
+      "appId": 102,
+      "appName": "Bumble",
+      "repo": "GeorgeQLe/bumble-mobile-clone",
+      "repoPath": "/tmp/bumble-mobile-clone",
+      "commit": "a8c331b",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/bumble-mobile-clone --variant expo --output tasks/scorecards/phase-12/102-bumble-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | FirstMove: tabs=5, profiles=5, matches=1, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/102-bumble-expo.json"
+    },
+    {
+      "appId": 102,
+      "appName": "Bumble",
+      "repo": "GeorgeQLe/bumble-mobile-clone",
+      "repoPath": "/tmp/bumble-mobile-clone",
+      "commit": "a8c331b",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/bumble-mobile-clone --variant react-native --output tasks/scorecards/phase-12/102-bumble-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | FirstMove: tabs=5, profiles=5, matches=1, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/102-bumble-react-native.json"
+    },
+    {
+      "appId": 103,
+      "appName": "Hinge",
+      "repo": "GeorgeQLe/hinge-mobile-clone",
+      "repoPath": "/tmp/hinge-mobile-clone",
+      "commit": "0fcf927",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/hinge-mobile-clone --variant expo --output tasks/scorecards/phase-12/103-hinge-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | PromptPair: tabs=5, profiles=5, matches=1, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/103-hinge-expo.json"
+    },
+    {
+      "appId": 103,
+      "appName": "Hinge",
+      "repo": "GeorgeQLe/hinge-mobile-clone",
+      "repoPath": "/tmp/hinge-mobile-clone",
+      "commit": "0fcf927",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/hinge-mobile-clone --variant react-native --output tasks/scorecards/phase-12/103-hinge-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | PromptPair: tabs=5, profiles=5, matches=1, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/103-hinge-react-native.json"
+    },
+    {
+      "appId": 104,
+      "appName": "Grindr",
+      "repo": "GeorgeQLe/grindr-mobile-clone",
+      "repoPath": "/tmp/grindr-mobile-clone",
+      "commit": "8188fd7",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/grindr-mobile-clone --variant expo --output tasks/scorecards/phase-12/104-grindr-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | NearbyKind: tabs=5, profiles=5, matches=1, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/104-grindr-expo.json"
+    },
+    {
+      "appId": 104,
+      "appName": "Grindr",
+      "repo": "GeorgeQLe/grindr-mobile-clone",
+      "repoPath": "/tmp/grindr-mobile-clone",
+      "commit": "8188fd7",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/grindr-mobile-clone --variant react-native --output tasks/scorecards/phase-12/104-grindr-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | NearbyKind: tabs=5, profiles=5, matches=1, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/104-grindr-react-native.json"
+    },
+    {
+      "appId": 105,
+      "appName": "Match",
+      "repo": "GeorgeQLe/match-mobile-clone",
+      "repoPath": "/tmp/match-mobile-clone",
+      "commit": "f8c4549",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/match-mobile-clone --variant expo --output tasks/scorecards/phase-12/105-match-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | EverAfter: tabs=5, profiles=5, matches=1, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/105-match-expo.json"
+    },
+    {
+      "appId": 105,
+      "appName": "Match",
+      "repo": "GeorgeQLe/match-mobile-clone",
+      "repoPath": "/tmp/match-mobile-clone",
+      "commit": "f8c4549",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/match-mobile-clone --variant react-native --output tasks/scorecards/phase-12/105-match-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | EverAfter: tabs=5, profiles=5, matches=1, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/105-match-react-native.json"
+    },
+    {
+      "appId": 106,
+      "appName": "Coffee Meets Bagel",
+      "repo": "GeorgeQLe/coffee-meets-bagel-mobile-clone",
+      "repoPath": "/tmp/coffee-meets-bagel-mobile-clone",
+      "commit": "80c676e",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/coffee-meets-bagel-mobile-clone --variant expo --output tasks/scorecards/phase-12/106-coffee-meets-bagel-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | DailyBean: tabs=5, profiles=5, matches=1, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/106-coffee-meets-bagel-expo.json"
+    },
+    {
+      "appId": 106,
+      "appName": "Coffee Meets Bagel",
+      "repo": "GeorgeQLe/coffee-meets-bagel-mobile-clone",
+      "repoPath": "/tmp/coffee-meets-bagel-mobile-clone",
+      "commit": "80c676e",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/coffee-meets-bagel-mobile-clone --variant react-native --output tasks/scorecards/phase-12/106-coffee-meets-bagel-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | DailyBean: tabs=5, profiles=5, matches=1, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/106-coffee-meets-bagel-react-native.json"
+    },
+    {
+      "appId": 915,
+      "appName": "Mastodon",
+      "repo": "GeorgeQLe/mastodon-mobile-clone",
+      "repoPath": "/tmp/mastodon-mobile-clone",
+      "commit": "d7f3fd5",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/mastodon-mobile-clone --variant expo --output tasks/scorecards/phase-12/915-mastodon-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | FederatedSquare: tabs=5, communities=2, activity=5, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/915-mastodon-expo.json"
+    },
+    {
+      "appId": 915,
+      "appName": "Mastodon",
+      "repo": "GeorgeQLe/mastodon-mobile-clone",
+      "repoPath": "/tmp/mastodon-mobile-clone",
+      "commit": "d7f3fd5",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/mastodon-mobile-clone --variant react-native --output tasks/scorecards/phase-12/915-mastodon-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | FederatedSquare: tabs=5, communities=2, activity=5, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/915-mastodon-react-native.json"
+    },
+    {
+      "appId": 916,
+      "appName": "Tumblr",
+      "repo": "GeorgeQLe/tumblr-mobile-clone",
+      "repoPath": "/tmp/tumblr-mobile-clone",
+      "commit": "ee164e5",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/tumblr-mobile-clone --variant expo --output tasks/scorecards/phase-12/916-tumblr-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | ReblogGarden: tabs=5, communities=2, activity=5, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/916-tumblr-expo.json"
+    },
+    {
+      "appId": 916,
+      "appName": "Tumblr",
+      "repo": "GeorgeQLe/tumblr-mobile-clone",
+      "repoPath": "/tmp/tumblr-mobile-clone",
+      "commit": "ee164e5",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/tumblr-mobile-clone --variant react-native --output tasks/scorecards/phase-12/916-tumblr-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | ReblogGarden: tabs=5, communities=2, activity=5, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/916-tumblr-react-native.json"
+    },
+    {
+      "appId": 917,
+      "appName": "Flickr",
+      "repo": "GeorgeQLe/flickr-mobile-clone",
+      "repoPath": "/tmp/flickr-mobile-clone",
+      "commit": "aa2e720",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/flickr-mobile-clone --variant expo --output tasks/scorecards/phase-12/917-flickr-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | PhotoCommons: tabs=5, communities=2, activity=5, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/917-flickr-expo.json"
+    },
+    {
+      "appId": 917,
+      "appName": "Flickr",
+      "repo": "GeorgeQLe/flickr-mobile-clone",
+      "repoPath": "/tmp/flickr-mobile-clone",
+      "commit": "aa2e720",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/flickr-mobile-clone --variant react-native --output tasks/scorecards/phase-12/917-flickr-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | PhotoCommons: tabs=5, communities=2, activity=5, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/917-flickr-react-native.json"
+    },
+    {
+      "appId": 918,
+      "appName": "500px",
+      "repo": "GeorgeQLe/500px-mobile-clone",
+      "repoPath": "/tmp/500px-mobile-clone",
+      "commit": "69b4223",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/500px-mobile-clone --variant expo --output tasks/scorecards/phase-12/918-500px-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | LensGuild: tabs=5, communities=2, activity=5, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/918-500px-expo.json"
+    },
+    {
+      "appId": 918,
+      "appName": "500px",
+      "repo": "GeorgeQLe/500px-mobile-clone",
+      "repoPath": "/tmp/500px-mobile-clone",
+      "commit": "69b4223",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/500px-mobile-clone --variant react-native --output tasks/scorecards/phase-12/918-500px-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | LensGuild: tabs=5, communities=2, activity=5, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/918-500px-react-native.json"
+    },
+    {
+      "appId": 919,
+      "appName": "Clubhouse",
+      "repo": "GeorgeQLe/clubhouse-mobile-clone",
+      "repoPath": "/tmp/clubhouse-mobile-clone",
+      "commit": "f2a34a7",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/clubhouse-mobile-clone --variant expo --output tasks/scorecards/phase-12/919-clubhouse-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | RoomWave: tabs=5, communities=2, activity=5, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/919-clubhouse-expo.json"
+    },
+    {
+      "appId": 919,
+      "appName": "Clubhouse",
+      "repo": "GeorgeQLe/clubhouse-mobile-clone",
+      "repoPath": "/tmp/clubhouse-mobile-clone",
+      "commit": "f2a34a7",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/clubhouse-mobile-clone --variant react-native --output tasks/scorecards/phase-12/919-clubhouse-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | RoomWave: tabs=5, communities=2, activity=5, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/919-clubhouse-react-native.json"
+    },
+    {
+      "appId": 920,
+      "appName": "Amino",
+      "repo": "GeorgeQLe/amino-mobile-clone",
+      "repoPath": "/tmp/amino-mobile-clone",
+      "commit": "b180659",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/amino-mobile-clone --variant expo --output tasks/scorecards/phase-12/920-amino-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | FandomHarbor: tabs=5, communities=2, activity=5, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/920-amino-expo.json"
+    },
+    {
+      "appId": 920,
+      "appName": "Amino",
+      "repo": "GeorgeQLe/amino-mobile-clone",
+      "repoPath": "/tmp/amino-mobile-clone",
+      "commit": "b180659",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/amino-mobile-clone --variant react-native --output tasks/scorecards/phase-12/920-amino-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | FandomHarbor: tabs=5, communities=2, activity=5, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-12/920-amino-react-native.json"
+    },
+    {
+      "appId": 921,
+      "appName": "Weverse",
+      "repo": "GeorgeQLe/weverse-mobile-clone",
+      "repoPath": "/tmp/weverse-mobile-clone",
+      "commit": "e53bf5c",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/weverse-mobile-clone --variant expo --output tasks/scorecards/phase-12/921-weverse-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | FanVerseHub: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+      },
+      "file": "tasks/scorecards/phase-12/921-weverse-expo.json"
+    },
+    {
+      "appId": 921,
+      "appName": "Weverse",
+      "repo": "GeorgeQLe/weverse-mobile-clone",
+      "repoPath": "/tmp/weverse-mobile-clone",
+      "commit": "e53bf5c",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/weverse-mobile-clone --variant react-native --output tasks/scorecards/phase-12/921-weverse-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | FanVerseHub: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+      },
+      "file": "tasks/scorecards/phase-12/921-weverse-react-native.json"
+    },
+    {
+      "appId": 922,
+      "appName": "Patreon",
+      "repo": "GeorgeQLe/patreon-mobile-clone",
+      "repoPath": "/tmp/patreon-mobile-clone",
+      "commit": "5c6be6c",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/patreon-mobile-clone --variant expo --output tasks/scorecards/phase-12/922-patreon-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | MemberStudio: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+      },
+      "file": "tasks/scorecards/phase-12/922-patreon-expo.json"
+    },
+    {
+      "appId": 922,
+      "appName": "Patreon",
+      "repo": "GeorgeQLe/patreon-mobile-clone",
+      "repoPath": "/tmp/patreon-mobile-clone",
+      "commit": "5c6be6c",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/patreon-mobile-clone --variant react-native --output tasks/scorecards/phase-12/922-patreon-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | MemberStudio: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+      },
+      "file": "tasks/scorecards/phase-12/922-patreon-react-native.json"
+    },
+    {
+      "appId": 923,
+      "appName": "Buy Me a Coffee",
+      "repo": "GeorgeQLe/buy-me-a-coffee-mobile-clone",
+      "repoPath": "/tmp/buy-me-a-coffee-mobile-clone",
+      "commit": "2601f36",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/buy-me-a-coffee-mobile-clone --variant expo --output tasks/scorecards/phase-12/923-buy-me-a-coffee-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | SupportCup: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+      },
+      "file": "tasks/scorecards/phase-12/923-buy-me-a-coffee-expo.json"
+    },
+    {
+      "appId": 923,
+      "appName": "Buy Me a Coffee",
+      "repo": "GeorgeQLe/buy-me-a-coffee-mobile-clone",
+      "repoPath": "/tmp/buy-me-a-coffee-mobile-clone",
+      "commit": "2601f36",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/buy-me-a-coffee-mobile-clone --variant react-native --output tasks/scorecards/phase-12/923-buy-me-a-coffee-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | SupportCup: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+      },
+      "file": "tasks/scorecards/phase-12/923-buy-me-a-coffee-react-native.json"
+    },
+    {
+      "appId": 924,
+      "appName": "Ko-fi",
+      "repo": "GeorgeQLe/ko-fi-mobile-clone",
+      "repoPath": "/tmp/ko-fi-mobile-clone",
+      "commit": "7fc0a3a",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/ko-fi-mobile-clone --variant expo --output tasks/scorecards/phase-12/924-ko-fi-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | KindFund: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+      },
+      "file": "tasks/scorecards/phase-12/924-ko-fi-expo.json"
+    },
+    {
+      "appId": 924,
+      "appName": "Ko-fi",
+      "repo": "GeorgeQLe/ko-fi-mobile-clone",
+      "repoPath": "/tmp/ko-fi-mobile-clone",
+      "commit": "7fc0a3a",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/ko-fi-mobile-clone --variant react-native --output tasks/scorecards/phase-12/924-ko-fi-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | KindFund: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+      },
+      "file": "tasks/scorecards/phase-12/924-ko-fi-react-native.json"
+    },
+    {
+      "appId": 925,
+      "appName": "Cameo",
+      "repo": "GeorgeQLe/cameo-mobile-clone",
+      "repoPath": "/tmp/cameo-mobile-clone",
+      "commit": "5e178b1",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/cameo-mobile-clone --variant expo --output tasks/scorecards/phase-12/925-cameo-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | ShoutRequest: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+      },
+      "file": "tasks/scorecards/phase-12/925-cameo-expo.json"
+    },
+    {
+      "appId": 925,
+      "appName": "Cameo",
+      "repo": "GeorgeQLe/cameo-mobile-clone",
+      "repoPath": "/tmp/cameo-mobile-clone",
+      "commit": "5e178b1",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/cameo-mobile-clone --variant react-native --output tasks/scorecards/phase-12/925-cameo-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | ShoutRequest: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+      },
+      "file": "tasks/scorecards/phase-12/925-cameo-react-native.json"
+    },
+    {
+      "appId": 926,
+      "appName": "Guilded",
+      "repo": "GeorgeQLe/guilded-mobile-clone",
+      "repoPath": "/tmp/guilded-mobile-clone",
+      "commit": "1f3a8e1",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/guilded-mobile-clone --variant expo --output tasks/scorecards/phase-12/926-guilded-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | TeamHaven: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+      },
+      "file": "tasks/scorecards/phase-12/926-guilded-expo.json"
+    },
+    {
+      "appId": 926,
+      "appName": "Guilded",
+      "repo": "GeorgeQLe/guilded-mobile-clone",
+      "repoPath": "/tmp/guilded-mobile-clone",
+      "commit": "1f3a8e1",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/guilded-mobile-clone --variant react-native --output tasks/scorecards/phase-12/926-guilded-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | TeamHaven: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+      },
+      "file": "tasks/scorecards/phase-12/926-guilded-react-native.json"
+    },
+    {
+      "appId": 927,
+      "appName": "Geneva",
+      "repo": "GeorgeQLe/geneva-mobile-clone",
+      "repoPath": "/tmp/geneva-mobile-clone",
+      "commit": "23fc686",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/geneva-mobile-clone --variant expo --output tasks/scorecards/phase-12/927-geneva-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | RoomCircle: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+      },
+      "file": "tasks/scorecards/phase-12/927-geneva-expo.json"
+    },
+    {
+      "appId": 927,
+      "appName": "Geneva",
+      "repo": "GeorgeQLe/geneva-mobile-clone",
+      "repoPath": "/tmp/geneva-mobile-clone",
+      "commit": "23fc686",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/geneva-mobile-clone --variant react-native --output tasks/scorecards/phase-12/927-geneva-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | RoomCircle: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+      },
+      "file": "tasks/scorecards/phase-12/927-geneva-react-native.json"
+    },
+    {
+      "appId": 928,
+      "appName": "Fizz",
+      "repo": "GeorgeQLe/fizz-mobile-clone",
+      "repoPath": "/tmp/fizz-mobile-clone",
+      "commit": "8face06",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/fizz-mobile-clone --variant expo --output tasks/scorecards/phase-12/928-fizz-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | CampusPulse: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+      },
+      "file": "tasks/scorecards/phase-12/928-fizz-expo.json"
+    },
+    {
+      "appId": 928,
+      "appName": "Fizz",
+      "repo": "GeorgeQLe/fizz-mobile-clone",
+      "repoPath": "/tmp/fizz-mobile-clone",
+      "commit": "8face06",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/fizz-mobile-clone --variant react-native --output tasks/scorecards/phase-12/928-fizz-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | CampusPulse: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+      },
+      "file": "tasks/scorecards/phase-12/928-fizz-react-native.json"
+    },
+    {
+      "appId": 929,
+      "appName": "Yubo",
+      "repo": "GeorgeQLe/yubo-mobile-clone",
+      "repoPath": "/tmp/yubo-mobile-clone",
+      "commit": "9917684",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/yubo-mobile-clone --variant expo --output tasks/scorecards/phase-12/929-yubo-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | LiveCircle: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+      },
+      "file": "tasks/scorecards/phase-12/929-yubo-expo.json"
+    },
+    {
+      "appId": 929,
+      "appName": "Yubo",
+      "repo": "GeorgeQLe/yubo-mobile-clone",
+      "repoPath": "/tmp/yubo-mobile-clone",
+      "commit": "9917684",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/yubo-mobile-clone --variant react-native --output tasks/scorecards/phase-12/929-yubo-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | LiveCircle: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+      },
+      "file": "tasks/scorecards/phase-12/929-yubo-react-native.json"
+    },
+    {
+      "appId": 930,
+      "appName": "Poparazzi",
+      "repo": "GeorgeQLe/poparazzi-mobile-clone",
+      "repoPath": "/tmp/poparazzi-mobile-clone",
+      "commit": "9db9ec4",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/poparazzi-mobile-clone --variant expo --output tasks/scorecards/phase-12/930-poparazzi-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | FriendFrame: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+      },
+      "file": "tasks/scorecards/phase-12/930-poparazzi-expo.json"
+    },
+    {
+      "appId": 930,
+      "appName": "Poparazzi",
+      "repo": "GeorgeQLe/poparazzi-mobile-clone",
+      "repoPath": "/tmp/poparazzi-mobile-clone",
+      "commit": "9db9ec4",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/poparazzi-mobile-clone --variant react-native --output tasks/scorecards/phase-12/930-poparazzi-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | FriendFrame: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+      },
+      "file": "tasks/scorecards/phase-12/930-poparazzi-react-native.json"
+    },
+    {
+      "appId": 931,
+      "appName": "NGL",
+      "repo": "GeorgeQLe/ngl-mobile-clone",
+      "repoPath": "/tmp/ngl-mobile-clone",
+      "commit": "fc0a380",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/ngl-mobile-clone --variant expo --output tasks/scorecards/phase-12/931-ngl-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | AskCove: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+      },
+      "file": "tasks/scorecards/phase-12/931-ngl-expo.json"
+    },
+    {
+      "appId": 931,
+      "appName": "NGL",
+      "repo": "GeorgeQLe/ngl-mobile-clone",
+      "repoPath": "/tmp/ngl-mobile-clone",
+      "commit": "fc0a380",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/ngl-mobile-clone --variant react-native --output tasks/scorecards/phase-12/931-ngl-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | AskCove: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+      },
+      "file": "tasks/scorecards/phase-12/931-ngl-react-native.json"
+    },
+    {
+      "appId": 932,
+      "appName": "Tellonym",
+      "repo": "GeorgeQLe/tellonym-mobile-clone",
+      "repoPath": "/tmp/tellonym-mobile-clone",
+      "commit": "ee51802",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/tellonym-mobile-clone --variant expo --output tasks/scorecards/phase-12/932-tellonym-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | TellBox: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+      },
+      "file": "tasks/scorecards/phase-12/932-tellonym-expo.json"
+    },
+    {
+      "appId": 932,
+      "appName": "Tellonym",
+      "repo": "GeorgeQLe/tellonym-mobile-clone",
+      "repoPath": "/tmp/tellonym-mobile-clone",
+      "commit": "ee51802",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/tellonym-mobile-clone --variant react-native --output tasks/scorecards/phase-12/932-tellonym-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | TellBox: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+      },
+      "file": "tasks/scorecards/phase-12/932-tellonym-react-native.json"
+    },
+    {
+      "appId": 933,
+      "appName": "Rumble",
+      "repo": "GeorgeQLe/rumble-mobile-clone",
+      "repoPath": "/tmp/rumble-mobile-clone",
+      "commit": "8d61679",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/rumble-mobile-clone --variant expo --output tasks/scorecards/phase-12/933-rumble-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | VideoCommons: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+      },
+      "file": "tasks/scorecards/phase-12/933-rumble-expo.json"
+    },
+    {
+      "appId": 933,
+      "appName": "Rumble",
+      "repo": "GeorgeQLe/rumble-mobile-clone",
+      "repoPath": "/tmp/rumble-mobile-clone",
+      "commit": "8d61679",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/rumble-mobile-clone --variant react-native --output tasks/scorecards/phase-12/933-rumble-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | VideoCommons: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+      },
+      "file": "tasks/scorecards/phase-12/933-rumble-react-native.json"
+    },
+    {
+      "appId": 934,
+      "appName": "Truth Social",
+      "repo": "GeorgeQLe/truth-social-mobile-clone",
+      "repoPath": "/tmp/truth-social-mobile-clone",
+      "commit": "039e1bf",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/truth-social-mobile-clone --variant expo --output tasks/scorecards/phase-12/934-truth-social-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | CivicStream: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+      },
+      "file": "tasks/scorecards/phase-12/934-truth-social-expo.json"
+    },
+    {
+      "appId": 934,
+      "appName": "Truth Social",
+      "repo": "GeorgeQLe/truth-social-mobile-clone",
+      "repoPath": "/tmp/truth-social-mobile-clone",
+      "commit": "039e1bf",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/truth-social-mobile-clone --variant react-native --output tasks/scorecards/phase-12/934-truth-social-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | CivicStream: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+      },
+      "file": "tasks/scorecards/phase-12/934-truth-social-react-native.json"
+    },
+    {
+      "appId": 986,
+      "appName": "Mighty Networks",
+      "repo": "GeorgeQLe/mighty-networks-mobile-clone",
+      "repoPath": "/tmp/mighty-networks-mobile-clone",
+      "commit": "5258ca8",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/mighty-networks-mobile-clone --variant expo --output tasks/scorecards/phase-12/986-mighty-networks-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | GatherCourse: tabs=5, creatorSurfaces=2, activity=5, blockers=14"
+      },
+      "file": "tasks/scorecards/phase-12/986-mighty-networks-expo.json"
+    },
+    {
+      "appId": 986,
+      "appName": "Mighty Networks",
+      "repo": "GeorgeQLe/mighty-networks-mobile-clone",
+      "repoPath": "/tmp/mighty-networks-mobile-clone",
+      "commit": "5258ca8",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/mighty-networks-mobile-clone --variant react-native --output tasks/scorecards/phase-12/986-mighty-networks-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | GatherCourse: tabs=5, creatorSurfaces=2, activity=5, blockers=14"
+      },
+      "file": "tasks/scorecards/phase-12/986-mighty-networks-react-native.json"
+    },
+    {
+      "appId": 987,
+      "appName": "Circle Communities",
+      "repo": "GeorgeQLe/circle-communities-mobile-clone",
+      "repoPath": "/tmp/circle-communities-mobile-clone",
+      "commit": "3947f61",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/circle-communities-mobile-clone --variant expo --output tasks/scorecards/phase-12/987-circle-communities-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | CircleForge: tabs=5, creatorSurfaces=2, activity=5, blockers=14"
+      },
+      "file": "tasks/scorecards/phase-12/987-circle-communities-expo.json"
+    },
+    {
+      "appId": 987,
+      "appName": "Circle Communities",
+      "repo": "GeorgeQLe/circle-communities-mobile-clone",
+      "repoPath": "/tmp/circle-communities-mobile-clone",
+      "commit": "3947f61",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/circle-communities-mobile-clone --variant react-native --output tasks/scorecards/phase-12/987-circle-communities-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | CircleForge: tabs=5, creatorSurfaces=2, activity=5, blockers=14"
+      },
+      "file": "tasks/scorecards/phase-12/987-circle-communities-react-native.json"
+    },
+    {
+      "appId": 988,
+      "appName": "Skool",
+      "repo": "GeorgeQLe/skool-mobile-clone",
+      "repoPath": "/tmp/skool-mobile-clone",
+      "commit": "f56f14a",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/skool-mobile-clone --variant expo --output tasks/scorecards/phase-12/988-skool-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/src/app.test.mjs | LearnGuild: tabs=5, creatorSurfaces=2, activity=5, blockers=14"
+      },
+      "file": "tasks/scorecards/phase-12/988-skool-expo.json"
+    },
+    {
+      "appId": 988,
+      "appName": "Skool",
+      "repo": "GeorgeQLe/skool-mobile-clone",
+      "repoPath": "/tmp/skool-mobile-clone",
+      "commit": "f56f14a",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/skool-mobile-clone --variant react-native --output tasks/scorecards/phase-12/988-skool-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/src/app.test.mjs | LearnGuild: tabs=5, creatorSurfaces=2, activity=5, blockers=14"
+      },
+      "file": "tasks/scorecards/phase-12/988-skool-react-native.json"
+    }
+  ]
+}
