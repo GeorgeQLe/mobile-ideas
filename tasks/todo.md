@@ -1511,6 +1511,17 @@ Build all five variants for every app in the AI & Assistants category cluster to
   **Next work:** Step 11.13 blocker decision — install/enable Flutter and Android local toolchains for executable evidence, or explicitly approve an external disposition for the 54 remaining toolchain-blocked targets.
   **Recommended next command:** `$guide`
 
+  **User-Approved Carry-Forward Deferral — 2026-05-14:**
+  - User approved deferring the 54 Flutter and Android Native Phase 11 toolchain-blocked targets as carry-forward blockers so development can continue without marking them as validated.
+  - This approval does not convert the 54 blocker records into passing validation or benchmark scorecards.
+  - Step 11.13 remains unchecked, and Phase 11 acceptance criteria remain partially unsatisfied until executable Flutter/Android evidence is produced or a later phase explicitly resolves the carry-forward blockers.
+  - Development may continue to the next actionable planning/development work with the carry-forward blocker set preserved in `tasks/phase-11-validation-report.md` and `tasks/scorecards/phase-11/benchmark-blockers.json`.
+
+  **Current Status:** deferred with explicit approval — Phase 11 is not validated complete, but the remaining Flutter/Android toolchain blockers no longer prevent continuing development work.
+
+  **Next work:** continue development with Phase 11 Flutter/Android blockers carried forward.
+  **Recommended next command:** `$run`
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`

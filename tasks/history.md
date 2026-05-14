@@ -2972,3 +2972,22 @@
 - Residual risk: no real-device Flutter or Android validation evidence exists; generated benchmark scorecards remain local structural evidence.
 - Rollback note: revert this planning commit and rerun the scorecard generator from the previous revision if the old blocker wording must be restored.
 - Next command: `$guide` for the remaining blocker decision: install/enable Flutter and Android local toolchains, or explicitly approve external disposition for the 54 toolchain-blocked targets.
+
+## 2026-05-14 - Phase 11 Flutter/Android Carry-Forward Approval
+
+- User approved deferring the 54 Flutter and Android Native Phase 11 toolchain-blocked targets as carry-forward blockers so development can continue without marking them as validated.
+- Recorded the approval in `tasks/todo.md` while keeping Step 11.13 unchecked and preserving the blocker records in `tasks/scorecards/phase-11/benchmark-blockers.json`.
+- Phase 11 remains not fully validated: React Native, Expo, and iOS Native have local validation/benchmark evidence; Flutter and Android Native still require executable evidence or future blocker resolution.
+
+### Ship Manifest
+
+- User goal: record approval to continue development while carrying forward Flutter/Android toolchain blockers honestly.
+- Changed files: `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: task docs record the approval boundary and next route; history preserves the decision for future sessions.
+- User-goal mapping: enables continued development without falsely marking the 54 blocked targets as validated.
+- Tests run: Markdown H1 sanity check; scorecard/blocker accounting check.
+- Skipped tests: Flutter and Android executable validation remains skipped because the local toolchains are still unavailable; GitHub Actions intentionally unused.
+- Adversarial review: the approval note explicitly does not convert blockers into passing evidence and keeps Step 11.13 unchecked.
+- Residual risk: future operators must not treat Phase 11 as complete until the carry-forward blockers are resolved.
+- Rollback note: revert this planning commit to remove the carry-forward approval record.
+- Next command: `$run` to continue development with the approved carry-forward blocker set.
