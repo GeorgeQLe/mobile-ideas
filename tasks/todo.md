@@ -247,7 +247,7 @@ Build all five variants for every app in the Social, Dating & Community cluster.
   - Rollback note: revert downstream commit `00fca5c`, then revert this planning commit.
   - Next command: `$run` for Step 12.4.
 
-- [ ] Step 12.4: Implement pilot app 3 — Snapchat clone (all 5 variants)
+- [x] Step 12.4: Implement pilot app 3 — Snapchat clone (all 5 variants)
   - Files: `GeorgeQLe/snapchat-mobile-clone` — all 5 `variants/` directories.
   - Implement: camera-first shell, ephemeral messaging model, stories, friends, chat, memories, location/privacy controls, reporting/blocking, and safety gates.
 
@@ -271,9 +271,61 @@ Build all five variants for every app in the Social, Dating & Community cluster.
   - Local validation evidence or blocker records exist for every variant.
   - No proprietary Snapchat assets, trademarks as branding, copied media, private APIs, production data, or GitHub Actions are introduced.
 
+  **Review — 2026-05-14:**
+  - Implemented the downstream `FlickerFrame` camera-social prototype in `GeorgeQLe/snapchat-mobile-clone`.
+  - Used branch-backed lane `phase12-snapchat-variants`, opened PR `https://github.com/GeorgeQLe/snapchat-mobile-clone/pull/1`, and squash-merged to `main` at commit `3e6ea28`.
+  - Added shared synthetic fixture and API contract coverage for camera session, ephemeral snaps, view/screenshot state, stories, reporting, privacy-scoped location sharing, blocked parity flags, and privacy-safe analytics rules.
+  - Added variant code under React Native, Expo, Flutter, iOS Native, and Android Native directories.
+  - Added downstream validation evidence at `tasks/validation/phase12-step12-4.md`.
+  - Verified downstream repo remains `PRIVATE` with default branch `main`.
+  - Preserved launch blockers for exact native screenshot signaling, signed-in account lifecycle, paid entitlement restore, push payloads, deletion/export completion, exact location parity, and region/device-specific behavior.
+  - No GitHub Actions were enabled, dispatched, or used.
+
+  **Validation — 2026-05-14:**
+  - `npm run validate` passed in `/tmp/snapchat-mobile-clone`.
+  - `npm run test:react-native` passed in `/tmp/snapchat-mobile-clone`.
+  - `npm run test:expo` passed in `/tmp/snapchat-mobile-clone`.
+  - `swiftc -module-cache-path /tmp/swift-module-cache variants/ios-native/Sources/EphemeralCameraClone/AppModel.swift variants/ios-native/Sources/EphemeralCameraClone/main.swift -o /tmp/flickerframe-ios` passed.
+  - `/tmp/flickerframe-ios` passed and printed the model summary.
+  - `git diff --cached --check` and `git diff --check` passed before downstream commit/merge.
+  - Flutter runtime validation remains blocked because `dart` and `flutter` are not installed locally.
+  - Android Native runtime validation remains blocked because `kotlinc` is not installed locally.
+
+  **Ship Manifest:**
+  - User goal: execute Phase 12 Step 12.4 and implement the Snapchat-inspired lawful clone across all five downstream variants.
+  - Changed files: downstream `GeorgeQLe/snapchat-mobile-clone` received shared fixtures/contracts, variant source files, validation script, validation record, and package scripts; this planning repo changed `tasks/todo.md` and `tasks/history.md`.
+  - Per-file purpose: downstream files provide original synthetic app surfaces and reproducible contract checks; planning files record evidence and next work.
+  - User-goal mapping: satisfies Step 12.4 without proprietary Snapchat assets, brand claims, private APIs, production data, public visibility changes, or GitHub Actions.
+  - Tests run: downstream `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compilation/run, downstream diff checks, PR mergeability check, and remote privacy/default-branch verification.
+  - Skipped tests: Flutter and Android Native runtime checks are blocked by missing local Dart/Flutter and Kotlin toolchains; exact native screenshot, account lifecycle, paid entitlement, push payload, deletion/export, and region/device verification remains blocked.
+  - Adversarial review: implementation uses original `FlickerFrame` naming and synthetic data, models ephemeral privacy with audit retention rather than impossible privacy guarantees, keeps high-risk native parity flags off, and records blocked native parity rather than claiming launch readiness.
+  - Residual risk: variant code is a lightweight baseline, not production device builds; full native manifests, device camera behavior, and real account/push/payment flows remain future work.
+  - Rollback note: revert downstream commit `3e6ea28`, then revert this planning commit.
+  - Next command: `$run` for Step 12.5.
+
 - [ ] Step 12.5: Implement batch apps 009-015 — BeReal, Reddit, X, Bluesky, Threads, Pinterest, Lemon8 (all 5 variants each)
   - Files: 7 downstream repos.
   - Shared patterns: feed/timeline, comments, profiles, media posts, saved items, search/discovery, moderation.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Implement the seven remaining pilot social apps in Phase 12 batch 009-015 across React Native, Flutter, Expo, iOS Native, and Android Native variants, using original UI/content/data only.
+
+  **Approach:**
+  1. Process repos serially: `GeorgeQLe/bereal-mobile-clone`, `GeorgeQLe/reddit-mobile-clone`, `GeorgeQLe/x-mobile-clone`, `GeorgeQLe/bluesky-mobile-clone`, `GeorgeQLe/threads-mobile-clone`, `GeorgeQLe/pinterest-mobile-clone`, and `GeorgeQLe/lemon8-mobile-clone`.
+  2. For each repo, verify `PRIVATE` visibility, clone or refresh, read `docs/source-specs/*`, `docs/plans/README.md`, and downstream task docs.
+  3. Use one non-primary branch-backed downstream lane per repo or a clearly scoped serial branch per repo; merge each through a consolidation PR before recording completion.
+  4. Implement shared synthetic fixtures and API contracts for feed/timeline, comments/replies, profiles, media posts, saved items, search/discovery, reporting/blocking, moderation, privacy controls, and app-specific safety gates.
+  5. Build each variant inside its own `variants/*` directory, preserving stack-local conventions and explicitly recording unavailable local toolchains.
+  6. Run local validation only; do not enable, dispatch, or rely on GitHub Actions.
+  7. Record downstream commit/PR URLs, validation evidence, privacy verification, blocker status, and legal/asset review back in this planning repo.
+
+  **Acceptance Criteria:**
+  - All seven downstream repos contain implementation code or explicit local toolchain blockers for all five variants.
+  - Core social feed, profile, media, save/search/discovery, moderation, reporting/blocking, privacy, and safety workflows are represented with original assets and synthetic data.
+  - Local validation evidence or blocker records exist for every repo and every variant.
+  - No proprietary assets, trademarks as branding, copied media, private APIs, production data, public visibility changes, or GitHub Actions are introduced.
 
 - [ ] Step 12.6: Implement dating apps 101-106 — Tinder, Bumble, Hinge, Grindr, Match, Coffee Meets Bagel (all 5 variants each)
   - Files: 6 downstream repos.

@@ -1,5 +1,30 @@
 # History
 
+## 2026-05-14 - Phase 12 Step 12.4 Snapchat Variant Implementation
+
+- Executed `$run` Step 12.4 for `GeorgeQLe/snapchat-mobile-clone` without GitHub Actions.
+- Implemented the downstream `FlickerFrame` camera-social prototype across React Native, Expo, Flutter, iOS Native, and Android Native variant directories.
+- Used branch-backed lane `phase12-snapchat-variants`, opened PR `https://github.com/GeorgeQLe/snapchat-mobile-clone/pull/1`, and squash-merged to `main` at commit `3e6ea28`.
+- Added shared synthetic fixtures and API contracts covering camera session, ephemeral snaps, view/screenshot state, stories, reporting, privacy-scoped location sharing, blocked parity flags, and privacy-safe analytics rules.
+- Preserved blockers for exact native screenshot signaling, signed-in account lifecycle, paid entitlement restore, push payloads, deletion/export completion, exact location parity, and region/device-specific behavior.
+- Remote verification confirmed `visibility: PRIVATE`, default branch `main`, and `pushedAt: 2026-05-14T15:56:07Z`.
+- Local executable validation passed: `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, downstream `git diff --cached --check`, downstream `git diff --check`, PR mergeability check, and remote privacy/default-branch verification.
+- Flutter/Dart validation remains blocked because `dart` and `flutter` are not installed locally. Android Native runtime validation remains blocked because `kotlinc` is not installed locally.
+- No GitHub Actions were enabled, dispatched, or used.
+
+### Ship Manifest
+
+- User goal: execute Phase 12 Step 12.4 and implement the Snapchat-inspired lawful clone across all five downstream variants.
+- Changed files: downstream `GeorgeQLe/snapchat-mobile-clone` received shared fixtures/contracts, variant source files, validation script, validation record, and package scripts; this planning repo changed `tasks/todo.md` and `tasks/history.md`.
+- Per-file purpose: downstream files provide original synthetic app surfaces and reproducible contract checks; planning files record evidence and next work.
+- User-goal mapping: satisfies Step 12.4 without proprietary Snapchat assets, brand claims, private APIs, production data, public visibility changes, or GitHub Actions.
+- Tests run: downstream `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compilation/run, downstream diff checks, PR mergeability check, and remote privacy/default-branch verification.
+- Skipped tests: Flutter and Android Native runtime checks are blocked by missing local Dart/Flutter and Kotlin toolchains; exact native screenshot, account lifecycle, paid entitlement, push payload, deletion/export, and region/device verification remains blocked.
+- Adversarial review: implementation uses original `FlickerFrame` naming and synthetic data, models ephemeral privacy with audit retention rather than impossible privacy guarantees, keeps high-risk native parity flags off, and records blocked native parity rather than claiming launch readiness.
+- Residual risk: variant code is a lightweight baseline, not production device builds; full native manifests, device camera behavior, and real account/push/payment flows remain future work.
+- Rollback note: revert downstream commit `3e6ea28`, then revert this planning commit.
+- Next command: `$run`.
+
 ## 2026-05-14 - Phase 12 Step 12.2 TikTok Variant Implementation
 
 - Executed `$run` Step 12.2 for `GeorgeQLe/tiktok-mobile-clone` without GitHub Actions.
