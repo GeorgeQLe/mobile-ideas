@@ -1,0 +1,1693 @@
+{
+  "generated": "2026-05-14",
+  "toolchains": {
+    "node": true,
+    "npm": true,
+    "swiftc": true,
+    "dart": false,
+    "flutter": false,
+    "kotlinc": false
+  },
+  "passedCommands": 156,
+  "failureCount": 0,
+  "blockerCount": 78,
+  "results": [
+    {
+      "id": 6,
+      "app": "TikTok",
+      "repo": "GeorgeQLe/tiktok-mobile-clone",
+      "repoPath": "/tmp/tiktok-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "44f892d",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-implementation.mjs | validated 11 variant files, 2 feed posts, 9 moderation policies"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/tests/fixture-contract.test.js | react-native fixture contract ok"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/lib/contractCheck.js | expo contract ok"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "PulseFrame: 2 feed cards, 6 editor tools, 9 moderation policies, 3 blocked launch gates"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "app": "Instagram",
+      "repo": "GeorgeQLe/instagram-mobile-clone",
+      "repoPath": "/tmp/instagram-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "00fca5c",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-implementation.mjs | validated 11 variant files, 2 feed posts, 2 stories, 9 moderation policies"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/tests/fixture-contract.test.js | react-native contract ok: 2 feed items"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/lib/contractCheck.js | expo contract ok: 10 routes"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "LumenLane: 2 feed cards, 2 stories, 6 editor tools, 9 moderation policies, 3 blocked launch gates"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "app": "Snapchat",
+      "repo": "GeorgeQLe/snapchat-mobile-clone",
+      "repoPath": "/tmp/snapchat-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "3e6ea28",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-snapchat-variant.mjs | validated FlickerFrame: users=2, snaps=2, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | react-native model ok"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | expo routes ok"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "FlickerFrame: tabs=5, snaps=2, screenshots=1, blockedFlags=5"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "app": "BeReal",
+      "repo": "GeorgeQLe/bereal-mobile-clone",
+      "repoPath": "/tmp/bereal-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "7c29106",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-009.mjs | validated MomentPair: feeds=2, content=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | MomentPair: tabs=5, feeds=2, content=5, blockers=8"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | MomentPair: tabs=5, feeds=2, content=5, blockers=8"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "MomentPair: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "app": "Reddit",
+      "repo": "GeorgeQLe/reddit-mobile-clone",
+      "repoPath": "/tmp/reddit-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "32fca8e",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-010.mjs | validated ForumNest: feeds=2, content=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | ForumNest: tabs=5, feeds=2, content=5, blockers=8"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | ForumNest: tabs=5, feeds=2, content=5, blockers=8"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "ForumNest: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "app": "X",
+      "repo": "GeorgeQLe/x-mobile-clone",
+      "repoPath": "/tmp/x-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "200c396",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-011.mjs | validated SignalPost: feeds=2, content=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | SignalPost: tabs=5, feeds=2, content=5, blockers=8"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | SignalPost: tabs=5, feeds=2, content=5, blockers=8"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "SignalPost: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "app": "Bluesky",
+      "repo": "GeorgeQLe/bluesky-mobile-clone",
+      "repoPath": "/tmp/bluesky-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "8285b5b",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-012.mjs | validated SkyThread: feeds=2, content=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | SkyThread: tabs=5, feeds=2, content=5, blockers=8"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | SkyThread: tabs=5, feeds=2, content=5, blockers=8"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "SkyThread: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "app": "Threads",
+      "repo": "GeorgeQLe/threads-mobile-clone",
+      "repoPath": "/tmp/threads-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "f785884",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-013.mjs | validated LoopLine: feeds=2, content=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | LoopLine: tabs=5, feeds=2, content=5, blockers=8"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | LoopLine: tabs=5, feeds=2, content=5, blockers=8"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "LoopLine: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "app": "Pinterest",
+      "repo": "GeorgeQLe/pinterest-mobile-clone",
+      "repoPath": "/tmp/pinterest-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "f2bdbd1",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-014.mjs | validated PinwheelBoards: feeds=2, content=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | PinwheelBoards: tabs=5, feeds=2, content=5, blockers=8"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | PinwheelBoards: tabs=5, feeds=2, content=5, blockers=8"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "PinwheelBoards: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "app": "Lemon8",
+      "repo": "GeorgeQLe/lemon8-mobile-clone",
+      "repoPath": "/tmp/lemon8-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "54a9847",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-015.mjs | validated CitrusJournal: feeds=2, content=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | CitrusJournal: tabs=5, feeds=2, content=5, blockers=8"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | CitrusJournal: tabs=5, feeds=2, content=5, blockers=8"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "CitrusJournal: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "app": "Tinder",
+      "repo": "GeorgeQLe/tinder-mobile-clone",
+      "repoPath": "/tmp/tinder-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "7e0c5bf",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-101.mjs | validated SparkMatch: profiles=5, matches=1, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | SparkMatch: tabs=5, profiles=5, matches=1, blockers=9"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | SparkMatch: tabs=5, profiles=5, matches=1, blockers=9"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "SparkMatch: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "app": "Bumble",
+      "repo": "GeorgeQLe/bumble-mobile-clone",
+      "repoPath": "/tmp/bumble-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "a8c331b",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-102.mjs | validated FirstMove: profiles=5, matches=1, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | FirstMove: tabs=5, profiles=5, matches=1, blockers=9"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | FirstMove: tabs=5, profiles=5, matches=1, blockers=9"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "FirstMove: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "app": "Hinge",
+      "repo": "GeorgeQLe/hinge-mobile-clone",
+      "repoPath": "/tmp/hinge-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "0fcf927",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-103.mjs | validated PromptPair: profiles=5, matches=1, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | PromptPair: tabs=5, profiles=5, matches=1, blockers=9"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | PromptPair: tabs=5, profiles=5, matches=1, blockers=9"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "PromptPair: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "app": "Grindr",
+      "repo": "GeorgeQLe/grindr-mobile-clone",
+      "repoPath": "/tmp/grindr-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "8188fd7",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-104.mjs | validated NearbyKind: profiles=5, matches=1, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | NearbyKind: tabs=5, profiles=5, matches=1, blockers=9"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | NearbyKind: tabs=5, profiles=5, matches=1, blockers=9"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "NearbyKind: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 105,
+      "app": "Match",
+      "repo": "GeorgeQLe/match-mobile-clone",
+      "repoPath": "/tmp/match-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "f8c4549",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-105.mjs | validated EverAfter: profiles=5, matches=1, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | EverAfter: tabs=5, profiles=5, matches=1, blockers=9"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | EverAfter: tabs=5, profiles=5, matches=1, blockers=9"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "EverAfter: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 106,
+      "app": "Coffee Meets Bagel",
+      "repo": "GeorgeQLe/coffee-meets-bagel-mobile-clone",
+      "repoPath": "/tmp/coffee-meets-bagel-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "80c676e",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-106.mjs | validated DailyBean: profiles=5, matches=1, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | DailyBean: tabs=5, profiles=5, matches=1, blockers=9"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | DailyBean: tabs=5, profiles=5, matches=1, blockers=9"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "DailyBean: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 915,
+      "app": "Mastodon",
+      "repo": "GeorgeQLe/mastodon-mobile-clone",
+      "repoPath": "/tmp/mastodon-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "d7f3fd5",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-915.mjs | validated FederatedSquare: communities=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | FederatedSquare: tabs=5, communities=2, activity=5, blockers=9"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | FederatedSquare: tabs=5, communities=2, activity=5, blockers=9"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "FederatedSquare: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 916,
+      "app": "Tumblr",
+      "repo": "GeorgeQLe/tumblr-mobile-clone",
+      "repoPath": "/tmp/tumblr-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "ee164e5",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-916.mjs | validated ReblogGarden: communities=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | ReblogGarden: tabs=5, communities=2, activity=5, blockers=9"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | ReblogGarden: tabs=5, communities=2, activity=5, blockers=9"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "ReblogGarden: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 917,
+      "app": "Flickr",
+      "repo": "GeorgeQLe/flickr-mobile-clone",
+      "repoPath": "/tmp/flickr-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "aa2e720",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-917.mjs | validated PhotoCommons: communities=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | PhotoCommons: tabs=5, communities=2, activity=5, blockers=9"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | PhotoCommons: tabs=5, communities=2, activity=5, blockers=9"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "PhotoCommons: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 918,
+      "app": "500px",
+      "repo": "GeorgeQLe/500px-mobile-clone",
+      "repoPath": "/tmp/500px-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "69b4223",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-918.mjs | validated LensGuild: communities=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | LensGuild: tabs=5, communities=2, activity=5, blockers=9"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | LensGuild: tabs=5, communities=2, activity=5, blockers=9"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "LensGuild: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 919,
+      "app": "Clubhouse",
+      "repo": "GeorgeQLe/clubhouse-mobile-clone",
+      "repoPath": "/tmp/clubhouse-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "f2a34a7",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-919.mjs | validated RoomWave: communities=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | RoomWave: tabs=5, communities=2, activity=5, blockers=9"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | RoomWave: tabs=5, communities=2, activity=5, blockers=9"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "RoomWave: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 920,
+      "app": "Amino",
+      "repo": "GeorgeQLe/amino-mobile-clone",
+      "repoPath": "/tmp/amino-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "b180659",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-920.mjs | validated FandomHarbor: communities=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | FandomHarbor: tabs=5, communities=2, activity=5, blockers=9"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | FandomHarbor: tabs=5, communities=2, activity=5, blockers=9"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "FandomHarbor: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 921,
+      "app": "Weverse",
+      "repo": "GeorgeQLe/weverse-mobile-clone",
+      "repoPath": "/tmp/weverse-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "e53bf5c",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-921.mjs | validated FanVerseHub: creatorSurfaces=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | FanVerseHub: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | FanVerseHub: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "FanVerseHub: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 922,
+      "app": "Patreon",
+      "repo": "GeorgeQLe/patreon-mobile-clone",
+      "repoPath": "/tmp/patreon-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "5c6be6c",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-922.mjs | validated MemberStudio: creatorSurfaces=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | MemberStudio: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | MemberStudio: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "MemberStudio: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 923,
+      "app": "Buy Me a Coffee",
+      "repo": "GeorgeQLe/buy-me-a-coffee-mobile-clone",
+      "repoPath": "/tmp/buy-me-a-coffee-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "2601f36",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-923.mjs | validated SupportCup: creatorSurfaces=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | SupportCup: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | SupportCup: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "SupportCup: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 924,
+      "app": "Ko-fi",
+      "repo": "GeorgeQLe/ko-fi-mobile-clone",
+      "repoPath": "/tmp/ko-fi-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "7fc0a3a",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-924.mjs | validated KindFund: creatorSurfaces=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | KindFund: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | KindFund: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "KindFund: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 925,
+      "app": "Cameo",
+      "repo": "GeorgeQLe/cameo-mobile-clone",
+      "repoPath": "/tmp/cameo-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "5e178b1",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-925.mjs | validated ShoutRequest: creatorSurfaces=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | ShoutRequest: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | ShoutRequest: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "ShoutRequest: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 926,
+      "app": "Guilded",
+      "repo": "GeorgeQLe/guilded-mobile-clone",
+      "repoPath": "/tmp/guilded-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "1f3a8e1",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-926.mjs | validated TeamHaven: creatorSurfaces=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | TeamHaven: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | TeamHaven: tabs=5, creatorSurfaces=2, activity=5, blockers=11"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "TeamHaven: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 927,
+      "app": "Geneva",
+      "repo": "GeorgeQLe/geneva-mobile-clone",
+      "repoPath": "/tmp/geneva-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "23fc686",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-927.mjs | validated RoomCircle: creatorSurfaces=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | RoomCircle: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | RoomCircle: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "RoomCircle: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 928,
+      "app": "Fizz",
+      "repo": "GeorgeQLe/fizz-mobile-clone",
+      "repoPath": "/tmp/fizz-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "8face06",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-928.mjs | validated CampusPulse: creatorSurfaces=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | CampusPulse: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | CampusPulse: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "CampusPulse: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 929,
+      "app": "Yubo",
+      "repo": "GeorgeQLe/yubo-mobile-clone",
+      "repoPath": "/tmp/yubo-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "9917684",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-929.mjs | validated LiveCircle: creatorSurfaces=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | LiveCircle: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | LiveCircle: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "LiveCircle: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 930,
+      "app": "Poparazzi",
+      "repo": "GeorgeQLe/poparazzi-mobile-clone",
+      "repoPath": "/tmp/poparazzi-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "9db9ec4",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-930.mjs | validated FriendFrame: creatorSurfaces=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | FriendFrame: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | FriendFrame: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "FriendFrame: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 931,
+      "app": "NGL",
+      "repo": "GeorgeQLe/ngl-mobile-clone",
+      "repoPath": "/tmp/ngl-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "fc0a380",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-931.mjs | validated AskCove: creatorSurfaces=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | AskCove: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | AskCove: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "AskCove: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 932,
+      "app": "Tellonym",
+      "repo": "GeorgeQLe/tellonym-mobile-clone",
+      "repoPath": "/tmp/tellonym-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "ee51802",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-932.mjs | validated TellBox: creatorSurfaces=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | TellBox: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | TellBox: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "TellBox: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 933,
+      "app": "Rumble",
+      "repo": "GeorgeQLe/rumble-mobile-clone",
+      "repoPath": "/tmp/rumble-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "8d61679",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-933.mjs | validated VideoCommons: creatorSurfaces=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | VideoCommons: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | VideoCommons: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "VideoCommons: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 934,
+      "app": "Truth Social",
+      "repo": "GeorgeQLe/truth-social-mobile-clone",
+      "repoPath": "/tmp/truth-social-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "039e1bf",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-934.mjs | validated CivicStream: creatorSurfaces=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | CivicStream: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | CivicStream: tabs=5, creatorSurfaces=2, activity=5, blockers=12"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "CivicStream: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 986,
+      "app": "Mighty Networks",
+      "repo": "GeorgeQLe/mighty-networks-mobile-clone",
+      "repoPath": "/tmp/mighty-networks-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "5258ca8",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-986.mjs | validated GatherCourse: creatorSurfaces=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | GatherCourse: tabs=5, creatorSurfaces=2, activity=5, blockers=14"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | GatherCourse: tabs=5, creatorSurfaces=2, activity=5, blockers=14"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "GatherCourse: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 987,
+      "app": "Circle Communities",
+      "repo": "GeorgeQLe/circle-communities-mobile-clone",
+      "repoPath": "/tmp/circle-communities-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "3947f61",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-987.mjs | validated CircleForge: creatorSurfaces=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | CircleForge: tabs=5, creatorSurfaces=2, activity=5, blockers=14"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | CircleForge: tabs=5, creatorSurfaces=2, activity=5, blockers=14"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "CircleForge: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    },
+    {
+      "id": 988,
+      "app": "Skool",
+      "repo": "GeorgeQLe/skool-mobile-clone",
+      "repoPath": "/tmp/skool-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "f56f14a",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-988.mjs | validated LearnGuild: creatorSurfaces=2, activity=5, routes=6"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/src/app.test.mjs | LearnGuild: tabs=5, creatorSurfaces=2, activity=5, blockers=14"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/src/app.test.mjs | LearnGuild: tabs=5, creatorSurfaces=2, activity=5, blockers=14"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "LearnGuild: tabs=5, risks=4, routes=6"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        }
+      ]
+    }
+  ]
+}

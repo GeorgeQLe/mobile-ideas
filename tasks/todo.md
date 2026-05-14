@@ -659,7 +659,7 @@ Build all five variants for every app in the Social, Dating & Community cluster.
   - Rollback note: revert downstream commits `5258ca8`, `3947f61`, and `f56f14a`, then revert this planning commit.
   - Next command: `$run` for Step 12.11.
 
-- [ ] Step 12.11: Validate all 39 repos without GitHub Actions
+- [x] Step 12.11: Validate all 39 repos without GitHub Actions
   - Run local build, lint, type check, and tests where toolchains are available.
   - Record executable evidence and explicit blockers, including any inherited Flutter/Android toolchain limits.
   - Fix validation failures before proceeding unless the user explicitly approves blocker carry-forward.
@@ -684,10 +684,60 @@ Build all five variants for every app in the Social, Dating & Community cluster.
   - No GitHub Actions workflows are created, modified, enabled, dispatched, or used.
   - Any unexpected executable validation failures are fixed or left as explicit blockers only with rationale.
 
+  **Review — 2026-05-14:**
+  - Added `scripts/validate-phase12-repos.mjs` to make the Phase 12 validation sweep reproducible without GitHub Actions.
+  - Generated `tasks/phase-12-validation-report.md` and `tasks/scorecards/phase-12/validation-summary.json`.
+  - Serially refreshed and validated all 39 downstream repos from local clones under `/tmp`.
+  - Verified every downstream repo remains `PRIVATE`, uses default branch `main`, has required scaffold/source-plan/source-spec files, and has no unexpected structure gaps.
+  - No downstream source repairs were required.
+  - No GitHub Actions were enabled, dispatched, or used.
+
+  **Validation — 2026-05-14:**
+  - `node scripts/validate-phase12-repos.mjs` passed: `repos=39`, `passedCommands=156`, `failureCount=0`, `blockerCount=78`.
+  - For all 39 downstream repos, `npm run validate` passed.
+  - For all 39 downstream repos, `npm run test:react-native` passed.
+  - For all 39 downstream repos, `npm run test:expo` passed.
+  - Swift compile/run passed for all 39 iOS Native model surfaces.
+  - Flutter runtime validation remains blocked across all 39 repos because `dart` and `flutter` are not installed locally.
+  - Android Native runtime validation remains blocked across all 39 repos because `kotlinc` is not installed locally.
+
+  **Ship Manifest:**
+  - User goal: execute Phase 12 Step 12.11 and validate all 39 Social, Dating & Community downstream repos without GitHub Actions.
+  - Changed files: `scripts/validate-phase12-repos.mjs`, `tasks/phase-12-validation-report.md`, `tasks/scorecards/phase-12/validation-summary.json`, `tasks/todo.md`, and `tasks/history.md`.
+  - Per-file purpose: validator script preserves the validation contract; report and JSON summary record command-level evidence; task/history docs record completion and next work.
+  - User-goal mapping: satisfies Step 12.11 with executable local evidence while preserving explicit Flutter/Android blockers and avoiding GitHub Actions.
+  - Tests run: `node scripts/validate-phase12-repos.mjs`; downstream npm validation/test commands and Swift compile/run for all 39 repos; planning repo `git diff --check`.
+  - Skipped tests: Flutter and Android Native runtime checks remain blocked by missing local Dart/Flutter and Kotlin toolchains; benchmarking is intentionally deferred to Step 12.12.
+  - Adversarial review: the report separates passes from blockers, counts blocker rows as non-passing evidence, verifies privacy and scaffold structure, and does not claim launch-ready parity for blocked variants.
+  - Residual risk: validation proves local synthetic model and contract checks, not real-device builds, provider integrations, app store readiness, or benchmark performance.
+  - Rollback note: revert this planning commit to remove the Phase 12 validation script/report artifacts and reopen Step 12.11.
+  - Next command: `$run` for Step 12.12.
+
 - [ ] Step 12.12: Run benchmarking harness and record scorecards
   - Run `mobile-benchmark-harness` serially against locally benchmarkable variants.
   - Record scorecards and blocker artifacts under `tasks/scorecards/phase-12/`.
   - Do not invent scores for blocked variants.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Produce Phase 12 benchmark scorecards for locally benchmarkable variants and blocker artifacts for variants that cannot be benchmarked locally.
+
+  **Approach:**
+  1. Use `tasks/phase-12-validation-report.md` and `tasks/scorecards/phase-12/validation-summary.json` as the source of eligible variants.
+  2. Clone or refresh `GeorgeQLe/mobile-benchmark-harness` locally and inspect its available CLI/test entry points before running any benchmark command.
+  3. Benchmark only variants with executable local validation evidence from Step 12.11: React Native, Expo, and iOS Native for all 39 repos unless the harness proves a narrower supported target set.
+  4. Record one scorecard per benchmarked app/variant under `tasks/scorecards/phase-12/`.
+  5. Record explicit blocker entries for Flutter and Android Native variants blocked by missing local Dart/Flutter and Kotlin toolchains.
+  6. Generate or update a Phase 12 scorecard README/summary that reconciles total targets: 39 apps × 5 variants = 195 slots.
+  7. Do not invent scores for blocked variants and do not use GitHub Actions.
+
+  **Acceptance Criteria:**
+  - Scorecard/blocker accounting sums to 195 Phase 12 variant slots.
+  - Every scored variant has an artifact path and benchmark command evidence.
+  - Every blocked variant has a blocker reason tied to validation/toolchain evidence.
+  - No GitHub Actions workflows are created, modified, enabled, dispatched, or used.
+  - Benchmark failures are fixed or recorded as explicit blockers only when they require unavailable toolchains, providers, real devices, or unsupported harness surfaces.
 
 - [ ] Step 12.13: Phase 12 final validation and cleanup
   - Verify acceptance criteria.
