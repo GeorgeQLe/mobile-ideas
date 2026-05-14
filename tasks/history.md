@@ -3428,3 +3428,25 @@
 - Residual risk: benchmark scores are conservative source-structure proxies where device, accessibility, performance trace, and store-compliance reports are absent.
 - Rollback note: revert this planning commit to remove generated Phase 12 benchmark artifacts and reopen Step 12.12.
 - Next command: `$run` for Step 12.13, Phase 12 final validation and cleanup.
+
+## 2026-05-14 - Phase 13 Step 13.1 Messaging & Email Inventory Reconciled
+
+- Reconciled Phase 13 from the roadmap's approximate `~37 apps` estimate to an exact 43-app inventory covering IDs 016-025 and 935-967.
+- Added the canonical Phase 13 App Inventory to `tasks/todo.md`, including app ID, app name, category, downstream repo, source spec path, readiness status, and Step 13.2 readiness.
+- Updated `tasks/roadmap.md` to use the exact 43-app / 215-variant count and local-validation wording instead of stale CI wording.
+- Verification basis: every source spec path exists and declares implementation-ready status; `tasks/repo-seeding.md` marks every listed downstream repo checked as seeded/private with a copied source spec; relevant batch evidence states successful repos returned `PRIVATE`, non-empty default branches, `README.md`, and copied source specs under `docs/source-specs/`.
+- Live serial `gh api` recheck was attempted but blocked because `gh` is unavailable in the escalated shell. This is recorded as a verification limitation, not as downstream repo failure.
+- No downstream implementation code was changed. No GitHub Actions were enabled, dispatched, or used.
+
+### Ship Manifest
+
+- User goal: execute Phase 13 Step 13.1 and produce the exact Messaging & Email app inventory and downstream readiness basis before implementation starts.
+- Changed files: `tasks/todo.md`, `tasks/roadmap.md`, `tasks/history.md`.
+- Per-file purpose: `tasks/todo.md` now carries the executable Phase 13 inventory and Step 13.2 plan; `tasks/roadmap.md` corrects the phase count and validation language; `tasks/history.md` records evidence, limitation, and shipping boundary.
+- User-goal mapping: completes Step 13.1 without downstream code mutation, proprietary assets, public visibility changes, or GitHub Actions.
+- Tests run: source-spec readiness grep for all 43 inventory specs; local manifest reconciliation with `tasks/repo-seeding.md`; `git diff --check`.
+- Skipped tests: live `gh api` downstream metadata recheck could not complete because `gh` is unavailable in the escalated shell; no runtime app tests are relevant because this was a planning/inventory-only step.
+- Adversarial review: inventory includes all roadmap/ideas communication and email candidates from IDs 016-025 and 935-967, excludes social/creator/community rows already handled in Phase 12, and records the exact count drift instead of preserving the stale estimate.
+- Residual risk: downstream repo state could drift after prior seeding evidence; Step 13.2 should recheck each touched repo before mutating it.
+- Rollback note: revert this planning commit to reopen Step 13.1 and restore the approximate roadmap count.
+- Next command: `$run` for Step 13.2, scaffold or repair multi-variant structure across the reconciled Phase 13 repos.

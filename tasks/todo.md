@@ -1,6 +1,6 @@
 # Todo — Mobile Ideas
 
-> Current phase: 13 of 27 — Implementation: Messaging & Email (~37 Apps x 5 Variants)
+> Current phase: 13 of 27 — Implementation: Messaging & Email (43 Apps x 5 Variants)
 > Source roadmap: `tasks/roadmap.md`
 > Test strategy: tests-after, local validation only; GitHub Actions remain disabled unless separately approved
 
@@ -8,7 +8,7 @@
 
 - [ ] Review `tasks/recurring-todo.md`: "Refresh research roadmap" — trigger condition may be eligible after the 2026-05-14 Phase 12 completion and Phase 13 transition; promote to `tasks/todo.md` only if this requires concrete documentation execution before Phase 13 resumes.
 
-## Phase 13: Implementation — Messaging & Email (~37 Apps x 5 Variants)
+## Phase 13: Implementation — Messaging & Email (43 Apps x 5 Variants)
 
 ### Goal
 
@@ -23,7 +23,7 @@ Build all five variants for every app in the Messaging & Email cluster.
 
 ### Acceptance Criteria
 
-- [ ] Exact Phase 13 app inventory is reconciled against `tasks/roadmap.md`, `tasks/ideas.md`, `tasks/repo-seeding.md`, and existing specs before downstream implementation starts.
+- [x] Exact Phase 13 app inventory is reconciled against `tasks/roadmap.md`, `tasks/ideas.md`, `tasks/repo-seeding.md`, and existing specs before downstream implementation starts.
 - [ ] All reconciled Phase 13 apps have 5 working variants each or explicit local/toolchain/provider blockers.
 - [ ] Every locally available variant passes local validation and has benchmark evidence or an explicit blocker record.
 - [ ] Encryption, privacy, retention, safety, moderation, abuse-reporting, attachment, offline, and notification flows are implemented per spec.
@@ -39,9 +39,59 @@ Build all five variants for every app in the Messaging & Email cluster.
 
 **Subagent lanes:** none yet. Per-step lanes must be defined at execution time. If write lanes are used, each lane must own a separate non-primary GitHub branch and pass consolidation/PR review before integration.
 
+### App Inventory
+
+Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants. Verification basis: local source specs exist; `tasks/repo-seeding.md` marks every listed downstream repo seeded, private, and source-spec-backed; batch evidence in `tasks/repo-seeding.md` states seeded repos returned `PRIVATE`, non-empty default branches, `README.md`, and copied source specs under `docs/source-specs/`. Live `gh api` recheck was attempted on 2026-05-14 but blocked because `gh` was unavailable in the escalated shell; do not treat that as a repo failure.
+
+| # | ID | App | Category | Downstream repo | Source spec | Readiness | Step 13.2 status |
+|---:|---:|---|---|---|---|---|---|
+| 1 | 016 | WhatsApp | Messaging | `GeorgeQLe/whatsapp-mobile-clone` | `specs/batch-01/016-whatsapp.md` | Implementation-ready as of 2026-04-16 | Ready |
+| 2 | 017 | Telegram | Messaging | `GeorgeQLe/telegram-mobile-clone` | `specs/batch-01/017-telegram.md` | Implementation-ready as of 2026-04-17 | Ready |
+| 3 | 018 | Signal | Messaging | `GeorgeQLe/signal-mobile-clone` | `specs/batch-01/018-signal.md` | Implementation-ready as of 2026-04-17 | Ready |
+| 4 | 019 | Discord | Community chat | `GeorgeQLe/discord-mobile-clone` | `specs/batch-01/019-discord.md` | Implementation-ready as of 2026-04-17 | Ready |
+| 5 | 020 | Slack | Workplace chat | `GeorgeQLe/slack-mobile-clone` | `specs/batch-01/020-slack.md` | Implementation-ready as of 2026-04-17 | Ready |
+| 6 | 021 | Messenger | Messaging | `GeorgeQLe/messenger-mobile-clone` | `specs/batch-02/021-messenger.md` | Implementation-ready as of 2026-04-17 | Ready |
+| 7 | 022 | FaceTime | Video calling | `GeorgeQLe/facetime-mobile-clone` | `specs/batch-02/022-facetime.md` | Implementation-ready as of 2026-04-17 | Ready |
+| 8 | 023 | Zoom | Video conferencing | `GeorgeQLe/zoom-mobile-clone` | `specs/batch-02/023-zoom.md` | Implementation-ready as of 2026-04-17 | Ready |
+| 9 | 024 | Gmail | Email | `GeorgeQLe/gmail-mobile-clone` | `specs/batch-02/024-gmail.md` | Implementation-ready as of 2026-04-17 | Ready |
+| 10 | 025 | Outlook | Email/calendar | `GeorgeQLe/outlook-mobile-clone` | `specs/batch-02/025-outlook.md` | Implementation-ready as of 2026-04-17 | Ready |
+| 11 | 935 | Viber | Messaging and calling | `GeorgeQLe/viber-mobile-clone` | `specs/batch-47/935-viber.md` | Implementation-ready as of 2026-05-05 | Ready |
+| 12 | 936 | WeChat | Messaging and calling | `GeorgeQLe/wechat-mobile-clone` | `specs/batch-47/936-wechat.md` | Implementation-ready as of 2026-05-05 | Ready |
+| 13 | 937 | LINE | Messaging and calling | `GeorgeQLe/line-mobile-clone` | `specs/batch-47/937-line.md` | Implementation-ready as of 2026-05-05 | Ready |
+| 14 | 938 | KakaoTalk | Messaging and calling | `GeorgeQLe/kakaotalk-mobile-clone` | `specs/batch-47/938-kakaotalk.md` | Implementation-ready as of 2026-05-05 | Ready |
+| 15 | 939 | Skype | Messaging and calling | `GeorgeQLe/skype-mobile-clone` | `specs/batch-47/939-skype.md` | Implementation-ready as of 2026-05-05 | Ready |
+| 16 | 940 | Google Voice | Messaging and calling | `GeorgeQLe/google-voice-mobile-clone` | `specs/batch-47/940-google-voice.md` | Implementation-ready as of 2026-05-05 | Ready |
+| 17 | 941 | TextNow | Messaging and calling | `GeorgeQLe/textnow-mobile-clone` | `specs/batch-48/941-textnow.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 18 | 942 | TextFree | Messaging and calling | `GeorgeQLe/textfree-mobile-clone` | `specs/batch-48/942-textfree.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 19 | 943 | GroupMe | Messaging and calling | `GeorgeQLe/groupme-mobile-clone` | `specs/batch-48/943-groupme.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 20 | 944 | Marco Polo | Messaging and calling | `GeorgeQLe/marco-polo-mobile-clone` | `specs/batch-48/944-marco-polo.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 21 | 945 | Voxer | Messaging and calling | `GeorgeQLe/voxer-mobile-clone` | `specs/batch-48/945-voxer.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 22 | 946 | Microsoft Teams | Messaging and calling | `GeorgeQLe/microsoft-teams-mobile-clone` | `specs/batch-48/946-microsoft-teams.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 23 | 947 | Cisco Webex | Messaging and calling | `GeorgeQLe/cisco-webex-mobile-clone` | `specs/batch-48/947-cisco-webex.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 24 | 948 | Google Meet | Messaging and calling | `GeorgeQLe/google-meet-mobile-clone` | `specs/batch-48/948-google-meet.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 25 | 949 | GoTo | Messaging and calling | `GeorgeQLe/goto-mobile-clone` | `specs/batch-48/949-goto.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 26 | 950 | BlueJeans | Messaging and calling | `GeorgeQLe/bluejeans-mobile-clone` | `specs/batch-48/950-bluejeans.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 27 | 951 | Jitsi Meet | Messaging and calling | `GeorgeQLe/jitsi-meet-mobile-clone` | `specs/batch-48/951-jitsi-meet.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 28 | 952 | Proton Mail | Email and privacy mail | `GeorgeQLe/proton-mail-mobile-clone` | `specs/batch-48/952-proton-mail.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 29 | 953 | Yahoo Mail | Email and privacy mail | `GeorgeQLe/yahoo-mail-mobile-clone` | `specs/batch-48/953-yahoo-mail.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 30 | 954 | AOL Mail | Email and privacy mail | `GeorgeQLe/aol-mail-mobile-clone` | `specs/batch-48/954-aol-mail.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 31 | 955 | Spark Mail | Email and privacy mail | `GeorgeQLe/spark-mail-mobile-clone` | `specs/batch-48/955-spark-mail.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 32 | 956 | Edison Mail | Email and privacy mail | `GeorgeQLe/edison-mail-mobile-clone` | `specs/batch-48/956-edison-mail.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 33 | 957 | BlueMail | Email and privacy mail | `GeorgeQLe/bluemail-mobile-clone` | `specs/batch-48/957-bluemail.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 34 | 958 | Canary Mail | Email and privacy mail | `GeorgeQLe/canary-mail-mobile-clone` | `specs/batch-48/958-canary-mail.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 35 | 959 | Fastmail | Email and privacy mail | `GeorgeQLe/fastmail-mobile-clone` | `specs/batch-48/959-fastmail.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 36 | 960 | HEY | Email and privacy mail | `GeorgeQLe/hey-mobile-clone` | `specs/batch-48/960-hey.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 37 | 961 | Tuta Mail | Email and privacy mail | `GeorgeQLe/tuta-mail-mobile-clone` | `specs/batch-49/961-tuta-mail.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 38 | 962 | Zoho Mail | Email and privacy mail | `GeorgeQLe/zoho-mail-mobile-clone` | `specs/batch-49/962-zoho-mail.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 39 | 963 | Spike | Email and privacy mail | `GeorgeQLe/spike-mobile-clone` | `specs/batch-49/963-spike.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 40 | 964 | Superhuman | Email and privacy mail | `GeorgeQLe/superhuman-mobile-clone` | `specs/batch-49/964-superhuman.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 41 | 965 | Shortwave | Email and privacy mail | `GeorgeQLe/shortwave-mobile-clone` | `specs/batch-49/965-shortwave.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 42 | 966 | Clean Email | Email and privacy mail | `GeorgeQLe/clean-email-mobile-clone` | `specs/batch-49/966-clean-email.md` | Implementation-ready as of 2026-05-06 | Ready |
+| 43 | 967 | Unroll.Me | Email and privacy mail | `GeorgeQLe/unroll-me-mobile-clone` | `specs/batch-49/967-unroll-me.md` | Implementation-ready as of 2026-05-06 | Ready |
+
 ### Implementation
 
-- [ ] Step 13.1: Reconcile exact Messaging & Email app inventory and downstream readiness
+- [x] Step 13.1: Reconcile exact Messaging & Email app inventory and downstream readiness
   - Files: `tasks/todo.md`, `tasks/roadmap.md`, `tasks/repo-seeding.md`, `tasks/history.md`, relevant `specs/batch-*/*.md`, and downstream repo metadata only.
   - Determine the exact Phase 13 app list from existing specs and seeded downstream repos before implementation starts.
   - Resolve the roadmap's approximate `~37 apps` count into a numbered app inventory with repo names, source spec paths, and spec tier/readiness status.
@@ -63,15 +113,21 @@ Build all five variants for every app in the Messaging & Email cluster.
   5. Update this phase's App Inventory and Step 13.2+ breakdown based on the reconciled list.
   6. Record blockers and evidence in `tasks/history.md`; update `tasks/roadmap.md` if the exact count differs from the approximate roadmap estimate.
 
-  **Acceptance Criteria:**
-  - Phase 13 has an exact numbered App Inventory table.
-  - Every selected app has a repo and source spec path or an explicit blocker.
-  - Downstream readiness is verified without GitHub Actions.
-  - The next implementation step is scoped to a bounded pilot or batch with file-level detail.
+  **Review (2026-05-14):**
+  - Reconciled Phase 13 to 43 apps / 215 variants: IDs 016-025 and 935-967.
+  - Confirmed every source spec exists and every source spec reports implementation-ready status.
+  - Confirmed every downstream repo is checked as seeded/private in `tasks/repo-seeding.md`; batch evidence records non-empty default branch, `README.md`, and copied source spec under `docs/source-specs/`.
+  - Attempted live serial `gh api` metadata verification; blocked because `gh` is unavailable in the escalated shell, so readiness is based on prior manifest/batch evidence.
+  - Updated the roadmap count from approximate `~37` to exact `43`.
 
 - [ ] Step 13.2: Scaffold or repair multi-variant structure across reconciled Phase 13 repos
   - Files: reconciled Phase 13 downstream repos and a reproducible planning-repo verifier script if needed.
-  - Implementation plan to be expanded after Step 13.1 confirms the exact inventory.
+  - Build/repair all 43 repos in serial, risk-grouped batches: messaging/calling core (016-023, 935-951), then email/privacy mail (024-025, 952-967).
+  - For each repo, verify the five target variant directories or create them from `templates/variant-structure.md`: React Native, Expo, Flutter, iOS Native, and Android Native.
+  - Add or repair per-repo local validation scripts only; do not add GitHub Actions.
+  - Preserve inherited Flutter and Android Native local toolchain blockers as blocker artifacts when those toolchains are unavailable.
+  - Record exact downstream commits and any blocker rows in `tasks/history.md`.
+  - Suggested first bounded batch: IDs 016-020 plus 935-939, because they cover messaging/community/calling patterns without starting with the full 43-repo blast radius.
 
 - [ ] Step 13.3: Implement pilot messaging app 1 across all five variants
   - Files: first reconciled pilot downstream repo.

@@ -20,7 +20,7 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 | Phase 10 | Done | Benchmarking infrastructure, CI/CD templates, and multi-variant repo structure. |
 | Phase 11 | Complete with carry-forward blockers | Implementation: AI & Assistants cluster advanced with 54 Flutter/Android Native toolchain blockers explicitly deferred by user approval on 2026-05-14. |
 | Phase 12 | Complete with carry-forward blockers | Implementation: Social, Dating & Community cluster completed with 117 benchmarked variants and 78 explicit Flutter/Android local-toolchain blockers. |
-| Phase 13 | Active | Implementation: Messaging & Email cluster (~37 apps × 5 variants). |
+| Phase 13 | Active | Implementation: Messaging & Email cluster (43 apps × 5 variants). |
 | Phase 14 | Pending | Implementation: Video & Music Streaming cluster (~53 apps × 5 variants). |
 | Phase 15 | Pending | Implementation: Podcasts, Books & Reading cluster (~42 apps × 5 variants). |
 | Phase 16 | Pending | Implementation: Photo & Video Creation cluster (~47 apps × 5 variants). |
@@ -1604,17 +1604,17 @@ Phase 8 completed 2026-05-06. All 1000 IDs have backlog rows, implementation-rea
 
 ---
 
-## Phase 13: Implementation — Messaging & Email (~37 Apps × 5 Variants)
+## Phase 13: Implementation — Messaging & Email (43 Apps × 5 Variants)
 
 **Goal**: Build all five variants for every app in the Messaging & Email cluster.
 
 **Scope**:
-- Apps: Messaging (WhatsApp, Signal, Telegram, etc.), email (Gmail, Outlook, ProtonMail, etc.), calling, video conferencing.
+- Apps: Messaging (WhatsApp, Signal, Telegram, etc.), email (Gmail, Outlook, Proton Mail, etc.), calling, video conferencing.
 - Shared patterns: E2E encryption, real-time delivery, push notifications, thread/conversation views, attachment handling, offline queuing.
 
 **Acceptance Criteria:**
-- [ ] All ~37 apps have 5 working variants each (~185 app builds).
-- [ ] Every variant passes CI and has benchmark scores recorded.
+- [ ] All 43 apps have 5 working variants each (215 app builds).
+- [ ] Every locally available variant passes local validation and has benchmark scores or explicit blocker artifacts recorded.
 - [ ] Encryption and privacy flows implemented per spec requirements.
 
 **Parallelization:** agent-team
