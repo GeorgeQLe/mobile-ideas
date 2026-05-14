@@ -303,7 +303,7 @@ Build all five variants for every app in the Social, Dating & Community cluster.
   - Rollback note: revert downstream commit `3e6ea28`, then revert this planning commit.
   - Next command: `$run` for Step 12.5.
 
-- [ ] Step 12.5: Implement batch apps 009-015 — BeReal, Reddit, X, Bluesky, Threads, Pinterest, Lemon8 (all 5 variants each)
+- [x] Step 12.5: Implement batch apps 009-015 — BeReal, Reddit, X, Bluesky, Threads, Pinterest, Lemon8 (all 5 variants each)
   - Files: 7 downstream repos.
   - Shared patterns: feed/timeline, comments, profiles, media posts, saved items, search/discovery, moderation.
 
@@ -327,9 +327,65 @@ Build all five variants for every app in the Social, Dating & Community cluster.
   - Local validation evidence or blocker records exist for every repo and every variant.
   - No proprietary assets, trademarks as branding, copied media, private APIs, production data, public visibility changes, or GitHub Actions are introduced.
 
+  **Review — 2026-05-14:**
+  - Implemented seven downstream lawful social prototypes:
+    - `GeorgeQLe/bereal-mobile-clone` as `MomentPair`, PR `https://github.com/GeorgeQLe/bereal-mobile-clone/pull/1`, merged to `main` at commit `7c29106`.
+    - `GeorgeQLe/reddit-mobile-clone` as `ForumNest`, PR `https://github.com/GeorgeQLe/reddit-mobile-clone/pull/1`, merged to `main` at commit `32fca8e`.
+    - `GeorgeQLe/x-mobile-clone` as `SignalPost`, PR `https://github.com/GeorgeQLe/x-mobile-clone/pull/1`, merged to `main` at commit `200c396`.
+    - `GeorgeQLe/bluesky-mobile-clone` as `SkyThread`, PR `https://github.com/GeorgeQLe/bluesky-mobile-clone/pull/1`, merged to `main` at commit `8285b5b`.
+    - `GeorgeQLe/threads-mobile-clone` as `LoopLine`, PR `https://github.com/GeorgeQLe/threads-mobile-clone/pull/1`, merged to `main` at commit `f785884`.
+    - `GeorgeQLe/pinterest-mobile-clone` as `PinwheelBoards`, PR `https://github.com/GeorgeQLe/pinterest-mobile-clone/pull/1`, merged to `main` at commit `f2bdbd1`.
+    - `GeorgeQLe/lemon8-mobile-clone` as `CitrusJournal`, PR `https://github.com/GeorgeQLe/lemon8-mobile-clone/pull/1`, merged to `main` at commit `54a9847`.
+  - Added `scripts/implement-phase12-step12-5.mjs` in this planning repo so the batch scaffold is reproducible and auditable.
+  - Added downstream shared synthetic fixtures, API contracts, React Native/Expo JS models and tests, Flutter model stubs, iOS Swift models, Android Kotlin model stubs, package scripts, and validation records for each repo.
+  - Covered feed/timeline, comments/replies, profiles, media/content posts, saved/search/discovery, reporting/blocking, moderation, privacy controls, and app-specific safety gates.
+  - Verified every touched downstream repo remains `PRIVATE` with default branch `main`.
+  - No GitHub Actions were enabled, dispatched, or used.
+
+  **Validation — 2026-05-14:**
+  - For all seven downstream repos, `npm run validate` passed.
+  - For all seven downstream repos, `npm run test:react-native` passed.
+  - For all seven downstream repos, `npm run test:expo` passed.
+  - Swift compile/run passed for all seven iOS Native models: `DailyMomentClone`, `CommunityForumClone`, `MicroPostClone`, `OpenSocialClone`, `TextSocialClone`, `VisualDiscoveryClone`, and `LifestyleSocialClone`.
+  - `git diff --check` passed for all seven downstream repos before commit.
+  - Flutter runtime validation remains blocked because `dart` and `flutter` are not installed locally.
+  - Android Native runtime validation remains blocked because `kotlinc` is not installed locally.
+
+  **Ship Manifest:**
+  - User goal: execute Phase 12 Step 12.5 and implement BeReal, Reddit, X, Bluesky, Threads, Pinterest, and Lemon8-inspired lawful clones across all five downstream variants each.
+  - Changed files: seven downstream repos received shared fixtures/contracts, validation scripts, React Native/Expo/Flutter/iOS Native/Android Native variant files, package scripts, and validation records; this planning repo changed `scripts/implement-phase12-step12-5.mjs`, `tasks/todo.md`, and `tasks/history.md`.
+  - Per-file purpose: downstream files provide original synthetic app surfaces and reproducible local checks; the generator preserves the repeated batch contract; planning docs record evidence and next work.
+  - User-goal mapping: satisfies Step 12.5 without proprietary app assets, brand claims, copied media, private APIs, production data, public visibility changes, or GitHub Actions.
+  - Tests run: downstream `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compilation/run, downstream `git diff --check`, planning repo `git diff --check`, planning repo `node scripts/verify-phase12-scaffold.mjs`, and remote privacy/default-branch verification.
+  - Skipped tests: Flutter and Android Native runtime checks are blocked by missing local Dart/Flutter and Kotlin toolchains; real-device account, notification, entitlement, deletion/export, region, age, and device-specific verification remains blocked.
+  - Adversarial review: implementations use original product names and synthetic data, keep sensitive native/toolchain parity flags explicit, reject raw private content analytics, require minor safety and report routes, and do not claim launch-ready one-for-one parity.
+  - Residual risk: variant code is a lightweight baseline, not production device builds; future steps still need full manifests, provider integrations, real toolchains, real device verification, and benchmarking evidence.
+  - Rollback note: revert downstream commits `7c29106`, `32fca8e`, `200c396`, `8285b5b`, `f785884`, `f2bdbd1`, and `54a9847`, then revert this planning commit.
+  - Next command: `$run` for Step 12.6.
+
 - [ ] Step 12.6: Implement dating apps 101-106 — Tinder, Bumble, Hinge, Grindr, Match, Coffee Meets Bagel (all 5 variants each)
   - Files: 6 downstream repos.
   - Category-specific risk review required for dating, location, privacy, harassment prevention, blocking/reporting, age gates, and identity/safety verification.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Implement the six dating apps in Phase 12 batch 101-106 across React Native, Flutter, Expo, iOS Native, and Android Native variants, using original UI/content/data only.
+
+  **Approach:**
+  1. Process repos serially: `GeorgeQLe/tinder-mobile-clone`, `GeorgeQLe/bumble-mobile-clone`, `GeorgeQLe/hinge-mobile-clone`, `GeorgeQLe/grindr-mobile-clone`, `GeorgeQLe/match-mobile-clone`, and `GeorgeQLe/coffee-meets-bagel-mobile-clone`.
+  2. For each repo, verify `PRIVATE` visibility, clone or refresh, read `docs/source-specs/*`, `docs/plans/README.md`, and downstream task docs.
+  3. Use one non-primary branch-backed downstream lane per repo; merge each through a consolidation PR before recording completion.
+  4. Implement shared synthetic fixtures and API contracts for onboarding, profile creation, preference filters, match recommendations, likes/passes, mutual matches, chat, safety check-ins, reporting/blocking, privacy controls, age gates, and identity/safety verification placeholders.
+  5. Build each variant inside its own `variants/*` directory, preserving stack-local conventions and explicitly recording unavailable local toolchains.
+  6. Run local validation only; do not enable, dispatch, or rely on GitHub Actions.
+  7. Record downstream commit/PR URLs, validation evidence, privacy verification, dating-specific risk review, blocker status, and legal/asset review back in this planning repo.
+
+  **Acceptance Criteria:**
+  - All six downstream repos contain implementation code or explicit local toolchain blockers for all five variants.
+  - Dating, location, privacy, harassment prevention, blocking/reporting, age gate, identity/safety verification, and data deletion workflows are represented with original assets and synthetic data.
+  - Local validation evidence or blocker records exist for every repo and every variant.
+  - No proprietary assets, trademarks as branding, copied media, private APIs, production data, public visibility changes, or GitHub Actions are introduced.
 
 - [ ] Step 12.7: Implement social/community apps 915-920 — Mastodon, Tumblr, Flickr, 500px, Clubhouse, Amino (all 5 variants each)
   - Files: 6 downstream repos.

@@ -1,5 +1,36 @@
 # History
 
+## 2026-05-14 - Phase 12 Step 12.5 Pilot Social Batch Implementation
+
+- Executed `$run` Step 12.5 for BeReal, Reddit, X, Bluesky, Threads, Pinterest, and Lemon8 downstream repos without GitHub Actions.
+- Implemented original lawful prototypes across React Native, Expo, Flutter, iOS Native, and Android Native variant directories:
+  - `GeorgeQLe/bereal-mobile-clone` as `MomentPair`, PR `https://github.com/GeorgeQLe/bereal-mobile-clone/pull/1`, merged to `main` at commit `7c29106`.
+  - `GeorgeQLe/reddit-mobile-clone` as `ForumNest`, PR `https://github.com/GeorgeQLe/reddit-mobile-clone/pull/1`, merged to `main` at commit `32fca8e`.
+  - `GeorgeQLe/x-mobile-clone` as `SignalPost`, PR `https://github.com/GeorgeQLe/x-mobile-clone/pull/1`, merged to `main` at commit `200c396`.
+  - `GeorgeQLe/bluesky-mobile-clone` as `SkyThread`, PR `https://github.com/GeorgeQLe/bluesky-mobile-clone/pull/1`, merged to `main` at commit `8285b5b`.
+  - `GeorgeQLe/threads-mobile-clone` as `LoopLine`, PR `https://github.com/GeorgeQLe/threads-mobile-clone/pull/1`, merged to `main` at commit `f785884`.
+  - `GeorgeQLe/pinterest-mobile-clone` as `PinwheelBoards`, PR `https://github.com/GeorgeQLe/pinterest-mobile-clone/pull/1`, merged to `main` at commit `f2bdbd1`.
+  - `GeorgeQLe/lemon8-mobile-clone` as `CitrusJournal`, PR `https://github.com/GeorgeQLe/lemon8-mobile-clone/pull/1`, merged to `main` at commit `54a9847`.
+- Added `scripts/implement-phase12-step12-5.mjs` in this planning repo to make the repeated downstream batch contract reproducible.
+- Added downstream shared fixtures, API contracts, validation scripts, JS variant tests, Flutter model stubs, Swift models, Kotlin model stubs, package scripts, and validation records.
+- Preserved blockers for Flutter runtime validation, Android Native runtime validation, signed-in account lifecycle, push payloads, paid entitlement restore, data export/deletion completion, and region/age/device-specific behavior.
+- Remote verification confirmed all seven touched repos remain `PRIVATE` with default branch `main`.
+- Local executable validation passed across all seven repos: `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, and downstream `git diff --check`.
+- No GitHub Actions were enabled, dispatched, or used.
+
+### Ship Manifest
+
+- User goal: execute Phase 12 Step 12.5 and implement BeReal, Reddit, X, Bluesky, Threads, Pinterest, and Lemon8-inspired lawful clones across all five downstream variants each.
+- Changed files: seven downstream repos received shared fixtures/contracts, validation scripts, React Native/Expo/Flutter/iOS Native/Android Native variant files, package scripts, and validation records; this planning repo changed `scripts/implement-phase12-step12-5.mjs`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: downstream files provide original synthetic app surfaces and reproducible local checks; the generator preserves the repeated batch contract; planning docs record evidence and next work.
+- User-goal mapping: satisfies Step 12.5 without proprietary app assets, brand claims, copied media, private APIs, production data, public visibility changes, or GitHub Actions.
+- Tests run: downstream `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compilation/run, downstream `git diff --check`, planning repo `git diff --check`, planning repo `node scripts/verify-phase12-scaffold.mjs`, and remote privacy/default-branch verification.
+- Skipped tests: Flutter and Android Native runtime checks are blocked by missing local Dart/Flutter and Kotlin toolchains; real-device account, notification, entitlement, deletion/export, region, age, and device-specific verification remains blocked.
+- Adversarial review: implementations use original product names and synthetic data, keep sensitive native/toolchain parity flags explicit, reject raw private content analytics, require minor safety and report routes, and do not claim launch-ready one-for-one parity.
+- Residual risk: variant code is a lightweight baseline, not production device builds; future steps still need full manifests, provider integrations, real toolchains, real device verification, and benchmarking evidence.
+- Rollback note: revert downstream commits `7c29106`, `32fca8e`, `200c396`, `8285b5b`, `f785884`, `f2bdbd1`, and `54a9847`, then revert this planning commit.
+- Next command: `$run`.
+
 ## 2026-05-14 - Phase 12 Step 12.4 Snapchat Variant Implementation
 
 - Executed `$run` Step 12.4 for `GeorgeQLe/snapchat-mobile-clone` without GitHub Actions.
