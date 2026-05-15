@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-15T14:24:57.056Z",
+  "generatedAt": "2026-05-15T15:04:13.134Z",
   "runId": "phase-13-local-2026-05-15",
   "blockers": [
     {
@@ -1033,17 +1033,17 @@
       "appName": "Proton Mail",
       "repo": "GeorgeQLe/proton-mail-mobile-clone",
       "repoPath": "/tmp/proton-mail-mobile-clone",
-      "commit": "630e98e",
-      "implementationStatus": "scaffold-only",
+      "commit": "ae62aeb",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
-      "variant": "react-native",
+      "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/proton-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
-        "command": "npm run test:react-native",
+        "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/proton-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1052,74 +1052,17 @@
       "appName": "Proton Mail",
       "repo": "GeorgeQLe/proton-mail-mobile-clone",
       "repoPath": "/tmp/proton-mail-mobile-clone",
-      "commit": "630e98e",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "flutter",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/proton-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
-      "validationEvidence": {
-        "command": "Flutter runtime validation",
-        "status": "blocker",
-        "detail": "GeorgeQLe/proton-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 952,
-      "appName": "Proton Mail",
-      "repo": "GeorgeQLe/proton-mail-mobile-clone",
-      "repoPath": "/tmp/proton-mail-mobile-clone",
-      "commit": "630e98e",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/proton-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/proton-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 952,
-      "appName": "Proton Mail",
-      "repo": "GeorgeQLe/proton-mail-mobile-clone",
-      "repoPath": "/tmp/proton-mail-mobile-clone",
-      "commit": "630e98e",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/proton-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/proton-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 952,
-      "appName": "Proton Mail",
-      "repo": "GeorgeQLe/proton-mail-mobile-clone",
-      "repoPath": "/tmp/proton-mail-mobile-clone",
-      "commit": "630e98e",
-      "implementationStatus": "scaffold-only",
+      "commit": "ae62aeb",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/proton-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/proton-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1128,17 +1071,17 @@
       "appName": "Yahoo Mail",
       "repo": "GeorgeQLe/yahoo-mail-mobile-clone",
       "repoPath": "/tmp/yahoo-mail-mobile-clone",
-      "commit": "f2b3d90",
-      "implementationStatus": "scaffold-only",
+      "commit": "52e9854",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
-      "variant": "react-native",
+      "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/yahoo-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
-        "command": "npm run test:react-native",
+        "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/yahoo-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1147,74 +1090,17 @@
       "appName": "Yahoo Mail",
       "repo": "GeorgeQLe/yahoo-mail-mobile-clone",
       "repoPath": "/tmp/yahoo-mail-mobile-clone",
-      "commit": "f2b3d90",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "flutter",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/yahoo-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
-      "validationEvidence": {
-        "command": "Flutter runtime validation",
-        "status": "blocker",
-        "detail": "GeorgeQLe/yahoo-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 953,
-      "appName": "Yahoo Mail",
-      "repo": "GeorgeQLe/yahoo-mail-mobile-clone",
-      "repoPath": "/tmp/yahoo-mail-mobile-clone",
-      "commit": "f2b3d90",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/yahoo-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/yahoo-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 953,
-      "appName": "Yahoo Mail",
-      "repo": "GeorgeQLe/yahoo-mail-mobile-clone",
-      "repoPath": "/tmp/yahoo-mail-mobile-clone",
-      "commit": "f2b3d90",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/yahoo-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/yahoo-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 953,
-      "appName": "Yahoo Mail",
-      "repo": "GeorgeQLe/yahoo-mail-mobile-clone",
-      "repoPath": "/tmp/yahoo-mail-mobile-clone",
-      "commit": "f2b3d90",
-      "implementationStatus": "scaffold-only",
+      "commit": "52e9854",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/yahoo-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/yahoo-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1223,17 +1109,17 @@
       "appName": "AOL Mail",
       "repo": "GeorgeQLe/aol-mail-mobile-clone",
       "repoPath": "/tmp/aol-mail-mobile-clone",
-      "commit": "13bb4c6",
-      "implementationStatus": "scaffold-only",
+      "commit": "732713d",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
-      "variant": "react-native",
+      "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/aol-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
-        "command": "npm run test:react-native",
+        "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/aol-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1242,74 +1128,17 @@
       "appName": "AOL Mail",
       "repo": "GeorgeQLe/aol-mail-mobile-clone",
       "repoPath": "/tmp/aol-mail-mobile-clone",
-      "commit": "13bb4c6",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "flutter",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/aol-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
-      "validationEvidence": {
-        "command": "Flutter runtime validation",
-        "status": "blocker",
-        "detail": "GeorgeQLe/aol-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 954,
-      "appName": "AOL Mail",
-      "repo": "GeorgeQLe/aol-mail-mobile-clone",
-      "repoPath": "/tmp/aol-mail-mobile-clone",
-      "commit": "13bb4c6",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/aol-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/aol-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 954,
-      "appName": "AOL Mail",
-      "repo": "GeorgeQLe/aol-mail-mobile-clone",
-      "repoPath": "/tmp/aol-mail-mobile-clone",
-      "commit": "13bb4c6",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/aol-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/aol-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 954,
-      "appName": "AOL Mail",
-      "repo": "GeorgeQLe/aol-mail-mobile-clone",
-      "repoPath": "/tmp/aol-mail-mobile-clone",
-      "commit": "13bb4c6",
-      "implementationStatus": "scaffold-only",
+      "commit": "732713d",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/aol-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/aol-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1318,36 +1147,17 @@
       "appName": "Spark Mail",
       "repo": "GeorgeQLe/spark-mail-mobile-clone",
       "repoPath": "/tmp/spark-mail-mobile-clone",
-      "commit": "7f9da56",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/spark-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:react-native",
-        "status": "blocker",
-        "detail": "GeorgeQLe/spark-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 955,
-      "appName": "Spark Mail",
-      "repo": "GeorgeQLe/spark-mail-mobile-clone",
-      "repoPath": "/tmp/spark-mail-mobile-clone",
-      "commit": "7f9da56",
-      "implementationStatus": "scaffold-only",
+      "commit": "dd7213d",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/spark-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
         "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/spark-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1356,55 +1166,17 @@
       "appName": "Spark Mail",
       "repo": "GeorgeQLe/spark-mail-mobile-clone",
       "repoPath": "/tmp/spark-mail-mobile-clone",
-      "commit": "7f9da56",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/spark-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/spark-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 955,
-      "appName": "Spark Mail",
-      "repo": "GeorgeQLe/spark-mail-mobile-clone",
-      "repoPath": "/tmp/spark-mail-mobile-clone",
-      "commit": "7f9da56",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/spark-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/spark-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 955,
-      "appName": "Spark Mail",
-      "repo": "GeorgeQLe/spark-mail-mobile-clone",
-      "repoPath": "/tmp/spark-mail-mobile-clone",
-      "commit": "7f9da56",
-      "implementationStatus": "scaffold-only",
+      "commit": "dd7213d",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/spark-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/spark-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1413,36 +1185,17 @@
       "appName": "Edison Mail",
       "repo": "GeorgeQLe/edison-mail-mobile-clone",
       "repoPath": "/tmp/edison-mail-mobile-clone",
-      "commit": "d10d02c",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/edison-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:react-native",
-        "status": "blocker",
-        "detail": "GeorgeQLe/edison-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 956,
-      "appName": "Edison Mail",
-      "repo": "GeorgeQLe/edison-mail-mobile-clone",
-      "repoPath": "/tmp/edison-mail-mobile-clone",
-      "commit": "d10d02c",
-      "implementationStatus": "scaffold-only",
+      "commit": "16440d5",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/edison-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
         "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/edison-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1451,55 +1204,17 @@
       "appName": "Edison Mail",
       "repo": "GeorgeQLe/edison-mail-mobile-clone",
       "repoPath": "/tmp/edison-mail-mobile-clone",
-      "commit": "d10d02c",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/edison-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/edison-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 956,
-      "appName": "Edison Mail",
-      "repo": "GeorgeQLe/edison-mail-mobile-clone",
-      "repoPath": "/tmp/edison-mail-mobile-clone",
-      "commit": "d10d02c",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/edison-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/edison-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 956,
-      "appName": "Edison Mail",
-      "repo": "GeorgeQLe/edison-mail-mobile-clone",
-      "repoPath": "/tmp/edison-mail-mobile-clone",
-      "commit": "d10d02c",
-      "implementationStatus": "scaffold-only",
+      "commit": "16440d5",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/edison-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/edison-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1508,36 +1223,17 @@
       "appName": "BlueMail",
       "repo": "GeorgeQLe/bluemail-mobile-clone",
       "repoPath": "/tmp/bluemail-mobile-clone",
-      "commit": "06c081c",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/bluemail-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:react-native",
-        "status": "blocker",
-        "detail": "GeorgeQLe/bluemail-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 957,
-      "appName": "BlueMail",
-      "repo": "GeorgeQLe/bluemail-mobile-clone",
-      "repoPath": "/tmp/bluemail-mobile-clone",
-      "commit": "06c081c",
-      "implementationStatus": "scaffold-only",
+      "commit": "087c6dd",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/bluemail-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
         "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/bluemail-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1546,55 +1242,17 @@
       "appName": "BlueMail",
       "repo": "GeorgeQLe/bluemail-mobile-clone",
       "repoPath": "/tmp/bluemail-mobile-clone",
-      "commit": "06c081c",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/bluemail-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/bluemail-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 957,
-      "appName": "BlueMail",
-      "repo": "GeorgeQLe/bluemail-mobile-clone",
-      "repoPath": "/tmp/bluemail-mobile-clone",
-      "commit": "06c081c",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/bluemail-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/bluemail-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 957,
-      "appName": "BlueMail",
-      "repo": "GeorgeQLe/bluemail-mobile-clone",
-      "repoPath": "/tmp/bluemail-mobile-clone",
-      "commit": "06c081c",
-      "implementationStatus": "scaffold-only",
+      "commit": "087c6dd",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/bluemail-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/bluemail-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },

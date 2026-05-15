@@ -1,13 +1,13 @@
 # Phase 13 Benchmark Scorecards
 
-Generated: 2026-05-15T14:24:57.056Z
+Generated: 2026-05-15T15:04:13.134Z
 Run ID: `phase-13-local-2026-05-15`
 
 ## Summary
 
 - Total benchmark targets: 215
-- Scorecards produced: 81
-- Blocker records produced: 134
+- Scorecards produced: 99
+- Blocker records produced: 116
 - Average composite across scored variants: 5.30
 - GitHub Actions used: no
 
@@ -15,26 +15,26 @@ Run ID: `phase-13-local-2026-05-15`
 
 | Status | Repos |
 | --- | ---: |
-| implemented | 27 |
-| scaffold-only | 16 |
+| implemented | 33 |
+| scaffold-only | 10 |
 
 ## Accounting By Variant
 
 | Variant | Scorecards | Blockers |
 | --- | ---: | ---: |
-| react-native | 27 | 16 |
+| react-native | 33 | 10 |
 | flutter | 0 | 43 |
-| expo | 27 | 16 |
-| ios-native | 27 | 16 |
+| expo | 33 | 10 |
+| ios-native | 33 | 10 |
 | android-native | 0 | 43 |
 
 ## Blockers By Reason
 
 | Reason | Count |
 | --- | ---: |
-| missing-local-flutter-toolchain | 27 |
-| missing-local-android-toolchain | 27 |
-| implementation-not-started | 80 |
+| missing-local-flutter-toolchain | 33 |
+| missing-local-android-toolchain | 33 |
+| implementation-not-started | 50 |
 
 ## Scorecards
 
@@ -67,6 +67,12 @@ Run ID: `phase-13-local-2026-05-15`
 | 949 | GoTo | ios-native | 9.23 | tasks/scorecards/phase-13/949-goto-ios-native.json |
 | 950 | BlueJeans | ios-native | 9.23 | tasks/scorecards/phase-13/950-bluejeans-ios-native.json |
 | 951 | Jitsi Meet | ios-native | 9.23 | tasks/scorecards/phase-13/951-jitsi-meet-ios-native.json |
+| 952 | Proton Mail | ios-native | 9.23 | tasks/scorecards/phase-13/952-proton-mail-ios-native.json |
+| 953 | Yahoo Mail | ios-native | 9.23 | tasks/scorecards/phase-13/953-yahoo-mail-ios-native.json |
+| 954 | AOL Mail | ios-native | 9.23 | tasks/scorecards/phase-13/954-aol-mail-ios-native.json |
+| 955 | Spark Mail | ios-native | 9.23 | tasks/scorecards/phase-13/955-spark-mail-ios-native.json |
+| 956 | Edison Mail | ios-native | 9.23 | tasks/scorecards/phase-13/956-edison-mail-ios-native.json |
+| 957 | BlueMail | ios-native | 9.23 | tasks/scorecards/phase-13/957-bluemail-ios-native.json |
 | 016 | WhatsApp | expo | 3.33 | tasks/scorecards/phase-13/016-whatsapp-expo.json |
 | 016 | WhatsApp | react-native | 3.33 | tasks/scorecards/phase-13/016-whatsapp-react-native.json |
 | 017 | Telegram | expo | 3.33 | tasks/scorecards/phase-13/017-telegram-expo.json |
@@ -121,11 +127,23 @@ Run ID: `phase-13-local-2026-05-15`
 | 950 | BlueJeans | react-native | 3.33 | tasks/scorecards/phase-13/950-bluejeans-react-native.json |
 | 951 | Jitsi Meet | expo | 3.33 | tasks/scorecards/phase-13/951-jitsi-meet-expo.json |
 | 951 | Jitsi Meet | react-native | 3.33 | tasks/scorecards/phase-13/951-jitsi-meet-react-native.json |
+| 952 | Proton Mail | expo | 3.33 | tasks/scorecards/phase-13/952-proton-mail-expo.json |
+| 952 | Proton Mail | react-native | 3.33 | tasks/scorecards/phase-13/952-proton-mail-react-native.json |
+| 953 | Yahoo Mail | expo | 3.33 | tasks/scorecards/phase-13/953-yahoo-mail-expo.json |
+| 953 | Yahoo Mail | react-native | 3.33 | tasks/scorecards/phase-13/953-yahoo-mail-react-native.json |
+| 954 | AOL Mail | expo | 3.33 | tasks/scorecards/phase-13/954-aol-mail-expo.json |
+| 954 | AOL Mail | react-native | 3.33 | tasks/scorecards/phase-13/954-aol-mail-react-native.json |
+| 955 | Spark Mail | expo | 3.33 | tasks/scorecards/phase-13/955-spark-mail-expo.json |
+| 955 | Spark Mail | react-native | 3.33 | tasks/scorecards/phase-13/955-spark-mail-react-native.json |
+| 956 | Edison Mail | expo | 3.33 | tasks/scorecards/phase-13/956-edison-mail-expo.json |
+| 956 | Edison Mail | react-native | 3.33 | tasks/scorecards/phase-13/956-edison-mail-react-native.json |
+| 957 | BlueMail | expo | 3.33 | tasks/scorecards/phase-13/957-bluemail-expo.json |
+| 957 | BlueMail | react-native | 3.33 | tasks/scorecards/phase-13/957-bluemail-react-native.json |
 
 ## Notes
 
 - Scorecards are generated only for variants with Phase 13 executable validation evidence.
 - Flutter and Android Native targets remain local-toolchain blocked and have blocker records instead of invented benchmark scores.
-- The 16 scaffold-only repos are represented as implementation blockers for every variant until implementation evidence exists.
+- The 10 scaffold-only repos are represented as implementation blockers for every variant until implementation evidence exists.
 - The harness uses local source structure and available report files as conservative proxies when device, accessibility, or store-compliance reports are absent.
 - No GitHub Actions workflows were created, modified, enabled, dispatched, or used.

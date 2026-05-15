@@ -5,12 +5,12 @@ Generated: 2026-05-15
 ## Summary
 
 - Repos checked: 43
-- Implemented repos with executable variant evidence: 27
-- Scaffold-only repos with implementation blockers: 16
-- Executable command passes: 151
+- Implemented repos with executable variant evidence: 33
+- Scaffold-only repos with implementation blockers: 10
+- Executable command passes: 175
 - Unexpected failures: 0
-- Explicit blockers: 150
-- Implementation blockers: 64
+- Explicit blockers: 126
+- Implementation blockers: 40
 - GitHub Actions used: no
 - Flutter/Dart toolchain: blocked locally
 - Android Kotlin toolchain: blocked locally
@@ -55,12 +55,12 @@ Generated: 2026-05-15
 | 949 | GoTo | `GeorgeQLe/goto-mobile-clone` | `77206b6` | PRIVATE | implemented | 5 pass | 2 |
 | 950 | BlueJeans | `GeorgeQLe/bluejeans-mobile-clone` | `71811f2` | PRIVATE | implemented | 5 pass | 2 |
 | 951 | Jitsi Meet | `GeorgeQLe/jitsi-meet-mobile-clone` | `48a3bfe` | PRIVATE | implemented | 5 pass | 2 |
-| 952 | Proton Mail | `GeorgeQLe/proton-mail-mobile-clone` | `630e98e` | PRIVATE | scaffold-only | 1 pass | 6 |
-| 953 | Yahoo Mail | `GeorgeQLe/yahoo-mail-mobile-clone` | `f2b3d90` | PRIVATE | scaffold-only | 1 pass | 6 |
-| 954 | AOL Mail | `GeorgeQLe/aol-mail-mobile-clone` | `13bb4c6` | PRIVATE | scaffold-only | 1 pass | 6 |
-| 955 | Spark Mail | `GeorgeQLe/spark-mail-mobile-clone` | `7f9da56` | PRIVATE | scaffold-only | 1 pass | 6 |
-| 956 | Edison Mail | `GeorgeQLe/edison-mail-mobile-clone` | `d10d02c` | PRIVATE | scaffold-only | 1 pass | 6 |
-| 957 | BlueMail | `GeorgeQLe/bluemail-mobile-clone` | `06c081c` | PRIVATE | scaffold-only | 1 pass | 6 |
+| 952 | Proton Mail | `GeorgeQLe/proton-mail-mobile-clone` | `ae62aeb` | PRIVATE | implemented | 5 pass | 2 |
+| 953 | Yahoo Mail | `GeorgeQLe/yahoo-mail-mobile-clone` | `52e9854` | PRIVATE | implemented | 5 pass | 2 |
+| 954 | AOL Mail | `GeorgeQLe/aol-mail-mobile-clone` | `732713d` | PRIVATE | implemented | 5 pass | 2 |
+| 955 | Spark Mail | `GeorgeQLe/spark-mail-mobile-clone` | `dd7213d` | PRIVATE | implemented | 5 pass | 2 |
+| 956 | Edison Mail | `GeorgeQLe/edison-mail-mobile-clone` | `16440d5` | PRIVATE | implemented | 5 pass | 2 |
+| 957 | BlueMail | `GeorgeQLe/bluemail-mobile-clone` | `087c6dd` | PRIVATE | implemented | 5 pass | 2 |
 | 958 | Canary Mail | `GeorgeQLe/canary-mail-mobile-clone` | `a022d84` | PRIVATE | scaffold-only | 1 pass | 6 |
 | 959 | Fastmail | `GeorgeQLe/fastmail-mobile-clone` | `8139c84` | PRIVATE | scaffold-only | 1 pass | 6 |
 | 960 | HEY | `GeorgeQLe/hey-mobile-clone` | `cc9c62a` | PRIVATE | scaffold-only | 1 pass | 6 |
@@ -510,14 +510,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/proton-mail-mobile-clone`
 - Local path: `/tmp/proton-mail-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `630e98e`
+- Branch: `main`; default branch: `main`; commit: `ae62aeb`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-proton-mail.mjs | validated CipherPost: surfaces=6, threads=2, objects=10, routes=19, blockers=10
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | CipherPost: surfaces=6, threads=2, queued=1, blocked=9, routes=19
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | CipherPost: surfaces=6, threads=2, queued=1, blocked=9, routes=19
+- PASS: `swiftc iOS Native model` - CipherPost: surfaces=6, threads=2, queued=1, blockers=10
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors
@@ -526,14 +526,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/yahoo-mail-mobile-clone`
 - Local path: `/tmp/yahoo-mail-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `f2b3d90`
+- Branch: `main`; default branch: `main`; commit: `52e9854`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-yahoo-mail.mjs | validated OrbitMail: surfaces=6, threads=2, objects=10, routes=21, blockers=10
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | OrbitMail: surfaces=6, threads=2, queued=1, blocked=9, routes=21
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | OrbitMail: surfaces=6, threads=2, queued=1, blocked=9, routes=21
+- PASS: `swiftc iOS Native model` - OrbitMail: surfaces=6, threads=2, queued=1, blockers=10
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors
@@ -542,14 +542,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/aol-mail-mobile-clone`
 - Local path: `/tmp/aol-mail-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `13bb4c6`
+- Branch: `main`; default branch: `main`; commit: `732713d`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-aol-mail.mjs | validated ClassicPost: surfaces=6, threads=2, objects=10, routes=20, blockers=10
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | ClassicPost: surfaces=6, threads=2, queued=1, blocked=9, routes=20
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | ClassicPost: surfaces=6, threads=2, queued=1, blocked=9, routes=20
+- PASS: `swiftc iOS Native model` - ClassicPost: surfaces=6, threads=2, queued=1, blockers=10
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors
@@ -558,14 +558,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/spark-mail-mobile-clone`
 - Local path: `/tmp/spark-mail-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `7f9da56`
+- Branch: `main`; default branch: `main`; commit: `dd7213d`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-spark-mail.mjs | validated FocusFlock: surfaces=6, threads=2, objects=10, routes=20, blockers=10
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | FocusFlock: surfaces=6, threads=2, queued=1, blocked=9, routes=20
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | FocusFlock: surfaces=6, threads=2, queued=1, blocked=9, routes=20
+- PASS: `swiftc iOS Native model` - FocusFlock: surfaces=6, threads=2, queued=1, blockers=10
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors
@@ -574,14 +574,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/edison-mail-mobile-clone`
 - Local path: `/tmp/edison-mail-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `d10d02c`
+- Branch: `main`; default branch: `main`; commit: `16440d5`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-edison-mail.mjs | validated SortWell: surfaces=6, threads=2, objects=10, routes=18, blockers=10
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | SortWell: surfaces=6, threads=2, queued=1, blocked=9, routes=18
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | SortWell: surfaces=6, threads=2, queued=1, blocked=9, routes=18
+- PASS: `swiftc iOS Native model` - SortWell: surfaces=6, threads=2, queued=1, blockers=10
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors
@@ -590,14 +590,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/bluemail-mobile-clone`
 - Local path: `/tmp/bluemail-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `06c081c`
+- Branch: `main`; default branch: `main`; commit: `087c6dd`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-bluemail.mjs | validated MailHarbor: surfaces=6, threads=2, objects=10, routes=22, blockers=10
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | MailHarbor: surfaces=6, threads=2, queued=1, blocked=9, routes=22
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | MailHarbor: surfaces=6, threads=2, queued=1, blocked=9, routes=22
+- PASS: `swiftc iOS Native model` - MailHarbor: surfaces=6, threads=2, queued=1, blockers=10
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors

@@ -1,5 +1,42 @@
 # History
 
+## 2026-05-15 - Phase 13 Step 13.13 Email Privacy Mail Batch Implementation
+
+- Executed `$run` Step 13.13 for Proton Mail, Yahoo Mail, AOL Mail, Spark Mail, Edison Mail, and BlueMail downstream repos without GitHub Actions.
+- Added `scripts/implement-phase13-step13-13.mjs` in this planning repo to make the repeated downstream email/privacy-mail batch contract reproducible.
+- Implemented original lawful email/privacy-mail prototypes across React Native, Expo, Flutter, iOS Native, and Android Native variant directories:
+  - `GeorgeQLe/proton-mail-mobile-clone` as `CipherPost`, PR `https://github.com/GeorgeQLe/proton-mail-mobile-clone/pull/2`, merged to `main` at commit `ae62aeb`.
+  - `GeorgeQLe/yahoo-mail-mobile-clone` as `OrbitMail`, PR `https://github.com/GeorgeQLe/yahoo-mail-mobile-clone/pull/2`, merged to `main` at commit `52e9854`.
+  - `GeorgeQLe/aol-mail-mobile-clone` as `ClassicPost`, PR `https://github.com/GeorgeQLe/aol-mail-mobile-clone/pull/2`, merged to `main` at commit `732713d`.
+  - `GeorgeQLe/spark-mail-mobile-clone` as `FocusFlock`, PR `https://github.com/GeorgeQLe/spark-mail-mobile-clone/pull/2`, merged to `main` at commit `dd7213d`.
+  - `GeorgeQLe/edison-mail-mobile-clone` as `SortWell`, PR `https://github.com/GeorgeQLe/edison-mail-mobile-clone/pull/2`, merged to `main` at commit `16440d5`.
+  - `GeorgeQLe/bluemail-mobile-clone` as `MailHarbor`, PR `https://github.com/GeorgeQLe/bluemail-mobile-clone/pull/2`, merged to `main` at commit `087c6dd`.
+- Added downstream shared fixtures, API contracts, validation scripts, committed validation records, package scripts, JS variant tests, Flutter model stubs, Swift models, and Kotlin model stubs.
+- Covered mailbox/thread models, compose/draft/send blockers, attachment blockers, contacts/calendar/provider blockers, spam/phishing/report flows, privacy-safe analytics, encrypted-mail metadata without audited cryptography claims, export/delete blockers, and provider/account recovery boundaries.
+- Remote verification confirmed all six touched repos remain `PRIVATE` with default branch `main`.
+- Local executable validation passed for all six touched repos: `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, downstream `git diff --check`, and staged `git diff --cached --check`.
+- Planning validation passed:
+  - `node scripts/verify-phase13-scaffold.mjs` reported `checked=43`, `repairedCount=0`, and `failures=0`.
+  - `node scripts/validate-phase13-repos.mjs` reported `repos=43`, `passedCommands=175`, `failureCount=0`, `blockerCount=126`, and `implementationBlockerCount=40`.
+  - `node scripts/generate-phase13-benchmarks.mjs` reported `scorecards=99`, `blockers=116`, and `totalTargets=215`.
+  - JSON sanity checks confirmed 43 validation results, 33 implemented repos, 10 scaffold-only repos, 215 benchmark targets, 99 scorecards, and 116 blocker records.
+- Phase 13 now has 33 implemented downstream repos and 10 scaffold-only downstream repos.
+- Preserved blockers for real account lifecycle, mailbox provider auth, IMAP/SMTP/OAuth integration, exact encryption/security guarantees, spam/phishing provider systems, push notification delivery, contacts/calendar/address-book permissions, attachment/provider handling, export/delete completion, account recovery, real-device behavior, Flutter runtime validation, and Android Native runtime validation.
+- No GitHub Actions, proprietary assets, private APIs, copied media, production data, public visibility changes, provider parity claims, audited E2EE/security claims, or raw mailbox analytics were introduced.
+
+### Ship Manifest
+
+- User goal: execute Phase 13 Step 13.13 and implement IDs 952-957 across all five downstream variants each.
+- Changed files: six downstream repos received shared fixtures/contracts, validation scripts/evidence, package scripts, and React Native/Expo/Flutter/iOS Native/Android Native variant files; this planning repo changed `scripts/implement-phase13-step13-13.mjs`, `tasks/todo.md`, `tasks/history.md`, `tasks/phase-13-validation-report.md`, and Phase 13 scorecard artifacts under `tasks/scorecards/phase-13/`.
+- Per-file purpose: downstream files provide original synthetic email/privacy-mail surfaces and reproducible local checks; the generator preserves the batch implementation contract; validation and scorecard artifacts record aggregate executable evidence; task/history docs record completion and next work.
+- User-goal mapping: satisfies Step 13.13 without proprietary app assets, brand claims, copied code/media, private APIs, production data, public visibility changes, provider parity claims, audited E2EE/security claims, raw mailbox analytics, or GitHub Actions.
+- Tests run: per-downstream `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compilation/run, downstream `git diff --check`, downstream `git diff --cached --check`, remote privacy/default-branch verification, planning repo `node scripts/verify-phase13-scaffold.mjs`, `node scripts/validate-phase13-repos.mjs`, `node scripts/generate-phase13-benchmarks.mjs`, JSON accounting sanity checks, and planning repo `git diff --check`.
+- Skipped tests: Flutter and Android Native runtime checks remain blocked by missing local Dart/Flutter and Kotlin toolchains; real mailbox provider auth, account recovery, custom domains, transport, push payloads, spam/phishing provider systems, contact/calendar/device permissions, attachment provider handling, export/delete completion, and exact encryption/security parity require later provider/device/security review.
+- Adversarial review: implementations use original product names with synthetic fixtures, redacted notification previews, no raw mailbox analytics, explicit spam/phishing/report routes, committed validation records, false provider/parity flags, and blocker rows rather than launch-ready claims.
+- Residual risk: variant code is a lightweight baseline, not production device builds; 10 Phase 13 repos remain scaffold-only, and Flutter/Android Native validation remains blocked by local toolchains.
+- Rollback note: revert downstream commits `ae62aeb`, `52e9854`, `732713d`, `dd7213d`, `16440d5`, and `087c6dd`, then revert this planning commit to reopen Step 13.13.
+- Next command: `$run`.
+
 ## 2026-05-15 - Phase 13 Step 13.8 Final Validation And Cleanup
 
 - Executed `$run` Step 13.8 for final Phase 13 validation and cleanup without GitHub Actions.
