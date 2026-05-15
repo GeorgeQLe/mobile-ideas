@@ -6,7 +6,8 @@
 
 ## Priority Task Queue
 
-- [ ] Review `tasks/recurring-todo.md`: "Refresh research roadmap" — trigger condition may be eligible after the 2026-05-14 Phase 12 completion and Phase 13 transition; promote to `tasks/todo.md` only if this requires concrete documentation execution before Phase 13 resumes.
+- [x] Review `tasks/recurring-todo.md`: "Refresh research roadmap" — trigger condition may be eligible after the 2026-05-14 Phase 12 completion and Phase 13 transition; promote to `tasks/todo.md` only if this requires concrete documentation execution before Phase 13 resumes.
+  - Review (2026-05-15): not promoted. Phase 13 has active implementation blockers and the recurring item remains next due on 2026-05-19 unless a separate documentation refresh is requested.
 
 ## Phase 13: Implementation — Messaging & Email (43 Apps x 5 Variants)
 
@@ -25,10 +26,10 @@ Build all five variants for every app in the Messaging & Email cluster.
 
 - [x] Exact Phase 13 app inventory is reconciled against `tasks/roadmap.md`, `tasks/ideas.md`, `tasks/repo-seeding.md`, and existing specs before downstream implementation starts.
 - [ ] All reconciled Phase 13 apps have 5 working variants each or explicit local/toolchain/provider blockers.
-- [ ] Every locally available variant passes local validation and has benchmark evidence or an explicit blocker record.
+- [x] Every locally available variant passes local validation and has benchmark evidence or an explicit blocker record.
 - [ ] Encryption, privacy, retention, safety, moderation, abuse-reporting, attachment, offline, and notification flows are implemented per spec.
-- [ ] No proprietary assets, trademarks as branding, copyrighted media, copied code, private APIs, production data, public visibility changes, or GitHub Actions are introduced.
-- [ ] Manual verification blockers are documented and not falsely claimed as resolved.
+- [x] No proprietary assets, trademarks as branding, copyrighted media, copied code, private APIs, production data, public visibility changes, or GitHub Actions are introduced.
+- [x] Manual verification blockers are documented and not falsely claimed as resolved.
 
 ### Execution Profile
 
@@ -243,7 +244,7 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   - Reconciled all 215 Phase 13 variant slots so `scorecardCount + blockerCount == 215`.
   - No GitHub Actions, downstream source mutation, proprietary assets, provider claims, public visibility changes, or invented scores were introduced.
 
-- [ ] Step 13.8: Phase 13 final validation and cleanup
+- [x] Step 13.8: Phase 13 final validation and cleanup
   - Verify acceptance criteria.
   - Audit source/assets for legal hygiene and copied-brand risks.
   - Document manual verification blockers.
@@ -262,6 +263,39 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   5. Decide whether Phase 13 can be marked complete with those blockers carried forward. If acceptance criteria require all 43 apps implemented, leave the phase open and document that Step 13.5 needs additional batches before closure.
   6. Run final planning checks: `node scripts/generate-phase13-benchmarks.mjs`, `node scripts/verify-phase13-scaffold.mjs`, JSON summary sanity checks, and `git diff --check`.
   7. Update `tasks/todo.md` and `tasks/history.md` with the final validation decision and next concrete work. Do not enable, dispatch, or rely on GitHub Actions.
+
+  **Review (2026-05-15):**
+  - Re-ran `node scripts/generate-phase13-benchmarks.mjs`; benchmark accounting still reconciles 215 targets with 15 scorecards and 200 blocker records.
+  - Re-ran `node scripts/verify-phase13-scaffold.mjs`; all 43 reconciled downstream repos passed scaffold verification with `repairedCount=0` and `failures=0`.
+  - Ran JSON sanity checks across validation and benchmark summaries: 43 validation results, 5 implemented repos, 38 scaffold-only repos, `failureCount=0`, 215 benchmark targets, 15 scorecards, and 200 blocker records.
+  - Legal and safety cleanup found no `.github/workflows` files and no binary media assets in the five implemented downstream local clones; text matches are guardrails or explicit false/blocker flags for audited E2EE/security and provider parity claims.
+  - Phase 13 cannot close yet: IDs 021-025 and 935-967 remain scaffold-only, so the encryption/privacy/retention/safety/moderation/attachment/offline/notification implementation acceptance criterion is not satisfied across the full reconciled inventory.
+  - Carry-forward blockers remain documented for missing Dart/Flutter and Kotlin toolchains, real account lifecycle, provider integrations, push delivery, contact permissions, encryption/security review, export/delete completion, moderation/provider behavior, and real-device validation.
+
+- [ ] Step 13.9: Implement next Phase 13 batch, IDs 021-025
+  - Files: downstream repos `GeorgeQLe/messenger-mobile-clone`, `GeorgeQLe/facetime-mobile-clone`, `GeorgeQLe/zoom-mobile-clone`, `GeorgeQLe/gmail-mobile-clone`, and `GeorgeQLe/outlook-mobile-clone`; planning docs in this repository (`tasks/todo.md`, `tasks/history.md`; add a reproducible implementation script only if repeated code generation is needed).
+  - Batch selection: IDs 021-025 are the next seeded Phase 13 batch after the implemented IDs 016-020 and cover the remaining original batch-02 messaging/calling/email apps before moving into IDs 935-967.
+  - Build original lawful prototypes across React Native, Expo, Flutter, iOS Native, and Android Native variant directories using original product naming, synthetic fixtures, and public-source/inferred behavior only.
+  - Messenger-specific coverage: one-to-one/group messaging, reactions, attachments, read/delivery state, safety/reporting, contact/account blockers, call/story/provider stubs, and encryption/privacy metadata without platform parity claims.
+  - FaceTime/Zoom coverage: call/meeting rooms, participants, invites, waiting/lobby or permission states, device/camera/microphone blockers, chat/attachments where applicable, moderation/safety reporting, recording/transcript/provider blockers, and real-device/network blockers.
+  - Gmail/Outlook coverage: inbox/thread models, labels/folders, search/filtering, compose/draft/send blockers, attachments, spam/phishing/report flows, offline queue/cache state, account/provider blockers, retention/export/delete blockers, and enterprise/admin/compliance blockers where applicable.
+  - Required variant coverage per repo: shared JSON fixtures/contracts; React Native and Expo testable JS modules plus tests; Flutter model/main stub; Swift model/main stub; Kotlin model stub; downstream validation script and validation record.
+  - Validation per repo: `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run when available, downstream `git diff --check`, and remote privacy/default-branch verification after merge.
+  - Planning validation after the batch: planning repo `git diff --check`, `node scripts/verify-phase13-scaffold.mjs`, `node scripts/validate-phase13-repos.mjs`, and `node scripts/generate-phase13-benchmarks.mjs` if validation evidence changes.
+  - Expected blockers: real account lifecycle, phone/email verification, exact protocol/security guarantees, push notification delivery, contact/address-book permissions, camera/microphone/media capture, meeting provider infrastructure, spam/phishing/provider systems, enterprise retention/export completion, data export/delete completion, real-device behavior, Flutter runtime validation when Dart/Flutter are missing, and Android Native runtime validation when Kotlin tooling is missing.
+  - Git/PR flow: perform downstream writes serially on one non-primary branch per repo, open a PR, verify clean mergeability/privacy/default branch, squash-merge to downstream `main`, and record PR URLs plus merged commits in `tasks/history.md`. Do not enable, dispatch, or rely on GitHub Actions.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Implement the next five Phase 13 downstream repos across all five variants each, preserving the same local validation and lawful-source boundaries proven by IDs 016-020.
+
+  **Approach:**
+  1. Re-read source specs `specs/batch-02/021-messenger.md` through `specs/batch-02/025-outlook.md` and the current downstream scaffold state before writing code.
+  2. For each repo, create a non-primary implementation branch and add original product fixtures, API contracts, local validation scripts, validation records, and five variant stubs/tests.
+  3. Validate and merge one repo at a time; stop immediately on privacy, auth/rate-limit, unexpected command, mergeability, or public-visibility failures.
+  4. After all five repos merge, rerun the Phase 13 scaffold verifier, validation sweep, benchmark generator, and planning repo whitespace checks.
+  5. Update `tasks/todo.md` and `tasks/history.md` with PR URLs, merge commits, executable evidence, blocker rows, and the next recommended batch.
 
 ### Reference
 

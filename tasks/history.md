@@ -1,5 +1,30 @@
 # History
 
+## 2026-05-15 - Phase 13 Step 13.8 Final Validation And Cleanup
+
+- Executed `$run` Step 13.8 for final Phase 13 validation and cleanup without GitHub Actions.
+- Re-ran `node scripts/generate-phase13-benchmarks.mjs`; benchmark accounting still reconciles 215 targets with 15 scorecards and 200 blocker records.
+- Re-ran `node scripts/verify-phase13-scaffold.mjs`; all 43 reconciled downstream repos passed scaffold verification with `repairedCount=0` and `failures=0`.
+- Ran JSON sanity checks across validation and benchmark summaries: 43 validation results, 5 implemented repos, 38 scaffold-only repos, `failureCount=0`, 215 benchmark targets, 15 scorecards, and 200 blocker records.
+- Legal and safety cleanup found no `.github/workflows` files and no binary media assets in the five implemented downstream local clones; audited-E2EE/security and provider parity text matches are explicit false flags, blocker records, or guardrails.
+- Phase 13 remains open because IDs 021-025 and 935-967 are still scaffold-only; the full-phase implementation acceptance criterion is not satisfied across all 43 apps.
+- Marked the locally available validation/benchmark evidence, legal hygiene, and manual-blocker documentation acceptance criteria complete; left full implementation acceptance criteria open.
+- Reviewed the recurring research-roadmap advisory and did not promote it because Phase 13 implementation remains the active blocker; the recurring item remains due on 2026-05-19 unless separately requested.
+- Added Step 13.9 as the next bounded implementation batch for IDs 021-025: Messenger, FaceTime, Zoom, Gmail, and Outlook.
+
+### Ship Manifest
+
+- User goal: execute Phase 13 Step 13.8, validate Phase 13 evidence, document cleanup results, and prepare the next concrete implementation step.
+- Changed files: `tasks/todo.md`, `tasks/history.md`, and regenerated Phase 13 scorecard JSON/README timestamps under `tasks/scorecards/phase-13/`.
+- Per-file purpose: task docs record the final validation decision and next batch; history records executable evidence and residual risk; scorecard files preserve fresh benchmark-generator output for the same `phase-13-local-2026-05-15` run.
+- User-goal mapping: satisfies Step 13.8 without downstream implementation mutation, proprietary assets, copied media, private APIs, production data, public visibility changes, provider parity claims, audited E2EE/security claims, invented scores, or GitHub Actions.
+- Tests run: `node scripts/generate-phase13-benchmarks.mjs`, `node scripts/verify-phase13-scaffold.mjs`, corrected JSON sanity check for validation/benchmark accounting, downstream hygiene scans for `.github/workflows` and binary media assets, text hygiene scan for disallowed positive claims, and planning repo `git diff --check`.
+- Skipped tests: downstream app validation was not rerun because Step 13.8 consumed existing Step 13.6 validation evidence and regenerated only benchmark accounting; Flutter and Android Native runtime checks remain blocked by missing local Dart/Flutter and Kotlin toolchains; real account, provider, push, contact permission, export/delete, moderation/provider, security-review, and real-device checks require later access.
+- Adversarial review: Phase 13 was not closed despite clean accounting because 38 repos remain scaffold-only; scorecards are produced only for locally executable implemented variants, blocker records cover every unscored target, and hygiene checks distinguish guardrail text from positive parity claims.
+- Residual risk: the final validation proves planning/scaffold/benchmark accounting, not full product parity; the next implementation batches must turn the scaffold-only repos into validated variants before Phase 13 can close.
+- Rollback note: revert this planning commit to restore Step 13.8 as open and remove the Step 13.9 batch plan; regenerated scorecard timestamps can be reverted without changing benchmark totals.
+- Next command: `$run`.
+
 ## 2026-05-15 - Phase 13 Step 13.5 Messaging Batch Implementation
 
 - Executed `$run` Step 13.5 for Signal, Discord, and Slack downstream repos without GitHub Actions.
