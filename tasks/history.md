@@ -3560,3 +3560,28 @@
 - Residual risk: downstream repo state could drift after prior seeding evidence; Step 13.2 should recheck each touched repo before mutating it.
 - Rollback note: revert this planning commit to reopen Step 13.1 and restore the approximate roadmap count.
 - Next command: `$run` for Step 13.2, scaffold or repair multi-variant structure across the reconciled Phase 13 repos.
+
+## 2026-05-15 - Phase 13 Step 13.6 Validation Completed
+
+- Added `scripts/validate-phase13-repos.mjs` to serially validate the full 43-repo Messaging & Email inventory without GitHub Actions.
+- Generated `tasks/phase-13-validation-report.md` and `tasks/scorecards/phase-13/validation-summary.json`.
+- Verified every downstream repo remains `PRIVATE`, has a default branch/root commit, includes `README.md`, includes `docs/plans/README.md`, includes the copied source spec under `docs/source-specs/`, and includes the five variant directories plus shared fixture/contract directories.
+- Recorded 5 implemented repos with executable local evidence: WhatsApp, Telegram, Signal, Discord, and Slack passed `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, and downstream `git diff --check`.
+- Recorded the remaining 38 repos as scaffold-only implementation blockers; those rows are not counted as passing variant evidence.
+- Aggregate validator output: `repos=43`, `passedCommands=63`, `failureCount=0`, `blockerCount=238`, and `implementationBlockerCount=152`.
+- Flutter/Dart and Android Native/Kotlin runtime validation remain blocked locally because `dart`, `flutter`, and `kotlinc` are unavailable.
+- Fixed the validator's deterministic Swift detector during the run so it accepts the single-module `main.swift` layout used by the implemented Phase 13 pilots.
+- No GitHub Actions were enabled, dispatched, or used. No downstream source code was changed. No downstream repo was made public.
+
+### Ship Manifest
+
+- User goal: execute Phase 13 Step 13.6 and validate all Messaging & Email repos without GitHub Actions.
+- Changed files: `scripts/validate-phase13-repos.mjs`, `tasks/phase-13-validation-report.md`, `tasks/scorecards/phase-13/validation-summary.json`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: validator script preserves the repeatable sweep; report and JSON summary capture per-repo evidence; task/history docs record completion, blocker boundaries, and the next benchmark plan.
+- User-goal mapping: completes Step 13.6 by proving private repo/scaffold state, executable evidence for implemented pilots, and explicit blockers for scaffold-only/toolchain-limited variants.
+- Tests run: `node --check scripts/validate-phase13-repos.mjs`; `node scripts/validate-phase13-repos.mjs`; `node scripts/verify-phase13-scaffold.mjs`; `git diff --check`; JSON summary sanity check.
+- Skipped tests: no GitHub Actions were used by policy; Flutter and Android runtime checks are blocked by missing `dart`/`flutter` and `kotlinc`; scaffold-only repos lack implementation scripts and are recorded as blockers instead of passing evidence.
+- Adversarial review: the validator fails on public visibility, records scaffold-only repos as blockers, requires copied source specs and required scaffold paths, compiles Swift only when a concrete local module exists, and includes all 43 Phase 13 repos from the reconciled inventory.
+- Residual risk: 38 repos remain scaffold-only and cannot produce benchmark scorecards until implemented; benchmark scoring will be limited to locally executable variants from the 5 implemented repos.
+- Rollback note: revert this planning commit to remove the validator/report artifacts and reopen Step 13.6.
+- Next command: `$run` for Step 13.7, run the Phase 13 benchmarking harness and record scorecards/blockers.

@@ -198,7 +198,7 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   - Planning validation passed: `node scripts/verify-phase13-scaffold.mjs` reported `checked=43`, `repairedCount=0`, and `failures=0`.
   - Flutter/Dart and Android Native/Kotlin runtime validation remain explicit local toolchain blockers; no GitHub Actions, proprietary assets, private APIs, production data, copied media, audited E2EE claims, provider parity claims, enterprise parity claims, or public visibility changes were introduced.
 
-- [ ] Step 13.6: Validate all Phase 13 repos without GitHub Actions
+- [x] Step 13.6: Validate all Phase 13 repos without GitHub Actions
   - Run local build, lint, type check, and tests where toolchains are available.
   - Record executable evidence and explicit blockers, including inherited Flutter/Android toolchain limits.
   - Files: add a reproducible planning-repo validator script such as `scripts/validate-phase13-repos.mjs`; generate validation evidence under `tasks/phase-13-validation-report.md` and `tasks/scorecards/phase-13/validation-summary.json`; update `tasks/todo.md` and `tasks/history.md`.
@@ -211,9 +211,28 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   - Safety constraints: no GitHub Actions, no downstream source repairs unless validation exposes a small deterministic validator bug that can be fixed in the same repo through a branch-backed PR; stop on privacy/public-visibility failure, auth/rate-limit failure, or unexpected command failure.
   - Final validation after report generation: planning repo `git diff --check` and `node scripts/verify-phase13-scaffold.mjs`.
 
+  **Review (2026-05-15):**
+  - Added `scripts/validate-phase13-repos.mjs` as the reproducible Phase 13 local validation sweep.
+  - Generated `tasks/phase-13-validation-report.md` and `tasks/scorecards/phase-13/validation-summary.json`.
+  - Validated all 43 reconciled downstream repos serially with GitHub visibility/default-branch/root-commit/source-doc/scaffold preflight checks; every repo remained `PRIVATE`.
+  - Recorded 5 implemented repos with executable local evidence: IDs 016-020 passed `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, and downstream `git diff --check`.
+  - Recorded 38 scaffold-only repos as explicit implementation blockers, not passing variant evidence.
+  - Aggregate evidence: `passedCommands=63`, `failureCount=0`, `blockerCount=238`, and `implementationBlockerCount=152`.
+  - Flutter/Dart and Android Native/Kotlin runtime validation remain explicit local toolchain blockers because `dart`, `flutter`, and `kotlinc` are unavailable locally.
+  - Fixed a deterministic validator bug during the run: iOS Swift detection now accepts the downstream single-file `main.swift` module layout used by the implemented pilots.
+  - No GitHub Actions, downstream source repairs, public visibility changes, proprietary assets, private APIs, copied media, or production data were introduced.
+
 - [ ] Step 13.7: Run benchmarking harness and record scorecards
   - Record scorecards and blocker artifacts under `tasks/scorecards/phase-13/`.
   - Do not invent scores for blocked variants.
+  - Files: add a reproducible benchmark generator such as `scripts/generate-phase13-benchmarks.mjs`; update `tasks/scorecards/phase-13/README.md`, `tasks/scorecards/phase-13/summary.json`, `tasks/scorecards/phase-13/benchmark-blockers.json`, `tasks/todo.md`, and `tasks/history.md`.
+  - Input source: consume `tasks/scorecards/phase-13/validation-summary.json`; do not rerun downstream app validation unless the summary is missing or malformed.
+  - Benchmarkable scope: generate scorecards only for locally executable implemented variants from Step 13.6, currently React Native, Expo, and iOS Native for IDs 016-020.
+  - Blocker scope: generate blocker artifacts for Flutter and Android Native on IDs 016-020 due missing local toolchains, and for every variant of the 38 scaffold-only repos because no implementation evidence exists yet.
+  - Accounting requirement: reconcile all 215 Phase 13 variant slots (`43 apps x 5 variants`) so `scorecardCount + blockerCount == 215`.
+  - Harness: use the local `mobile-benchmark-harness` CLI if available, following the Phase 12 benchmark generator pattern; if unavailable, stop and record the blocker instead of inventing scores.
+  - Safety constraints: no GitHub Actions, no downstream source mutation, no proprietary assets, no provider claims, and no scores for blocked variants.
+  - Validation after generation: run `node scripts/generate-phase13-benchmarks.mjs`, `node scripts/verify-phase13-scaffold.mjs`, and planning repo `git diff --check`.
 
 - [ ] Step 13.8: Phase 13 final validation and cleanup
   - Verify acceptance criteria.

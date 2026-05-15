@@ -1,0 +1,2124 @@
+{
+  "generated": "2026-05-15",
+  "toolchains": {
+    "node": true,
+    "npm": true,
+    "swiftc": true,
+    "dart": false,
+    "flutter": false,
+    "kotlinc": false
+  },
+  "passedCommands": 63,
+  "failureCount": 0,
+  "blockerCount": 238,
+  "implementationBlockerCount": 152,
+  "results": [
+    {
+      "id": 16,
+      "app": "WhatsApp",
+      "repo": "GeorgeQLe/whatsapp-mobile-clone",
+      "repoPath": "/tmp/whatsapp-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "b5f51fb",
+      "implementationStatus": "implemented",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-phase13-whatsapp.mjs | validated HarborChat: conversations=2, messages=3, routes=12, blockers=7"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/app.test.mjs | HarborChat: conversations=2, messages=3, queued=1, blockers=7"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/app.test.mjs | HarborChat: conversations=2, messages=3, queued=1, blockers=7"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "HarborChat: conversations=2, messages=3, queued=1, blockers=7"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "app": "Telegram",
+      "repo": "GeorgeQLe/telegram-mobile-clone",
+      "repoPath": "/tmp/telegram-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "0d058ff",
+      "implementationStatus": "implemented",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-phase13-telegram.mjs | validated CloudCourier: folders=2, conversations=5, messages=4, routes=19, blockers=8"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/app.test.mjs | CloudCourier: folders=2, conversations=5, queued=1, secretBlocked=1, blockers=8"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/app.test.mjs | CloudCourier: folders=2, conversations=5, queued=1, secretBlocked=1, blockers=8"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "CloudCourier: folders=2, conversations=5, queued=1, secretBlocked=1, blockers=8"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "app": "Signal",
+      "repo": "GeorgeQLe/signal-mobile-clone",
+      "repoPath": "/tmp/signal-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "00929a0",
+      "implementationStatus": "implemented",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-phase13-signal.mjs | validated QuietSignal: surfaces=6, conversations=2, objects=5, routes=11, blockers=7"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/app.test.mjs | QuietSignal: surfaces=6, conversations=2, queued=1, blocked=4, routes=11"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/app.test.mjs | QuietSignal: surfaces=6, conversations=2, queued=1, blocked=4, routes=11"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "QuietSignal: surfaces=6, conversations=2, queued=1, blockers=7"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "app": "Discord",
+      "repo": "GeorgeQLe/discord-mobile-clone",
+      "repoPath": "/tmp/discord-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "5d4e18e",
+      "implementationStatus": "implemented",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-phase13-discord.mjs | validated GuildGarden: surfaces=6, conversations=2, objects=5, routes=12, blockers=7"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/app.test.mjs | GuildGarden: surfaces=6, conversations=2, queued=1, blocked=4, routes=12"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/app.test.mjs | GuildGarden: surfaces=6, conversations=2, queued=1, blocked=4, routes=12"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "GuildGarden: surfaces=6, conversations=2, queued=1, blockers=7"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "app": "Slack",
+      "repo": "GeorgeQLe/slack-mobile-clone",
+      "repoPath": "/tmp/slack-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "cbd23e9",
+      "implementationStatus": "implemented",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "pass",
+          "detail": "> node scripts/validate-phase13-slack.mjs | validated WorkHarbor: surfaces=6, conversations=2, objects=5, routes=13, blockers=7"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "pass",
+          "detail": "> node variants/react-native/app.test.mjs | WorkHarbor: surfaces=6, conversations=2, queued=1, blocked=4, routes=13"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "pass",
+          "detail": "> node variants/expo/app.test.mjs | WorkHarbor: surfaces=6, conversations=2, queued=1, blocked=4, routes=13"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "pass",
+          "detail": "WorkHarbor: surfaces=6, conversations=2, queued=1, blockers=7"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "app": "Messenger",
+      "repo": "GeorgeQLe/messenger-mobile-clone",
+      "repoPath": "/tmp/messenger-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "8803256",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "app": "FaceTime",
+      "repo": "GeorgeQLe/facetime-mobile-clone",
+      "repoPath": "/tmp/facetime-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "0b4cfe7",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "app": "Zoom",
+      "repo": "GeorgeQLe/zoom-mobile-clone",
+      "repoPath": "/tmp/zoom-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "be6d960",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "app": "Gmail",
+      "repo": "GeorgeQLe/gmail-mobile-clone",
+      "repoPath": "/tmp/gmail-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "6dd1196",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "app": "Outlook",
+      "repo": "GeorgeQLe/outlook-mobile-clone",
+      "repoPath": "/tmp/outlook-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "1037402",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 935,
+      "app": "Viber",
+      "repo": "GeorgeQLe/viber-mobile-clone",
+      "repoPath": "/tmp/viber-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "ec16f4f",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 936,
+      "app": "WeChat",
+      "repo": "GeorgeQLe/wechat-mobile-clone",
+      "repoPath": "/tmp/wechat-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "6080b33",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 937,
+      "app": "LINE",
+      "repo": "GeorgeQLe/line-mobile-clone",
+      "repoPath": "/tmp/line-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "7435e56",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 938,
+      "app": "KakaoTalk",
+      "repo": "GeorgeQLe/kakaotalk-mobile-clone",
+      "repoPath": "/tmp/kakaotalk-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "fba4eaa",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 939,
+      "app": "Skype",
+      "repo": "GeorgeQLe/skype-mobile-clone",
+      "repoPath": "/tmp/skype-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "f767a26",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 940,
+      "app": "Google Voice",
+      "repo": "GeorgeQLe/google-voice-mobile-clone",
+      "repoPath": "/tmp/google-voice-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "bd4b95e",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 941,
+      "app": "TextNow",
+      "repo": "GeorgeQLe/textnow-mobile-clone",
+      "repoPath": "/tmp/textnow-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "3ee141b",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 942,
+      "app": "TextFree",
+      "repo": "GeorgeQLe/textfree-mobile-clone",
+      "repoPath": "/tmp/textfree-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "260d3c4",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 943,
+      "app": "GroupMe",
+      "repo": "GeorgeQLe/groupme-mobile-clone",
+      "repoPath": "/tmp/groupme-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "76e7877",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 944,
+      "app": "Marco Polo",
+      "repo": "GeorgeQLe/marco-polo-mobile-clone",
+      "repoPath": "/tmp/marco-polo-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "39e8f1c",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 945,
+      "app": "Voxer",
+      "repo": "GeorgeQLe/voxer-mobile-clone",
+      "repoPath": "/tmp/voxer-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "d1edd6b",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 946,
+      "app": "Microsoft Teams",
+      "repo": "GeorgeQLe/microsoft-teams-mobile-clone",
+      "repoPath": "/tmp/microsoft-teams-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "ee742fc",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 947,
+      "app": "Cisco Webex",
+      "repo": "GeorgeQLe/cisco-webex-mobile-clone",
+      "repoPath": "/tmp/cisco-webex-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "bf9e665",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 948,
+      "app": "Google Meet",
+      "repo": "GeorgeQLe/google-meet-mobile-clone",
+      "repoPath": "/tmp/google-meet-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "14bac55",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 949,
+      "app": "GoTo",
+      "repo": "GeorgeQLe/goto-mobile-clone",
+      "repoPath": "/tmp/goto-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "b63e09c",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 950,
+      "app": "BlueJeans",
+      "repo": "GeorgeQLe/bluejeans-mobile-clone",
+      "repoPath": "/tmp/bluejeans-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "6a83555",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 951,
+      "app": "Jitsi Meet",
+      "repo": "GeorgeQLe/jitsi-meet-mobile-clone",
+      "repoPath": "/tmp/jitsi-meet-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "212f959",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 952,
+      "app": "Proton Mail",
+      "repo": "GeorgeQLe/proton-mail-mobile-clone",
+      "repoPath": "/tmp/proton-mail-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "630e98e",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 953,
+      "app": "Yahoo Mail",
+      "repo": "GeorgeQLe/yahoo-mail-mobile-clone",
+      "repoPath": "/tmp/yahoo-mail-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "f2b3d90",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 954,
+      "app": "AOL Mail",
+      "repo": "GeorgeQLe/aol-mail-mobile-clone",
+      "repoPath": "/tmp/aol-mail-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "13bb4c6",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 955,
+      "app": "Spark Mail",
+      "repo": "GeorgeQLe/spark-mail-mobile-clone",
+      "repoPath": "/tmp/spark-mail-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "7f9da56",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 956,
+      "app": "Edison Mail",
+      "repo": "GeorgeQLe/edison-mail-mobile-clone",
+      "repoPath": "/tmp/edison-mail-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "d10d02c",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 957,
+      "app": "BlueMail",
+      "repo": "GeorgeQLe/bluemail-mobile-clone",
+      "repoPath": "/tmp/bluemail-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "06c081c",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 958,
+      "app": "Canary Mail",
+      "repo": "GeorgeQLe/canary-mail-mobile-clone",
+      "repoPath": "/tmp/canary-mail-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "a022d84",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 959,
+      "app": "Fastmail",
+      "repo": "GeorgeQLe/fastmail-mobile-clone",
+      "repoPath": "/tmp/fastmail-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "8139c84",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 960,
+      "app": "HEY",
+      "repo": "GeorgeQLe/hey-mobile-clone",
+      "repoPath": "/tmp/hey-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "cc9c62a",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 961,
+      "app": "Tuta Mail",
+      "repo": "GeorgeQLe/tuta-mail-mobile-clone",
+      "repoPath": "/tmp/tuta-mail-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "cafceaa",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 962,
+      "app": "Zoho Mail",
+      "repo": "GeorgeQLe/zoho-mail-mobile-clone",
+      "repoPath": "/tmp/zoho-mail-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "84f4c68",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 963,
+      "app": "Spike",
+      "repo": "GeorgeQLe/spike-mobile-clone",
+      "repoPath": "/tmp/spike-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "e7da138",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 964,
+      "app": "Superhuman",
+      "repo": "GeorgeQLe/superhuman-mobile-clone",
+      "repoPath": "/tmp/superhuman-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "1975eab",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 965,
+      "app": "Shortwave",
+      "repo": "GeorgeQLe/shortwave-mobile-clone",
+      "repoPath": "/tmp/shortwave-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "288543d",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 966,
+      "app": "Clean Email",
+      "repo": "GeorgeQLe/clean-email-mobile-clone",
+      "repoPath": "/tmp/clean-email-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "24d66e5",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    },
+    {
+      "id": 967,
+      "app": "Unroll.Me",
+      "repo": "GeorgeQLe/unroll-me-mobile-clone",
+      "repoPath": "/tmp/unroll-me-mobile-clone",
+      "visibility": "PRIVATE",
+      "defaultBranch": "main",
+      "localBranch": "main",
+      "commit": "67192e5",
+      "implementationStatus": "scaffold-only",
+      "missing": [],
+      "commands": [
+        {
+          "name": "npm run validate",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:react-native",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "npm run test:expo",
+          "status": "blocker",
+          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+        },
+        {
+          "name": "swiftc iOS Native model",
+          "status": "blocker",
+          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+        },
+        {
+          "name": "Flutter runtime validation",
+          "status": "blocker",
+          "detail": "dart/flutter are not installed locally"
+        },
+        {
+          "name": "Android Native runtime validation",
+          "status": "blocker",
+          "detail": "kotlinc is not installed locally"
+        },
+        {
+          "name": "git diff --check",
+          "status": "pass",
+          "detail": "no whitespace errors"
+        }
+      ]
+    }
+  ]
+}
