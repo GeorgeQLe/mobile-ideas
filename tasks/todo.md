@@ -172,7 +172,7 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   - Local executable validation passed: downstream `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, downstream `git diff --check`, and final `node scripts/verify-phase13-scaffold.mjs` (`checked=43`, `repairedCount=0`, `failures=0`).
   - Flutter/Dart and Android Native/Kotlin runtime validation remain explicit local toolchain blockers; no GitHub Actions, proprietary assets, private APIs, production data, copied media, Telegram protocol parity claims, or audited secret-chat cryptography claims were introduced.
 
-- [ ] Step 13.5: Implement remaining Phase 13 apps in serial, risk-grouped batches
+- [x] Step 13.5: Implement remaining Phase 13 apps in serial, risk-grouped batches
   - Files: reconciled Phase 13 downstream repos.
   - Implement the next bounded batch of Phase 13 messaging apps across all five variants each.
   - Suggested batch: IDs 018-020 (`GeorgeQLe/signal-mobile-clone`, `GeorgeQLe/discord-mobile-clone`, `GeorgeQLe/slack-mobile-clone`) because they complete the original batch-01 messaging cluster after the WhatsApp and Telegram pilots while keeping the run small enough for serial PR/merge/validation.
@@ -187,9 +187,29 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   - Expected blockers: real account lifecycle, exact protocol/security guarantees, push notification delivery, contact discovery/address-book permissions, media capture, calls/voice, bot/integration providers, enterprise retention/export completion, data export/delete completion, real-device behavior, Flutter runtime validation when Dart/Flutter are missing, and Android Native runtime validation when Kotlin tooling is missing.
   - Git/PR flow: perform downstream writes serially on one non-primary branch per repo, open a PR, verify clean mergeability/privacy/default branch, squash-merge to downstream `main`, and record PR URLs plus merged commits in `tasks/history.md`. Do not enable, dispatch, or rely on GitHub Actions.
 
+  **Review (2026-05-15):**
+  - Implemented the bounded IDs 018-020 batch across all five variant directories in three downstream repos:
+    - `GeorgeQLe/signal-mobile-clone` as original `QuietSignal`, PR `https://github.com/GeorgeQLe/signal-mobile-clone/pull/2`, merged to `main` at commit `00929a0c`.
+    - `GeorgeQLe/discord-mobile-clone` as original `GuildGarden`, PR `https://github.com/GeorgeQLe/discord-mobile-clone/pull/2`, merged to `main` at commit `5d4e18ec`.
+    - `GeorgeQLe/slack-mobile-clone` as original `WorkHarbor`, PR `https://github.com/GeorgeQLe/slack-mobile-clone/pull/2`, merged to `main` at commit `cbd23e90`.
+  - Added `scripts/implement-phase13-step13-5.mjs` as the reproducible downstream batch generator.
+  - Remote verification confirmed all three touched repos remain `private` with default branch `main`.
+  - Local executable validation passed for each touched downstream repo: `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, downstream `git diff --check`, and staged `git diff --cached --check`.
+  - Planning validation passed: `node scripts/verify-phase13-scaffold.mjs` reported `checked=43`, `repairedCount=0`, and `failures=0`.
+  - Flutter/Dart and Android Native/Kotlin runtime validation remain explicit local toolchain blockers; no GitHub Actions, proprietary assets, private APIs, production data, copied media, audited E2EE claims, provider parity claims, enterprise parity claims, or public visibility changes were introduced.
+
 - [ ] Step 13.6: Validate all Phase 13 repos without GitHub Actions
   - Run local build, lint, type check, and tests where toolchains are available.
   - Record executable evidence and explicit blockers, including inherited Flutter/Android toolchain limits.
+  - Files: add a reproducible planning-repo validator script such as `scripts/validate-phase13-repos.mjs`; generate validation evidence under `tasks/phase-13-validation-report.md` and `tasks/scorecards/phase-13/validation-summary.json`; update `tasks/todo.md` and `tasks/history.md`.
+  - Scope: serially validate all 43 reconciled Phase 13 downstream repos from the App Inventory without GitHub Actions.
+  - Required preflight per repo: verify GitHub visibility remains `private`, default branch exists, root commit exists, source spec exists under `docs/source-specs/`, `README.md` exists, `docs/plans/README.md` exists, and all five variant directories plus shared fixture/contract directories exist.
+  - Required executable checks where scripts are present: `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run for each iOS Native main file when `swift` is available, and downstream `git diff --check`.
+  - Expected missing-implementation handling: repos not yet implemented beyond scaffold should be recorded as explicit implementation blockers, not counted as passing variant evidence.
+  - Expected toolchain blockers: keep Flutter/Dart and Android Native/Kotlin runtime validation blocked when local `dart`/`flutter` or `kotlinc` are unavailable; do not mark those variants passing without executable evidence.
+  - Output requirements: write a Markdown report with per-repo command results, blocker rows, checked commits, and aggregate counts; write a JSON summary with repo count, passed command count, failure count, blocker count, and checked commits.
+  - Safety constraints: no GitHub Actions, no downstream source repairs unless validation exposes a small deterministic validator bug that can be fixed in the same repo through a branch-backed PR; stop on privacy/public-visibility failure, auth/rate-limit failure, or unexpected command failure.
+  - Final validation after report generation: planning repo `git diff --check` and `node scripts/verify-phase13-scaffold.mjs`.
 
 - [ ] Step 13.7: Run benchmarking harness and record scorecards
   - Record scorecards and blocker artifacts under `tasks/scorecards/phase-13/`.

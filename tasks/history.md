@@ -1,5 +1,34 @@
 # History
 
+## 2026-05-15 - Phase 13 Step 13.5 Messaging Batch Implementation
+
+- Executed `$run` Step 13.5 for Signal, Discord, and Slack downstream repos without GitHub Actions.
+- Added `scripts/implement-phase13-step13-5.mjs` in this planning repo to make the bounded downstream batch reproducible.
+- Implemented original lawful prototypes across React Native, Expo, Flutter, iOS Native, and Android Native variant directories:
+  - `GeorgeQLe/signal-mobile-clone` as `QuietSignal`, PR `https://github.com/GeorgeQLe/signal-mobile-clone/pull/2`, merged to `main` at commit `00929a0c`.
+  - `GeorgeQLe/discord-mobile-clone` as `GuildGarden`, PR `https://github.com/GeorgeQLe/discord-mobile-clone/pull/2`, merged to `main` at commit `5d4e18ec`.
+  - `GeorgeQLe/slack-mobile-clone` as `WorkHarbor`, PR `https://github.com/GeorgeQLe/slack-mobile-clone/pull/2`, merged to `main` at commit `cbd23e90`.
+- Added downstream shared fixtures, API contracts, validation scripts, validation records, package scripts, JS variant tests, Flutter model stubs, Swift models, and Kotlin model stubs.
+- Covered Signal-style private messaging and safety-number blockers, Discord-style servers/channels/roles/moderation blockers, and Slack-style workspaces/threads/files/enterprise retention blockers with original product naming and synthetic data only.
+- Remote verification confirmed all three touched repos remain `private` with default branch `main`.
+- Local executable validation passed for all three touched repos: `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, downstream `git diff --check`, and staged `git diff --cached --check`.
+- Planning validation passed: `node scripts/verify-phase13-scaffold.mjs` reported `checked=43`, `repairedCount=0`, and `failures=0`.
+- Preserved blockers for signed-in production account lifecycle, exact protocol/security guarantees, push delivery, media/calling, provider integrations, enterprise retention/export completion, data export/delete completion, real-device behavior, Flutter runtime validation, and Android Native runtime validation.
+- No proprietary assets, private APIs, copied media, production data, public visibility changes, audited E2EE claims, provider parity claims, enterprise parity claims, or GitHub Actions were introduced.
+
+### Ship Manifest
+
+- User goal: execute Phase 13 Step 13.5 and implement Signal, Discord, and Slack-inspired lawful prototypes across all five downstream variants each.
+- Changed files: three downstream repos received shared fixtures/contracts, validation scripts/evidence, package scripts, and React Native/Expo/Flutter/iOS Native/Android Native variant files; this planning repo changed `scripts/implement-phase13-step13-5.mjs`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: downstream files provide original synthetic messaging/community/workplace collaboration surfaces and reproducible local checks; the generator preserves the batch implementation contract; task/history docs record evidence and next validation work.
+- User-goal mapping: satisfies Step 13.5 without proprietary app assets, brand claims, copied code/media, private APIs, production data, public visibility changes, audited E2EE claims, provider parity claims, enterprise parity claims, or GitHub Actions.
+- Tests run: downstream `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compilation/run, downstream `git diff --check`, staged downstream `git diff --cached --check`, remote privacy/default-branch verification, and planning repo `node scripts/verify-phase13-scaffold.mjs`.
+- Skipped tests: Flutter and Android Native runtime checks remain blocked by missing local Dart/Flutter and Kotlin toolchains; real account verification, contacts, push payloads, media capture, calls/voice, bot/integration providers, enterprise admin/retention/export, data export/delete, account recovery, and real-device parity require later provider/device/security review.
+- Adversarial review: implementations use original `QuietSignal`, `GuildGarden`, and `WorkHarbor` naming with synthetic fixtures, redacted notification previews, no raw message analytics, report/block or moderation routes, explicit security/provider/retention blockers, and no claims of audited cryptography or production provider parity.
+- Residual risk: variant code is a lightweight baseline, not production device builds; most Phase 13 repos remain scaffold-only until later implementation batches, and the next validation step must separate implemented passes from scaffold blockers.
+- Rollback note: revert downstream commits `00929a0c`, `5d4e18ec`, and `cbd23e90`, then revert this planning commit to reopen Step 13.5.
+- Next command: `$run`.
+
 ## 2026-05-15 - Phase 13 Step 13.4 Telegram Pilot Implementation
 
 - Executed `$run` Step 13.4 for `GeorgeQLe/telegram-mobile-clone` without GitHub Actions.
