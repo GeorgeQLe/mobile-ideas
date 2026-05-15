@@ -3664,3 +3664,36 @@
 - Residual risk: 33 Phase 13 repos remain scaffold-only; benchmark scores are local source-structure proxies and do not prove real device, provider, push-notification, accessibility, performance trace, security-review, or store-compliance parity.
 - Rollback note: revert this planning commit to reopen Step 13.9 evidence, and revert each downstream squash merge if the ID 021-025 generated implementation batch must be withdrawn.
 - Next command: `$run` for Step 13.10, implement IDs 935-940.
+
+## 2026-05-15 - Phase 13 Step 13.10 IDs 935-940 Implemented
+
+- Added `scripts/implement-phase13-step13-10.mjs` to generate the Phase 13 Step 13.10 downstream implementation batch.
+- Implemented six private downstream repos across React Native, Expo, Flutter, iOS Native, and Android Native variant directories with original product names, synthetic fixtures, local validators, and explicit provider/toolchain blockers:
+  - Viber as `PulseRibbon`: PR `https://github.com/GeorgeQLe/viber-mobile-clone/pull/2`, merged to `main` at `4d2714d`.
+  - WeChat as `PocketCommons`: PR `https://github.com/GeorgeQLe/wechat-mobile-clone/pull/2`, merged to `main` at `35a7fdb`.
+  - LINE as `StickerHarbor`: PR `https://github.com/GeorgeQLe/line-mobile-clone/pull/2`, merged to `main` at `5edf7dd`.
+  - KakaoTalk as `TalkMosaic`: PR `https://github.com/GeorgeQLe/kakaotalk-mobile-clone/pull/2`, merged to `main` at `0f115ff`.
+  - Skype as `CallAtlas`: PR `https://github.com/GeorgeQLe/skype-mobile-clone/pull/2`, merged to `main` at `06a6954`.
+  - Google Voice as `NumberNest`: PR `https://github.com/GeorgeQLe/google-voice-mobile-clone/pull/2`, merged to `main` at `faa4357`.
+- Remote verification confirmed every touched repo remains `PRIVATE`, non-empty, and on default branch `main`.
+- Per-repo local executable validation passed before merge: `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, downstream `git diff --check`, and staged `git diff --cached --check`.
+- Regenerated Phase 13 validation and benchmark evidence after the downstream merges:
+  - `node scripts/verify-phase13-scaffold.mjs`: `checked=43`, `repairedCount=0`, `failures=0`.
+  - `node scripts/validate-phase13-repos.mjs`: `repos=43`, `passedCommands=107`, `failureCount=0`, `blockerCount=194`, `implementationBlockerCount=108`.
+  - `node scripts/generate-phase13-benchmarks.mjs`: `scorecards=48`, `blockers=167`, `totalTargets=215`.
+- Phase 13 now has 16 implemented repos and 27 scaffold-only repos; Flutter/Dart and Android Native/Kotlin runtime validation remain blocked locally because `dart`, `flutter`, and `kotlinc` are unavailable.
+- Fixed the Phase 13 benchmark README generator so scaffold-only counts are data-driven instead of hard-coded from earlier Step 13.7 evidence.
+- No GitHub Actions were enabled, dispatched, or used. No proprietary assets, private APIs, production data, copied media, provider parity claims, audited E2EE/security claims, or public visibility changes were introduced.
+
+### Ship Manifest
+
+- User goal: execute Phase 13 Step 13.10 and implement the next Messaging & Email batch, IDs 935-940, across all five variants per repo.
+- Changed files: `scripts/implement-phase13-step13-10.mjs`, `scripts/generate-phase13-benchmarks.mjs`, regenerated `tasks/phase-13-validation-report.md`, regenerated Phase 13 scorecard JSON files, `tasks/scorecards/phase-13/README.md`, `tasks/scorecards/phase-13/summary.json`, `tasks/scorecards/phase-13/benchmark-blockers.json`, `tasks/scorecards/phase-13/validation-summary.json`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: generator preserves reproducible downstream code generation; benchmark generator now reports dynamic scaffold-only counts; validation report and summary capture all 43 repo checks; scorecards/blockers capture benchmark evidence for all 215 variant slots; task/history docs record completion, evidence, blockers, and the next batch plan.
+- User-goal mapping: completes Step 13.10 with serial branch-backed downstream PRs, local validation, private repo verification, and refreshed planning evidence.
+- Tests run: per touched downstream repo `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, `git diff --check`, and `git diff --cached --check`; planning repo `node --check scripts/implement-phase13-step13-10.mjs`; `node --check scripts/generate-phase13-benchmarks.mjs`; `node scripts/verify-phase13-scaffold.mjs`; `node scripts/validate-phase13-repos.mjs`; `node scripts/generate-phase13-benchmarks.mjs`; JSON accounting sanity check; `git diff --check`.
+- Skipped tests: no GitHub Actions were used by policy; Flutter and Android runtime checks remain blocked by missing `dart`/`flutter` and `kotlinc`; real account lifecycle, number provisioning, provider integrations, push delivery, real-device permissions, encryption/security review, telephony/payment/mini-program/sticker/enterprise providers, export/delete completion, and store/device parity remain manual or provider blockers.
+- Adversarial review: generator asserts original-branding and synthetic-fixture contracts, sets provider/audited-E2EE parity claims to false, writes validation records, requires reporting/export-delete routes, models regional/telephony/payment blockers explicitly, and downstream PR flow verified private visibility after each merge. Regenerated validators refuse public repos and record scaffold-only repos as blockers rather than passing evidence.
+- Residual risk: 27 Phase 13 repos remain scaffold-only; benchmark scores are local source-structure proxies and do not prove real device, provider, push-notification, accessibility, performance trace, security-review, regulatory, or store-compliance parity.
+- Rollback note: revert this planning commit to reopen Step 13.10 evidence, and revert each downstream squash merge if the ID 935-940 generated implementation batch must be withdrawn.
+- Next command: `$run` for Step 13.11, implement IDs 941-946.

@@ -195,6 +195,7 @@ const byImplementationStatus = validation.results.reduce((acc, result) => {
   acc[result.implementationStatus] = (acc[result.implementationStatus] ?? 0) + 1;
   return acc;
 }, {});
+const scaffoldOnlyCount = byImplementationStatus["scaffold-only"] ?? 0;
 
 const summary = {
   generatedAt: new Date().toISOString(),
@@ -273,9 +274,9 @@ ${rows}
 
 ## Notes
 
-- Scorecards are generated only for variants with Step 13.6 executable validation evidence.
+- Scorecards are generated only for variants with Phase 13 executable validation evidence.
 - Flutter and Android Native targets remain local-toolchain blocked and have blocker records instead of invented benchmark scores.
-- The 38 scaffold-only repos are represented as implementation blockers for every variant until implementation evidence exists.
+- The ${scaffoldOnlyCount} scaffold-only repos are represented as implementation blockers for every variant until implementation evidence exists.
 - The harness uses local source structure and available report files as conservative proxies when device, accessibility, or store-compliance reports are absent.
 - No GitHub Actions workflows were created, modified, enabled, dispatched, or used.
 `);

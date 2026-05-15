@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-15T03:33:07.384Z",
+  "generatedAt": "2026-05-15T04:18:22.770Z",
   "runId": "phase-13-local-2026-05-15",
   "category": "Messaging & Email",
   "harnessCli": "/tmp/mobile-benchmark-harness/dist/cli/index.js",
   "sourceValidationSummary": "tasks/scorecards/phase-13/validation-summary.json",
   "totalApps": 43,
   "byImplementationStatus": {
-    "implemented": 10,
-    "scaffold-only": 33
+    "implemented": 16,
+    "scaffold-only": 27
   },
   "variants": [
     "react-native",
@@ -17,25 +17,25 @@
     "android-native"
   ],
   "totalTargets": 215,
-  "scorecardCount": 30,
-  "blockerCount": 185,
+  "scorecardCount": 48,
+  "blockerCount": 167,
   "averageComposite": 5.3,
   "byVariant": {
     "react-native": {
-      "scorecards": 10,
-      "blockers": 33
+      "scorecards": 16,
+      "blockers": 27
     },
     "flutter": {
       "scorecards": 0,
       "blockers": 43
     },
     "expo": {
-      "scorecards": 10,
-      "blockers": 33
+      "scorecards": 16,
+      "blockers": 27
     },
     "ios-native": {
-      "scorecards": 10,
-      "blockers": 33
+      "scorecards": 16,
+      "blockers": 27
     },
     "android-native": {
       "scorecards": 0,
@@ -43,9 +43,9 @@
     }
   },
   "byReason": {
-    "missing-local-flutter-toolchain": 10,
-    "missing-local-android-toolchain": 10,
-    "implementation-not-started": 165
+    "missing-local-flutter-toolchain": 16,
+    "missing-local-android-toolchain": 16,
+    "implementation-not-started": 135
   },
   "scorecards": [
     {
@@ -307,6 +307,162 @@
         "detail": "FocusPost: surfaces=6, conversations=2, queued=1, blockers=7"
       },
       "file": "tasks/scorecards/phase-13/025-outlook-ios-native.json"
+    },
+    {
+      "appId": 935,
+      "appName": "Viber",
+      "repo": "GeorgeQLe/viber-mobile-clone",
+      "repoPath": "/tmp/viber-mobile-clone",
+      "commit": "4d2714d",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/viber-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/935-viber-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "PulseRibbon: surfaces=6, conversations=2, queued=1, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-13/935-viber-ios-native.json"
+    },
+    {
+      "appId": 936,
+      "appName": "WeChat",
+      "repo": "GeorgeQLe/wechat-mobile-clone",
+      "repoPath": "/tmp/wechat-mobile-clone",
+      "commit": "35a7fdb",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/wechat-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/936-wechat-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "PocketCommons: surfaces=6, conversations=2, queued=1, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-13/936-wechat-ios-native.json"
+    },
+    {
+      "appId": 937,
+      "appName": "LINE",
+      "repo": "GeorgeQLe/line-mobile-clone",
+      "repoPath": "/tmp/line-mobile-clone",
+      "commit": "5edf7dd",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/line-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/937-line-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "StickerHarbor: surfaces=6, conversations=2, queued=1, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-13/937-line-ios-native.json"
+    },
+    {
+      "appId": 938,
+      "appName": "KakaoTalk",
+      "repo": "GeorgeQLe/kakaotalk-mobile-clone",
+      "repoPath": "/tmp/kakaotalk-mobile-clone",
+      "commit": "0f115ff",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/kakaotalk-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/938-kakaotalk-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "TalkMosaic: surfaces=6, conversations=2, queued=1, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-13/938-kakaotalk-ios-native.json"
+    },
+    {
+      "appId": 939,
+      "appName": "Skype",
+      "repo": "GeorgeQLe/skype-mobile-clone",
+      "repoPath": "/tmp/skype-mobile-clone",
+      "commit": "06a6954",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/skype-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/939-skype-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "CallAtlas: surfaces=6, conversations=2, queued=1, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-13/939-skype-ios-native.json"
+    },
+    {
+      "appId": 940,
+      "appName": "Google Voice",
+      "repo": "GeorgeQLe/google-voice-mobile-clone",
+      "repoPath": "/tmp/google-voice-mobile-clone",
+      "commit": "faa4357",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/google-voice-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/940-google-voice-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "NumberNest: surfaces=6, conversations=2, queued=1, blockers=9"
+      },
+      "file": "tasks/scorecards/phase-13/940-google-voice-ios-native.json"
     },
     {
       "appId": 16,
@@ -827,6 +983,318 @@
         "detail": "> node variants/react-native/app.test.mjs | FocusPost: surfaces=6, conversations=2, queued=1, blocked=5, routes=14"
       },
       "file": "tasks/scorecards/phase-13/025-outlook-react-native.json"
+    },
+    {
+      "appId": 935,
+      "appName": "Viber",
+      "repo": "GeorgeQLe/viber-mobile-clone",
+      "repoPath": "/tmp/viber-mobile-clone",
+      "commit": "4d2714d",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/viber-mobile-clone --variant expo --output tasks/scorecards/phase-13/935-viber-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | PulseRibbon: surfaces=6, conversations=2, queued=1, blocked=6, routes=15"
+      },
+      "file": "tasks/scorecards/phase-13/935-viber-expo.json"
+    },
+    {
+      "appId": 935,
+      "appName": "Viber",
+      "repo": "GeorgeQLe/viber-mobile-clone",
+      "repoPath": "/tmp/viber-mobile-clone",
+      "commit": "4d2714d",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/viber-mobile-clone --variant react-native --output tasks/scorecards/phase-13/935-viber-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | PulseRibbon: surfaces=6, conversations=2, queued=1, blocked=6, routes=15"
+      },
+      "file": "tasks/scorecards/phase-13/935-viber-react-native.json"
+    },
+    {
+      "appId": 936,
+      "appName": "WeChat",
+      "repo": "GeorgeQLe/wechat-mobile-clone",
+      "repoPath": "/tmp/wechat-mobile-clone",
+      "commit": "35a7fdb",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/wechat-mobile-clone --variant expo --output tasks/scorecards/phase-13/936-wechat-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | PocketCommons: surfaces=6, conversations=2, queued=1, blocked=6, routes=15"
+      },
+      "file": "tasks/scorecards/phase-13/936-wechat-expo.json"
+    },
+    {
+      "appId": 936,
+      "appName": "WeChat",
+      "repo": "GeorgeQLe/wechat-mobile-clone",
+      "repoPath": "/tmp/wechat-mobile-clone",
+      "commit": "35a7fdb",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/wechat-mobile-clone --variant react-native --output tasks/scorecards/phase-13/936-wechat-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | PocketCommons: surfaces=6, conversations=2, queued=1, blocked=6, routes=15"
+      },
+      "file": "tasks/scorecards/phase-13/936-wechat-react-native.json"
+    },
+    {
+      "appId": 937,
+      "appName": "LINE",
+      "repo": "GeorgeQLe/line-mobile-clone",
+      "repoPath": "/tmp/line-mobile-clone",
+      "commit": "5edf7dd",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/line-mobile-clone --variant expo --output tasks/scorecards/phase-13/937-line-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | StickerHarbor: surfaces=6, conversations=2, queued=1, blocked=6, routes=15"
+      },
+      "file": "tasks/scorecards/phase-13/937-line-expo.json"
+    },
+    {
+      "appId": 937,
+      "appName": "LINE",
+      "repo": "GeorgeQLe/line-mobile-clone",
+      "repoPath": "/tmp/line-mobile-clone",
+      "commit": "5edf7dd",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/line-mobile-clone --variant react-native --output tasks/scorecards/phase-13/937-line-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | StickerHarbor: surfaces=6, conversations=2, queued=1, blocked=6, routes=15"
+      },
+      "file": "tasks/scorecards/phase-13/937-line-react-native.json"
+    },
+    {
+      "appId": 938,
+      "appName": "KakaoTalk",
+      "repo": "GeorgeQLe/kakaotalk-mobile-clone",
+      "repoPath": "/tmp/kakaotalk-mobile-clone",
+      "commit": "0f115ff",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/kakaotalk-mobile-clone --variant expo --output tasks/scorecards/phase-13/938-kakaotalk-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | TalkMosaic: surfaces=6, conversations=2, queued=1, blocked=6, routes=15"
+      },
+      "file": "tasks/scorecards/phase-13/938-kakaotalk-expo.json"
+    },
+    {
+      "appId": 938,
+      "appName": "KakaoTalk",
+      "repo": "GeorgeQLe/kakaotalk-mobile-clone",
+      "repoPath": "/tmp/kakaotalk-mobile-clone",
+      "commit": "0f115ff",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/kakaotalk-mobile-clone --variant react-native --output tasks/scorecards/phase-13/938-kakaotalk-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | TalkMosaic: surfaces=6, conversations=2, queued=1, blocked=6, routes=15"
+      },
+      "file": "tasks/scorecards/phase-13/938-kakaotalk-react-native.json"
+    },
+    {
+      "appId": 939,
+      "appName": "Skype",
+      "repo": "GeorgeQLe/skype-mobile-clone",
+      "repoPath": "/tmp/skype-mobile-clone",
+      "commit": "06a6954",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/skype-mobile-clone --variant expo --output tasks/scorecards/phase-13/939-skype-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | CallAtlas: surfaces=6, conversations=2, queued=1, blocked=6, routes=15"
+      },
+      "file": "tasks/scorecards/phase-13/939-skype-expo.json"
+    },
+    {
+      "appId": 939,
+      "appName": "Skype",
+      "repo": "GeorgeQLe/skype-mobile-clone",
+      "repoPath": "/tmp/skype-mobile-clone",
+      "commit": "06a6954",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/skype-mobile-clone --variant react-native --output tasks/scorecards/phase-13/939-skype-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | CallAtlas: surfaces=6, conversations=2, queued=1, blocked=6, routes=15"
+      },
+      "file": "tasks/scorecards/phase-13/939-skype-react-native.json"
+    },
+    {
+      "appId": 940,
+      "appName": "Google Voice",
+      "repo": "GeorgeQLe/google-voice-mobile-clone",
+      "repoPath": "/tmp/google-voice-mobile-clone",
+      "commit": "faa4357",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/google-voice-mobile-clone --variant expo --output tasks/scorecards/phase-13/940-google-voice-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | NumberNest: surfaces=6, conversations=2, queued=1, blocked=6, routes=15"
+      },
+      "file": "tasks/scorecards/phase-13/940-google-voice-expo.json"
+    },
+    {
+      "appId": 940,
+      "appName": "Google Voice",
+      "repo": "GeorgeQLe/google-voice-mobile-clone",
+      "repoPath": "/tmp/google-voice-mobile-clone",
+      "commit": "faa4357",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/google-voice-mobile-clone --variant react-native --output tasks/scorecards/phase-13/940-google-voice-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | NumberNest: surfaces=6, conversations=2, queued=1, blocked=6, routes=15"
+      },
+      "file": "tasks/scorecards/phase-13/940-google-voice-react-native.json"
     }
   ]
 }

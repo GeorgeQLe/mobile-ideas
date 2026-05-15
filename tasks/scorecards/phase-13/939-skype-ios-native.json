@@ -1,10 +1,10 @@
 {
   "meta": {
-    "appId": 20,
-    "appName": "Slack",
+    "appId": 939,
+    "appName": "Skype",
     "category": "Messaging & Email",
     "variant": "ios-native",
-    "timestamp": "2026-05-15T04:18:21.825Z",
+    "timestamp": "2026-05-15T04:18:22.674Z",
     "ciRunId": "phase-13-local-2026-05-15",
     "harnessVersion": "0.1.0"
   },
@@ -206,8 +206,8 @@
     }
   },
   "evidence": {
-    "appPath": "/tmp/slack-mobile-clone",
-    "variantPath": "/tmp/slack-mobile-clone/variants/ios-native",
+    "appPath": "/tmp/skype-mobile-clone",
+    "variantPath": "/tmp/skype-mobile-clone/variants/ios-native",
     "notes": [
       "No package manifest found for executable local validation.",
       "UX fidelity report missing; using source structure proxy.",

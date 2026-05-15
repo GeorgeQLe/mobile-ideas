@@ -1,10 +1,10 @@
 {
   "meta": {
-    "appId": 20,
-    "appName": "Slack",
+    "appId": 937,
+    "appName": "LINE",
     "category": "Messaging & Email",
-    "variant": "ios-native",
-    "timestamp": "2026-05-15T04:18:21.825Z",
+    "variant": "expo",
+    "timestamp": "2026-05-15T04:18:22.467Z",
     "ciRunId": "phase-13-local-2026-05-15",
     "harnessVersion": "0.1.0"
   },
@@ -53,7 +53,7 @@
       "metrics": {
         "ipaSizeMb": {
           "raw": 0,
-          "score": 0
+          "score": 100
         },
         "apkSizeMb": {
           "raw": 0,
@@ -65,7 +65,7 @@
         },
         "jsBundleSizeKb": {
           "raw": 0,
-          "score": 100
+          "score": 0
         },
         "nativeLibsSizeMb": {
           "raw": 0,
@@ -78,29 +78,29 @@
       }
     },
     "uxFidelity": {
-      "score": 2,
+      "score": 0,
       "weight": 0.25,
       "metrics": {
         "screenCoveragePercent": {
-          "raw": 2,
-          "score": 2
+          "raw": 0,
+          "score": 0
         },
         "interactionCoveragePercent": {
-          "raw": 2,
-          "score": 2
+          "raw": 0,
+          "score": 0
         },
         "edgeCaseCoveragePercent": {
-          "raw": 2,
-          "score": 2
+          "raw": 0,
+          "score": 0
         },
         "specCompliancePercent": {
-          "raw": 2,
-          "score": 2
+          "raw": 0,
+          "score": 0
         }
       }
     },
     "codeQuality": {
-      "score": 36,
+      "score": 0,
       "weight": 0.15,
       "metrics": {
         "lintScore": {
@@ -117,11 +117,11 @@
         },
         "cyclomaticComplexity": {
           "raw": 0,
-          "score": 100
+          "score": 0
         },
         "maintainabilityIndex": {
-          "raw": 80,
-          "score": 80
+          "raw": 0,
+          "score": 0
         }
       }
     },
@@ -193,7 +193,7 @@
     }
   },
   "composite": {
-    "score": 9.23,
+    "score": 3.33,
     "formula": "weighted-average",
     "weights": {
       "performance": 0.2,
@@ -206,8 +206,8 @@
     }
   },
   "evidence": {
-    "appPath": "/tmp/slack-mobile-clone",
-    "variantPath": "/tmp/slack-mobile-clone/variants/ios-native",
+    "appPath": "/tmp/line-mobile-clone",
+    "variantPath": "/tmp/line-mobile-clone/variants/expo",
     "notes": [
       "No package manifest found for executable local validation.",
       "UX fidelity report missing; using source structure proxy.",
