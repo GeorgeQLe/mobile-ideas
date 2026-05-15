@@ -3585,3 +3585,26 @@
 - Residual risk: 38 repos remain scaffold-only and cannot produce benchmark scorecards until implemented; benchmark scoring will be limited to locally executable variants from the 5 implemented repos.
 - Rollback note: revert this planning commit to remove the validator/report artifacts and reopen Step 13.6.
 - Next command: `$run` for Step 13.7, run the Phase 13 benchmarking harness and record scorecards/blockers.
+
+## 2026-05-15 - Phase 13 Step 13.7 Benchmark Scorecards Completed
+
+- Added `scripts/generate-phase13-benchmarks.mjs` to generate Phase 13 benchmark artifacts from the Step 13.6 validation summary.
+- Used the local `mobile-benchmark-harness` CLI at `/tmp/mobile-benchmark-harness/dist/cli/index.js`.
+- Generated 15 scorecards for locally benchmarkable React Native, Expo, and iOS Native variants across the five implemented Messaging & Email repos: WhatsApp, Telegram, Signal, Discord, and Slack.
+- Generated 200 blocker records: 5 Flutter local-toolchain blockers, 5 Android Native local-toolchain blockers, and 190 implementation-not-started blockers for the 38 scaffold-only repos.
+- Updated `tasks/scorecards/phase-13/README.md`, `tasks/scorecards/phase-13/summary.json`, and `tasks/scorecards/phase-13/benchmark-blockers.json`.
+- Reconciled benchmark accounting to all 215 Phase 13 variant slots.
+- No GitHub Actions were enabled, dispatched, or used. No downstream source code was changed.
+
+### Ship Manifest
+
+- User goal: execute Phase 13 Step 13.7 and record benchmark scorecards/blockers for all Messaging & Email variants.
+- Changed files: `scripts/generate-phase13-benchmarks.mjs`, generated Phase 13 scorecard JSON files, `tasks/scorecards/phase-13/README.md`, `tasks/scorecards/phase-13/summary.json`, `tasks/scorecards/phase-13/benchmark-blockers.json`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: generator preserves the benchmark contract; scorecards provide per-variant harness evidence; blocker records preserve scaffold-only and unavailable-toolchain status; task/history docs record completion and next work.
+- User-goal mapping: completes Step 13.7 without inventing scores for blocked variants, mutating downstream source, or using GitHub Actions.
+- Tests run: `node --check scripts/generate-phase13-benchmarks.mjs`; `node scripts/generate-phase13-benchmarks.mjs`; `node scripts/verify-phase13-scaffold.mjs`; JSON summary sanity check; `git diff --check`.
+- Skipped tests: downstream app validation was not rerun because Step 13.6 already produced the source validation evidence consumed here; Flutter and Android benchmarks remain blocked by missing local Dart/Flutter and Kotlin toolchains; 38 scaffold-only repos remain blocked because no implementation evidence exists.
+- Adversarial review: accounting asserts `scorecardCount + blockerCount == totalTargets`, refuses non-private validation rows, fails on missing local repo paths or benchmark command errors, and records implementation/toolchain blockers instead of creating synthetic scores.
+- Residual risk: benchmark scores are conservative source-structure proxies where device, accessibility, performance trace, push-notification, provider, security-review, and store-compliance reports are absent.
+- Rollback note: revert this planning commit to remove generated Phase 13 benchmark artifacts and reopen Step 13.7.
+- Next command: `$run` for Step 13.8, Phase 13 final validation and cleanup.

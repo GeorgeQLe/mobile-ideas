@@ -1,0 +1,442 @@
+{
+  "generatedAt": "2026-05-15T02:22:53.392Z",
+  "runId": "phase-13-local-2026-05-15",
+  "category": "Messaging & Email",
+  "harnessCli": "/tmp/mobile-benchmark-harness/dist/cli/index.js",
+  "sourceValidationSummary": "tasks/scorecards/phase-13/validation-summary.json",
+  "totalApps": 43,
+  "byImplementationStatus": {
+    "implemented": 5,
+    "scaffold-only": 38
+  },
+  "variants": [
+    "react-native",
+    "flutter",
+    "expo",
+    "ios-native",
+    "android-native"
+  ],
+  "totalTargets": 215,
+  "scorecardCount": 15,
+  "blockerCount": 200,
+  "averageComposite": 5.3,
+  "byVariant": {
+    "react-native": {
+      "scorecards": 5,
+      "blockers": 38
+    },
+    "flutter": {
+      "scorecards": 0,
+      "blockers": 43
+    },
+    "expo": {
+      "scorecards": 5,
+      "blockers": 38
+    },
+    "ios-native": {
+      "scorecards": 5,
+      "blockers": 38
+    },
+    "android-native": {
+      "scorecards": 0,
+      "blockers": 43
+    }
+  },
+  "byReason": {
+    "missing-local-flutter-toolchain": 5,
+    "missing-local-android-toolchain": 5,
+    "implementation-not-started": 190
+  },
+  "scorecards": [
+    {
+      "appId": 16,
+      "appName": "WhatsApp",
+      "repo": "GeorgeQLe/whatsapp-mobile-clone",
+      "repoPath": "/tmp/whatsapp-mobile-clone",
+      "commit": "b5f51fb",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/whatsapp-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/016-whatsapp-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "HarborChat: conversations=2, messages=3, queued=1, blockers=7"
+      },
+      "file": "tasks/scorecards/phase-13/016-whatsapp-ios-native.json"
+    },
+    {
+      "appId": 17,
+      "appName": "Telegram",
+      "repo": "GeorgeQLe/telegram-mobile-clone",
+      "repoPath": "/tmp/telegram-mobile-clone",
+      "commit": "0d058ff",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/telegram-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/017-telegram-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "CloudCourier: folders=2, conversations=5, queued=1, secretBlocked=1, blockers=8"
+      },
+      "file": "tasks/scorecards/phase-13/017-telegram-ios-native.json"
+    },
+    {
+      "appId": 18,
+      "appName": "Signal",
+      "repo": "GeorgeQLe/signal-mobile-clone",
+      "repoPath": "/tmp/signal-mobile-clone",
+      "commit": "00929a0",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/signal-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/018-signal-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "QuietSignal: surfaces=6, conversations=2, queued=1, blockers=7"
+      },
+      "file": "tasks/scorecards/phase-13/018-signal-ios-native.json"
+    },
+    {
+      "appId": 19,
+      "appName": "Discord",
+      "repo": "GeorgeQLe/discord-mobile-clone",
+      "repoPath": "/tmp/discord-mobile-clone",
+      "commit": "5d4e18e",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/discord-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/019-discord-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "GuildGarden: surfaces=6, conversations=2, queued=1, blockers=7"
+      },
+      "file": "tasks/scorecards/phase-13/019-discord-ios-native.json"
+    },
+    {
+      "appId": 20,
+      "appName": "Slack",
+      "repo": "GeorgeQLe/slack-mobile-clone",
+      "repoPath": "/tmp/slack-mobile-clone",
+      "commit": "cbd23e9",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/slack-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/020-slack-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "WorkHarbor: surfaces=6, conversations=2, queued=1, blockers=7"
+      },
+      "file": "tasks/scorecards/phase-13/020-slack-ios-native.json"
+    },
+    {
+      "appId": 16,
+      "appName": "WhatsApp",
+      "repo": "GeorgeQLe/whatsapp-mobile-clone",
+      "repoPath": "/tmp/whatsapp-mobile-clone",
+      "commit": "b5f51fb",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/whatsapp-mobile-clone --variant expo --output tasks/scorecards/phase-13/016-whatsapp-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | HarborChat: conversations=2, messages=3, queued=1, blockers=7"
+      },
+      "file": "tasks/scorecards/phase-13/016-whatsapp-expo.json"
+    },
+    {
+      "appId": 16,
+      "appName": "WhatsApp",
+      "repo": "GeorgeQLe/whatsapp-mobile-clone",
+      "repoPath": "/tmp/whatsapp-mobile-clone",
+      "commit": "b5f51fb",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/whatsapp-mobile-clone --variant react-native --output tasks/scorecards/phase-13/016-whatsapp-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | HarborChat: conversations=2, messages=3, queued=1, blockers=7"
+      },
+      "file": "tasks/scorecards/phase-13/016-whatsapp-react-native.json"
+    },
+    {
+      "appId": 17,
+      "appName": "Telegram",
+      "repo": "GeorgeQLe/telegram-mobile-clone",
+      "repoPath": "/tmp/telegram-mobile-clone",
+      "commit": "0d058ff",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/telegram-mobile-clone --variant expo --output tasks/scorecards/phase-13/017-telegram-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | CloudCourier: folders=2, conversations=5, queued=1, secretBlocked=1, blockers=8"
+      },
+      "file": "tasks/scorecards/phase-13/017-telegram-expo.json"
+    },
+    {
+      "appId": 17,
+      "appName": "Telegram",
+      "repo": "GeorgeQLe/telegram-mobile-clone",
+      "repoPath": "/tmp/telegram-mobile-clone",
+      "commit": "0d058ff",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/telegram-mobile-clone --variant react-native --output tasks/scorecards/phase-13/017-telegram-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | CloudCourier: folders=2, conversations=5, queued=1, secretBlocked=1, blockers=8"
+      },
+      "file": "tasks/scorecards/phase-13/017-telegram-react-native.json"
+    },
+    {
+      "appId": 18,
+      "appName": "Signal",
+      "repo": "GeorgeQLe/signal-mobile-clone",
+      "repoPath": "/tmp/signal-mobile-clone",
+      "commit": "00929a0",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/signal-mobile-clone --variant expo --output tasks/scorecards/phase-13/018-signal-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | QuietSignal: surfaces=6, conversations=2, queued=1, blocked=4, routes=11"
+      },
+      "file": "tasks/scorecards/phase-13/018-signal-expo.json"
+    },
+    {
+      "appId": 18,
+      "appName": "Signal",
+      "repo": "GeorgeQLe/signal-mobile-clone",
+      "repoPath": "/tmp/signal-mobile-clone",
+      "commit": "00929a0",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/signal-mobile-clone --variant react-native --output tasks/scorecards/phase-13/018-signal-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | QuietSignal: surfaces=6, conversations=2, queued=1, blocked=4, routes=11"
+      },
+      "file": "tasks/scorecards/phase-13/018-signal-react-native.json"
+    },
+    {
+      "appId": 19,
+      "appName": "Discord",
+      "repo": "GeorgeQLe/discord-mobile-clone",
+      "repoPath": "/tmp/discord-mobile-clone",
+      "commit": "5d4e18e",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/discord-mobile-clone --variant expo --output tasks/scorecards/phase-13/019-discord-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | GuildGarden: surfaces=6, conversations=2, queued=1, blocked=4, routes=12"
+      },
+      "file": "tasks/scorecards/phase-13/019-discord-expo.json"
+    },
+    {
+      "appId": 19,
+      "appName": "Discord",
+      "repo": "GeorgeQLe/discord-mobile-clone",
+      "repoPath": "/tmp/discord-mobile-clone",
+      "commit": "5d4e18e",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/discord-mobile-clone --variant react-native --output tasks/scorecards/phase-13/019-discord-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | GuildGarden: surfaces=6, conversations=2, queued=1, blocked=4, routes=12"
+      },
+      "file": "tasks/scorecards/phase-13/019-discord-react-native.json"
+    },
+    {
+      "appId": 20,
+      "appName": "Slack",
+      "repo": "GeorgeQLe/slack-mobile-clone",
+      "repoPath": "/tmp/slack-mobile-clone",
+      "commit": "cbd23e9",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/slack-mobile-clone --variant expo --output tasks/scorecards/phase-13/020-slack-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | WorkHarbor: surfaces=6, conversations=2, queued=1, blocked=4, routes=13"
+      },
+      "file": "tasks/scorecards/phase-13/020-slack-expo.json"
+    },
+    {
+      "appId": 20,
+      "appName": "Slack",
+      "repo": "GeorgeQLe/slack-mobile-clone",
+      "repoPath": "/tmp/slack-mobile-clone",
+      "commit": "cbd23e9",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/slack-mobile-clone --variant react-native --output tasks/scorecards/phase-13/020-slack-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | WorkHarbor: surfaces=6, conversations=2, queued=1, blocked=4, routes=13"
+      },
+      "file": "tasks/scorecards/phase-13/020-slack-react-native.json"
+    }
+  ]
+}

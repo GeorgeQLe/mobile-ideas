@@ -222,7 +222,7 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   - Fixed a deterministic validator bug during the run: iOS Swift detection now accepts the downstream single-file `main.swift` module layout used by the implemented pilots.
   - No GitHub Actions, downstream source repairs, public visibility changes, proprietary assets, private APIs, copied media, or production data were introduced.
 
-- [ ] Step 13.7: Run benchmarking harness and record scorecards
+- [x] Step 13.7: Run benchmarking harness and record scorecards
   - Record scorecards and blocker artifacts under `tasks/scorecards/phase-13/`.
   - Do not invent scores for blocked variants.
   - Files: add a reproducible benchmark generator such as `scripts/generate-phase13-benchmarks.mjs`; update `tasks/scorecards/phase-13/README.md`, `tasks/scorecards/phase-13/summary.json`, `tasks/scorecards/phase-13/benchmark-blockers.json`, `tasks/todo.md`, and `tasks/history.md`.
@@ -234,11 +234,34 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   - Safety constraints: no GitHub Actions, no downstream source mutation, no proprietary assets, no provider claims, and no scores for blocked variants.
   - Validation after generation: run `node scripts/generate-phase13-benchmarks.mjs`, `node scripts/verify-phase13-scaffold.mjs`, and planning repo `git diff --check`.
 
+  **Review (2026-05-15):**
+  - Added `scripts/generate-phase13-benchmarks.mjs` as the reproducible Phase 13 benchmark generator.
+  - Consumed `tasks/scorecards/phase-13/validation-summary.json`; downstream app validation was not rerun.
+  - Used the local `mobile-benchmark-harness` CLI at `/tmp/mobile-benchmark-harness/dist/cli/index.js`.
+  - Generated 15 scorecards for locally executable implemented variants: React Native, Expo, and iOS Native for IDs 016-020.
+  - Generated 200 blocker records: 5 Flutter local-toolchain blockers, 5 Android Native local-toolchain blockers, and 190 implementation-not-started blockers for the 38 scaffold-only repos.
+  - Reconciled all 215 Phase 13 variant slots so `scorecardCount + blockerCount == 215`.
+  - No GitHub Actions, downstream source mutation, proprietary assets, provider claims, public visibility changes, or invented scores were introduced.
+
 - [ ] Step 13.8: Phase 13 final validation and cleanup
   - Verify acceptance criteria.
   - Audit source/assets for legal hygiene and copied-brand risks.
   - Document manual verification blockers.
   - Mark Phase 13 complete only if validation and benchmark evidence are complete or explicitly approved for carry-forward.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Produce the final Phase 13 validation/cleanup record without changing downstream implementation code. Confirm whether the Messaging & Email phase can close with carry-forward blockers or must remain open for more implementation batches.
+
+  **Approach:**
+  1. Read this phase's acceptance criteria, `tasks/phase-13-validation-report.md`, `tasks/scorecards/phase-13/summary.json`, and `tasks/scorecards/phase-13/benchmark-blockers.json`.
+  2. Verify all generated benchmark and validation accounting still reconciles to 43 apps / 215 variants.
+  3. Audit the planning repo and implemented downstream evidence for legal hygiene: no GitHub Actions, proprietary assets, copied media, private APIs, production data, public visibility changes, provider parity claims, or audited E2EE/security claims.
+  4. Record unresolved blockers explicitly: 38 scaffold-only repos, missing local Dart/Flutter and Kotlin toolchains, real account lifecycle, provider integrations, push delivery, contact permissions, encryption/security parity review, export/delete completion, moderation/provider behavior, and real-device validation.
+  5. Decide whether Phase 13 can be marked complete with those blockers carried forward. If acceptance criteria require all 43 apps implemented, leave the phase open and document that Step 13.5 needs additional batches before closure.
+  6. Run final planning checks: `node scripts/generate-phase13-benchmarks.mjs`, `node scripts/verify-phase13-scaffold.mjs`, JSON summary sanity checks, and `git diff --check`.
+  7. Update `tasks/todo.md` and `tasks/history.md` with the final validation decision and next concrete work. Do not enable, dispatch, or rely on GitHub Actions.
 
 ### Reference
 
