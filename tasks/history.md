@@ -1,5 +1,31 @@
 # History
 
+## 2026-05-15 - Phase 13 Step 13.4 Telegram Pilot Implementation
+
+- Executed `$run` Step 13.4 for `GeorgeQLe/telegram-mobile-clone` without GitHub Actions.
+- Added `scripts/implement-phase13-step13-4.mjs` in this planning repo to make the downstream Telegram pilot implementation reproducible.
+- Implemented the original `CloudCourier` cloud-messaging prototype across React Native, Expo, Flutter, iOS Native, and Android Native variant directories.
+- Added downstream shared synthetic fixtures, API contracts, validation script, validation evidence, package scripts, JS variant tests, Flutter model stub, Swift model, and Kotlin model stub.
+- Covered cloud-synced conversations, folders, one-to-one chats, groups, channels, saved messages, secret-chat launch blockers, delivery/read state, attachments, message editing/deletion state, bots/provider blockers, calls/stories/premium stubs, privacy settings, report/block flows, offline queue state, notification redaction, and encryption-state metadata that distinguishes cloud chat from launch-blocked secret-chat parity.
+- Used branch-backed lane `phase13-telegram-pilot`, opened PR `https://github.com/GeorgeQLe/telegram-mobile-clone/pull/2`, and squash-merged to `main` at commit `0d058ffd`.
+- Remote verification confirmed downstream visibility remains `private` and default branch remains `main`.
+- Local executable validation passed: downstream `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, downstream `git diff --check`, and final `node scripts/verify-phase13-scaffold.mjs` (`checked=43`, `repairedCount=0`, `failures=0`).
+- Preserved blockers for real phone/account lifecycle, SMS verification, exact Telegram protocol/server behavior, secret-chat cryptography guarantees, push notification delivery, contact discovery/address-book permissions, bot platform integrations, calls/stories/premium/provider behavior, export/delete completion, real-device behavior, Flutter runtime validation, and Android Native runtime validation.
+- No proprietary assets, private APIs, copied media, production data, public visibility changes, raw message analytics, Telegram protocol parity claims, audited secret-chat claims, or GitHub Actions were introduced.
+
+### Ship Manifest
+
+- User goal: execute Phase 13 Step 13.4 and implement the Telegram-inspired lawful pilot across all five downstream variants.
+- Changed files: downstream `GeorgeQLe/telegram-mobile-clone` received shared fixtures/contracts, validation script/evidence, package scripts, and React Native/Expo/Flutter/iOS Native/Android Native variant files; this planning repo changed `scripts/implement-phase13-step13-4.mjs`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: downstream files provide original synthetic cloud-messaging surfaces and reproducible local checks; the generator preserves the pilot implementation contract; task/history docs record evidence and next work.
+- User-goal mapping: satisfies Step 13.4 without proprietary Telegram assets, brand claims, copied code/media, private APIs, production data, public visibility changes, real phone verification, provider integrations, Telegram protocol parity claims, audited secret-chat cryptography claims, or GitHub Actions.
+- Tests run: downstream `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compilation/run, downstream `git diff --check`, and planning repo `node scripts/verify-phase13-scaffold.mjs`.
+- Skipped tests: Flutter and Android Native runtime checks remain blocked by missing local Dart/Flutter and Kotlin toolchains; real phone/SMS verification, contacts, push payloads, media capture, calls, stories, bots, premium, data export/delete, account recovery, and real-device parity require later manual/provider access.
+- Adversarial review: implementation uses original `CloudCourier` naming and synthetic fixtures, redacts notification previews by default, rejects raw message analytics, requires report/block routes, keeps secret-chat parity launch-blocked, rejects Telegram protocol and audited cryptography claims, and records provider/toolchain/device blockers rather than claiming launch-ready parity.
+- Residual risk: variant code is a lightweight baseline, not production device builds; future steps still need real provider decisions, real cryptography/security review, native manifests, device testing, validation sweeps, and benchmark evidence.
+- Rollback note: revert downstream commit `0d058ffd`, then revert this planning commit to reopen Step 13.4.
+- Next command: `$run`.
+
 ## 2026-05-15 - Phase 13 Step 13.3 WhatsApp Pilot Implementation
 
 - Executed `$run` Step 13.3 for `GeorgeQLe/whatsapp-mobile-clone` without GitHub Actions.

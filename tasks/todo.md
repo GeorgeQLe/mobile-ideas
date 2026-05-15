@@ -154,7 +154,7 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   - Local executable validation passed: downstream `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, downstream `git diff --check`, planning repo `git diff --check`, and final `node scripts/verify-phase13-scaffold.mjs` (`checked=43`, `repairedCount=0`, `failures=0`).
   - Flutter/Dart and Android Native/Kotlin runtime validation remain explicit local toolchain blockers; no GitHub Actions, proprietary assets, private APIs, production data, copied media, or audited E2EE parity claims were introduced.
 
-- [ ] Step 13.4: Implement pilot messaging/email app 2 across all five variants
+- [x] Step 13.4: Implement pilot messaging/email app 2 across all five variants
   - Files: `GeorgeQLe/telegram-mobile-clone` downstream repo and planning docs in this repository (`tasks/todo.md`, `tasks/history.md`; add a reproducible implementation script only if repeated code generation is needed).
   - Pilot selection: Telegram is the next safest Phase 13 messaging pilot because it is ID 017, directly follows the WhatsApp pilot, has the canonical source spec at `specs/batch-01/017-telegram.md`, and Step 13.2/13.3 verification proved the downstream repo remains private and scaffold-complete.
   - Build an original lawful cloud-messaging prototype across React Native, Expo, Flutter, iOS Native, and Android Native variant directories using original product naming, synthetic fixtures, and public-source/inferred behavior only.
@@ -164,9 +164,28 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   - Expected blockers: real phone/account lifecycle, SMS verification, exact Telegram protocol/server behavior, secret-chat cryptography guarantees, push notification delivery, contact discovery/address-book permissions, bot platform integrations, calls/stories/premium/provider behavior, export/delete completion, real-device behavior, Flutter runtime validation when Dart/Flutter are missing, and Android Native runtime validation when Kotlin tooling is missing.
   - Git/PR flow: perform downstream writes serially on a non-primary branch, open a PR, verify privacy/default branch, merge to downstream `main`, and record the PR URL plus merged commit in `tasks/history.md`. Do not enable, dispatch, or rely on GitHub Actions.
 
+  **Review (2026-05-15):**
+  - Implemented the Telegram-inspired pilot as original `CloudCourier` in `GeorgeQLe/telegram-mobile-clone` across all five variant directories.
+  - Added `scripts/implement-phase13-step13-4.mjs` as the reproducible downstream implementation generator.
+  - Downstream PR `https://github.com/GeorgeQLe/telegram-mobile-clone/pull/2` was opened from non-primary branch `phase13-telegram-pilot` and squash-merged to `main` at commit `0d058ffd`.
+  - Remote verification confirmed downstream visibility remains `private` and default branch remains `main`.
+  - Local executable validation passed: downstream `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, downstream `git diff --check`, and final `node scripts/verify-phase13-scaffold.mjs` (`checked=43`, `repairedCount=0`, `failures=0`).
+  - Flutter/Dart and Android Native/Kotlin runtime validation remain explicit local toolchain blockers; no GitHub Actions, proprietary assets, private APIs, production data, copied media, Telegram protocol parity claims, or audited secret-chat cryptography claims were introduced.
+
 - [ ] Step 13.5: Implement remaining Phase 13 apps in serial, risk-grouped batches
   - Files: reconciled Phase 13 downstream repos.
-  - Implementation plan to be expanded after Step 13.1.
+  - Implement the next bounded batch of Phase 13 messaging apps across all five variants each.
+  - Suggested batch: IDs 018-020 (`GeorgeQLe/signal-mobile-clone`, `GeorgeQLe/discord-mobile-clone`, `GeorgeQLe/slack-mobile-clone`) because they complete the original batch-01 messaging cluster after the WhatsApp and Telegram pilots while keeping the run small enough for serial PR/merge/validation.
+  - For each repo, use original product naming and synthetic fixtures only; do not use proprietary branding, trademarks as app branding, copied media, private APIs, production data, or GitHub Actions.
+  - Required shared coverage across the batch: conversation/thread models, participant/member models, message lifecycle, delivery/read state, attachments, reporting/blocking/moderation, notification redaction, offline queue/cache state, privacy settings, account/export/delete blockers, and explicit encryption/security metadata that avoids unreviewed parity claims.
+  - Signal-specific coverage: private one-to-one/group messaging, safety-number/security-review metadata, disappearing messages, blocked sealed-sender/contact-discovery/provider parity, and explicit audited-E2EE blocker language.
+  - Discord-specific coverage: servers/guilds, channels, roles/permissions, voice/stage/community moderation stubs, safety/reporting, bot/integration blockers, and public/community-content moderation boundaries.
+  - Slack-specific coverage: workspaces, channels/DMs, enterprise retention/export controls, admin/compliance blockers, integrations/workflow blockers, and workplace privacy/audit boundaries.
+  - Required variant coverage per repo: shared JSON fixtures/contracts; React Native and Expo testable JS modules plus tests; Flutter model/main stub; Swift model/main stub; Kotlin model stub; downstream validation script and validation record.
+  - Validation per repo: `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run when available, downstream `git diff --check`, and remote privacy/default-branch verification after merge.
+  - Planning validation after the batch: planning repo `git diff --check` and `node scripts/verify-phase13-scaffold.mjs`.
+  - Expected blockers: real account lifecycle, exact protocol/security guarantees, push notification delivery, contact discovery/address-book permissions, media capture, calls/voice, bot/integration providers, enterprise retention/export completion, data export/delete completion, real-device behavior, Flutter runtime validation when Dart/Flutter are missing, and Android Native runtime validation when Kotlin tooling is missing.
+  - Git/PR flow: perform downstream writes serially on one non-primary branch per repo, open a PR, verify clean mergeability/privacy/default branch, squash-merge to downstream `main`, and record PR URLs plus merged commits in `tasks/history.md`. Do not enable, dispatch, or rely on GitHub Actions.
 
 - [ ] Step 13.6: Validate all Phase 13 repos without GitHub Actions
   - Run local build, lint, type check, and tests where toolchains are available.
