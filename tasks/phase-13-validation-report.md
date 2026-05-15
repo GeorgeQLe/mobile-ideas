@@ -5,12 +5,12 @@ Generated: 2026-05-15
 ## Summary
 
 - Repos checked: 43
-- Implemented repos with executable variant evidence: 38
-- Scaffold-only repos with implementation blockers: 5
-- Executable command passes: 195
+- Implemented repos with executable variant evidence: 43
+- Scaffold-only repos with implementation blockers: 0
+- Executable command passes: 215
 - Unexpected failures: 0
-- Explicit blockers: 106
-- Implementation blockers: 20
+- Explicit blockers: 86
+- Implementation blockers: 0
 - GitHub Actions used: no
 - Flutter/Dart toolchain: blocked locally
 - Android Kotlin toolchain: blocked locally
@@ -66,11 +66,11 @@ Generated: 2026-05-15
 | 960 | HEY | `GeorgeQLe/hey-mobile-clone` | `f9ab017` | PRIVATE | implemented | 5 pass | 2 |
 | 961 | Tuta Mail | `GeorgeQLe/tuta-mail-mobile-clone` | `476a998` | PRIVATE | implemented | 5 pass | 2 |
 | 962 | Zoho Mail | `GeorgeQLe/zoho-mail-mobile-clone` | `d004afd` | PRIVATE | implemented | 5 pass | 2 |
-| 963 | Spike | `GeorgeQLe/spike-mobile-clone` | `e7da138` | PRIVATE | scaffold-only | 1 pass | 6 |
-| 964 | Superhuman | `GeorgeQLe/superhuman-mobile-clone` | `1975eab` | PRIVATE | scaffold-only | 1 pass | 6 |
-| 965 | Shortwave | `GeorgeQLe/shortwave-mobile-clone` | `288543d` | PRIVATE | scaffold-only | 1 pass | 6 |
-| 966 | Clean Email | `GeorgeQLe/clean-email-mobile-clone` | `24d66e5` | PRIVATE | scaffold-only | 1 pass | 6 |
-| 967 | Unroll.Me | `GeorgeQLe/unroll-me-mobile-clone` | `67192e5` | PRIVATE | scaffold-only | 1 pass | 6 |
+| 963 | Spike | `GeorgeQLe/spike-mobile-clone` | `33d7383` | PRIVATE | implemented | 5 pass | 2 |
+| 964 | Superhuman | `GeorgeQLe/superhuman-mobile-clone` | `4fa7c01` | PRIVATE | implemented | 5 pass | 2 |
+| 965 | Shortwave | `GeorgeQLe/shortwave-mobile-clone` | `832e1ea` | PRIVATE | implemented | 5 pass | 2 |
+| 966 | Clean Email | `GeorgeQLe/clean-email-mobile-clone` | `6b73c5c` | PRIVATE | implemented | 5 pass | 2 |
+| 967 | Unroll.Me | `GeorgeQLe/unroll-me-mobile-clone` | `88f41c2` | PRIVATE | implemented | 5 pass | 2 |
 
 ## Command Evidence
 
@@ -686,14 +686,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/spike-mobile-clone`
 - Local path: `/tmp/spike-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `e7da138`
+- Branch: `main`; default branch: `main`; commit: `33d7383`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-spike.mjs | validated ThreadSpark: surfaces=6, threads=2, objects=10, routes=23, blockers=10
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | ThreadSpark: surfaces=6, threads=2, queued=1, blocked=9, routes=23
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | ThreadSpark: surfaces=6, threads=2, queued=1, blocked=9, routes=23
+- PASS: `swiftc iOS Native model` - ThreadSpark: surfaces=6, threads=2, queued=1, blockers=10
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors
@@ -702,14 +702,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/superhuman-mobile-clone`
 - Local path: `/tmp/superhuman-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `1975eab`
+- Branch: `main`; default branch: `main`; commit: `4fa7c01`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-superhuman.mjs | validated VelocityMail: surfaces=6, threads=2, objects=10, routes=25, blockers=10
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | VelocityMail: surfaces=6, threads=2, queued=1, blocked=9, routes=25
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | VelocityMail: surfaces=6, threads=2, queued=1, blocked=9, routes=25
+- PASS: `swiftc iOS Native model` - VelocityMail: surfaces=6, threads=2, queued=1, blockers=10
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors
@@ -718,14 +718,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/shortwave-mobile-clone`
 - Local path: `/tmp/shortwave-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `288543d`
+- Branch: `main`; default branch: `main`; commit: `832e1ea`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-shortwave.mjs | validated WaveDesk: surfaces=6, threads=2, objects=10, routes=22, blockers=10
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | WaveDesk: surfaces=6, threads=2, queued=1, blocked=9, routes=22
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | WaveDesk: surfaces=6, threads=2, queued=1, blocked=9, routes=22
+- PASS: `swiftc iOS Native model` - WaveDesk: surfaces=6, threads=2, queued=1, blockers=10
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors
@@ -734,14 +734,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/clean-email-mobile-clone`
 - Local path: `/tmp/clean-email-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `24d66e5`
+- Branch: `main`; default branch: `main`; commit: `6b73c5c`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-clean-email.mjs | validated InboxSweep: surfaces=6, threads=2, objects=10, routes=21, blockers=10
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | InboxSweep: surfaces=6, threads=2, queued=1, blocked=9, routes=21
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | InboxSweep: surfaces=6, threads=2, queued=1, blocked=9, routes=21
+- PASS: `swiftc iOS Native model` - InboxSweep: surfaces=6, threads=2, queued=1, blockers=10
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors
@@ -750,14 +750,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/unroll-me-mobile-clone`
 - Local path: `/tmp/unroll-me-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `67192e5`
+- Branch: `main`; default branch: `main`; commit: `88f41c2`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-unroll-me.mjs | validated DigestTidy: surfaces=6, threads=2, objects=10, routes=21, blockers=10
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | DigestTidy: surfaces=6, threads=2, queued=1, blocked=9, routes=21
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | DigestTidy: surfaces=6, threads=2, queued=1, blocked=9, routes=21
+- PASS: `swiftc iOS Native model` - DigestTidy: surfaces=6, threads=2, queued=1, blockers=10
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors

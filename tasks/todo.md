@@ -512,7 +512,7 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   - Phase 13 now has 38 implemented downstream repos and 5 scaffold-only downstream repos.
   - Flutter/Dart and Android Native/Kotlin runtime validation remain explicit local toolchain blockers; no GitHub Actions, proprietary assets, private APIs, production data, copied media, provider parity claims, audited E2EE/security claims, raw mailbox analytics, public visibility changes, or trademark branding were introduced.
 
-- [ ] Step 13.15: Implement final Phase 13 batch, IDs 963-967
+- [x] Step 13.15: Implement final Phase 13 batch, IDs 963-967
   - Files: downstream repos `GeorgeQLe/spike-mobile-clone`, `GeorgeQLe/superhuman-mobile-clone`, `GeorgeQLe/shortwave-mobile-clone`, `GeorgeQLe/clean-email-mobile-clone`, and `GeorgeQLe/unroll-me-mobile-clone`; planning docs in this repository (`tasks/todo.md`, `tasks/history.md`; add a reproducible implementation script only if repeated code generation is needed).
   - Batch selection: IDs 963-967 are the final scaffold-only Phase 13 email/productivity-mail apps after IDs 958-962, and completing them should satisfy the full 43-app implementation coverage criterion except explicit local/toolchain/provider blockers.
   - Build original lawful email/client prototypes across React Native, Expo, Flutter, iOS Native, and Android Native variant directories using original product naming, synthetic fixtures, and public-source/inferred behavior only.
@@ -535,6 +535,29 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   3. For each repo, create a non-primary implementation branch, run the generator, run local validation, commit, push, open a PR, squash-merge to `main`, and verify `visibility == PRIVATE` plus default branch `main`.
   4. After all five repos merge, rerun the Phase 13 scaffold verifier, validation sweep, benchmark generator, JSON accounting sanity checks, and planning repo whitespace checks.
   5. Update `tasks/todo.md` and `tasks/history.md` with PR URLs, merge commits, executable evidence, blocker rows, benchmark counts, and the Phase 13 final validation/cleanup recommendation.
+
+  **Review (2026-05-15):**
+  - Added `scripts/implement-phase13-step13-15.mjs` as the reproducible downstream generator for IDs 963-967.
+  - Implemented the final bounded IDs 963-967 email/productivity-mail batch across all five variant directories in five downstream repos:
+    - `GeorgeQLe/spike-mobile-clone` as original `ThreadSpark`, PR `https://github.com/GeorgeQLe/spike-mobile-clone/pull/2`, merged to `main` at commit `33d7383`.
+    - `GeorgeQLe/superhuman-mobile-clone` as original `VelocityMail`, PR `https://github.com/GeorgeQLe/superhuman-mobile-clone/pull/2`, merged to `main` at commit `4fa7c01`.
+    - `GeorgeQLe/shortwave-mobile-clone` as original `WaveDesk`, PR `https://github.com/GeorgeQLe/shortwave-mobile-clone/pull/2`, merged to `main` at commit `832e1ea`.
+    - `GeorgeQLe/clean-email-mobile-clone` as original `InboxSweep`, PR `https://github.com/GeorgeQLe/clean-email-mobile-clone/pull/2`, merged to `main` at commit `6b73c5c`.
+    - `GeorgeQLe/unroll-me-mobile-clone` as original `DigestTidy`, PR `https://github.com/GeorgeQLe/unroll-me-mobile-clone/pull/2`, merged to `main` at commit `88f41c2`.
+  - Remote verification confirmed all five touched repos remain `PRIVATE` with default branch `main`.
+  - Local executable validation passed for each touched downstream repo: generator validator, React Native test, Expo test, Swift compile/run, downstream `git diff --check`, and staged `git diff --cached --check`; the full Phase 13 validation sweep then passed the formal per-repo `npm run validate`, `npm run test:react-native`, and `npm run test:expo` checks across all implemented repos.
+  - Planning validation passed: `node scripts/verify-phase13-scaffold.mjs` reported `checked=43`, `repairedCount=0`, and `failures=0`; `node scripts/validate-phase13-repos.mjs` reported `repos=43`, `passedCommands=215`, `failureCount=0`, `blockerCount=86`, and `implementationBlockerCount=0`; `node scripts/generate-phase13-benchmarks.mjs` reported `scorecards=129`, `blockers=86`, and `totalTargets=215`.
+  - Phase 13 now has all 43 downstream repos implemented with executable React Native, Expo, and iOS Native evidence; Flutter/Dart and Android Native/Kotlin runtime validation remain explicit local toolchain blockers.
+  - No GitHub Actions, proprietary assets, private APIs, production data, copied media, provider parity claims, audited E2EE/security claims, raw mailbox analytics, public visibility changes, or trademark branding were introduced.
+
+- [ ] Step 13.16: Phase 13 closure validation and transition decision
+  - Files: `tasks/todo.md`, `tasks/roadmap.md`, `tasks/history.md`, `tasks/phases/phase-13.md`, `tasks/phase-13-validation-report.md`, `tasks/scorecards/phase-13/*`, and `tasks/manual-todo.md` if present.
+  - Verify Phase 13 acceptance criteria now that all 43 downstream repos have implementation evidence or explicit local/toolchain/provider blockers.
+  - Re-run or reuse current evidence for `node scripts/verify-phase13-scaffold.mjs`, `node scripts/validate-phase13-repos.mjs`, `node scripts/generate-phase13-benchmarks.mjs`, JSON accounting sanity checks, and planning repo `git diff --check`.
+  - Confirm benchmark accounting reconciles all 215 variant slots with 129 local scorecards and 86 explicit Flutter/Android local-toolchain blockers unless new evidence changes those counts.
+  - Audit legal/safety hygiene: no GitHub Actions, proprietary assets, private APIs, copied media, production data, provider parity claims, audited E2EE/security claims, raw mailbox analytics, public visibility changes, or trademark branding.
+  - If clean, mark the remaining Phase 13 acceptance criteria satisfied with carry-forward local toolchain/provider/manual blockers, archive this phase to `tasks/phases/phase-13.md`, update `tasks/roadmap.md`, and prepare Phase 14.
+  - If not clean, leave Phase 13 open with exact remediation steps and blockers.
 
 ### Reference
 

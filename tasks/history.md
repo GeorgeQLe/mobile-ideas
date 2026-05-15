@@ -3829,3 +3829,35 @@
 - Residual risk: 5 Phase 13 repos remain scaffold-only; benchmark scores are local source-structure proxies and do not prove real device, provider, push-notification, accessibility, performance trace, security-review, regulatory, privacy-review, or store-compliance parity.
 - Rollback note: revert this planning commit to reopen Step 13.14 evidence, and revert each downstream squash merge if the ID 958-962 generated implementation batch must be withdrawn.
 - Next command: `$run` for Step 13.15, implement IDs 963-967.
+
+## 2026-05-15 - Phase 13 Step 13.15 IDs 963-967 Implemented
+
+- Added `scripts/implement-phase13-step13-15.mjs` to generate the final Phase 13 downstream implementation batch.
+- Implemented five private downstream repos across React Native, Expo, Flutter, iOS Native, and Android Native variant directories with original product names, synthetic fixtures, local validators, committed validation records, and explicit provider/toolchain blockers:
+  - Spike as `ThreadSpark`: PR `https://github.com/GeorgeQLe/spike-mobile-clone/pull/2`, merged to `main` at `33d7383`.
+  - Superhuman as `VelocityMail`: PR `https://github.com/GeorgeQLe/superhuman-mobile-clone/pull/2`, merged to `main` at `4fa7c01`.
+  - Shortwave as `WaveDesk`: PR `https://github.com/GeorgeQLe/shortwave-mobile-clone/pull/2`, merged to `main` at `832e1ea`.
+  - Clean Email as `InboxSweep`: PR `https://github.com/GeorgeQLe/clean-email-mobile-clone/pull/2`, merged to `main` at `6b73c5c`.
+  - Unroll.Me as `DigestTidy`: PR `https://github.com/GeorgeQLe/unroll-me-mobile-clone/pull/2`, merged to `main` at `88f41c2`.
+- Remote verification confirmed every touched repo remains `PRIVATE`, non-empty, and on default branch `main`.
+- Per-repo local executable validation passed before merge: generator validator, React Native test, Expo test, Swift compile/run, downstream `git diff --check`, and staged `git diff --cached --check`.
+- Regenerated Phase 13 validation and benchmark evidence after the downstream merges:
+  - `node scripts/verify-phase13-scaffold.mjs`: `checked=43`, `repairedCount=0`, `failures=0`.
+  - `node scripts/validate-phase13-repos.mjs`: `repos=43`, `passedCommands=215`, `failureCount=0`, `blockerCount=86`, `implementationBlockerCount=0`.
+  - `node scripts/generate-phase13-benchmarks.mjs`: `scorecards=129`, `blockers=86`, `totalTargets=215`.
+  - JSON sanity check: 43 validation results, 43 implemented repos, 0 failures, 0 implementation blockers, 215 benchmark targets, 129 scorecards, and 86 blockers.
+- Phase 13 now has all 43 downstream repos implemented with executable React Native, Expo, and iOS Native evidence. Flutter/Dart and Android Native/Kotlin runtime validation remain blocked locally because `dart`, `flutter`, and `kotlinc` are unavailable.
+- No GitHub Actions were enabled, dispatched, or used. No proprietary assets, private APIs, production data, copied media, provider parity claims, audited E2EE/security claims, raw mailbox analytics, trademark branding, or public visibility changes were introduced.
+
+### Ship Manifest
+
+- User goal: execute Phase 13 Step 13.15 and implement the final Messaging & Email productivity/cleanup-mail batch, IDs 963-967, across all five variants per repo.
+- Changed files: `scripts/implement-phase13-step13-15.mjs`, regenerated `tasks/phase-13-validation-report.md`, regenerated Phase 13 scorecard JSON files, `tasks/scorecards/phase-13/README.md`, `tasks/scorecards/phase-13/summary.json`, `tasks/scorecards/phase-13/benchmark-blockers.json`, `tasks/scorecards/phase-13/validation-summary.json`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: generator preserves reproducible downstream code generation and validation-record creation; validation report and summary capture all 43 repo checks; scorecards/blockers capture benchmark evidence for all 215 variant slots; task/history docs record completion, evidence, blockers, and the Phase 13 closure plan.
+- User-goal mapping: completes Step 13.15 with serial branch-backed downstream PRs, local validation, committed validation records, private repo verification, and refreshed planning evidence for all Phase 13 repos.
+- Tests run: per touched downstream repo generator validator, React Native test, Expo test, Swift compile/run, `git diff --check`, and `git diff --cached --check`; formal full-sweep checks `npm run validate`, `npm run test:react-native`, and `npm run test:expo` for implemented repos via `node scripts/validate-phase13-repos.mjs`; planning repo `node --check scripts/implement-phase13-step13-15.mjs`; `node scripts/verify-phase13-scaffold.mjs`; `node scripts/validate-phase13-repos.mjs`; `node scripts/generate-phase13-benchmarks.mjs`; JSON accounting sanity check; `git diff --check`.
+- Skipped tests: no GitHub Actions were used by policy; Flutter and Android runtime checks remain blocked by missing `dart`/`flutter` and `kotlinc`; real account lifecycle, mailbox provider auth, IMAP/SMTP/OAuth integrations, exact AI/security/privacy guarantees, spam/phishing provider systems, push delivery, real-device permissions, unsubscribe/provider execution, batch cleanup provider actions, export/delete completion, account recovery, and store/device parity remain manual or provider blockers.
+- Adversarial review: generator asserts original-branding and synthetic-fixture contracts, sets provider/audited-E2EE parity claims to false, writes validation records, requires reporting/export-delete routes, models AI/provider/privacy/cleanup/unsubscribe blockers explicitly, and downstream PR flow verified private visibility after each merge. Regenerated validators now show 43 implemented repos and zero implementation blockers; benchmark accounting asserts `scorecardCount + blockerCount == totalTargets`.
+- Residual risk: benchmark scores are local source-structure proxies and do not prove real device, provider, push-notification, accessibility, performance trace, security-review, regulatory, privacy-review, unsubscribe execution, mailbox cleanup execution, or store-compliance parity.
+- Rollback note: revert this planning commit to reopen Step 13.15 evidence, and revert each downstream squash merge if the ID 963-967 generated implementation batch must be withdrawn.
+- Next command: `$run` for Step 13.16, perform Phase 13 closure validation and transition decision.

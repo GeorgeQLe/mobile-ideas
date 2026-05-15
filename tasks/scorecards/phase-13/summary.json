@@ -1,13 +1,12 @@
 {
-  "generatedAt": "2026-05-15T15:25:50.664Z",
+  "generatedAt": "2026-05-15T17:17:58.303Z",
   "runId": "phase-13-local-2026-05-15",
   "category": "Messaging & Email",
   "harnessCli": "/tmp/mobile-benchmark-harness/dist/cli/index.js",
   "sourceValidationSummary": "tasks/scorecards/phase-13/validation-summary.json",
   "totalApps": 43,
   "byImplementationStatus": {
-    "implemented": 38,
-    "scaffold-only": 5
+    "implemented": 43
   },
   "variants": [
     "react-native",
@@ -17,25 +16,25 @@
     "android-native"
   ],
   "totalTargets": 215,
-  "scorecardCount": 114,
-  "blockerCount": 101,
+  "scorecardCount": 129,
+  "blockerCount": 86,
   "averageComposite": 5.3,
   "byVariant": {
     "react-native": {
-      "scorecards": 38,
-      "blockers": 5
+      "scorecards": 43,
+      "blockers": 0
     },
     "flutter": {
       "scorecards": 0,
       "blockers": 43
     },
     "expo": {
-      "scorecards": 38,
-      "blockers": 5
+      "scorecards": 43,
+      "blockers": 0
     },
     "ios-native": {
-      "scorecards": 38,
-      "blockers": 5
+      "scorecards": 43,
+      "blockers": 0
     },
     "android-native": {
       "scorecards": 0,
@@ -43,9 +42,8 @@
     }
   },
   "byReason": {
-    "missing-local-flutter-toolchain": 38,
-    "missing-local-android-toolchain": 38,
-    "implementation-not-started": 25
+    "missing-local-flutter-toolchain": 43,
+    "missing-local-android-toolchain": 43
   },
   "scorecards": [
     {
@@ -1035,6 +1033,136 @@
         "detail": "WorkSuiteMail: surfaces=6, threads=2, queued=1, blockers=10"
       },
       "file": "tasks/scorecards/phase-13/962-zoho-mail-ios-native.json"
+    },
+    {
+      "appId": 963,
+      "appName": "Spike",
+      "repo": "GeorgeQLe/spike-mobile-clone",
+      "repoPath": "/tmp/spike-mobile-clone",
+      "commit": "33d7383",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/spike-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/963-spike-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "ThreadSpark: surfaces=6, threads=2, queued=1, blockers=10"
+      },
+      "file": "tasks/scorecards/phase-13/963-spike-ios-native.json"
+    },
+    {
+      "appId": 964,
+      "appName": "Superhuman",
+      "repo": "GeorgeQLe/superhuman-mobile-clone",
+      "repoPath": "/tmp/superhuman-mobile-clone",
+      "commit": "4fa7c01",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/superhuman-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/964-superhuman-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "VelocityMail: surfaces=6, threads=2, queued=1, blockers=10"
+      },
+      "file": "tasks/scorecards/phase-13/964-superhuman-ios-native.json"
+    },
+    {
+      "appId": 965,
+      "appName": "Shortwave",
+      "repo": "GeorgeQLe/shortwave-mobile-clone",
+      "repoPath": "/tmp/shortwave-mobile-clone",
+      "commit": "832e1ea",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/shortwave-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/965-shortwave-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "WaveDesk: surfaces=6, threads=2, queued=1, blockers=10"
+      },
+      "file": "tasks/scorecards/phase-13/965-shortwave-ios-native.json"
+    },
+    {
+      "appId": 966,
+      "appName": "Clean Email",
+      "repo": "GeorgeQLe/clean-email-mobile-clone",
+      "repoPath": "/tmp/clean-email-mobile-clone",
+      "commit": "6b73c5c",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/clean-email-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/966-clean-email-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "InboxSweep: surfaces=6, threads=2, queued=1, blockers=10"
+      },
+      "file": "tasks/scorecards/phase-13/966-clean-email-ios-native.json"
+    },
+    {
+      "appId": 967,
+      "appName": "Unroll.Me",
+      "repo": "GeorgeQLe/unroll-me-mobile-clone",
+      "repoPath": "/tmp/unroll-me-mobile-clone",
+      "commit": "88f41c2",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/unroll-me-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/967-unroll-me-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "DigestTidy: surfaces=6, threads=2, queued=1, blockers=10"
+      },
+      "file": "tasks/scorecards/phase-13/967-unroll-me-ios-native.json"
     },
     {
       "appId": 16,
@@ -3011,6 +3139,266 @@
         "detail": "> node variants/react-native/app.test.mjs | WorkSuiteMail: surfaces=6, threads=2, queued=1, blocked=9, routes=24"
       },
       "file": "tasks/scorecards/phase-13/962-zoho-mail-react-native.json"
+    },
+    {
+      "appId": 963,
+      "appName": "Spike",
+      "repo": "GeorgeQLe/spike-mobile-clone",
+      "repoPath": "/tmp/spike-mobile-clone",
+      "commit": "33d7383",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/spike-mobile-clone --variant expo --output tasks/scorecards/phase-13/963-spike-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | ThreadSpark: surfaces=6, threads=2, queued=1, blocked=9, routes=23"
+      },
+      "file": "tasks/scorecards/phase-13/963-spike-expo.json"
+    },
+    {
+      "appId": 963,
+      "appName": "Spike",
+      "repo": "GeorgeQLe/spike-mobile-clone",
+      "repoPath": "/tmp/spike-mobile-clone",
+      "commit": "33d7383",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/spike-mobile-clone --variant react-native --output tasks/scorecards/phase-13/963-spike-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | ThreadSpark: surfaces=6, threads=2, queued=1, blocked=9, routes=23"
+      },
+      "file": "tasks/scorecards/phase-13/963-spike-react-native.json"
+    },
+    {
+      "appId": 964,
+      "appName": "Superhuman",
+      "repo": "GeorgeQLe/superhuman-mobile-clone",
+      "repoPath": "/tmp/superhuman-mobile-clone",
+      "commit": "4fa7c01",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/superhuman-mobile-clone --variant expo --output tasks/scorecards/phase-13/964-superhuman-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | VelocityMail: surfaces=6, threads=2, queued=1, blocked=9, routes=25"
+      },
+      "file": "tasks/scorecards/phase-13/964-superhuman-expo.json"
+    },
+    {
+      "appId": 964,
+      "appName": "Superhuman",
+      "repo": "GeorgeQLe/superhuman-mobile-clone",
+      "repoPath": "/tmp/superhuman-mobile-clone",
+      "commit": "4fa7c01",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/superhuman-mobile-clone --variant react-native --output tasks/scorecards/phase-13/964-superhuman-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | VelocityMail: surfaces=6, threads=2, queued=1, blocked=9, routes=25"
+      },
+      "file": "tasks/scorecards/phase-13/964-superhuman-react-native.json"
+    },
+    {
+      "appId": 965,
+      "appName": "Shortwave",
+      "repo": "GeorgeQLe/shortwave-mobile-clone",
+      "repoPath": "/tmp/shortwave-mobile-clone",
+      "commit": "832e1ea",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/shortwave-mobile-clone --variant expo --output tasks/scorecards/phase-13/965-shortwave-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | WaveDesk: surfaces=6, threads=2, queued=1, blocked=9, routes=22"
+      },
+      "file": "tasks/scorecards/phase-13/965-shortwave-expo.json"
+    },
+    {
+      "appId": 965,
+      "appName": "Shortwave",
+      "repo": "GeorgeQLe/shortwave-mobile-clone",
+      "repoPath": "/tmp/shortwave-mobile-clone",
+      "commit": "832e1ea",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/shortwave-mobile-clone --variant react-native --output tasks/scorecards/phase-13/965-shortwave-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | WaveDesk: surfaces=6, threads=2, queued=1, blocked=9, routes=22"
+      },
+      "file": "tasks/scorecards/phase-13/965-shortwave-react-native.json"
+    },
+    {
+      "appId": 966,
+      "appName": "Clean Email",
+      "repo": "GeorgeQLe/clean-email-mobile-clone",
+      "repoPath": "/tmp/clean-email-mobile-clone",
+      "commit": "6b73c5c",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/clean-email-mobile-clone --variant expo --output tasks/scorecards/phase-13/966-clean-email-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | InboxSweep: surfaces=6, threads=2, queued=1, blocked=9, routes=21"
+      },
+      "file": "tasks/scorecards/phase-13/966-clean-email-expo.json"
+    },
+    {
+      "appId": 966,
+      "appName": "Clean Email",
+      "repo": "GeorgeQLe/clean-email-mobile-clone",
+      "repoPath": "/tmp/clean-email-mobile-clone",
+      "commit": "6b73c5c",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/clean-email-mobile-clone --variant react-native --output tasks/scorecards/phase-13/966-clean-email-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | InboxSweep: surfaces=6, threads=2, queued=1, blocked=9, routes=21"
+      },
+      "file": "tasks/scorecards/phase-13/966-clean-email-react-native.json"
+    },
+    {
+      "appId": 967,
+      "appName": "Unroll.Me",
+      "repo": "GeorgeQLe/unroll-me-mobile-clone",
+      "repoPath": "/tmp/unroll-me-mobile-clone",
+      "commit": "88f41c2",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/unroll-me-mobile-clone --variant expo --output tasks/scorecards/phase-13/967-unroll-me-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | DigestTidy: surfaces=6, threads=2, queued=1, blocked=9, routes=21"
+      },
+      "file": "tasks/scorecards/phase-13/967-unroll-me-expo.json"
+    },
+    {
+      "appId": 967,
+      "appName": "Unroll.Me",
+      "repo": "GeorgeQLe/unroll-me-mobile-clone",
+      "repoPath": "/tmp/unroll-me-mobile-clone",
+      "commit": "88f41c2",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/unroll-me-mobile-clone --variant react-native --output tasks/scorecards/phase-13/967-unroll-me-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | DigestTidy: surfaces=6, threads=2, queued=1, blocked=9, routes=21"
+      },
+      "file": "tasks/scorecards/phase-13/967-unroll-me-react-native.json"
     }
   ]
 }

@@ -1,13 +1,13 @@
 # Phase 13 Benchmark Scorecards
 
-Generated: 2026-05-15T15:25:50.664Z
+Generated: 2026-05-15T17:17:58.303Z
 Run ID: `phase-13-local-2026-05-15`
 
 ## Summary
 
 - Total benchmark targets: 215
-- Scorecards produced: 114
-- Blocker records produced: 101
+- Scorecards produced: 129
+- Blocker records produced: 86
 - Average composite across scored variants: 5.30
 - GitHub Actions used: no
 
@@ -15,26 +15,24 @@ Run ID: `phase-13-local-2026-05-15`
 
 | Status | Repos |
 | --- | ---: |
-| implemented | 38 |
-| scaffold-only | 5 |
+| implemented | 43 |
 
 ## Accounting By Variant
 
 | Variant | Scorecards | Blockers |
 | --- | ---: | ---: |
-| react-native | 38 | 5 |
+| react-native | 43 | 0 |
 | flutter | 0 | 43 |
-| expo | 38 | 5 |
-| ios-native | 38 | 5 |
+| expo | 43 | 0 |
+| ios-native | 43 | 0 |
 | android-native | 0 | 43 |
 
 ## Blockers By Reason
 
 | Reason | Count |
 | --- | ---: |
-| missing-local-flutter-toolchain | 38 |
-| missing-local-android-toolchain | 38 |
-| implementation-not-started | 25 |
+| missing-local-flutter-toolchain | 43 |
+| missing-local-android-toolchain | 43 |
 
 ## Scorecards
 
@@ -78,6 +76,11 @@ Run ID: `phase-13-local-2026-05-15`
 | 960 | HEY | ios-native | 9.23 | tasks/scorecards/phase-13/960-hey-ios-native.json |
 | 961 | Tuta Mail | ios-native | 9.23 | tasks/scorecards/phase-13/961-tuta-mail-ios-native.json |
 | 962 | Zoho Mail | ios-native | 9.23 | tasks/scorecards/phase-13/962-zoho-mail-ios-native.json |
+| 963 | Spike | ios-native | 9.23 | tasks/scorecards/phase-13/963-spike-ios-native.json |
+| 964 | Superhuman | ios-native | 9.23 | tasks/scorecards/phase-13/964-superhuman-ios-native.json |
+| 965 | Shortwave | ios-native | 9.23 | tasks/scorecards/phase-13/965-shortwave-ios-native.json |
+| 966 | Clean Email | ios-native | 9.23 | tasks/scorecards/phase-13/966-clean-email-ios-native.json |
+| 967 | Unroll.Me | ios-native | 9.23 | tasks/scorecards/phase-13/967-unroll-me-ios-native.json |
 | 016 | WhatsApp | expo | 3.33 | tasks/scorecards/phase-13/016-whatsapp-expo.json |
 | 016 | WhatsApp | react-native | 3.33 | tasks/scorecards/phase-13/016-whatsapp-react-native.json |
 | 017 | Telegram | expo | 3.33 | tasks/scorecards/phase-13/017-telegram-expo.json |
@@ -154,11 +157,21 @@ Run ID: `phase-13-local-2026-05-15`
 | 961 | Tuta Mail | react-native | 3.33 | tasks/scorecards/phase-13/961-tuta-mail-react-native.json |
 | 962 | Zoho Mail | expo | 3.33 | tasks/scorecards/phase-13/962-zoho-mail-expo.json |
 | 962 | Zoho Mail | react-native | 3.33 | tasks/scorecards/phase-13/962-zoho-mail-react-native.json |
+| 963 | Spike | expo | 3.33 | tasks/scorecards/phase-13/963-spike-expo.json |
+| 963 | Spike | react-native | 3.33 | tasks/scorecards/phase-13/963-spike-react-native.json |
+| 964 | Superhuman | expo | 3.33 | tasks/scorecards/phase-13/964-superhuman-expo.json |
+| 964 | Superhuman | react-native | 3.33 | tasks/scorecards/phase-13/964-superhuman-react-native.json |
+| 965 | Shortwave | expo | 3.33 | tasks/scorecards/phase-13/965-shortwave-expo.json |
+| 965 | Shortwave | react-native | 3.33 | tasks/scorecards/phase-13/965-shortwave-react-native.json |
+| 966 | Clean Email | expo | 3.33 | tasks/scorecards/phase-13/966-clean-email-expo.json |
+| 966 | Clean Email | react-native | 3.33 | tasks/scorecards/phase-13/966-clean-email-react-native.json |
+| 967 | Unroll.Me | expo | 3.33 | tasks/scorecards/phase-13/967-unroll-me-expo.json |
+| 967 | Unroll.Me | react-native | 3.33 | tasks/scorecards/phase-13/967-unroll-me-react-native.json |
 
 ## Notes
 
 - Scorecards are generated only for variants with Phase 13 executable validation evidence.
 - Flutter and Android Native targets remain local-toolchain blocked and have blocker records instead of invented benchmark scores.
-- The 5 scaffold-only repos are represented as implementation blockers for every variant until implementation evidence exists.
+- The 0 scaffold-only repos are represented as implementation blockers for every variant until implementation evidence exists.
 - The harness uses local source structure and available report files as conservative proxies when device, accessibility, or store-compliance reports are absent.
 - No GitHub Actions workflows were created, modified, enabled, dispatched, or used.
