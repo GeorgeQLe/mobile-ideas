@@ -135,7 +135,7 @@ Build all five variants for every app in the Video & Music Streaming cluster.
 | 336 | YouTube TV | Streaming video | `GeorgeQLe/youtube-tv-mobile-clone` | `specs/batch-17/336-youtube-tv.md` | licensed video/DRM-adjacent, CDN/provider, offline/download, ads/subscription, moderation/parental, real-device playback |
 | 337 | Sling TV | Streaming video | `GeorgeQLe/sling-tv-mobile-clone` | `specs/batch-17/337-sling-tv.md` | licensed video/DRM-adjacent, CDN/provider, offline/download, ads/subscription, moderation/parental, real-device playback |
 
-- [ ] Step 14.2: Prepare per-app downstream implementation lane plan
+- [x] Step 14.2: Prepare per-app downstream implementation lane plan
   - Files: `tasks/todo.md`, `tasks/history.md`, and downstream repo metadata only unless an implementation repo is selected for a separate lane.
   - Convert the 57-app inventory into serial or branch-backed implementation lanes that respect the `agent-team` profile.
   - Assign one repo per write lane, with non-primary branch names, owned paths, must-not-edit boundaries, validation commands, blocker artifact locations, and PR/consolidation gates.
@@ -154,6 +154,62 @@ Build all five variants for every app in the Video & Music Streaming cluster.
   3. Define each lane with `Repo`, `Branch`, `Owns`, `Must not edit`, validation commands, blocker artifact paths, and expected PR deliverables.
   4. Add a consolidation/PR review gate before any final validation or shipping.
   5. Keep GitHub Actions disabled; use local validation and benchmark/blocker artifacts only.
+
+#### Step 14.2 Review — 2026-05-15
+
+- Lane strategy: use one downstream repo per lane, never direct-to-primary implementation work, and require a branch, commit SHA, and PR URL before consolidation.
+- First tranche selection: start with lower-risk music/audio and podcast/audiobook apps whose licensed catalog behavior can be represented by synthetic fixtures and explicit provider blockers instead of real playback parity.
+- Consolidation gate: before merging any lane PR, verify private visibility, source-spec presence, local validation records, blocker artifacts, no workflow files, no proprietary assets, and no parity claims beyond scaffolded/synthetic behavior.
+- No downstream implementation code was mutated in this step. No GitHub Actions were enabled, dispatched, or used.
+
+#### Phase 14 Risk Groups
+
+| Group | Apps | Implementation Posture |
+|---|---|---|
+| Music/audio catalog and playback | Spotify, Apple Music, YouTube Music, SoundCloud, Shazam, Bandcamp, Deezer, TIDAL, Pandora, iHeartRadio, SiriusXM, TuneIn Radio, Amazon Music, Qobuz, Anghami | Synthetic catalog, player shell, queue/library/playlists, entitlement stubs, provider blockers for licensed audio, downloads, background playback, lyrics, ads/subscriptions, and device handoff. |
+| Podcasts and audiobooks | Audible, Pocket Casts | Synthetic feeds/books, chapter/episode playback shell, bookmarks/queue/download stubs, sync blockers, paid/catalog blockers, and real-device audio blockers. |
+| Creator and audio tools | Musixmatch, GarageBand, BandLab, Voloco, Smule, StarMaker, SoundHound, Sonos, Bose Music, JBL Portable, Endel, Brain.fm | Synthetic projects/sessions/device fixtures, permission and hardware blockers, provider blockers for recognition, device pairing, effects, wellness claims, and licensed content. |
+| Live/video platforms | YouTube, Twitch | Synthetic feeds/watch/live rooms, comments/chat/moderation, upload/live/provider blockers, monetization/ads blockers, supervised-account blockers, and copyright safety. |
+| Subscription streaming video | Netflix, Hulu, Disney+, Max, Peacock TV, Paramount+, Prime Video, Crunchyroll | Synthetic catalogs/profiles/playback shell, entitlement and parental stubs, DRM-adjacent/provider blockers, downloads/offline blockers, ads/subscription blockers, and real-device playback blockers. |
+| Ad-supported/free streaming | Tubi, Pluto TV, Roku, Fandango at Home, Vudu | Synthetic AVOD catalog/live-channel/rental fixtures, ad/provider blockers, entitlement blockers, DRM-adjacent blockers, and playback/device blockers. |
+| Curated/library/specialty streaming | Plex, MUBI, The Criterion Channel, Kanopy, Hoopla, Nebula, Curiosity Stream, Gaia, Dropout, BritBox, Acorn TV, YouTube TV, Sling TV | Synthetic libraries/channels/profiles, account/institution/provider blockers, tuner/live-TV/DRM blockers, downloads/offline blockers, and real-device playback blockers. |
+
+#### First Implementation Tranche Lane Packet
+
+| Lane | Repo | Branch | Owns | Must Not Edit | Validation | Blocker Artifacts | PR Deliverable |
+|---|---|---|---|---|---|---|---|
+| 14.3-A | `GeorgeQLe/pocket-casts-mobile-clone` | `phase14/pocket-casts-variant-scaffold` | `apps/`, `packages/`, `fixtures/`, `scripts/`, `tasks/`, `docs/implementation/`, `README.md`, package/config files needed for local variants | `docs/source-specs/071-pocket-casts.md`, `.github/`, repo visibility/settings, copied source spec text | `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run where present, `git diff --check` | `tasks/blockers/phase14-pocket-casts.md`, validation records under `tasks/validation/phase14/` | Branch pushed, PR opened, commit SHA recorded, no merge until consolidation review passes. |
+| 14.3-B | `GeorgeQLe/audible-mobile-clone` | `phase14/audible-variant-scaffold` | `apps/`, `packages/`, `fixtures/`, `scripts/`, `tasks/`, `docs/implementation/`, `README.md`, package/config files needed for local variants | `docs/source-specs/070-audible.md`, `.github/`, repo visibility/settings, copied source spec text | `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run where present, `git diff --check` | `tasks/blockers/phase14-audible.md`, validation records under `tasks/validation/phase14/` | Branch pushed, PR opened, commit SHA recorded, no merge until consolidation review passes. |
+| 14.3-C | `GeorgeQLe/bandcamp-mobile-clone` | `phase14/bandcamp-variant-scaffold` | `apps/`, `packages/`, `fixtures/`, `scripts/`, `tasks/`, `docs/implementation/`, `README.md`, package/config files needed for local variants | `docs/source-specs/271-bandcamp.md`, `.github/`, repo visibility/settings, copied source spec text | `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run where present, `git diff --check` | `tasks/blockers/phase14-bandcamp.md`, validation records under `tasks/validation/phase14/` | Branch pushed, PR opened, commit SHA recorded, no merge until consolidation review passes. |
+
+#### Consolidation Gate For Step 14.3
+
+- Verify each lane PR is branch-backed and targets the downstream repo primary branch only after review.
+- Confirm every lane repo remains `PRIVATE` and contains `README.md`, `docs/plans/README.md`, and the copied source spec under `docs/source-specs/`.
+- Confirm each lane adds no `.github/workflows` files and does not enable, dispatch, or rely on GitHub Actions.
+- Confirm implementation uses original product names and synthetic content only; no proprietary assets, logos, screenshots, copied media, paywalled data, private APIs, or production credentials.
+- Confirm provider/licensed-media/download/background-playback/subscription/real-device blockers are documented as blockers, not treated as passing parity.
+- Merge only after local validation evidence and blocker artifacts are present; record PR URLs, merge commits, validation output, residual blockers, and rollback notes in this planning repo.
+
+- [ ] Step 14.3: Execute first branch-backed Phase 14 implementation tranche
+  - Files: downstream repos `GeorgeQLe/pocket-casts-mobile-clone`, `GeorgeQLe/audible-mobile-clone`, and `GeorgeQLe/bandcamp-mobile-clone`; planning updates in `tasks/todo.md`, `tasks/history.md`, and any Phase 14 validation/scorecard artifacts created for the tranche.
+  - Use the Step 14.2 lane packet exactly: one repo per branch-backed lane, with no direct-to-primary downstream implementation work.
+  - Implement five local variants per selected repo where toolchains are available, with explicit blockers for unavailable Flutter/Android Native toolchains and provider/licensed-media/real-device behavior.
+  - Open PRs for every downstream lane and run the consolidation gate before merge.
+  - Preserve Draft 1 and licensed-media/provider blockers; do not claim implementation-ready parity.
+  - Do not enable, dispatch, or rely on GitHub Actions.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  The first three branch-backed Phase 14 downstream implementations, using lower-risk audio/podcast repos to validate the streaming cluster generator and evidence pattern before moving into higher-risk video/DRM-adjacent apps.
+
+  **Approach:**
+  1. For each lane, create the named non-primary branch in the downstream repo and keep implementation ownership within the lane's `Owns` paths.
+  2. Build synthetic fixtures, route contracts, app shells, local validators, variant directories, blocker artifacts, and validation records without copying proprietary assets or touching source-spec text.
+  3. Run local validation commands that exist in the downstream repo; record missing toolchains as explicit blockers rather than failures.
+  4. Push each lane branch, open a PR, and collect branch name, commit SHA, PR URL, validation evidence, and blocker summary.
+  5. Perform consolidation review, merge only clean PRs, verify private repo visibility and no workflow files, then update this planning repo with evidence and residual risks.
 
 ### Reference
 

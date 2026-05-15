@@ -3911,3 +3911,28 @@
 - Residual risk: downstream scaffold verification is metadata-level and does not prove implementation correctness, media playback behavior, provider integration, legal rights, real-device parity, accessibility, performance, or store compliance.
 - Rollback note: revert this planning commit to reopen Step 14.1 and restore the approximate Phase 14 task state.
 - Next command: `$run` for Step 14.2, prepare the per-app downstream implementation lane plan.
+
+## 2026-05-15 - Phase 14 Step 14.2 Downstream Lane Plan
+
+- Completed Phase 14 Step 14.2.
+- Converted the reconciled 57-app Video & Music Streaming inventory into risk groups covering music/audio catalogs, podcasts/audiobooks, creator and audio tools, live/video platforms, subscription streaming video, ad-supported/free streaming, and curated/library/specialty streaming.
+- Prepared the first branch-backed implementation tranche with three lower-risk downstream repos:
+  - `GeorgeQLe/pocket-casts-mobile-clone` on branch `phase14/pocket-casts-variant-scaffold`.
+  - `GeorgeQLe/audible-mobile-clone` on branch `phase14/audible-variant-scaffold`.
+  - `GeorgeQLe/bandcamp-mobile-clone` on branch `phase14/bandcamp-variant-scaffold`.
+- Defined owned paths, must-not-edit boundaries, local validation commands, blocker artifact paths, PR deliverables, and a consolidation gate for each lane.
+- Kept Draft 1, exact-source verification, provider, licensed-media, offline/download, background playback, subscription, hardware, and real-device blockers explicit.
+- No downstream implementation code was mutated. No GitHub Actions were enabled, dispatched, or used.
+
+### Ship Manifest
+
+- User goal: execute Phase 14 Step 14.2 and prepare a safe per-app downstream implementation lane plan before any streaming implementation work starts.
+- Changed files: `tasks/todo.md` and `tasks/history.md`.
+- Per-file purpose: active todo marks Step 14.2 complete, records risk groups, lane packets, consolidation gates, and Step 14.3's self-contained plan; history records completion evidence and shipping context.
+- User-goal mapping: turns the 57-app inventory into branch-backed work that respects the `agent-team` profile, one-repo-per-lane ownership, no direct-to-primary downstream implementation, no GitHub Actions, and explicit media/provider blockers.
+- Tests run: `git diff --check`; markdown sanity checks for Step 14.2 completion, Step 14.3 presence, three lane branches, and `.github/workflows` appearing only as a prohibited path in the Step 14.2 lane packet.
+- Skipped tests: no runtime app tests are relevant because this step only changes planning/evidence docs and does not mutate source code or downstream implementation repos; GitHub Actions are skipped by project policy.
+- Adversarial review: selected lower-risk audio/podcast repos first, required branch/PR/commit deliverables before consolidation, set must-not-edit boundaries around copied source specs and `.github/`, and preserved licensed-media/provider/real-device blockers instead of treating scaffold work as parity.
+- Residual risk: the lane plan has not yet proven downstream implementation correctness, branch push access, PR review outcome, local toolchain availability, media playback behavior, provider integration, legal rights, real-device parity, accessibility, performance, or store compliance.
+- Rollback note: revert this planning commit to reopen Step 14.2 and remove the Step 14.3 lane packet.
+- Next command: `$run` for Step 14.3, execute the first branch-backed Phase 14 implementation tranche.
