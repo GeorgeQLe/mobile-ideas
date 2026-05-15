@@ -136,7 +136,7 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   - Final read-only check passed with `checked=43`, `repairedCount=0`, and `failures=0`.
   - Downstream merge commits recorded in `tasks/history.md`; no Flutter/Android runtime blockers were resolved because this was scaffold-only.
 
-- [ ] Step 13.3: Implement pilot messaging app 1 across all five variants
+- [x] Step 13.3: Implement pilot messaging app 1 across all five variants
   - Files: `GeorgeQLe/whatsapp-mobile-clone` downstream repo and planning docs in this repository (`tasks/todo.md`, `tasks/history.md`; add a reproducible implementation script only if repeated code generation is needed).
   - Pilot selection: WhatsApp is the safest first messaging pilot because it is ID 016, has the canonical messaging source spec at `specs/batch-01/016-whatsapp.md`, and Step 13.2 proved the downstream repo has all five variant directories and shared scaffold.
   - Build an original lawful messaging prototype across React Native, Expo, Flutter, iOS Native, and Android Native variant directories using original product naming, synthetic fixtures, and public-source/inferred behavior only.
@@ -146,9 +146,23 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   - Expected blockers: real account lifecycle, phone-number/SMS verification, exact E2EE protocol guarantees, push notification delivery, contact discovery/address-book permissions, media capture, backup provider integration, export/delete completion, real-device behavior, Flutter runtime validation when Dart/Flutter are missing, and Android Native runtime validation when Kotlin tooling is missing.
   - Git/PR flow: perform downstream writes serially on a non-primary branch, open a PR, verify privacy/default branch, merge to downstream `main`, and record the PR URL plus merged commit in `tasks/history.md`. Do not enable, dispatch, or rely on GitHub Actions.
 
+  **Review (2026-05-15):**
+  - Implemented the WhatsApp-inspired pilot as original `HarborChat` in `GeorgeQLe/whatsapp-mobile-clone` across all five variant directories.
+  - Added `scripts/implement-phase13-step13-3.mjs` as the reproducible downstream implementation generator.
+  - Downstream PR `https://github.com/GeorgeQLe/whatsapp-mobile-clone/pull/2` was opened from non-primary branch `phase13-whatsapp-pilot` and squash-merged to `main` at commit `b5f51fb`.
+  - Remote verification confirmed downstream visibility remains `private` and default branch remains `main`.
+  - Local executable validation passed: downstream `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, downstream `git diff --check`, planning repo `git diff --check`, and final `node scripts/verify-phase13-scaffold.mjs` (`checked=43`, `repairedCount=0`, `failures=0`).
+  - Flutter/Dart and Android Native/Kotlin runtime validation remain explicit local toolchain blockers; no GitHub Actions, proprietary assets, private APIs, production data, copied media, or audited E2EE parity claims were introduced.
+
 - [ ] Step 13.4: Implement pilot messaging/email app 2 across all five variants
-  - Files: second reconciled pilot downstream repo.
-  - Implementation plan to be expanded after Step 13.1.
+  - Files: `GeorgeQLe/telegram-mobile-clone` downstream repo and planning docs in this repository (`tasks/todo.md`, `tasks/history.md`; add a reproducible implementation script only if repeated code generation is needed).
+  - Pilot selection: Telegram is the next safest Phase 13 messaging pilot because it is ID 017, directly follows the WhatsApp pilot, has the canonical source spec at `specs/batch-01/017-telegram.md`, and Step 13.2/13.3 verification proved the downstream repo remains private and scaffold-complete.
+  - Build an original lawful cloud-messaging prototype across React Native, Expo, Flutter, iOS Native, and Android Native variant directories using original product naming, synthetic fixtures, and public-source/inferred behavior only.
+  - Required shared model coverage: cloud-synced conversations, one-to-one chats, groups, channels, secret-chat constraints, delivery/read state, attachments, message editing/deletion, saved messages, bots/provider blockers, calls/stories/premium stubs, privacy settings, report/block flows, offline cache state, notification stubs, and encryption-state metadata that distinguishes cloud chat from launch-blocked secret-chat parity.
+  - Required variant coverage: shared JSON fixtures/contracts; React Native and Expo testable JS modules plus tests; Flutter model/main stub; Swift model/main stub; Kotlin model stub; downstream validation script and validation record.
+  - Validation: run downstream `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run when available, downstream `git diff --check`, planning repo `git diff --check`, and `node scripts/verify-phase13-scaffold.mjs` after merge.
+  - Expected blockers: real phone/account lifecycle, SMS verification, exact Telegram protocol/server behavior, secret-chat cryptography guarantees, push notification delivery, contact discovery/address-book permissions, bot platform integrations, calls/stories/premium/provider behavior, export/delete completion, real-device behavior, Flutter runtime validation when Dart/Flutter are missing, and Android Native runtime validation when Kotlin tooling is missing.
+  - Git/PR flow: perform downstream writes serially on a non-primary branch, open a PR, verify privacy/default branch, merge to downstream `main`, and record the PR URL plus merged commit in `tasks/history.md`. Do not enable, dispatch, or rely on GitHub Actions.
 
 - [ ] Step 13.5: Implement remaining Phase 13 apps in serial, risk-grouped batches
   - Files: reconciled Phase 13 downstream repos.

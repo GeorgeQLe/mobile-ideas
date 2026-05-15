@@ -1,5 +1,31 @@
 # History
 
+## 2026-05-15 - Phase 13 Step 13.3 WhatsApp Pilot Implementation
+
+- Executed `$run` Step 13.3 for `GeorgeQLe/whatsapp-mobile-clone` without GitHub Actions.
+- Added `scripts/implement-phase13-step13-3.mjs` in this planning repo to make the downstream pilot implementation reproducible.
+- Implemented the original `HarborChat` private-messaging prototype across React Native, Expo, Flutter, iOS Native, and Android Native variant directories.
+- Added downstream shared synthetic fixtures, API contracts, validation script, validation evidence, package scripts, JS variant tests, Flutter model stub, Swift model, and Kotlin model stub.
+- Covered conversations, participants, message lifecycle, delivery/read receipts, attachments, disappearing-message settings, backup/export/delete blockers, reporting/blocking, contact safety, offline queue state, notification redaction, and encryption-state metadata that avoids audited end-to-end-encryption claims.
+- Used branch-backed lane `phase13-whatsapp-pilot`, opened PR `https://github.com/GeorgeQLe/whatsapp-mobile-clone/pull/2`, and squash-merged to `main` at commit `b5f51fb`.
+- Remote verification confirmed downstream visibility remains `private` and default branch remains `main`.
+- Local executable validation passed: downstream `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, downstream `git diff --check`, planning repo `git diff --check`, and final `node scripts/verify-phase13-scaffold.mjs` (`checked=43`, `repairedCount=0`, `failures=0`).
+- Preserved blockers for real phone/account lifecycle, SMS verification, exact E2EE protocol guarantees, push notification delivery, contact discovery/address-book permissions, media capture, backup provider integration, export/delete completion, real-device behavior, Flutter runtime validation, and Android Native runtime validation.
+- No proprietary assets, private APIs, copied media, production data, public visibility changes, raw message analytics, or GitHub Actions were introduced.
+
+### Ship Manifest
+
+- User goal: execute Phase 13 Step 13.3 and implement the WhatsApp-inspired lawful pilot across all five downstream variants.
+- Changed files: downstream `GeorgeQLe/whatsapp-mobile-clone` received shared fixtures/contracts, validation script/evidence, package scripts, and React Native/Expo/Flutter/iOS Native/Android Native variant files; this planning repo changed `scripts/implement-phase13-step13-3.mjs`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: downstream files provide original synthetic private-messaging surfaces and reproducible local checks; the generator preserves the pilot implementation contract; task/history docs record evidence and next work.
+- User-goal mapping: satisfies Step 13.3 without proprietary WhatsApp assets, brand claims, copied code/media, private APIs, production data, public visibility changes, real phone verification, provider integrations, audited E2EE claims, or GitHub Actions.
+- Tests run: downstream `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compilation/run, downstream `git diff --check`, planning repo `git diff --check`, and planning repo `node scripts/verify-phase13-scaffold.mjs`.
+- Skipped tests: Flutter and Android Native runtime checks remain blocked by missing local Dart/Flutter and Kotlin toolchains; real phone/SMS verification, contacts, push payloads, media capture, backup/restore, linked devices, data export/delete, account recovery, and real-device parity require later manual/provider access.
+- Adversarial review: implementation uses original `HarborChat` naming and synthetic fixtures, redacts notification previews by default, rejects raw message analytics, requires report/block routes, models encryption as an unaudited design goal, and records provider/toolchain/device blockers rather than claiming launch-ready parity.
+- Residual risk: variant code is a lightweight baseline, not production device builds; future steps still need real provider decisions, real cryptography/security review, native manifests, device testing, validation sweeps, and benchmark evidence.
+- Rollback note: revert downstream commit `b5f51fb`, then revert this planning commit to reopen Step 13.3.
+- Next command: `$run`.
+
 ## 2026-05-15 - Phase 13 Step 13.2 Multi-Variant Scaffold Repair
 
 - Executed `$run` Step 13.2 for all 43 Messaging & Email downstream repos without GitHub Actions.
