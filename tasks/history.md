@@ -3886,3 +3886,28 @@
 - Residual risk: benchmark scores remain local source-structure proxies; Phase 14 inventory still needs exact reconciliation before implementation starts.
 - Rollback note: revert this planning commit to reopen Phase 13 Step 13.16 and restore the Phase 13 active todo.
 - Next command: `$run` for Phase 14 Step 14.1 inventory reconciliation.
+
+## 2026-05-15 - Phase 14 Step 14.1 Inventory Reconciliation
+
+- Completed Phase 14 Step 14.1.
+- Reconciled the Video & Music Streaming cluster to 57 apps, replacing the roadmap's approximate 53-app estimate:
+  - IDs 066-074: early music/audio, audiobook, podcast, streaming video, video platform, and live-streaming apps.
+  - IDs 270-292: music and audio apps.
+  - IDs 313-337: streaming video apps.
+- Verified all 57 source spec paths exist and all matching `tasks/repo-seeding.md` manifest rows are checked.
+- Read-only GitHub GraphQL metadata checks confirmed every Phase 14 downstream repo remains `PRIVATE`, has default branch `main` with a root commit, contains `README.md`, contains `docs/plans/README.md`, and contains the matching copied source spec under `docs/source-specs/`.
+- Updated `tasks/todo.md`, `tasks/roadmap.md`, and `tasks/repo-seeding.md` with the exact count, inventory evidence, readiness status, and blocker carry-forward.
+- No downstream implementation code was mutated. No GitHub Actions were enabled, dispatched, or used.
+
+### Ship Manifest
+
+- User goal: execute Phase 14 Step 14.1 and establish the exact Video & Music Streaming inventory and downstream readiness before implementation starts.
+- Changed files: `tasks/todo.md`, `tasks/roadmap.md`, `tasks/repo-seeding.md`, and `tasks/history.md`.
+- Per-file purpose: active todo marks Step 14.1 complete, records the 57-app inventory and Step 14.2 plan; roadmap replaces approximate counts with exact Phase 14 accounting; repo-seeding records downstream readiness evidence; history records completion evidence and shipping context.
+- User-goal mapping: prevents implementation from starting against an approximate cluster by binding Phase 14 to exact IDs, repos, specs, privacy checks, scaffold checks, and provider/licensed-media blockers.
+- Tests run: `gh api rate_limit`; read-only GitHub GraphQL metadata checks split into three chunks; local source-spec existence check; Phase 14 inventory row-count sanity check (`phase14 inventory rows=57, unique=57`); `git diff --check`.
+- Skipped tests: no runtime app tests are relevant because this step only changes planning/evidence docs and does not mutate source code or downstream implementation repos; GitHub Actions are skipped by project policy.
+- Adversarial review: cross-checked `tasks/ideas.md`, `tasks/roadmap.md`, `tasks/repo-seeding.md`, filesystem source specs, and live GitHub repo metadata; retained Draft 1, exact-source, provider, licensed-media, DRM-adjacent, background playback/download, subscription/ads, and real-device blockers instead of claiming implementation-ready parity.
+- Residual risk: downstream scaffold verification is metadata-level and does not prove implementation correctness, media playback behavior, provider integration, legal rights, real-device parity, accessibility, performance, or store compliance.
+- Rollback note: revert this planning commit to reopen Step 14.1 and restore the approximate Phase 14 task state.
+- Next command: `$run` for Step 14.2, prepare the per-app downstream implementation lane plan.
