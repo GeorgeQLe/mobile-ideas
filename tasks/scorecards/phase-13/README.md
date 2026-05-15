@@ -1,6 +1,6 @@
 # Phase 13 Benchmark Scorecards
 
-Generated: 2026-05-15T17:17:58.303Z
+Generated: 2026-05-15T17:31:11.598Z
 Run ID: `phase-13-local-2026-05-15`
 
 ## Summary

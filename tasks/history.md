@@ -3861,3 +3861,28 @@
 - Residual risk: benchmark scores are local source-structure proxies and do not prove real device, provider, push-notification, accessibility, performance trace, security-review, regulatory, privacy-review, unsubscribe execution, mailbox cleanup execution, or store-compliance parity.
 - Rollback note: revert this planning commit to reopen Step 13.15 evidence, and revert each downstream squash merge if the ID 963-967 generated implementation batch must be withdrawn.
 - Next command: `$run` for Step 13.16, perform Phase 13 closure validation and transition decision.
+
+## 2026-05-15 - Phase 13 Closure Validation And Phase 14 Transition
+
+- Completed Phase 13 Step 13.16 and archived the phase to `tasks/phases/phase-13.md`.
+- Re-ran closure validation:
+  - `node scripts/verify-phase13-scaffold.mjs`: `checked=43`, `repairedCount=0`, `failures=0`.
+  - `node scripts/validate-phase13-repos.mjs`: `repos=43`, `passedCommands=215`, `failureCount=0`, `blockerCount=86`, `implementationBlockerCount=0`.
+  - `node scripts/generate-phase13-benchmarks.mjs`: `scorecards=129`, `blockers=86`, `totalTargets=215`, `averageComposite=5.3`.
+  - JSON accounting sanity check: 215 targets equal 129 scorecards plus 86 blockers, with 43 implemented repos and zero unexpected failures.
+- Legal/safety hygiene passed: downstream workflow scan found no `.github/workflows` files; evidence records no GitHub Actions, proprietary assets, private APIs, production data, copied media, provider parity claims, audited E2EE/security claims, raw mailbox analytics, trademark branding, or public visibility changes.
+- Marked Phase 13 complete with carry-forward blockers and made Phase 14 active in `tasks/roadmap.md`.
+- Prepared `tasks/todo.md` for Phase 14 Step 14.1 inventory reconciliation.
+
+### Ship Manifest
+
+- User goal: execute Phase 13 Step 13.16, close Phase 13 if validation is clean, archive the phase, and prepare Phase 14.
+- Changed files: `tasks/todo.md`, `tasks/roadmap.md`, `tasks/history.md`, `tasks/phases/phase-13.md`, regenerated `tasks/phase-13-validation-report.md`, regenerated Phase 13 scorecard JSON files, `tasks/scorecards/phase-13/README.md`, `tasks/scorecards/phase-13/summary.json`, `tasks/scorecards/phase-13/benchmark-blockers.json`, and `tasks/scorecards/phase-13/validation-summary.json`.
+- Per-file purpose: active todo now carries Phase 14 Step 14.1; roadmap records Phase 13 complete and Phase 14 active; history records closure evidence and ship manifest; phase archive preserves the completed Phase 13 plan/reviews; regenerated reports and scorecards preserve current validation evidence.
+- User-goal mapping: completes the closure decision only after scaffold, validation, benchmark, accounting, and legal/safety checks pass.
+- Tests run: `node scripts/verify-phase13-scaffold.mjs`; `node scripts/validate-phase13-repos.mjs`; `node scripts/generate-phase13-benchmarks.mjs`; JSON accounting sanity check; downstream workflow scan for `.github/workflows`.
+- Skipped tests: no GitHub Actions were used by policy; Flutter and Android runtime checks remain blocked by missing `dart`/`flutter` and `kotlinc`; real account lifecycle, provider integrations, push delivery, real-device permissions, exact security/privacy guarantees, retention/export/delete completion, performance/accessibility traces, and store/device parity remain manual or provider blockers.
+- Adversarial review: closure refused to treat blocked Flutter/Android runtime checks as passes, verified all 43 repos are implemented/private in the validation report, asserted scorecard/blocker accounting, and scanned downstream clones for workflow files before marking the phase complete.
+- Residual risk: benchmark scores remain local source-structure proxies; Phase 14 inventory still needs exact reconciliation before implementation starts.
+- Rollback note: revert this planning commit to reopen Phase 13 Step 13.16 and restore the Phase 13 active todo.
+- Next command: `$run` for Phase 14 Step 14.1 inventory reconciliation.
