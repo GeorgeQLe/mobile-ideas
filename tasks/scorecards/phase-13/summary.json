@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-15T04:18:22.770Z",
+  "generatedAt": "2026-05-15T13:50:23.497Z",
   "runId": "phase-13-local-2026-05-15",
   "category": "Messaging & Email",
   "harnessCli": "/tmp/mobile-benchmark-harness/dist/cli/index.js",
   "sourceValidationSummary": "tasks/scorecards/phase-13/validation-summary.json",
   "totalApps": 43,
   "byImplementationStatus": {
-    "implemented": 16,
-    "scaffold-only": 27
+    "implemented": 22,
+    "scaffold-only": 21
   },
   "variants": [
     "react-native",
@@ -17,25 +17,25 @@
     "android-native"
   ],
   "totalTargets": 215,
-  "scorecardCount": 48,
-  "blockerCount": 167,
+  "scorecardCount": 66,
+  "blockerCount": 149,
   "averageComposite": 5.3,
   "byVariant": {
     "react-native": {
-      "scorecards": 16,
-      "blockers": 27
+      "scorecards": 22,
+      "blockers": 21
     },
     "flutter": {
       "scorecards": 0,
       "blockers": 43
     },
     "expo": {
-      "scorecards": 16,
-      "blockers": 27
+      "scorecards": 22,
+      "blockers": 21
     },
     "ios-native": {
-      "scorecards": 16,
-      "blockers": 27
+      "scorecards": 22,
+      "blockers": 21
     },
     "android-native": {
       "scorecards": 0,
@@ -43,9 +43,9 @@
     }
   },
   "byReason": {
-    "missing-local-flutter-toolchain": 16,
-    "missing-local-android-toolchain": 16,
-    "implementation-not-started": 135
+    "missing-local-flutter-toolchain": 22,
+    "missing-local-android-toolchain": 22,
+    "implementation-not-started": 105
   },
   "scorecards": [
     {
@@ -463,6 +463,162 @@
         "detail": "NumberNest: surfaces=6, conversations=2, queued=1, blockers=9"
       },
       "file": "tasks/scorecards/phase-13/940-google-voice-ios-native.json"
+    },
+    {
+      "appId": 941,
+      "appName": "TextNow",
+      "repo": "GeorgeQLe/textnow-mobile-clone",
+      "repoPath": "/tmp/textnow-mobile-clone",
+      "commit": "5ee33b9",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/textnow-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/941-textnow-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "NumberBridge: surfaces=6, conversations=2, queued=1, blockers=10"
+      },
+      "file": "tasks/scorecards/phase-13/941-textnow-ios-native.json"
+    },
+    {
+      "appId": 942,
+      "appName": "TextFree",
+      "repo": "GeorgeQLe/textfree-mobile-clone",
+      "repoPath": "/tmp/textfree-mobile-clone",
+      "commit": "c4f6127",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/textfree-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/942-textfree-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "MinuteBloom: surfaces=6, conversations=2, queued=1, blockers=10"
+      },
+      "file": "tasks/scorecards/phase-13/942-textfree-ios-native.json"
+    },
+    {
+      "appId": 943,
+      "appName": "GroupMe",
+      "repo": "GeorgeQLe/groupme-mobile-clone",
+      "repoPath": "/tmp/groupme-mobile-clone",
+      "commit": "6f6b5ce",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/groupme-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/943-groupme-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "CircleCommons: surfaces=6, conversations=2, queued=1, blockers=10"
+      },
+      "file": "tasks/scorecards/phase-13/943-groupme-ios-native.json"
+    },
+    {
+      "appId": 944,
+      "appName": "Marco Polo",
+      "repo": "GeorgeQLe/marco-polo-mobile-clone",
+      "repoPath": "/tmp/marco-polo-mobile-clone",
+      "commit": "922b543",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/marco-polo-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/944-marco-polo-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "VideoRelay: surfaces=6, conversations=2, queued=1, blockers=10"
+      },
+      "file": "tasks/scorecards/phase-13/944-marco-polo-ios-native.json"
+    },
+    {
+      "appId": 945,
+      "appName": "Voxer",
+      "repo": "GeorgeQLe/voxer-mobile-clone",
+      "repoPath": "/tmp/voxer-mobile-clone",
+      "commit": "9c94a1a",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/voxer-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/945-voxer-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "WaveRelay: surfaces=6, conversations=2, queued=1, blockers=10"
+      },
+      "file": "tasks/scorecards/phase-13/945-voxer-ios-native.json"
+    },
+    {
+      "appId": 946,
+      "appName": "Microsoft Teams",
+      "repo": "GeorgeQLe/microsoft-teams-mobile-clone",
+      "repoPath": "/tmp/microsoft-teams-mobile-clone",
+      "commit": "8acc19b",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/microsoft-teams-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/946-microsoft-teams-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "WorkGrid: surfaces=6, conversations=2, queued=1, blockers=10"
+      },
+      "file": "tasks/scorecards/phase-13/946-microsoft-teams-ios-native.json"
     },
     {
       "appId": 16,
@@ -1295,6 +1451,318 @@
         "detail": "> node variants/react-native/app.test.mjs | NumberNest: surfaces=6, conversations=2, queued=1, blocked=6, routes=15"
       },
       "file": "tasks/scorecards/phase-13/940-google-voice-react-native.json"
+    },
+    {
+      "appId": 941,
+      "appName": "TextNow",
+      "repo": "GeorgeQLe/textnow-mobile-clone",
+      "repoPath": "/tmp/textnow-mobile-clone",
+      "commit": "5ee33b9",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/textnow-mobile-clone --variant expo --output tasks/scorecards/phase-13/941-textnow-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | NumberBridge: surfaces=6, conversations=2, queued=1, blocked=7, routes=16"
+      },
+      "file": "tasks/scorecards/phase-13/941-textnow-expo.json"
+    },
+    {
+      "appId": 941,
+      "appName": "TextNow",
+      "repo": "GeorgeQLe/textnow-mobile-clone",
+      "repoPath": "/tmp/textnow-mobile-clone",
+      "commit": "5ee33b9",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/textnow-mobile-clone --variant react-native --output tasks/scorecards/phase-13/941-textnow-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | NumberBridge: surfaces=6, conversations=2, queued=1, blocked=7, routes=16"
+      },
+      "file": "tasks/scorecards/phase-13/941-textnow-react-native.json"
+    },
+    {
+      "appId": 942,
+      "appName": "TextFree",
+      "repo": "GeorgeQLe/textfree-mobile-clone",
+      "repoPath": "/tmp/textfree-mobile-clone",
+      "commit": "c4f6127",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/textfree-mobile-clone --variant expo --output tasks/scorecards/phase-13/942-textfree-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | MinuteBloom: surfaces=6, conversations=2, queued=1, blocked=7, routes=16"
+      },
+      "file": "tasks/scorecards/phase-13/942-textfree-expo.json"
+    },
+    {
+      "appId": 942,
+      "appName": "TextFree",
+      "repo": "GeorgeQLe/textfree-mobile-clone",
+      "repoPath": "/tmp/textfree-mobile-clone",
+      "commit": "c4f6127",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/textfree-mobile-clone --variant react-native --output tasks/scorecards/phase-13/942-textfree-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | MinuteBloom: surfaces=6, conversations=2, queued=1, blocked=7, routes=16"
+      },
+      "file": "tasks/scorecards/phase-13/942-textfree-react-native.json"
+    },
+    {
+      "appId": 943,
+      "appName": "GroupMe",
+      "repo": "GeorgeQLe/groupme-mobile-clone",
+      "repoPath": "/tmp/groupme-mobile-clone",
+      "commit": "6f6b5ce",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/groupme-mobile-clone --variant expo --output tasks/scorecards/phase-13/943-groupme-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | CircleCommons: surfaces=6, conversations=2, queued=1, blocked=8, routes=16"
+      },
+      "file": "tasks/scorecards/phase-13/943-groupme-expo.json"
+    },
+    {
+      "appId": 943,
+      "appName": "GroupMe",
+      "repo": "GeorgeQLe/groupme-mobile-clone",
+      "repoPath": "/tmp/groupme-mobile-clone",
+      "commit": "6f6b5ce",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/groupme-mobile-clone --variant react-native --output tasks/scorecards/phase-13/943-groupme-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | CircleCommons: surfaces=6, conversations=2, queued=1, blocked=8, routes=16"
+      },
+      "file": "tasks/scorecards/phase-13/943-groupme-react-native.json"
+    },
+    {
+      "appId": 944,
+      "appName": "Marco Polo",
+      "repo": "GeorgeQLe/marco-polo-mobile-clone",
+      "repoPath": "/tmp/marco-polo-mobile-clone",
+      "commit": "922b543",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/marco-polo-mobile-clone --variant expo --output tasks/scorecards/phase-13/944-marco-polo-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | VideoRelay: surfaces=6, conversations=2, queued=1, blocked=7, routes=16"
+      },
+      "file": "tasks/scorecards/phase-13/944-marco-polo-expo.json"
+    },
+    {
+      "appId": 944,
+      "appName": "Marco Polo",
+      "repo": "GeorgeQLe/marco-polo-mobile-clone",
+      "repoPath": "/tmp/marco-polo-mobile-clone",
+      "commit": "922b543",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/marco-polo-mobile-clone --variant react-native --output tasks/scorecards/phase-13/944-marco-polo-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | VideoRelay: surfaces=6, conversations=2, queued=1, blocked=7, routes=16"
+      },
+      "file": "tasks/scorecards/phase-13/944-marco-polo-react-native.json"
+    },
+    {
+      "appId": 945,
+      "appName": "Voxer",
+      "repo": "GeorgeQLe/voxer-mobile-clone",
+      "repoPath": "/tmp/voxer-mobile-clone",
+      "commit": "9c94a1a",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/voxer-mobile-clone --variant expo --output tasks/scorecards/phase-13/945-voxer-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | WaveRelay: surfaces=6, conversations=2, queued=1, blocked=8, routes=16"
+      },
+      "file": "tasks/scorecards/phase-13/945-voxer-expo.json"
+    },
+    {
+      "appId": 945,
+      "appName": "Voxer",
+      "repo": "GeorgeQLe/voxer-mobile-clone",
+      "repoPath": "/tmp/voxer-mobile-clone",
+      "commit": "9c94a1a",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/voxer-mobile-clone --variant react-native --output tasks/scorecards/phase-13/945-voxer-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | WaveRelay: surfaces=6, conversations=2, queued=1, blocked=8, routes=16"
+      },
+      "file": "tasks/scorecards/phase-13/945-voxer-react-native.json"
+    },
+    {
+      "appId": 946,
+      "appName": "Microsoft Teams",
+      "repo": "GeorgeQLe/microsoft-teams-mobile-clone",
+      "repoPath": "/tmp/microsoft-teams-mobile-clone",
+      "commit": "8acc19b",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/microsoft-teams-mobile-clone --variant expo --output tasks/scorecards/phase-13/946-microsoft-teams-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | WorkGrid: surfaces=6, conversations=2, queued=1, blocked=9, routes=18"
+      },
+      "file": "tasks/scorecards/phase-13/946-microsoft-teams-expo.json"
+    },
+    {
+      "appId": 946,
+      "appName": "Microsoft Teams",
+      "repo": "GeorgeQLe/microsoft-teams-mobile-clone",
+      "repoPath": "/tmp/microsoft-teams-mobile-clone",
+      "commit": "8acc19b",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/microsoft-teams-mobile-clone --variant react-native --output tasks/scorecards/phase-13/946-microsoft-teams-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | WorkGrid: surfaces=6, conversations=2, queued=1, blocked=9, routes=18"
+      },
+      "file": "tasks/scorecards/phase-13/946-microsoft-teams-react-native.json"
     }
   ]
 }

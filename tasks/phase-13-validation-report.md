@@ -5,12 +5,12 @@ Generated: 2026-05-15
 ## Summary
 
 - Repos checked: 43
-- Implemented repos with executable variant evidence: 16
-- Scaffold-only repos with implementation blockers: 27
-- Executable command passes: 107
+- Implemented repos with executable variant evidence: 22
+- Scaffold-only repos with implementation blockers: 21
+- Executable command passes: 131
 - Unexpected failures: 0
-- Explicit blockers: 194
-- Implementation blockers: 108
+- Explicit blockers: 170
+- Implementation blockers: 84
 - GitHub Actions used: no
 - Flutter/Dart toolchain: blocked locally
 - Android Kotlin toolchain: blocked locally
@@ -44,12 +44,12 @@ Generated: 2026-05-15
 | 938 | KakaoTalk | `GeorgeQLe/kakaotalk-mobile-clone` | `0f115ff` | PRIVATE | implemented | 5 pass | 2 |
 | 939 | Skype | `GeorgeQLe/skype-mobile-clone` | `06a6954` | PRIVATE | implemented | 5 pass | 2 |
 | 940 | Google Voice | `GeorgeQLe/google-voice-mobile-clone` | `faa4357` | PRIVATE | implemented | 5 pass | 2 |
-| 941 | TextNow | `GeorgeQLe/textnow-mobile-clone` | `3ee141b` | PRIVATE | scaffold-only | 1 pass | 6 |
-| 942 | TextFree | `GeorgeQLe/textfree-mobile-clone` | `260d3c4` | PRIVATE | scaffold-only | 1 pass | 6 |
-| 943 | GroupMe | `GeorgeQLe/groupme-mobile-clone` | `76e7877` | PRIVATE | scaffold-only | 1 pass | 6 |
-| 944 | Marco Polo | `GeorgeQLe/marco-polo-mobile-clone` | `39e8f1c` | PRIVATE | scaffold-only | 1 pass | 6 |
-| 945 | Voxer | `GeorgeQLe/voxer-mobile-clone` | `d1edd6b` | PRIVATE | scaffold-only | 1 pass | 6 |
-| 946 | Microsoft Teams | `GeorgeQLe/microsoft-teams-mobile-clone` | `ee742fc` | PRIVATE | scaffold-only | 1 pass | 6 |
+| 941 | TextNow | `GeorgeQLe/textnow-mobile-clone` | `5ee33b9` | PRIVATE | implemented | 5 pass | 2 |
+| 942 | TextFree | `GeorgeQLe/textfree-mobile-clone` | `c4f6127` | PRIVATE | implemented | 5 pass | 2 |
+| 943 | GroupMe | `GeorgeQLe/groupme-mobile-clone` | `6f6b5ce` | PRIVATE | implemented | 5 pass | 2 |
+| 944 | Marco Polo | `GeorgeQLe/marco-polo-mobile-clone` | `922b543` | PRIVATE | implemented | 5 pass | 2 |
+| 945 | Voxer | `GeorgeQLe/voxer-mobile-clone` | `9c94a1a` | PRIVATE | implemented | 5 pass | 2 |
+| 946 | Microsoft Teams | `GeorgeQLe/microsoft-teams-mobile-clone` | `8acc19b` | PRIVATE | implemented | 5 pass | 2 |
 | 947 | Cisco Webex | `GeorgeQLe/cisco-webex-mobile-clone` | `bf9e665` | PRIVATE | scaffold-only | 1 pass | 6 |
 | 948 | Google Meet | `GeorgeQLe/google-meet-mobile-clone` | `14bac55` | PRIVATE | scaffold-only | 1 pass | 6 |
 | 949 | GoTo | `GeorgeQLe/goto-mobile-clone` | `b63e09c` | PRIVATE | scaffold-only | 1 pass | 6 |
@@ -334,14 +334,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/textnow-mobile-clone`
 - Local path: `/tmp/textnow-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `3ee141b`
+- Branch: `main`; default branch: `main`; commit: `5ee33b9`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-textnow.mjs | validated NumberBridge: surfaces=6, conversations=2, objects=8, routes=16, blockers=10
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | NumberBridge: surfaces=6, conversations=2, queued=1, blocked=7, routes=16
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | NumberBridge: surfaces=6, conversations=2, queued=1, blocked=7, routes=16
+- PASS: `swiftc iOS Native model` - NumberBridge: surfaces=6, conversations=2, queued=1, blockers=10
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors
@@ -350,14 +350,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/textfree-mobile-clone`
 - Local path: `/tmp/textfree-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `260d3c4`
+- Branch: `main`; default branch: `main`; commit: `c4f6127`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-textfree.mjs | validated MinuteBloom: surfaces=6, conversations=2, objects=8, routes=16, blockers=10
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | MinuteBloom: surfaces=6, conversations=2, queued=1, blocked=7, routes=16
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | MinuteBloom: surfaces=6, conversations=2, queued=1, blocked=7, routes=16
+- PASS: `swiftc iOS Native model` - MinuteBloom: surfaces=6, conversations=2, queued=1, blockers=10
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors
@@ -366,14 +366,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/groupme-mobile-clone`
 - Local path: `/tmp/groupme-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `76e7877`
+- Branch: `main`; default branch: `main`; commit: `6f6b5ce`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-groupme.mjs | validated CircleCommons: surfaces=6, conversations=2, objects=9, routes=16, blockers=10
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | CircleCommons: surfaces=6, conversations=2, queued=1, blocked=8, routes=16
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | CircleCommons: surfaces=6, conversations=2, queued=1, blocked=8, routes=16
+- PASS: `swiftc iOS Native model` - CircleCommons: surfaces=6, conversations=2, queued=1, blockers=10
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors
@@ -382,14 +382,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/marco-polo-mobile-clone`
 - Local path: `/tmp/marco-polo-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `39e8f1c`
+- Branch: `main`; default branch: `main`; commit: `922b543`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-marco-polo.mjs | validated VideoRelay: surfaces=6, conversations=2, objects=8, routes=16, blockers=10
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | VideoRelay: surfaces=6, conversations=2, queued=1, blocked=7, routes=16
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | VideoRelay: surfaces=6, conversations=2, queued=1, blocked=7, routes=16
+- PASS: `swiftc iOS Native model` - VideoRelay: surfaces=6, conversations=2, queued=1, blockers=10
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors
@@ -398,14 +398,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/voxer-mobile-clone`
 - Local path: `/tmp/voxer-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `d1edd6b`
+- Branch: `main`; default branch: `main`; commit: `9c94a1a`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-voxer.mjs | validated WaveRelay: surfaces=6, conversations=2, objects=9, routes=16, blockers=10
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | WaveRelay: surfaces=6, conversations=2, queued=1, blocked=8, routes=16
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | WaveRelay: surfaces=6, conversations=2, queued=1, blocked=8, routes=16
+- PASS: `swiftc iOS Native model` - WaveRelay: surfaces=6, conversations=2, queued=1, blockers=10
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors
@@ -414,14 +414,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/microsoft-teams-mobile-clone`
 - Local path: `/tmp/microsoft-teams-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `ee742fc`
+- Branch: `main`; default branch: `main`; commit: `8acc19b`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-microsoft-teams.mjs | validated WorkGrid: surfaces=6, conversations=2, objects=10, routes=18, blockers=10
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | WorkGrid: surfaces=6, conversations=2, queued=1, blocked=9, routes=18
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | WorkGrid: surfaces=6, conversations=2, queued=1, blocked=9, routes=18
+- PASS: `swiftc iOS Native model` - WorkGrid: surfaces=6, conversations=2, queued=1, blockers=10
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors

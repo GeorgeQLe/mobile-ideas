@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-15T04:18:22.770Z",
+  "generatedAt": "2026-05-15T13:50:23.497Z",
   "runId": "phase-13-local-2026-05-15",
   "blockers": [
     {
@@ -615,17 +615,17 @@
       "appName": "TextNow",
       "repo": "GeorgeQLe/textnow-mobile-clone",
       "repoPath": "/tmp/textnow-mobile-clone",
-      "commit": "3ee141b",
-      "implementationStatus": "scaffold-only",
+      "commit": "5ee33b9",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
-      "variant": "react-native",
+      "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/textnow-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
-        "command": "npm run test:react-native",
+        "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/textnow-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -634,74 +634,17 @@
       "appName": "TextNow",
       "repo": "GeorgeQLe/textnow-mobile-clone",
       "repoPath": "/tmp/textnow-mobile-clone",
-      "commit": "3ee141b",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "flutter",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/textnow-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
-      "validationEvidence": {
-        "command": "Flutter runtime validation",
-        "status": "blocker",
-        "detail": "GeorgeQLe/textnow-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 941,
-      "appName": "TextNow",
-      "repo": "GeorgeQLe/textnow-mobile-clone",
-      "repoPath": "/tmp/textnow-mobile-clone",
-      "commit": "3ee141b",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/textnow-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/textnow-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 941,
-      "appName": "TextNow",
-      "repo": "GeorgeQLe/textnow-mobile-clone",
-      "repoPath": "/tmp/textnow-mobile-clone",
-      "commit": "3ee141b",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/textnow-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/textnow-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 941,
-      "appName": "TextNow",
-      "repo": "GeorgeQLe/textnow-mobile-clone",
-      "repoPath": "/tmp/textnow-mobile-clone",
-      "commit": "3ee141b",
-      "implementationStatus": "scaffold-only",
+      "commit": "5ee33b9",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/textnow-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/textnow-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -710,17 +653,17 @@
       "appName": "TextFree",
       "repo": "GeorgeQLe/textfree-mobile-clone",
       "repoPath": "/tmp/textfree-mobile-clone",
-      "commit": "260d3c4",
-      "implementationStatus": "scaffold-only",
+      "commit": "c4f6127",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
-      "variant": "react-native",
+      "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/textfree-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
-        "command": "npm run test:react-native",
+        "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/textfree-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -729,74 +672,17 @@
       "appName": "TextFree",
       "repo": "GeorgeQLe/textfree-mobile-clone",
       "repoPath": "/tmp/textfree-mobile-clone",
-      "commit": "260d3c4",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "flutter",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/textfree-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
-      "validationEvidence": {
-        "command": "Flutter runtime validation",
-        "status": "blocker",
-        "detail": "GeorgeQLe/textfree-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 942,
-      "appName": "TextFree",
-      "repo": "GeorgeQLe/textfree-mobile-clone",
-      "repoPath": "/tmp/textfree-mobile-clone",
-      "commit": "260d3c4",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/textfree-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/textfree-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 942,
-      "appName": "TextFree",
-      "repo": "GeorgeQLe/textfree-mobile-clone",
-      "repoPath": "/tmp/textfree-mobile-clone",
-      "commit": "260d3c4",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/textfree-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/textfree-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 942,
-      "appName": "TextFree",
-      "repo": "GeorgeQLe/textfree-mobile-clone",
-      "repoPath": "/tmp/textfree-mobile-clone",
-      "commit": "260d3c4",
-      "implementationStatus": "scaffold-only",
+      "commit": "c4f6127",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/textfree-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/textfree-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -805,17 +691,17 @@
       "appName": "GroupMe",
       "repo": "GeorgeQLe/groupme-mobile-clone",
       "repoPath": "/tmp/groupme-mobile-clone",
-      "commit": "76e7877",
-      "implementationStatus": "scaffold-only",
+      "commit": "6f6b5ce",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
-      "variant": "react-native",
+      "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/groupme-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
-        "command": "npm run test:react-native",
+        "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/groupme-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -824,74 +710,17 @@
       "appName": "GroupMe",
       "repo": "GeorgeQLe/groupme-mobile-clone",
       "repoPath": "/tmp/groupme-mobile-clone",
-      "commit": "76e7877",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "flutter",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/groupme-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
-      "validationEvidence": {
-        "command": "Flutter runtime validation",
-        "status": "blocker",
-        "detail": "GeorgeQLe/groupme-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 943,
-      "appName": "GroupMe",
-      "repo": "GeorgeQLe/groupme-mobile-clone",
-      "repoPath": "/tmp/groupme-mobile-clone",
-      "commit": "76e7877",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/groupme-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/groupme-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 943,
-      "appName": "GroupMe",
-      "repo": "GeorgeQLe/groupme-mobile-clone",
-      "repoPath": "/tmp/groupme-mobile-clone",
-      "commit": "76e7877",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/groupme-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/groupme-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 943,
-      "appName": "GroupMe",
-      "repo": "GeorgeQLe/groupme-mobile-clone",
-      "repoPath": "/tmp/groupme-mobile-clone",
-      "commit": "76e7877",
-      "implementationStatus": "scaffold-only",
+      "commit": "6f6b5ce",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/groupme-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/groupme-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -900,36 +729,17 @@
       "appName": "Marco Polo",
       "repo": "GeorgeQLe/marco-polo-mobile-clone",
       "repoPath": "/tmp/marco-polo-mobile-clone",
-      "commit": "39e8f1c",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/marco-polo-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:react-native",
-        "status": "blocker",
-        "detail": "GeorgeQLe/marco-polo-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 944,
-      "appName": "Marco Polo",
-      "repo": "GeorgeQLe/marco-polo-mobile-clone",
-      "repoPath": "/tmp/marco-polo-mobile-clone",
-      "commit": "39e8f1c",
-      "implementationStatus": "scaffold-only",
+      "commit": "922b543",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/marco-polo-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
         "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/marco-polo-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -938,55 +748,17 @@
       "appName": "Marco Polo",
       "repo": "GeorgeQLe/marco-polo-mobile-clone",
       "repoPath": "/tmp/marco-polo-mobile-clone",
-      "commit": "39e8f1c",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/marco-polo-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/marco-polo-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 944,
-      "appName": "Marco Polo",
-      "repo": "GeorgeQLe/marco-polo-mobile-clone",
-      "repoPath": "/tmp/marco-polo-mobile-clone",
-      "commit": "39e8f1c",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/marco-polo-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/marco-polo-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 944,
-      "appName": "Marco Polo",
-      "repo": "GeorgeQLe/marco-polo-mobile-clone",
-      "repoPath": "/tmp/marco-polo-mobile-clone",
-      "commit": "39e8f1c",
-      "implementationStatus": "scaffold-only",
+      "commit": "922b543",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/marco-polo-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/marco-polo-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -995,36 +767,17 @@
       "appName": "Voxer",
       "repo": "GeorgeQLe/voxer-mobile-clone",
       "repoPath": "/tmp/voxer-mobile-clone",
-      "commit": "d1edd6b",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/voxer-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:react-native",
-        "status": "blocker",
-        "detail": "GeorgeQLe/voxer-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 945,
-      "appName": "Voxer",
-      "repo": "GeorgeQLe/voxer-mobile-clone",
-      "repoPath": "/tmp/voxer-mobile-clone",
-      "commit": "d1edd6b",
-      "implementationStatus": "scaffold-only",
+      "commit": "9c94a1a",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/voxer-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
         "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/voxer-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1033,55 +786,17 @@
       "appName": "Voxer",
       "repo": "GeorgeQLe/voxer-mobile-clone",
       "repoPath": "/tmp/voxer-mobile-clone",
-      "commit": "d1edd6b",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/voxer-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/voxer-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 945,
-      "appName": "Voxer",
-      "repo": "GeorgeQLe/voxer-mobile-clone",
-      "repoPath": "/tmp/voxer-mobile-clone",
-      "commit": "d1edd6b",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/voxer-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/voxer-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 945,
-      "appName": "Voxer",
-      "repo": "GeorgeQLe/voxer-mobile-clone",
-      "repoPath": "/tmp/voxer-mobile-clone",
-      "commit": "d1edd6b",
-      "implementationStatus": "scaffold-only",
+      "commit": "9c94a1a",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/voxer-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/voxer-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1090,36 +805,17 @@
       "appName": "Microsoft Teams",
       "repo": "GeorgeQLe/microsoft-teams-mobile-clone",
       "repoPath": "/tmp/microsoft-teams-mobile-clone",
-      "commit": "ee742fc",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/microsoft-teams-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:react-native",
-        "status": "blocker",
-        "detail": "GeorgeQLe/microsoft-teams-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 946,
-      "appName": "Microsoft Teams",
-      "repo": "GeorgeQLe/microsoft-teams-mobile-clone",
-      "repoPath": "/tmp/microsoft-teams-mobile-clone",
-      "commit": "ee742fc",
-      "implementationStatus": "scaffold-only",
+      "commit": "8acc19b",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/microsoft-teams-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
         "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/microsoft-teams-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1128,55 +824,17 @@
       "appName": "Microsoft Teams",
       "repo": "GeorgeQLe/microsoft-teams-mobile-clone",
       "repoPath": "/tmp/microsoft-teams-mobile-clone",
-      "commit": "ee742fc",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/microsoft-teams-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/microsoft-teams-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 946,
-      "appName": "Microsoft Teams",
-      "repo": "GeorgeQLe/microsoft-teams-mobile-clone",
-      "repoPath": "/tmp/microsoft-teams-mobile-clone",
-      "commit": "ee742fc",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/microsoft-teams-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/microsoft-teams-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 946,
-      "appName": "Microsoft Teams",
-      "repo": "GeorgeQLe/microsoft-teams-mobile-clone",
-      "repoPath": "/tmp/microsoft-teams-mobile-clone",
-      "commit": "ee742fc",
-      "implementationStatus": "scaffold-only",
+      "commit": "8acc19b",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/microsoft-teams-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/microsoft-teams-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },

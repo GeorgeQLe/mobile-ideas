@@ -3697,3 +3697,36 @@
 - Residual risk: 27 Phase 13 repos remain scaffold-only; benchmark scores are local source-structure proxies and do not prove real device, provider, push-notification, accessibility, performance trace, security-review, regulatory, or store-compliance parity.
 - Rollback note: revert this planning commit to reopen Step 13.10 evidence, and revert each downstream squash merge if the ID 935-940 generated implementation batch must be withdrawn.
 - Next command: `$run` for Step 13.11, implement IDs 941-946.
+
+## 2026-05-15 - Phase 13 Step 13.11 IDs 941-946 Implemented
+
+- Added `scripts/implement-phase13-step13-11.mjs` to generate the Phase 13 Step 13.11 downstream implementation batch.
+- Implemented six private downstream repos across React Native, Expo, Flutter, iOS Native, and Android Native variant directories with original product names, synthetic fixtures, local validators, committed validation records, and explicit provider/toolchain blockers:
+  - TextNow as `NumberBridge`: implementation PR `https://github.com/GeorgeQLe/textnow-mobile-clone/pull/2` merged to `main` at `3b499bf`; validation-record PR `https://github.com/GeorgeQLe/textnow-mobile-clone/pull/3` merged at `5ee33b9`.
+  - TextFree as `MinuteBloom`: implementation PR `https://github.com/GeorgeQLe/textfree-mobile-clone/pull/2` merged to `main` at `a5b1e91`; validation-record PR `https://github.com/GeorgeQLe/textfree-mobile-clone/pull/3` merged at `c4f6127`.
+  - GroupMe as `CircleCommons`: implementation PR `https://github.com/GeorgeQLe/groupme-mobile-clone/pull/2` merged to `main` at `da6386c`; validation-record PR `https://github.com/GeorgeQLe/groupme-mobile-clone/pull/3` merged at `6f6b5ce`.
+  - Marco Polo as `VideoRelay`: implementation PR `https://github.com/GeorgeQLe/marco-polo-mobile-clone/pull/2` merged to `main` at `767b5ed`; validation-record PR `https://github.com/GeorgeQLe/marco-polo-mobile-clone/pull/3` merged at `922b543`.
+  - Voxer as `WaveRelay`: implementation PR `https://github.com/GeorgeQLe/voxer-mobile-clone/pull/2` merged to `main` at `5d60d0f`; validation-record PR `https://github.com/GeorgeQLe/voxer-mobile-clone/pull/3` merged at `9c94a1a`.
+  - Microsoft Teams as `WorkGrid`: implementation PR `https://github.com/GeorgeQLe/microsoft-teams-mobile-clone/pull/2` merged to `main` at `40b3af5`; validation-record PR `https://github.com/GeorgeQLe/microsoft-teams-mobile-clone/pull/3` merged at `8acc19b`.
+- Remote verification confirmed every touched repo remains `PRIVATE`, non-empty, and on default branch `main`.
+- Per-repo local executable validation passed before merge: `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, downstream `git diff --check`, and staged `git diff --cached --check`.
+- Regenerated Phase 13 validation and benchmark evidence after the downstream merges:
+  - `node scripts/verify-phase13-scaffold.mjs`: `checked=43`, `repairedCount=0`, `failures=0`.
+  - `node scripts/validate-phase13-repos.mjs`: `repos=43`, `passedCommands=131`, `failureCount=0`, `blockerCount=170`, `implementationBlockerCount=84`.
+  - `node scripts/generate-phase13-benchmarks.mjs`: `scorecards=66`, `blockers=149`, `totalTargets=215`.
+- Phase 13 now has 22 implemented repos and 21 scaffold-only repos; Flutter/Dart and Android Native/Kotlin runtime validation remain blocked locally because `dart`, `flutter`, and `kotlinc` are unavailable.
+- Fixed deterministic evidence issues during the run: `scripts/implement-phase13-step13-11.mjs` now writes validation records, and `scripts/validate-phase13-repos.mjs` cleans untracked cached `docs/validation` output before pulling refreshed repos.
+- No GitHub Actions were enabled, dispatched, or used. No proprietary assets, private APIs, production data, copied media, provider parity claims, audited E2EE/security claims, or public visibility changes were introduced.
+
+### Ship Manifest
+
+- User goal: execute Phase 13 Step 13.11 and implement the next Messaging & Email batch, IDs 941-946, across all five variants per repo.
+- Changed files: `scripts/implement-phase13-step13-11.mjs`, `scripts/validate-phase13-repos.mjs`, regenerated `tasks/phase-13-validation-report.md`, regenerated Phase 13 scorecard JSON files, `tasks/scorecards/phase-13/README.md`, `tasks/scorecards/phase-13/summary.json`, `tasks/scorecards/phase-13/benchmark-blockers.json`, `tasks/scorecards/phase-13/validation-summary.json`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: generator preserves reproducible downstream code generation and validation-record creation; validator cache cleanup keeps repeated sweeps deterministic; validation report and summary capture all 43 repo checks; scorecards/blockers capture benchmark evidence for all 215 variant slots; task/history docs record completion, evidence, blockers, and the next batch plan.
+- User-goal mapping: completes Step 13.11 with serial branch-backed downstream PRs, local validation, committed validation records, private repo verification, and refreshed planning evidence.
+- Tests run: per touched downstream repo `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, `git diff --check`, and `git diff --cached --check`; planning repo `node scripts/verify-phase13-scaffold.mjs`; `node scripts/validate-phase13-repos.mjs`; `node scripts/generate-phase13-benchmarks.mjs`; JSON accounting sanity check; `git diff --check`.
+- Skipped tests: no GitHub Actions were used by policy; Flutter and Android runtime checks remain blocked by missing `dart`/`flutter` and `kotlinc`; real account lifecycle, number provisioning, SMS/MMS/carrier/PSTN gateways, provider integrations, push delivery, real-device permissions, media capture, meeting/enterprise providers, retention/export completion, and store/device parity remain manual or provider blockers.
+- Adversarial review: generator asserts original-branding and synthetic-fixture contracts, sets provider/audited-E2EE parity claims to false, writes validation records, requires reporting/export-delete routes, models carrier/media/enterprise blockers explicitly, and downstream PR flow verified private visibility after each merge. Regenerated validators refuse public repos, clean only untracked validation cache output before pull, and record scaffold-only repos as blockers rather than passing evidence.
+- Residual risk: 21 Phase 13 repos remain scaffold-only; benchmark scores are local source-structure proxies and do not prove real device, provider, push-notification, accessibility, performance trace, security-review, regulatory, or store-compliance parity.
+- Rollback note: revert this planning commit to reopen Step 13.11 evidence, and revert each downstream squash merge if the ID 941-946 generated implementation batch must be withdrawn.
+- Next command: `$run` for Step 13.12, implement IDs 947-951.

@@ -1,13 +1,13 @@
 # Phase 13 Benchmark Scorecards
 
-Generated: 2026-05-15T04:18:22.770Z
+Generated: 2026-05-15T13:50:23.497Z
 Run ID: `phase-13-local-2026-05-15`
 
 ## Summary
 
 - Total benchmark targets: 215
-- Scorecards produced: 48
-- Blocker records produced: 167
+- Scorecards produced: 66
+- Blocker records produced: 149
 - Average composite across scored variants: 5.30
 - GitHub Actions used: no
 
@@ -15,26 +15,26 @@ Run ID: `phase-13-local-2026-05-15`
 
 | Status | Repos |
 | --- | ---: |
-| implemented | 16 |
-| scaffold-only | 27 |
+| implemented | 22 |
+| scaffold-only | 21 |
 
 ## Accounting By Variant
 
 | Variant | Scorecards | Blockers |
 | --- | ---: | ---: |
-| react-native | 16 | 27 |
+| react-native | 22 | 21 |
 | flutter | 0 | 43 |
-| expo | 16 | 27 |
-| ios-native | 16 | 27 |
+| expo | 22 | 21 |
+| ios-native | 22 | 21 |
 | android-native | 0 | 43 |
 
 ## Blockers By Reason
 
 | Reason | Count |
 | --- | ---: |
-| missing-local-flutter-toolchain | 16 |
-| missing-local-android-toolchain | 16 |
-| implementation-not-started | 135 |
+| missing-local-flutter-toolchain | 22 |
+| missing-local-android-toolchain | 22 |
+| implementation-not-started | 105 |
 
 ## Scorecards
 
@@ -56,6 +56,12 @@ Run ID: `phase-13-local-2026-05-15`
 | 938 | KakaoTalk | ios-native | 9.23 | tasks/scorecards/phase-13/938-kakaotalk-ios-native.json |
 | 939 | Skype | ios-native | 9.23 | tasks/scorecards/phase-13/939-skype-ios-native.json |
 | 940 | Google Voice | ios-native | 9.23 | tasks/scorecards/phase-13/940-google-voice-ios-native.json |
+| 941 | TextNow | ios-native | 9.23 | tasks/scorecards/phase-13/941-textnow-ios-native.json |
+| 942 | TextFree | ios-native | 9.23 | tasks/scorecards/phase-13/942-textfree-ios-native.json |
+| 943 | GroupMe | ios-native | 9.23 | tasks/scorecards/phase-13/943-groupme-ios-native.json |
+| 944 | Marco Polo | ios-native | 9.23 | tasks/scorecards/phase-13/944-marco-polo-ios-native.json |
+| 945 | Voxer | ios-native | 9.23 | tasks/scorecards/phase-13/945-voxer-ios-native.json |
+| 946 | Microsoft Teams | ios-native | 9.23 | tasks/scorecards/phase-13/946-microsoft-teams-ios-native.json |
 | 016 | WhatsApp | expo | 3.33 | tasks/scorecards/phase-13/016-whatsapp-expo.json |
 | 016 | WhatsApp | react-native | 3.33 | tasks/scorecards/phase-13/016-whatsapp-react-native.json |
 | 017 | Telegram | expo | 3.33 | tasks/scorecards/phase-13/017-telegram-expo.json |
@@ -88,11 +94,23 @@ Run ID: `phase-13-local-2026-05-15`
 | 939 | Skype | react-native | 3.33 | tasks/scorecards/phase-13/939-skype-react-native.json |
 | 940 | Google Voice | expo | 3.33 | tasks/scorecards/phase-13/940-google-voice-expo.json |
 | 940 | Google Voice | react-native | 3.33 | tasks/scorecards/phase-13/940-google-voice-react-native.json |
+| 941 | TextNow | expo | 3.33 | tasks/scorecards/phase-13/941-textnow-expo.json |
+| 941 | TextNow | react-native | 3.33 | tasks/scorecards/phase-13/941-textnow-react-native.json |
+| 942 | TextFree | expo | 3.33 | tasks/scorecards/phase-13/942-textfree-expo.json |
+| 942 | TextFree | react-native | 3.33 | tasks/scorecards/phase-13/942-textfree-react-native.json |
+| 943 | GroupMe | expo | 3.33 | tasks/scorecards/phase-13/943-groupme-expo.json |
+| 943 | GroupMe | react-native | 3.33 | tasks/scorecards/phase-13/943-groupme-react-native.json |
+| 944 | Marco Polo | expo | 3.33 | tasks/scorecards/phase-13/944-marco-polo-expo.json |
+| 944 | Marco Polo | react-native | 3.33 | tasks/scorecards/phase-13/944-marco-polo-react-native.json |
+| 945 | Voxer | expo | 3.33 | tasks/scorecards/phase-13/945-voxer-expo.json |
+| 945 | Voxer | react-native | 3.33 | tasks/scorecards/phase-13/945-voxer-react-native.json |
+| 946 | Microsoft Teams | expo | 3.33 | tasks/scorecards/phase-13/946-microsoft-teams-expo.json |
+| 946 | Microsoft Teams | react-native | 3.33 | tasks/scorecards/phase-13/946-microsoft-teams-react-native.json |
 
 ## Notes
 
 - Scorecards are generated only for variants with Phase 13 executable validation evidence.
 - Flutter and Android Native targets remain local-toolchain blocked and have blocker records instead of invented benchmark scores.
-- The 27 scaffold-only repos are represented as implementation blockers for every variant until implementation evidence exists.
+- The 21 scaffold-only repos are represented as implementation blockers for every variant until implementation evidence exists.
 - The harness uses local source structure and available report files as conservative proxies when device, accessibility, or store-compliance reports are absent.
 - No GitHub Actions workflows were created, modified, enabled, dispatched, or used.
