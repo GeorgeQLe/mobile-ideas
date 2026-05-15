@@ -1,5 +1,34 @@
 # History
 
+## 2026-05-15 - Phase 13 Step 13.2 Multi-Variant Scaffold Repair
+
+- Executed `$run` Step 13.2 for all 43 Messaging & Email downstream repos without GitHub Actions.
+- Added `scripts/verify-phase13-scaffold.mjs` as the reproducible Phase 13 scaffold verifier/repair utility.
+- Initial read-only verification confirmed all 43 repos remained private, non-empty, source-spec-backed, and had `README.md` plus `docs/plans/README.md`; all 43 were missing the required `variants/` and `shared/` scaffold directories.
+- Repaired all 43 repos serially through non-primary `phase13-scaffold-<id>` branches and scaffold-only PR merges; no `.github/workflows` files were created, modified, enabled, dispatched, or used.
+- Downstream merged scaffold commits:
+  - 016 WhatsApp `1ee69e1`; 017 Telegram `8eec3b9`; 018 Signal `206e7ba`; 019 Discord `14aab55`; 020 Slack `8a865f5`.
+  - 021 Messenger `8803256`; 022 FaceTime `0b4cfe7`; 023 Zoom `be6d960`; 024 Gmail `6dd1196`; 025 Outlook `1037402`.
+  - 935 Viber `ec16f4f`; 936 WeChat `6080b33`; 937 LINE `7435e56`; 938 KakaoTalk `fba4eaa`; 939 Skype `f767a26`; 940 Google Voice `bd4b95e`.
+  - 941 TextNow `3ee141b`; 942 TextFree `260d3c4`; 943 GroupMe `76e7877`; 944 Marco Polo `39e8f1c`; 945 Voxer `d1edd6b`; 946 Microsoft Teams `ee742fc`; 947 Cisco Webex `bf9e665`; 948 Google Meet `14bac55`; 949 GoTo `b63e09c`; 950 BlueJeans `6a83555`; 951 Jitsi Meet `212f959`.
+  - 952 Proton Mail `630e98e`; 953 Yahoo Mail `f2b3d90`; 954 AOL Mail `13bb4c6`; 955 Spark Mail `7f9da56`; 956 Edison Mail `d10d02c`; 957 BlueMail `06c081c`; 958 Canary Mail `a022d84`; 959 Fastmail `8139c84`; 960 HEY `cc9c62a`.
+  - 961 Tuta Mail `cafceaa`; 962 Zoho Mail `84f4c68`; 963 Spike `e7da138`; 964 Superhuman `1975eab`; 965 Shortwave `288543d`; 966 Clean Email `24d66e5`; 967 Unroll.Me `67192e5`.
+- Final read-only verification passed: `node scripts/verify-phase13-scaffold.mjs` reported `checked=43`, `repairedCount=0`, and `failures=0`.
+- Preserved Flutter and Android Native runtime blockers; this step created scaffold placeholders only and did not validate Dart/Flutter or Kotlin toolchains.
+
+### Ship Manifest
+
+- User goal: execute Phase 13 Step 13.2 and scaffold/repair the multi-variant structure across all reconciled Messaging & Email repos.
+- Changed files: `scripts/verify-phase13-scaffold.mjs`, `tasks/todo.md`, and `tasks/history.md`; 43 downstream repos received scaffold-only `variants/` and `shared/` directories.
+- Per-file purpose: verifier script preserves the serial scaffold contract; task/history docs record completion evidence and next pilot implementation plan; downstream directories create the required five-variant structure for later implementation.
+- User-goal mapping: satisfies Step 13.2 without proprietary assets, copied code, private APIs, production data, public visibility changes, runtime parity claims, or GitHub Actions.
+- Tests run: `node scripts/verify-phase13-scaffold.mjs` before repair, `node scripts/verify-phase13-scaffold.mjs --repair`, final `node scripts/verify-phase13-scaffold.mjs`, per-downstream `git diff --cached --check` before each scaffold commit, and planning repo `git diff --check`.
+- Skipped tests: no downstream runtime build/lint/type/test commands were relevant because this was scaffold-only; Flutter and Android Native runtime checks remain blocked by missing local Dart/Flutter and Kotlin toolchains and are deferred to implementation/validation steps.
+- Adversarial review: verified privacy/source-plan/source-spec/root-commit preconditions, repaired only missing scaffold directories, used non-primary branches and PR merges for downstream writes, and avoided the legacy scaffold script because it copies GitHub Actions workflows.
+- Residual risk: scaffold presence does not prove app implementation, native buildability, provider behavior, account verification, push delivery, E2EE correctness, or real-device parity.
+- Rollback note: revert the listed downstream scaffold commits, then revert this planning commit to reopen Step 13.2.
+- Next command: `$run`.
+
 ## 2026-05-14 - Phase 12 Step 12.13 Final Validation And Phase Transition
 
 - Executed `$run` Step 12.13 for final Phase 12 validation and cleanup.

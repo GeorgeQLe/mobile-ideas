@@ -120,7 +120,7 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   - Attempted live serial `gh api` metadata verification; blocked because `gh` is unavailable in the escalated shell, so readiness is based on prior manifest/batch evidence.
   - Updated the roadmap count from approximate `~37` to exact `43`.
 
-- [ ] Step 13.2: Scaffold or repair multi-variant structure across reconciled Phase 13 repos
+- [x] Step 13.2: Scaffold or repair multi-variant structure across reconciled Phase 13 repos
   - Files: reconciled Phase 13 downstream repos and a reproducible planning-repo verifier script if needed.
   - Build/repair all 43 repos in serial, risk-grouped batches: messaging/calling core (016-023, 935-951), then email/privacy mail (024-025, 952-967).
   - For each repo, verify the five target variant directories or create them from `templates/variant-structure.md`: React Native, Expo, Flutter, iOS Native, and Android Native.
@@ -129,9 +129,22 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   - Record exact downstream commits and any blocker rows in `tasks/history.md`.
   - Suggested first bounded batch: IDs 016-020 plus 935-939, because they cover messaging/community/calling patterns without starting with the full 43-repo blast radius.
 
+  **Review (2026-05-15):**
+  - Added `scripts/verify-phase13-scaffold.mjs` as the reproducible Phase 13 scaffold verifier/repair utility.
+  - Initial read-only check verified all 43 reconciled repos were private, non-empty, source-spec-backed, and had `README.md` plus `docs/plans/README.md`; all 43 were missing the `variants/` and `shared/` scaffold directories.
+  - Repaired all 43 repos serially through non-primary `phase13-scaffold-<id>` branches and scaffold-only PR merges; no GitHub Actions files were created or used.
+  - Final read-only check passed with `checked=43`, `repairedCount=0`, and `failures=0`.
+  - Downstream merge commits recorded in `tasks/history.md`; no Flutter/Android runtime blockers were resolved because this was scaffold-only.
+
 - [ ] Step 13.3: Implement pilot messaging app 1 across all five variants
-  - Files: first reconciled pilot downstream repo.
-  - Implementation plan to be expanded after Step 13.1 confirms the inventory and selects the safest pilot.
+  - Files: `GeorgeQLe/whatsapp-mobile-clone` downstream repo and planning docs in this repository (`tasks/todo.md`, `tasks/history.md`; add a reproducible implementation script only if repeated code generation is needed).
+  - Pilot selection: WhatsApp is the safest first messaging pilot because it is ID 016, has the canonical messaging source spec at `specs/batch-01/016-whatsapp.md`, and Step 13.2 proved the downstream repo has all five variant directories and shared scaffold.
+  - Build an original lawful messaging prototype across React Native, Expo, Flutter, iOS Native, and Android Native variant directories using original product naming, synthetic fixtures, and public-source/inferred behavior only.
+  - Required shared model coverage: conversations, participants, message lifecycle, delivery/read receipts, attachments, disappearing-message settings, backup/export/delete blockers, reporting/blocking, contact safety, offline queue state, notification stubs, and encryption-state metadata that avoids claiming real end-to-end encryption.
+  - Required variant coverage: shared JSON fixtures/contracts; React Native and Expo testable JS modules plus tests; Flutter model/main stub; Swift model/main stub; Kotlin model stub; downstream validation script and validation record.
+  - Validation: run downstream `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run when available, downstream `git diff --check`, planning repo `git diff --check`, and `node scripts/verify-phase13-scaffold.mjs` after merge.
+  - Expected blockers: real account lifecycle, phone-number/SMS verification, exact E2EE protocol guarantees, push notification delivery, contact discovery/address-book permissions, media capture, backup provider integration, export/delete completion, real-device behavior, Flutter runtime validation when Dart/Flutter are missing, and Android Native runtime validation when Kotlin tooling is missing.
+  - Git/PR flow: perform downstream writes serially on a non-primary branch, open a PR, verify privacy/default branch, merge to downstream `main`, and record the PR URL plus merged commit in `tasks/history.md`. Do not enable, dispatch, or rely on GitHub Actions.
 
 - [ ] Step 13.4: Implement pilot messaging/email app 2 across all five variants
   - Files: second reconciled pilot downstream repo.
