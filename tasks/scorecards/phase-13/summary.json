@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-15T13:50:23.497Z",
+  "generatedAt": "2026-05-15T14:24:57.056Z",
   "runId": "phase-13-local-2026-05-15",
   "category": "Messaging & Email",
   "harnessCli": "/tmp/mobile-benchmark-harness/dist/cli/index.js",
   "sourceValidationSummary": "tasks/scorecards/phase-13/validation-summary.json",
   "totalApps": 43,
   "byImplementationStatus": {
-    "implemented": 22,
-    "scaffold-only": 21
+    "implemented": 27,
+    "scaffold-only": 16
   },
   "variants": [
     "react-native",
@@ -17,25 +17,25 @@
     "android-native"
   ],
   "totalTargets": 215,
-  "scorecardCount": 66,
-  "blockerCount": 149,
+  "scorecardCount": 81,
+  "blockerCount": 134,
   "averageComposite": 5.3,
   "byVariant": {
     "react-native": {
-      "scorecards": 22,
-      "blockers": 21
+      "scorecards": 27,
+      "blockers": 16
     },
     "flutter": {
       "scorecards": 0,
       "blockers": 43
     },
     "expo": {
-      "scorecards": 22,
-      "blockers": 21
+      "scorecards": 27,
+      "blockers": 16
     },
     "ios-native": {
-      "scorecards": 22,
-      "blockers": 21
+      "scorecards": 27,
+      "blockers": 16
     },
     "android-native": {
       "scorecards": 0,
@@ -43,9 +43,9 @@
     }
   },
   "byReason": {
-    "missing-local-flutter-toolchain": 22,
-    "missing-local-android-toolchain": 22,
-    "implementation-not-started": 105
+    "missing-local-flutter-toolchain": 27,
+    "missing-local-android-toolchain": 27,
+    "implementation-not-started": 80
   },
   "scorecards": [
     {
@@ -619,6 +619,136 @@
         "detail": "WorkGrid: surfaces=6, conversations=2, queued=1, blockers=10"
       },
       "file": "tasks/scorecards/phase-13/946-microsoft-teams-ios-native.json"
+    },
+    {
+      "appId": 947,
+      "appName": "Cisco Webex",
+      "repo": "GeorgeQLe/cisco-webex-mobile-clone",
+      "repoPath": "/tmp/cisco-webex-mobile-clone",
+      "commit": "f0acfba",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/cisco-webex-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/947-cisco-webex-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "BridgeRoom: surfaces=6, conversations=2, queued=1, blockers=11"
+      },
+      "file": "tasks/scorecards/phase-13/947-cisco-webex-ios-native.json"
+    },
+    {
+      "appId": 948,
+      "appName": "Google Meet",
+      "repo": "GeorgeQLe/google-meet-mobile-clone",
+      "repoPath": "/tmp/google-meet-mobile-clone",
+      "commit": "f6eb5bc",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/google-meet-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/948-google-meet-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "GatherLens: surfaces=6, conversations=2, queued=1, blockers=11"
+      },
+      "file": "tasks/scorecards/phase-13/948-google-meet-ios-native.json"
+    },
+    {
+      "appId": 949,
+      "appName": "GoTo",
+      "repo": "GeorgeQLe/goto-mobile-clone",
+      "repoPath": "/tmp/goto-mobile-clone",
+      "commit": "77206b6",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/goto-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/949-goto-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "SummitDial: surfaces=6, conversations=2, queued=1, blockers=11"
+      },
+      "file": "tasks/scorecards/phase-13/949-goto-ios-native.json"
+    },
+    {
+      "appId": 950,
+      "appName": "BlueJeans",
+      "repo": "GeorgeQLe/bluejeans-mobile-clone",
+      "repoPath": "/tmp/bluejeans-mobile-clone",
+      "commit": "71811f2",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/bluejeans-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/950-bluejeans-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "EventBlue: surfaces=6, conversations=2, queued=1, blockers=11"
+      },
+      "file": "tasks/scorecards/phase-13/950-bluejeans-ios-native.json"
+    },
+    {
+      "appId": 951,
+      "appName": "Jitsi Meet",
+      "repo": "GeorgeQLe/jitsi-meet-mobile-clone",
+      "repoPath": "/tmp/jitsi-meet-mobile-clone",
+      "commit": "48a3bfe",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/jitsi-meet-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/951-jitsi-meet-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "OpenGather: surfaces=6, conversations=2, queued=1, blockers=11"
+      },
+      "file": "tasks/scorecards/phase-13/951-jitsi-meet-ios-native.json"
     },
     {
       "appId": 16,
@@ -1763,6 +1893,266 @@
         "detail": "> node variants/react-native/app.test.mjs | WorkGrid: surfaces=6, conversations=2, queued=1, blocked=9, routes=18"
       },
       "file": "tasks/scorecards/phase-13/946-microsoft-teams-react-native.json"
+    },
+    {
+      "appId": 947,
+      "appName": "Cisco Webex",
+      "repo": "GeorgeQLe/cisco-webex-mobile-clone",
+      "repoPath": "/tmp/cisco-webex-mobile-clone",
+      "commit": "f0acfba",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/cisco-webex-mobile-clone --variant expo --output tasks/scorecards/phase-13/947-cisco-webex-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | BridgeRoom: surfaces=6, conversations=2, queued=1, blocked=9, routes=18"
+      },
+      "file": "tasks/scorecards/phase-13/947-cisco-webex-expo.json"
+    },
+    {
+      "appId": 947,
+      "appName": "Cisco Webex",
+      "repo": "GeorgeQLe/cisco-webex-mobile-clone",
+      "repoPath": "/tmp/cisco-webex-mobile-clone",
+      "commit": "f0acfba",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/cisco-webex-mobile-clone --variant react-native --output tasks/scorecards/phase-13/947-cisco-webex-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | BridgeRoom: surfaces=6, conversations=2, queued=1, blocked=9, routes=18"
+      },
+      "file": "tasks/scorecards/phase-13/947-cisco-webex-react-native.json"
+    },
+    {
+      "appId": 948,
+      "appName": "Google Meet",
+      "repo": "GeorgeQLe/google-meet-mobile-clone",
+      "repoPath": "/tmp/google-meet-mobile-clone",
+      "commit": "f6eb5bc",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/google-meet-mobile-clone --variant expo --output tasks/scorecards/phase-13/948-google-meet-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | GatherLens: surfaces=6, conversations=2, queued=1, blocked=9, routes=17"
+      },
+      "file": "tasks/scorecards/phase-13/948-google-meet-expo.json"
+    },
+    {
+      "appId": 948,
+      "appName": "Google Meet",
+      "repo": "GeorgeQLe/google-meet-mobile-clone",
+      "repoPath": "/tmp/google-meet-mobile-clone",
+      "commit": "f6eb5bc",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/google-meet-mobile-clone --variant react-native --output tasks/scorecards/phase-13/948-google-meet-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | GatherLens: surfaces=6, conversations=2, queued=1, blocked=9, routes=17"
+      },
+      "file": "tasks/scorecards/phase-13/948-google-meet-react-native.json"
+    },
+    {
+      "appId": 949,
+      "appName": "GoTo",
+      "repo": "GeorgeQLe/goto-mobile-clone",
+      "repoPath": "/tmp/goto-mobile-clone",
+      "commit": "77206b6",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/goto-mobile-clone --variant expo --output tasks/scorecards/phase-13/949-goto-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | SummitDial: surfaces=6, conversations=2, queued=1, blocked=9, routes=18"
+      },
+      "file": "tasks/scorecards/phase-13/949-goto-expo.json"
+    },
+    {
+      "appId": 949,
+      "appName": "GoTo",
+      "repo": "GeorgeQLe/goto-mobile-clone",
+      "repoPath": "/tmp/goto-mobile-clone",
+      "commit": "77206b6",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/goto-mobile-clone --variant react-native --output tasks/scorecards/phase-13/949-goto-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | SummitDial: surfaces=6, conversations=2, queued=1, blocked=9, routes=18"
+      },
+      "file": "tasks/scorecards/phase-13/949-goto-react-native.json"
+    },
+    {
+      "appId": 950,
+      "appName": "BlueJeans",
+      "repo": "GeorgeQLe/bluejeans-mobile-clone",
+      "repoPath": "/tmp/bluejeans-mobile-clone",
+      "commit": "71811f2",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/bluejeans-mobile-clone --variant expo --output tasks/scorecards/phase-13/950-bluejeans-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | EventBlue: surfaces=6, conversations=2, queued=1, blocked=9, routes=17"
+      },
+      "file": "tasks/scorecards/phase-13/950-bluejeans-expo.json"
+    },
+    {
+      "appId": 950,
+      "appName": "BlueJeans",
+      "repo": "GeorgeQLe/bluejeans-mobile-clone",
+      "repoPath": "/tmp/bluejeans-mobile-clone",
+      "commit": "71811f2",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/bluejeans-mobile-clone --variant react-native --output tasks/scorecards/phase-13/950-bluejeans-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | EventBlue: surfaces=6, conversations=2, queued=1, blocked=9, routes=17"
+      },
+      "file": "tasks/scorecards/phase-13/950-bluejeans-react-native.json"
+    },
+    {
+      "appId": 951,
+      "appName": "Jitsi Meet",
+      "repo": "GeorgeQLe/jitsi-meet-mobile-clone",
+      "repoPath": "/tmp/jitsi-meet-mobile-clone",
+      "commit": "48a3bfe",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/jitsi-meet-mobile-clone --variant expo --output tasks/scorecards/phase-13/951-jitsi-meet-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | OpenGather: surfaces=6, conversations=2, queued=1, blocked=9, routes=17"
+      },
+      "file": "tasks/scorecards/phase-13/951-jitsi-meet-expo.json"
+    },
+    {
+      "appId": 951,
+      "appName": "Jitsi Meet",
+      "repo": "GeorgeQLe/jitsi-meet-mobile-clone",
+      "repoPath": "/tmp/jitsi-meet-mobile-clone",
+      "commit": "48a3bfe",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/jitsi-meet-mobile-clone --variant react-native --output tasks/scorecards/phase-13/951-jitsi-meet-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | OpenGather: surfaces=6, conversations=2, queued=1, blocked=9, routes=17"
+      },
+      "file": "tasks/scorecards/phase-13/951-jitsi-meet-react-native.json"
     }
   ]
 }

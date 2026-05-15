@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-15T13:50:23.497Z",
+  "generatedAt": "2026-05-15T14:24:57.056Z",
   "runId": "phase-13-local-2026-05-15",
   "blockers": [
     {
@@ -843,17 +843,17 @@
       "appName": "Cisco Webex",
       "repo": "GeorgeQLe/cisco-webex-mobile-clone",
       "repoPath": "/tmp/cisco-webex-mobile-clone",
-      "commit": "bf9e665",
-      "implementationStatus": "scaffold-only",
+      "commit": "f0acfba",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
-      "variant": "react-native",
+      "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/cisco-webex-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
-        "command": "npm run test:react-native",
+        "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/cisco-webex-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -862,74 +862,17 @@
       "appName": "Cisco Webex",
       "repo": "GeorgeQLe/cisco-webex-mobile-clone",
       "repoPath": "/tmp/cisco-webex-mobile-clone",
-      "commit": "bf9e665",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "flutter",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/cisco-webex-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
-      "validationEvidence": {
-        "command": "Flutter runtime validation",
-        "status": "blocker",
-        "detail": "GeorgeQLe/cisco-webex-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 947,
-      "appName": "Cisco Webex",
-      "repo": "GeorgeQLe/cisco-webex-mobile-clone",
-      "repoPath": "/tmp/cisco-webex-mobile-clone",
-      "commit": "bf9e665",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/cisco-webex-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/cisco-webex-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 947,
-      "appName": "Cisco Webex",
-      "repo": "GeorgeQLe/cisco-webex-mobile-clone",
-      "repoPath": "/tmp/cisco-webex-mobile-clone",
-      "commit": "bf9e665",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/cisco-webex-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/cisco-webex-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 947,
-      "appName": "Cisco Webex",
-      "repo": "GeorgeQLe/cisco-webex-mobile-clone",
-      "repoPath": "/tmp/cisco-webex-mobile-clone",
-      "commit": "bf9e665",
-      "implementationStatus": "scaffold-only",
+      "commit": "f0acfba",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/cisco-webex-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/cisco-webex-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -938,17 +881,17 @@
       "appName": "Google Meet",
       "repo": "GeorgeQLe/google-meet-mobile-clone",
       "repoPath": "/tmp/google-meet-mobile-clone",
-      "commit": "14bac55",
-      "implementationStatus": "scaffold-only",
+      "commit": "f6eb5bc",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
-      "variant": "react-native",
+      "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/google-meet-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
-        "command": "npm run test:react-native",
+        "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/google-meet-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -957,74 +900,17 @@
       "appName": "Google Meet",
       "repo": "GeorgeQLe/google-meet-mobile-clone",
       "repoPath": "/tmp/google-meet-mobile-clone",
-      "commit": "14bac55",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "flutter",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/google-meet-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
-      "validationEvidence": {
-        "command": "Flutter runtime validation",
-        "status": "blocker",
-        "detail": "GeorgeQLe/google-meet-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 948,
-      "appName": "Google Meet",
-      "repo": "GeorgeQLe/google-meet-mobile-clone",
-      "repoPath": "/tmp/google-meet-mobile-clone",
-      "commit": "14bac55",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/google-meet-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/google-meet-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 948,
-      "appName": "Google Meet",
-      "repo": "GeorgeQLe/google-meet-mobile-clone",
-      "repoPath": "/tmp/google-meet-mobile-clone",
-      "commit": "14bac55",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/google-meet-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/google-meet-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 948,
-      "appName": "Google Meet",
-      "repo": "GeorgeQLe/google-meet-mobile-clone",
-      "repoPath": "/tmp/google-meet-mobile-clone",
-      "commit": "14bac55",
-      "implementationStatus": "scaffold-only",
+      "commit": "f6eb5bc",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/google-meet-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/google-meet-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1033,36 +919,17 @@
       "appName": "GoTo",
       "repo": "GeorgeQLe/goto-mobile-clone",
       "repoPath": "/tmp/goto-mobile-clone",
-      "commit": "b63e09c",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/goto-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:react-native",
-        "status": "blocker",
-        "detail": "GeorgeQLe/goto-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 949,
-      "appName": "GoTo",
-      "repo": "GeorgeQLe/goto-mobile-clone",
-      "repoPath": "/tmp/goto-mobile-clone",
-      "commit": "b63e09c",
-      "implementationStatus": "scaffold-only",
+      "commit": "77206b6",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/goto-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
         "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/goto-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1071,55 +938,17 @@
       "appName": "GoTo",
       "repo": "GeorgeQLe/goto-mobile-clone",
       "repoPath": "/tmp/goto-mobile-clone",
-      "commit": "b63e09c",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/goto-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/goto-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 949,
-      "appName": "GoTo",
-      "repo": "GeorgeQLe/goto-mobile-clone",
-      "repoPath": "/tmp/goto-mobile-clone",
-      "commit": "b63e09c",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/goto-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/goto-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 949,
-      "appName": "GoTo",
-      "repo": "GeorgeQLe/goto-mobile-clone",
-      "repoPath": "/tmp/goto-mobile-clone",
-      "commit": "b63e09c",
-      "implementationStatus": "scaffold-only",
+      "commit": "77206b6",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/goto-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/goto-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1128,36 +957,17 @@
       "appName": "BlueJeans",
       "repo": "GeorgeQLe/bluejeans-mobile-clone",
       "repoPath": "/tmp/bluejeans-mobile-clone",
-      "commit": "6a83555",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/bluejeans-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:react-native",
-        "status": "blocker",
-        "detail": "GeorgeQLe/bluejeans-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 950,
-      "appName": "BlueJeans",
-      "repo": "GeorgeQLe/bluejeans-mobile-clone",
-      "repoPath": "/tmp/bluejeans-mobile-clone",
-      "commit": "6a83555",
-      "implementationStatus": "scaffold-only",
+      "commit": "71811f2",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/bluejeans-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
         "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/bluejeans-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1166,55 +976,17 @@
       "appName": "BlueJeans",
       "repo": "GeorgeQLe/bluejeans-mobile-clone",
       "repoPath": "/tmp/bluejeans-mobile-clone",
-      "commit": "6a83555",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/bluejeans-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/bluejeans-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 950,
-      "appName": "BlueJeans",
-      "repo": "GeorgeQLe/bluejeans-mobile-clone",
-      "repoPath": "/tmp/bluejeans-mobile-clone",
-      "commit": "6a83555",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/bluejeans-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/bluejeans-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 950,
-      "appName": "BlueJeans",
-      "repo": "GeorgeQLe/bluejeans-mobile-clone",
-      "repoPath": "/tmp/bluejeans-mobile-clone",
-      "commit": "6a83555",
-      "implementationStatus": "scaffold-only",
+      "commit": "71811f2",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/bluejeans-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/bluejeans-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1223,36 +995,17 @@
       "appName": "Jitsi Meet",
       "repo": "GeorgeQLe/jitsi-meet-mobile-clone",
       "repoPath": "/tmp/jitsi-meet-mobile-clone",
-      "commit": "212f959",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/jitsi-meet-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:react-native",
-        "status": "blocker",
-        "detail": "GeorgeQLe/jitsi-meet-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 951,
-      "appName": "Jitsi Meet",
-      "repo": "GeorgeQLe/jitsi-meet-mobile-clone",
-      "repoPath": "/tmp/jitsi-meet-mobile-clone",
-      "commit": "212f959",
-      "implementationStatus": "scaffold-only",
+      "commit": "48a3bfe",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/jitsi-meet-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
         "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/jitsi-meet-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1261,55 +1014,17 @@
       "appName": "Jitsi Meet",
       "repo": "GeorgeQLe/jitsi-meet-mobile-clone",
       "repoPath": "/tmp/jitsi-meet-mobile-clone",
-      "commit": "212f959",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/jitsi-meet-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/jitsi-meet-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 951,
-      "appName": "Jitsi Meet",
-      "repo": "GeorgeQLe/jitsi-meet-mobile-clone",
-      "repoPath": "/tmp/jitsi-meet-mobile-clone",
-      "commit": "212f959",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/jitsi-meet-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/jitsi-meet-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 951,
-      "appName": "Jitsi Meet",
-      "repo": "GeorgeQLe/jitsi-meet-mobile-clone",
-      "repoPath": "/tmp/jitsi-meet-mobile-clone",
-      "commit": "212f959",
-      "implementationStatus": "scaffold-only",
+      "commit": "48a3bfe",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/jitsi-meet-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/jitsi-meet-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },

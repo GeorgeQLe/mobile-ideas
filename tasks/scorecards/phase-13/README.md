@@ -1,13 +1,13 @@
 # Phase 13 Benchmark Scorecards
 
-Generated: 2026-05-15T13:50:23.497Z
+Generated: 2026-05-15T14:24:57.056Z
 Run ID: `phase-13-local-2026-05-15`
 
 ## Summary
 
 - Total benchmark targets: 215
-- Scorecards produced: 66
-- Blocker records produced: 149
+- Scorecards produced: 81
+- Blocker records produced: 134
 - Average composite across scored variants: 5.30
 - GitHub Actions used: no
 
@@ -15,26 +15,26 @@ Run ID: `phase-13-local-2026-05-15`
 
 | Status | Repos |
 | --- | ---: |
-| implemented | 22 |
-| scaffold-only | 21 |
+| implemented | 27 |
+| scaffold-only | 16 |
 
 ## Accounting By Variant
 
 | Variant | Scorecards | Blockers |
 | --- | ---: | ---: |
-| react-native | 22 | 21 |
+| react-native | 27 | 16 |
 | flutter | 0 | 43 |
-| expo | 22 | 21 |
-| ios-native | 22 | 21 |
+| expo | 27 | 16 |
+| ios-native | 27 | 16 |
 | android-native | 0 | 43 |
 
 ## Blockers By Reason
 
 | Reason | Count |
 | --- | ---: |
-| missing-local-flutter-toolchain | 22 |
-| missing-local-android-toolchain | 22 |
-| implementation-not-started | 105 |
+| missing-local-flutter-toolchain | 27 |
+| missing-local-android-toolchain | 27 |
+| implementation-not-started | 80 |
 
 ## Scorecards
 
@@ -62,6 +62,11 @@ Run ID: `phase-13-local-2026-05-15`
 | 944 | Marco Polo | ios-native | 9.23 | tasks/scorecards/phase-13/944-marco-polo-ios-native.json |
 | 945 | Voxer | ios-native | 9.23 | tasks/scorecards/phase-13/945-voxer-ios-native.json |
 | 946 | Microsoft Teams | ios-native | 9.23 | tasks/scorecards/phase-13/946-microsoft-teams-ios-native.json |
+| 947 | Cisco Webex | ios-native | 9.23 | tasks/scorecards/phase-13/947-cisco-webex-ios-native.json |
+| 948 | Google Meet | ios-native | 9.23 | tasks/scorecards/phase-13/948-google-meet-ios-native.json |
+| 949 | GoTo | ios-native | 9.23 | tasks/scorecards/phase-13/949-goto-ios-native.json |
+| 950 | BlueJeans | ios-native | 9.23 | tasks/scorecards/phase-13/950-bluejeans-ios-native.json |
+| 951 | Jitsi Meet | ios-native | 9.23 | tasks/scorecards/phase-13/951-jitsi-meet-ios-native.json |
 | 016 | WhatsApp | expo | 3.33 | tasks/scorecards/phase-13/016-whatsapp-expo.json |
 | 016 | WhatsApp | react-native | 3.33 | tasks/scorecards/phase-13/016-whatsapp-react-native.json |
 | 017 | Telegram | expo | 3.33 | tasks/scorecards/phase-13/017-telegram-expo.json |
@@ -106,11 +111,21 @@ Run ID: `phase-13-local-2026-05-15`
 | 945 | Voxer | react-native | 3.33 | tasks/scorecards/phase-13/945-voxer-react-native.json |
 | 946 | Microsoft Teams | expo | 3.33 | tasks/scorecards/phase-13/946-microsoft-teams-expo.json |
 | 946 | Microsoft Teams | react-native | 3.33 | tasks/scorecards/phase-13/946-microsoft-teams-react-native.json |
+| 947 | Cisco Webex | expo | 3.33 | tasks/scorecards/phase-13/947-cisco-webex-expo.json |
+| 947 | Cisco Webex | react-native | 3.33 | tasks/scorecards/phase-13/947-cisco-webex-react-native.json |
+| 948 | Google Meet | expo | 3.33 | tasks/scorecards/phase-13/948-google-meet-expo.json |
+| 948 | Google Meet | react-native | 3.33 | tasks/scorecards/phase-13/948-google-meet-react-native.json |
+| 949 | GoTo | expo | 3.33 | tasks/scorecards/phase-13/949-goto-expo.json |
+| 949 | GoTo | react-native | 3.33 | tasks/scorecards/phase-13/949-goto-react-native.json |
+| 950 | BlueJeans | expo | 3.33 | tasks/scorecards/phase-13/950-bluejeans-expo.json |
+| 950 | BlueJeans | react-native | 3.33 | tasks/scorecards/phase-13/950-bluejeans-react-native.json |
+| 951 | Jitsi Meet | expo | 3.33 | tasks/scorecards/phase-13/951-jitsi-meet-expo.json |
+| 951 | Jitsi Meet | react-native | 3.33 | tasks/scorecards/phase-13/951-jitsi-meet-react-native.json |
 
 ## Notes
 
 - Scorecards are generated only for variants with Phase 13 executable validation evidence.
 - Flutter and Android Native targets remain local-toolchain blocked and have blocker records instead of invented benchmark scores.
-- The 21 scaffold-only repos are represented as implementation blockers for every variant until implementation evidence exists.
+- The 16 scaffold-only repos are represented as implementation blockers for every variant until implementation evidence exists.
 - The harness uses local source structure and available report files as conservative proxies when device, accessibility, or store-compliance reports are absent.
 - No GitHub Actions workflows were created, modified, enabled, dispatched, or used.

@@ -395,7 +395,7 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   - Fixed deterministic evidence issues during the run: the Step 13.11 generator now writes validation records, and `scripts/validate-phase13-repos.mjs` cleans untracked cached `docs/validation` output before pulling refreshed repos.
   - Flutter/Dart and Android Native/Kotlin runtime validation remain explicit local toolchain blockers; no GitHub Actions, proprietary assets, private APIs, production data, copied media, provider parity claims, audited E2EE/security claims, or public visibility changes were introduced.
 
-- [ ] Step 13.12: Implement next Phase 13 batch, IDs 947-951
+- [x] Step 13.12: Implement next Phase 13 batch, IDs 947-951
   - Files: downstream repos `GeorgeQLe/cisco-webex-mobile-clone`, `GeorgeQLe/google-meet-mobile-clone`, `GeorgeQLe/goto-mobile-clone`, `GeorgeQLe/bluejeans-mobile-clone`, and `GeorgeQLe/jitsi-meet-mobile-clone`; planning docs in this repository (`tasks/todo.md`, `tasks/history.md`; add a reproducible implementation script only if repeated code generation is needed).
   - Batch selection: IDs 947-951 continue the batch-48 meeting/video-conferencing portion of Phase 13 after the ID 941-946 messaging/calling/workplace batch.
   - Build original lawful meeting/collaboration prototypes across React Native, Expo, Flutter, iOS Native, and Android Native variant directories using original product naming, synthetic fixtures, and public-source/inferred behavior only.
@@ -418,6 +418,45 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   2. Create a reusable Step 13.12 generator with app-specific original product names, meeting/collaboration fixtures, API contracts, validation scripts, committed validation records, and five variant stubs/tests.
   3. For each repo, create a non-primary implementation branch, run the generator, run local validation, commit, push, open a PR, squash-merge to `main`, and verify `visibility == PRIVATE` plus default branch `main`.
   4. After all five repos merge, rerun the Phase 13 scaffold verifier, validation sweep, benchmark generator, JSON accounting sanity checks, and planning repo whitespace checks.
+  5. Update `tasks/todo.md` and `tasks/history.md` with PR URLs, merge commits, executable evidence, blocker rows, benchmark counts, and the next recommended batch.
+
+  **Review (2026-05-15):**
+  - Added `scripts/implement-phase13-step13-12.mjs` as the reproducible downstream generator for IDs 947-951.
+  - Implemented the bounded IDs 947-951 meeting/video-conferencing batch across all five variant directories in five downstream repos:
+    - `GeorgeQLe/cisco-webex-mobile-clone` as original `BridgeRoom`, PR `https://github.com/GeorgeQLe/cisco-webex-mobile-clone/pull/2`, merged to `main` at commit `f0acfba`.
+    - `GeorgeQLe/google-meet-mobile-clone` as original `GatherLens`, PR `https://github.com/GeorgeQLe/google-meet-mobile-clone/pull/2`, merged to `main` at commit `f6eb5bc`.
+    - `GeorgeQLe/goto-mobile-clone` as original `SummitDial`, PR `https://github.com/GeorgeQLe/goto-mobile-clone/pull/2`, merged to `main` at commit `77206b6`.
+    - `GeorgeQLe/bluejeans-mobile-clone` as original `EventBlue`, PR `https://github.com/GeorgeQLe/bluejeans-mobile-clone/pull/2`, merged to `main` at commit `71811f2`.
+    - `GeorgeQLe/jitsi-meet-mobile-clone` as original `OpenGather`, implementation PR `https://github.com/GeorgeQLe/jitsi-meet-mobile-clone/pull/2`, naming correction PR `https://github.com/GeorgeQLe/jitsi-meet-mobile-clone/pull/3`, final `main` commit `48a3bfe`.
+  - Remote verification confirmed all five touched repos remain `PRIVATE` with default branch `main`.
+  - Local executable validation passed for each touched downstream repo: `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, downstream `git diff --check`, and staged `git diff --cached --check`.
+  - Planning validation passed: `node scripts/verify-phase13-scaffold.mjs` reported `checked=43`, `repairedCount=0`, and `failures=0`; `node scripts/validate-phase13-repos.mjs` reported `repos=43`, `passedCommands=151`, `failureCount=0`, `blockerCount=150`, and `implementationBlockerCount=64`; `node scripts/generate-phase13-benchmarks.mjs` reported `scorecards=81`, `blockers=134`, and `totalTargets=215`.
+  - Phase 13 now has 27 implemented downstream repos and 16 scaffold-only downstream repos.
+  - Flutter/Dart and Android Native/Kotlin runtime validation remain explicit local toolchain blockers; no GitHub Actions, proprietary assets, private APIs, production data, copied media, provider parity claims, audited E2EE/security claims, or public visibility changes were introduced.
+
+- [ ] Step 13.13: Implement next Phase 13 batch, IDs 952-957
+  - Files: downstream repos `GeorgeQLe/proton-mail-mobile-clone`, `GeorgeQLe/yahoo-mail-mobile-clone`, `GeorgeQLe/aol-mail-mobile-clone`, `GeorgeQLe/spark-mail-mobile-clone`, `GeorgeQLe/edison-mail-mobile-clone`, and `GeorgeQLe/bluemail-mobile-clone`; planning docs in this repository (`tasks/todo.md`, `tasks/history.md`; add a reproducible implementation script only if repeated code generation is needed).
+  - Batch selection: IDs 952-957 are the next seeded Phase 13 email/privacy-mail apps after the implemented meeting/video-conferencing batch and begin the mail-client portion of batch-48.
+  - Build original lawful email/client prototypes across React Native, Expo, Flutter, iOS Native, and Android Native variant directories using original product naming, synthetic fixtures, and public-source/inferred behavior only.
+  - Proton Mail coverage: mailbox/thread model, encrypted-mail metadata without audited cryptography claims, contacts, labels/folders, compose/draft/send blockers, attachment blockers, bridge/import/export blockers, account recovery limits, spam/phishing/report flows, and privacy/export/delete blockers.
+  - Yahoo Mail/AOL Mail coverage: inbox categories or folders, search/filtering, compose/draft/send blockers, attachments, spam/phishing/report flows, account/provider blockers, ads/premium blockers, offline queue/cache state, export/delete blockers, and account recovery limits.
+  - Spark/Edison/BlueMail coverage: multi-account mailboxes, smart inbox or assistant-style categorization stubs, calendar/contact/provider blockers where applicable, unsubscribe/package/travel/provider blockers, privacy-safe analytics, spam/phishing/report flows, attachment blockers, offline queue/cache state, and export/delete blockers.
+  - Required variant coverage per repo: shared JSON fixtures/contracts; React Native and Expo testable JS modules plus tests; Flutter model/main stub; Swift model/main stub; Kotlin model stub; downstream validation script and committed validation record.
+  - Validation per repo: `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run when available, downstream `git diff --check`, staged `git diff --cached --check`, and remote privacy/default-branch verification after merge.
+  - Planning validation after the batch: planning repo `git diff --check`, `node scripts/verify-phase13-scaffold.mjs`, `node scripts/validate-phase13-repos.mjs`, `node scripts/generate-phase13-benchmarks.mjs`, and JSON accounting sanity checks.
+  - Expected blockers: real account lifecycle, mailbox provider auth, IMAP/SMTP/OAuth integration, exact encryption/security guarantees, spam/phishing provider systems, push notification delivery, contact/calendar/address-book permissions, attachment/media provider handling, export/delete completion, account recovery, real-device behavior, Flutter runtime validation when Dart/Flutter are missing, and Android Native runtime validation when Kotlin tooling is missing.
+  - Git/PR flow: perform downstream writes serially on one non-primary branch per repo, open a PR, verify clean mergeability/privacy/default branch, squash-merge to downstream `main`, and record PR URLs plus merged commits in `tasks/history.md`. Do not enable, dispatch, or rely on GitHub Actions.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Implement the next six Phase 13 email/privacy-mail downstream repos across all five variants each, preserving the original-fixture, committed-validation-record, local-validation, and branch-backed PR flow used by IDs 016-025 and 935-951.
+
+  **Approach:**
+  1. Re-read source specs `specs/batch-48/952-proton-mail.md` through `specs/batch-48/957-bluemail.md` and verify each downstream repo is clean, private, scaffold-complete, and on `main` before writing code.
+  2. Create a reusable Step 13.13 generator with app-specific original product names, email/privacy-mail fixtures, API contracts, validation scripts, committed validation records, and five variant stubs/tests.
+  3. For each repo, create a non-primary implementation branch, run the generator, run local validation, commit, push, open a PR, squash-merge to `main`, and verify `visibility == PRIVATE` plus default branch `main`.
+  4. After all six repos merge, rerun the Phase 13 scaffold verifier, validation sweep, benchmark generator, JSON accounting sanity checks, and planning repo whitespace checks.
   5. Update `tasks/todo.md` and `tasks/history.md` with PR URLs, merge commits, executable evidence, blocker rows, benchmark counts, and the next recommended batch.
 
 ### Reference

@@ -3730,3 +3730,34 @@
 - Residual risk: 21 Phase 13 repos remain scaffold-only; benchmark scores are local source-structure proxies and do not prove real device, provider, push-notification, accessibility, performance trace, security-review, regulatory, or store-compliance parity.
 - Rollback note: revert this planning commit to reopen Step 13.11 evidence, and revert each downstream squash merge if the ID 941-946 generated implementation batch must be withdrawn.
 - Next command: `$run` for Step 13.12, implement IDs 947-951.
+
+## 2026-05-15 - Phase 13 Step 13.12 IDs 947-951 Implemented
+
+- Added `scripts/implement-phase13-step13-12.mjs` to generate the Phase 13 Step 13.12 downstream implementation batch.
+- Implemented five private downstream repos across React Native, Expo, Flutter, iOS Native, and Android Native variant directories with original product names, synthetic fixtures, local validators, committed validation records, and explicit provider/toolchain blockers:
+  - Cisco Webex as `BridgeRoom`: PR `https://github.com/GeorgeQLe/cisco-webex-mobile-clone/pull/2`, merged to `main` at `f0acfba`.
+  - Google Meet as `GatherLens`: PR `https://github.com/GeorgeQLe/google-meet-mobile-clone/pull/2`, merged to `main` at `f6eb5bc`.
+  - GoTo as `SummitDial`: PR `https://github.com/GeorgeQLe/goto-mobile-clone/pull/2`, merged to `main` at `77206b6`.
+  - BlueJeans as `EventBlue`: PR `https://github.com/GeorgeQLe/bluejeans-mobile-clone/pull/2`, merged to `main` at `71811f2`.
+  - Jitsi Meet as `OpenGather`: implementation PR `https://github.com/GeorgeQLe/jitsi-meet-mobile-clone/pull/2`, naming correction PR `https://github.com/GeorgeQLe/jitsi-meet-mobile-clone/pull/3`, final `main` commit `48a3bfe`.
+- Remote verification confirmed every touched repo remains `PRIVATE`, non-empty, and on default branch `main`.
+- Per-repo local executable validation passed before merge: `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, downstream `git diff --check`, and staged `git diff --cached --check`.
+- Regenerated Phase 13 validation and benchmark evidence after the downstream merges:
+  - `node scripts/verify-phase13-scaffold.mjs`: `checked=43`, `repairedCount=0`, `failures=0`.
+  - `node scripts/validate-phase13-repos.mjs`: `repos=43`, `passedCommands=151`, `failureCount=0`, `blockerCount=150`, `implementationBlockerCount=64`.
+  - `node scripts/generate-phase13-benchmarks.mjs`: `scorecards=81`, `blockers=134`, `totalTargets=215`.
+- Phase 13 now has 27 implemented repos and 16 scaffold-only repos; Flutter/Dart and Android Native/Kotlin runtime validation remain blocked locally because `dart`, `flutter`, and `kotlinc` are unavailable.
+- No GitHub Actions were enabled, dispatched, or used. No proprietary assets, private APIs, production data, copied media, provider parity claims, audited E2EE/security claims, or public visibility changes were introduced.
+
+### Ship Manifest
+
+- User goal: execute Phase 13 Step 13.12 and implement the next Messaging & Email meeting/video-conferencing batch, IDs 947-951, across all five variants per repo.
+- Changed files: `scripts/implement-phase13-step13-12.mjs`, regenerated `tasks/phase-13-validation-report.md`, regenerated Phase 13 scorecard JSON files, `tasks/scorecards/phase-13/README.md`, `tasks/scorecards/phase-13/summary.json`, `tasks/scorecards/phase-13/benchmark-blockers.json`, `tasks/scorecards/phase-13/validation-summary.json`, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: generator preserves reproducible downstream code generation and validation-record creation; validation report and summary capture all 43 repo checks; scorecards/blockers capture benchmark evidence for all 215 variant slots; task/history docs record completion, evidence, blockers, and the next batch plan.
+- User-goal mapping: completes Step 13.12 with serial branch-backed downstream PRs, local validation, committed validation records, private repo verification, and refreshed planning evidence.
+- Tests run: per touched downstream repo `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, `git diff --check`, and `git diff --cached --check`; planning repo `node --check scripts/implement-phase13-step13-12.mjs`; `node scripts/verify-phase13-scaffold.mjs`; `node scripts/validate-phase13-repos.mjs`; `node scripts/generate-phase13-benchmarks.mjs`; JSON accounting sanity check; `git diff --check`.
+- Skipped tests: no GitHub Actions were used by policy; Flutter and Android runtime checks remain blocked by missing `dart`/`flutter` and `kotlinc`; real account lifecycle, enterprise tenant/admin policy, exact meeting/media/security guarantees, push delivery, real-device camera/microphone/screen-share permissions, telephony/dial-in providers, recording/transcript providers, moderation/provider behavior, retention/export/legal hold completion, and store/device parity remain manual or provider blockers.
+- Adversarial review: generator asserts original-branding and synthetic-fixture contracts, sets provider/audited-E2EE parity claims to false, writes validation records, requires reporting/export-delete routes, models meeting/media/enterprise/self-hosting/security blockers explicitly, and downstream PR flow verified private visibility after each merge. Legal hygiene review caught and corrected a trademark-adjacent Jitsi generated name before shipping. Regenerated validators refuse public repos and record scaffold-only repos as blockers rather than passing evidence; benchmark accounting asserts `scorecardCount + blockerCount == totalTargets`.
+- Residual risk: 16 Phase 13 repos remain scaffold-only; benchmark scores are local source-structure proxies and do not prove real device, provider, push-notification, accessibility, performance trace, security-review, regulatory, or store-compliance parity.
+- Rollback note: revert this planning commit to reopen Step 13.12 evidence, and revert each downstream squash merge if the ID 947-951 generated implementation batch must be withdrawn.
+- Next command: `$run` for Step 13.13, implement IDs 952-957.
