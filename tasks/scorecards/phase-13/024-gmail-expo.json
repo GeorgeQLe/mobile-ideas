@@ -1,10 +1,10 @@
 {
   "meta": {
-    "appId": 18,
-    "appName": "Signal",
+    "appId": 24,
+    "appName": "Gmail",
     "category": "Messaging & Email",
     "variant": "expo",
-    "timestamp": "2026-05-15T03:33:06.540Z",
+    "timestamp": "2026-05-15T03:33:07.233Z",
     "ciRunId": "phase-13-local-2026-05-15",
     "harnessVersion": "0.1.0"
   },
@@ -206,8 +206,8 @@
     }
   },
   "evidence": {
-    "appPath": "/tmp/signal-mobile-clone",
-    "variantPath": "/tmp/signal-mobile-clone/variants/expo",
+    "appPath": "/tmp/gmail-mobile-clone",
+    "variantPath": "/tmp/gmail-mobile-clone/variants/expo",
     "notes": [
       "No package manifest found for executable local validation.",
       "UX fidelity report missing; using source structure proxy.",

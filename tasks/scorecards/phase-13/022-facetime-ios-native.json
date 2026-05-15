@@ -1,10 +1,10 @@
 {
   "meta": {
-    "appId": 18,
-    "appName": "Signal",
+    "appId": 22,
+    "appName": "FaceTime",
     "category": "Messaging & Email",
-    "variant": "expo",
-    "timestamp": "2026-05-15T03:33:06.540Z",
+    "variant": "ios-native",
+    "timestamp": "2026-05-15T03:33:07.084Z",
     "ciRunId": "phase-13-local-2026-05-15",
     "harnessVersion": "0.1.0"
   },
@@ -53,7 +53,7 @@
       "metrics": {
         "ipaSizeMb": {
           "raw": 0,
-          "score": 100
+          "score": 0
         },
         "apkSizeMb": {
           "raw": 0,
@@ -65,7 +65,7 @@
         },
         "jsBundleSizeKb": {
           "raw": 0,
-          "score": 0
+          "score": 100
         },
         "nativeLibsSizeMb": {
           "raw": 0,
@@ -78,29 +78,29 @@
       }
     },
     "uxFidelity": {
-      "score": 0,
+      "score": 2,
       "weight": 0.25,
       "metrics": {
         "screenCoveragePercent": {
-          "raw": 0,
-          "score": 0
+          "raw": 2,
+          "score": 2
         },
         "interactionCoveragePercent": {
-          "raw": 0,
-          "score": 0
+          "raw": 2,
+          "score": 2
         },
         "edgeCaseCoveragePercent": {
-          "raw": 0,
-          "score": 0
+          "raw": 2,
+          "score": 2
         },
         "specCompliancePercent": {
-          "raw": 0,
-          "score": 0
+          "raw": 2,
+          "score": 2
         }
       }
     },
     "codeQuality": {
-      "score": 0,
+      "score": 36,
       "weight": 0.15,
       "metrics": {
         "lintScore": {
@@ -117,11 +117,11 @@
         },
         "cyclomaticComplexity": {
           "raw": 0,
-          "score": 0
+          "score": 100
         },
         "maintainabilityIndex": {
-          "raw": 0,
-          "score": 0
+          "raw": 80,
+          "score": 80
         }
       }
     },
@@ -193,7 +193,7 @@
     }
   },
   "composite": {
-    "score": 3.33,
+    "score": 9.23,
     "formula": "weighted-average",
     "weights": {
       "performance": 0.2,
@@ -206,8 +206,8 @@
     }
   },
   "evidence": {
-    "appPath": "/tmp/signal-mobile-clone",
-    "variantPath": "/tmp/signal-mobile-clone/variants/expo",
+    "appPath": "/tmp/facetime-mobile-clone",
+    "variantPath": "/tmp/facetime-mobile-clone/variants/ios-native",
     "notes": [
       "No package manifest found for executable local validation.",
       "UX fidelity report missing; using source structure proxy.",

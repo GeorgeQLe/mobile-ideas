@@ -8,10 +8,10 @@
     "flutter": false,
     "kotlinc": false
   },
-  "passedCommands": 63,
+  "passedCommands": 83,
   "failureCount": 0,
-  "blockerCount": 238,
-  "implementationBlockerCount": 152,
+  "blockerCount": 218,
+  "implementationBlockerCount": 132,
   "results": [
     {
       "id": 16,
@@ -266,29 +266,29 @@
       "visibility": "PRIVATE",
       "defaultBranch": "main",
       "localBranch": "main",
-      "commit": "8803256",
-      "implementationStatus": "scaffold-only",
+      "commit": "3e8cddc",
+      "implementationStatus": "implemented",
       "missing": [],
       "commands": [
         {
           "name": "npm run validate",
-          "status": "blocker",
-          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+          "status": "pass",
+          "detail": "> node scripts/validate-phase13-messenger.mjs | validated RelayNest: surfaces=6, conversations=2, objects=6, routes=14, blockers=7"
         },
         {
           "name": "npm run test:react-native",
-          "status": "blocker",
-          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+          "status": "pass",
+          "detail": "> node variants/react-native/app.test.mjs | RelayNest: surfaces=6, conversations=2, queued=1, blocked=5, routes=14"
         },
         {
           "name": "npm run test:expo",
-          "status": "blocker",
-          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+          "status": "pass",
+          "detail": "> node variants/expo/app.test.mjs | RelayNest: surfaces=6, conversations=2, queued=1, blocked=5, routes=14"
         },
         {
           "name": "swiftc iOS Native model",
-          "status": "blocker",
-          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+          "status": "pass",
+          "detail": "RelayNest: surfaces=6, conversations=2, queued=1, blockers=7"
         },
         {
           "name": "Flutter runtime validation",
@@ -315,29 +315,29 @@
       "visibility": "PRIVATE",
       "defaultBranch": "main",
       "localBranch": "main",
-      "commit": "0b4cfe7",
-      "implementationStatus": "scaffold-only",
+      "commit": "9d3005e",
+      "implementationStatus": "implemented",
       "missing": [],
       "commands": [
         {
           "name": "npm run validate",
-          "status": "blocker",
-          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+          "status": "pass",
+          "detail": "> node scripts/validate-phase13-facetime.mjs | validated CallLoom: surfaces=6, conversations=2, objects=6, routes=13, blockers=7"
         },
         {
           "name": "npm run test:react-native",
-          "status": "blocker",
-          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+          "status": "pass",
+          "detail": "> node variants/react-native/app.test.mjs | CallLoom: surfaces=6, conversations=2, queued=1, blocked=5, routes=13"
         },
         {
           "name": "npm run test:expo",
-          "status": "blocker",
-          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+          "status": "pass",
+          "detail": "> node variants/expo/app.test.mjs | CallLoom: surfaces=6, conversations=2, queued=1, blocked=5, routes=13"
         },
         {
           "name": "swiftc iOS Native model",
-          "status": "blocker",
-          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+          "status": "pass",
+          "detail": "CallLoom: surfaces=6, conversations=2, queued=1, blockers=7"
         },
         {
           "name": "Flutter runtime validation",
@@ -364,29 +364,29 @@
       "visibility": "PRIVATE",
       "defaultBranch": "main",
       "localBranch": "main",
-      "commit": "be6d960",
-      "implementationStatus": "scaffold-only",
+      "commit": "7ad57c9",
+      "implementationStatus": "implemented",
       "missing": [],
       "commands": [
         {
           "name": "npm run validate",
-          "status": "blocker",
-          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+          "status": "pass",
+          "detail": "> node scripts/validate-phase13-zoom.mjs | validated MeetHaven: surfaces=6, conversations=2, objects=6, routes=13, blockers=7"
         },
         {
           "name": "npm run test:react-native",
-          "status": "blocker",
-          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+          "status": "pass",
+          "detail": "> node variants/react-native/app.test.mjs | MeetHaven: surfaces=6, conversations=2, queued=1, blocked=5, routes=13"
         },
         {
           "name": "npm run test:expo",
-          "status": "blocker",
-          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+          "status": "pass",
+          "detail": "> node variants/expo/app.test.mjs | MeetHaven: surfaces=6, conversations=2, queued=1, blocked=5, routes=13"
         },
         {
           "name": "swiftc iOS Native model",
-          "status": "blocker",
-          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+          "status": "pass",
+          "detail": "MeetHaven: surfaces=6, conversations=2, queued=1, blockers=7"
         },
         {
           "name": "Flutter runtime validation",
@@ -413,29 +413,29 @@
       "visibility": "PRIVATE",
       "defaultBranch": "main",
       "localBranch": "main",
-      "commit": "6dd1196",
-      "implementationStatus": "scaffold-only",
+      "commit": "a21425a",
+      "implementationStatus": "implemented",
       "missing": [],
       "commands": [
         {
           "name": "npm run validate",
-          "status": "blocker",
-          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+          "status": "pass",
+          "detail": "> node scripts/validate-phase13-gmail.mjs | validated MailGarden: surfaces=6, conversations=2, objects=6, routes=13, blockers=7"
         },
         {
           "name": "npm run test:react-native",
-          "status": "blocker",
-          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+          "status": "pass",
+          "detail": "> node variants/react-native/app.test.mjs | MailGarden: surfaces=6, conversations=2, queued=1, blocked=5, routes=13"
         },
         {
           "name": "npm run test:expo",
-          "status": "blocker",
-          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+          "status": "pass",
+          "detail": "> node variants/expo/app.test.mjs | MailGarden: surfaces=6, conversations=2, queued=1, blocked=5, routes=13"
         },
         {
           "name": "swiftc iOS Native model",
-          "status": "blocker",
-          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+          "status": "pass",
+          "detail": "MailGarden: surfaces=6, conversations=2, queued=1, blockers=7"
         },
         {
           "name": "Flutter runtime validation",
@@ -462,29 +462,29 @@
       "visibility": "PRIVATE",
       "defaultBranch": "main",
       "localBranch": "main",
-      "commit": "1037402",
-      "implementationStatus": "scaffold-only",
+      "commit": "dae2a1c",
+      "implementationStatus": "implemented",
       "missing": [],
       "commands": [
         {
           "name": "npm run validate",
-          "status": "blocker",
-          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+          "status": "pass",
+          "detail": "> node scripts/validate-phase13-outlook.mjs | validated FocusPost: surfaces=6, conversations=2, objects=6, routes=14, blockers=7"
         },
         {
           "name": "npm run test:react-native",
-          "status": "blocker",
-          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+          "status": "pass",
+          "detail": "> node variants/react-native/app.test.mjs | FocusPost: surfaces=6, conversations=2, queued=1, blocked=5, routes=14"
         },
         {
           "name": "npm run test:expo",
-          "status": "blocker",
-          "detail": "implementation package script is missing; repo remains scaffold-only for this evidence path"
+          "status": "pass",
+          "detail": "> node variants/expo/app.test.mjs | FocusPost: surfaces=6, conversations=2, queued=1, blocked=5, routes=14"
         },
         {
           "name": "swiftc iOS Native model",
-          "status": "blocker",
-          "detail": "Swift model sources are missing or ambiguous; iOS Native remains scaffold-only"
+          "status": "pass",
+          "detail": "FocusPost: surfaces=6, conversations=2, queued=1, blockers=7"
         },
         {
           "name": "Flutter runtime validation",

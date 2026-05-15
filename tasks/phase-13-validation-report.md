@@ -5,12 +5,12 @@ Generated: 2026-05-15
 ## Summary
 
 - Repos checked: 43
-- Implemented repos with executable variant evidence: 5
-- Scaffold-only repos with implementation blockers: 38
-- Executable command passes: 63
+- Implemented repos with executable variant evidence: 10
+- Scaffold-only repos with implementation blockers: 33
+- Executable command passes: 83
 - Unexpected failures: 0
-- Explicit blockers: 238
-- Implementation blockers: 152
+- Explicit blockers: 218
+- Implementation blockers: 132
 - GitHub Actions used: no
 - Flutter/Dart toolchain: blocked locally
 - Android Kotlin toolchain: blocked locally
@@ -33,11 +33,11 @@ Generated: 2026-05-15
 | 018 | Signal | `GeorgeQLe/signal-mobile-clone` | `00929a0` | PRIVATE | implemented | 5 pass | 2 |
 | 019 | Discord | `GeorgeQLe/discord-mobile-clone` | `5d4e18e` | PRIVATE | implemented | 5 pass | 2 |
 | 020 | Slack | `GeorgeQLe/slack-mobile-clone` | `cbd23e9` | PRIVATE | implemented | 5 pass | 2 |
-| 021 | Messenger | `GeorgeQLe/messenger-mobile-clone` | `8803256` | PRIVATE | scaffold-only | 1 pass | 6 |
-| 022 | FaceTime | `GeorgeQLe/facetime-mobile-clone` | `0b4cfe7` | PRIVATE | scaffold-only | 1 pass | 6 |
-| 023 | Zoom | `GeorgeQLe/zoom-mobile-clone` | `be6d960` | PRIVATE | scaffold-only | 1 pass | 6 |
-| 024 | Gmail | `GeorgeQLe/gmail-mobile-clone` | `6dd1196` | PRIVATE | scaffold-only | 1 pass | 6 |
-| 025 | Outlook | `GeorgeQLe/outlook-mobile-clone` | `1037402` | PRIVATE | scaffold-only | 1 pass | 6 |
+| 021 | Messenger | `GeorgeQLe/messenger-mobile-clone` | `3e8cddc` | PRIVATE | implemented | 5 pass | 2 |
+| 022 | FaceTime | `GeorgeQLe/facetime-mobile-clone` | `9d3005e` | PRIVATE | implemented | 5 pass | 2 |
+| 023 | Zoom | `GeorgeQLe/zoom-mobile-clone` | `7ad57c9` | PRIVATE | implemented | 5 pass | 2 |
+| 024 | Gmail | `GeorgeQLe/gmail-mobile-clone` | `a21425a` | PRIVATE | implemented | 5 pass | 2 |
+| 025 | Outlook | `GeorgeQLe/outlook-mobile-clone` | `dae2a1c` | PRIVATE | implemented | 5 pass | 2 |
 | 935 | Viber | `GeorgeQLe/viber-mobile-clone` | `ec16f4f` | PRIVATE | scaffold-only | 1 pass | 6 |
 | 936 | WeChat | `GeorgeQLe/wechat-mobile-clone` | `6080b33` | PRIVATE | scaffold-only | 1 pass | 6 |
 | 937 | LINE | `GeorgeQLe/line-mobile-clone` | `7435e56` | PRIVATE | scaffold-only | 1 pass | 6 |
@@ -158,14 +158,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/messenger-mobile-clone`
 - Local path: `/tmp/messenger-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `8803256`
+- Branch: `main`; default branch: `main`; commit: `3e8cddc`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-messenger.mjs | validated RelayNest: surfaces=6, conversations=2, objects=6, routes=14, blockers=7
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | RelayNest: surfaces=6, conversations=2, queued=1, blocked=5, routes=14
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | RelayNest: surfaces=6, conversations=2, queued=1, blocked=5, routes=14
+- PASS: `swiftc iOS Native model` - RelayNest: surfaces=6, conversations=2, queued=1, blockers=7
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors
@@ -174,14 +174,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/facetime-mobile-clone`
 - Local path: `/tmp/facetime-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `0b4cfe7`
+- Branch: `main`; default branch: `main`; commit: `9d3005e`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-facetime.mjs | validated CallLoom: surfaces=6, conversations=2, objects=6, routes=13, blockers=7
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | CallLoom: surfaces=6, conversations=2, queued=1, blocked=5, routes=13
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | CallLoom: surfaces=6, conversations=2, queued=1, blocked=5, routes=13
+- PASS: `swiftc iOS Native model` - CallLoom: surfaces=6, conversations=2, queued=1, blockers=7
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors
@@ -190,14 +190,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/zoom-mobile-clone`
 - Local path: `/tmp/zoom-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `be6d960`
+- Branch: `main`; default branch: `main`; commit: `7ad57c9`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-zoom.mjs | validated MeetHaven: surfaces=6, conversations=2, objects=6, routes=13, blockers=7
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | MeetHaven: surfaces=6, conversations=2, queued=1, blocked=5, routes=13
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | MeetHaven: surfaces=6, conversations=2, queued=1, blocked=5, routes=13
+- PASS: `swiftc iOS Native model` - MeetHaven: surfaces=6, conversations=2, queued=1, blockers=7
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors
@@ -206,14 +206,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/gmail-mobile-clone`
 - Local path: `/tmp/gmail-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `6dd1196`
+- Branch: `main`; default branch: `main`; commit: `a21425a`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-gmail.mjs | validated MailGarden: surfaces=6, conversations=2, objects=6, routes=13, blockers=7
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | MailGarden: surfaces=6, conversations=2, queued=1, blocked=5, routes=13
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | MailGarden: surfaces=6, conversations=2, queued=1, blocked=5, routes=13
+- PASS: `swiftc iOS Native model` - MailGarden: surfaces=6, conversations=2, queued=1, blockers=7
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors
@@ -222,14 +222,14 @@ Generated: 2026-05-15
 
 - Repo: `GeorgeQLe/outlook-mobile-clone`
 - Local path: `/tmp/outlook-mobile-clone`
-- Branch: `main`; default branch: `main`; commit: `1037402`
+- Branch: `main`; default branch: `main`; commit: `dae2a1c`
 - Privacy: `PRIVATE`
-- Implementation: `scaffold-only`
+- Implementation: `implemented`
 - Structure: all required scaffold/source files present
-- BLOCKER: `npm run validate` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:react-native` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `npm run test:expo` - implementation package script is missing; repo remains scaffold-only for this evidence path
-- BLOCKER: `swiftc iOS Native model` - Swift model sources are missing or ambiguous; iOS Native remains scaffold-only
+- PASS: `npm run validate` - > node scripts/validate-phase13-outlook.mjs | validated FocusPost: surfaces=6, conversations=2, objects=6, routes=14, blockers=7
+- PASS: `npm run test:react-native` - > node variants/react-native/app.test.mjs | FocusPost: surfaces=6, conversations=2, queued=1, blocked=5, routes=14
+- PASS: `npm run test:expo` - > node variants/expo/app.test.mjs | FocusPost: surfaces=6, conversations=2, queued=1, blocked=5, routes=14
+- PASS: `swiftc iOS Native model` - FocusPost: surfaces=6, conversations=2, queued=1, blockers=7
 - BLOCKER: `Flutter runtime validation` - dart/flutter are not installed locally
 - BLOCKER: `Android Native runtime validation` - kotlinc is not installed locally
 - PASS: `git diff --check` - no whitespace errors

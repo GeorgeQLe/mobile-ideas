@@ -272,7 +272,7 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   - Phase 13 cannot close yet: IDs 021-025 and 935-967 remain scaffold-only, so the encryption/privacy/retention/safety/moderation/attachment/offline/notification implementation acceptance criterion is not satisfied across the full reconciled inventory.
   - Carry-forward blockers remain documented for missing Dart/Flutter and Kotlin toolchains, real account lifecycle, provider integrations, push delivery, contact permissions, encryption/security review, export/delete completion, moderation/provider behavior, and real-device validation.
 
-- [ ] Step 13.9: Implement next Phase 13 batch, IDs 021-025
+- [x] Step 13.9: Implement next Phase 13 batch, IDs 021-025
   - Files: downstream repos `GeorgeQLe/messenger-mobile-clone`, `GeorgeQLe/facetime-mobile-clone`, `GeorgeQLe/zoom-mobile-clone`, `GeorgeQLe/gmail-mobile-clone`, and `GeorgeQLe/outlook-mobile-clone`; planning docs in this repository (`tasks/todo.md`, `tasks/history.md`; add a reproducible implementation script only if repeated code generation is needed).
   - Batch selection: IDs 021-025 are the next seeded Phase 13 batch after the implemented IDs 016-020 and cover the remaining original batch-02 messaging/calling/email apps before moving into IDs 935-967.
   - Build original lawful prototypes across React Native, Expo, Flutter, iOS Native, and Android Native variant directories using original product naming, synthetic fixtures, and public-source/inferred behavior only.
@@ -296,6 +296,46 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   3. Validate and merge one repo at a time; stop immediately on privacy, auth/rate-limit, unexpected command, mergeability, or public-visibility failures.
   4. After all five repos merge, rerun the Phase 13 scaffold verifier, validation sweep, benchmark generator, and planning repo whitespace checks.
   5. Update `tasks/todo.md` and `tasks/history.md` with PR URLs, merge commits, executable evidence, blocker rows, and the next recommended batch.
+
+  **Review (2026-05-15):**
+  - Added `scripts/implement-phase13-step13-9.mjs` as the reproducible downstream generator for IDs 021-025.
+  - Implemented the bounded IDs 021-025 batch across all five variant directories in five downstream repos:
+    - `GeorgeQLe/messenger-mobile-clone` as original `RelayNest`, PR `https://github.com/GeorgeQLe/messenger-mobile-clone/pull/2`, merged to `main` at commit `3e8cddc`.
+    - `GeorgeQLe/facetime-mobile-clone` as original `CallLoom`, PR `https://github.com/GeorgeQLe/facetime-mobile-clone/pull/2`, merged to `main` at commit `9d3005e`.
+    - `GeorgeQLe/zoom-mobile-clone` as original `MeetHaven`, PR `https://github.com/GeorgeQLe/zoom-mobile-clone/pull/2`, merged to `main` at commit `7ad57c9`.
+    - `GeorgeQLe/gmail-mobile-clone` as original `MailGarden`, PR `https://github.com/GeorgeQLe/gmail-mobile-clone/pull/2`, merged to `main` at commit `a21425a`.
+    - `GeorgeQLe/outlook-mobile-clone` as original `FocusPost`, PR `https://github.com/GeorgeQLe/outlook-mobile-clone/pull/2`, merged to `main` at commit `dae2a1c`.
+  - Remote verification confirmed all five touched repos remain `PRIVATE` with default branch `main`.
+  - Local executable validation passed for each touched downstream repo: `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run, downstream `git diff --check`, and staged `git diff --cached --check`.
+  - Planning validation passed: `node scripts/verify-phase13-scaffold.mjs` reported `checked=43`, `repairedCount=0`, and `failures=0`; `node scripts/validate-phase13-repos.mjs` reported `repos=43`, `passedCommands=83`, `failureCount=0`, `blockerCount=218`, and `implementationBlockerCount=132`; `node scripts/generate-phase13-benchmarks.mjs` reported `scorecards=30`, `blockers=185`, and `totalTargets=215`.
+  - Phase 13 now has 10 implemented downstream repos and 33 scaffold-only downstream repos.
+  - Flutter/Dart and Android Native/Kotlin runtime validation remain explicit local toolchain blockers; no GitHub Actions, proprietary assets, private APIs, production data, copied media, provider parity claims, audited E2EE/security claims, or public visibility changes were introduced.
+
+- [ ] Step 13.10: Implement next Phase 13 batch, IDs 935-940
+  - Files: downstream repos `GeorgeQLe/viber-mobile-clone`, `GeorgeQLe/wechat-mobile-clone`, `GeorgeQLe/line-mobile-clone`, `GeorgeQLe/kakaotalk-mobile-clone`, `GeorgeQLe/skype-mobile-clone`, and `GeorgeQLe/google-voice-mobile-clone`; planning docs in this repository (`tasks/todo.md`, `tasks/history.md`; add a reproducible implementation script only if repeated code generation is needed).
+  - Batch selection: IDs 935-940 are the next seeded Phase 13 messaging/calling apps after the implemented IDs 016-025 and complete the current batch-47 communication cluster before moving into batch-48.
+  - Build original lawful prototypes across React Native, Expo, Flutter, iOS Native, and Android Native variant directories using original product naming, synthetic fixtures, and public-source/inferred behavior only.
+  - Required shared coverage across the batch: account/session blockers, one-to-one and group conversation models, participant/contact models, message lifecycle, delivery/read state, attachments or media placeholders, calls/voice/video where applicable, reporting/blocking/moderation, notification redaction, offline queue/cache state, privacy settings, account/export/delete blockers, and explicit security/provider metadata that avoids unreviewed parity claims.
+  - Viber/LINE/KakaoTalk coverage: consumer messaging/calling, stickers/commerce/provider blockers, contact discovery blockers, group/community moderation, and call/media permission states.
+  - WeChat coverage: messaging/calling plus explicit launch blockers for wallet/payments, mini programs, official accounts, regulated regional behavior, data export/delete completion, and provider ecosystem parity.
+  - Skype/Google Voice coverage: calling, numbers/telephony/provider blockers, voicemail/SMS where applicable, account/provider lifecycle, recording/transcript blockers, and emergency/regulatory limitations.
+  - Required variant coverage per repo: shared JSON fixtures/contracts; React Native and Expo testable JS modules plus tests; Flutter model/main stub; Swift model/main stub; Kotlin model stub; downstream validation script and validation record.
+  - Validation per repo: `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run when available, downstream `git diff --check`, and remote privacy/default-branch verification after merge.
+  - Planning validation after the batch: planning repo `git diff --check`, `node scripts/verify-phase13-scaffold.mjs`, `node scripts/validate-phase13-repos.mjs`, and `node scripts/generate-phase13-benchmarks.mjs` if validation evidence changes.
+  - Expected blockers: real account lifecycle, phone/SMS/email verification, exact protocol/security guarantees, push notification delivery, contact/address-book permissions, camera/microphone/media capture, telephony/calling provider infrastructure, payment/commerce/mini-program providers, regional/regulatory behavior, export/delete completion, real-device behavior, Flutter runtime validation when Dart/Flutter are missing, and Android Native runtime validation when Kotlin tooling is missing.
+  - Git/PR flow: perform downstream writes serially on one non-primary branch per repo, open a PR, verify clean mergeability/privacy/default branch, squash-merge to downstream `main`, and record PR URLs plus merged commits in `tasks/history.md`. Do not enable, dispatch, or rely on GitHub Actions.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Implement the next six Phase 13 messaging/calling downstream repos across all five variants each, preserving the same original-fixture, local-validation, and branch-backed PR flow used by IDs 016-025.
+
+  **Approach:**
+  1. Re-read source specs `specs/batch-47/935-viber.md` through `specs/batch-47/940-google-voice.md` and verify each downstream repo is clean, private, scaffold-complete, and on `main` before writing code.
+  2. Create a reusable Step 13.10 generator or extend the Step 13.9 pattern with app-specific original product names, fixtures, API contracts, validation scripts, validation records, and five variant stubs/tests.
+  3. For each repo, create a non-primary implementation branch, run the generator, run local validation, commit, push, open a PR, squash-merge to `main`, and verify `visibility == PRIVATE` plus default branch `main`.
+  4. After all six repos merge, rerun the Phase 13 scaffold verifier, validation sweep, benchmark generator, and planning repo whitespace checks.
+  5. Update `tasks/todo.md` and `tasks/history.md` with PR URLs, merge commits, executable evidence, blocker rows, benchmark counts, and the next recommended batch.
 
 ### Reference
 

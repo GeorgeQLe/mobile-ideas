@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-15T02:58:25.706Z",
+  "generatedAt": "2026-05-15T03:33:07.384Z",
   "runId": "phase-13-local-2026-05-15",
   "category": "Messaging & Email",
   "harnessCli": "/tmp/mobile-benchmark-harness/dist/cli/index.js",
   "sourceValidationSummary": "tasks/scorecards/phase-13/validation-summary.json",
   "totalApps": 43,
   "byImplementationStatus": {
-    "implemented": 5,
-    "scaffold-only": 38
+    "implemented": 10,
+    "scaffold-only": 33
   },
   "variants": [
     "react-native",
@@ -17,25 +17,25 @@
     "android-native"
   ],
   "totalTargets": 215,
-  "scorecardCount": 15,
-  "blockerCount": 200,
+  "scorecardCount": 30,
+  "blockerCount": 185,
   "averageComposite": 5.3,
   "byVariant": {
     "react-native": {
-      "scorecards": 5,
-      "blockers": 38
+      "scorecards": 10,
+      "blockers": 33
     },
     "flutter": {
       "scorecards": 0,
       "blockers": 43
     },
     "expo": {
-      "scorecards": 5,
-      "blockers": 38
+      "scorecards": 10,
+      "blockers": 33
     },
     "ios-native": {
-      "scorecards": 5,
-      "blockers": 38
+      "scorecards": 10,
+      "blockers": 33
     },
     "android-native": {
       "scorecards": 0,
@@ -43,9 +43,9 @@
     }
   },
   "byReason": {
-    "missing-local-flutter-toolchain": 5,
-    "missing-local-android-toolchain": 5,
-    "implementation-not-started": 190
+    "missing-local-flutter-toolchain": 10,
+    "missing-local-android-toolchain": 10,
+    "implementation-not-started": 165
   },
   "scorecards": [
     {
@@ -177,6 +177,136 @@
         "detail": "WorkHarbor: surfaces=6, conversations=2, queued=1, blockers=7"
       },
       "file": "tasks/scorecards/phase-13/020-slack-ios-native.json"
+    },
+    {
+      "appId": 21,
+      "appName": "Messenger",
+      "repo": "GeorgeQLe/messenger-mobile-clone",
+      "repoPath": "/tmp/messenger-mobile-clone",
+      "commit": "3e8cddc",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/messenger-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/021-messenger-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "RelayNest: surfaces=6, conversations=2, queued=1, blockers=7"
+      },
+      "file": "tasks/scorecards/phase-13/021-messenger-ios-native.json"
+    },
+    {
+      "appId": 22,
+      "appName": "FaceTime",
+      "repo": "GeorgeQLe/facetime-mobile-clone",
+      "repoPath": "/tmp/facetime-mobile-clone",
+      "commit": "9d3005e",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/facetime-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/022-facetime-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "CallLoom: surfaces=6, conversations=2, queued=1, blockers=7"
+      },
+      "file": "tasks/scorecards/phase-13/022-facetime-ios-native.json"
+    },
+    {
+      "appId": 23,
+      "appName": "Zoom",
+      "repo": "GeorgeQLe/zoom-mobile-clone",
+      "repoPath": "/tmp/zoom-mobile-clone",
+      "commit": "7ad57c9",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/zoom-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/023-zoom-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "MeetHaven: surfaces=6, conversations=2, queued=1, blockers=7"
+      },
+      "file": "tasks/scorecards/phase-13/023-zoom-ios-native.json"
+    },
+    {
+      "appId": 24,
+      "appName": "Gmail",
+      "repo": "GeorgeQLe/gmail-mobile-clone",
+      "repoPath": "/tmp/gmail-mobile-clone",
+      "commit": "a21425a",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/gmail-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/024-gmail-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "MailGarden: surfaces=6, conversations=2, queued=1, blockers=7"
+      },
+      "file": "tasks/scorecards/phase-13/024-gmail-ios-native.json"
+    },
+    {
+      "appId": 25,
+      "appName": "Outlook",
+      "repo": "GeorgeQLe/outlook-mobile-clone",
+      "repoPath": "/tmp/outlook-mobile-clone",
+      "commit": "dae2a1c",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/outlook-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/025-outlook-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "FocusPost: surfaces=6, conversations=2, queued=1, blockers=7"
+      },
+      "file": "tasks/scorecards/phase-13/025-outlook-ios-native.json"
     },
     {
       "appId": 16,
@@ -437,6 +567,266 @@
         "detail": "> node variants/react-native/app.test.mjs | WorkHarbor: surfaces=6, conversations=2, queued=1, blocked=4, routes=13"
       },
       "file": "tasks/scorecards/phase-13/020-slack-react-native.json"
+    },
+    {
+      "appId": 21,
+      "appName": "Messenger",
+      "repo": "GeorgeQLe/messenger-mobile-clone",
+      "repoPath": "/tmp/messenger-mobile-clone",
+      "commit": "3e8cddc",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/messenger-mobile-clone --variant expo --output tasks/scorecards/phase-13/021-messenger-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | RelayNest: surfaces=6, conversations=2, queued=1, blocked=5, routes=14"
+      },
+      "file": "tasks/scorecards/phase-13/021-messenger-expo.json"
+    },
+    {
+      "appId": 21,
+      "appName": "Messenger",
+      "repo": "GeorgeQLe/messenger-mobile-clone",
+      "repoPath": "/tmp/messenger-mobile-clone",
+      "commit": "3e8cddc",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/messenger-mobile-clone --variant react-native --output tasks/scorecards/phase-13/021-messenger-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | RelayNest: surfaces=6, conversations=2, queued=1, blocked=5, routes=14"
+      },
+      "file": "tasks/scorecards/phase-13/021-messenger-react-native.json"
+    },
+    {
+      "appId": 22,
+      "appName": "FaceTime",
+      "repo": "GeorgeQLe/facetime-mobile-clone",
+      "repoPath": "/tmp/facetime-mobile-clone",
+      "commit": "9d3005e",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/facetime-mobile-clone --variant expo --output tasks/scorecards/phase-13/022-facetime-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | CallLoom: surfaces=6, conversations=2, queued=1, blocked=5, routes=13"
+      },
+      "file": "tasks/scorecards/phase-13/022-facetime-expo.json"
+    },
+    {
+      "appId": 22,
+      "appName": "FaceTime",
+      "repo": "GeorgeQLe/facetime-mobile-clone",
+      "repoPath": "/tmp/facetime-mobile-clone",
+      "commit": "9d3005e",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/facetime-mobile-clone --variant react-native --output tasks/scorecards/phase-13/022-facetime-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | CallLoom: surfaces=6, conversations=2, queued=1, blocked=5, routes=13"
+      },
+      "file": "tasks/scorecards/phase-13/022-facetime-react-native.json"
+    },
+    {
+      "appId": 23,
+      "appName": "Zoom",
+      "repo": "GeorgeQLe/zoom-mobile-clone",
+      "repoPath": "/tmp/zoom-mobile-clone",
+      "commit": "7ad57c9",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/zoom-mobile-clone --variant expo --output tasks/scorecards/phase-13/023-zoom-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | MeetHaven: surfaces=6, conversations=2, queued=1, blocked=5, routes=13"
+      },
+      "file": "tasks/scorecards/phase-13/023-zoom-expo.json"
+    },
+    {
+      "appId": 23,
+      "appName": "Zoom",
+      "repo": "GeorgeQLe/zoom-mobile-clone",
+      "repoPath": "/tmp/zoom-mobile-clone",
+      "commit": "7ad57c9",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/zoom-mobile-clone --variant react-native --output tasks/scorecards/phase-13/023-zoom-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | MeetHaven: surfaces=6, conversations=2, queued=1, blocked=5, routes=13"
+      },
+      "file": "tasks/scorecards/phase-13/023-zoom-react-native.json"
+    },
+    {
+      "appId": 24,
+      "appName": "Gmail",
+      "repo": "GeorgeQLe/gmail-mobile-clone",
+      "repoPath": "/tmp/gmail-mobile-clone",
+      "commit": "a21425a",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/gmail-mobile-clone --variant expo --output tasks/scorecards/phase-13/024-gmail-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | MailGarden: surfaces=6, conversations=2, queued=1, blocked=5, routes=13"
+      },
+      "file": "tasks/scorecards/phase-13/024-gmail-expo.json"
+    },
+    {
+      "appId": 24,
+      "appName": "Gmail",
+      "repo": "GeorgeQLe/gmail-mobile-clone",
+      "repoPath": "/tmp/gmail-mobile-clone",
+      "commit": "a21425a",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/gmail-mobile-clone --variant react-native --output tasks/scorecards/phase-13/024-gmail-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | MailGarden: surfaces=6, conversations=2, queued=1, blocked=5, routes=13"
+      },
+      "file": "tasks/scorecards/phase-13/024-gmail-react-native.json"
+    },
+    {
+      "appId": 25,
+      "appName": "Outlook",
+      "repo": "GeorgeQLe/outlook-mobile-clone",
+      "repoPath": "/tmp/outlook-mobile-clone",
+      "commit": "dae2a1c",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/outlook-mobile-clone --variant expo --output tasks/scorecards/phase-13/025-outlook-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | FocusPost: surfaces=6, conversations=2, queued=1, blocked=5, routes=14"
+      },
+      "file": "tasks/scorecards/phase-13/025-outlook-expo.json"
+    },
+    {
+      "appId": 25,
+      "appName": "Outlook",
+      "repo": "GeorgeQLe/outlook-mobile-clone",
+      "repoPath": "/tmp/outlook-mobile-clone",
+      "commit": "dae2a1c",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/outlook-mobile-clone --variant react-native --output tasks/scorecards/phase-13/025-outlook-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | FocusPost: surfaces=6, conversations=2, queued=1, blocked=5, routes=14"
+      },
+      "file": "tasks/scorecards/phase-13/025-outlook-react-native.json"
     }
   ]
 }
