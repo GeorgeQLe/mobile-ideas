@@ -112,6 +112,7 @@ function refreshRepo(repo) {
       .at(-1)
       ?.trim() ?? "main";
     runRequired("git", ["checkout", branch], { cwd: localPath });
+    runRequired("git", ["clean", "-fd", "docs/validation"], { cwd: localPath });
     runRequired("git", ["pull", "--ff-only", "origin", branch], { cwd: localPath });
   } else {
     runRequired("git", ["clone", `https://github.com/${repo}.git`, localPath]);
