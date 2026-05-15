@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-15T15:04:13.134Z",
+  "generatedAt": "2026-05-15T15:25:50.664Z",
   "runId": "phase-13-local-2026-05-15",
   "category": "Messaging & Email",
   "harnessCli": "/tmp/mobile-benchmark-harness/dist/cli/index.js",
   "sourceValidationSummary": "tasks/scorecards/phase-13/validation-summary.json",
   "totalApps": 43,
   "byImplementationStatus": {
-    "implemented": 33,
-    "scaffold-only": 10
+    "implemented": 38,
+    "scaffold-only": 5
   },
   "variants": [
     "react-native",
@@ -17,25 +17,25 @@
     "android-native"
   ],
   "totalTargets": 215,
-  "scorecardCount": 99,
-  "blockerCount": 116,
+  "scorecardCount": 114,
+  "blockerCount": 101,
   "averageComposite": 5.3,
   "byVariant": {
     "react-native": {
-      "scorecards": 33,
-      "blockers": 10
+      "scorecards": 38,
+      "blockers": 5
     },
     "flutter": {
       "scorecards": 0,
       "blockers": 43
     },
     "expo": {
-      "scorecards": 33,
-      "blockers": 10
+      "scorecards": 38,
+      "blockers": 5
     },
     "ios-native": {
-      "scorecards": 33,
-      "blockers": 10
+      "scorecards": 38,
+      "blockers": 5
     },
     "android-native": {
       "scorecards": 0,
@@ -43,9 +43,9 @@
     }
   },
   "byReason": {
-    "missing-local-flutter-toolchain": 33,
-    "missing-local-android-toolchain": 33,
-    "implementation-not-started": 50
+    "missing-local-flutter-toolchain": 38,
+    "missing-local-android-toolchain": 38,
+    "implementation-not-started": 25
   },
   "scorecards": [
     {
@@ -905,6 +905,136 @@
         "detail": "MailHarbor: surfaces=6, threads=2, queued=1, blockers=10"
       },
       "file": "tasks/scorecards/phase-13/957-bluemail-ios-native.json"
+    },
+    {
+      "appId": 958,
+      "appName": "Canary Mail",
+      "repo": "GeorgeQLe/canary-mail-mobile-clone",
+      "repoPath": "/tmp/canary-mail-mobile-clone",
+      "commit": "1ff7a19",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/canary-mail-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/958-canary-mail-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "ShieldPost: surfaces=6, threads=2, queued=1, blockers=10"
+      },
+      "file": "tasks/scorecards/phase-13/958-canary-mail-ios-native.json"
+    },
+    {
+      "appId": 959,
+      "appName": "Fastmail",
+      "repo": "GeorgeQLe/fastmail-mobile-clone",
+      "repoPath": "/tmp/fastmail-mobile-clone",
+      "commit": "acc30f1",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/fastmail-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/959-fastmail-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "SwiftParcel: surfaces=6, threads=2, queued=1, blockers=10"
+      },
+      "file": "tasks/scorecards/phase-13/959-fastmail-ios-native.json"
+    },
+    {
+      "appId": 960,
+      "appName": "HEY",
+      "repo": "GeorgeQLe/hey-mobile-clone",
+      "repoPath": "/tmp/hey-mobile-clone",
+      "commit": "f9ab017",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/hey-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/960-hey-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "TriageLetter: surfaces=6, threads=2, queued=1, blockers=10"
+      },
+      "file": "tasks/scorecards/phase-13/960-hey-ios-native.json"
+    },
+    {
+      "appId": 961,
+      "appName": "Tuta Mail",
+      "repo": "GeorgeQLe/tuta-mail-mobile-clone",
+      "repoPath": "/tmp/tuta-mail-mobile-clone",
+      "commit": "476a998",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/tuta-mail-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/961-tuta-mail-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "LockboxMail: surfaces=6, threads=2, queued=1, blockers=10"
+      },
+      "file": "tasks/scorecards/phase-13/961-tuta-mail-ios-native.json"
+    },
+    {
+      "appId": 962,
+      "appName": "Zoho Mail",
+      "repo": "GeorgeQLe/zoho-mail-mobile-clone",
+      "repoPath": "/tmp/zoho-mail-mobile-clone",
+      "commit": "d004afd",
+      "implementationStatus": "implemented",
+      "variant": "ios-native",
+      "composite": 9.23,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 2,
+        "codeQuality": 36,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/zoho-mail-mobile-clone --variant ios-native --output tasks/scorecards/phase-13/962-zoho-mail-ios-native.json",
+      "validationEvidence": {
+        "command": "swiftc iOS Native model",
+        "status": "pass",
+        "detail": "WorkSuiteMail: surfaces=6, threads=2, queued=1, blockers=10"
+      },
+      "file": "tasks/scorecards/phase-13/962-zoho-mail-ios-native.json"
     },
     {
       "appId": 16,
@@ -2621,6 +2751,266 @@
         "detail": "> node variants/react-native/app.test.mjs | MailHarbor: surfaces=6, threads=2, queued=1, blocked=9, routes=22"
       },
       "file": "tasks/scorecards/phase-13/957-bluemail-react-native.json"
+    },
+    {
+      "appId": 958,
+      "appName": "Canary Mail",
+      "repo": "GeorgeQLe/canary-mail-mobile-clone",
+      "repoPath": "/tmp/canary-mail-mobile-clone",
+      "commit": "1ff7a19",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/canary-mail-mobile-clone --variant expo --output tasks/scorecards/phase-13/958-canary-mail-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | ShieldPost: surfaces=6, threads=2, queued=1, blocked=9, routes=24"
+      },
+      "file": "tasks/scorecards/phase-13/958-canary-mail-expo.json"
+    },
+    {
+      "appId": 958,
+      "appName": "Canary Mail",
+      "repo": "GeorgeQLe/canary-mail-mobile-clone",
+      "repoPath": "/tmp/canary-mail-mobile-clone",
+      "commit": "1ff7a19",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/canary-mail-mobile-clone --variant react-native --output tasks/scorecards/phase-13/958-canary-mail-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | ShieldPost: surfaces=6, threads=2, queued=1, blocked=9, routes=24"
+      },
+      "file": "tasks/scorecards/phase-13/958-canary-mail-react-native.json"
+    },
+    {
+      "appId": 959,
+      "appName": "Fastmail",
+      "repo": "GeorgeQLe/fastmail-mobile-clone",
+      "repoPath": "/tmp/fastmail-mobile-clone",
+      "commit": "acc30f1",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/fastmail-mobile-clone --variant expo --output tasks/scorecards/phase-13/959-fastmail-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | SwiftParcel: surfaces=6, threads=2, queued=1, blocked=9, routes=24"
+      },
+      "file": "tasks/scorecards/phase-13/959-fastmail-expo.json"
+    },
+    {
+      "appId": 959,
+      "appName": "Fastmail",
+      "repo": "GeorgeQLe/fastmail-mobile-clone",
+      "repoPath": "/tmp/fastmail-mobile-clone",
+      "commit": "acc30f1",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/fastmail-mobile-clone --variant react-native --output tasks/scorecards/phase-13/959-fastmail-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | SwiftParcel: surfaces=6, threads=2, queued=1, blocked=9, routes=24"
+      },
+      "file": "tasks/scorecards/phase-13/959-fastmail-react-native.json"
+    },
+    {
+      "appId": 960,
+      "appName": "HEY",
+      "repo": "GeorgeQLe/hey-mobile-clone",
+      "repoPath": "/tmp/hey-mobile-clone",
+      "commit": "f9ab017",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/hey-mobile-clone --variant expo --output tasks/scorecards/phase-13/960-hey-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | TriageLetter: surfaces=6, threads=2, queued=1, blocked=9, routes=24"
+      },
+      "file": "tasks/scorecards/phase-13/960-hey-expo.json"
+    },
+    {
+      "appId": 960,
+      "appName": "HEY",
+      "repo": "GeorgeQLe/hey-mobile-clone",
+      "repoPath": "/tmp/hey-mobile-clone",
+      "commit": "f9ab017",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/hey-mobile-clone --variant react-native --output tasks/scorecards/phase-13/960-hey-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | TriageLetter: surfaces=6, threads=2, queued=1, blocked=9, routes=24"
+      },
+      "file": "tasks/scorecards/phase-13/960-hey-react-native.json"
+    },
+    {
+      "appId": 961,
+      "appName": "Tuta Mail",
+      "repo": "GeorgeQLe/tuta-mail-mobile-clone",
+      "repoPath": "/tmp/tuta-mail-mobile-clone",
+      "commit": "476a998",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/tuta-mail-mobile-clone --variant expo --output tasks/scorecards/phase-13/961-tuta-mail-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | LockboxMail: surfaces=6, threads=2, queued=1, blocked=9, routes=21"
+      },
+      "file": "tasks/scorecards/phase-13/961-tuta-mail-expo.json"
+    },
+    {
+      "appId": 961,
+      "appName": "Tuta Mail",
+      "repo": "GeorgeQLe/tuta-mail-mobile-clone",
+      "repoPath": "/tmp/tuta-mail-mobile-clone",
+      "commit": "476a998",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/tuta-mail-mobile-clone --variant react-native --output tasks/scorecards/phase-13/961-tuta-mail-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | LockboxMail: surfaces=6, threads=2, queued=1, blocked=9, routes=21"
+      },
+      "file": "tasks/scorecards/phase-13/961-tuta-mail-react-native.json"
+    },
+    {
+      "appId": 962,
+      "appName": "Zoho Mail",
+      "repo": "GeorgeQLe/zoho-mail-mobile-clone",
+      "repoPath": "/tmp/zoho-mail-mobile-clone",
+      "commit": "d004afd",
+      "implementationStatus": "implemented",
+      "variant": "expo",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/zoho-mail-mobile-clone --variant expo --output tasks/scorecards/phase-13/962-zoho-mail-expo.json",
+      "validationEvidence": {
+        "command": "npm run test:expo",
+        "status": "pass",
+        "detail": "> node variants/expo/app.test.mjs | WorkSuiteMail: surfaces=6, threads=2, queued=1, blocked=9, routes=24"
+      },
+      "file": "tasks/scorecards/phase-13/962-zoho-mail-expo.json"
+    },
+    {
+      "appId": 962,
+      "appName": "Zoho Mail",
+      "repo": "GeorgeQLe/zoho-mail-mobile-clone",
+      "repoPath": "/tmp/zoho-mail-mobile-clone",
+      "commit": "d004afd",
+      "implementationStatus": "implemented",
+      "variant": "react-native",
+      "composite": 3.33,
+      "dimensions": {
+        "performance": 0,
+        "bundleSize": 33.33,
+        "uxFidelity": 0,
+        "codeQuality": 0,
+        "devVelocity": 0,
+        "accessibility": 0,
+        "storeCompliance": 0
+      },
+      "command": "node /tmp/mobile-benchmark-harness/dist/cli/index.js --app /tmp/zoho-mail-mobile-clone --variant react-native --output tasks/scorecards/phase-13/962-zoho-mail-react-native.json",
+      "validationEvidence": {
+        "command": "npm run test:react-native",
+        "status": "pass",
+        "detail": "> node variants/react-native/app.test.mjs | WorkSuiteMail: surfaces=6, threads=2, queued=1, blocked=9, routes=24"
+      },
+      "file": "tasks/scorecards/phase-13/962-zoho-mail-react-native.json"
     }
   ]
 }

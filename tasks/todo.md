@@ -474,7 +474,7 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   - Phase 13 now has 33 implemented downstream repos and 10 scaffold-only downstream repos.
   - Flutter/Dart and Android Native/Kotlin runtime validation remain explicit local toolchain blockers; no GitHub Actions, proprietary assets, private APIs, production data, copied media, provider parity claims, audited E2EE/security claims, raw mailbox analytics, or public visibility changes were introduced.
 
-- [ ] Step 13.14: Implement next Phase 13 batch, IDs 958-962
+- [x] Step 13.14: Implement next Phase 13 batch, IDs 958-962
   - Files: downstream repos `GeorgeQLe/canary-mail-mobile-clone`, `GeorgeQLe/fastmail-mobile-clone`, `GeorgeQLe/hey-mobile-clone`, `GeorgeQLe/tuta-mail-mobile-clone`, and `GeorgeQLe/zoho-mail-mobile-clone`; planning docs in this repository (`tasks/todo.md`, `tasks/history.md`; add a reproducible implementation script only if repeated code generation is needed).
   - Batch selection: IDs 958-962 are the next seeded Phase 13 email/privacy-mail apps after the implemented IDs 952-957 and reduce the remaining scaffold-only set to the final IDs 963-967 batch.
   - Build original lawful email/client prototypes across React Native, Expo, Flutter, iOS Native, and Android Native variant directories using original product naming, synthetic fixtures, and public-source/inferred behavior only.
@@ -497,6 +497,44 @@ Step 13.1 reconciled the roadmap's approximate count into 43 apps / 215 variants
   3. For each repo, create a non-primary implementation branch, run the generator, run local validation, commit, push, open a PR, squash-merge to `main`, and verify `visibility == PRIVATE` plus default branch `main`.
   4. After all five repos merge, rerun the Phase 13 scaffold verifier, validation sweep, benchmark generator, JSON accounting sanity checks, and planning repo whitespace checks.
   5. Update `tasks/todo.md` and `tasks/history.md` with PR URLs, merge commits, executable evidence, blocker rows, benchmark counts, and the final recommended Phase 13 batch for IDs 963-967.
+
+  **Review (2026-05-15):**
+  - Added `scripts/implement-phase13-step13-14.mjs` as the reproducible downstream generator for IDs 958-962.
+  - Implemented the bounded IDs 958-962 email/privacy-mail batch across all five variant directories in five downstream repos:
+    - `GeorgeQLe/canary-mail-mobile-clone` as original `ShieldPost`, PR `https://github.com/GeorgeQLe/canary-mail-mobile-clone/pull/2`, merged to `main` at commit `1ff7a19`.
+    - `GeorgeQLe/fastmail-mobile-clone` as original `SwiftParcel`, PR `https://github.com/GeorgeQLe/fastmail-mobile-clone/pull/2`, merged to `main` at commit `acc30f1`.
+    - `GeorgeQLe/hey-mobile-clone` as original `TriageLetter`, PR `https://github.com/GeorgeQLe/hey-mobile-clone/pull/2`, merged to `main` at commit `f9ab017`.
+    - `GeorgeQLe/tuta-mail-mobile-clone` as original `LockboxMail`, PR `https://github.com/GeorgeQLe/tuta-mail-mobile-clone/pull/2`, merged to `main` at commit `476a998`.
+    - `GeorgeQLe/zoho-mail-mobile-clone` as original `WorkSuiteMail`, PR `https://github.com/GeorgeQLe/zoho-mail-mobile-clone/pull/2`, merged to `main` at commit `d004afd`.
+  - Remote verification confirmed all five touched repos remain `PRIVATE` with default branch `main`.
+  - Local executable validation passed for each touched downstream repo: generator validator, React Native test, Expo test, Swift compile/run, downstream `git diff --check`, and staged `git diff --cached --check`; the full Phase 13 validation sweep then passed the formal per-repo `npm run validate`, `npm run test:react-native`, and `npm run test:expo` checks where implemented.
+  - Planning validation passed: `node scripts/verify-phase13-scaffold.mjs` reported `checked=43`, `repairedCount=0`, and `failures=0`; `node scripts/validate-phase13-repos.mjs` reported `repos=43`, `passedCommands=195`, `failureCount=0`, `blockerCount=106`, and `implementationBlockerCount=20`; `node scripts/generate-phase13-benchmarks.mjs` reported `scorecards=114`, `blockers=101`, and `totalTargets=215`.
+  - Phase 13 now has 38 implemented downstream repos and 5 scaffold-only downstream repos.
+  - Flutter/Dart and Android Native/Kotlin runtime validation remain explicit local toolchain blockers; no GitHub Actions, proprietary assets, private APIs, production data, copied media, provider parity claims, audited E2EE/security claims, raw mailbox analytics, public visibility changes, or trademark branding were introduced.
+
+- [ ] Step 13.15: Implement final Phase 13 batch, IDs 963-967
+  - Files: downstream repos `GeorgeQLe/spike-mobile-clone`, `GeorgeQLe/superhuman-mobile-clone`, `GeorgeQLe/shortwave-mobile-clone`, `GeorgeQLe/clean-email-mobile-clone`, and `GeorgeQLe/unroll-me-mobile-clone`; planning docs in this repository (`tasks/todo.md`, `tasks/history.md`; add a reproducible implementation script only if repeated code generation is needed).
+  - Batch selection: IDs 963-967 are the final scaffold-only Phase 13 email/productivity-mail apps after IDs 958-962, and completing them should satisfy the full 43-app implementation coverage criterion except explicit local/toolchain/provider blockers.
+  - Build original lawful email/client prototypes across React Native, Expo, Flutter, iOS Native, and Android Native variant directories using original product naming, synthetic fixtures, and public-source/inferred behavior only.
+  - Spike/Superhuman/Shortwave coverage: conversational or productivity-focused inbox models, priority triage, AI/provider blockers, calendar/contact/provider blockers, keyboard/shortcut or command workflows where applicable, team/shared-context blockers, privacy-safe analytics, spam/phishing/report flows, attachment blockers, offline queue/cache state, and export/delete blockers.
+  - Clean Email/Unroll.Me coverage: mailbox cleanup and unsubscribe workflows, sender/list classification, batch archive/delete blockers, rollup/digest blockers, OAuth/provider blockers, privacy and data-use review boundaries, spam/phishing/report flows, attachment blockers where applicable, offline cache state, and export/delete blockers.
+  - Required variant coverage per repo: shared JSON fixtures/contracts; React Native and Expo testable JS modules plus tests; Flutter model/main stub; Swift model/main stub; Kotlin model stub; downstream validation script and committed validation record.
+  - Validation per repo: `npm run validate`, `npm run test:react-native`, `npm run test:expo`, Swift compile/run when available, downstream `git diff --check`, staged `git diff --cached --check`, and remote privacy/default-branch verification after merge.
+  - Planning validation after the batch: planning repo `git diff --check`, `node scripts/verify-phase13-scaffold.mjs`, `node scripts/validate-phase13-repos.mjs`, `node scripts/generate-phase13-benchmarks.mjs`, and JSON accounting sanity checks.
+  - Expected blockers: real account lifecycle, mailbox provider auth, IMAP/SMTP/OAuth integration, exact AI/security/privacy guarantees, spam/phishing provider systems, push notification delivery, contact/calendar/address-book permissions, attachment/media provider handling, unsubscribe/provider execution, batch cleanup provider actions, export/delete completion, account recovery, real-device behavior, Flutter runtime validation when Dart/Flutter are missing, and Android Native runtime validation when Kotlin tooling is missing.
+  - Git/PR flow: perform downstream writes serially on one non-primary branch per repo, open a PR, verify clean mergeability/privacy/default branch, squash-merge to downstream `main`, and record PR URLs plus merged commits in `tasks/history.md`. Do not enable, dispatch, or rely on GitHub Actions.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Implement the final five Phase 13 email/productivity-mail downstream repos across all five variants each, preserving the original-fixture, committed-validation-record, local-validation, and branch-backed PR flow used by IDs 016-025 and 935-962.
+
+  **Approach:**
+  1. Re-read source specs `specs/batch-49/963-spike.md` through `specs/batch-49/967-unroll-me.md` and verify each downstream repo is clean, private, scaffold-complete, and on `main` before writing code.
+  2. Create a reusable Step 13.15 generator or extend the Step 13.14 pattern with app-specific original product names, productivity-mail/cleanup fixtures, API contracts, validation scripts, committed validation records, and five variant stubs/tests.
+  3. For each repo, create a non-primary implementation branch, run the generator, run local validation, commit, push, open a PR, squash-merge to `main`, and verify `visibility == PRIVATE` plus default branch `main`.
+  4. After all five repos merge, rerun the Phase 13 scaffold verifier, validation sweep, benchmark generator, JSON accounting sanity checks, and planning repo whitespace checks.
+  5. Update `tasks/todo.md` and `tasks/history.md` with PR URLs, merge commits, executable evidence, blocker rows, benchmark counts, and the Phase 13 final validation/cleanup recommendation.
 
 ### Reference
 

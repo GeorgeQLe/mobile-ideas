@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-15T15:04:13.134Z",
+  "generatedAt": "2026-05-15T15:25:50.664Z",
   "runId": "phase-13-local-2026-05-15",
   "blockers": [
     {
@@ -1261,17 +1261,17 @@
       "appName": "Canary Mail",
       "repo": "GeorgeQLe/canary-mail-mobile-clone",
       "repoPath": "/tmp/canary-mail-mobile-clone",
-      "commit": "a022d84",
-      "implementationStatus": "scaffold-only",
+      "commit": "1ff7a19",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
-      "variant": "react-native",
+      "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/canary-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
-        "command": "npm run test:react-native",
+        "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/canary-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1280,74 +1280,17 @@
       "appName": "Canary Mail",
       "repo": "GeorgeQLe/canary-mail-mobile-clone",
       "repoPath": "/tmp/canary-mail-mobile-clone",
-      "commit": "a022d84",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "flutter",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/canary-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
-      "validationEvidence": {
-        "command": "Flutter runtime validation",
-        "status": "blocker",
-        "detail": "GeorgeQLe/canary-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 958,
-      "appName": "Canary Mail",
-      "repo": "GeorgeQLe/canary-mail-mobile-clone",
-      "repoPath": "/tmp/canary-mail-mobile-clone",
-      "commit": "a022d84",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/canary-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/canary-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 958,
-      "appName": "Canary Mail",
-      "repo": "GeorgeQLe/canary-mail-mobile-clone",
-      "repoPath": "/tmp/canary-mail-mobile-clone",
-      "commit": "a022d84",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/canary-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/canary-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 958,
-      "appName": "Canary Mail",
-      "repo": "GeorgeQLe/canary-mail-mobile-clone",
-      "repoPath": "/tmp/canary-mail-mobile-clone",
-      "commit": "a022d84",
-      "implementationStatus": "scaffold-only",
+      "commit": "1ff7a19",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/canary-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/canary-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1356,17 +1299,17 @@
       "appName": "Fastmail",
       "repo": "GeorgeQLe/fastmail-mobile-clone",
       "repoPath": "/tmp/fastmail-mobile-clone",
-      "commit": "8139c84",
-      "implementationStatus": "scaffold-only",
+      "commit": "acc30f1",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
-      "variant": "react-native",
+      "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/fastmail-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
-        "command": "npm run test:react-native",
+        "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/fastmail-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1375,74 +1318,17 @@
       "appName": "Fastmail",
       "repo": "GeorgeQLe/fastmail-mobile-clone",
       "repoPath": "/tmp/fastmail-mobile-clone",
-      "commit": "8139c84",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "flutter",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/fastmail-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
-      "validationEvidence": {
-        "command": "Flutter runtime validation",
-        "status": "blocker",
-        "detail": "GeorgeQLe/fastmail-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 959,
-      "appName": "Fastmail",
-      "repo": "GeorgeQLe/fastmail-mobile-clone",
-      "repoPath": "/tmp/fastmail-mobile-clone",
-      "commit": "8139c84",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/fastmail-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/fastmail-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 959,
-      "appName": "Fastmail",
-      "repo": "GeorgeQLe/fastmail-mobile-clone",
-      "repoPath": "/tmp/fastmail-mobile-clone",
-      "commit": "8139c84",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/fastmail-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/fastmail-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 959,
-      "appName": "Fastmail",
-      "repo": "GeorgeQLe/fastmail-mobile-clone",
-      "repoPath": "/tmp/fastmail-mobile-clone",
-      "commit": "8139c84",
-      "implementationStatus": "scaffold-only",
+      "commit": "acc30f1",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/fastmail-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/fastmail-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1451,36 +1337,17 @@
       "appName": "HEY",
       "repo": "GeorgeQLe/hey-mobile-clone",
       "repoPath": "/tmp/hey-mobile-clone",
-      "commit": "cc9c62a",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/hey-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:react-native",
-        "status": "blocker",
-        "detail": "GeorgeQLe/hey-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 960,
-      "appName": "HEY",
-      "repo": "GeorgeQLe/hey-mobile-clone",
-      "repoPath": "/tmp/hey-mobile-clone",
-      "commit": "cc9c62a",
-      "implementationStatus": "scaffold-only",
+      "commit": "f9ab017",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/hey-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
         "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/hey-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1489,55 +1356,17 @@
       "appName": "HEY",
       "repo": "GeorgeQLe/hey-mobile-clone",
       "repoPath": "/tmp/hey-mobile-clone",
-      "commit": "cc9c62a",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/hey-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/hey-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 960,
-      "appName": "HEY",
-      "repo": "GeorgeQLe/hey-mobile-clone",
-      "repoPath": "/tmp/hey-mobile-clone",
-      "commit": "cc9c62a",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/hey-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/hey-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 960,
-      "appName": "HEY",
-      "repo": "GeorgeQLe/hey-mobile-clone",
-      "repoPath": "/tmp/hey-mobile-clone",
-      "commit": "cc9c62a",
-      "implementationStatus": "scaffold-only",
+      "commit": "f9ab017",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/hey-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/hey-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1546,36 +1375,17 @@
       "appName": "Tuta Mail",
       "repo": "GeorgeQLe/tuta-mail-mobile-clone",
       "repoPath": "/tmp/tuta-mail-mobile-clone",
-      "commit": "cafceaa",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/tuta-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:react-native",
-        "status": "blocker",
-        "detail": "GeorgeQLe/tuta-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 961,
-      "appName": "Tuta Mail",
-      "repo": "GeorgeQLe/tuta-mail-mobile-clone",
-      "repoPath": "/tmp/tuta-mail-mobile-clone",
-      "commit": "cafceaa",
-      "implementationStatus": "scaffold-only",
+      "commit": "476a998",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/tuta-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
         "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/tuta-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1584,55 +1394,17 @@
       "appName": "Tuta Mail",
       "repo": "GeorgeQLe/tuta-mail-mobile-clone",
       "repoPath": "/tmp/tuta-mail-mobile-clone",
-      "commit": "cafceaa",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/tuta-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/tuta-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 961,
-      "appName": "Tuta Mail",
-      "repo": "GeorgeQLe/tuta-mail-mobile-clone",
-      "repoPath": "/tmp/tuta-mail-mobile-clone",
-      "commit": "cafceaa",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/tuta-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/tuta-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 961,
-      "appName": "Tuta Mail",
-      "repo": "GeorgeQLe/tuta-mail-mobile-clone",
-      "repoPath": "/tmp/tuta-mail-mobile-clone",
-      "commit": "cafceaa",
-      "implementationStatus": "scaffold-only",
+      "commit": "476a998",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/tuta-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/tuta-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1641,36 +1413,17 @@
       "appName": "Zoho Mail",
       "repo": "GeorgeQLe/zoho-mail-mobile-clone",
       "repoPath": "/tmp/zoho-mail-mobile-clone",
-      "commit": "84f4c68",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "react-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/zoho-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:react-native",
-        "status": "blocker",
-        "detail": "GeorgeQLe/zoho-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no react-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 962,
-      "appName": "Zoho Mail",
-      "repo": "GeorgeQLe/zoho-mail-mobile-clone",
-      "repoPath": "/tmp/zoho-mail-mobile-clone",
-      "commit": "84f4c68",
-      "implementationStatus": "scaffold-only",
+      "commit": "d004afd",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "flutter",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/zoho-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated.",
+      "reason": "missing-local-flutter-toolchain",
+      "detail": "dart/flutter are not installed locally",
       "validationEvidence": {
         "command": "Flutter runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/zoho-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no flutter benchmark score was generated."
+        "detail": "dart/flutter are not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },
@@ -1679,55 +1432,17 @@
       "appName": "Zoho Mail",
       "repo": "GeorgeQLe/zoho-mail-mobile-clone",
       "repoPath": "/tmp/zoho-mail-mobile-clone",
-      "commit": "84f4c68",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "expo",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/zoho-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated.",
-      "validationEvidence": {
-        "command": "npm run test:expo",
-        "status": "blocker",
-        "detail": "GeorgeQLe/zoho-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no expo benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 962,
-      "appName": "Zoho Mail",
-      "repo": "GeorgeQLe/zoho-mail-mobile-clone",
-      "repoPath": "/tmp/zoho-mail-mobile-clone",
-      "commit": "84f4c68",
-      "implementationStatus": "scaffold-only",
-      "category": "Messaging & Email",
-      "variant": "ios-native",
-      "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/zoho-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated.",
-      "validationEvidence": {
-        "command": "swiftc iOS Native model",
-        "status": "blocker",
-        "detail": "GeorgeQLe/zoho-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no ios-native benchmark score was generated."
-      },
-      "runId": "phase-13-local-2026-05-15"
-    },
-    {
-      "appId": 962,
-      "appName": "Zoho Mail",
-      "repo": "GeorgeQLe/zoho-mail-mobile-clone",
-      "repoPath": "/tmp/zoho-mail-mobile-clone",
-      "commit": "84f4c68",
-      "implementationStatus": "scaffold-only",
+      "commit": "d004afd",
+      "implementationStatus": "implemented",
       "category": "Messaging & Email",
       "variant": "android-native",
       "status": "blocked",
-      "reason": "implementation-not-started",
-      "detail": "GeorgeQLe/zoho-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated.",
+      "reason": "missing-local-android-toolchain",
+      "detail": "kotlinc is not installed locally",
       "validationEvidence": {
         "command": "Android Native runtime validation",
         "status": "blocker",
-        "detail": "GeorgeQLe/zoho-mail-mobile-clone remains scaffold-only in Step 13.6 validation; no android-native benchmark score was generated."
+        "detail": "kotlinc is not installed locally"
       },
       "runId": "phase-13-local-2026-05-15"
     },

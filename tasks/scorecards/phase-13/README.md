@@ -1,13 +1,13 @@
 # Phase 13 Benchmark Scorecards
 
-Generated: 2026-05-15T15:04:13.134Z
+Generated: 2026-05-15T15:25:50.664Z
 Run ID: `phase-13-local-2026-05-15`
 
 ## Summary
 
 - Total benchmark targets: 215
-- Scorecards produced: 99
-- Blocker records produced: 116
+- Scorecards produced: 114
+- Blocker records produced: 101
 - Average composite across scored variants: 5.30
 - GitHub Actions used: no
 
@@ -15,26 +15,26 @@ Run ID: `phase-13-local-2026-05-15`
 
 | Status | Repos |
 | --- | ---: |
-| implemented | 33 |
-| scaffold-only | 10 |
+| implemented | 38 |
+| scaffold-only | 5 |
 
 ## Accounting By Variant
 
 | Variant | Scorecards | Blockers |
 | --- | ---: | ---: |
-| react-native | 33 | 10 |
+| react-native | 38 | 5 |
 | flutter | 0 | 43 |
-| expo | 33 | 10 |
-| ios-native | 33 | 10 |
+| expo | 38 | 5 |
+| ios-native | 38 | 5 |
 | android-native | 0 | 43 |
 
 ## Blockers By Reason
 
 | Reason | Count |
 | --- | ---: |
-| missing-local-flutter-toolchain | 33 |
-| missing-local-android-toolchain | 33 |
-| implementation-not-started | 50 |
+| missing-local-flutter-toolchain | 38 |
+| missing-local-android-toolchain | 38 |
+| implementation-not-started | 25 |
 
 ## Scorecards
 
@@ -73,6 +73,11 @@ Run ID: `phase-13-local-2026-05-15`
 | 955 | Spark Mail | ios-native | 9.23 | tasks/scorecards/phase-13/955-spark-mail-ios-native.json |
 | 956 | Edison Mail | ios-native | 9.23 | tasks/scorecards/phase-13/956-edison-mail-ios-native.json |
 | 957 | BlueMail | ios-native | 9.23 | tasks/scorecards/phase-13/957-bluemail-ios-native.json |
+| 958 | Canary Mail | ios-native | 9.23 | tasks/scorecards/phase-13/958-canary-mail-ios-native.json |
+| 959 | Fastmail | ios-native | 9.23 | tasks/scorecards/phase-13/959-fastmail-ios-native.json |
+| 960 | HEY | ios-native | 9.23 | tasks/scorecards/phase-13/960-hey-ios-native.json |
+| 961 | Tuta Mail | ios-native | 9.23 | tasks/scorecards/phase-13/961-tuta-mail-ios-native.json |
+| 962 | Zoho Mail | ios-native | 9.23 | tasks/scorecards/phase-13/962-zoho-mail-ios-native.json |
 | 016 | WhatsApp | expo | 3.33 | tasks/scorecards/phase-13/016-whatsapp-expo.json |
 | 016 | WhatsApp | react-native | 3.33 | tasks/scorecards/phase-13/016-whatsapp-react-native.json |
 | 017 | Telegram | expo | 3.33 | tasks/scorecards/phase-13/017-telegram-expo.json |
@@ -139,11 +144,21 @@ Run ID: `phase-13-local-2026-05-15`
 | 956 | Edison Mail | react-native | 3.33 | tasks/scorecards/phase-13/956-edison-mail-react-native.json |
 | 957 | BlueMail | expo | 3.33 | tasks/scorecards/phase-13/957-bluemail-expo.json |
 | 957 | BlueMail | react-native | 3.33 | tasks/scorecards/phase-13/957-bluemail-react-native.json |
+| 958 | Canary Mail | expo | 3.33 | tasks/scorecards/phase-13/958-canary-mail-expo.json |
+| 958 | Canary Mail | react-native | 3.33 | tasks/scorecards/phase-13/958-canary-mail-react-native.json |
+| 959 | Fastmail | expo | 3.33 | tasks/scorecards/phase-13/959-fastmail-expo.json |
+| 959 | Fastmail | react-native | 3.33 | tasks/scorecards/phase-13/959-fastmail-react-native.json |
+| 960 | HEY | expo | 3.33 | tasks/scorecards/phase-13/960-hey-expo.json |
+| 960 | HEY | react-native | 3.33 | tasks/scorecards/phase-13/960-hey-react-native.json |
+| 961 | Tuta Mail | expo | 3.33 | tasks/scorecards/phase-13/961-tuta-mail-expo.json |
+| 961 | Tuta Mail | react-native | 3.33 | tasks/scorecards/phase-13/961-tuta-mail-react-native.json |
+| 962 | Zoho Mail | expo | 3.33 | tasks/scorecards/phase-13/962-zoho-mail-expo.json |
+| 962 | Zoho Mail | react-native | 3.33 | tasks/scorecards/phase-13/962-zoho-mail-react-native.json |
 
 ## Notes
 
 - Scorecards are generated only for variants with Phase 13 executable validation evidence.
 - Flutter and Android Native targets remain local-toolchain blocked and have blocker records instead of invented benchmark scores.
-- The 10 scaffold-only repos are represented as implementation blockers for every variant until implementation evidence exists.
+- The 5 scaffold-only repos are represented as implementation blockers for every variant until implementation evidence exists.
 - The harness uses local source structure and available report files as conservative proxies when device, accessibility, or store-compliance reports are absent.
 - No GitHub Actions workflows were created, modified, enabled, dispatched, or used.
