@@ -228,6 +228,53 @@ Build all five variants for every app in the Video & Music Streaming cluster.
 - Residual blockers: licensed audio/catalog/provider integration, offline downloads, background playback, subscription/payment providers, cross-device sync, child safety (Audible), purchase/payment/merch/payout (Bandcamp), OPML/feed auth (Pocket Casts), real-device testing, Flutter toolchain, and Android Native toolchain.
 - Tooling constraint: no GitHub Actions were enabled, dispatched, or used.
 
+- [ ] Step 14.4: Merge Step 14.3 lane PRs and execute second music/audio tranche
+  - Files: downstream repos from Step 14.3 (merge PRs), plus new downstream repos `GeorgeQLe/spotify-mobile-clone`, `GeorgeQLe/soundcloud-mobile-clone`, and `GeorgeQLe/shazam-mobile-clone`; planning updates in `tasks/todo.md`, `tasks/history.md`.
+  - First: merge the three open Step 14.3 PRs after final review (CastHaven PR#1, ChapterVault PR#1, TrackBazaar PR#1), since consolidation gate already passed.
+  - Then: execute the second implementation tranche using the validated streaming-cluster pattern from Step 14.3.
+  - Use agent-team parallel lanes, one repo per branch-backed lane, no direct-to-primary implementation.
+  - Implement five local variants per selected repo where toolchains are available, with explicit blockers for unavailable Flutter/Android Native toolchains and provider/licensed-media/real-device behavior.
+  - Open PRs for every downstream lane and run the consolidation gate before merge.
+  - Preserve Draft 1 and licensed-media/provider blockers; do not claim implementation-ready parity.
+  - Do not enable, dispatch, or rely on GitHub Actions.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Merge the validated Step 14.3 PRs and implement the second tranche of Phase 14 music/audio downstream repos (Spotify, SoundCloud, Shazam), using the proven CastHaven/ChapterVault/TrackBazaar pattern.
+
+  **Approach:**
+  1. Merge the three Step 14.3 PRs (already passed consolidation gate):
+     - `GeorgeQLe/pocket-casts-mobile-clone` PR#1 (`phase14/pocket-casts-variant-scaffold`)
+     - `GeorgeQLe/audible-mobile-clone` PR#1 (`phase14/audible-variant-scaffold`)
+     - `GeorgeQLe/bandcamp-mobile-clone` PR#1 (`phase14/bandcamp-variant-scaffold`)
+  2. For the second tranche, dispatch three parallel agent-team lanes:
+     - Lane 14.4-A: `GeorgeQLe/spotify-mobile-clone`, branch `phase14/spotify-variant-scaffold` — music streaming with playlist/library/recommendation/ads/subscription domain
+     - Lane 14.4-B: `GeorgeQLe/soundcloud-mobile-clone`, branch `phase14/soundcloud-variant-scaffold` — creator audio with upload/reposts/likes/stations/Go+ domain
+     - Lane 14.4-C: `GeorgeQLe/shazam-mobile-clone`, branch `phase14/shazam-variant-scaffold` — music recognition with identification/history/playlists/provider-handoff domain
+  3. Each lane builds the same file set as Step 14.3 (20 files): shared fixtures/contracts, 5 variant implementations, validation script, blocker artifact, implementation record, validation JSON, package manifest.
+  4. Each lane chooses a brand-safe name (Phase 13 pattern: e.g., Spotify→TuneCraft, SoundCloud→AudioPulse, Shazam→SoundScout or similar).
+  5. Run consolidation gate: boundary check, visibility, no workflow files, branding audit, parity audit.
+  6. Record evidence in `tasks/todo.md` and `tasks/history.md`.
+
+  **Key files affected:**
+  - Three downstream repos receive 20 new files each in `variants/`, `shared/`, `scripts/`, `tasks/blockers/`, `docs/validation/`, `docs/implementation/`, `package.json`
+  - Planning repo: `tasks/todo.md`, `tasks/history.md`
+
+  **Execution Profile:**
+  - Mode: agent-team (3 parallel write lanes + 3 serial PR merges)
+  - Integration owner: main agent
+  - Conflict risk: low (each app is an independent GitHub repo)
+  - Review gates: local validation, boundary check, visibility, no GitHub Actions, branding/parity audit
+
+  **Acceptance criteria:**
+  - Three Step 14.3 PRs merged to `main` in their respective repos
+  - Three new downstream repos have variant scaffolds on feature branches with open PRs
+  - All `npm run validate`, `npm run test:react-native`, `npm run test:expo`, and `swift` runs pass
+  - Consolidation gate passes for all new lanes
+  - Planning repo updated with evidence
+  - Ship-one-step handoff: implement only this step, validate it, then run `/ship` when done.
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`
