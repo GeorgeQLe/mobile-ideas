@@ -483,6 +483,61 @@ Build all five variants for every app in the Video & Music Streaming cluster.
 | 14.6-B | `GeorgeQLe/pandora-mobile-clone` | `phase14/pandora-variant-scaffold` | RadioSeed | Personalized radio / seed-based stations / thumbs feedback / station modes / podcasts / premium on-demand | PR#1 | Open, validated |
 | 14.6-C | `GeorgeQLe/iheartradio-mobile-clone` | `phase14/iheartradio-variant-scaffold` | PulseRadio | Live radio / AM/FM stations / podcasts / playlists / on-demand / live events / local discovery | PR#1 | Open, validated |
 
+- [ ] Step 14.7: Merge Step 14.6 PRs and execute fifth music/audio tranche
+  - Files: downstream repos from Step 14.6 (merge PRs), plus new downstream repos `GeorgeQLe/siriusxm-mobile-clone`, `GeorgeQLe/tunein-radio-mobile-clone`, and `GeorgeQLe/amazon-music-mobile-clone`; planning updates in `tasks/todo.md`, `tasks/history.md`.
+  - First: merge the three open Step 14.6 PRs (SonicTide PR#1, RadioSeed PR#1, PulseRadio PR#1), since consolidation gate already passed.
+  - Then: execute the fifth implementation tranche using the validated streaming-cluster pattern.
+  - Use agent-team parallel lanes, one repo per branch-backed lane, no direct-to-primary implementation.
+  - Implement five local variants per selected repo where toolchains are available, with explicit blockers for unavailable Flutter/Android Native toolchains and provider/licensed-media/real-device behavior.
+  - Open PRs for every downstream lane and run the consolidation gate before merge.
+  - Preserve Draft 1 and licensed-media/provider blockers; do not claim implementation-ready parity.
+  - Do not enable, dispatch, or rely on GitHub Actions.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Merge the validated Step 14.6 PRs and implement the fifth tranche of Phase 14 music/audio downstream repos (SiriusXM, TuneIn Radio, Amazon Music), using the proven SonicTide/RadioSeed/PulseRadio pattern from Step 14.6.
+
+  **Approach:**
+  1. Merge the three Step 14.6 PRs (already passed consolidation gate):
+     - `GeorgeQLe/tidal-mobile-clone` PR#1 (`phase14/tidal-variant-scaffold`)
+     - `GeorgeQLe/pandora-mobile-clone` PR#1 (`phase14/pandora-variant-scaffold`)
+     - `GeorgeQLe/iheartradio-mobile-clone` PR#1 (`phase14/iheartradio-variant-scaffold`)
+  2. For the fifth tranche, dispatch three parallel agent-team lanes:
+     - Lane 14.7-A: `GeorgeQLe/siriusxm-mobile-clone`, branch `phase14/siriusxm-variant-scaffold` — satellite/internet radio with live channels, on-demand shows, sports/news/talk, in-car integration, and subscription tiers. Brand-safe name: **OrbitRadio**.
+     - Lane 14.7-B: `GeorgeQLe/tunein-radio-mobile-clone`, branch `phase14/tunein-radio-variant-scaffold` — internet radio aggregator with live streams from 100K+ stations, sports, news, podcasts, and local/global discovery. Brand-safe name: **StreamDial**.
+     - Lane 14.7-C: `GeorgeQLe/amazon-music-mobile-clone`, branch `phase14/amazon-music-variant-scaffold` — music streaming with ultra HD/spatial audio, podcasts, ad-supported/unlimited/HD tiers, Alexa integration, and X-Ray lyrics. Brand-safe name: **PrimeWave**.
+  3. Each lane builds the same 20-file set: shared fixtures/contracts, 5 variant implementations, validation script, blocker artifact, implementation record, validation JSON, package manifest.
+  4. Domain-specific fixtures:
+     - OrbitRadio: live satellite channels, on-demand shows/episodes, sports/news/talk stations, in-car/connected device integration, subscription tiers (Select/All Access/Platinum)
+     - StreamDial: 100K+ internet radio stations, live sports/news/music streams, podcast discovery, local/global station browsing, premium tier (no ads, fewer limits)
+     - PrimeWave: ultra HD and spatial audio tracks, podcasts, ad-supported/unlimited/HD tier logic, X-Ray lyrics, voice assistant integration, cross-device sync
+  5. Run consolidation gate: boundary check, visibility, no workflow files, branding audit, parity audit.
+  6. Record evidence in `tasks/todo.md` and `tasks/history.md`.
+
+  **Key files affected:**
+  - Three downstream repos receive 20 new files each in `variants/`, `shared/`, `scripts/`, `tasks/blockers/`, `docs/validation/`, `docs/implementation/`, `package.json`
+  - Planning repo: `tasks/todo.md`, `tasks/history.md`
+
+  **Source specs:**
+  - SiriusXM: `specs/batch-14/276-siriusxm.md`
+  - TuneIn Radio: `specs/batch-14/277-tunein-radio.md`
+  - Amazon Music: `specs/batch-14/278-amazon-music.md`
+
+  **Execution Profile:**
+  - Mode: agent-team (3 serial PR merges + 3 parallel write lanes)
+  - Integration owner: main agent
+  - Conflict risk: low (each app is an independent GitHub repo)
+  - Review gates: local validation, boundary check, visibility, no GitHub Actions, branding/parity audit
+
+  **Acceptance criteria:**
+  - Three Step 14.6 PRs merged to `main` in their respective repos
+  - Three new downstream repos have variant scaffolds on feature branches with open PRs
+  - All `npm run validate`, `npm run test:react-native`, `npm run test:expo` runs pass
+  - Consolidation gate passes for all new lanes
+  - Planning repo updated with evidence
+  - Ship-one-step handoff: implement only this step, validate it, then run `/ship` when done.
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`
