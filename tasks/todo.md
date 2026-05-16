@@ -396,6 +396,61 @@ Build all five variants for every app in the Video & Music Streaming cluster.
 | 14.5-B | `GeorgeQLe/youtube-music-mobile-clone` | `phase14/youtube-music-variant-scaffold` | TuneWave | Music streaming / video-audio toggle / recommendations / uploads / premium | PR#1 | Open, validated |
 | 14.5-C | `GeorgeQLe/deezer-mobile-clone` | `phase14/deezer-variant-scaffold` | FlowBeats | Music streaming / Flow / playlists / podcasts / hi-fi / lyrics | PR#1 | Open, validated |
 
+- [ ] Step 14.6: Merge Step 14.5 PRs and execute fourth music/audio tranche
+  - Files: downstream repos from Step 14.5 (merge PRs), plus new downstream repos `GeorgeQLe/tidal-mobile-clone`, `GeorgeQLe/pandora-mobile-clone`, and `GeorgeQLe/iheartradio-mobile-clone`; planning updates in `tasks/todo.md`, `tasks/history.md`.
+  - First: merge the three open Step 14.5 PRs (MelodyVault PR#1, TuneWave PR#1, FlowBeats PR#1), since consolidation gate already passed.
+  - Then: execute the fourth implementation tranche using the validated streaming-cluster pattern.
+  - Use agent-team parallel lanes, one repo per branch-backed lane, no direct-to-primary implementation.
+  - Implement five local variants per selected repo where toolchains are available, with explicit blockers for unavailable Flutter/Android Native toolchains and provider/licensed-media/real-device behavior.
+  - Open PRs for every downstream lane and run the consolidation gate before merge.
+  - Preserve Draft 1 and licensed-media/provider blockers; do not claim implementation-ready parity.
+  - Do not enable, dispatch, or rely on GitHub Actions.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Merge the validated Step 14.5 PRs and implement the fourth tranche of Phase 14 music/audio downstream repos (TIDAL, Pandora, iHeartRadio), using the proven MelodyVault/TuneWave/FlowBeats pattern from Step 14.5.
+
+  **Approach:**
+  1. Merge the three Step 14.5 PRs (already passed consolidation gate):
+     - `GeorgeQLe/apple-music-mobile-clone` PR#1 (`phase14/apple-music-variant-scaffold`)
+     - `GeorgeQLe/youtube-music-mobile-clone` PR#1 (`phase14/youtube-music-variant-scaffold`)
+     - `GeorgeQLe/deezer-mobile-clone` PR#1 (`phase14/deezer-variant-scaffold`)
+  2. For the fourth tranche, dispatch three parallel agent-team lanes:
+     - Lane 14.6-A: `GeorgeQLe/tidal-mobile-clone`, branch `phase14/tidal-variant-scaffold` — hi-fi music streaming with lossless/MQA/Dolby Atmos, curated editorial, exclusive releases, and artist-direct payments. Brand-safe name: **SonicTide**.
+     - Lane 14.6-B: `GeorgeQLe/pandora-mobile-clone`, branch `phase14/pandora-variant-scaffold` — personalized radio with seed-based stations, thumbs feedback, modes, podcast integration, and premium on-demand. Brand-safe name: **RadioSeed**.
+     - Lane 14.6-C: `GeorgeQLe/iheartradio-mobile-clone`, branch `phase14/iheartradio-variant-scaffold` — live radio with stations, podcasts, playlists, on-demand, and event/contest integration. Brand-safe name: **PulseRadio**.
+  3. Each lane builds the same 20-file set: shared fixtures/contracts, 5 variant implementations, validation script, blocker artifact, implementation record, validation JSON, package manifest.
+  4. Domain-specific fixtures:
+     - SonicTide: hi-fi/MQA/lossless tracks, Dolby Atmos spatial, curated editorial playlists, exclusive/early releases, artist-direct revenue, subscription tiers (HiFi/HiFi Plus)
+     - RadioSeed: seed-based personalized stations, thumbs up/down feedback, station modes (Discovery/Deep Cuts), podcast stations, premium on-demand/offline, ad-supported tier
+     - PulseRadio: live AM/FM/digital radio stations, podcast shows/episodes, artist playlists, on-demand tracks, live events/contests, local station geolocation
+  5. Run consolidation gate: boundary check, visibility, no workflow files, branding audit, parity audit.
+  6. Record evidence in `tasks/todo.md` and `tasks/history.md`.
+
+  **Key files affected:**
+  - Three downstream repos receive 20 new files each in `variants/`, `shared/`, `scripts/`, `tasks/blockers/`, `docs/validation/`, `docs/implementation/`, `package.json`
+  - Planning repo: `tasks/todo.md`, `tasks/history.md`
+
+  **Source specs:**
+  - TIDAL: `specs/batch-14/273-tidal.md`
+  - Pandora: `specs/batch-14/274-pandora.md`
+  - iHeartRadio: `specs/batch-14/275-iheartradio.md`
+
+  **Execution Profile:**
+  - Mode: agent-team (3 serial PR merges + 3 parallel write lanes)
+  - Integration owner: main agent
+  - Conflict risk: low (each app is an independent GitHub repo)
+  - Review gates: local validation, boundary check, visibility, no GitHub Actions, branding/parity audit
+
+  **Acceptance criteria:**
+  - Three Step 14.5 PRs merged to `main` in their respective repos
+  - Three new downstream repos have variant scaffolds on feature branches with open PRs
+  - All `npm run validate`, `npm run test:react-native`, `npm run test:expo` runs pass
+  - Consolidation gate passes for all new lanes
+  - Planning repo updated with evidence
+  - Ship-one-step handoff: implement only this step, validate it, then run `/ship` when done.
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`
