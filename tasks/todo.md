@@ -747,6 +747,61 @@ Build all five variants for every app in the Video & Music Streaming cluster.
 | 14.9-B | `GeorgeQLe/bandlab-mobile-clone` | `phase14/bandlab-variant-scaffold` | TrackCollab | Social music creation / collaboration / multi-track / effects/samples / publishing / community / sync | PR#1 | Open, validated |
 | 14.9-C | `GeorgeQLe/voloco-mobile-clone` | `phase14/voloco-variant-scaffold` | VoxTune | Vocal processing / auto-tune/pitch correction / real-time effects / beat library / presets / export | PR#1 | Open, validated |
 
+- [ ] Step 14.10: Merge Step 14.9 PRs and execute eighth music/audio tranche
+  - Files: downstream repos from Step 14.9 (merge PRs), plus new downstream repos `GeorgeQLe/smule-mobile-clone`, `GeorgeQLe/starmaker-mobile-clone`, and `GeorgeQLe/soundhound-mobile-clone`; planning updates in `tasks/todo.md`, `tasks/history.md`.
+  - First: merge the three open Step 14.9 PRs (BeatForge PR#1, TrackCollab PR#1, VoxTune PR#1), since consolidation gate already passed.
+  - Then: execute the eighth implementation tranche using the validated streaming-cluster pattern.
+  - Use agent-team parallel lanes, one repo per branch-backed lane, no direct-to-primary implementation.
+  - Implement five local variants per selected repo where toolchains are available, with explicit blockers for unavailable Flutter/Android Native toolchains and provider/licensed-media/real-device behavior.
+  - Open PRs for every downstream lane and run the consolidation gate before merge.
+  - Preserve Draft 1 and licensed-media/provider blockers; do not claim implementation-ready parity.
+  - Do not enable, dispatch, or rely on GitHub Actions.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Merge the validated Step 14.9 PRs and implement the eighth tranche of Phase 14 music/audio downstream repos (Smule, StarMaker, SoundHound), using the proven BeatForge/TrackCollab/VoxTune pattern from Step 14.9.
+
+  **Approach:**
+  1. Merge the three Step 14.9 PRs (already passed consolidation gate):
+     - `GeorgeQLe/garageband-mobile-clone` PR#1 (`phase14/garageband-variant-scaffold`)
+     - `GeorgeQLe/bandlab-mobile-clone` PR#1 (`phase14/bandlab-variant-scaffold`)
+     - `GeorgeQLe/voloco-mobile-clone` PR#1 (`phase14/voloco-variant-scaffold`)
+  2. For the eighth tranche, dispatch three parallel agent-team lanes:
+     - Lane 14.10-A: `GeorgeQLe/smule-mobile-clone`, branch `phase14/smule-variant-scaffold` — social singing/karaoke with duet/group performances, vocal effects, song catalog, video recording, social feed, and contest/challenges. Brand-safe name: **DuetHarmony**.
+     - Lane 14.10-B: `GeorgeQLe/starmaker-mobile-clone`, branch `phase14/starmaker-variant-scaffold` — karaoke and singing with MV recording, vocal scoring, song catalog, social community, virtual gifts, and leaderboards. Brand-safe name: **VocalStar**.
+     - Lane 14.10-C: `GeorgeQLe/soundhound-mobile-clone`, branch `phase14/soundhound-variant-scaffold` — music recognition with voice search, humming identification, real-time lyrics, song history, and provider handoff. Brand-safe name: **SoundSpot**.
+  3. Each lane builds the same 20-file set: shared fixtures/contracts, 5 variant implementations, validation script, blocker artifact, implementation record, validation JSON, package manifest.
+  4. Domain-specific fixtures:
+     - DuetHarmony: duet/group singing, vocal effects (pitch correction, reverb, harmonizer), licensed song catalog, video recording with audio overlay, social feed (likes/comments/shares), contests/challenges, virtual gifts
+     - VocalStar: karaoke with music video recording, vocal scoring/pitch tracking, song catalog with backing tracks, social community, virtual gifts/coins, leaderboards, voice effects
+     - SoundSpot: music recognition via microphone/humming, real-time synchronized lyrics, song identification history, provider handoff (streaming service links), voice search, auto-detect/listening mode
+  5. Run consolidation gate: boundary check, visibility, no workflow files, branding audit, parity audit.
+  6. Record evidence in `tasks/todo.md` and `tasks/history.md`.
+
+  **Key files affected:**
+  - Three downstream repos receive 20 new files each in `variants/`, `shared/`, `scripts/`, `tasks/blockers/`, `docs/validation/`, `docs/implementation/`, `package.json`
+  - Planning repo: `tasks/todo.md`, `tasks/history.md`
+
+  **Source specs:**
+  - Smule: `specs/batch-15/285-smule.md`
+  - StarMaker: `specs/batch-15/286-starmaker.md`
+  - SoundHound: `specs/batch-15/287-soundhound.md`
+
+  **Execution Profile:**
+  - Mode: agent-team (3 serial PR merges + 3 parallel write lanes)
+  - Integration owner: main agent
+  - Conflict risk: low (each app is an independent GitHub repo)
+  - Review gates: local validation, boundary check, visibility, no GitHub Actions, branding/parity audit
+
+  **Acceptance criteria:**
+  - Three Step 14.9 PRs merged to `main` in their respective repos
+  - Three new downstream repos have variant scaffolds on feature branches with open PRs
+  - All `npm run validate`, `npm run test:react-native`, `npm run test:expo` runs pass
+  - Consolidation gate passes for all new lanes
+  - Planning repo updated with evidence
+  - Ship-one-step handoff: implement only this step, validate it, then run `/ship` when done.
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`
