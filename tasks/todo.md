@@ -571,6 +571,61 @@ Build all five variants for every app in the Video & Music Streaming cluster.
 | 14.7-B | `GeorgeQLe/tunein-radio-mobile-clone` | `phase14/tunein-radio-variant-scaffold` | StreamDial | Internet radio aggregator / 100K+ stations / sports / news / podcasts / local/global discovery | PR#1 | Open, validated |
 | 14.7-C | `GeorgeQLe/amazon-music-mobile-clone` | `phase14/amazon-music-variant-scaffold` | PrimeWave | Music streaming / ultra HD/spatial audio / podcasts / X-Ray lyrics / voice assistant / multi-tier subscription | PR#1 | Open, validated |
 
+- [ ] Step 14.8: Merge Step 14.7 PRs and execute sixth music/audio tranche
+  - Files: downstream repos from Step 14.7 (merge PRs), plus new downstream repos `GeorgeQLe/qobuz-mobile-clone`, `GeorgeQLe/anghami-mobile-clone`, and `GeorgeQLe/musixmatch-mobile-clone`; planning updates in `tasks/todo.md`, `tasks/history.md`.
+  - First: merge the three open Step 14.7 PRs (OrbitRadio PR#1, StreamDial PR#1, PrimeWave PR#1), since consolidation gate already passed.
+  - Then: execute the sixth implementation tranche using the validated streaming-cluster pattern.
+  - Use agent-team parallel lanes, one repo per branch-backed lane, no direct-to-primary implementation.
+  - Implement five local variants per selected repo where toolchains are available, with explicit blockers for unavailable Flutter/Android Native toolchains and provider/licensed-media/real-device behavior.
+  - Open PRs for every downstream lane and run the consolidation gate before merge.
+  - Preserve Draft 1 and licensed-media/provider blockers; do not claim implementation-ready parity.
+  - Do not enable, dispatch, or rely on GitHub Actions.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Merge the validated Step 14.7 PRs and implement the sixth tranche of Phase 14 music/audio downstream repos (Qobuz, Anghami, Musixmatch), using the proven OrbitRadio/StreamDial/PrimeWave pattern from Step 14.7.
+
+  **Approach:**
+  1. Merge the three Step 14.7 PRs (already passed consolidation gate):
+     - `GeorgeQLe/siriusxm-mobile-clone` PR#1 (`phase14/siriusxm-variant-scaffold`)
+     - `GeorgeQLe/tunein-radio-mobile-clone` PR#1 (`phase14/tunein-radio-variant-scaffold`)
+     - `GeorgeQLe/amazon-music-mobile-clone` PR#1 (`phase14/amazon-music-variant-scaffold`)
+  2. For the sixth tranche, dispatch three parallel agent-team lanes:
+     - Lane 14.8-A: `GeorgeQLe/qobuz-mobile-clone`, branch `phase14/qobuz-variant-scaffold` — hi-res music streaming with lossless/hi-res audio, curated editorial, download store, and audiophile-focused experience. Brand-safe name: **AudioPrism**.
+     - Lane 14.8-B: `GeorgeQLe/anghami-mobile-clone`, branch `phase14/anghami-variant-scaffold` — MENA-focused music streaming with Arabic/international catalog, podcasts, karaoke/lyrics, and freemium/Plus tiers. Brand-safe name: **RhythmSand**.
+     - Lane 14.8-C: `GeorgeQLe/musixmatch-mobile-clone`, branch `phase14/musixmatch-variant-scaffold` — lyrics platform with synchronized lyrics, translation, community contributions, music identification, and Spotify/Apple Music integrations. Brand-safe name: **LyricLens**.
+  3. Each lane builds the same 20-file set: shared fixtures/contracts, 5 variant implementations, validation script, blocker artifact, implementation record, validation JSON, package manifest.
+  4. Domain-specific fixtures:
+     - AudioPrism: hi-res/lossless audio (24-bit/192kHz), FLAC/DSD formats, curated editorial playlists, download-to-own store, audiophile device certification, Roon/DAC integration blocker
+     - RhythmSand: Arabic and international music catalog, podcast shows, karaoke mode with lyrics display, freemium/Plus subscription tiers, MENA regional content, offline downloads
+     - LyricLens: synchronized line-by-line lyrics, lyrics translation, community contribution/editing, music identification (listening), Spotify/Apple Music integration, crowd-sourced catalog
+  5. Run consolidation gate: boundary check, visibility, no workflow files, branding audit, parity audit.
+  6. Record evidence in `tasks/todo.md` and `tasks/history.md`.
+
+  **Key files affected:**
+  - Three downstream repos receive 20 new files each in `variants/`, `shared/`, `scripts/`, `tasks/blockers/`, `docs/validation/`, `docs/implementation/`, `package.json`
+  - Planning repo: `tasks/todo.md`, `tasks/history.md`
+
+  **Source specs:**
+  - Qobuz: `specs/batch-14/279-qobuz.md`
+  - Anghami: `specs/batch-14/280-anghami.md`
+  - Musixmatch: `specs/batch-15/281-musixmatch.md`
+
+  **Execution Profile:**
+  - Mode: agent-team (3 serial PR merges + 3 parallel write lanes)
+  - Integration owner: main agent
+  - Conflict risk: low (each app is an independent GitHub repo)
+  - Review gates: local validation, boundary check, visibility, no GitHub Actions, branding/parity audit
+
+  **Acceptance criteria:**
+  - Three Step 14.7 PRs merged to `main` in their respective repos
+  - Three new downstream repos have variant scaffolds on feature branches with open PRs
+  - All `npm run validate`, `npm run test:react-native`, `npm run test:expo` runs pass
+  - Consolidation gate passes for all new lanes
+  - Planning repo updated with evidence
+  - Ship-one-step handoff: implement only this step, validate it, then run `/ship` when done.
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`
