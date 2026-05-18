@@ -1158,6 +1158,61 @@ Build all five variants for every app in the Video & Music Streaming cluster.
   - Parity audit: no positive parity claims ✓
   - Rate limits: pre-batch 4936 remaining, post-batch 4293 remaining ✓
 
+- [ ] Step 14.15: Merge Step 14.14 PRs and execute thirteenth video streaming tranche
+  - Files: downstream repos from Step 14.14 (merge PRs), plus new downstream repos `GeorgeQLe/paramount-plus-mobile-clone`, `GeorgeQLe/prime-video-mobile-clone`, and `GeorgeQLe/crunchyroll-mobile-clone`; planning updates in `tasks/todo.md`, `tasks/history.md`.
+  - First: merge the three open Step 14.14 PRs (DreamReel PR#1, CineVault PR#1, PlumeCast PR#1), since consolidation gate already passed.
+  - Then: execute the thirteenth implementation tranche using the validated streaming-cluster pattern.
+  - Use agent-team parallel lanes, one repo per branch-backed lane, no direct-to-primary implementation.
+  - Implement five local variants per selected repo where toolchains are available, with explicit blockers for unavailable Flutter/Android Native toolchains and provider/licensed-media/real-device behavior.
+  - Open PRs for every downstream lane and run the consolidation gate before merge.
+  - Preserve Draft 1 and licensed-media/provider blockers; do not claim implementation-ready parity.
+  - Do not enable, dispatch, or rely on GitHub Actions.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Merge the validated Step 14.14 PRs and implement the thirteenth tranche of Phase 14 downstream repos (Paramount+, Prime Video, Crunchyroll). These are the last three subscription streaming video platforms, completing the subscription video risk group.
+
+  **Approach:**
+  1. Merge the three Step 14.14 PRs (already passed consolidation gate):
+     - `GeorgeQLe/disney-plus-mobile-clone` PR#1 (`phase14/disney-plus-variant-scaffold`)
+     - `GeorgeQLe/max-mobile-clone` PR#1 (`phase14/max-variant-scaffold`)
+     - `GeorgeQLe/peacock-tv-mobile-clone` PR#1 (`phase14/peacock-tv-variant-scaffold`)
+  2. For the thirteenth tranche, dispatch three parallel agent-team lanes:
+     - Lane 14.15-A: `GeorgeQLe/paramount-plus-mobile-clone`, branch `phase14/paramount-plus-variant-scaffold` — streaming video with CBS/Paramount catalog, live sports/news, Showtime content, profiles, watchlist, downloads, ad-supported/premium tiers, live TV. Brand-safe name: **StreamMount**.
+     - Lane 14.15-B: `GeorgeQLe/prime-video-mobile-clone`, branch `phase14/prime-video-variant-scaffold` — streaming video with Amazon originals, movie/TV catalog, X-Ray metadata, Watch Party, profiles, watchlist, downloads, ad-supported/ad-free tiers, live sports, channels/add-ons. Brand-safe name: **StreamForge**.
+     - Lane 14.15-C: `GeorgeQLe/crunchyroll-mobile-clone`, branch `phase14/crunchyroll-variant-scaffold` — anime streaming with simulcast, manga, subtitles/dubs, watchlist, downloads, ad-supported/premium tiers, anime calendar, offline viewing. Brand-safe name: **NeonScroll**.
+  3. Each lane builds the same 20-file set: shared fixtures/contracts, 5 variant implementations, validation script, blocker artifact, implementation record, validation JSON, package manifest.
+  4. Domain-specific fixtures:
+     - StreamMount: CBS/Paramount catalog, Showtime originals, live sports (NFL, UEFA), live news, profiles, watchlist, continue watching, downloads, ad-supported/premium tiers, live TV channel guide, DRM/CDN/provider/ad-network/sports-rights blockers
+     - StreamForge: Amazon originals, movie/TV catalog, X-Ray (trivia/cast/music during playback), Watch Party co-viewing, profiles, watchlist, continue watching, downloads, channels/add-on subscriptions, ad-supported/ad-free tiers, live sports, DRM/CDN/provider/ad-network/channel-marketplace blockers
+     - NeonScroll: anime catalog with simulcast/seasonal, manga reader, subtitles and dubbed audio tracks, watchlist, continue watching, downloads, ad-supported/premium tiers, anime calendar/release schedule, community ratings, DRM/CDN/provider/ad-network/simulcast-rights blockers
+  5. Run consolidation gate: boundary check, visibility, no workflow files, branding audit, parity audit.
+  6. Record evidence in `tasks/todo.md` and `tasks/history.md`.
+
+  **Key files affected:**
+  - Three downstream repos receive 20 new files each in `variants/`, `shared/`, `scripts/`, `tasks/blockers/`, `docs/validation/`, `docs/implementation/`, `package.json`
+  - Planning repo: `tasks/todo.md`, `tasks/history.md`
+
+  **Source specs:**
+  - Paramount+: `specs/batch-16/317-paramount-plus.md`
+  - Prime Video: `specs/batch-16/318-prime-video.md`
+  - Crunchyroll: `specs/batch-16/319-crunchyroll.md`
+
+  **Execution Profile:**
+  - Mode: agent-team (3 serial PR merges + 3 parallel write lanes)
+  - Integration owner: main agent
+  - Conflict risk: low (each app is an independent GitHub repo)
+  - Review gates: local validation, boundary check, visibility, no GitHub Actions, branding/parity audit
+
+  **Acceptance criteria:**
+  - Three Step 14.14 PRs merged to `main` in their respective repos
+  - Three new downstream repos have variant scaffolds on feature branches with open PRs
+  - All `npm run validate`, `npm run test:react-native`, `npm run test:expo` runs pass
+  - Consolidation gate passes for all new lanes
+  - Planning repo updated with evidence
+  - Ship-one-step handoff: implement only this step, validate it, then run `/ship` when done.
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`
