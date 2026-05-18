@@ -1270,6 +1270,61 @@ Build all five variants for every app in the Video & Music Streaming cluster.
 | 14.15-B | `GeorgeQLe/prime-video-mobile-clone` | `phase14/prime-video-variant-scaffold` | StreamForge | Streaming video / Amazon originals / X-Ray metadata / Watch Party / channels/add-ons / rentals/purchases / profiles / downloads / ad-supported/ad-free tiers | PR#1 | Open |
 | 14.15-C | `GeorgeQLe/crunchyroll-mobile-clone` | `phase14/crunchyroll-variant-scaffold` | NeonScroll | Anime streaming / simulcast / manga reader / subtitles/dubs / watchlist / downloads / ad-supported/premium tiers / anime calendar / game vault | PR#1 | Open |
 
+- [ ] Step 14.16: Merge Step 14.15 PRs and execute fourteenth video streaming tranche
+  - Files: downstream repos from Step 14.15 (merge PRs), plus new downstream repos `GeorgeQLe/plex-mobile-clone`, `GeorgeQLe/tubi-mobile-clone`, and `GeorgeQLe/pluto-tv-mobile-clone`; planning updates in `tasks/todo.md`, `tasks/history.md`.
+  - First: merge the three open Step 14.15 PRs (StreamMount PR#1, StreamForge PR#1, NeonScroll PR#1), since consolidation gate already passed.
+  - Then: execute the fourteenth implementation tranche using the validated streaming-cluster pattern.
+  - Use agent-team parallel lanes, one repo per branch-backed lane, no direct-to-primary implementation.
+  - Implement five local variants per selected repo where toolchains are available, with explicit blockers for unavailable Flutter/Android Native toolchains and provider/licensed-media/real-device behavior.
+  - Open PRs for every downstream lane and run the consolidation gate before merge.
+  - Preserve Draft 1 and licensed-media/provider blockers; do not claim implementation-ready parity.
+  - Do not enable, dispatch, or rely on GitHub Actions.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Merge the validated Step 14.15 PRs and implement the fourteenth tranche of Phase 14 downstream repos (Plex, Tubi, Pluto TV). Plex is the first personal media server/library app. Tubi and Pluto TV start the ad-supported/free streaming sub-cluster.
+
+  **Approach:**
+  1. Merge the three Step 14.15 PRs (already passed consolidation gate):
+     - `GeorgeQLe/paramount-plus-mobile-clone` PR#1 (`phase14/paramount-plus-variant-scaffold`)
+     - `GeorgeQLe/prime-video-mobile-clone` PR#1 (`phase14/prime-video-variant-scaffold`)
+     - `GeorgeQLe/crunchyroll-mobile-clone` PR#1 (`phase14/crunchyroll-variant-scaffold`)
+  2. For the fourteenth tranche, dispatch three parallel agent-team lanes:
+     - Lane 14.16-A: `GeorgeQLe/plex-mobile-clone`, branch `phase14/plex-variant-scaffold` — personal media server with library management, DLNA/UPnP discovery, transcoding, remote access, media metadata, playlists, shared users, sync/download, live TV/DVR, music/photo libraries. Brand-safe name: **MediaVault**.
+     - Lane 14.16-B: `GeorgeQLe/tubi-mobile-clone`, branch `phase14/tubi-variant-scaffold` — free ad-supported streaming with movie/TV catalog, personalized recommendations, watchlist, continue watching, no subscription required, ad breaks, content categories, parental controls. Brand-safe name: **FreeFlick**.
+     - Lane 14.16-C: `GeorgeQLe/pluto-tv-mobile-clone`, branch `phase14/pluto-tv-variant-scaffold` — free ad-supported live TV with 250+ channels, live TV guide, on-demand VOD, channel categories, favorites, no subscription, ad breaks, content schedule. Brand-safe name: **ChannelDrift**.
+  3. Each lane builds the same 20-file set: shared fixtures/contracts, 5 variant implementations, validation script, blocker artifact, implementation record, validation JSON, package manifest.
+  4. Domain-specific fixtures:
+     - MediaVault: personal media library (movies, TV, music, photos), server discovery (DLNA/UPnP/local network), transcoding quality profiles, remote access/relay, media metadata agents, playlists/collections, shared user management, sync/download queue, live TV tuner/DVR/EPG, Plex Pass entitlement, server/client architecture blockers
+     - FreeFlick: free movie/TV catalog, content categories (action, comedy, horror, etc.), personalized recommendations, watchlist, continue watching, ad break schedule, AVOD-only (no subscription), content ratings, parental controls, search/filter, DRM/CDN/ad-network blockers
+     - ChannelDrift: 250+ live TV channels, channel categories (movies, news, sports, entertainment, etc.), live TV program guide, on-demand VOD catalog, channel favorites, no subscription, ad breaks during live and VOD, content schedule, DRM/CDN/ad-network/EPG blockers
+  5. Run consolidation gate: boundary check, visibility, no workflow files, branding audit, parity audit.
+  6. Record evidence in `tasks/todo.md` and `tasks/history.md`.
+
+  **Key files affected:**
+  - Three downstream repos receive 20 new files each in `variants/`, `shared/`, `scripts/`, `tasks/blockers/`, `docs/validation/`, `docs/implementation/`, `package.json`
+  - Planning repo: `tasks/todo.md`, `tasks/history.md`
+
+  **Source specs:**
+  - Plex: `specs/batch-16/320-plex.md`
+  - Tubi: `specs/batch-17/321-tubi.md`
+  - Pluto TV: `specs/batch-17/322-pluto-tv.md`
+
+  **Execution Profile:**
+  - Mode: agent-team (3 serial PR merges + 3 parallel write lanes)
+  - Integration owner: main agent
+  - Conflict risk: low (each app is an independent GitHub repo)
+  - Review gates: local validation, boundary check, visibility, no GitHub Actions, branding/parity audit
+
+  **Acceptance criteria:**
+  - Three Step 14.15 PRs merged to `main` in their respective repos
+  - Three new downstream repos have variant scaffolds on feature branches with open PRs
+  - All `npm run validate`, `npm run test:react-native`, `npm run test:expo` runs pass
+  - Consolidation gate passes for all new lanes
+  - Planning repo updated with evidence
+  - Ship-one-step handoff: implement only this step, validate it, then run `/ship` when done.
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`
