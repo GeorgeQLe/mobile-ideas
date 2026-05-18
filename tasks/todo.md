@@ -988,6 +988,61 @@ Build all five variants for every app in the Video & Music Streaming cluster.
     - Parity audit: no positive parity claims ✓
     - Rate limits: pre-batch 4930 remaining, post-batch 4915 remaining ✓
 
+- [ ] Step 14.13: Merge Step 14.12 PRs and execute eleventh video streaming tranche
+  - Files: downstream repos from Step 14.12 (merge PRs), plus new downstream repos `GeorgeQLe/youtube-mobile-clone`, `GeorgeQLe/twitch-mobile-clone`, and `GeorgeQLe/hulu-mobile-clone`; planning updates in `tasks/todo.md`, `tasks/history.md`.
+  - First: merge the three open Step 14.12 PRs (ZenWave PR#1, NeuroBeats PR#1, StreamVault PR#1), since consolidation gate already passed.
+  - Then: execute the eleventh implementation tranche using the validated streaming-cluster pattern.
+  - Use agent-team parallel lanes, one repo per branch-backed lane, no direct-to-primary implementation.
+  - Implement five local variants per selected repo where toolchains are available, with explicit blockers for unavailable Flutter/Android Native toolchains and provider/licensed-media/real-device behavior.
+  - Open PRs for every downstream lane and run the consolidation gate before merge.
+  - Preserve Draft 1 and licensed-media/provider blockers; do not claim implementation-ready parity.
+  - Do not enable, dispatch, or rely on GitHub Actions.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Merge the validated Step 14.12 PRs and implement the eleventh tranche of Phase 14 downstream repos (YouTube, Twitch, Hulu). These are the first three major video platform/streaming video apps, continuing the video sub-cluster that Netflix started.
+
+  **Approach:**
+  1. Merge the three Step 14.12 PRs (already passed consolidation gate):
+     - `GeorgeQLe/endel-mobile-clone` PR#1 (`phase14/endel-variant-scaffold`)
+     - `GeorgeQLe/brain-fm-mobile-clone` PR#1 (`phase14/brain-fm-variant-scaffold`)
+     - `GeorgeQLe/netflix-mobile-clone` PR#1 (`phase14/netflix-variant-scaffold`)
+  2. For the eleventh tranche, dispatch three parallel agent-team lanes:
+     - Lane 14.13-A: `GeorgeQLe/youtube-mobile-clone`, branch `phase14/youtube-variant-scaffold` — video platform with uploads, channels, subscriptions, playlists, shorts, live streaming, comments, recommendations, and creator studio. Brand-safe name: **ViewSphere**.
+     - Lane 14.13-B: `GeorgeQLe/twitch-mobile-clone`, branch `phase14/twitch-variant-scaffold` — live streaming platform with channels, chat, subscriptions, clips, VODs, raids, emotes, and creator dashboard. Brand-safe name: **LiveSpark**.
+     - Lane 14.13-C: `GeorgeQLe/hulu-mobile-clone`, branch `phase14/hulu-variant-scaffold` — streaming video with content catalog, live TV integration, profiles, watchlist, downloads, ad-supported and ad-free tiers, and parental controls. Brand-safe name: **ShowShelf**.
+  3. Each lane builds the same 20-file set: shared fixtures/contracts, 5 variant implementations, validation script, blocker artifact, implementation record, validation JSON, package manifest.
+  4. Domain-specific fixtures:
+     - ViewSphere: video catalog (uploads, shorts, live), channels/subscriptions, playlists, watch history, comments/replies, recommendations feed, creator studio/analytics, video player (quality/speed/captions), DRM/CDN/provider blockers
+     - LiveSpark: live streams, channels, chat (text/emotes), subscriptions/bits/gifted subs, clips, VODs, raids/hosts, creator dashboard, stream categories, moderation tools, real-time chat/streaming blockers
+     - ShowShelf: content catalog (movies/series/live TV), profiles, watchlist, continue watching, downloads, ad-insertion engine, live TV channel guide, subtitle/audio tracks, parental controls, DRM/CDN/provider/ad-network blockers
+  5. Run consolidation gate: boundary check, visibility, no workflow files, branding audit, parity audit.
+  6. Record evidence in `tasks/todo.md` and `tasks/history.md`.
+
+  **Key files affected:**
+  - Three downstream repos receive 20 new files each in `variants/`, `shared/`, `scripts/`, `tasks/blockers/`, `docs/validation/`, `docs/implementation/`, `package.json`
+  - Planning repo: `tasks/todo.md`, `tasks/history.md`
+
+  **Source specs:**
+  - YouTube: `specs/batch-04/073-youtube.md`
+  - Twitch: `specs/batch-04/074-twitch.md`
+  - Hulu: `specs/batch-16/313-hulu.md`
+
+  **Execution Profile:**
+  - Mode: agent-team (3 serial PR merges + 3 parallel write lanes)
+  - Integration owner: main agent
+  - Conflict risk: low (each app is an independent GitHub repo)
+  - Review gates: local validation, boundary check, visibility, no GitHub Actions, branding/parity audit
+
+  **Acceptance criteria:**
+  - Three Step 14.12 PRs merged to `main` in their respective repos
+  - Three new downstream repos have variant scaffolds on feature branches with open PRs
+  - All `npm run validate`, `npm run test:react-native`, `npm run test:expo` runs pass
+  - Consolidation gate passes for all new lanes
+  - Planning repo updated with evidence
+  - Ship-one-step handoff: implement only this step, validate it, then run `/ship` when done.
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`
