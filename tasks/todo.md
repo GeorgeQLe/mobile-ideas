@@ -914,6 +914,61 @@ Build all five variants for every app in the Video & Music Streaming cluster.
   - File count: 28 total (8 scaffold + 20 new) per branch ✓
   - Rate limits: pre-batch 4801 remaining, post-batch 4932 remaining (reset between) ✓
 
+- [ ] Step 14.12: Merge Step 14.11 PRs and execute tenth music/audio tranche
+  - Files: downstream repos from Step 14.11 (merge PRs), plus new downstream repos `GeorgeQLe/endel-mobile-clone`, `GeorgeQLe/brain-fm-mobile-clone`, and `GeorgeQLe/netflix-mobile-clone`; planning updates in `tasks/todo.md`, `tasks/history.md`.
+  - First: merge the three open Step 14.11 PRs (RoomCast PR#1, SoundPilot PR#1, BassDrop PR#1), since consolidation gate already passed.
+  - Then: execute the tenth implementation tranche using the validated streaming-cluster pattern.
+  - Use agent-team parallel lanes, one repo per branch-backed lane, no direct-to-primary implementation.
+  - Implement five local variants per selected repo where toolchains are available, with explicit blockers for unavailable Flutter/Android Native toolchains and provider/licensed-media/real-device behavior.
+  - Open PRs for every downstream lane and run the consolidation gate before merge.
+  - Preserve Draft 1 and licensed-media/provider blockers; do not claim implementation-ready parity.
+  - Do not enable, dispatch, or rely on GitHub Actions.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Merge the validated Step 14.11 PRs and implement the tenth tranche of Phase 14 downstream repos (Endel, Brain.fm, Netflix). Endel and Brain.fm complete the music/audio sub-cluster (functional/focus audio). Netflix is the first video streaming app, starting the video sub-cluster.
+
+  **Approach:**
+  1. Merge the three Step 14.11 PRs (already passed consolidation gate):
+     - `GeorgeQLe/sonos-mobile-clone` PR#1 (`phase14/sonos-variant-scaffold`)
+     - `GeorgeQLe/bose-music-mobile-clone` PR#1 (`phase14/bose-music-variant-scaffold`)
+     - `GeorgeQLe/jbl-portable-mobile-clone` PR#1 (`phase14/jbl-portable-variant-scaffold`)
+  2. For the tenth tranche, dispatch three parallel agent-team lanes:
+     - Lane 14.12-A: `GeorgeQLe/endel-mobile-clone`, branch `phase14/endel-variant-scaffold` — AI-powered personalized soundscapes for focus, relaxation, and sleep with adaptive audio that responds to time of day, weather, heart rate, and activity. Brand-safe name: **ZenWave**.
+     - Lane 14.12-B: `GeorgeQLe/brain-fm-mobile-clone`, branch `phase14/brain-fm-variant-scaffold` — functional music for focus, meditation, and sleep using neural phase-locking audio technology with session timers, activity modes, and offline listening. Brand-safe name: **NeuroBeats**.
+     - Lane 14.12-C: `GeorgeQLe/netflix-mobile-clone`, branch `phase14/netflix-variant-scaffold` — video streaming platform with content catalog browsing, profile management, watchlist, continue watching, download for offline, subtitle/audio track selection, and parental controls. Brand-safe name: **StreamVault**.
+  3. Each lane builds the same 20-file set: shared fixtures/contracts, 5 variant implementations, validation script, blocker artifact, implementation record, validation JSON, package manifest.
+  4. Domain-specific fixtures:
+     - ZenWave: soundscape presets (focus, relax, sleep, move), adaptive inputs (time, weather, heart rate, motion), personalization engine, session history, timer/alarm integration, offline soundscapes, biometric sensor integration blockers
+     - NeuroBeats: functional music tracks (focus, relax, sleep), neural effect modes, session timer with Pomodoro, activity detection, offline sessions, EEG/biometric integration blockers
+     - StreamVault: content catalog (movies, series, documentaries), profiles (adult, kids), watchlist, continue watching, download queue, subtitle/audio tracks, content ratings, parental PIN, recommendation engine, DRM/CDN/provider blockers
+  5. Run consolidation gate: boundary check, visibility, no workflow files, branding audit, parity audit.
+  6. Record evidence in `tasks/todo.md` and `tasks/history.md`.
+
+  **Key files affected:**
+  - Three downstream repos receive 20 new files each in `variants/`, `shared/`, `scripts/`, `tasks/blockers/`, `docs/validation/`, `docs/implementation/`, `package.json`
+  - Planning repo: `tasks/todo.md`, `tasks/history.md`
+
+  **Source specs:**
+  - Endel: `specs/batch-15/291-endel.md`
+  - Brain.fm: `specs/batch-15/292-brain-fm.md`
+  - Netflix: `specs/batch-04/072-netflix.md`
+
+  **Execution Profile:**
+  - Mode: agent-team (3 serial PR merges + 3 parallel write lanes)
+  - Integration owner: main agent
+  - Conflict risk: low (each app is an independent GitHub repo)
+  - Review gates: local validation, boundary check, visibility, no GitHub Actions, branding/parity audit
+
+  **Acceptance criteria:**
+  - Three Step 14.11 PRs merged to `main` in their respective repos
+  - Three new downstream repos have variant scaffolds on feature branches with open PRs
+  - All `npm run validate`, `npm run test:react-native`, `npm run test:expo` runs pass
+  - Consolidation gate passes for all new lanes
+  - Planning repo updated with evidence
+  - Ship-one-step handoff: implement only this step, validate it, then run `/ship` when done.
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`
