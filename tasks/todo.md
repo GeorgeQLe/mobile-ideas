@@ -1062,6 +1062,61 @@ Build all five variants for every app in the Video & Music Streaming cluster.
     - Parity audit: no positive parity claims ✓
     - Rate limits: pre-batch 4992 remaining ✓
 
+- [ ] Step 14.14: Merge Step 14.13 PRs and execute twelfth video streaming tranche
+  - Files: downstream repos from Step 14.13 (merge PRs), plus new downstream repos `GeorgeQLe/disney-plus-mobile-clone`, `GeorgeQLe/max-mobile-clone`, and `GeorgeQLe/peacock-tv-mobile-clone`; planning updates in `tasks/todo.md`, `tasks/history.md`.
+  - First: merge the three open Step 14.13 PRs (ViewSphere PR#1, LiveSpark PR#1, ShowShelf PR#1), since consolidation gate already passed.
+  - Then: execute the twelfth implementation tranche using the validated streaming-cluster pattern.
+  - Use agent-team parallel lanes, one repo per branch-backed lane, no direct-to-primary implementation.
+  - Implement five local variants per selected repo where toolchains are available, with explicit blockers for unavailable Flutter/Android Native toolchains and provider/licensed-media/real-device behavior.
+  - Open PRs for every downstream lane and run the consolidation gate before merge.
+  - Preserve Draft 1 and licensed-media/provider blockers; do not claim implementation-ready parity.
+  - Do not enable, dispatch, or rely on GitHub Actions.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Merge the validated Step 14.13 PRs and implement the twelfth tranche of Phase 14 downstream repos (Disney+, Max, Peacock TV). These are three major studio-backed streaming video platforms, continuing the video sub-cluster.
+
+  **Approach:**
+  1. Merge the three Step 14.13 PRs (already passed consolidation gate):
+     - `GeorgeQLe/youtube-mobile-clone` PR#1 (`phase14/youtube-variant-scaffold`)
+     - `GeorgeQLe/twitch-mobile-clone` PR#1 (`phase14/twitch-variant-scaffold`)
+     - `GeorgeQLe/hulu-mobile-clone` PR#1 (`phase14/hulu-variant-scaffold`)
+  2. For the twelfth tranche, dispatch three parallel agent-team lanes:
+     - Lane 14.14-A: `GeorgeQLe/disney-plus-mobile-clone`, branch `phase14/disney-plus-variant-scaffold` — streaming video with content hubs (Disney, Pixar, Marvel, Star Wars, NatGeo), profiles, GroupWatch, watchlist, downloads, parental controls, IMAX Enhanced, Dolby Atmos/Vision. Brand-safe name: **DreamReel**.
+     - Lane 14.14-B: `GeorgeQLe/max-mobile-clone`, branch `phase14/max-variant-scaffold` — streaming video with HBO originals, movies, documentaries, profiles, watchlist, downloads, continue watching, content hubs, editorial collections, ad-supported/ad-free tiers. Brand-safe name: **CineVault**.
+     - Lane 14.14-C: `GeorgeQLe/peacock-tv-mobile-clone`, branch `phase14/peacock-tv-variant-scaffold` — streaming video with live sports, news, NBC content, channels, profiles, watchlist, downloads, ad-supported/premium tiers, live events. Brand-safe name: **PlumeCast**.
+  3. Each lane builds the same 20-file set: shared fixtures/contracts, 5 variant implementations, validation script, blocker artifact, implementation record, validation JSON, package manifest.
+  4. Domain-specific fixtures:
+     - DreamReel: content hubs (5 branded studios), profiles (adult/kids), GroupWatch co-viewing, watchlist, continue watching, downloads, parental controls with PIN, IMAX Enhanced/Dolby metadata, content ratings, recommendation engine, DRM/CDN/provider blockers
+     - CineVault: content catalog (series/movies/documentaries), editorial collections, profiles, watchlist, continue watching, downloads, ad-supported/ad-free tiers, content hubs, premiere scheduling, recommendation engine, DRM/CDN/provider/ad-network blockers
+     - PlumeCast: content catalog, live sports/events, news channels, NBC originals, profiles, watchlist, downloads, ad-supported/premium/premium-plus tiers, live TV channel guide, DVR-like functionality, DRM/CDN/provider/ad-network/sports-rights blockers
+  5. Run consolidation gate: boundary check, visibility, no workflow files, branding audit, parity audit.
+  6. Record evidence in `tasks/todo.md` and `tasks/history.md`.
+
+  **Key files affected:**
+  - Three downstream repos receive 20 new files each in `variants/`, `shared/`, `scripts/`, `tasks/blockers/`, `docs/validation/`, `docs/implementation/`, `package.json`
+  - Planning repo: `tasks/todo.md`, `tasks/history.md`
+
+  **Source specs:**
+  - Disney+: `specs/batch-16/314-disney-plus.md`
+  - Max: `specs/batch-16/315-max.md`
+  - Peacock TV: `specs/batch-16/316-peacock-tv.md`
+
+  **Execution Profile:**
+  - Mode: agent-team (3 serial PR merges + 3 parallel write lanes)
+  - Integration owner: main agent
+  - Conflict risk: low (each app is an independent GitHub repo)
+  - Review gates: local validation, boundary check, visibility, no GitHub Actions, branding/parity audit
+
+  **Acceptance criteria:**
+  - Three Step 14.13 PRs merged to `main` in their respective repos
+  - Three new downstream repos have variant scaffolds on feature branches with open PRs
+  - All `npm run validate`, `npm run test:react-native`, `npm run test:expo` runs pass
+  - Consolidation gate passes for all new lanes
+  - Planning repo updated with evidence
+  - Ship-one-step handoff: implement only this step, validate it, then run `/ship` when done.
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`
