@@ -835,6 +835,61 @@ Build all five variants for every app in the Video & Music Streaming cluster.
 | 14.10-B | `GeorgeQLe/starmaker-mobile-clone` | `phase14/starmaker-variant-scaffold` | VocalStar | Karaoke / MV recording / vocal scoring / song catalog / social community / virtual gifts / leaderboards | PR#1 | Open, validated |
 | 14.10-C | `GeorgeQLe/soundhound-mobile-clone` | `phase14/soundhound-variant-scaffold` | SoundSpot | Music recognition / voice search / humming identification / real-time lyrics / song history / provider handoff | PR#1 | Open, validated |
 
+- [ ] Step 14.11: Merge Step 14.10 PRs and execute ninth music/audio tranche
+  - Files: downstream repos from Step 14.10 (merge PRs), plus new downstream repos `GeorgeQLe/sonos-mobile-clone`, `GeorgeQLe/bose-music-mobile-clone`, and `GeorgeQLe/jbl-portable-mobile-clone`; planning updates in `tasks/todo.md`, `tasks/history.md`.
+  - First: merge the three open Step 14.10 PRs (DuetHarmony PR#1, VocalStar PR#1, SoundSpot PR#1), since consolidation gate already passed.
+  - Then: execute the ninth implementation tranche using the validated streaming-cluster pattern.
+  - Use agent-team parallel lanes, one repo per branch-backed lane, no direct-to-primary implementation.
+  - Implement five local variants per selected repo where toolchains are available, with explicit blockers for unavailable Flutter/Android Native toolchains and provider/licensed-media/real-device behavior.
+  - Open PRs for every downstream lane and run the consolidation gate before merge.
+  - Preserve Draft 1 and licensed-media/provider blockers; do not claim implementation-ready parity.
+  - Do not enable, dispatch, or rely on GitHub Actions.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Merge the validated Step 14.10 PRs and implement the ninth tranche of Phase 14 music/audio downstream repos (Sonos, Bose Music, JBL Portable), using the proven DuetHarmony/VocalStar/SoundSpot pattern from Step 14.10. These three apps form the "audio hardware/speaker control" sub-cluster.
+
+  **Approach:**
+  1. Merge the three Step 14.10 PRs (already passed consolidation gate):
+     - `GeorgeQLe/smule-mobile-clone` PR#1 (`phase14/smule-variant-scaffold`)
+     - `GeorgeQLe/starmaker-mobile-clone` PR#1 (`phase14/starmaker-variant-scaffold`)
+     - `GeorgeQLe/soundhound-mobile-clone` PR#1 (`phase14/soundhound-variant-scaffold`)
+  2. For the ninth tranche, dispatch three parallel agent-team lanes:
+     - Lane 14.11-A: `GeorgeQLe/sonos-mobile-clone`, branch `phase14/sonos-variant-scaffold` — multi-room speaker control with room grouping, volume management, music source selection, system setup/discovery, and home theater integration. Brand-safe name: **RoomCast**.
+     - Lane 14.11-B: `GeorgeQLe/bose-music-mobile-clone`, branch `phase14/bose-music-variant-scaffold` — personal audio device control with headphone/speaker pairing, EQ/noise cancellation settings, firmware updates, and multi-device management. Brand-safe name: **SoundPilot**.
+     - Lane 14.11-C: `GeorgeQLe/jbl-portable-mobile-clone`, branch `phase14/jbl-portable-variant-scaffold` — portable speaker control with Bluetooth pairing, PartyBoost/multi-speaker linking, EQ presets, LED/light show control, and firmware updates. Brand-safe name: **BassDrop**.
+  3. Each lane builds the same 20-file set: shared fixtures/contracts, 5 variant implementations, validation script, blocker artifact, implementation record, validation JSON, package manifest.
+  4. Domain-specific fixtures:
+     - RoomCast: multi-room speaker groups, room zones, volume/transport controls per room, music source routing (streaming services, line-in, TV), speaker discovery/setup, home theater pairing (soundbar/surrounds/sub), alarm/timer, system update, TruePlay/room tuning
+     - SoundPilot: headphone/speaker device list, Bluetooth pairing, active noise cancellation levels, EQ profiles, auto-off timer, firmware update, multi-device switching, voice assistant toggle, SimpleSync multi-device grouping
+     - BassDrop: portable speaker pairing, PartyBoost/multi-speaker linking, EQ presets (bass boost, vocal, outdoor), LED/light show modes, playtime battery monitor, firmware update, Bluetooth codec selection, party mode
+  5. Run consolidation gate: boundary check, visibility, no workflow files, branding audit, parity audit.
+  6. Record evidence in `tasks/todo.md` and `tasks/history.md`.
+
+  **Key files affected:**
+  - Three downstream repos receive 20 new files each in `variants/`, `shared/`, `scripts/`, `tasks/blockers/`, `docs/validation/`, `docs/implementation/`, `package.json`
+  - Planning repo: `tasks/todo.md`, `tasks/history.md`
+
+  **Source specs:**
+  - Sonos: `specs/batch-15/288-sonos.md`
+  - Bose Music: `specs/batch-15/289-bose-music.md`
+  - JBL Portable: `specs/batch-15/290-jbl-portable.md`
+
+  **Execution Profile:**
+  - Mode: agent-team (3 serial PR merges + 3 parallel write lanes)
+  - Integration owner: main agent
+  - Conflict risk: low (each app is an independent GitHub repo)
+  - Review gates: local validation, boundary check, visibility, no GitHub Actions, branding/parity audit
+
+  **Acceptance criteria:**
+  - Three Step 14.10 PRs merged to `main` in their respective repos
+  - Three new downstream repos have variant scaffolds on feature branches with open PRs
+  - All `npm run validate`, `npm run test:react-native`, `npm run test:expo` runs pass
+  - Consolidation gate passes for all new lanes
+  - Planning repo updated with evidence
+  - Ship-one-step handoff: implement only this step, validate it, then run `/ship` when done.
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`
