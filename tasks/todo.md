@@ -1372,6 +1372,61 @@ Build all five variants for every app in the Video & Music Streaming cluster.
 | 14.16-B | `GeorgeQLe/tubi-mobile-clone` | `phase14/tubi-variant-scaffold` | FreeFlick | Free ad-supported streaming / movie/TV catalog / recommendations / watchlist / continue watching / ad breaks / AVOD / parental controls / content ratings | PR#1 | Open |
 | 14.16-C | `GeorgeQLe/pluto-tv-mobile-clone` | `phase14/pluto-tv-variant-scaffold` | ChannelDrift | Free ad-supported live TV / 250+ channels / live TV guide / on-demand VOD / channel categories / favorites / ad breaks / content schedule | PR#1 | Open |
 
+- [ ] Step 14.17: Merge Step 14.16 PRs and execute fifteenth video streaming tranche
+  - Files: downstream repos from Step 14.16 (merge PRs), plus new downstream repos `GeorgeQLe/roku-mobile-clone`, `GeorgeQLe/fandango-at-home-mobile-clone`, and `GeorgeQLe/vudu-mobile-clone`; planning updates in `tasks/todo.md`, `tasks/history.md`.
+  - First: merge the three open Step 14.16 PRs (MediaVault PR#1, FreeFlick PR#1, ChannelDrift PR#1), since consolidation gate already passed.
+  - Then: execute the fifteenth implementation tranche using the validated streaming-cluster pattern.
+  - Use agent-team parallel lanes, one repo per branch-backed lane, no direct-to-primary implementation.
+  - Implement five local variants per selected repo where toolchains are available, with explicit blockers for unavailable Flutter/Android Native toolchains and provider/licensed-media/real-device behavior.
+  - Open PRs for every downstream lane and run the consolidation gate before merge.
+  - Preserve Draft 1 and licensed-media/provider blockers; do not claim implementation-ready parity.
+  - Do not enable, dispatch, or rely on GitHub Actions.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Merge the validated Step 14.16 PRs and implement the fifteenth tranche of Phase 14 downstream repos (Roku, Fandango at Home, Vudu). These three apps complete the ad-supported/free streaming and digital purchase/rental sub-cluster.
+
+  **Approach:**
+  1. Merge the three Step 14.16 PRs (already passed consolidation gate):
+     - `GeorgeQLe/plex-mobile-clone` PR#1 (`phase14/plex-variant-scaffold`)
+     - `GeorgeQLe/tubi-mobile-clone` PR#1 (`phase14/tubi-variant-scaffold`)
+     - `GeorgeQLe/pluto-tv-mobile-clone` PR#1 (`phase14/pluto-tv-variant-scaffold`)
+  2. For the fifteenth tranche, dispatch three parallel agent-team lanes:
+     - Lane 14.17-A: `GeorgeQLe/roku-mobile-clone`, branch `phase14/roku-variant-scaffold` — streaming device companion app with Roku Channel (free ad-supported streaming), live TV, channel store, device remote control, screen mirroring, voice search, media player, and device setup. Brand-safe name: **StreamDeck**.
+     - Lane 14.17-B: `GeorgeQLe/fandango-at-home-mobile-clone`, branch `phase14/fandango-at-home-variant-scaffold` — digital movie purchase/rental platform with movie catalog, purchase and rent options, digital locker, Ultraviolet/Movies Anywhere integration, watchlist, continue watching, parental controls, and 4K/HDR playback. Brand-safe name: **CinemaLocker**.
+     - Lane 14.17-C: `GeorgeQLe/vudu-mobile-clone`, branch `phase14/vudu-variant-scaffold` — digital movie/TV purchase/rental and free ad-supported streaming with purchase/rent catalog, digital locker, disc-to-digital conversion, Movies Anywhere integration, free AVOD section, watchlist, and family sharing. Brand-safe name: **FlickVault**.
+  3. Each lane builds the same 20-file set: shared fixtures/contracts, 5 variant implementations, validation script, blocker artifact, implementation record, validation JSON, package manifest.
+  4. Domain-specific fixtures:
+     - StreamDeck: Roku Channel free ad-supported streaming, live TV guide, channel store browsing/install, device remote control (d-pad, volume, power, voice), screen mirroring/casting, device discovery/setup, voice search, media player controls, account/device linking, ad breaks, content categories
+     - CinemaLocker: digital movie catalog (buy/rent), digital locker/library, rental expiry/countdown, purchase receipt/entitlement, Ultraviolet/Movies Anywhere interop, watchlist, continue watching, parental PIN, 4K/HDR quality selection, subtitle/audio tracks, transaction history
+     - FlickVault: digital movie/TV catalog (buy/rent), digital locker, disc-to-digital barcode scan, Movies Anywhere linking, free AVOD section with ad breaks, watchlist, family sharing/profiles, parental controls, 4K/HDR quality, rental expiry management
+  5. Run consolidation gate: boundary check, visibility, no workflow files, branding audit, parity audit.
+  6. Record evidence in `tasks/todo.md` and `tasks/history.md`.
+
+  **Key files affected:**
+  - Three downstream repos receive 20 new files each in `variants/`, `shared/`, `scripts/`, `tasks/blockers/`, `docs/validation/`, `docs/implementation/`, `package.json`
+  - Planning repo: `tasks/todo.md`, `tasks/history.md`
+
+  **Source specs:**
+  - Roku: `specs/batch-17/323-roku.md`
+  - Fandango at Home: `specs/batch-17/324-fandango-at-home.md`
+  - Vudu: `specs/batch-17/325-vudu.md`
+
+  **Execution Profile:**
+  - Mode: agent-team (3 serial PR merges + 3 parallel write lanes)
+  - Integration owner: main agent
+  - Conflict risk: low (each app is an independent GitHub repo)
+  - Review gates: local validation, boundary check, visibility, no GitHub Actions, branding/parity audit
+
+  **Acceptance criteria:**
+  - Three Step 14.16 PRs merged to `main` in their respective repos
+  - Three new downstream repos have variant scaffolds on feature branches with open PRs
+  - All `npm run validate`, `npm run test:react-native`, `npm run test:expo` runs pass
+  - Consolidation gate passes for all new lanes
+  - Planning repo updated with evidence
+  - Ship-one-step handoff: implement only this step, validate it, then run `/ship` when done.
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`
