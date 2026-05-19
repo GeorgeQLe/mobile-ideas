@@ -4629,3 +4629,68 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Rollback note: revert planning commit to reopen Step 14.15; use `git revert` on lane branch commits or close PRs to undo downstream scaffolds.
 - Progress: 39/57 Phase 14 apps complete (3 merged + 3 new PRs open).
 - Next: Step 14.16 — merge Step 14.15 PRs, execute fourteenth tranche (next video streaming apps).
+
+## Step 14.18 — Sixteenth Video Streaming Tranche (2026-05-19)
+
+### PR Merges (Step 14.17)
+- `GeorgeQLe/roku-mobile-clone` PR#1 → MERGED (StreamDeck)
+- `GeorgeQLe/fandango-at-home-mobile-clone` PR#1 → MERGED (CinemaLocker)
+- `GeorgeQLe/vudu-mobile-clone` PR#1 → MERGED (FlickVault)
+
+### New Downstream Scaffolds
+- Lane 14.18-A: `GeorgeQLe/mubi-mobile-clone` PR#1 (CuratedReel) — curated cinema streaming (MUBI-Inspired)
+- Lane 14.18-B: `GeorgeQLe/the-criterion-channel-mobile-clone` PR#1 (ClassicVault) — classic/arthouse film streaming (Criterion Channel-Inspired)
+- Lane 14.18-C: `GeorgeQLe/kanopy-mobile-clone` PR#1 (CivicScreen) — library-card-based free streaming (Kanopy-Inspired)
+
+### Validation
+- All lanes: 21/21 validation checks, 16/16 react-native tests, 16/16 expo tests
+- Consolidation gate: visibility PRIVATE, 0 GitHub Actions, branding clean, parity synthetic-only
+
+### Carry-Forward Blockers
+
+**CuratedReel (MUBI-Inspired):**
+- Curated film catalog and rotation requires content licensing
+- Director spotlights require verified attribution
+- Editorial workflow and CMS integration
+- Community lists and reviews require moderation
+- CDN/adaptive bitrate, DRM (Widevine/FairPlay)
+- Subscription payment and restore
+- Regional catalog geo-rights
+- Captions/sidecar, Chromecast/AirPlay device SDK
+- Push notifications, GDPR/CCPA export, DRM-aware downloads, Flutter/Android toolchain
+
+**ClassicVault (Criterion Channel-Inspired):**
+- Criterion Collection catalog requires content licensing
+- Filmmaker spotlights require verified attribution
+- Bonus features/supplements require rights clearance
+- Double features require pairing editorial
+- Guest programmer picks require curator workflow
+- CDN/adaptive bitrate, DRM
+- Subscription payment and restore
+- Editorial context CMS, film notes moderation
+- Push notifications, GDPR/CCPA export, DRM-aware downloads, Flutter/Android toolchain
+
+**CivicScreen (Kanopy-Inspired):**
+- Library-card authentication requires institutional API
+- University auth requires Shibboleth/SAML
+- Monthly credit system requires entitlement server
+- Documentary catalog requires content licensing
+- Kids content requires COPPA compliance
+- Patron borrow limits require institution config
+- Hold queue requires availability tracking
+- FERPA compliance for institutional data sharing
+- Patron privacy requires state library law review
+- CDN/adaptive bitrate, DRM
+- Push notifications, GDPR/CCPA export, DRM-aware downloads, Flutter/Android toolchain
+
+### Ship Manifest
+
+- User goal: merge Step 14.17 validated PRs and execute Step 14.18 sixteenth video streaming tranche.
+- Changed files: `tasks/todo.md`, `tasks/history.md`, plus 3 downstream repos (20 files each on feature branches).
+- Tests run: `npm run validate`, `npm run test:react-native`, `npm run test:expo` per lane — all PASS.
+- Consolidation review: boundary, visibility, no workflows, branding, parity — all PASS.
+- Adversarial review: no proprietary branding in code, no positive parity claims, no GitHub Actions, no production data.
+- Residual risk: all lane PRs remain open for next merge cycle; CDN/DRM/live-content/provider/curated-catalog/institutional-auth/library-card/credit-system blockers remain unresolved.
+- Rollback note: revert planning commit to reopen Step 14.18; use `git revert` on lane branch commits or close PRs to undo downstream scaffolds.
+- Progress: 48/57 Phase 14 apps complete (3 merged + 3 new PRs open).
+- Next: Step 14.19 — merge Step 14.18 PRs, execute seventeenth tranche (next video streaming apps).

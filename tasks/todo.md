@@ -1450,7 +1450,7 @@ Build all five variants for every app in the Video & Music Streaming cluster.
 
   Progress: 45/57 Phase 14 apps complete (42 merged + 3 PRs open).
 
-- [ ] Step 14.18: Merge Step 14.17 PRs and execute sixteenth video streaming tranche
+- [x] Step 14.18: Merge Step 14.17 PRs and execute sixteenth video streaming tranche
   - Files: downstream repos from Step 14.17 (merge PRs), plus new downstream repos `GeorgeQLe/mubi-mobile-clone`, `GeorgeQLe/the-criterion-channel-mobile-clone`, and `GeorgeQLe/kanopy-mobile-clone`; planning updates in `tasks/todo.md`, `tasks/history.md`.
   - First: merge the three open Step 14.17 PRs (StreamDeck PR#1, CinemaLocker PR#1, FlickVault PR#1), since consolidation gate already passed.
   - Then: execute the sixteenth implementation tranche using the validated streaming-cluster pattern.
@@ -1504,6 +1504,34 @@ Build all five variants for every app in the Video & Music Streaming cluster.
   - Consolidation gate passes for all new lanes
   - Planning repo updated with evidence
   - Ship-one-step handoff: implement only this step, validate it, then run `/ship` when done.
+
+  **Execution Evidence (Step 14.18, 2026-05-19):**
+
+  **PR Merges (Step 14.17):**
+  - `GeorgeQLe/roku-mobile-clone` PR#1 → MERGED (StreamDeck)
+  - `GeorgeQLe/fandango-at-home-mobile-clone` PR#1 → MERGED (CinemaLocker)
+  - `GeorgeQLe/vudu-mobile-clone` PR#1 → MERGED (FlickVault)
+
+  **Sixteenth Tranche — 3 Parallel Lanes:**
+  - Lane 14.18-A: `GeorgeQLe/mubi-mobile-clone` PR#1 (CuratedReel) — OPEN, branch `phase14/mubi-variant-scaffold`
+    - 21/21 validation checks, 16/16 react-native tests, 16/16 expo tests
+    - 7 surfaces, 3 actors, 5 songs, 5 tracks, 10 domain objects, 47 routes, 22 workflows, 18 blockers
+  - Lane 14.18-B: `GeorgeQLe/the-criterion-channel-mobile-clone` PR#1 (ClassicVault) — OPEN, branch `phase14/criterion-channel-variant-scaffold`
+    - 21/21 validation checks, 16/16 react-native tests, 16/16 expo tests
+    - 8 surfaces, 3 actors, 5 songs, 5 tracks, 10 domain objects, 50 routes, 22 workflows, 18 blockers
+  - Lane 14.18-C: `GeorgeQLe/kanopy-mobile-clone` PR#1 (CivicScreen) — OPEN, branch `phase14/kanopy-variant-scaffold`
+    - 21/21 validation checks, 16/16 react-native tests, 16/16 expo tests
+    - 8 surfaces, 3 actors, 5 songs, 5 tracks, 10 domain objects, 47 routes, 22 workflows, 18 blockers
+
+  **Consolidation Gate:**
+  - Visibility: all 3 repos PRIVATE ✓
+  - GitHub Actions: 0 workflows in all 3 repos ✓
+  - File count: 20 new files per lane (28 total with pre-existing) ✓
+  - Branding: CuratedReel, ClassicVault, CivicScreen — no trademarked names in code ✓
+  - Parity: synthetic fixtures only, all feature flags false, all tracks/songs syntheticOnly ✓
+  - Rate limit: pre-batch 5000/5000, post-batch 4997/5000 ✓
+
+  **Progress: 48/57 Phase 14 apps complete.**
 
 ### Reference
 
