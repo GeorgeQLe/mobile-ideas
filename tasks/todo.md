@@ -1450,6 +1450,61 @@ Build all five variants for every app in the Video & Music Streaming cluster.
 
   Progress: 45/57 Phase 14 apps complete (42 merged + 3 PRs open).
 
+- [ ] Step 14.18: Merge Step 14.17 PRs and execute sixteenth video streaming tranche
+  - Files: downstream repos from Step 14.17 (merge PRs), plus new downstream repos `GeorgeQLe/mubi-mobile-clone`, `GeorgeQLe/the-criterion-channel-mobile-clone`, and `GeorgeQLe/kanopy-mobile-clone`; planning updates in `tasks/todo.md`, `tasks/history.md`.
+  - First: merge the three open Step 14.17 PRs (StreamDeck PR#1, CinemaLocker PR#1, FlickVault PR#1), since consolidation gate already passed.
+  - Then: execute the sixteenth implementation tranche using the validated streaming-cluster pattern.
+  - Use agent-team parallel lanes, one repo per branch-backed lane, no direct-to-primary implementation.
+  - Implement five local variants per selected repo where toolchains are available, with explicit blockers for unavailable Flutter/Android Native toolchains and provider/licensed-media/real-device behavior.
+  - Open PRs for every downstream lane and run the consolidation gate before merge.
+  - Preserve Draft 1 and licensed-media/provider blockers; do not claim implementation-ready parity.
+  - Do not enable, dispatch, or rely on GitHub Actions.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Merge the validated Step 14.17 PRs and implement the sixteenth tranche of Phase 14 downstream repos (MUBI, The Criterion Channel, Kanopy). These three apps begin the curated/arthouse and library-card streaming sub-cluster.
+
+  **Approach:**
+  1. Merge the three Step 14.17 PRs (already passed consolidation gate):
+     - `GeorgeQLe/roku-mobile-clone` PR#1 (`phase14/roku-variant-scaffold`)
+     - `GeorgeQLe/fandango-at-home-mobile-clone` PR#1 (`phase14/fandango-at-home-variant-scaffold`)
+     - `GeorgeQLe/vudu-mobile-clone` PR#1 (`phase14/vudu-variant-scaffold`)
+  2. For the sixteenth tranche, dispatch three parallel agent-team lanes:
+     - Lane 14.18-A: `GeorgeQLe/mubi-mobile-clone`, branch `phase14/mubi-variant-scaffold` — curated cinema streaming with hand-picked film rotation, daily featured film, curated collections, arthouse focus, offline download, watchlist, and limited catalog curation. Brand-safe name: **CuratedReel**.
+     - Lane 14.18-B: `GeorgeQLe/the-criterion-channel-mobile-clone`, branch `phase14/criterion-channel-variant-scaffold` — classic/arthouse film streaming with curated collections, filmmaker spotlights, bonus features, double features, guest programmer picks, and Criterion Collection catalog browsing. Brand-safe name: **ClassicVault**.
+     - Lane 14.18-C: `GeorgeQLe/kanopy-mobile-clone`, branch `phase14/kanopy-variant-scaffold` — library-card-based free streaming with monthly credit system, library/university institutional access, documentary focus, independent film, kids content, and patron-borrow-count model. Brand-safe name: **CivicScreen**.
+  3. Each lane builds the same 20-file set: shared fixtures/contracts, 5 variant implementations, validation script, blocker artifact, implementation record, validation JSON, package manifest.
+  4. Domain-specific fixtures:
+     - CuratedReel: curated film catalog, daily featured film rotation, collection browsing, filmmaker profiles, arthouse categories, offline download, watchlist, continue watching, subscription tiers, ad-free playback
+     - ClassicVault: Criterion Collection catalog, curated collections, filmmaker spotlights, bonus features/supplements, double features, guest programmer picks, arthouse categories, offline download, watchlist, subscription tiers
+     - CivicScreen: library-card authentication, monthly credit/borrow system, university/institutional access, documentary catalog, independent films, kids content, patron borrowing limits, due-date/hold queue, offline viewing window
+  5. Run consolidation gate: boundary check, visibility, no workflow files, branding audit, parity audit.
+  6. Record evidence in `tasks/todo.md` and `tasks/history.md`.
+
+  **Key files affected:**
+  - Three downstream repos receive 20 new files each in `variants/`, `shared/`, `scripts/`, `tasks/blockers/`, `docs/validation/`, `docs/implementation/`, `package.json`
+  - Planning repo: `tasks/todo.md`, `tasks/history.md`
+
+  **Source specs:**
+  - MUBI: `specs/batch-17/326-mubi.md`
+  - The Criterion Channel: `specs/batch-17/327-the-criterion-channel.md`
+  - Kanopy: `specs/batch-17/328-kanopy.md`
+
+  **Execution Profile:**
+  - Mode: agent-team (3 serial PR merges + 3 parallel write lanes)
+  - Integration owner: main agent
+  - Conflict risk: low (each app is an independent GitHub repo)
+  - Review gates: local validation, boundary check, visibility, no GitHub Actions, branding/parity audit
+
+  **Acceptance criteria:**
+  - Three Step 14.17 PRs merged to `main` in their respective repos
+  - Three new downstream repos have variant scaffolds on feature branches with open PRs
+  - All `npm run validate`, `npm run test:react-native`, `npm run test:expo` runs pass
+  - Consolidation gate passes for all new lanes
+  - Planning repo updated with evidence
+  - Ship-one-step handoff: implement only this step, validate it, then run `/ship` when done.
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`
