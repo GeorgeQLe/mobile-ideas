@@ -1,5 +1,20 @@
 # History
 
+## 2026-05-19 - Phase 14 Step 14.17 Merge Step 14.16 PRs and Fifteenth Video Streaming Tranche
+
+- **Step 14.16 PR Merges:** Merged all three Step 14.16 PRs to `main` in their respective downstream repos:
+  - `GeorgeQLe/plex-mobile-clone` PR#1 (MediaVault) — merged 2026-05-18T17:28:53Z
+  - `GeorgeQLe/tubi-mobile-clone` PR#1 (FreeFlick) — merged 2026-05-18T17:29:00Z
+  - `GeorgeQLe/pluto-tv-mobile-clone` PR#1 (ChannelDrift) — merged 2026-05-18T17:29:06Z
+- **Fifteenth Tranche — 3 new variant scaffolds built via agent-team parallel lanes:**
+  - Lane 14.17-A: `GeorgeQLe/roku-mobile-clone` → StreamDeck (Roku-Inspired) — streaming device companion, Roku Channel AVOD, live TV, channel store, device remote, screen mirroring, voice search, device discovery — PR#1 open
+  - Lane 14.17-B: `GeorgeQLe/fandango-at-home-mobile-clone` → CinemaLocker (Fandango at Home-Inspired) — digital movie purchase/rental, digital locker, Movies Anywhere, watchlist, 4K/HDR, parental controls, transaction history — PR#1 open
+  - Lane 14.17-C: `GeorgeQLe/vudu-mobile-clone` → FlickVault (Vudu-Inspired) — digital purchase/rental, free AVOD, digital locker, disc-to-digital, Movies Anywhere, family sharing, 4K/HDR — PR#1 open
+- **Validation:** All 3 lanes passed: 21/21 validate checks, 16/16 React Native tests, 16/16 Expo tests per lane. Zero failures.
+- **Consolidation gate:** All repos PRIVATE, 0 GitHub Actions workflows, branding clean, parity audit passed.
+- **Rate limit:** 4816/5000 remaining post-batch.
+- **Progress:** 45/57 Phase 14 apps (42 merged + 3 PRs open).
+
 ## 2026-05-18 - Phase 14 Step 14.16 Merge Step 14.15 PRs and Fourteenth Video Streaming Tranche
 
 - **Step 14.15 PR Merges:** Merged all three Step 14.15 PRs to `main` in their respective downstream repos:

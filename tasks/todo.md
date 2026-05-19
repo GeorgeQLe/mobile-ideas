@@ -1368,11 +1368,11 @@ Build all five variants for every app in the Video & Music Streaming cluster.
 
 | Lane | Repo | Branch | Brand-Safe Name | Domain | PR | Status |
 |---|---|---|---|---|---|---|
-| 14.16-A | `GeorgeQLe/plex-mobile-clone` | `phase14/plex-variant-scaffold` | MediaVault | Personal media server / library management / DLNA/UPnP / transcoding / remote access / metadata agents / playlists / shared users / sync/download / live TV/DVR / Plex Pass | PR#1 | Open |
-| 14.16-B | `GeorgeQLe/tubi-mobile-clone` | `phase14/tubi-variant-scaffold` | FreeFlick | Free ad-supported streaming / movie/TV catalog / recommendations / watchlist / continue watching / ad breaks / AVOD / parental controls / content ratings | PR#1 | Open |
-| 14.16-C | `GeorgeQLe/pluto-tv-mobile-clone` | `phase14/pluto-tv-variant-scaffold` | ChannelDrift | Free ad-supported live TV / 250+ channels / live TV guide / on-demand VOD / channel categories / favorites / ad breaks / content schedule | PR#1 | Open |
+| 14.16-A | `GeorgeQLe/plex-mobile-clone` | `phase14/plex-variant-scaffold` | MediaVault | Personal media server / library management / DLNA/UPnP / transcoding / remote access / metadata agents / playlists / shared users / sync/download / live TV/DVR / Plex Pass | PR#1 | Merged |
+| 14.16-B | `GeorgeQLe/tubi-mobile-clone` | `phase14/tubi-variant-scaffold` | FreeFlick | Free ad-supported streaming / movie/TV catalog / recommendations / watchlist / continue watching / ad breaks / AVOD / parental controls / content ratings | PR#1 | Merged |
+| 14.16-C | `GeorgeQLe/pluto-tv-mobile-clone` | `phase14/pluto-tv-variant-scaffold` | ChannelDrift | Free ad-supported live TV / 250+ channels / live TV guide / on-demand VOD / channel categories / favorites / ad breaks / content schedule | PR#1 | Merged |
 
-- [ ] Step 14.17: Merge Step 14.16 PRs and execute fifteenth video streaming tranche
+- [x] Step 14.17: Merge Step 14.16 PRs and execute fifteenth video streaming tranche
   - Files: downstream repos from Step 14.16 (merge PRs), plus new downstream repos `GeorgeQLe/roku-mobile-clone`, `GeorgeQLe/fandango-at-home-mobile-clone`, and `GeorgeQLe/vudu-mobile-clone`; planning updates in `tasks/todo.md`, `tasks/history.md`.
   - First: merge the three open Step 14.16 PRs (MediaVault PR#1, FreeFlick PR#1, ChannelDrift PR#1), since consolidation gate already passed.
   - Then: execute the fifteenth implementation tranche using the validated streaming-cluster pattern.
@@ -1426,6 +1426,29 @@ Build all five variants for every app in the Video & Music Streaming cluster.
   - Consolidation gate passes for all new lanes
   - Planning repo updated with evidence
   - Ship-one-step handoff: implement only this step, validate it, then run `/ship` when done.
+
+  **Execution Evidence (Step 14.17):**
+
+  Step 14.16 PR merges (2026-05-18):
+  - `GeorgeQLe/plex-mobile-clone` PR#1 merged at 2026-05-18T17:28:53Z
+  - `GeorgeQLe/tubi-mobile-clone` PR#1 merged at 2026-05-18T17:29:00Z
+  - `GeorgeQLe/pluto-tv-mobile-clone` PR#1 merged at 2026-05-18T17:29:06Z
+
+  Fifteenth tranche validation (2026-05-19):
+
+  | Lane | Repo | Branch | Brand | Scope | PR | Status |
+  |---|---|---|---|---|---|---|
+  | 14.17-A | `GeorgeQLe/roku-mobile-clone` | `phase14/roku-variant-scaffold` | StreamDeck | Streaming device companion / Roku Channel AVOD / live TV / channel store / device remote / screen mirroring / voice search / device discovery | PR#1 | Open |
+  | 14.17-B | `GeorgeQLe/fandango-at-home-mobile-clone` | `phase14/fandango-at-home-variant-scaffold` | CinemaLocker | Digital movie purchase/rental / digital locker / Movies Anywhere / watchlist / 4K HDR / parental controls / transaction history / promos | PR#1 | Open |
+  | 14.17-C | `GeorgeQLe/vudu-mobile-clone` | `phase14/vudu-variant-scaffold` | FlickVault | Digital purchase/rental / free AVOD / digital locker / disc-to-digital / Movies Anywhere / family sharing / 4K HDR / rental expiry | PR#1 | Open |
+
+  Consolidation gate:
+  - StreamDeck: 21/21 validate, 16/16 RN tests, 16/16 Expo tests, PRIVATE, 0 workflows
+  - CinemaLocker: 21/21 validate, 16/16 RN tests, 16/16 Expo tests, PRIVATE, 0 workflows
+  - FlickVault: 21/21 validate, 16/16 RN tests, 16/16 Expo tests, PRIVATE, 0 workflows
+  - Rate limit: 4816/5000 remaining post-batch
+
+  Progress: 45/57 Phase 14 apps complete (42 merged + 3 PRs open).
 
 ### Reference
 
