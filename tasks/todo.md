@@ -1603,6 +1603,68 @@ Build all five variants for every app in the Video & Music Streaming cluster.
 - **Rate limit:** 4934/5000 remaining post-batch.
 - **Progress:** 51/57 Phase 14 apps (48 merged + 3 PRs open).
 
+- [ ] Step 14.20: Merge Step 14.19 PRs and execute eighteenth video streaming tranche
+  - Files: downstream repos from Step 14.19 (merge PRs), plus new downstream repos `GeorgeQLe/gaia-mobile-clone`, `GeorgeQLe/dropout-mobile-clone`, and `GeorgeQLe/britbox-mobile-clone`; planning updates in `tasks/todo.md`, `tasks/history.md`.
+  - First: merge the three open Step 14.19 PRs (LibraryVault PR#1, CreatorOrbit PR#1, FactStream PR#1), since consolidation gate already passed.
+  - Then: execute the eighteenth implementation tranche using the validated streaming-cluster pattern.
+  - Use agent-team parallel lanes, one repo per branch-backed lane, no direct-to-primary implementation.
+  - Implement five local variants per selected repo where toolchains are available, with explicit blockers for unavailable Flutter/Android Native toolchains and provider/licensed-media/real-device behavior.
+  - Open PRs for every downstream lane and run the consolidation gate before merge.
+  - Preserve Draft 1 and licensed-media/provider blockers; do not claim implementation-ready parity.
+  - Do not enable, dispatch, or rely on GitHub Actions.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Merge the validated Step 14.19 PRs and implement the eighteenth tranche of Phase 14 downstream repos (Gaia, Dropout, BritBox). These three apps cover yoga/wellness streaming, comedy/sketch streaming, and British TV streaming.
+
+  **Approach:**
+  1. Merge the three Step 14.19 PRs (already passed consolidation gate):
+     - `GeorgeQLe/hoopla-mobile-clone` PR#1 (`phase14/hoopla-variant-scaffold`)
+     - `GeorgeQLe/nebula-mobile-clone` PR#1 (`phase14/nebula-variant-scaffold`)
+     - `GeorgeQLe/curiosity-stream-mobile-clone` PR#1 (`phase14/curiosity-stream-variant-scaffold`)
+  2. For the eighteenth tranche, dispatch three parallel agent-team lanes:
+     - Lane 14.20-A: `GeorgeQLe/gaia-mobile-clone`, branch `phase14/gaia-variant-scaffold` — yoga, meditation, and wellness streaming with guided practices, series, documentaries, live events, and spiritual/alternative health content. Brand-safe name: **ZenStream**.
+     - Lane 14.20-B: `GeorgeQLe/dropout-mobile-clone`, branch `phase14/dropout-variant-scaffold` — comedy and sketch streaming with original series, game shows, improv, exclusive creator content, and ad-free subscription. Brand-safe name: **SketchDeck**.
+     - Lane 14.20-C: `GeorgeQLe/britbox-mobile-clone`, branch `phase14/britbox-variant-scaffold` — British TV streaming with BBC, ITV, Channel 4, and Channel 5 content, classic and contemporary British drama, comedy, mystery, and documentaries. Brand-safe name: **IsleWatch**.
+  3. Each lane builds the same 20-file set: shared fixtures/contracts, 5 variant implementations, validation script, blocker artifact, implementation record, validation JSON, package manifest.
+  4. Domain-specific fixtures:
+     - ZenStream: yoga/meditation session catalog, guided practices, wellness series, live events, spiritual content categories, practice history, offline downloads, instructor profiles, difficulty levels, session duration filters
+     - SketchDeck: comedy series catalog, game shows, improv content, exclusive creator originals, ad-free subscription, watchlist, continue watching, offline download, creator profiles, episode progress
+     - IsleWatch: British TV catalog by network (BBC/ITV/Channel 4/Channel 5), classic and contemporary dramas, comedy, mystery, documentaries, watchlist, continue watching, offline download, regional availability, subscription tiers
+  5. Run consolidation gate: boundary check, visibility, no workflow files, branding audit, parity audit.
+  6. Record evidence in `tasks/todo.md` and `tasks/history.md`.
+
+  **Key files affected:**
+  - Three downstream repos receive 20 new files each in `variants/`, `shared/`, `scripts/`, `tasks/blockers/`, `docs/validation/`, `docs/implementation/`, `package.json`
+  - Planning repo: `tasks/todo.md`, `tasks/history.md`
+
+  **Source specs:**
+  - Gaia: `specs/batch-17/332-gaia.md`
+  - Dropout: `specs/batch-17/333-dropout.md`
+  - BritBox: `specs/batch-17/334-britbox.md`
+
+  **Execution Profile:**
+  - Mode: agent-team (3 serial PR merges + 3 parallel write lanes)
+  - Integration owner: main agent
+  - Conflict risk: low (each app is an independent GitHub repo)
+  - Review gates: local validation, boundary check, visibility, no GitHub Actions, branding/parity audit
+
+  **Acceptance criteria:**
+  - Three Step 14.19 PRs merged to `main` in their respective repos
+  - Three new downstream repos have variant scaffolds on feature branches with open PRs
+  - All `npm run validate`, `npm run test:react-native`, `npm run test:expo` runs pass
+  - Consolidation gate passes for all new lanes
+  - Planning repo updated with evidence
+  - Ship-one-step handoff: implement only this step, validate it, then run `/ship` when done.
+
+- [ ] Step 14.21: Merge Step 14.20 PRs and execute nineteenth (final) video streaming tranche
+  - Files: downstream repos from Step 14.20 (merge PRs), plus new downstream repos `GeorgeQLe/acorn-tv-mobile-clone`, `GeorgeQLe/youtube-tv-mobile-clone`, and `GeorgeQLe/sling-tv-mobile-clone`; planning updates in `tasks/todo.md`, `tasks/history.md`.
+  - Merge Step 14.20 PRs, then build final 3 apps: Acorn TV, YouTube TV, Sling TV.
+
+- [ ] Step 14.22: Merge Step 14.21 PRs and Phase 14 completion review
+  - Merge final 3 PRs, verify all 57 apps merged, phase completion review.
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`
