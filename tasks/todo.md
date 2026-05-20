@@ -1725,6 +1725,47 @@ Build all five variants for every app in the Video & Music Streaming cluster.
 - [ ] Step 14.22: Merge Step 14.21 PRs and Phase 14 completion review
   - Merge final 3 PRs, verify all 57 apps merged, phase completion review.
 
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Merge the three Step 14.21 PRs (CommonwealthStream, LiveTuner, ChannelPick) and run the Phase 14 completion review. This is the final step of Phase 14 — all 57 apps should be merged to main after this step.
+
+  **Approach:**
+  1. Check rate limit before starting.
+  2. Merge three Step 14.21 PRs serially (consolidation gate already passed in Step 14.21):
+     - `GeorgeQLe/acorn-tv-mobile-clone` PR#1 (`phase14/acorn-tv-variant-scaffold`)
+     - `GeorgeQLe/youtube-tv-mobile-clone` PR#1 (`phase14/youtube-tv-variant-scaffold`)
+     - `GeorgeQLe/sling-tv-mobile-clone` PR#1 (`phase14/sling-tv-variant-scaffold`)
+  3. Verify all 3 PRs show state MERGED.
+  4. Phase 14 completion review:
+     - Count total merged PRs across all 57 downstream repos (IDs 281–337).
+     - Verify all 57 repos are PRIVATE.
+     - Verify no repo has `.github/workflows`.
+     - Spot-check 3 random repos: run `npm run validate` to confirm scaffolds still pass.
+  5. Fill in the "On Completion" section in `tasks/todo.md`.
+  6. Record evidence in `tasks/history.md`.
+  7. Check rate limit after completion.
+  8. Commit and push planning repo updates.
+
+  **Key files affected:**
+  - Three downstream repos: PRs merged to main (no new files)
+  - Planning repo: `tasks/todo.md` (completion section filled), `tasks/history.md` (completion record)
+
+  **Execution Profile:**
+  - Mode: serial (3 PR merges + verification)
+  - Integration owner: main agent
+  - Conflict risk: none (merging already-validated PRs)
+  - Review gates: PR merge verification, 57-repo audit, spot-check validation
+
+  **Acceptance criteria:**
+  - All three Step 14.21 PRs merged to `main`
+  - All 57 Phase 14 downstream repos confirmed: PRs merged, PRIVATE, no GitHub Actions
+  - Spot-check validation passes on 3 random repos
+  - "On Completion" section filled in `tasks/todo.md`
+  - `tasks/history.md` updated with Phase 14 completion record
+  - Planning repo committed and pushed
+  - Ship-one-step handoff: implement only this step, validate it, then run `/ship` when done.
+
 ### Reference
 
 - Build plan template: `templates/build-plan-template.md`
