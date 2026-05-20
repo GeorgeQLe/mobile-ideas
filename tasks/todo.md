@@ -1603,7 +1603,7 @@ Build all five variants for every app in the Video & Music Streaming cluster.
 - **Rate limit:** 4934/5000 remaining post-batch.
 - **Progress:** 51/57 Phase 14 apps (48 merged + 3 PRs open).
 
-- [ ] Step 14.20: Merge Step 14.19 PRs and execute eighteenth video streaming tranche
+- [x] Step 14.20: Merge Step 14.19 PRs and execute eighteenth video streaming tranche (completed 2026-05-20)
   - Files: downstream repos from Step 14.19 (merge PRs), plus new downstream repos `GeorgeQLe/gaia-mobile-clone`, `GeorgeQLe/dropout-mobile-clone`, and `GeorgeQLe/britbox-mobile-clone`; planning updates in `tasks/todo.md`, `tasks/history.md`.
   - First: merge the three open Step 14.19 PRs (LibraryVault PR#1, CreatorOrbit PR#1, FactStream PR#1), since consolidation gate already passed.
   - Then: execute the eighteenth implementation tranche using the validated streaming-cluster pattern.
@@ -1657,6 +1657,15 @@ Build all five variants for every app in the Video & Music Streaming cluster.
   - Consolidation gate passes for all new lanes
   - Planning repo updated with evidence
   - Ship-one-step handoff: implement only this step, validate it, then run `/ship` when done.
+
+  **Execution Evidence (2026-05-20):**
+  - Merged Step 14.19 PRs: Hoopla PR#1 (MERGED), Nebula PR#1 (MERGED), Curiosity Stream PR#1 (MERGED)
+  - Lane 14.20-A: `GeorgeQLe/gaia-mobile-clone` (PRIVATE) — ZenStream — PR#1 OPEN — 21/21 validate, 16/16 react-native, 16/16 expo
+  - Lane 14.20-B: `GeorgeQLe/dropout-mobile-clone` (PRIVATE) — SketchDeck — PR#1 OPEN — 21/21 validate, 16/16 react-native, 16/16 expo
+  - Lane 14.20-C: `GeorgeQLe/britbox-mobile-clone` (PRIVATE) — IsleWatch — PR#1 OPEN — 21/21 validate, 16/16 react-native, 16/16 expo
+  - Consolidation gate: all PRIVATE, no .github/workflows, README.md present, brand-safe names only
+  - Rate limit: 4991/5000 remaining post-batch
+  - Progress: 54/57 Phase 14 apps complete
 
 - [ ] Step 14.21: Merge Step 14.20 PRs and execute nineteenth (final) video streaming tranche
   - Files: downstream repos from Step 14.20 (merge PRs), plus new downstream repos `GeorgeQLe/acorn-tv-mobile-clone`, `GeorgeQLe/youtube-tv-mobile-clone`, and `GeorgeQLe/sling-tv-mobile-clone`; planning updates in `tasks/todo.md`, `tasks/history.md`.

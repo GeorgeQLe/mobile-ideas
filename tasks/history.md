@@ -1,5 +1,27 @@
 # History
 
+## 2026-05-20 - Phase 14 Step 14.20 Merge Step 14.19 PRs and Eighteenth Video Streaming Tranche
+
+- **Step 14.19 PR Merges:** Merged all three Step 14.19 PRs to `main` in their respective downstream repos:
+  - `GeorgeQLe/hoopla-mobile-clone` PR#1 (LibraryVault) — merged 2026-05-20
+  - `GeorgeQLe/nebula-mobile-clone` PR#1 (CreatorOrbit) — merged 2026-05-20
+  - `GeorgeQLe/curiosity-stream-mobile-clone` PR#1 (FactStream) — merged 2026-05-20
+- **Eighteenth Tranche — 3 new variant scaffolds built via agent-team parallel lanes:**
+  - Lane 14.20-A: `GeorgeQLe/gaia-mobile-clone` → ZenStream (Gaia-Inspired) — yoga, meditation, and wellness streaming with guided practices, series, documentaries, live events, instructor profiles, practice history, difficulty levels, and session duration filters — PR#1 open
+  - Lane 14.20-B: `GeorgeQLe/dropout-mobile-clone` → SketchDeck (Dropout-Inspired) — comedy and sketch streaming with original series, game shows, improv, exclusive creator content, ad-free subscription, episode progress, watchlist, and community comments — PR#1 open
+  - Lane 14.20-C: `GeorgeQLe/britbox-mobile-clone` → IsleWatch (BritBox-Inspired) — British TV streaming with BBC, ITV, Channel 4, Channel 5 content, classic and contemporary drama, comedy, mystery, documentaries, household profiles, regional catalogs, and content expiry — PR#1 open
+- **Validation:** All 3 lanes passed: 21/21 validate checks, 16/16 React Native tests, 16/16 Expo tests per lane. Zero failures.
+- **Consolidation gate:** All repos PRIVATE, 0 GitHub Actions workflows, README.md present, branding clean, parity audit passed.
+- **Rate limit:** 4991/5000 remaining post-batch.
+- **Progress:** 54/57 Phase 14 apps (51 merged + 3 PRs open).
+
+### Ship Manifest
+
+- User goal: merge Step 14.19 PRs and execute Phase 14 Step 14.20 for IDs 332 (Gaia), 333 (Dropout), and 334 (BritBox) across all five downstream variants each.
+- Changed files: three Step 14.19 downstream repos merged to main; three new downstream repos received shared fixtures/contracts, validation scripts/evidence, package scripts, blocker artifacts, implementation records, and React Native/Expo/Flutter/iOS Native/Android Native variant files; this planning repo changed `tasks/todo.md` and `tasks/history.md`.
+- Per-file purpose: downstream files provide original synthetic yoga-wellness/comedy-sketch/british-tv streaming surfaces and reproducible local checks; blocker artifacts document all wellness-claim/content-licensing/format-rights/network-attribution/CDN/DRM/toolchain dependencies; validation evidence records executable proof; task/history docs record completion and next work.
+- User-goal mapping: satisfies Step 14.20 without proprietary app assets, brand claims, copied code/media, private APIs, production data, public visibility changes, provider parity claims, or GitHub Actions.
+
 ## 2026-05-19 - Phase 14 Step 14.19 Merge Step 14.18 PRs and Seventeenth Video Streaming Tranche
 
 - **Step 14.18 PR Merges:** Merged all three Step 14.18 PRs to `main` in their respective downstream repos:
