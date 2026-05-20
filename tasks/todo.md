@@ -1669,7 +1669,58 @@ Build all five variants for every app in the Video & Music Streaming cluster.
 
 - [ ] Step 14.21: Merge Step 14.20 PRs and execute nineteenth (final) video streaming tranche
   - Files: downstream repos from Step 14.20 (merge PRs), plus new downstream repos `GeorgeQLe/acorn-tv-mobile-clone`, `GeorgeQLe/youtube-tv-mobile-clone`, and `GeorgeQLe/sling-tv-mobile-clone`; planning updates in `tasks/todo.md`, `tasks/history.md`.
-  - Merge Step 14.20 PRs, then build final 3 apps: Acorn TV, YouTube TV, Sling TV.
+  - First: merge the three open Step 14.20 PRs (ZenStream PR#1, SketchDeck PR#1, IsleWatch PR#1), since consolidation gate already passed.
+  - Then: execute the nineteenth (final) implementation tranche using the validated streaming-cluster pattern.
+  - Use agent-team parallel lanes, one repo per branch-backed lane, no direct-to-primary implementation.
+  - Implement five local variants per selected repo where toolchains are available, with explicit blockers for unavailable Flutter/Android Native toolchains and provider/licensed-media/real-device behavior.
+  - Open PRs for every downstream lane and run the consolidation gate before merge.
+  - Preserve Draft 1 and licensed-media/provider blockers; do not claim implementation-ready parity.
+  - Do not enable, dispatch, or rely on GitHub Actions.
+
+  **Implementation Plan (self-contained for clear-context execution):**
+
+  **What to Build:**
+  Merge the validated Step 14.20 PRs and implement the nineteenth (final) tranche of Phase 14 downstream repos (Acorn TV, YouTube TV, Sling TV). These three apps cover British/international TV streaming, live TV streaming with DVR, and live TV/on-demand streaming with channel packages.
+
+  **Approach:**
+  1. Merge the three Step 14.20 PRs (already passed consolidation gate):
+     - `GeorgeQLe/gaia-mobile-clone` PR#1 (`phase14/gaia-variant-scaffold`)
+     - `GeorgeQLe/dropout-mobile-clone` PR#1 (`phase14/dropout-variant-scaffold`)
+     - `GeorgeQLe/britbox-mobile-clone` PR#1 (`phase14/britbox-variant-scaffold`)
+  2. For the nineteenth tranche, dispatch three parallel agent-team lanes:
+     - Lane 14.21-A: `GeorgeQLe/acorn-tv-mobile-clone`, branch `phase14/acorn-tv-variant-scaffold` — British, Australian, and international mystery, drama, and documentary streaming with curated collections, offline downloads, and subscription access. Brand-safe name: **CommonwealthStream**.
+     - Lane 14.21-B: `GeorgeQLe/youtube-tv-mobile-clone`, branch `phase14/youtube-tv-variant-scaffold` — live TV streaming with 100+ channels, unlimited cloud DVR, simultaneous streams, on-demand library, sports, news, entertainment, and add-on channel packages. Brand-safe name: **LiveTuner**.
+     - Lane 14.21-C: `GeorgeQLe/sling-tv-mobile-clone`, branch `phase14/sling-tv-variant-scaffold` — live TV and on-demand streaming with customizable channel packages (Orange/Blue), add-on extras, cloud DVR, sports, news, entertainment, and à la carte channel selection. Brand-safe name: **ChannelPick**.
+  3. Each lane builds the same 20-file set: shared fixtures/contracts, 5 variant implementations, validation script, blocker artifact, implementation record, validation JSON, package manifest.
+  4. Domain-specific fixtures:
+     - CommonwealthStream: British/Australian/international mystery and drama catalog, documentary collections, curated editorial picks, offline downloads, watchlist, continue watching, subtitle support, regional availability
+     - LiveTuner: live TV channel guide with 100+ channels, unlimited cloud DVR, DVR recordings management, on-demand library, sports/news/entertainment categories, simultaneous streams, add-on packages, parental controls
+     - ChannelPick: customizable channel packages (base tiers), add-on extras, cloud DVR with storage limits, live TV guide, on-demand content, sports/news channels, à la carte selection, multi-screen viewing
+  5. Run consolidation gate: boundary check, visibility, no workflow files, branding audit, parity audit.
+  6. Record evidence in `tasks/todo.md` and `tasks/history.md`.
+
+  **Key files affected:**
+  - Three downstream repos receive 20 new files each in `variants/`, `shared/`, `scripts/`, `tasks/blockers/`, `docs/validation/`, `docs/implementation/`, `package.json`
+  - Planning repo: `tasks/todo.md`, `tasks/history.md`
+
+  **Source specs:**
+  - Acorn TV: `specs/batch-17/335-acorn-tv.md`
+  - YouTube TV: `specs/batch-17/336-youtube-tv.md`
+  - Sling TV: `specs/batch-17/337-sling-tv.md`
+
+  **Execution Profile:**
+  - Mode: agent-team (3 serial PR merges + 3 parallel write lanes)
+  - Integration owner: main agent
+  - Conflict risk: low (each app is an independent GitHub repo)
+  - Review gates: local validation, boundary check, visibility, no GitHub Actions, branding/parity audit
+
+  **Acceptance criteria:**
+  - Three Step 14.20 PRs merged to `main` in their respective repos
+  - Three new downstream repos have variant scaffolds on feature branches with open PRs
+  - All `npm run validate`, `npm run test:react-native`, `npm run test:expo` runs pass
+  - Consolidation gate passes for all new lanes
+  - Planning repo updated with evidence
+  - Ship-one-step handoff: implement only this step, validate it, then run `/ship` when done.
 
 - [ ] Step 14.22: Merge Step 14.21 PRs and Phase 14 completion review
   - Merge final 3 PRs, verify all 57 apps merged, phase completion review.
