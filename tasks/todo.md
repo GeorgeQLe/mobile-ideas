@@ -231,6 +231,22 @@
   - **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed targeting main, no `.github/workflows`, source specs intact (120-substack.md, 123-goodreads.md, 900-the-storygraph.md), blocker artifacts present.
   - **Rate limit:** pre-execution 4991/5000, post-consolidation 4979/5000 (12 API calls by main agent).
 - [ ] Step 15.6: Merge Step 15.5 PRs and execute fourth tranche
+  - Merge the three open Step 15.5 PRs after verifying they still target `main`, remain branch-backed, and have no `.github/workflows` additions:
+    - Substack/LetterForge: https://github.com/GeorgeQLe/substack-mobile-clone/pull/1
+    - Goodreads/ShelfCircle: https://github.com/GeorgeQLe/goodreads-mobile-clone/pull/1
+    - The StoryGraph/PlotPulse: https://github.com/GeorgeQLe/the-storygraph-mobile-clone/pull/1
+  - Execute Tranche 4 via `agent-team` lanes with separate downstream branches:
+    - Lane 15.6-A: `GeorgeQLe/apple-news-mobile-clone`, branch `phase15/apple-news-variant-scaffold`, codename `NewsDeck`, source spec `docs/source-specs/132-apple-news.md`
+    - Lane 15.6-B: `GeorgeQLe/the-new-york-times-mobile-clone`, branch `phase15/the-new-york-times-variant-scaffold`, codename `GrayLedger`, source spec `docs/source-specs/133-the-new-york-times.md`
+    - Lane 15.6-C: `GeorgeQLe/wattpad-mobile-clone`, branch `phase15/wattpad-variant-scaffold`, codename `DraftHaven`, source spec `docs/source-specs/121-wattpad.md`
+  - Per lane, own only downstream `shared/`, `variants/`, `scripts/`, `tasks/`, `docs/implementation/`, `README.md`, and package/config files.
+  - Per lane, do not edit `.github/`, repo visibility/settings, or copied source specs.
+  - Build five variant surfaces per repo: React Native, Expo, Flutter, iOS Native, and Android Native.
+  - Use only synthetic articles, reading lists, comments, serialized-story chapters, and user/library fixtures; do not copy proprietary articles, paywalled content, logos, screenshots, private APIs, production data, or copyrighted media.
+  - Document blockers in `tasks/blockers/phase15-<app-slug>.md`, especially subscription/paywall entitlements, publisher feeds, Apple ecosystem integrations, newsroom/licensed archives, community moderation, and Wattpad premium/coin or account-gated flows.
+  - Run downstream validation per lane: `npm run validate`, variant structure check, and `git diff --check`; record validation evidence in each downstream repo.
+  - Open PRs for the three downstream branches, then run the consolidation gate: PRIVATE visibility, source spec intact, no GitHub Actions workflows, blocker artifacts present, branch-backed PR targeting main, validation evidence present.
+  - Update this planning repo after consolidation with PR URLs, commit SHAs, validation counts, rate-limit evidence, residual blockers, and a ship manifest in `tasks/history.md`.
 - [ ] Step 15.7: Merge Step 15.6 PRs and execute fifth tranche
 - [ ] Step 15.8: Merge Step 15.7 PRs and execute sixth tranche
 - [ ] Step 15.9: Merge Step 15.8 PRs and execute seventh tranche

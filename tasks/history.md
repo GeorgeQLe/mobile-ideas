@@ -1,5 +1,25 @@
 # History
 
+## 2026-05-21 - Ship Handoff — Phase 15 Step 15.6 Plan
+
+- **Scope:** Shipped a self-contained execution plan for Phase 15 Step 15.6 so the next `$run` can merge Step 15.5 PRs and execute Tranche 4 without relying on prior chat context.
+- **Next tranche:** Apple News/NewsDeck, New York Times/GrayLedger, and Wattpad/DraftHaven.
+- **Validation:** Documentation-only Markdown sanity check; no source/runtime validation applies in this planning repo.
+- **Deploy:** Skipped; no `deploy.md` or `tasks/deploy.md` manual deploy contract exists.
+
+### Ship Manifest
+
+- User goal: package already-finished work and prepare the next executable project step.
+- Changed files: `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: `tasks/todo.md` now contains the full Step 15.6 lane plan, validation requirements, ownership boundaries, and blocker requirements; `tasks/history.md` records this shipping handoff.
+- User-goal mapping: satisfies `$ship` next-step planning for the active Phase 15 queue.
+- Tests run: Markdown sanity check for single H1 in `tasks/todo.md` and `tasks/history.md`.
+- Skipped tests: no app build, lint, typecheck, or downstream validation because this ship only changes planning documentation.
+- Adversarial review: checked that the plan preserves private downstream repos, serial PR merge safety, no GitHub Actions, synthetic-only content, copied source-spec immutability, and blocker documentation.
+- Residual risk: downstream PR merge status and GitHub rate limit must be rechecked during Step 15.6 execution because those are live external states.
+- Rollback note: revert this planning commit to restore the previous terse Step 15.6 placeholder.
+- Next command: `$run`
+
 ## 2026-05-21 - Phase 15 Step 15.5 — Merge Tranche 2 PRs and Execute Third Tranche (Substack/Goodreads/The StoryGraph)
 
 - **Part 1 — Merged Step 15.4 PRs:** Feedly PR #1, Flipboard PR #1, Medium PR #1 — all merged cleanly to main.
