@@ -5020,3 +5020,49 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Residual risk: Step 15.8 PRs remain open for the next merge cycle; account/community, moderation, premium coin/token economies, creator monetization, licensed stories/catalogs, notifications, subscriptions, production APIs, offline rights, privacy/compliance, regional behavior, and Flutter/native runner blockers remain unresolved.
 - Rollback note: revert this planning commit to reopen Step 15.8; close or revert the three downstream PR branches to undo scaffolds.
 - Next: Step 15.9 — merge Step 15.8 PRs and execute seventh tranche (Overcast, Castro, Podbean).
+
+## Step 15.9 — Seventh Podcasts, Books & Reading Tranche (2026-05-21)
+
+### PR Merges (Step 15.8)
+- `GeorgeQLe/radish-mobile-clone` PR#1 -> MERGED (`c0c312a`) for ChapterBite.
+- `GeorgeQLe/webnovel-mobile-clone` PR#1 -> MERGED (`517e903`) for StoryForge.
+- `GeorgeQLe/bookmate-mobile-clone` PR#1 -> MERGED (`962e978`) for ReadMate.
+
+### New Downstream Scaffolds
+- Lane 15.9-A: `GeorgeQLe/overcast-mobile-clone` PR#1 (CastWave) — Overcast-inspired synthetic podcast queue/playback scaffold.
+- Lane 15.9-B: `GeorgeQLe/castro-mobile-clone` PR#1 (QueueCast) — Castro-inspired synthetic podcast inbox/queue scaffold.
+- Lane 15.9-C: `GeorgeQLe/podbean-mobile-clone` PR#1 (BeanPod) — Podbean-inspired synthetic podcast listener/creator scaffold.
+
+### Validation
+- Overcast: `npm run validate` fixture contract passed with 24 text files scanned, variant structure 14/14, React Native 4/4 assertions, Expo 4/4 assertions, `git diff --check` PASS.
+- Castro: `npm run validate` 36/36, variant structure 7/7, React Native 1/1, Expo 1/1, `git diff --check` PASS.
+- Podbean: `npm run validate` passed for 3 podcasts, 5 episodes, 3 queue items, 2 playlists, 6 playback speeds, 3 creators, and 3 downloads; variant structure 10/10, React Native 1/1, Expo 1/1, `git diff --check` PASS.
+- Consolidation gate: all three repos PRIVATE, PRs branch-backed targeting `main`, non-draft with clean merge state, source specs intact, blocker artifacts present, validation artifacts present, no `.github/workflows`.
+- Rate limit: pre-execution 4949/5000; post-consolidation 5000/5000.
+
+### Carry-Forward Blockers
+
+**CastWave (Overcast-Inspired):**
+- Production RSS/provider integrations, account sync, notifications, licensed audio/media, premium/subscription gates, offline/download rights, privacy/compliance, and local Flutter/native runner limitations remain blocked.
+- Queue, playlist, playback speed, download, and listening progress surfaces use synthetic fixtures only.
+
+**QueueCast (Castro-Inspired):**
+- Production RSS/provider integrations, account sync, notifications, licensed audio/media, premium/subscription gates, queue/inbox sync, offline/download rights, privacy/compliance, and local Flutter/native runner limitations remain blocked.
+- Inbox triage, queue, playlist, and playback-speed surfaces use synthetic fixtures only.
+
+**BeanPod (Podbean-Inspired):**
+- Production RSS/provider integrations, account sync, notifications, licensed audio/media, premium/subscription gates, creator monetization/analytics, live publishing/hosting, offline/download rights, privacy/compliance, and local Flutter/native runner limitations remain blocked.
+- Listener catalog, creator/profile, queue, playlist, and playback surfaces use synthetic fixtures only.
+
+### Ship Manifest
+
+- User goal: merge Step 15.8 validated PRs and execute Step 15.9 seventh Podcasts, Books & Reading tranche.
+- Changed files: `tasks/todo.md`, `tasks/history.md`, plus 3 downstream repos on branch-backed PRs.
+- Per-file purpose: `tasks/todo.md` records Step 15.9 completion and Step 15.10 execution detail; `tasks/history.md` records consolidation evidence, blockers, and rollback notes.
+- User-goal mapping: downstream PRs provide five-variant scaffolds for Overcast, Castro, and Podbean using synthetic podcast/RSS/audio fixtures with explicit blocker artifacts.
+- Tests run: lane-local `npm run validate`, variant structure checks, RN/Expo tests, and `git diff --check`; planning repo `git diff --check`.
+- Skipped tests: no planning-repo executable test suite was relevant because only task/history Markdown changed here.
+- Adversarial review: verified PR targets/branches/non-draft state, changed-file boundaries, PRIVATE visibility, source-spec presence, blocker artifacts, validation artifacts, clean merge state, and absence of GitHub Actions workflows.
+- Residual risk: Step 15.9 PRs remain open for the next merge cycle; production RSS/provider integrations, account sync, notifications, licensed audio/media, premium/subscription gates, creator monetization/analytics, live publishing, offline/download rights, privacy/compliance, and Flutter/native runner blockers remain unresolved.
+- Rollback note: revert this planning commit to reopen Step 15.9; close or revert the three downstream PR branches to undo scaffolds.
+- Next: Step 15.10 — merge Step 15.9 PRs and execute eighth tranche (Podcast Addict, Player FM, Castbox).

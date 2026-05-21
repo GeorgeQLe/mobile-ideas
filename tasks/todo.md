@@ -302,24 +302,47 @@
   - Residual risk: Step 15.8 PRs remain open for the next merge cycle; account/community, moderation, premium coin/token economies, creator monetization, licensed stories/catalogs, notifications, subscriptions, production APIs, offline rights, privacy/compliance, regional behavior, and Flutter/native runner blockers remain unresolved.
   - Rollback note: revert this planning commit to reopen Step 15.8; close or revert the three downstream PR branches to undo scaffolds.
   - Next command: `$run`
-- [ ] Step 15.9: Merge Step 15.8 PRs and execute seventh tranche
-  - Merge the three open Step 15.8 PRs after verifying they still target `main`, remain branch-backed/non-draft, and have no `.github/workflows` additions:
-    - Radish/ChapterBite: https://github.com/GeorgeQLe/radish-mobile-clone/pull/1
-    - Webnovel/StoryForge: https://github.com/GeorgeQLe/webnovel-mobile-clone/pull/1
-    - Bookmate/ReadMate: https://github.com/GeorgeQLe/bookmate-mobile-clone/pull/1
-  - Execute Tranche 7 via `agent-team` lanes with separate downstream branches:
-    - Lane 15.9-A: `GeorgeQLe/overcast-mobile-clone`, branch `phase15/overcast-variant-scaffold`, codename `CastWave`, source spec `docs/source-specs/293-overcast.md`
-    - Lane 15.9-B: `GeorgeQLe/castro-mobile-clone`, branch `phase15/castro-variant-scaffold`, codename `QueueCast`, source spec `docs/source-specs/294-castro.md`
-    - Lane 15.9-C: `GeorgeQLe/podbean-mobile-clone`, branch `phase15/podbean-variant-scaffold`, codename `BeanPod`, source spec `docs/source-specs/295-podbean.md`
+- [x] Step 15.9: Merge Step 15.8 PRs and execute seventh tranche
+  - Merged 3 Step 15.8 PRs (Radish/ChapterBite, Webnovel/StoryForge, Bookmate/ReadMate).
+  - Built variant scaffolds for 3 Tranche 7 podcast/audio apps via agent-team parallel lanes (A/B/C).
+  - Each lane: created branch, added shared fixtures/contracts, validation scripts, blocker artifacts, and 5 variant files (React Native, Expo, Flutter, iOS Native, Android Native).
+  - Ran validation, opened PRs, and consolidation gate passed.
+  - Files: 3 downstream repos (shared/, variants/, scripts/, package/config, docs/implementation, docs/validation, tasks/blockers), `tasks/todo.md`, `tasks/history.md`
+  - **Merges:** Radish PR #1 merged (`c0c312a`), Webnovel PR #1 merged (`517e903`), Bookmate PR #1 merged (`962e978`).
+  - **Lane A (Overcast/CastWave):** PR https://github.com/GeorgeQLe/overcast-mobile-clone/pull/1 - commit `6711b7e` - `npm run validate` fixture contract passed with 24 text files scanned, variant structure 14/14, RN 4/4 assertions, Expo 4/4 assertions, `git diff --check` PASS.
+  - **Lane B (Castro/QueueCast):** PR https://github.com/GeorgeQLe/castro-mobile-clone/pull/1 - commit `e6b0c00` - 36/36 validation, variant structure 7/7, React Native 1/1, Expo 1/1, `git diff --check` PASS.
+  - **Lane C (Podbean/BeanPod):** PR https://github.com/GeorgeQLe/podbean-mobile-clone/pull/1 - commit `05804a2` - validated 3 podcasts, 5 episodes, 3 queue items, 2 playlists, 6 playback speeds, 3 creators, 3 downloads; structure 10/10; React Native 1/1; Expo 1/1; `git diff --check` PASS.
+  - **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed targeting `main`, non-draft with clean merge state, no `.github/workflows`, source specs intact (293-overcast.md, 294-castro.md, 295-podbean.md), blocker artifacts and validation artifacts present.
+  - **Rate limit:** pre-execution 4949/5000, post-consolidation 5000/5000.
+
+  **Review / Ship Manifest:**
+  - User goal: merge Step 15.8 validated PRs and execute Step 15.9 seventh Podcasts, Books & Reading tranche.
+  - Changed files: `tasks/todo.md`, `tasks/history.md`, plus 3 downstream repos on branch-backed PRs.
+  - Per-file purpose: `tasks/todo.md` records Step 15.9 completion and prepares Step 15.10; `tasks/history.md` records consolidation evidence, blockers, and rollback notes.
+  - User-goal mapping: downstream PRs provide Overcast, Castro, and Podbean five-variant scaffolds using synthetic podcast/RSS/audio fixtures with explicit blocker artifacts.
+  - Tests run: lane-local `npm run validate`, variant structure checks, RN/Expo tests, and `git diff --check`; planning repo `git diff --check`.
+  - Skipped tests: no planning-repo executable test suite was relevant because this repo only changed task/history Markdown for downstream evidence.
+  - Adversarial review: checked PR targets/branches/non-draft state, changed-file boundaries, PRIVATE visibility, source-spec presence, blocker artifacts, validation artifacts, clean merge state, and absence of GitHub Actions workflows.
+  - Residual risk: Step 15.9 PRs remain open for the next merge cycle; production RSS/provider integrations, account sync, notifications, licensed audio/media, premium/subscription gates, creator monetization/analytics, live publishing, offline/download rights, privacy/compliance, and Flutter/native runner blockers remain unresolved.
+  - Rollback note: revert this planning commit to reopen Step 15.9; close or revert the three downstream PR branches to undo scaffolds.
+  - Next command: `$run`
+- [ ] Step 15.10: Merge Step 15.9 PRs and execute eighth tranche
+  - Merge the three open Step 15.9 PRs after verifying they still target `main`, remain branch-backed/non-draft, and have no `.github/workflows` additions:
+    - Overcast/CastWave: https://github.com/GeorgeQLe/overcast-mobile-clone/pull/1
+    - Castro/QueueCast: https://github.com/GeorgeQLe/castro-mobile-clone/pull/1
+    - Podbean/BeanPod: https://github.com/GeorgeQLe/podbean-mobile-clone/pull/1
+  - Execute Tranche 8 via `agent-team` lanes with separate downstream branches:
+    - Lane 15.10-A: `GeorgeQLe/podcast-addict-mobile-clone`, branch `phase15/podcast-addict-variant-scaffold`, codename `FeedHopper`, source spec `docs/source-specs/298-podcast-addict.md`
+    - Lane 15.10-B: `GeorgeQLe/player-fm-mobile-clone`, branch `phase15/player-fm-variant-scaffold`, codename `TuneScout`, source spec `docs/source-specs/301-player-fm.md`
+    - Lane 15.10-C: `GeorgeQLe/castbox-mobile-clone`, branch `phase15/castbox-variant-scaffold`, codename `BoxCast`, source spec `docs/source-specs/302-castbox.md`
   - Per lane, own only downstream `shared/`, `variants/`, `scripts/`, `tasks/`, `docs/implementation/`, `docs/validation/`, `README.md`, and package/config files.
   - Per lane, do not edit `.github/`, repo visibility/settings, or copied source specs.
   - Build five variant surfaces per repo: React Native, Expo, Flutter, iOS Native, and Android Native.
-  - Use only synthetic podcast/RSS, episode, queue, playlist, playback-speed, download/offline, and creator/profile fixtures; do not copy proprietary audio, episode art, transcripts, paywalled feeds, logos, screenshots, private APIs, production data, or copyrighted media.
-  - Document blockers in `tasks/blockers/phase15-<app-slug>.md`, especially production RSS/provider integrations, account sync, notifications, licensed audio/media, premium/subscription gates, creator monetization/analytics, live publishing, offline/download rights, privacy/compliance, and local Flutter/native runner limitations.
+  - Use only synthetic podcast/RSS, episode, queue, playlist, playback-speed, discovery, sync, download/offline, and premium-state fixtures; do not copy proprietary audio, episode art, transcripts, paywalled feeds, logos, screenshots, private APIs, production data, or copyrighted media.
+  - Document blockers in `tasks/blockers/phase15-<app-slug>.md`, especially production RSS/provider integrations, account sync, notifications, licensed audio/media, premium/subscription gates, cross-platform sync, offline/download rights, Android-primary behavior for Podcast Addict, privacy/compliance, and local Flutter/native runner limitations.
   - Run downstream validation per lane: `npm run validate`, variant structure check, RN/Expo tests where added, and `git diff --check`; record validation evidence in each downstream repo.
   - Open PRs for the three downstream branches, then run the consolidation gate: PRIVATE visibility, source spec intact, no GitHub Actions workflows, blocker artifacts present, branch-backed non-draft PR targeting main, validation evidence present.
   - Update this planning repo after consolidation with PR URLs, commit SHAs, validation counts, rate-limit evidence, residual blockers, and a ship manifest in `tasks/history.md`.
-- [ ] Step 15.10: Merge Step 15.9 PRs and execute eighth tranche
 - [ ] Step 15.11: Merge Step 15.10 PRs and execute ninth tranche
 - [ ] Step 15.12: Merge Step 15.11 PRs and execute tenth tranche
 - [ ] Step 15.13: Merge Step 15.12 PRs and execute eleventh tranche
