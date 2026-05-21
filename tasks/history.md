@@ -1,5 +1,14 @@
 # History
 
+## 2026-05-20 - Phase 15 Step 15.2 — Prepare Per-App Implementation Lane Plan
+
+- **Scope:** Generated canonical Phase 15 inventory table (54 apps), risk groups, codename assignments, and 18 tranche lane packets.
+- **Risk groups:** 10 content/risk groups (publishing, comics, book discovery, e-reader, read-later, news, podcasts, audio storytelling, radio, serialized fiction).
+- **Tranche ordering:** Lower-risk text/RSS apps first (Pocket, Instapaper, Readwise), higher-risk DRM/licensed-content apps last (VIZ Manga, Marvel Unlimited, DC Universe Infinite).
+- **Lane packets:** First tranche (Step 15.3) detailed with repos, branches, ownership boundaries, validation commands, and blocker artifact paths.
+- **Consolidation gate:** Template defined for all 18 tranches — visibility, source specs, no Actions, no proprietary assets, blocker documentation.
+- **No downstream code changes** — this step only extends `tasks/todo.md` with the full plan.
+
 ## 2026-05-20 - Phase 15 Step 15.1 — Reconcile Podcasts, Books & Reading Inventory
 
 - **Scope:** Verified all 54 Phase 15 downstream repos across three ID ranges.
