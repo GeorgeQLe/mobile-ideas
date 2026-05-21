@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phase 15 Tranche 8 Alignment</title>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #1d2433; background: #f7f8fb; }
+    main { max-width: 980px; margin: 0 auto; padding: 40px 20px 56px; }
+    h1 { margin: 0 0 8px; font-size: 34px; line-height: 1.15; }
+    h2 { margin-top: 32px; font-size: 20px; }
+    p { line-height: 1.55; }
+    .meta { color: #5b6575; margin-bottom: 28px; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .card { background: #fff; border: 1px solid #dfe4ec; border-radius: 8px; padding: 16px; }
+    .card h3 { margin: 0 0 8px; font-size: 17px; }
+    .status { display: inline-block; margin-top: 8px; padding: 4px 8px; border-radius: 999px; background: #e9f7ef; color: #14633a; font-size: 13px; font-weight: 600; }
+    table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #dfe4ec; border-radius: 8px; overflow: hidden; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #edf0f5; vertical-align: top; }
+    th { background: #eef2f7; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; }
+    tr:last-child td { border-bottom: 0; }
+    code { background: #eef2f7; padding: 2px 5px; border-radius: 4px; }
+    ul { padding-left: 22px; }
+    @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } h1 { font-size: 28px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Phase 15 Tranche 8 Alignment</h1>
+    <p class="meta">Generated on 2026-05-21 for Step 15.10: Podcast Addict, Player FM, and Castbox downstream variant scaffolds.</p>
+
+    <section class="grid" aria-label="Tranche status">
+      <article class="card">
+        <h3>Merge-In</h3>
+        <p>Overcast, Castro, and Podbean PRs from Step 15.9 were merged into their downstream main branches.</p>
+        <span class="status">Complete</span>
+      </article>
+      <article class="card">
+        <h3>New PRs</h3>
+        <p>FeedHopper, TuneScout, and BoxCast branches are open as non-draft PRs targeting downstream main branches.</p>
+        <span class="status">Open for next run</span>
+      </article>
+      <article class="card">
+        <h3>Consolidation</h3>
+        <p>Repos remain private, source specs are intact, blocker artifacts are present, and no workflow paths were added.</p>
+        <span class="status">Passed</span>
+      </article>
+    </section>
+
+    <h2>Lane Evidence</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Lane</th>
+          <th>Repo</th>
+          <th>PR</th>
+          <th>Commit</th>
+          <th>Validation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>15.10-A</td>
+          <td><code>podcast-addict-mobile-clone</code></td>
+          <td>#1 FeedHopper</td>
+          <td><code>0b240c6</code></td>
+          <td><code>npm run validate</code>, 5/5 variants, RN 3/3, diff check passed</td>
+        </tr>
+        <tr>
+          <td>15.10-B</td>
+          <td><code>player-fm-mobile-clone</code></td>
+          <td>#1 TuneScout</td>
+          <td><code>a38b804</code></td>
+          <td><code>npm run validate</code>, 30/30 variant checks, contract 2/2, RN/Expo 1/1, diff check passed</td>
+        </tr>
+        <tr>
+          <td>15.10-C</td>
+          <td><code>castbox-mobile-clone</code></td>
+          <td>#1 BoxCast</td>
+          <td><code>39dd909</code></td>
+          <td><code>npm run validate</code>, 5/5 variants, 4 contracts, RN 3/3, diff check passed</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Carry-Forward Risk</h2>
+    <ul>
+      <li>Production RSS/provider integrations, account sync, notifications, licensed audio/media, and premium/subscription gates remain blocked.</li>
+      <li>Podcast Addict Android-primary behavior, Player FM cross-platform sync, and Castbox premium/community surfaces need future verification before parity claims.</li>
+      <li>Offline/download rights, privacy/compliance, and local Flutter/native runner limitations remain explicit blockers.</li>
+    </ul>
+
+    <h2>Next Work</h2>
+    <p>Step 15.11 should merge the three Step 15.10 PRs after rechecking branch state, then execute RadioPublic, Podchaser, and Goodpods as Tranche 9.</p>
+  </main>
+</body>
+</html>

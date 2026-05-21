@@ -5066,3 +5066,49 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Residual risk: Step 15.9 PRs remain open for the next merge cycle; production RSS/provider integrations, account sync, notifications, licensed audio/media, premium/subscription gates, creator monetization/analytics, live publishing, offline/download rights, privacy/compliance, and Flutter/native runner blockers remain unresolved.
 - Rollback note: revert this planning commit to reopen Step 15.9; close or revert the three downstream PR branches to undo scaffolds.
 - Next: Step 15.10 — merge Step 15.9 PRs and execute eighth tranche (Podcast Addict, Player FM, Castbox).
+
+## Step 15.10 — Eighth Podcasts, Books & Reading Tranche (2026-05-21)
+
+### PR Merges (Step 15.9)
+- `GeorgeQLe/overcast-mobile-clone` PR#1 -> MERGED (`edb126f`) for CastWave.
+- `GeorgeQLe/castro-mobile-clone` PR#1 -> MERGED (`cc659ed`) for QueueCast.
+- `GeorgeQLe/podbean-mobile-clone` PR#1 -> MERGED (`abb45b4`) for BeanPod.
+
+### New Downstream Scaffolds
+- Lane 15.10-A: `GeorgeQLe/podcast-addict-mobile-clone` PR#1 (FeedHopper) — Podcast Addict-inspired synthetic podcast/RSS scaffold.
+- Lane 15.10-B: `GeorgeQLe/player-fm-mobile-clone` PR#1 (TuneScout) — Player FM-inspired synthetic discovery/sync scaffold.
+- Lane 15.10-C: `GeorgeQLe/castbox-mobile-clone` PR#1 (BoxCast) — Castbox-inspired synthetic podcast/player scaffold.
+
+### Validation
+- Podcast Addict: `npm run validate` passed for 5 surfaces, 2 feeds, 2 episodes, and 3 required docs; variant structure 5/5; React Native 3/3 assertions; `git diff --check` PASS.
+- Player FM: `npm run validate` passed with 30 variant checks across 5 variants, contract tests 2/2, RN/Expo tests 1/1; `npm run check:variants` 30/30; `git diff --check` PASS.
+- Castbox: `npm run validate` passed for 5 variants, 4 contracts, 2 episodes, and 2 downloads; variant structure 5/5; React Native 3/3 assertions; `git diff --check` PASS.
+- Consolidation gate: all three repos PRIVATE, PRs branch-backed targeting `main`, non-draft with clean merge state, source specs intact, blocker artifacts present, validation artifacts present, no `.github/workflows` path on branches.
+- Rate limit: pre-execution 5000/5000; post-consolidation 4991/5000.
+
+### Carry-Forward Blockers
+
+**FeedHopper (Podcast Addict-Inspired):**
+- Production RSS/provider integrations, account sync, notifications, licensed audio/media, premium/subscription gates, Android-primary behavior, offline/download rights, privacy/compliance, and local Flutter/native runner limitations remain blocked.
+- Feed, episode, queue, playlist, discovery, playback-speed, sync, and download/offline surfaces use synthetic fixtures only.
+
+**TuneScout (Player FM-Inspired):**
+- Production RSS/provider integrations, account sync, notifications, licensed audio/media, premium/subscription gates, cross-platform sync, offline/download rights, privacy/compliance, and local Flutter/native runner limitations remain blocked.
+- Discovery, queue, playlist, sync, and premium-state surfaces use synthetic fixtures only.
+
+**BoxCast (Castbox-Inspired):**
+- Production RSS/provider integrations, account sync, notifications, licensed audio/media, premium/subscription gates, premium/community surfaces, offline/download rights, privacy/compliance, and local Flutter/native runner limitations remain blocked.
+- Podcast catalog, episode, download, playback, and premium-state surfaces use synthetic fixtures only.
+
+### Ship Manifest
+
+- User goal: merge Step 15.9 validated PRs and execute Step 15.10 eighth Podcasts, Books & Reading tranche.
+- Changed files: `tasks/todo.md`, `tasks/history.md`, `alignment/run-phase15-tranche8.html`, plus 3 downstream repos on branch-backed PRs.
+- Per-file purpose: `tasks/todo.md` records Step 15.10 completion and Step 15.11 execution detail; `tasks/history.md` records consolidation evidence, blockers, and rollback notes; `alignment/run-phase15-tranche8.html` provides a browser-readable tranche status page.
+- User-goal mapping: downstream PRs provide five-variant scaffolds for Podcast Addict, Player FM, and Castbox using synthetic podcast/RSS/audio fixtures with explicit blocker artifacts.
+- Tests run: lane-local `npm run validate`, variant structure checks, RN/Expo tests where added, `git diff --check`, GitHub PR/repo/source-spec/workflow metadata checks, and planning repo `git diff --check`.
+- Skipped tests: no planning-repo executable app test suite was relevant because only task/history/alignment documentation changed here.
+- Adversarial review: verified PR targets/branches/non-draft state, clean merge state, changed-file boundaries, PRIVATE visibility, source-spec presence, blocker artifacts, validation artifacts, and absence of GitHub Actions workflows.
+- Residual risk: Step 15.10 PRs remain open for the next merge cycle; production RSS/provider integrations, account sync, notifications, licensed audio/media, premium/subscription gates, cross-platform sync, Android-primary behavior, offline/download rights, privacy/compliance, community surfaces, and Flutter/native runner blockers remain unresolved.
+- Rollback note: revert this planning commit to reopen Step 15.10; close or revert the three downstream PR branches to undo scaffolds.
+- Next: Step 15.11 — merge Step 15.10 PRs and execute ninth tranche (RadioPublic, Podchaser, Goodpods).
