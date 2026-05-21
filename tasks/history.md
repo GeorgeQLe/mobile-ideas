@@ -1,5 +1,21 @@
 # History
 
+## 2026-05-20 - Phase 15 Step 15.1 — Reconcile Podcasts, Books & Reading Inventory
+
+- **Scope:** Verified all 54 Phase 15 downstream repos across three ID ranges.
+- **IDs 119-134 (Publishing/Reading/News):** 16/16 PASS — all PRIVATE, `docs/plans/README.md` present, no `.github/workflows`.
+- **IDs 293-312 (Podcasts/Audio):** 20/20 PASS — all PRIVATE, `docs/plans/README.md` present, no `.github/workflows`.
+- **IDs 897-914 (Ebooks/Comics/Manga):** 18/18 PASS — all PRIVATE, `docs/plans/README.md` present, no `.github/workflows`.
+- **Rate limit:** pre-audit 4964/5000, post-audit 4854/5000 (110 API calls).
+- **Result:** 54/54 repos confirmed ready for Phase 15 implementation.
+- **Evidence:** `tasks/repo-seeding.md` § Phase 15 Reconciliation — 2026-05-20.
+
+### Ship Manifest
+
+- User goal: reconcile Phase 15 inventory and confirm downstream readiness.
+- Changed files: `tasks/repo-seeding.md` (reconciliation evidence), `tasks/todo.md` (Step 15.1 checked), `tasks/history.md` (completion record).
+- User-goal mapping: satisfies Step 15.1 without proprietary assets, brand claims, copied code/media, private APIs, production data, public visibility changes, or GitHub Actions.
+
 ## 2026-05-20 - Phase 14 Step 14.22 — Merge Final PRs and Phase 14 Completion Review
 
 - **Final PR Merges:** Merged all three Step 14.21 PRs to `main`:

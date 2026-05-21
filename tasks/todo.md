@@ -59,11 +59,12 @@
 
 ### Implementation
 
-- [ ] Step 15.1: Reconcile exact Podcasts, Books & Reading app inventory and downstream readiness
-  - Verify 54 downstream repos exist, are PRIVATE, have build plans, no GitHub Actions.
-  - Verify IDs: 119-134 (16 apps), 293-312 (20 apps), 897-914 (18 apps).
-  - Record evidence in `tasks/repo-seeding.md`.
-  - Files: modify `tasks/todo.md`, `tasks/repo-seeding.md`
+- [x] Step 15.1: Reconcile exact Podcasts, Books & Reading app inventory and downstream readiness
+  - Verified 54 downstream repos exist, are PRIVATE, have build plans, no GitHub Actions.
+  - IDs: 119-134 (16/16 PASS), 293-312 (20/20 PASS), 897-914 (18/18 PASS).
+  - Evidence recorded in `tasks/repo-seeding.md` § Phase 15 Reconciliation.
+  - Rate limit: 4964→4854 (110 API calls used).
+  - Files: modified `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`
 
 - [ ] Step 15.2: Prepare per-app downstream implementation lane plan
   - Generate the full 54-app inventory table with app names, repo slugs, codenames, and tranche assignments.

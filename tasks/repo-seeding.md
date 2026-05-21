@@ -2931,6 +2931,95 @@ Guardrails:
 | [x] | 999 | Sygic | `GeorgeQLe/sygic-mobile-clone` | `specs/batch-50/999-sygic.md` |
 | [x] | 1000 | TomTom GO | `GeorgeQLe/tomtom-go-mobile-clone` | `specs/batch-50/1000-tomtom-go.md` |
 
+## Phase 15 Reconciliation — 2026-05-20
+
+### Pre-Audit Rate Limit
+
+```
+core: limit=5000, remaining=4964, reset=1779326349
+```
+
+### Audit Results
+
+54/54 Phase 15 Podcasts, Books & Reading repos verified:
+
+**IDs 119-134 (Publishing/Reading/News) — 16/16 PASS**
+
+| ID | Repo | Visibility | BuildPlan | NoActions |
+|----|------|-----------|-----------|-----------|
+| 119 | medium-mobile-clone | PRIVATE | present | none |
+| 120 | substack-mobile-clone | PRIVATE | present | none |
+| 121 | wattpad-mobile-clone | PRIVATE | present | none |
+| 122 | webtoon-mobile-clone | PRIVATE | present | none |
+| 123 | goodreads-mobile-clone | PRIVATE | present | none |
+| 124 | kindle-mobile-clone | PRIVATE | present | none |
+| 125 | libby-mobile-clone | PRIVATE | present | none |
+| 126 | apple-books-mobile-clone | PRIVATE | present | none |
+| 127 | scribd-mobile-clone | PRIVATE | present | none |
+| 128 | readwise-mobile-clone | PRIVATE | present | none |
+| 129 | pocket-mobile-clone | PRIVATE | present | none |
+| 130 | instapaper-mobile-clone | PRIVATE | present | none |
+| 131 | feedly-mobile-clone | PRIVATE | present | none |
+| 132 | apple-news-mobile-clone | PRIVATE | present | none |
+| 133 | the-new-york-times-mobile-clone | PRIVATE | present | none |
+| 134 | flipboard-mobile-clone | PRIVATE | present | none |
+
+**IDs 293-312 (Podcasts/Audio) — 20/20 PASS**
+
+| ID | Repo | Visibility | BuildPlan | NoActions |
+|----|------|-----------|-----------|-----------|
+| 293 | overcast-mobile-clone | PRIVATE | present | none |
+| 294 | castro-mobile-clone | PRIVATE | present | none |
+| 295 | podbean-mobile-clone | PRIVATE | present | none |
+| 296 | spotify-for-podcasters-mobile-clone | PRIVATE | present | none |
+| 297 | anchor-mobile-clone | PRIVATE | present | none |
+| 298 | podcast-addict-mobile-clone | PRIVATE | present | none |
+| 299 | podimo-mobile-clone | PRIVATE | present | none |
+| 300 | acast-mobile-clone | PRIVATE | present | none |
+| 301 | player-fm-mobile-clone | PRIVATE | present | none |
+| 302 | castbox-mobile-clone | PRIVATE | present | none |
+| 303 | radiopublic-mobile-clone | PRIVATE | present | none |
+| 304 | npr-one-mobile-clone | PRIVATE | present | none |
+| 305 | bbc-sounds-mobile-clone | PRIVATE | present | none |
+| 306 | libsyn-mobile-clone | PRIVATE | present | none |
+| 307 | podchaser-mobile-clone | PRIVATE | present | none |
+| 308 | pocket-fm-mobile-clone | PRIVATE | present | none |
+| 309 | storytel-mobile-clone | PRIVATE | present | none |
+| 310 | audacy-mobile-clone | PRIVATE | present | none |
+| 311 | ivoox-mobile-clone | PRIVATE | present | none |
+| 312 | goodpods-mobile-clone | PRIVATE | present | none |
+
+**IDs 897-914 (Ebooks/Comics/Manga) — 18/18 PASS**
+
+| ID | Repo | Visibility | BuildPlan | NoActions |
+|----|------|-----------|-----------|-----------|
+| 897 | kobo-books-mobile-clone | PRIVATE | present | none |
+| 898 | google-play-books-mobile-clone | PRIVATE | present | none |
+| 899 | nook-mobile-clone | PRIVATE | present | none |
+| 900 | the-storygraph-mobile-clone | PRIVATE | present | none |
+| 901 | bookmate-mobile-clone | PRIVATE | present | none |
+| 902 | blinkist-mobile-clone | PRIVATE | present | none |
+| 903 | headway-mobile-clone | PRIVATE | present | none |
+| 904 | serial-reader-mobile-clone | PRIVATE | present | none |
+| 905 | inkitt-mobile-clone | PRIVATE | present | none |
+| 906 | dreame-mobile-clone | PRIVATE | present | none |
+| 907 | tapas-mobile-clone | PRIVATE | present | none |
+| 908 | radish-mobile-clone | PRIVATE | present | none |
+| 909 | webnovel-mobile-clone | PRIVATE | present | none |
+| 910 | manga-plus-mobile-clone | PRIVATE | present | none |
+| 911 | shonen-jump-mobile-clone | PRIVATE | present | none |
+| 912 | viz-manga-mobile-clone | PRIVATE | present | none |
+| 913 | marvel-unlimited-mobile-clone | PRIVATE | present | none |
+| 914 | dc-universe-infinite-mobile-clone | PRIVATE | present | none |
+
+### Post-Audit Rate Limit
+
+```
+core: limit=5000, remaining=4854, reset=1779326349
+```
+
+**Summary:** 54/54 repos PASS. All PRIVATE, all have `docs/plans/README.md`, none have `.github/workflows`. Phase 15 downstream readiness confirmed.
+
 ## Next Steps
 
 - 2026-05-14 Phase 12 Step 12.1 scaffold repair: pre-repair rate limit was `{"core":{"limit":5000,"used":30,"remaining":4970},"graphql":{"limit":5000,"used":35,"remaining":4965}}`. Repaired the 39 Social, Dating & Community repos serially with `node scripts/verify-phase12-scaffold.mjs --repair`, adding only `.gitkeep` scaffold files under `variants/*` and `shared/*`. Final verification reported `checked=39`, `repairedCount=0`, `failures=0`. Post-run rate limit was `{"core":{"limit":5000,"used":671,"remaining":4329},"graphql":{"limit":5000,"used":71,"remaining":4929}}`. All touched repos remained private; no GitHub Actions were enabled or used.
