@@ -4882,3 +4882,50 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Rollback note: revert planning commit to reopen Step 14.18; use `git revert` on lane branch commits or close PRs to undo downstream scaffolds.
 - Progress: 48/57 Phase 14 apps complete (3 merged + 3 new PRs open).
 - Next: Step 14.19 — merge Step 14.18 PRs, execute seventeenth tranche (next video streaming apps).
+
+## Step 15.6 — Fourth Podcasts, Books & Reading Tranche (2026-05-21)
+
+### PR Merges (Step 15.5)
+- `GeorgeQLe/substack-mobile-clone` PR#1 → MERGED (`1d1a4ac`) for LetterForge.
+- `GeorgeQLe/goodreads-mobile-clone` PR#1 → MERGED (`f382c1e`) for ShelfCircle.
+- `GeorgeQLe/the-storygraph-mobile-clone` PR#1 → MERGED (`8778c39`) for PlotPulse.
+
+### New Downstream Scaffolds
+- Lane 15.6-A: `GeorgeQLe/apple-news-mobile-clone` PR#1 (NewsDeck) — Apple News-inspired synthetic news reader scaffold.
+- Lane 15.6-B: `GeorgeQLe/the-new-york-times-mobile-clone` PR#1 (GrayLedger) — New York Times-inspired synthetic newsroom scaffold.
+- Lane 15.6-C: `GeorgeQLe/wattpad-mobile-clone` PR#1 (DraftHaven) — Wattpad-inspired synthetic serialized-fiction scaffold.
+
+### Validation
+- Apple News: `npm run validate` 26/26, variant structure 12/12, React Native 1/1, Expo 1/1, `git diff --check` PASS.
+- NYT: `npm run validate` 23/23, variant structure 7/7, React Native 1/1, Expo 1/1, `git diff --check` PASS.
+- Wattpad: `npm run validate` 26/26, variant structure 5/5, `git diff --check` PASS.
+- Consolidation gate: all three repos PRIVATE, PRs branch-backed targeting `main`, source specs intact, blocker artifacts present, no `.github/workflows`.
+- Rate limit: pre-execution 4979/5000; post-consolidation 5000/5000.
+
+### Carry-Forward Blockers
+
+**NewsDeck (Apple News-Inspired):**
+- Apple ecosystem integrations and account-gated personalization require verified platform access.
+- Publisher feeds, licensed archives, paywall/subscription entitlements, and regional availability remain blocked.
+- Push notifications, production APIs, and real publisher data are excluded until verified.
+
+**GrayLedger (New York Times-Inspired):**
+- Subscription/paywall entitlements, licensed newsroom archive access, and publisher feeds remain blocked.
+- Account-gated personalization, push notifications, production APIs, and copyrighted media are excluded.
+
+**DraftHaven (Wattpad-Inspired):**
+- Account/community features, moderation, premium/coin flows, licensed stories, notifications, and production APIs remain blocked.
+- Social comments and creator/profile workflows use synthetic fixtures only.
+
+### Ship Manifest
+
+- User goal: merge Step 15.5 validated PRs and execute Step 15.6 fourth Podcasts, Books & Reading tranche.
+- Changed files: `tasks/todo.md`, `tasks/history.md`, plus 3 downstream repos on branch-backed PRs.
+- Per-file purpose: `tasks/todo.md` records Step 15.6 completion and Step 15.7 execution detail; `tasks/history.md` records consolidation evidence, blockers, and rollback notes.
+- User-goal mapping: downstream PRs provide five-variant scaffolds for Apple News, NYT, and Wattpad using synthetic content and explicit blocker artifacts.
+- Tests run: lane-local `npm run validate`, variant structure checks, and `git diff --check`; Apple News and NYT also ran RN/Expo tests.
+- Skipped tests: no planning-repo executable tests were relevant because only task/history Markdown changed here.
+- Adversarial review: verified PR targets/branches, changed-file boundaries, PRIVATE visibility, source-spec presence, blocker artifacts, and absence of GitHub Actions workflows.
+- Residual risk: Step 15.6 PRs remain open for the next merge cycle; Apple ecosystem, publisher feed, paywall/subscription, licensed archive, account/community, moderation, premium/coin, and production API blockers remain unresolved.
+- Rollback note: revert this planning commit to reopen Step 15.6; close or revert the three downstream PR branches to undo scaffolds.
+- Next: Step 15.7 — merge Step 15.6 PRs and execute fifth tranche (Inkitt, Dreame, Tapas).

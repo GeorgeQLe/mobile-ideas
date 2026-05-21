@@ -230,24 +230,47 @@
   - **Lane C (The StoryGraph/PlotPulse):** PR https://github.com/GeorgeQLe/the-storygraph-mobile-clone/pull/1 — commit `193db85` — 21/21 validation, 16/16 RN tests, 16/16 Expo tests
   - **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed targeting main, no `.github/workflows`, source specs intact (120-substack.md, 123-goodreads.md, 900-the-storygraph.md), blocker artifacts present.
   - **Rate limit:** pre-execution 4991/5000, post-consolidation 4979/5000 (12 API calls by main agent).
-- [ ] Step 15.6: Merge Step 15.5 PRs and execute fourth tranche
-  - Merge the three open Step 15.5 PRs after verifying they still target `main`, remain branch-backed, and have no `.github/workflows` additions:
-    - Substack/LetterForge: https://github.com/GeorgeQLe/substack-mobile-clone/pull/1
-    - Goodreads/ShelfCircle: https://github.com/GeorgeQLe/goodreads-mobile-clone/pull/1
-    - The StoryGraph/PlotPulse: https://github.com/GeorgeQLe/the-storygraph-mobile-clone/pull/1
-  - Execute Tranche 4 via `agent-team` lanes with separate downstream branches:
-    - Lane 15.6-A: `GeorgeQLe/apple-news-mobile-clone`, branch `phase15/apple-news-variant-scaffold`, codename `NewsDeck`, source spec `docs/source-specs/132-apple-news.md`
-    - Lane 15.6-B: `GeorgeQLe/the-new-york-times-mobile-clone`, branch `phase15/the-new-york-times-variant-scaffold`, codename `GrayLedger`, source spec `docs/source-specs/133-the-new-york-times.md`
-    - Lane 15.6-C: `GeorgeQLe/wattpad-mobile-clone`, branch `phase15/wattpad-variant-scaffold`, codename `DraftHaven`, source spec `docs/source-specs/121-wattpad.md`
+- [x] Step 15.6: Merge Step 15.5 PRs and execute fourth tranche
+  - Merged 3 Step 15.5 PRs (Substack/LetterForge, Goodreads/ShelfCircle, The StoryGraph/PlotPulse).
+  - Built variant scaffolds for 3 Tranche 4 apps via agent-team parallel lanes (A/B/C).
+  - Each lane: created branch, added shared fixtures/contracts, validation scripts, blocker artifacts, and 5 variant files (React Native, Expo, Flutter, iOS Native, Android Native).
+  - Ran validation, opened PRs, consolidation gate passed.
+  - Files: 3 downstream repos (shared/, variants/, scripts/, package/config, docs/implementation, tasks/blockers), `tasks/todo.md`, `tasks/history.md`
+  - **Merges:** Substack PR #1 merged (`1d1a4ac`), Goodreads PR #1 merged (`f382c1e`), The StoryGraph PR #1 merged (`8778c39`).
+  - **Lane A (Apple News/NewsDeck):** PR https://github.com/GeorgeQLe/apple-news-mobile-clone/pull/1 — commit `1f5547e` — 26/26 validation, 12/12 variant structure, 1/1 RN tests, 1/1 Expo tests
+  - **Lane B (NYT/GrayLedger):** PR https://github.com/GeorgeQLe/the-new-york-times-mobile-clone/pull/1 — commit `fc2a5ca` — 23/23 validation, 7/7 variant structure, 1/1 RN tests, 1/1 Expo tests
+  - **Lane C (Wattpad/DraftHaven):** PR https://github.com/GeorgeQLe/wattpad-mobile-clone/pull/1 — commit `bc8225e` — 26/26 validation, 5/5 variant structure
+  - **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed targeting main, no `.github/workflows`, source specs intact (132-apple-news.md, 133-new-york-times.md, 121-wattpad.md), blocker artifacts present.
+  - **Rate limit:** pre-execution 4979/5000, post-consolidation 5000/5000.
+
+  **Review / Ship Manifest:**
+  - User goal: merge Step 15.5 validated PRs and execute Step 15.6 fourth Podcasts, Books & Reading tranche.
+  - Changed files: `tasks/todo.md`, `tasks/history.md`, plus 3 downstream repos on branch-backed PRs.
+  - Per-file purpose: `tasks/todo.md` records Step 15.6 completion and prepares Step 15.7; `tasks/history.md` records consolidation evidence, blockers, and rollback notes.
+  - User-goal mapping: downstream PRs provide Apple News, NYT, and Wattpad five-variant scaffolds using synthetic content and explicit blocker artifacts.
+  - Tests run: lane-local `npm run validate`, variant structure checks, and `git diff --check`; Apple News and NYT also ran RN/Expo tests.
+  - Skipped tests: no planning-repo executable tests were relevant because this repo only changed task/history Markdown for downstream evidence.
+  - Adversarial review: checked PR targets/branches, changed-file boundaries, PRIVATE visibility, source-spec presence, blocker artifacts, and absence of GitHub Actions workflows.
+  - Residual risk: Step 15.6 PRs remain open for the next merge cycle; Apple ecosystem, publisher feed, paywall/subscription, licensed archive, account/community, moderation, premium/coin, and production API blockers remain unresolved.
+  - Rollback note: revert this planning commit to reopen Step 15.6; close or revert the three downstream PR branches to undo scaffolds.
+  - Next command: `$run`
+- [ ] Step 15.7: Merge Step 15.6 PRs and execute fifth tranche
+  - Merge the three open Step 15.6 PRs after verifying they still target `main`, remain branch-backed, and have no `.github/workflows` additions:
+    - Apple News/NewsDeck: https://github.com/GeorgeQLe/apple-news-mobile-clone/pull/1
+    - NYT/GrayLedger: https://github.com/GeorgeQLe/the-new-york-times-mobile-clone/pull/1
+    - Wattpad/DraftHaven: https://github.com/GeorgeQLe/wattpad-mobile-clone/pull/1
+  - Execute Tranche 5 via `agent-team` lanes with separate downstream branches:
+    - Lane 15.7-A: `GeorgeQLe/inkitt-mobile-clone`, branch `phase15/inkitt-variant-scaffold`, codename `InkWell`, source spec `docs/source-specs/905-inkitt.md`
+    - Lane 15.7-B: `GeorgeQLe/dreame-mobile-clone`, branch `phase15/dreame-variant-scaffold`, codename `DreamScroll`, source spec `docs/source-specs/906-dreame.md`
+    - Lane 15.7-C: `GeorgeQLe/tapas-mobile-clone`, branch `phase15/tapas-variant-scaffold`, codename `PanelTap`, source spec `docs/source-specs/907-tapas.md`
   - Per lane, own only downstream `shared/`, `variants/`, `scripts/`, `tasks/`, `docs/implementation/`, `README.md`, and package/config files.
   - Per lane, do not edit `.github/`, repo visibility/settings, or copied source specs.
   - Build five variant surfaces per repo: React Native, Expo, Flutter, iOS Native, and Android Native.
-  - Use only synthetic articles, reading lists, comments, serialized-story chapters, and user/library fixtures; do not copy proprietary articles, paywalled content, logos, screenshots, private APIs, production data, or copyrighted media.
-  - Document blockers in `tasks/blockers/phase15-<app-slug>.md`, especially subscription/paywall entitlements, publisher feeds, Apple ecosystem integrations, newsroom/licensed archives, community moderation, and Wattpad premium/coin or account-gated flows.
+  - Use only synthetic serialized-fiction, webcomic, author/profile, comments, library, and chapter fixtures; do not copy proprietary stories, paywalled content, logos, screenshots, private APIs, production data, or copyrighted media.
+  - Document blockers in `tasks/blockers/phase15-<app-slug>.md`, especially account/community gates, moderation, premium/coin/token economies, creator monetization, licensed stories/comics, notification systems, and production APIs.
   - Run downstream validation per lane: `npm run validate`, variant structure check, and `git diff --check`; record validation evidence in each downstream repo.
   - Open PRs for the three downstream branches, then run the consolidation gate: PRIVATE visibility, source spec intact, no GitHub Actions workflows, blocker artifacts present, branch-backed PR targeting main, validation evidence present.
   - Update this planning repo after consolidation with PR URLs, commit SHAs, validation counts, rate-limit evidence, residual blockers, and a ship manifest in `tasks/history.md`.
-- [ ] Step 15.7: Merge Step 15.6 PRs and execute fifth tranche
 - [ ] Step 15.8: Merge Step 15.7 PRs and execute sixth tranche
 - [ ] Step 15.9: Merge Step 15.8 PRs and execute seventh tranche
 - [ ] Step 15.10: Merge Step 15.9 PRs and execute eighth tranche
