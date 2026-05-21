@@ -21,8 +21,8 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 | Phase 11 | Complete with carry-forward blockers | Implementation: AI & Assistants cluster advanced with 54 Flutter/Android Native toolchain blockers explicitly deferred by user approval on 2026-05-14. |
 | Phase 12 | Complete with carry-forward blockers | Implementation: Social, Dating & Community cluster completed with 117 benchmarked variants and 78 explicit Flutter/Android local-toolchain blockers. |
 | Phase 13 | Complete with carry-forward blockers | Implementation: Messaging & Email cluster completed with 129 benchmarked variants and 86 explicit Flutter/Android local-toolchain blockers. |
-| Phase 14 | Active | Implementation: Video & Music Streaming cluster (57 apps × 5 variants). |
-| Phase 15 | Pending | Implementation: Podcasts, Books & Reading cluster (~42 apps × 5 variants). |
+| Phase 14 | Complete | Implementation: Video & Music Streaming cluster (57 apps × 5 variants). |
+| Phase 15 | Active | Implementation: Podcasts, Books & Reading cluster (54 apps × 5 variants). |
 | Phase 16 | Pending | Implementation: Photo & Video Creation cluster (~47 apps × 5 variants). |
 | Phase 17 | Pending | Implementation: Shopping, Commerce & Classifieds cluster (~65 apps × 5 variants). |
 | Phase 18 | Pending | Implementation: Food, Delivery & Grocery cluster (~77 apps × 5 variants). |
@@ -1646,29 +1646,43 @@ Phase 8 completed 2026-05-06. All 1000 IDs have backlog rows, implementation-rea
 
 **Coordination Notes:** Independent repos. Share media player, streaming infrastructure, and download manager patterns.
 
-**On Completion** (fill in when phase is done):
-- Deviations from plan: 
-- Tech debt / follow-ups: 
-- Ready for next phase: 
+**On Completion** (filled 2026-05-20):
+- Deviations from plan: 20/57 repos seeded direct-to-main (podcast/audio repos from early tranches), rest via PRs. All verified.
+- Tech debt / follow-ups: None. All 57 repos pass validation, PRIVATE, no GitHub Actions.
+- Ready for next phase: Yes. 57/57 video streaming variant scaffolds shipped.
 
 ---
 
-## Phase 15: Implementation — Podcasts, Books & Reading (~42 Apps × 5 Variants)
+## Phase 15: Implementation — Podcasts, Books & Reading (54 Apps × 5 Variants)
 
 **Goal**: Build all five variants for every app in the Podcasts, Books & Reading cluster.
 
 **Scope**:
-- Apps: Podcast players (Pocket Casts, Overcast, etc.), e-readers (Kindle, Libby, etc.), read-later (Pocket, Instapaper), book discovery.
-- Shared patterns: RSS/feed parsing, audio playback with variable speed, reading progress sync, annotation/highlighting, offline content.
+- Apps: Podcast players (Overcast, Castro, etc.), e-readers (Kindle, Libby, Kobo, etc.), read-later (Pocket, Instapaper), book discovery (Goodreads, StoryGraph), publishing (Medium, Substack, Wattpad), comics/manga (MANGA Plus, Shonen Jump, VIZ Manga), news readers (Feedly, Apple News, NYT, Flipboard), audiobooks (Storytel, Blinkist), serialized fiction (Inkitt, Dreame, Tapas, Radish, Webnovel).
+- Shared patterns: RSS/feed parsing, audio playback with variable speed, reading progress sync, annotation/highlighting, offline content, chapter/episode navigation, bookmarking.
+- 54 apps across IDs 119-134, 293-312, 897-914.
 
 **Acceptance Criteria:**
-- [ ] All ~42 apps have 5 working variants each (~210 app builds).
-- [ ] Every variant passes CI and has benchmark scores recorded.
+- [ ] Exact Phase 15 inventory reconciled: 54 apps across IDs 119-134, 293-312, and 897-914.
+- [ ] All 54 apps have 5 working variants each (270 app builds) or explicit local/toolchain/provider/licensed-media blockers.
+- [ ] Every variant passes validation and has benchmark scores recorded.
 - [ ] Reading/listening progress sync and offline content functional.
 
 **Parallelization:** agent-team
 
 **Coordination Notes:** Independent repos. Share audio player, content parser, and progress sync patterns.
+
+### Execution Profile
+**Parallel mode:** agent-team
+**Integration owner:** main agent
+**Conflict risk:** low
+**Review gates:** correctness, branding audit, blocker/privacy review, consolidation gate
+
+### Implementation
+- Step 15.1: Reconcile inventory and downstream readiness (54 repos)
+- Step 15.2: Prepare per-app lane plan with tranche assignments
+- Steps 15.3–15.20: 18 tranches of 3 apps each (merge prior PRs + build next tranche)
+- Step 15.21: Merge final PRs and Phase 15 completion review
 
 **On Completion** (fill in when phase is done):
 - Deviations from plan: 
