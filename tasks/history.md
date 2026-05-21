@@ -1,5 +1,24 @@
 # History
 
+## 2026-05-21 - Phase 15 Step 15.5 — Merge Tranche 2 PRs and Execute Third Tranche (Substack/Goodreads/The StoryGraph)
+
+- **Part 1 — Merged Step 15.4 PRs:** Feedly PR #1, Flipboard PR #1, Medium PR #1 — all merged cleanly to main.
+- **Part 2 — Tranche 3 variant scaffolds (Publishing/Book Discovery):**
+- **Lane A (Substack/LetterForge):** PR https://github.com/GeorgeQLe/substack-mobile-clone/pull/1 — commit `164679e` — 21/21 validation, 16/16 RN tests, 16/16 Expo tests.
+- **Lane B (Goodreads/ShelfCircle):** PR https://github.com/GeorgeQLe/goodreads-mobile-clone/pull/1 — commit `4630c8c` — 21/21 validation, 16/16 RN tests, 16/16 Expo tests.
+- **Lane C (The StoryGraph/PlotPulse):** PR https://github.com/GeorgeQLe/the-storygraph-mobile-clone/pull/1 — commit `193db85` — 21/21 validation, 16/16 RN tests, 16/16 Expo tests.
+- **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed targeting main, no `.github/workflows`, source specs intact (`120-substack.md`, `123-goodreads.md`, `900-the-storygraph.md`), blocker artifacts present.
+- **Per-repo scaffold:** shared fixtures/contracts, 5 variant entry points (React Native, Expo, Flutter, iOS Native, Android Native), validation script, blocker artifacts, implementation docs, stack decision, package.json.
+- **Rate limit:** pre-execution 4991/5000, post-consolidation 4979/5000.
+- **No proprietary assets, brand claims, copied media, private APIs, production data, public visibility changes, or GitHub Actions.**
+
+### Ship Manifest
+
+- User goal: merge tranche 2 PRs, then scaffold 3 publishing/book-discovery app repos with variant files.
+- Changed files (planning repo): `tasks/todo.md` (Step 15.5 checked), `tasks/history.md` (completion record).
+- Changed files (downstream): 3 repos × ~22 files each on feature branches with open PRs.
+- User-goal mapping: satisfies Step 15.5 acceptance criteria.
+
 ## 2026-05-21 - Phase 15 Step 15.4 — Merge Tranche 1 PRs and Execute Second Tranche (Feedly/Flipboard/Medium)
 
 - **Part 1 — Merged Step 15.3 PRs:** Pocket PR #1, Instapaper PR #1, Readwise PR #1 — all merged cleanly to main.

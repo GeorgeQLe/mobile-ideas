@@ -218,7 +218,18 @@
   - **Lane C (Medium/InkThread):** PR https://github.com/GeorgeQLe/medium-mobile-clone/pull/1 — commit `1f97872` — 21/21 validation, 16/16 RN tests, 16/16 Expo tests
   - **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed targeting main, no `.github/workflows`, source specs intact, blocker artifacts present.
   - **Rate limit:** pre-execution 5000/5000, post-consolidation 4991/5000 (9 API calls by main agent).
-- [ ] Step 15.5: Merge Step 15.4 PRs and execute third tranche
+- [x] Step 15.5: Merge Step 15.4 PRs and execute third tranche
+  - Merged 3 Step 15.4 PRs (Feedly/FeedPulse, Flipboard/NewsMosaic, Medium/InkThread).
+  - Built variant scaffolds for 3 Tranche 3 apps via agent-team parallel lanes (A/B/C).
+  - Each lane: cloned repo, created branch, added shared fixtures/contracts, validation scripts, blocker artifacts, and 5 variant files (React Native, Expo, Flutter, iOS Native, Android Native).
+  - Ran validation, opened PRs, consolidation gate passed.
+  - Files: 3 downstream repos (shared/, variants/, scripts/, package.json, etc.), `tasks/todo.md`, `tasks/history.md`
+  - **Merges:** Feedly PR #1 merged, Flipboard PR #1 merged, Medium PR #1 merged.
+  - **Lane A (Substack/LetterForge):** PR https://github.com/GeorgeQLe/substack-mobile-clone/pull/1 — commit `164679e` — 21/21 validation, 16/16 RN tests, 16/16 Expo tests
+  - **Lane B (Goodreads/ShelfCircle):** PR https://github.com/GeorgeQLe/goodreads-mobile-clone/pull/1 — commit `4630c8c` — 21/21 validation, 16/16 RN tests, 16/16 Expo tests
+  - **Lane C (The StoryGraph/PlotPulse):** PR https://github.com/GeorgeQLe/the-storygraph-mobile-clone/pull/1 — commit `193db85` — 21/21 validation, 16/16 RN tests, 16/16 Expo tests
+  - **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed targeting main, no `.github/workflows`, source specs intact (120-substack.md, 123-goodreads.md, 900-the-storygraph.md), blocker artifacts present.
+  - **Rate limit:** pre-execution 4991/5000, post-consolidation 4979/5000 (12 API calls by main agent).
 - [ ] Step 15.6: Merge Step 15.5 PRs and execute fourth tranche
 - [ ] Step 15.7: Merge Step 15.6 PRs and execute fifth tranche
 - [ ] Step 15.8: Merge Step 15.7 PRs and execute sixth tranche
