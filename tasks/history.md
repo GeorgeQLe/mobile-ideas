@@ -4929,3 +4929,48 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Residual risk: Step 15.6 PRs remain open for the next merge cycle; Apple ecosystem, publisher feed, paywall/subscription, licensed archive, account/community, moderation, premium/coin, and production API blockers remain unresolved.
 - Rollback note: revert this planning commit to reopen Step 15.6; close or revert the three downstream PR branches to undo scaffolds.
 - Next: Step 15.7 — merge Step 15.6 PRs and execute fifth tranche (Inkitt, Dreame, Tapas).
+
+## Step 15.7 — Fifth Podcasts, Books & Reading Tranche (2026-05-21)
+
+### PR Merges (Step 15.6)
+- `GeorgeQLe/apple-news-mobile-clone` PR#1 -> MERGED (`cd949bb`) for NewsDeck.
+- `GeorgeQLe/the-new-york-times-mobile-clone` PR#1 -> MERGED (`34ac39c`) for GrayLedger.
+- `GeorgeQLe/wattpad-mobile-clone` PR#1 -> MERGED (`de08abe`) for DraftHaven.
+
+### New Downstream Scaffolds
+- Lane 15.7-A: `GeorgeQLe/inkitt-mobile-clone` PR#1 (InkWell) — Inkitt-inspired synthetic serialized-fiction scaffold.
+- Lane 15.7-B: `GeorgeQLe/dreame-mobile-clone` PR#1 (DreamScroll) — Dreame-inspired synthetic serialized-fiction scaffold.
+- Lane 15.7-C: `GeorgeQLe/tapas-mobile-clone` PR#1 (PanelTap) — Tapas-inspired synthetic serialized-fiction/comics scaffold.
+
+### Validation
+- Inkitt: `npm run validate` 31/31, variant structure 7/7, React Native 1/1, Expo 1/1, `git diff --check` PASS.
+- Dreame: `npm run validate` 28/28, variant structure 12/12, React Native 18/18 assertions, Expo 18/18 assertions, `git diff --check` PASS.
+- Tapas: `npm run validate` 32/32, variant structure 12/12, React Native 20/20 assertions, Expo 20/20 assertions, `git diff --check` PASS.
+- Consolidation gate: all three repos PRIVATE, PRs branch-backed targeting `main`, source specs intact, blocker artifacts present, no `.github/workflows`.
+- Rate limit: pre-execution 4986/5000; post-consolidation 4964/5000.
+
+### Carry-Forward Blockers
+
+**InkWell (Inkitt-Inspired):**
+- Account/community features, moderation, premium coin/token flows, creator monetization, licensed stories, notifications, and production APIs remain blocked.
+- Social comments, author/profile surfaces, library state, and chapter content use synthetic fixtures only.
+
+**DreamScroll (Dreame-Inspired):**
+- Account/community gates, moderation, premium coin/token economies, creator monetization, licensed stories, push notifications, production APIs, entitlements, age/content policy, offline rights, privacy compliance, regional availability, Flutter runner availability, and native reader profiling remain blocked.
+
+**PanelTap (Tapas-Inspired):**
+- Account/community gates, moderation, premium coin/token economies, creator monetization, licensed stories/comics, notifications, production APIs, offline rights/storage, privacy compliance, and Flutter runner availability remain blocked.
+- Comics panel and story unlock states use synthetic fixtures only.
+
+### Ship Manifest
+
+- User goal: merge Step 15.6 validated PRs and execute Step 15.7 fifth Podcasts, Books & Reading tranche.
+- Changed files: `tasks/todo.md`, `tasks/history.md`, plus 3 downstream repos on branch-backed PRs.
+- Per-file purpose: `tasks/todo.md` records Step 15.7 completion and Step 15.8 execution detail; `tasks/history.md` records consolidation evidence, blockers, and rollback notes.
+- User-goal mapping: downstream PRs provide five-variant scaffolds for Inkitt, Dreame, and Tapas using synthetic serialized-fiction/comics content and explicit blocker artifacts.
+- Tests run: lane-local `npm run validate`, variant structure checks, RN/Expo tests, and `git diff --check`.
+- Skipped tests: no planning-repo executable tests were relevant because only task/history Markdown changed here.
+- Adversarial review: verified PR targets/branches, changed-file boundaries, PRIVATE visibility, source-spec presence, blocker artifacts, validation artifacts, and absence of GitHub Actions workflows.
+- Residual risk: Step 15.7 PRs remain open for the next merge cycle; account/community, moderation, premium/coin/token, creator monetization, licensed story/comics, notification, production API, offline-rights, privacy, and Flutter/native profiling blockers remain unresolved.
+- Rollback note: revert this planning commit to reopen Step 15.7; close or revert the three downstream PR branches to undo scaffolds.
+- Next: Step 15.8 — merge Step 15.7 PRs and execute sixth tranche (Radish, Webnovel, Bookmate).
