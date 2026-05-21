@@ -4974,3 +4974,49 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Residual risk: Step 15.7 PRs remain open for the next merge cycle; account/community, moderation, premium/coin/token, creator monetization, licensed story/comics, notification, production API, offline-rights, privacy, and Flutter/native profiling blockers remain unresolved.
 - Rollback note: revert this planning commit to reopen Step 15.7; close or revert the three downstream PR branches to undo scaffolds.
 - Next: Step 15.8 — merge Step 15.7 PRs and execute sixth tranche (Radish, Webnovel, Bookmate).
+
+## Step 15.8 — Sixth Podcasts, Books & Reading Tranche (2026-05-21)
+
+### PR Merges (Step 15.7)
+- `GeorgeQLe/inkitt-mobile-clone` PR#1 -> MERGED (`21a19fd`) for InkWell.
+- `GeorgeQLe/dreame-mobile-clone` PR#1 -> MERGED (`3ae2577`) for DreamScroll.
+- `GeorgeQLe/tapas-mobile-clone` PR#1 -> MERGED (`3d3f7a`) for PanelTap.
+
+### New Downstream Scaffolds
+- Lane 15.8-A: `GeorgeQLe/radish-mobile-clone` PR#1 (ChapterBite) — Radish-inspired synthetic serialized-fiction scaffold.
+- Lane 15.8-B: `GeorgeQLe/webnovel-mobile-clone` PR#1 (StoryForge) — Webnovel-inspired synthetic serialized-fiction scaffold.
+- Lane 15.8-C: `GeorgeQLe/bookmate-mobile-clone` PR#1 (ReadMate) — Bookmate-inspired synthetic book-social/library scaffold.
+
+### Validation
+- Radish: `npm run validate` 29/29, variant structure 12/12, React Native 20/20 assertions, Expo 20/20 assertions, `git diff --check` PASS.
+- Webnovel: `npm run validate` 30/30, variant structure 15/15, React Native 18/18 assertions, Expo 18/18 assertions, `git diff --check` PASS.
+- Bookmate: `npm run validate` 33/33, variant structure 7/7, React Native 1/1, Expo 1/1, `git diff --check` PASS.
+- Consolidation gate: all three repos PRIVATE, PRs branch-backed targeting `main`, Webnovel marked ready for review, source specs intact, blocker artifacts present, no `.github/workflows`.
+- Rate limit: pre-execution 4964/5000; post-consolidation 4949/5000.
+
+### Carry-Forward Blockers
+
+**ChapterBite (Radish-Inspired):**
+- Account/community gates, moderation, premium coin/token economies, creator monetization, licensed stories, notifications, subscriptions, production APIs, offline rights, and privacy/compliance remain blocked.
+- Flutter, iOS Native, and Android Native remain scaffold-only until local platform runners are available.
+
+**StoryForge (Webnovel-Inspired):**
+- Account/community gates, moderation, premium economy, creator monetization, licensed stories, notifications, subscriptions, production APIs, offline rights, privacy/compliance, and regional behavior remain blocked.
+- Flutter SDK, Xcode/simulator/signing, and Android SDK/Gradle/emulator execution remain blocked locally.
+
+**ReadMate (Bookmate-Inspired):**
+- Account/community gates, moderation, subscription/premium catalog access, licensed book catalog, social graph, notifications, production APIs, offline rights, and privacy/compliance remain blocked.
+- Flutter, iOS, and Android are scaffold entry files only until platform projects and runners are available.
+
+### Ship Manifest
+
+- User goal: merge Step 15.7 validated PRs and execute Step 15.8 sixth Podcasts, Books & Reading tranche.
+- Changed files: `tasks/todo.md`, `tasks/history.md`, plus 3 downstream repos on branch-backed PRs.
+- Per-file purpose: `tasks/todo.md` records Step 15.8 completion and Step 15.9 execution detail; `tasks/history.md` records consolidation evidence, blockers, and rollback notes.
+- User-goal mapping: downstream PRs provide five-variant scaffolds for Radish, Webnovel, and Bookmate using synthetic serialized-fiction and book-social fixtures with explicit blocker artifacts.
+- Tests run: lane-local `npm run validate`, variant structure checks, RN/Expo tests, and `git diff --check`.
+- Skipped tests: no planning-repo executable tests were relevant because only task/history Markdown changed here.
+- Adversarial review: verified PR targets/branches/non-draft state, changed-file boundaries, PRIVATE visibility, source-spec presence, blocker artifacts, validation artifacts, and absence of GitHub Actions workflows.
+- Residual risk: Step 15.8 PRs remain open for the next merge cycle; account/community, moderation, premium coin/token economies, creator monetization, licensed stories/catalogs, notifications, subscriptions, production APIs, offline rights, privacy/compliance, regional behavior, and Flutter/native runner blockers remain unresolved.
+- Rollback note: revert this planning commit to reopen Step 15.8; close or revert the three downstream PR branches to undo scaffolds.
+- Next: Step 15.9 — merge Step 15.8 PRs and execute seventh tranche (Overcast, Castro, Podbean).

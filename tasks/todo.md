@@ -278,24 +278,47 @@
   - Residual risk: Step 15.7 PRs remain open for the next merge cycle; account/community, moderation, premium/coin/token, creator monetization, licensed stories/comics, notification, production API, offline-rights, privacy, and Flutter/native profiling blockers remain unresolved.
   - Rollback note: revert this planning commit to reopen Step 15.7; close or revert the three downstream PR branches to undo scaffolds.
   - Next command: `$run`
-- [ ] Step 15.8: Merge Step 15.7 PRs and execute sixth tranche
-  - Merge the three open Step 15.7 PRs after verifying they still target `main`, remain branch-backed, and have no `.github/workflows` additions:
-    - Inkitt/InkWell: https://github.com/GeorgeQLe/inkitt-mobile-clone/pull/1
-    - Dreame/DreamScroll: https://github.com/GeorgeQLe/dreame-mobile-clone/pull/1
-    - Tapas/PanelTap: https://github.com/GeorgeQLe/tapas-mobile-clone/pull/1
-  - Execute Tranche 6 via `agent-team` lanes with separate downstream branches:
-    - Lane 15.8-A: `GeorgeQLe/radish-mobile-clone`, branch `phase15/radish-variant-scaffold`, codename `ChapterBite`, source spec `docs/source-specs/908-radish.md`
-    - Lane 15.8-B: `GeorgeQLe/webnovel-mobile-clone`, branch `phase15/webnovel-variant-scaffold`, codename `StoryForge`, source spec `docs/source-specs/909-webnovel.md`
-    - Lane 15.8-C: `GeorgeQLe/bookmate-mobile-clone`, branch `phase15/bookmate-variant-scaffold`, codename `ReadMate`, source spec `docs/source-specs/901-bookmate.md`
-  - Per lane, own only downstream `shared/`, `variants/`, `scripts/`, `tasks/`, `docs/implementation/`, `README.md`, and package/config files.
+- [x] Step 15.8: Merge Step 15.7 PRs and execute sixth tranche
+  - Merged 3 Step 15.7 PRs (Inkitt/InkWell, Dreame/DreamScroll, Tapas/PanelTap).
+  - Built variant scaffolds for 3 Tranche 6 apps via agent-team parallel lanes (A/B/C).
+  - Each lane: created branch, added shared fixtures/contracts, validation scripts, blocker artifacts, and 5 variant files (React Native, Expo, Flutter, iOS Native, Android Native).
+  - Ran validation, opened PRs, and consolidation gate passed after marking the Webnovel PR ready for review.
+  - Files: 3 downstream repos (shared/, variants/, scripts/, package/config, docs/implementation, docs/validation, tasks/blockers), `tasks/todo.md`, `tasks/history.md`
+  - **Merges:** Inkitt PR #1 merged (`21a19fd`), Dreame PR #1 merged (`3ae2577`), Tapas PR #1 merged (`3d3f7a`).
+  - **Lane A (Radish/ChapterBite):** PR https://github.com/GeorgeQLe/radish-mobile-clone/pull/1 - commit `0928473` - 29/29 validation, 12/12 variant structure, 20/20 RN assertions, 20/20 Expo assertions
+  - **Lane B (Webnovel/StoryForge):** PR https://github.com/GeorgeQLe/webnovel-mobile-clone/pull/1 - commit `ff348e4` - 30/30 validation, 15/15 variant structure, 18/18 RN assertions, 18/18 Expo assertions
+  - **Lane C (Bookmate/ReadMate):** PR https://github.com/GeorgeQLe/bookmate-mobile-clone/pull/1 - commit `7c06d2c` - 33/33 validation, 7/7 variant structure, 1/1 RN tests, 1/1 Expo tests
+  - **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed targeting main, no `.github/workflows`, source specs intact (908-radish.md, 909-webnovel.md, 901-bookmate.md), blocker artifacts present.
+  - **Rate limit:** pre-execution 4964/5000, post-consolidation 4949/5000 (15 API calls by main agent).
+
+  **Review / Ship Manifest:**
+  - User goal: merge Step 15.7 validated PRs and execute Step 15.8 sixth Podcasts, Books & Reading tranche.
+  - Changed files: `tasks/todo.md`, `tasks/history.md`, plus 3 downstream repos on branch-backed PRs.
+  - Per-file purpose: `tasks/todo.md` records Step 15.8 completion and prepares Step 15.9; `tasks/history.md` records consolidation evidence, blockers, and rollback notes.
+  - User-goal mapping: downstream PRs provide Radish, Webnovel, and Bookmate five-variant scaffolds using synthetic serialized-fiction and book-social fixtures with explicit blocker artifacts.
+  - Tests run: lane-local `npm run validate`, variant structure checks, RN/Expo tests, and `git diff --check`.
+  - Skipped tests: no planning-repo executable tests were relevant because this repo only changed task/history Markdown for downstream evidence.
+  - Adversarial review: checked PR targets/branches/draft state, changed-file boundaries, PRIVATE visibility, source-spec presence, blocker artifacts, validation artifacts, and absence of GitHub Actions workflows.
+  - Residual risk: Step 15.8 PRs remain open for the next merge cycle; account/community, moderation, premium coin/token economies, creator monetization, licensed stories/catalogs, notifications, subscriptions, production APIs, offline rights, privacy/compliance, regional behavior, and Flutter/native runner blockers remain unresolved.
+  - Rollback note: revert this planning commit to reopen Step 15.8; close or revert the three downstream PR branches to undo scaffolds.
+  - Next command: `$run`
+- [ ] Step 15.9: Merge Step 15.8 PRs and execute seventh tranche
+  - Merge the three open Step 15.8 PRs after verifying they still target `main`, remain branch-backed/non-draft, and have no `.github/workflows` additions:
+    - Radish/ChapterBite: https://github.com/GeorgeQLe/radish-mobile-clone/pull/1
+    - Webnovel/StoryForge: https://github.com/GeorgeQLe/webnovel-mobile-clone/pull/1
+    - Bookmate/ReadMate: https://github.com/GeorgeQLe/bookmate-mobile-clone/pull/1
+  - Execute Tranche 7 via `agent-team` lanes with separate downstream branches:
+    - Lane 15.9-A: `GeorgeQLe/overcast-mobile-clone`, branch `phase15/overcast-variant-scaffold`, codename `CastWave`, source spec `docs/source-specs/293-overcast.md`
+    - Lane 15.9-B: `GeorgeQLe/castro-mobile-clone`, branch `phase15/castro-variant-scaffold`, codename `QueueCast`, source spec `docs/source-specs/294-castro.md`
+    - Lane 15.9-C: `GeorgeQLe/podbean-mobile-clone`, branch `phase15/podbean-variant-scaffold`, codename `BeanPod`, source spec `docs/source-specs/295-podbean.md`
+  - Per lane, own only downstream `shared/`, `variants/`, `scripts/`, `tasks/`, `docs/implementation/`, `docs/validation/`, `README.md`, and package/config files.
   - Per lane, do not edit `.github/`, repo visibility/settings, or copied source specs.
   - Build five variant surfaces per repo: React Native, Expo, Flutter, iOS Native, and Android Native.
-  - Use only synthetic serialized-fiction, book-social, author/profile, comments, library, shelf, and chapter fixtures; do not copy proprietary stories, paywalled content, logos, screenshots, private APIs, production data, or copyrighted media.
-  - Document blockers in `tasks/blockers/phase15-<app-slug>.md`, especially account/community gates, moderation, premium/coin/token economies, creator monetization, licensed catalog/stories, notification systems, subscriptions, and production APIs.
+  - Use only synthetic podcast/RSS, episode, queue, playlist, playback-speed, download/offline, and creator/profile fixtures; do not copy proprietary audio, episode art, transcripts, paywalled feeds, logos, screenshots, private APIs, production data, or copyrighted media.
+  - Document blockers in `tasks/blockers/phase15-<app-slug>.md`, especially production RSS/provider integrations, account sync, notifications, licensed audio/media, premium/subscription gates, creator monetization/analytics, live publishing, offline/download rights, privacy/compliance, and local Flutter/native runner limitations.
   - Run downstream validation per lane: `npm run validate`, variant structure check, RN/Expo tests where added, and `git diff --check`; record validation evidence in each downstream repo.
-  - Open PRs for the three downstream branches, then run the consolidation gate: PRIVATE visibility, source spec intact, no GitHub Actions workflows, blocker artifacts present, branch-backed PR targeting main, validation evidence present.
+  - Open PRs for the three downstream branches, then run the consolidation gate: PRIVATE visibility, source spec intact, no GitHub Actions workflows, blocker artifacts present, branch-backed non-draft PR targeting main, validation evidence present.
   - Update this planning repo after consolidation with PR URLs, commit SHAs, validation counts, rate-limit evidence, residual blockers, and a ship manifest in `tasks/history.md`.
-- [ ] Step 15.9: Merge Step 15.8 PRs and execute seventh tranche
 - [ ] Step 15.10: Merge Step 15.9 PRs and execute eighth tranche
 - [ ] Step 15.11: Merge Step 15.10 PRs and execute ninth tranche
 - [ ] Step 15.12: Merge Step 15.11 PRs and execute tenth tranche
