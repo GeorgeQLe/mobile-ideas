@@ -1,5 +1,24 @@
 # History
 
+## 2026-05-21 - Phase 15 Step 15.4 — Merge Tranche 1 PRs and Execute Second Tranche (Feedly/Flipboard/Medium)
+
+- **Part 1 — Merged Step 15.3 PRs:** Pocket PR #1, Instapaper PR #1, Readwise PR #1 — all merged cleanly to main.
+- **Part 2 — Tranche 2 variant scaffolds (RSS/News/Publishing):**
+- **Lane A (Feedly/FeedPulse):** PR https://github.com/GeorgeQLe/feedly-mobile-clone/pull/1 — commit `4b28d57` — 21/21 validation, 16/16 RN tests, 16/16 Expo tests.
+- **Lane B (Flipboard/NewsMosaic):** PR https://github.com/GeorgeQLe/flipboard-mobile-clone/pull/1 — commit `7992d91` — 21/21 validation, 16/16 RN tests, 16/16 Expo tests.
+- **Lane C (Medium/InkThread):** PR https://github.com/GeorgeQLe/medium-mobile-clone/pull/1 — commit `1f97872` — 21/21 validation, 16/16 RN tests, 16/16 Expo tests.
+- **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed targeting main, no `.github/workflows`, source specs intact (`131-feedly.md`, `134-flipboard.md`, `119-medium.md`), blocker artifacts present.
+- **Per-repo scaffold:** shared fixtures/contracts, 5 variant entry points (React Native, Expo, Flutter, iOS Native, Android Native), validation script, blocker artifacts, implementation docs, stack decision, package.json.
+- **Rate limit:** pre-execution 5000/5000, post-consolidation 4991/5000.
+- **No proprietary assets, brand claims, copied media, private APIs, production data, public visibility changes, or GitHub Actions.**
+
+### Ship Manifest
+
+- User goal: merge tranche 1 PRs, then scaffold 3 RSS/news/publishing app repos with variant files.
+- Changed files (planning repo): `tasks/todo.md` (Step 15.4 checked), `tasks/history.md` (completion record).
+- Changed files (downstream): 3 repos × ~22 files each on feature branches with open PRs.
+- User-goal mapping: satisfies Step 15.4 acceptance criteria.
+
 ## 2026-05-20 - Phase 15 Step 15.3 — Execute First Implementation Tranche (Pocket/Instapaper/Readwise)
 
 - **Scope:** Built Phase 15 variant scaffolds for 3 read-later/annotation apps via agent-team parallel lanes.
