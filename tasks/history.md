@@ -1,5 +1,23 @@
 # History
 
+## 2026-05-20 - Phase 15 Step 15.3 — Execute First Implementation Tranche (Pocket/Instapaper/Readwise)
+
+- **Scope:** Built Phase 15 variant scaffolds for 3 read-later/annotation apps via agent-team parallel lanes.
+- **Lane A (Pocket/ClipVault):** PR https://github.com/GeorgeQLe/pocket-mobile-clone/pull/1 — commit `66c6892` — 21/21 validation, 16/16 RN tests, 16/16 Expo tests.
+- **Lane B (Instapaper/PageStash):** PR https://github.com/GeorgeQLe/instapaper-mobile-clone/pull/1 — commit `1297b58` — 21/21 validation, 16/16 RN tests, 16/16 Expo tests.
+- **Lane C (Readwise/HighlightLens):** PR https://github.com/GeorgeQLe/readwise-mobile-clone/pull/1 — commit `50532ac` — 21/21 validation, 8/8 RN tests, 8/8 Expo tests.
+- **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed targeting main, no `.github/workflows`, source specs intact (`129-pocket.md`, `130-instapaper.md`, `128-readwise.md`), blocker artifacts present.
+- **Per-repo scaffold:** shared fixtures/contracts, 5 variant entry points (React Native, Expo, Flutter, iOS Native, Android Native), validation script, blocker artifacts, implementation docs, stack decision, package.json.
+- **Rate limit:** pre-execution 5000/5000, post-consolidation 4930/5000 (70 API calls).
+- **No proprietary assets, brand claims, copied media, private APIs, production data, public visibility changes, or GitHub Actions.**
+
+### Ship Manifest
+
+- User goal: execute first Phase 15 tranche — scaffold 3 read-later app repos with variant files.
+- Changed files (planning repo): `tasks/todo.md` (Step 15.3 checked), `tasks/history.md` (completion record).
+- Changed files (downstream): 3 repos × ~22 files each on feature branches with open PRs.
+- User-goal mapping: satisfies Step 15.3 acceptance criteria.
+
 ## 2026-05-20 - Phase 15 Step 15.2 — Prepare Per-App Implementation Lane Plan
 
 - **Scope:** Generated canonical Phase 15 inventory table (54 apps), risk groups, codename assignments, and 18 tranche lane packets.
