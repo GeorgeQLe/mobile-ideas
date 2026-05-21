@@ -207,6 +207,86 @@
   - **Rate limit:** pre-execution 5000/5000, post-consolidation 4930/5000 (70 API calls).
 
 - [ ] Step 15.4: Merge Step 15.3 PRs and execute second tranche
+  - Merge 3 PRs from Step 15.3, then build variant scaffolds for Tranche 2 via agent-team parallel lanes.
+  - Files: 3 downstream repos (shared/, variants/, scripts/, package.json, etc.), `tasks/todo.md`, `tasks/history.md`
+
+  **Ship Summary:**
+  Step 15.3 complete. 3 PRs opened for read-later tranche (Pocket/ClipVault, Instapaper/PageStash, Readwise/HighlightLens). All validation passing, consolidation gate passed.
+
+  Deploy skipped (no deploy contract).
+
+  **What This Step Builds:**
+
+  **Part 1 — Merge Step 15.3 PRs:**
+  - Merge PR #1 on `GeorgeQLe/pocket-mobile-clone` (phase15/pocket-variant-scaffold → main)
+  - Merge PR #1 on `GeorgeQLe/instapaper-mobile-clone` (phase15/instapaper-variant-scaffold → main)
+  - Merge PR #1 on `GeorgeQLe/readwise-mobile-clone` (phase15/readwise-variant-scaffold → main)
+  - Verify each merge completes cleanly.
+
+  **Part 2 — Variant scaffolds for Tranche 2 (RSS/News/Publishing):**
+  - **Lane A:** Feedly (FeedPulse) — `GeorgeQLe/feedly-mobile-clone` (ID 131)
+  - **Lane B:** Flipboard (NewsMosaic) — `GeorgeQLe/flipboard-mobile-clone` (ID 134)
+  - **Lane C:** Medium (InkThread) — `GeorgeQLe/medium-mobile-clone` (ID 119)
+
+  **Execution Profile:**
+  - **Mode:** agent-team (3 parallel write lanes)
+  - **Integration owner:** main agent
+  - **Conflict risk:** none (independent repos)
+  - **Review gates:** consolidation gate after all 3 PRs opened
+
+  **Per-Lane Procedure (identical for A/B/C):**
+  1. Clone downstream repo to `/tmp/<slug>-lane15-4x/`
+  2. Create branch `phase15/<slug>-variant-scaffold`
+  3. Add scaffold files following the Phase 14/15.3 structure:
+     - `shared/test-fixtures/<codename-lower>-fixtures.json` — synthetic feed/article/post fixtures
+     - `shared/api-contracts/<codename-lower>-contract.json` — synthetic API contract
+     - `shared/assets/.gitkeep`
+     - `variants/react-native/app.mjs`, `app.test.mjs`, `README.md`
+     - `variants/expo/app.mjs`, `app.test.mjs`, `README.md`
+     - `variants/flutter/lib/main.dart`, `README.md`
+     - `variants/ios-native/Sources/<CodeName>/main.swift`, `README.md`
+     - `variants/android-native/app/src/main/kotlin/com/<codenamelower>/Main.kt`, `README.md`
+     - `scripts/validate-phase15-<slug>.mjs`
+     - `docs/implementation/phase15-<slug>.md`
+     - `docs/decisions/stack.md`
+     - `docs/validation/phase15-step15-4-<slug>.json`
+     - `tasks/blockers/phase15-<slug>.md`
+     - `tasks/history.md`, `tasks/todo.md`
+     - `package.json`
+  4. Commit, push branch, open PR targeting `main`
+  5. Run validation and tests
+
+  **Lane Packets:**
+
+  | Lane | Repo | Branch | Codename | Spec |
+  |---|---|---|---|---|
+  | 15.4-A | `GeorgeQLe/feedly-mobile-clone` | `phase15/feedly-variant-scaffold` | FeedPulse | `specs/batch-07/131-feedly.md` |
+  | 15.4-B | `GeorgeQLe/flipboard-mobile-clone` | `phase15/flipboard-variant-scaffold` | NewsMosaic | `specs/batch-07/134-flipboard.md` |
+  | 15.4-C | `GeorgeQLe/medium-mobile-clone` | `phase15/medium-variant-scaffold` | InkThread | `specs/batch-07/119-medium.md` |
+
+  **Domain Context:**
+  - **Feedly/FeedPulse:** RSS reader — surfaces: Feed, Article Reader, Search, Categories, Settings, Add Source. Actors: reader, curator, subscriber. Domain: feed sources, articles, categories, boards, saved articles, read state. Blockers: RSS feed parsing, feed discovery, provider integration, subscription.
+  - **Flipboard/NewsMosaic:** News curation — surfaces: For You, Following, Search, Magazines, Settings, Share. Actors: reader, curator, subscriber. Domain: curated stories, magazines, topics, smart magazines, bookmarks, social sharing. Blockers: news provider APIs, content curation algorithm, publisher relationships.
+  - **Medium/InkThread:** Publishing platform — surfaces: Home Feed, Article Reader, Write/Editor, Profile, Search, Settings. Actors: reader, writer, subscriber. Domain: stories, publications, responses, claps, follows, bookmarks, membership. Blockers: rich text editor, publication management, monetization/paywall, member-only content.
+
+  **Consolidation Gate (main agent after all 3 lanes):**
+  - Verify all 3 repos remain PRIVATE
+  - Verify PRs are branch-backed targeting main
+  - Verify no `.github/workflows` added
+  - Verify source specs intact under `docs/source-specs/`
+  - Verify blocker artifacts present
+  - Record PR URLs, commit SHAs in `tasks/todo.md` and `tasks/history.md`
+
+  **Acceptance Criteria:**
+  - 3 Step 15.3 PRs merged cleanly
+  - 3 new PRs opened (one per Tranche 2 repo), branch-backed
+  - All consolidation gate checks pass
+  - No proprietary assets, brand claims, copied media, private APIs, production data, public visibility changes, or GitHub Actions
+
+  **Handoff:** Implement only this step, validate it, then run `/ship` when done.
+
+  **Next work:** Step 15.4 — merge Step 15.3 PRs and execute second tranche (Feedly/Flipboard/Medium)
+  **Recommended next command:** `/run`
 - [ ] Step 15.5: Merge Step 15.4 PRs and execute third tranche
 - [ ] Step 15.6: Merge Step 15.5 PRs and execute fourth tranche
 - [ ] Step 15.7: Merge Step 15.6 PRs and execute fifth tranche
