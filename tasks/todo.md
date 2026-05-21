@@ -201,6 +201,64 @@
   - Run validation, open PR, consolidation gate.
   - Files: 3 downstream repos (shared/, variants/, scripts/, package.json, etc.), `tasks/todo.md`, `tasks/history.md`
 
+  **Ship Summary:**
+  Steps 15.1 (inventory reconciliation) and 15.2 (lane plan) are complete. All 54 repos verified PRIVATE with build plans and no Actions. The 18-tranche plan is written with codenames and lane packets.
+
+  Deploy skipped (no deploy contract).
+
+  **What This Step Builds:**
+  Variant scaffolds for Tranche 1 — the three read-later/annotation apps:
+  - **Lane A:** Pocket (ClipVault) — `GeorgeQLe/pocket-mobile-clone` (ID 129)
+  - **Lane B:** Instapaper (PageStash) — `GeorgeQLe/instapaper-mobile-clone` (ID 130)
+  - **Lane C:** Readwise (HighlightLens) — `GeorgeQLe/readwise-mobile-clone` (ID 128)
+
+  **Execution Profile:**
+  - **Mode:** agent-team (3 parallel write lanes)
+  - **Integration owner:** main agent
+  - **Conflict risk:** none (independent repos)
+  - **Review gates:** consolidation gate after all 3 PRs opened
+
+  **Per-Lane Procedure (identical for A/B/C):**
+  1. Clone the downstream repo to `/tmp/<slug>-lane15-3x/`
+  2. Create branch `phase15/<slug>-variant-scaffold`
+  3. Add scaffold files following the Phase 14 structure (reference: `/tmp/fandango-at-home-mobile-clone-lane17b/`):
+     - `shared/test-fixtures/<codename-lower>-fixtures.json` — synthetic article/highlight/tag fixtures
+     - `shared/api-contracts/<codename-lower>-contract.json` — synthetic API contract
+     - `shared/assets/.gitkeep`
+     - `variants/react-native/app.mjs`, `variants/react-native/app.test.mjs`, `variants/react-native/README.md`
+     - `variants/expo/app.mjs`, `variants/expo/app.test.mjs`, `variants/expo/README.md`
+     - `variants/flutter/lib/main.dart`, `variants/flutter/README.md`
+     - `variants/ios-native/Sources/<CodeName>/main.swift`, `variants/ios-native/README.md`
+     - `variants/android-native/app/src/main/kotlin/com/<codenamelower>/Main.kt`, `variants/android-native/README.md`
+     - `scripts/validate-phase15-<slug>.mjs` — validation script
+     - `docs/implementation/phase15-<slug>.md` — implementation notes
+     - `docs/decisions/stack.md` — stack decision record
+     - `docs/validation/phase15-step15-3-<slug>.json` — validation output
+     - `tasks/blockers/phase15-<slug>.md` — blocker artifacts
+     - `tasks/history.md`, `tasks/todo.md` — downstream task tracking
+     - `package.json` — with validate script
+  4. Commit all scaffold files
+  5. Push branch
+  6. Open PR targeting `main`
+  7. Return commit SHA + PR URL
+
+  **Consolidation Gate (main agent after all 3 lanes):**
+  - Verify all 3 repos remain PRIVATE
+  - Verify PRs are branch-backed targeting main
+  - Verify no `.github/workflows` added
+  - Verify source specs intact under `docs/source-specs/`
+  - Verify blocker artifacts present
+  - Record PR URLs, commit SHAs in `tasks/todo.md` and `tasks/history.md`
+
+  **Acceptance Criteria:**
+  - 3 PRs opened (one per repo), branch-backed, all checks in consolidation gate pass
+  - No proprietary assets, brand claims, copied media, private APIs, production data, public visibility changes, or GitHub Actions
+
+  **Handoff:** Implement only this step, validate it, then run `/ship` when done.
+
+  **Next work:** Step 15.3 — execute first Phase 15 tranche (Pocket/Instapaper/Readwise)
+  **Recommended next command:** `/run`
+
 - [ ] Step 15.4: Merge Step 15.3 PRs and execute second tranche
 - [ ] Step 15.5: Merge Step 15.4 PRs and execute third tranche
 - [ ] Step 15.6: Merge Step 15.5 PRs and execute fourth tranche
