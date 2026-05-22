@@ -10,7 +10,7 @@
 - 54 apps across IDs 119-134 (publishing/reading/news), 293-312 (podcasts/audio), 897-914 (ebooks/comics/manga).
 
 **Acceptance Criteria:**
-- [ ] Exact Phase 15 inventory reconciled: 54 apps across IDs 119-134, 293-312, and 897-914.
+- [x] Exact Phase 15 inventory reconciled: 54 apps across IDs 119-134, 293-312, and 897-914.
 - [ ] All 54 apps have 5 working variants each (270 app builds) or explicit local/toolchain/provider/licensed-media blockers.
 - [ ] Every variant passes validation and has benchmark scores recorded.
 - [ ] Reading/listening progress sync and offline content functional.
@@ -497,10 +497,20 @@
 
 ### Milestone: Phase 15 — Podcasts, Books & Reading Complete
 **Acceptance Criteria:**
-- [ ] Exact Phase 15 inventory reconciled: 54 apps across IDs 119-134, 293-312, and 897-914.
+- [x] Exact Phase 15 inventory reconciled: 54 apps across IDs 119-134, 293-312, and 897-914.
 - [ ] All 54 apps have 5 working variants each (270 app builds) or explicit local/toolchain/provider/licensed-media blockers.
 - [ ] Every variant passes validation and has benchmark scores recorded.
 - [ ] Reading/listening progress sync and offline content functional.
+
+## Development Docs Reconciliation
+
+- [ ] Resolve `tasks/history.md` Phase 15 ordering/duplication drift with an append-only normalization pass after Phase 15 completes.
+  - Evidence: recent Phase 15 records are split between dated top-level entries and older `## Step 15.x` entries lower in `tasks/history.md`.
+  - Current status: Step 15.12 has git and todo evidence (`d23a424`, `tasks/todo.md` Step 15.12), and the 2026-05-22 reconciliation note in `tasks/history.md` records the superseding source of truth.
+  - Reason deferred: rewriting or reordering append-only history is not permitted without explicit approval.
+- [ ] Decide whether to reconstruct missing archives for completed Phases 1-3.
+  - Evidence: `tasks/phases/` contains archives for Phases 4-14, but not 1-3.
+  - Reason deferred: no completed active `tasks/todo.md` phase content exists for those older phases, so archive synthesis would require judgment from roadmap/history evidence.
 
 ### Reference
 

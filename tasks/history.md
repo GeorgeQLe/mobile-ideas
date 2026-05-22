@@ -1,5 +1,15 @@
 # History
 
+## 2026-05-22 - Development Docs Reconciliation (Tasks)
+
+- **Scope:** Ran `$reconcile-dev-docs fix tasks` to repair unambiguous task-document drift after Phase 15 Step 15.15.
+- **Fixed:** Checked the Phase 15 inventory acceptance criterion in both the top Phase 15 acceptance list and the Phase 15 milestone list in `tasks/todo.md`; Step 15.1, `tasks/repo-seeding.md`, `tasks/history.md`, and commit `4032ff1` all confirm the 54-app inventory was reconciled on 2026-05-20.
+- **Superseding history note:** Phase 15 Step 15.12 is complete. Evidence: `tasks/todo.md` Step 15.12 is checked; commit `d23a424` (`chore: record phase 15 step 15.12`) modified `tasks/todo.md` and `tasks/history.md`; the lower `## Step 15.12 — Tenth Podcasts, Books & Reading Tranche (2026-05-22)` history entry records the Step 15.11 PR merges, Spotify for Podcasters/Anchor/Libsyn PRs, validation, blocker evidence, and next Step 15.13 routing.
+- **Deferred:** Did not rewrite or reorder old `tasks/history.md` entries because history is append-only. Added follow-up reconciliation items to `tasks/todo.md` for Phase 15 history normalization after completion and for deciding whether to synthesize missing Phase 1-3 archives.
+- **Recurring advisory:** Left the due `tasks/recurring-todo.md` research-roadmap refresh advisory in place; it is not a blocker for Phase 15 execution unless promoted by a later planning pass.
+- **Validation:** `git diff --check` and task-doc grep checks after edits.
+- **Next command:** `$run`
+
 ## 2026-05-22 - Phase 15 Step 15.15 — Merge Tranche 12 PRs and Execute Thirteenth Tranche (Pocket FM/Storytel/Blinkist)
 
 - **Step 15.14 PR Merges:** Merged all three Step 15.14 PRs to `main`:
