@@ -494,23 +494,30 @@
   - Residual risk: Step 15.16 PRs remain open for the next merge cycle; production catalog/provider integrations, licensed summaries/text/artwork/panels, subscriptions/payments, coin economies, offline/download rights, personalization/analytics, privacy/compliance, regional behavior, native permissions, push/background behavior, and Flutter/native runner blockers remain unresolved.
   - Rollback note: revert this planning commit to reopen Step 15.16; close or revert the three downstream PR branches to undo scaffolds.
   - Next command: `$run`
-- [ ] Step 15.17: Merge Step 15.16 PRs and execute fifteenth tranche
-  - Merge the three open Step 15.16 PRs after verifying they still target `main`, remain branch-backed/non-draft, have clean merge state, and have no `.github/workflows` additions:
-    - Headway/SummitRead: https://github.com/GeorgeQLe/headway-mobile-clone/pull/1
-    - Serial Reader/DailyChapter: https://github.com/GeorgeQLe/serial-reader-mobile-clone/pull/1
-    - Webtoon/ToonScroll: https://github.com/GeorgeQLe/webtoon-mobile-clone/pull/1
-  - Execute Tranche 15 via `agent-team` lanes with separate downstream branches:
-    - Lane 15.17-A: `GeorgeQLe/kindle-mobile-clone`, branch `phase15/kindle-variant-scaffold`, codename `PageEmber`, source spec `docs/source-specs/124-kindle.md`
-    - Lane 15.17-B: `GeorgeQLe/libby-mobile-clone`, branch `phase15/libby-variant-scaffold`, codename `LibLend`, source spec `docs/source-specs/125-libby.md`
-    - Lane 15.17-C: `GeorgeQLe/kobo-books-mobile-clone`, branch `phase15/kobo-books-variant-scaffold`, codename `KoboShelf`, source spec `docs/source-specs/897-kobo-books.md`
-  - Per lane, own only downstream `shared/`, `variants/`, `scripts/`, `tasks/`, `docs/implementation/`, `docs/validation/`, `README.md`, and package/config files.
-  - Per lane, do not edit `.github/`, repo visibility/settings, or copied source specs.
-  - Build five variant surfaces per repo: React Native, Expo, Flutter, iOS Native, and Android Native.
-  - Use only synthetic e-reader, library-loan, ebook catalog, chapter/page, highlight/annotation, reading-progress, offline/download, entitlement, and regional availability fixtures; do not copy proprietary book text, cover artwork, screenshots, logos, private APIs, paywalled data, DRM material, production data, or copyrighted media.
-  - Document blockers in `tasks/blockers/phase15-<app-slug>.md`, especially production catalog/provider integrations, DRM/entitlement, library card/institution access, licensed book text/artwork, store ecosystems, subscriptions/payments, offline/download rights, personalization/analytics data, privacy/compliance, regional behavior, and local Flutter/native runner limitations.
-  - Run downstream validation per lane: `npm run validate`, variant structure check, RN/Expo tests where added, and `git diff --check`; record validation evidence in each downstream repo.
-  - Open PRs for the three downstream branches, then run the consolidation gate: PRIVATE visibility, source spec intact, no GitHub Actions workflows, blocker artifacts present, branch-backed non-draft PR targeting main, validation evidence present.
-  - Update this planning repo after consolidation with PR URLs, commit SHAs, validation counts, rate-limit evidence, residual blockers, and a ship manifest in `tasks/history.md`.
+- [x] Step 15.17: Merge Step 15.16 PRs and execute fifteenth tranche
+  - Merged 3 Step 15.16 PRs (Headway/SummitRead, Serial Reader/DailyChapter, Webtoon/ToonScroll).
+  - Built variant scaffolds for 3 Tranche 15 e-reader/library apps. Initial worker lanes did not return branch-backed deliverables, so the main agent completed the downstream repos serially in isolated `/private/tmp/phase15-step1517` worktrees.
+  - Each lane: created branch, added synthetic e-reader/library/catalog/progress/highlight/offline/entitlement fixtures, validation scripts, blocker artifacts, implementation/validation docs, package/config files, and 5 variant manifest surfaces (React Native, Expo, Flutter, iOS Native, Android Native).
+  - Ran validation, opened PRs, and consolidation gate passed.
+  - Files: 3 downstream repos (shared/, variants/, scripts/, package/config, docs/implementation, docs/validation, tasks/blockers), `tasks/todo.md`, `tasks/history.md`
+  - **Merges:** Headway PR #1 merged, Serial Reader PR #1 merged, Webtoon PR #1 merged.
+  - **Lane A (Kindle/PageEmber):** PR https://github.com/GeorgeQLe/kindle-mobile-clone/pull/1 - commit `576f4dc` - `npm run validate` PASS with 9 required files, 5 variants, 9 blockers; `npm run check:variants` 5/5; `npm run test:rn-expo` 6/6 assertions; `git diff --check` PASS.
+  - **Lane B (Libby/LibLend):** PR https://github.com/GeorgeQLe/libby-mobile-clone/pull/1 - commit `2d64f02` - `npm run validate` PASS with 9 required files, 5 variants, 10 blockers; `npm run check:variants` 5/5; `npm run test:rn-expo` 6/6 assertions; `git diff --check` PASS.
+  - **Lane C (Kobo Books/KoboShelf):** PR https://github.com/GeorgeQLe/kobo-books-mobile-clone/pull/1 - commit `f875053` - `npm run validate` PASS with 9 required files, 5 variants, 11 blockers; `npm run check:variants` 5/5; `npm run test:rn-expo` 6/6 assertions; `git diff --check` PASS.
+  - **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed targeting `main`, non-draft with clean merge state, source specs intact (124-kindle.md, 125-libby.md, 897-kobo-books.md), blocker artifacts present, validation artifacts present, no `.github/workflows` path on branches.
+  - **Rate limit:** pre-execution 4991/5000, post-consolidation 5000/5000.
+
+  **Review / Ship Manifest:**
+  - User goal: merge Step 15.16 validated PRs and execute Step 15.17 fifteenth Podcasts, Books & Reading tranche.
+  - Changed files: `tasks/todo.md`, `tasks/history.md`, plus 3 downstream repos on branch-backed PRs.
+  - Per-file purpose: `tasks/todo.md` records Step 15.17 completion and prepares Step 15.18; `tasks/history.md` records consolidation evidence, blockers, and rollback notes.
+  - User-goal mapping: downstream PRs provide Kindle, Libby, and Kobo Books five-variant scaffolds using synthetic e-reader, library-loan, catalog, highlight, progress, offline, entitlement, and regional fixtures with explicit blocker artifacts.
+  - Tests run: lane-local `npm run validate`, `npm run check:variants`, `npm run test:rn-expo`, `git diff --check`, GitHub PR/repo/source-spec/workflow metadata checks, and planning repo `git diff --check`.
+  - Skipped tests: no planning-repo executable app test suite was relevant because this repo only changed task/history Markdown for downstream evidence; downstream Flutter/iOS/Android runner tests were not added because the downstream repos have no dependency tree or native runner baseline.
+  - Adversarial review: checked PR targets/branches/non-draft state, clean merge state, changed-file boundaries, PRIVATE visibility, source-spec presence and untouched paths, blocker artifacts, validation artifacts, and absence of GitHub Actions workflows.
+  - Residual risk: Step 15.17 PRs remain open for the next merge cycle; production catalog/provider integrations, DRM/entitlement, library card/institution access, licensed book text/artwork, store ecosystems, subscriptions/payments, offline/download rights, device sync, personalization/analytics, privacy/compliance, regional behavior, and Flutter/native runner blockers remain unresolved.
+  - Rollback note: revert this planning commit to reopen Step 15.17; close or revert the three downstream PR branches to undo scaffolds.
+  - Next command: `$run`
 - [ ] Step 15.18: Merge Step 15.17 PRs and execute sixteenth tranche
 - [ ] Step 15.19: Merge Step 15.18 PRs and execute seventeenth tranche
 - [ ] Step 15.20: Merge Step 15.19 PRs and execute eighteenth (final) tranche

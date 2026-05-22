@@ -5332,3 +5332,49 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Residual risk: Step 15.12 PRs remain open for the next merge cycle; production RSS/provider integrations, account sync, notifications, licensed audio/media, premium/subscription gates, creator monetization, hosting/distribution APIs, recording/upload pipelines, analytics data, privacy/compliance, and Flutter/native runner blockers remain unresolved.
 - Rollback note: revert this planning commit to reopen Step 15.12; close or revert the three downstream PR branches to undo scaffolds.
 - Next: Step 15.13 — merge Step 15.12 PRs and execute eleventh tranche (Podimo, Acast, NPR One).
+
+## Step 15.17 — Fifteenth Podcasts, Books & Reading Tranche (2026-05-22)
+
+### PR Merges (Step 15.16)
+- `GeorgeQLe/headway-mobile-clone` PR#1 -> MERGED for SummitRead.
+- `GeorgeQLe/serial-reader-mobile-clone` PR#1 -> MERGED for DailyChapter.
+- `GeorgeQLe/webtoon-mobile-clone` PR#1 -> MERGED for ToonScroll.
+
+### New Downstream Scaffolds
+- Lane 15.17-A: `GeorgeQLe/kindle-mobile-clone` PR#1 (PageEmber) — Kindle-inspired synthetic e-reader, catalog, progress, highlight, offline, and entitlement scaffold.
+- Lane 15.17-B: `GeorgeQLe/libby-mobile-clone` PR#1 (LibLend) — Libby-inspired synthetic library-loan, hold/borrow, reader, offline, and institution-access scaffold.
+- Lane 15.17-C: `GeorgeQLe/kobo-books-mobile-clone` PR#1 (KoboShelf) — Kobo Books-inspired synthetic e-reader, shelf, store preview, progress, offline, entitlement, and device-sync scaffold.
+
+### Validation
+- PageEmber: `npm run validate` passed with 9 required files, 5 variants, and 9 blockers; `npm run check:variants` 5/5; `npm run test:rn-expo` 6/6 assertions; `git diff --check` PASS.
+- LibLend: `npm run validate` passed with 9 required files, 5 variants, and 10 blockers; `npm run check:variants` 5/5; `npm run test:rn-expo` 6/6 assertions; `git diff --check` PASS.
+- KoboShelf: `npm run validate` passed with 9 required files, 5 variants, and 11 blockers; `npm run check:variants` 5/5; `npm run test:rn-expo` 6/6 assertions; `git diff --check` PASS.
+- Consolidation gate: all three repos PRIVATE, PRs branch-backed targeting `main`, non-draft with clean merge state, source specs intact, blocker artifacts present, validation artifacts present, no `.github/workflows` path on branches.
+- Rate limit: pre-execution 4991/5000; post-consolidation 5000/5000.
+
+### Carry-Forward Blockers
+
+**PageEmber (Kindle-Inspired):**
+- Production catalog/provider integrations, DRM/entitlement verification, licensed book text and cover artwork, Amazon ecosystem/store behavior, subscriptions/payments, offline/download rights, personalization/analytics, privacy/compliance, regional availability, and Flutter/native runner limitations remain blocked.
+- Catalog, reader, highlights, progress, entitlement, and offline surfaces use synthetic fixtures only.
+
+**LibLend (Libby-Inspired):**
+- Library card/institution access, provider catalog integrations, DRM/entitlement verification, licensed text/audio/artwork, loan/hold/return/expiry behavior, offline/download rights, notifications, privacy/compliance, regional availability, and Flutter/native runner limitations remain blocked.
+- Library card, holds, borrow/return, shelf, reader, highlights, progress, entitlement, and offline surfaces use synthetic fixtures only.
+
+**KoboShelf (Kobo Books-Inspired):**
+- Production catalog/provider integrations, DRM/entitlement verification, licensed book text and cover artwork, Kobo store ecosystem, subscriptions/payments, offline/download rights, device sync, personalization/analytics, privacy/compliance, regional availability, and Flutter/native runner limitations remain blocked.
+- Shelf, store preview, reader, highlights, progress, entitlement, device sync, and offline surfaces use synthetic fixtures only.
+
+### Ship Manifest
+
+- User goal: merge Step 15.16 validated PRs and execute Step 15.17 fifteenth Podcasts, Books & Reading tranche.
+- Changed files: `tasks/todo.md`, `tasks/history.md`, plus 3 downstream repos on branch-backed PRs.
+- Per-file purpose: `tasks/todo.md` records Step 15.17 completion and Step 15.18 execution detail; `tasks/history.md` records consolidation evidence, blockers, and rollback notes.
+- User-goal mapping: downstream PRs provide five-variant scaffolds for Kindle, Libby, and Kobo Books using synthetic e-reader/library/catalog fixtures with explicit blocker artifacts.
+- Tests run: lane-local `npm run validate`, `npm run check:variants`, `npm run test:rn-expo`, `git diff --check`, GitHub PR/repo/source-spec/workflow metadata checks, and planning repo `git diff --check`.
+- Skipped tests: no planning-repo executable app test suite was relevant because only task/history Markdown changed here; downstream Flutter/iOS/Android runner tests were not added because the downstream repos have no dependency tree or native runner baseline.
+- Adversarial review: verified PR targets/branches/non-draft state, clean merge state, changed-file boundaries, PRIVATE visibility, source-spec presence and untouched paths, blocker artifacts, validation artifacts, and absence of GitHub Actions workflows.
+- Residual risk: Step 15.17 PRs remain open for the next merge cycle; production catalog/provider integrations, DRM/entitlement, library card/institution access, licensed book text/artwork, store ecosystems, subscriptions/payments, offline/download rights, device sync, personalization/analytics, privacy/compliance, regional behavior, and Flutter/native runner blockers remain unresolved.
+- Rollback note: revert this planning commit to reopen Step 15.17; close or revert the three downstream PR branches to undo scaffolds.
+- Next: Step 15.18 — merge Step 15.17 PRs and execute sixteenth tranche (Apple Books, Scribd, Google Play Books).
