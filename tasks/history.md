@@ -1,5 +1,39 @@
 # History
 
+## 2026-05-22 - Phase 15 Step 15.14 — Merge Tranche 11 PRs and Execute Twelfth Tranche (BBC Sounds/Audacy/iVoox)
+
+- **Step 15.13 PR Merges:** Merged all three Step 15.13 PRs to `main`:
+  - `GeorgeQLe/podimo-mobile-clone` PR #1 (PodPremium) - merge commit `cf748b0`
+  - `GeorgeQLe/acast-mobile-clone` PR #1 (CastStream) - merge commit `8d7ea07`
+  - `GeorgeQLe/npr-one-mobile-clone` PR #1 (PublicRadio) - merge commit `c9ccbbb`
+- **Tranche 12 variant scaffolds:**
+  - Lane A: `GeorgeQLe/bbc-sounds-mobile-clone` -> SoundIsle - PR https://github.com/GeorgeQLe/bbc-sounds-mobile-clone/pull/1, commit `c0c0b61`
+  - Lane B: `GeorgeQLe/audacy-mobile-clone` -> RadioPulse - PR https://github.com/GeorgeQLe/audacy-mobile-clone/pull/1, commit `0912d35`
+  - Lane C: `GeorgeQLe/ivoox-mobile-clone` -> VoxStream - PR https://github.com/GeorgeQLe/ivoox-mobile-clone/pull/1, commit `9ea4b53`
+- **Validation:** SoundIsle passed `npm run validate`, `npm run check:variants`, `npm run test:rn-expo`, and `git diff --check`; RadioPulse passed `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, and `git diff --check`; VoxStream passed `npm run validate`, `npm run validate:variants`, `npm run test:react-native`, `npm run test:expo`, and `git diff --check`.
+- **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed targeting `main`, non-draft with clean merge state, source specs intact (`305-bbc-sounds.md`, `310-audacy.md`, `311-ivoox.md`), blocker artifacts present, validation artifacts present, and no `.github/workflows` path on branches.
+- **Rate limit:** pre-execution 4987/5000, post-consolidation 4984/5000.
+- **No proprietary assets, brand claims, copied media, private APIs, production data, public visibility changes, or GitHub Actions.**
+
+### Carry-Forward Blockers
+
+- **SoundIsle (BBC Sounds-Inspired):** Production streams/feeds, account sync, notifications, licensed audio/media/transcripts, regional availability, provider APIs, offline/download rights, privacy/compliance, native permissions, push/background behavior, and SDK compile/render verification remain blocked.
+- **RadioPulse (Audacy-Inspired):** Production station streams, ads/premium providers, account lifecycle, notifications, licensed audio/artwork/transcripts, geo behavior, offline rights, analytics data, native permissions, push/background behavior, and Flutter/native runner verification remain blocked.
+- **VoxStream (iVoox-Inspired):** Production podcast/radio feeds, account sync, subscriptions/ads, licensed audio/media, regional catalog behavior, offline/download rights, privacy/compliance, native permissions, push/background behavior, and Flutter/native runner verification remain blocked.
+
+### Ship Manifest
+
+- User goal: merge Step 15.13 validated PRs and execute Phase 15 Step 15.14 for BBC Sounds, Audacy, and iVoox across all five downstream variants each.
+- Changed files: three Step 15.13 downstream repos merged to main; three new downstream repos received synthetic fixtures, validation scripts/evidence, package scripts, blocker artifacts, implementation records, and React Native/Expo/Flutter/iOS Native/Android Native variant files; this planning repo changed `tasks/todo.md` and `tasks/history.md`.
+- Per-file purpose: downstream files provide original synthetic public-radio/live-station/regional-audio/podcast/episode/queue/playback/offline/ad/premium surfaces and reproducible local checks; blocker artifacts document provider, media-rights, region, privacy, native permission, push/background, and toolchain dependencies; task/history docs record completion and next work.
+- User-goal mapping: satisfies Step 15.14 without proprietary app assets, brand claims, copied code/media, private APIs, production data, public visibility changes, provider parity claims, or GitHub Actions.
+- Tests run: lane-local `npm run validate`, variant structure checks, RN/Expo tests where added, `git diff --check`, GitHub PR/repo/source-spec/workflow metadata checks, and planning repo `git diff --check`.
+- Skipped tests: no planning-repo executable app test suite was relevant because this repo only changed task/history Markdown for downstream evidence.
+- Adversarial review: checked PR targets/branches/non-draft state, clean merge state, changed-file boundaries, PRIVATE visibility, source-spec presence, blocker artifacts, validation artifacts, and absence of GitHub Actions workflows.
+- Residual risk: Step 15.14 PRs remain open for the next merge cycle; production RSS/provider integrations, account sync, notifications, licensed audio/media, live stream/editorial provider APIs, regional/geo behavior, ad/premium gates, offline/download rights, analytics data, privacy/compliance, native permissions, push/background behavior, and SDK compile/render verification remain unresolved.
+- Rollback note: revert this planning commit to reopen Step 15.14; close or revert the three downstream PR branches to undo scaffolds.
+- Next command: `$run`
+
 ## 2026-05-22 - Phase 15 Step 15.13 — Merge Tranche 10 PRs and Execute Eleventh Tranche (Podimo/Acast/NPR One)
 
 - **Step 15.12 PR Merges:** Merged all three Step 15.12 PRs to `main`:
