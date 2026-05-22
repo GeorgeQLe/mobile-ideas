@@ -1,5 +1,39 @@
 # History
 
+## 2026-05-22 - Phase 15 Step 15.16 — Merge Tranche 13 PRs and Execute Fourteenth Tranche (Headway/Serial Reader/Webtoon)
+
+- **Step 15.15 PR Merges:** Merged all three Step 15.15 PRs to `main`:
+  - `GeorgeQLe/pocket-fm-mobile-clone` PR #1 (AudioTale) - merge commit `db460fe`
+  - `GeorgeQLe/storytel-mobile-clone` PR #1 (TaleStream) - merge commit `9355e86`
+  - `GeorgeQLe/blinkist-mobile-clone` PR #1 (BlinkRead) - merge commit `d472a9b`
+- **Tranche 14 variant scaffolds:**
+  - Lane A: `GeorgeQLe/headway-mobile-clone` -> SummitRead - PR https://github.com/GeorgeQLe/headway-mobile-clone/pull/1, commit `92765e6`
+  - Lane B: `GeorgeQLe/serial-reader-mobile-clone` -> DailyChapter - PR https://github.com/GeorgeQLe/serial-reader-mobile-clone/pull/1, commit `18017f9`
+  - Lane C: `GeorgeQLe/webtoon-mobile-clone` -> ToonScroll - PR https://github.com/GeorgeQLe/webtoon-mobile-clone/pull/1, commit `7f4e41d`
+- **Validation:** SummitRead passed `npm run validate`, `npm run validate:variants`, `npm run test:rn`, `npm run test:expo`, and `git diff --check`; DailyChapter passed `npm run validate`, `npm run check:variants`, `npm run test:rn` 4/4, `npm run test:expo` 4/4, and `git diff --check`; ToonScroll passed `npm run validate`, `npm run validate:variants`, `npm run test:rn`, and `git diff --check`.
+- **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed targeting `main`, non-draft with clean merge state, source specs intact (`903-headway.md`, `904-serial-reader.md`, `122-webtoon.md`), blocker artifacts present, validation artifacts present, and no `.github/workflows` path on branches.
+- **Rate limit:** pre-execution 5000/5000, post-consolidation 4991/5000.
+- **No proprietary assets, brand claims, copied media, private APIs, production data, public visibility changes, or GitHub Actions.**
+
+### Carry-Forward Blockers
+
+- **SummitRead (Headway-Inspired):** Production catalog/provider integrations, licensed summaries/text/artwork, subscriptions/payments, offline/download rights, personalization/analytics, regional behavior, privacy/compliance, native permissions, push/background behavior, and Flutter/native runner verification remain blocked.
+- **DailyChapter (Serial Reader-Inspired):** Real public-domain catalog sourcing, delivery schedules, account sync, notifications, offline/download retention, regional behavior, accessibility review, privacy/compliance, native permissions, push/background behavior, and Flutter/native runner verification remain blocked.
+- **ToonScroll (Webtoon-Inspired):** Production creator/catalog providers, licensed panels/artwork/text, subscriptions/payments, coin economies, moderation/community, offline/download rights, personalization/analytics, regional behavior, privacy/compliance, native permissions, push/background behavior, and Flutter/native runner verification remain blocked.
+
+### Ship Manifest
+
+- User goal: merge Step 15.15 validated PRs and execute Phase 15 Step 15.16 for Headway, Serial Reader, and Webtoon across all five downstream variants each.
+- Changed files: three Step 15.15 downstream repos merged to main; three new downstream repos received synthetic fixtures/contracts, validation scripts/evidence, package scripts, blocker artifacts, implementation records, and React Native/Expo/Flutter/iOS Native/Android Native variant files; this planning repo changed `tasks/todo.md` and `tasks/history.md`.
+- Per-file purpose: downstream files provide original synthetic book-summary, public-domain serialized-reading, comic/webtoon panel, chapter, progress, subscription/coin/offline, and regional surfaces with reproducible local checks; blocker artifacts document provider, media rights, catalog, billing, coin economy, region, privacy, native permission, push/background, and toolchain dependencies; task/history docs record completion and next work.
+- User-goal mapping: satisfies Step 15.16 without proprietary app assets, brand claims, copied code/media, private APIs, production data, public visibility changes, provider parity claims, or GitHub Actions.
+- Tests run: lane-local `npm run validate`, variant structure checks, RN/Expo tests where added, `git diff --check`, GitHub PR/repo/source-spec/workflow metadata checks, and planning repo `git diff --check`.
+- Skipped tests: no planning-repo executable app test suite was relevant because this repo only changed task/history Markdown for downstream evidence; Webtoon did not add a separate Expo test command beyond variant validation and RN static tests.
+- Adversarial review: checked PR targets/branches/non-draft state, clean merge state, changed-file boundaries, PRIVATE visibility, source-spec diffs for directly completed lanes, source-spec presence, blocker artifacts, validation artifacts, and absence of GitHub Actions workflows.
+- Residual risk: Step 15.16 PRs remain open for the next merge cycle; production catalog/provider integrations, licensed summaries/text/artwork/panels, subscriptions/payments, coin economies, offline/download rights, personalization/analytics data, privacy/compliance, regional behavior, native permissions, push/background behavior, and Flutter/native runner blockers remain unresolved.
+- Rollback note: revert this planning commit to reopen Step 15.16; close or revert the three downstream PR branches to undo scaffolds.
+- Next command: `$run`
+
 ## 2026-05-22 - Development Docs Reconciliation (Tasks)
 
 - **Scope:** Ran `$reconcile-dev-docs fix tasks` to repair unambiguous task-document drift after Phase 15 Step 15.15.
