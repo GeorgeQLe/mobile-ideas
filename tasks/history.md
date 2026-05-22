@@ -1,5 +1,39 @@
 # History
 
+## 2026-05-22 - Phase 15 Step 15.13 — Merge Tranche 10 PRs and Execute Eleventh Tranche (Podimo/Acast/NPR One)
+
+- **Step 15.12 PR Merges:** Merged all three Step 15.12 PRs to `main`:
+  - `GeorgeQLe/spotify-for-podcasters-mobile-clone` PR #1 (CreatorDeck) - merge commit `07991e4`
+  - `GeorgeQLe/anchor-mobile-clone` PR #1 (AnchorForge) - merge commit `2fb9b10`
+  - `GeorgeQLe/libsyn-mobile-clone` PR #1 (SynCast) - merge commit `8f83d14`
+- **Tranche 11 variant scaffolds:**
+  - Lane A: `GeorgeQLe/podimo-mobile-clone` -> PodPremium - PR https://github.com/GeorgeQLe/podimo-mobile-clone/pull/1, commit `e66432c`
+  - Lane B: `GeorgeQLe/acast-mobile-clone` -> CastStream - PR https://github.com/GeorgeQLe/acast-mobile-clone/pull/1, commit `15d6ab8`
+  - Lane C: `GeorgeQLe/npr-one-mobile-clone` -> PublicRadio - PR https://github.com/GeorgeQLe/npr-one-mobile-clone/pull/1, commit `e6e0a31`
+- **Validation:** PodPremium passed `npm run validate`, `npm run check:variants`, `npm run test:static`, and `git diff --check`; CastStream passed `npm run validate`, `npm run validate:variants`, `npm run test:rn-expo`, and `git diff --check`; PublicRadio passed `npm run validate`, `npm run validate:variants`, `npm run test:static`, and `git diff --check`.
+- **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed targeting `main`, non-draft with clean merge state after marking the Acast PR ready for review, source specs intact (`299-podimo.md`, `300-acast.md`, `304-npr-one.md`), blocker artifacts present, validation artifacts present, and no `.github/workflows` path on branches.
+- **Rate limit:** pre-execution 4945/5000, post-consolidation 4987/5000.
+- **No proprietary assets, brand claims, copied media, private APIs, production data, public visibility changes, or GitHub Actions.**
+
+### Carry-Forward Blockers
+
+- **PodPremium (Podimo-Inspired):** Account lifecycle, production billing/restore/cancel/refund, licensed media/download rights, native permissions, push/background behavior, region catalog, provider integrations, and SDK compile/render verification remain blocked.
+- **CastStream (Acast-Inspired):** Real account lifecycle, subscriptions/payments, native permission/push/background behavior, provider integrations, production feeds/ad networks, region-specific behavior, and licensed media/assets/transcripts remain blocked.
+- **PublicRadio (NPR One-Inspired):** Account lifecycle, subscription/payment, real donation provider, production streams/feeds/media, native permission prompts, push/background behavior, region-specific behavior, and one-for-one native parity remain blocked.
+
+### Ship Manifest
+
+- User goal: merge Step 15.12 validated PRs and execute Phase 15 Step 15.13 for Podimo, Acast, and NPR One across all five downstream variants each.
+- Changed files: three Step 15.12 downstream repos merged to main; three new downstream repos received synthetic fixtures/contracts, validation scripts/evidence, package scripts, blocker artifacts, implementation records, and React Native/Expo/Flutter/iOS Native/Android Native variant files; this planning repo changed `tasks/todo.md` and `tasks/history.md`.
+- Per-file purpose: downstream files provide original synthetic premium podcast, ad/creator platform, public radio/live stream, editorial curation, queue/playback, subscription/offline surfaces and reproducible local checks; blocker artifacts document all provider, media rights, billing, region, privacy, native permission, push/background, and toolchain dependencies; task/history docs record completion and next work.
+- User-goal mapping: satisfies Step 15.13 without proprietary app assets, brand claims, copied code/media, private APIs, production data, public visibility changes, provider parity claims, or GitHub Actions.
+- Tests run: lane-local `npm run validate`, variant structure checks, RN/Expo static tests where added, `git diff --check`, GitHub PR/repo/source-spec/workflow metadata checks, and planning repo `git diff --check`.
+- Skipped tests: no planning-repo executable app test suite was relevant because this repo only changed task/history Markdown for downstream evidence.
+- Adversarial review: checked PR targets/branches/non-draft state, clean merge state, changed-file boundaries, PRIVATE visibility, source-spec presence, blocker artifacts, validation artifacts, and absence of GitHub Actions workflows.
+- Residual risk: Step 15.13 PRs remain open for the next merge cycle; account lifecycle, production billing/subscriptions, real donation providers, production feeds/streams/ad networks, licensed media/assets/transcripts, provider integrations, regional behavior, offline/download rights, native permissions, push/background behavior, privacy/compliance, and SDK compile/render verification remain unresolved.
+- Rollback note: revert this planning commit to reopen Step 15.13; close or revert the three downstream PR branches to undo scaffolds.
+- Next command: `$run`
+
 ## 2026-05-22 - Phase 15 Step 15.11 — Merge Tranche 8 PRs and Execute Ninth Tranche (RadioPublic/Podchaser/Goodpods)
 
 - **Step 15.10 PR Merges:** Merged all three Step 15.10 PRs to `main`:

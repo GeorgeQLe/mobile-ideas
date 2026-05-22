@@ -398,24 +398,47 @@
   - Residual risk: Step 15.12 PRs remain open for the next merge cycle; production RSS/provider integrations, account sync, notifications, licensed audio/media, premium/subscription gates, creator monetization, hosting/distribution APIs, recording/upload pipelines, analytics data, privacy/compliance, and Flutter/native runner blockers remain unresolved.
   - Rollback note: revert this planning commit to reopen Step 15.12; close or revert the three downstream PR branches to undo scaffolds.
   - Next command: `$run`
-- [ ] Step 15.13: Merge Step 15.12 PRs and execute eleventh tranche
-  - Merge the three open Step 15.12 PRs after verifying they still target `main`, remain branch-backed/non-draft, have clean merge state, and have no `.github/workflows` additions:
-    - Spotify for Podcasters/CreatorDeck: https://github.com/GeorgeQLe/spotify-for-podcasters-mobile-clone/pull/1
-    - Anchor/AnchorForge: https://github.com/GeorgeQLe/anchor-mobile-clone/pull/1
-    - Libsyn/SynCast: https://github.com/GeorgeQLe/libsyn-mobile-clone/pull/1
-  - Execute Tranche 11 via `agent-team` lanes with separate downstream branches:
-    - Lane 15.13-A: `GeorgeQLe/podimo-mobile-clone`, branch `phase15/podimo-variant-scaffold`, codename `PodPremium`, source spec `docs/source-specs/299-podimo.md`
-    - Lane 15.13-B: `GeorgeQLe/acast-mobile-clone`, branch `phase15/acast-variant-scaffold`, codename `CastStream`, source spec `docs/source-specs/300-acast.md`
-    - Lane 15.13-C: `GeorgeQLe/npr-one-mobile-clone`, branch `phase15/npr-one-variant-scaffold`, codename `PublicRadio`, source spec `docs/source-specs/304-npr-one.md`
+- [x] Step 15.13: Merge Step 15.12 PRs and execute eleventh tranche
+  - Merged 3 Step 15.12 PRs (Spotify for Podcasters/CreatorDeck, Anchor/AnchorForge, Libsyn/SynCast).
+  - Built variant scaffolds for 3 Tranche 11 podcast/audio apps via branch-backed agent-team lanes.
+  - Each lane: created branch, added synthetic premium podcast, creator monetization, ad platform, public radio/live stream, editorial curation, episode, queue, playback, subscription/offline fixtures, validation scripts, blocker artifacts, implementation/validation docs, and 5 variant files (React Native, Expo, Flutter, iOS Native, Android Native).
+  - Ran validation, opened PRs, marked the Acast PR ready after draft creation, and consolidation gate passed.
+  - Files: 3 downstream repos (shared/, variants/, scripts/, package/config, docs/implementation, docs/validation, tasks/blockers), `tasks/todo.md`, `tasks/history.md`
+  - **Merges:** Spotify for Podcasters PR #1 merged (`07991e4`), Anchor PR #1 merged (`2fb9b10`), Libsyn PR #1 merged (`8f83d14`).
+  - **Lane A (Podimo/PodPremium):** PR https://github.com/GeorgeQLe/podimo-mobile-clone/pull/1 - commit `e66432c` - `npm run validate` PASS, `npm run check:variants` PASS for 5 surfaces, `npm run test:static` RN/Expo static checks PASS, `git diff --check` PASS.
+  - **Lane B (Acast/CastStream):** PR https://github.com/GeorgeQLe/acast-mobile-clone/pull/1 - commit `15d6ab8` - `npm run validate` PASS, `npm run validate:variants` PASS with 5 CastStream surfaces, `npm run test:rn-expo` PASS, `git diff --check` PASS.
+  - **Lane C (NPR One/PublicRadio):** PR https://github.com/GeorgeQLe/npr-one-mobile-clone/pull/1 - commit `e6e0a31` - `npm run validate` PASS, `npm run validate:variants` PASS, `npm run test:static` PASS, `git diff --check` PASS.
+  - **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed targeting `main`, non-draft with clean merge state, source specs intact (299-podimo.md, 300-acast.md, 304-npr-one.md), blocker artifacts present, validation artifacts present, no `.github/workflows` path on branches.
+  - **Rate limit:** pre-execution 4945/5000, post-consolidation 4987/5000.
+
+  **Review / Ship Manifest:**
+  - User goal: merge Step 15.12 validated PRs and execute Step 15.13 eleventh Podcasts, Books & Reading tranche.
+  - Changed files: `tasks/todo.md`, `tasks/history.md`, plus 3 downstream repos on branch-backed PRs.
+  - Per-file purpose: `tasks/todo.md` records Step 15.13 completion and prepares Step 15.14; `tasks/history.md` records consolidation evidence, blockers, and rollback notes.
+  - User-goal mapping: downstream PRs provide Podimo, Acast, and NPR One five-variant scaffolds using synthetic premium podcast, ad/creator platform, public radio, live stream, and editorial fixtures with explicit blocker artifacts.
+  - Tests run: lane-local `npm run validate`, variant structure checks, RN/Expo static tests where added, `git diff --check`, GitHub PR/repo/source-spec/workflow metadata checks, and planning repo `git diff --check`.
+  - Skipped tests: no planning-repo executable app test suite was relevant because this repo only changed task/history Markdown for downstream evidence.
+  - Adversarial review: checked PR targets/branches/non-draft state, clean merge state, changed-file boundaries, PRIVATE visibility, source-spec presence, blocker artifacts, validation artifacts, and absence of GitHub Actions workflows.
+  - Residual risk: Step 15.13 PRs remain open for the next merge cycle; account lifecycle, production billing/subscriptions, real donation providers, production feeds/streams/ad networks, licensed media/assets/transcripts, provider integrations, regional behavior, offline/download rights, native permissions, push/background behavior, privacy/compliance, and SDK compile/render verification remain unresolved.
+  - Rollback note: revert this planning commit to reopen Step 15.13; close or revert the three downstream PR branches to undo scaffolds.
+  - Next command: `$run`
+- [ ] Step 15.14: Merge Step 15.13 PRs and execute twelfth tranche
+  - Merge the three open Step 15.13 PRs after verifying they still target `main`, remain branch-backed/non-draft, have clean merge state, and have no `.github/workflows` additions:
+    - Podimo/PodPremium: https://github.com/GeorgeQLe/podimo-mobile-clone/pull/1
+    - Acast/CastStream: https://github.com/GeorgeQLe/acast-mobile-clone/pull/1
+    - NPR One/PublicRadio: https://github.com/GeorgeQLe/npr-one-mobile-clone/pull/1
+  - Execute Tranche 12 via `agent-team` lanes with separate downstream branches:
+    - Lane 15.14-A: `GeorgeQLe/bbc-sounds-mobile-clone`, branch `phase15/bbc-sounds-variant-scaffold`, codename `SoundIsle`, source spec `docs/source-specs/305-bbc-sounds.md`
+    - Lane 15.14-B: `GeorgeQLe/audacy-mobile-clone`, branch `phase15/audacy-variant-scaffold`, codename `RadioPulse`, source spec `docs/source-specs/310-audacy.md`
+    - Lane 15.14-C: `GeorgeQLe/ivoox-mobile-clone`, branch `phase15/ivoox-variant-scaffold`, codename `VoxStream`, source spec `docs/source-specs/311-ivoox.md`
   - Per lane, own only downstream `shared/`, `variants/`, `scripts/`, `tasks/`, `docs/implementation/`, `docs/validation/`, `README.md`, and package/config files.
   - Per lane, do not edit `.github/`, repo visibility/settings, or copied source specs.
   - Build five variant surfaces per repo: React Native, Expo, Flutter, iOS Native, and Android Native.
-  - Use only synthetic premium podcast, creator monetization, ad platform, public radio, live stream, editorial curation, episode, queue, playback, subscription, and offline-state fixtures; do not copy proprietary audio, artwork, transcripts, paywalled feeds, logos, screenshots, private APIs, production data, or copyrighted media.
-  - Document blockers in `tasks/blockers/phase15-<app-slug>.md`, especially production RSS/provider integrations, account sync, notifications, licensed audio/media, premium/subscription gates, creator monetization/ad platform APIs, live stream/editorial provider APIs, regional/geo behavior, offline/download rights, analytics data, privacy/compliance, and local Flutter/native runner limitations.
+  - Use only synthetic public radio, live station, regional audio, podcast/radio directory, episode, queue, playback, subscription/ad, offline-state, and geo-availability fixtures; do not copy proprietary audio, artwork, transcripts, paywalled feeds, logos, screenshots, private APIs, production data, or copyrighted media.
+  - Document blockers in `tasks/blockers/phase15-<app-slug>.md`, especially production RSS/provider integrations, account sync, notifications, licensed audio/media, live stream/editorial provider APIs, regional/geo behavior, ad/premium gates, offline/download rights, analytics data, privacy/compliance, and local Flutter/native runner limitations.
   - Run downstream validation per lane: `npm run validate`, variant structure check, RN/Expo tests where added, and `git diff --check`; record validation evidence in each downstream repo.
   - Open PRs for the three downstream branches, then run the consolidation gate: PRIVATE visibility, source spec intact, no GitHub Actions workflows, blocker artifacts present, branch-backed non-draft PR targeting main, validation evidence present.
   - Update this planning repo after consolidation with PR URLs, commit SHAs, validation counts, rate-limit evidence, residual blockers, and a ship manifest in `tasks/history.md`.
-- [ ] Step 15.14: Merge Step 15.13 PRs and execute twelfth tranche
 - [ ] Step 15.15: Merge Step 15.14 PRs and execute thirteenth tranche
 - [ ] Step 15.16: Merge Step 15.15 PRs and execute fourteenth tranche
 - [ ] Step 15.17: Merge Step 15.16 PRs and execute fifteenth tranche
