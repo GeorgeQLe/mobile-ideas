@@ -1,5 +1,33 @@
 # History
 
+## 2026-05-22 - Phase 15 Step 15.11 — Merge Tranche 8 PRs and Execute Ninth Tranche (RadioPublic/Podchaser/Goodpods)
+
+- **Step 15.10 PR Merges:** Merged all three Step 15.10 PRs to `main`:
+  - `GeorgeQLe/podcast-addict-mobile-clone` PR #1 (FeedHopper) — merge commit `5997da8`
+  - `GeorgeQLe/player-fm-mobile-clone` PR #1 (TuneScout) — merge commit `cfb8606`
+  - `GeorgeQLe/castbox-mobile-clone` PR #1 (BoxCast) — merge commit `36a0554`
+- **Tranche 9 variant scaffolds:**
+  - Lane A: `GeorgeQLe/radiopublic-mobile-clone` → PublicWave — PR https://github.com/GeorgeQLe/radiopublic-mobile-clone/pull/1, commit `8837503`
+  - Lane B: `GeorgeQLe/podchaser-mobile-clone` → ChasePod — PR https://github.com/GeorgeQLe/podchaser-mobile-clone/pull/1, commit `7f22a32`
+  - Lane C: `GeorgeQLe/goodpods-mobile-clone` → PodCircle — PR https://github.com/GeorgeQLe/goodpods-mobile-clone/pull/1, commit `c394355`
+- **Validation:** Each lane passed `npm run validate` 36/36, `npm run check:variants` 7/7, React Native 1/1, Expo 1/1, and `git diff --check`.
+- **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed and targeting `main`, non-draft with clean merge state, source specs intact, blocker artifacts present, and no `.github/workflows` path on branches.
+- **Rate limit:** pre-execution 4981/5000, post-consolidation 4972/5000.
+- **No proprietary assets, brand claims, copied media, private APIs, production data, public visibility changes, or GitHub Actions.**
+
+### Ship Manifest
+
+- User goal: merge Step 15.10 validated PRs and execute Phase 15 Step 15.11 for RadioPublic, Podchaser, and Goodpods across all five downstream variants each.
+- Changed files: three Step 15.10 downstream repos merged to main; three new downstream repos received synthetic fixtures/contracts, validation scripts/evidence, package scripts, blocker artifacts, implementation records, and React Native/Expo/Flutter/iOS Native/Android Native variant files; this planning repo changed `tasks/todo.md` and `tasks/history.md`.
+- Per-file purpose: downstream files provide original synthetic podcast directory/social-discovery surfaces and reproducible local checks; blocker artifacts document RSS/provider/social graph/analytics/community moderation/content rights/privacy/toolchain dependencies; task/history docs record completion and next work.
+- User-goal mapping: satisfies Step 15.11 without proprietary app assets, brand claims, copied code/media, private APIs, production data, public visibility changes, provider parity claims, or GitHub Actions.
+- Tests run: lane-local `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, `git diff --check`, GitHub PR/repo/source-spec/workflow metadata checks, and planning repo `git diff --check`.
+- Skipped tests: no planning-repo executable app test suite was relevant because this repo only changed task/history Markdown for downstream evidence.
+- Adversarial review: checked PR targets/branches/non-draft state, clean merge state, changed-file boundaries, PRIVATE visibility, source-spec presence, blocker artifacts, validation artifacts, and absence of GitHub Actions workflows.
+- Residual risk: Step 15.11 PRs remain open for the next merge cycle; production RSS/provider integrations, social graph/account sync, notifications, licensed audio/media, premium/subscription gates, creator/analytics data, review/community moderation, offline/download rights, privacy/compliance, and Flutter/native runner blockers remain unresolved.
+- Rollback note: revert this planning commit to reopen Step 15.11; close or revert the three downstream PR branches to undo scaffolds.
+- Next command: `$run`
+
 ## 2026-05-21 - Ship Handoff — Phase 15 Step 15.6 Plan
 
 - **Scope:** Shipped a self-contained execution plan for Phase 15 Step 15.6 so the next `$run` can merge Step 15.5 PRs and execute Tranche 4 without relying on prior chat context.

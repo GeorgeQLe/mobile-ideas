@@ -350,24 +350,47 @@
   - Residual risk: Step 15.10 PRs remain open for the next merge cycle; production RSS/provider integrations, account sync, notifications, licensed audio/media, premium/subscription gates, cross-platform sync, Android-primary behavior, offline/download rights, privacy/compliance, community surfaces, and Flutter/native runner blockers remain unresolved.
   - Rollback note: revert this planning commit to reopen Step 15.10; close or revert the three downstream PR branches to undo scaffolds.
   - Next command: `$run`
-- [ ] Step 15.11: Merge Step 15.10 PRs and execute ninth tranche
-  - Merge the three open Step 15.10 PRs after verifying they still target `main`, remain branch-backed/non-draft, and have no `.github/workflows` additions:
-    - Podcast Addict/FeedHopper: https://github.com/GeorgeQLe/podcast-addict-mobile-clone/pull/1
-    - Player FM/TuneScout: https://github.com/GeorgeQLe/player-fm-mobile-clone/pull/1
-    - Castbox/BoxCast: https://github.com/GeorgeQLe/castbox-mobile-clone/pull/1
-  - Execute Tranche 9 via `agent-team` lanes with separate downstream branches:
-    - Lane 15.11-A: `GeorgeQLe/radiopublic-mobile-clone`, branch `phase15/radiopublic-variant-scaffold`, codename `PublicWave`, source spec `docs/source-specs/303-radiopublic.md`
-    - Lane 15.11-B: `GeorgeQLe/podchaser-mobile-clone`, branch `phase15/podchaser-variant-scaffold`, codename `ChasePod`, source spec `docs/source-specs/307-podchaser.md`
-    - Lane 15.11-C: `GeorgeQLe/goodpods-mobile-clone`, branch `phase15/goodpods-variant-scaffold`, codename `PodCircle`, source spec `docs/source-specs/312-goodpods.md`
+- [x] Step 15.11: Merge Step 15.10 PRs and execute ninth tranche
+  - Merged 3 Step 15.10 PRs (Podcast Addict/FeedHopper, Player FM/TuneScout, Castbox/BoxCast).
+  - Built variant scaffolds for 3 Tranche 9 podcast directory/social apps via branch-backed agent-team lanes.
+  - Each lane: created branch, added synthetic podcast directory/community fixtures/contracts, validation scripts, blocker artifacts, implementation/validation docs, and 5 variant files (React Native, Expo, Flutter, iOS Native, Android Native).
+  - Ran validation, opened PRs, and consolidation gate passed.
+  - Files: 3 downstream repos (shared/test-fixtures, shared/api-contracts, variants/, scripts/, package.json, docs/implementation, docs/validation, tasks/blockers), `tasks/todo.md`, `tasks/history.md`
+  - **Merges:** Podcast Addict PR #1 merged (`5997da8`), Player FM PR #1 merged (`cfb8606`), Castbox PR #1 merged (`36a0554`).
+  - **Lane A (RadioPublic/PublicWave):** PR https://github.com/GeorgeQLe/radiopublic-mobile-clone/pull/1 - commit `8837503` - `npm run validate` 36/36, variant structure 7/7, React Native 1/1, Expo 1/1, `git diff --check` PASS.
+  - **Lane B (Podchaser/ChasePod):** PR https://github.com/GeorgeQLe/podchaser-mobile-clone/pull/1 - commit `7f22a32` - `npm run validate` 36/36, variant structure 7/7, React Native 1/1, Expo 1/1, `git diff --check` PASS.
+  - **Lane C (Goodpods/PodCircle):** PR https://github.com/GeorgeQLe/goodpods-mobile-clone/pull/1 - commit `c394355` - `npm run validate` 36/36, variant structure 7/7, React Native 1/1, Expo 1/1, `git diff --check` PASS.
+  - **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed targeting `main`, non-draft with clean merge state, source specs intact (303-radiopublic.md, 307-podchaser.md, 312-goodpods.md), blocker artifacts present, no `.github/workflows` path on branches.
+  - **Rate limit:** pre-execution 4981/5000, post-consolidation 4972/5000.
+
+  **Review / Ship Manifest:**
+  - User goal: merge Step 15.10 validated PRs and execute Step 15.11 ninth Podcasts, Books & Reading tranche.
+  - Changed files: `tasks/todo.md`, `tasks/history.md`, plus 3 downstream repos on branch-backed PRs.
+  - Per-file purpose: `tasks/todo.md` records Step 15.11 completion and prepares Step 15.12; `tasks/history.md` records consolidation evidence, blockers, and rollback notes.
+  - User-goal mapping: downstream PRs provide RadioPublic, Podchaser, and Goodpods five-variant scaffolds using synthetic podcast directory/social-discovery fixtures with explicit blocker artifacts.
+  - Tests run: lane-local `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, `git diff --check`, GitHub PR/repo/source-spec/workflow metadata checks, and planning repo `git diff --check`.
+  - Skipped tests: no planning-repo executable app test suite was relevant because this repo only changed task/history Markdown for downstream evidence.
+  - Adversarial review: checked PR targets/branches/non-draft state, clean merge state, changed-file boundaries, PRIVATE visibility, source-spec presence, blocker artifacts, validation artifacts, and absence of GitHub Actions workflows.
+  - Residual risk: Step 15.11 PRs remain open for the next merge cycle; production RSS/provider integrations, social graph/account sync, notifications, licensed audio/media, premium/subscription gates, creator/analytics data, review/community moderation, offline/download rights, privacy/compliance, and Flutter/native runner blockers remain unresolved.
+  - Rollback note: revert this planning commit to reopen Step 15.11; close or revert the three downstream PR branches to undo scaffolds.
+  - Next command: `$run`
+- [ ] Step 15.12: Merge Step 15.11 PRs and execute tenth tranche
+  - Merge the three open Step 15.11 PRs after verifying they still target `main`, remain branch-backed/non-draft, and have no `.github/workflows` additions:
+    - RadioPublic/PublicWave: https://github.com/GeorgeQLe/radiopublic-mobile-clone/pull/1
+    - Podchaser/ChasePod: https://github.com/GeorgeQLe/podchaser-mobile-clone/pull/1
+    - Goodpods/PodCircle: https://github.com/GeorgeQLe/goodpods-mobile-clone/pull/1
+  - Execute Tranche 10 via `agent-team` lanes with separate downstream branches:
+    - Lane 15.12-A: `GeorgeQLe/spotify-for-podcasters-mobile-clone`, branch `phase15/spotify-for-podcasters-variant-scaffold`, codename `CreatorDeck`, source spec `docs/source-specs/296-spotify-for-podcasters.md`
+    - Lane 15.12-B: `GeorgeQLe/anchor-mobile-clone`, branch `phase15/anchor-variant-scaffold`, codename `AnchorForge`, source spec `docs/source-specs/297-anchor.md`
+    - Lane 15.12-C: `GeorgeQLe/libsyn-mobile-clone`, branch `phase15/libsyn-variant-scaffold`, codename `SynCast`, source spec `docs/source-specs/306-libsyn.md`
   - Per lane, own only downstream `shared/`, `variants/`, `scripts/`, `tasks/`, `docs/implementation/`, `docs/validation/`, `README.md`, and package/config files.
   - Per lane, do not edit `.github/`, repo visibility/settings, or copied source specs.
   - Build five variant surfaces per repo: React Native, Expo, Flutter, iOS Native, and Android Native.
-  - Use only synthetic podcast directory, listener analytics, social discovery, review/rating, episode, queue, playlist, follow graph, community, playback, and premium-state fixtures; do not copy proprietary audio, episode art, transcripts, paywalled feeds, logos, screenshots, private APIs, production data, or copyrighted media.
-  - Document blockers in `tasks/blockers/phase15-<app-slug>.md`, especially production RSS/provider integrations, social graph/account sync, notifications, licensed audio/media, premium/subscription gates, creator/analytics data, review/community moderation, offline/download rights, privacy/compliance, and local Flutter/native runner limitations.
+  - Use only synthetic podcast creator, hosting, recording, distribution, analytics, monetization, episode, queue, upload, scheduling, playback, and premium-state fixtures; do not copy proprietary audio, artwork, transcripts, paywalled feeds, logos, screenshots, private APIs, production data, or copyrighted media.
+  - Document blockers in `tasks/blockers/phase15-<app-slug>.md`, especially production RSS/provider integrations, account sync, notifications, licensed audio/media, premium/subscription gates, creator monetization, hosting/distribution APIs, recording/upload pipelines, analytics data, privacy/compliance, and local Flutter/native runner limitations.
   - Run downstream validation per lane: `npm run validate`, variant structure check, RN/Expo tests where added, and `git diff --check`; record validation evidence in each downstream repo.
   - Open PRs for the three downstream branches, then run the consolidation gate: PRIVATE visibility, source spec intact, no GitHub Actions workflows, blocker artifacts present, branch-backed non-draft PR targeting main, validation evidence present.
   - Update this planning repo after consolidation with PR URLs, commit SHAs, validation counts, rate-limit evidence, residual blockers, and a ship manifest in `tasks/history.md`.
-- [ ] Step 15.12: Merge Step 15.11 PRs and execute tenth tranche
 - [ ] Step 15.13: Merge Step 15.12 PRs and execute eleventh tranche
 - [ ] Step 15.14: Merge Step 15.13 PRs and execute twelfth tranche
 - [ ] Step 15.15: Merge Step 15.14 PRs and execute thirteenth tranche
