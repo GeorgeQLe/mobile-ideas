@@ -446,24 +446,47 @@
   - Residual risk: Step 15.14 PRs remain open for the next merge cycle; production RSS/provider integrations, account sync, notifications, licensed audio/media, live stream/editorial provider APIs, regional/geo behavior, ad/premium gates, offline/download rights, analytics data, privacy/compliance, native permissions, push/background behavior, and Flutter/native runner blockers remain unresolved.
   - Rollback note: revert this planning commit to reopen Step 15.14; close or revert the three downstream PR branches to undo scaffolds.
   - Next command: `$run`
-- [ ] Step 15.15: Merge Step 15.14 PRs and execute thirteenth tranche
-  - Merge the three open Step 15.14 PRs after verifying they still target `main`, remain branch-backed/non-draft, have clean merge state, and have no `.github/workflows` additions:
-    - BBC Sounds/SoundIsle: https://github.com/GeorgeQLe/bbc-sounds-mobile-clone/pull/1
-    - Audacy/RadioPulse: https://github.com/GeorgeQLe/audacy-mobile-clone/pull/1
-    - iVoox/VoxStream: https://github.com/GeorgeQLe/ivoox-mobile-clone/pull/1
-  - Execute Tranche 13 via `agent-team` lanes with separate downstream branches:
-    - Lane 15.15-A: `GeorgeQLe/pocket-fm-mobile-clone`, branch `phase15/pocket-fm-variant-scaffold`, codename `AudioTale`, source spec `docs/source-specs/308-pocket-fm.md`
-    - Lane 15.15-B: `GeorgeQLe/storytel-mobile-clone`, branch `phase15/storytel-variant-scaffold`, codename `TaleStream`, source spec `docs/source-specs/309-storytel.md`
-    - Lane 15.15-C: `GeorgeQLe/blinkist-mobile-clone`, branch `phase15/blinkist-variant-scaffold`, codename `BlinkRead`, source spec `docs/source-specs/902-blinkist.md`
+- [x] Step 15.15: Merge Step 15.14 PRs and execute thirteenth tranche
+  - Merged 3 Step 15.14 PRs (BBC Sounds/SoundIsle, Audacy/RadioPulse, iVoox/VoxStream).
+  - Built variant scaffolds for 3 Tranche 13 audio-story/audiobook/summary apps via branch-backed agent-team lanes; after two worker lanes stalled before PR creation, the main agent completed Pocket FM and Storytel directly in their downstream repos.
+  - Each lane: created branch, added synthetic audio-story/audiobook/book-summary fixtures/contracts, validation scripts, blocker artifacts, implementation/validation docs, package/config files, and 5 variant files (React Native, Expo, Flutter, iOS Native, Android Native).
+  - Ran validation, opened PRs, and consolidation gate passed.
+  - Files: 3 downstream repos (shared/, variants/, scripts/, package/config, docs/implementation, docs/validation, tasks/blockers), `tasks/todo.md`, `tasks/history.md`
+  - **Merges:** BBC Sounds PR #1 merged (`8aed770`), Audacy PR #1 merged (`9956036`), iVoox PR #1 merged (`80aefbf`).
+  - **Lane A (Pocket FM/AudioTale):** PR https://github.com/GeorgeQLe/pocket-fm-mobile-clone/pull/1 - commit `1c3e33e` - `npm run validate` passed for 10 required files, 2 synthetic series, 3 queued chapters; `npm run check:variants` 5/5; `npm run test:react-native` PASS; `npm run test:expo` PASS; `git diff --check` PASS.
+  - **Lane B (Storytel/TaleStream):** PR https://github.com/GeorgeQLe/storytel-mobile-clone/pull/1 - commit `df6e5c7` - `npm run validate` passed for 10 required files, 2 synthetic books, 3 queued chapters; `npm run check:variants` 5/5; `npm run test:react-native` PASS; `npm run test:expo` PASS; `git diff --check` PASS.
+  - **Lane C (Blinkist/BlinkRead):** PR https://github.com/GeorgeQLe/blinkist-mobile-clone/pull/1 - commit `a21dbad` - `npm run validate` PASS; `npm run check:variants` PASS; `npm run test:react-native` PASS; `npm run test:expo` PASS; `git diff --check` PASS.
+  - **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed targeting `main`, non-draft with clean merge state, source specs intact (308-pocket-fm.md, 309-storytel.md, 902-blinkist.md), blocker artifacts present, validation artifacts present, no `.github/workflows` path on branches.
+  - **Rate limit:** pre-execution 5000/5000, post-consolidation 4994/5000.
+
+  **Review / Ship Manifest:**
+  - User goal: merge Step 15.14 validated PRs and execute Step 15.15 thirteenth Podcasts, Books & Reading tranche.
+  - Changed files: `tasks/todo.md`, `tasks/history.md`, plus 3 downstream repos on branch-backed PRs.
+  - Per-file purpose: `tasks/todo.md` records Step 15.15 completion and prepares Step 15.16; `tasks/history.md` records consolidation evidence, blockers, and rollback notes.
+  - User-goal mapping: downstream PRs provide Pocket FM, Storytel, and Blinkist five-variant scaffolds using synthetic audio-story, audiobook, book-summary, chapter, queue, playback, subscription/offline, regional, and progress fixtures with explicit blocker artifacts.
+  - Tests run: lane-local `npm run validate`, variant structure checks, RN/Expo tests, `git diff --check`, GitHub PR/repo/source-spec/workflow metadata checks, and planning repo `git diff --check`.
+  - Skipped tests: no planning-repo executable app test suite was relevant because this repo only changed task/history Markdown for downstream evidence.
+  - Adversarial review: checked PR targets/branches/non-draft state, clean merge state, changed-file boundaries, PRIVATE visibility, source-spec presence, blocker artifacts, validation artifacts, source-spec diffs for directly completed lanes, and absence of GitHub Actions workflows.
+  - Residual risk: Step 15.15 PRs remain open for the next merge cycle; production catalog/provider integrations, account sync, notifications, licensed audio/media/transcripts/artwork, subscriptions/payments, audiobook/summary rights, offline/download rights, personalization/analytics data, privacy/compliance, regional behavior, native permissions, push/background behavior, and Flutter/native runner blockers remain unresolved.
+  - Rollback note: revert this planning commit to reopen Step 15.15; close or revert the three downstream PR branches to undo scaffolds.
+  - Next command: `$run`
+- [ ] Step 15.16: Merge Step 15.15 PRs and execute fourteenth tranche
+  - Merge the three open Step 15.15 PRs after verifying they still target `main`, remain branch-backed/non-draft, have clean merge state, and have no `.github/workflows` additions:
+    - Pocket FM/AudioTale: https://github.com/GeorgeQLe/pocket-fm-mobile-clone/pull/1
+    - Storytel/TaleStream: https://github.com/GeorgeQLe/storytel-mobile-clone/pull/1
+    - Blinkist/BlinkRead: https://github.com/GeorgeQLe/blinkist-mobile-clone/pull/1
+  - Execute Tranche 14 via `agent-team` lanes with separate downstream branches:
+    - Lane 15.16-A: `GeorgeQLe/headway-mobile-clone`, branch `phase15/headway-variant-scaffold`, codename `SummitRead`, source spec `docs/source-specs/903-headway.md`
+    - Lane 15.16-B: `GeorgeQLe/serial-reader-mobile-clone`, branch `phase15/serial-reader-variant-scaffold`, codename `DailyChapter`, source spec `docs/source-specs/904-serial-reader.md`
+    - Lane 15.16-C: `GeorgeQLe/webtoon-mobile-clone`, branch `phase15/webtoon-variant-scaffold`, codename `ToonScroll`, source spec `docs/source-specs/122-webtoon.md`
   - Per lane, own only downstream `shared/`, `variants/`, `scripts/`, `tasks/`, `docs/implementation/`, `docs/validation/`, `README.md`, and package/config files.
   - Per lane, do not edit `.github/`, repo visibility/settings, or copied source specs.
   - Build five variant surfaces per repo: React Native, Expo, Flutter, iOS Native, and Android Native.
-  - Use only synthetic audiobook, audio-story, book-summary, chapter, queue, playback, listening-progress, subscription/offline, and regional availability fixtures; do not copy proprietary audio, artwork, transcripts, paywalled feeds, logos, screenshots, private APIs, production data, or copyrighted media.
-  - Document blockers in `tasks/blockers/phase15-<app-slug>.md`, especially production catalog/provider integrations, account sync, notifications, licensed audio/media, subscriptions/payments, audiobook/summary rights, offline/download rights, personalization/analytics data, privacy/compliance, regional behavior, and local Flutter/native runner limitations.
+  - Use only synthetic book-summary, public-domain serialized-reading, comic/webtoon panel, chapter, queue, reading-progress, subscription/offline, and regional availability fixtures; do not copy proprietary panels, artwork, text, transcripts, paywalled feeds, logos, screenshots, private APIs, production data, or copyrighted media.
+  - Document blockers in `tasks/blockers/phase15-<app-slug>.md`, especially production catalog/provider integrations, licensed content/artwork/text, subscriptions/payments, coin economies, offline/download rights, personalization/analytics data, privacy/compliance, regional behavior, and local Flutter/native runner limitations.
   - Run downstream validation per lane: `npm run validate`, variant structure check, RN/Expo tests where added, and `git diff --check`; record validation evidence in each downstream repo.
   - Open PRs for the three downstream branches, then run the consolidation gate: PRIVATE visibility, source spec intact, no GitHub Actions workflows, blocker artifacts present, branch-backed non-draft PR targeting main, validation evidence present.
   - Update this planning repo after consolidation with PR URLs, commit SHAs, validation counts, rate-limit evidence, residual blockers, and a ship manifest in `tasks/history.md`.
-- [ ] Step 15.16: Merge Step 15.15 PRs and execute fourteenth tranche
 - [ ] Step 15.17: Merge Step 15.16 PRs and execute fifteenth tranche
 - [ ] Step 15.18: Merge Step 15.17 PRs and execute sixteenth tranche
 - [ ] Step 15.19: Merge Step 15.18 PRs and execute seventeenth tranche

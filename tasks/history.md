@@ -1,5 +1,39 @@
 # History
 
+## 2026-05-22 - Phase 15 Step 15.15 — Merge Tranche 12 PRs and Execute Thirteenth Tranche (Pocket FM/Storytel/Blinkist)
+
+- **Step 15.14 PR Merges:** Merged all three Step 15.14 PRs to `main`:
+  - `GeorgeQLe/bbc-sounds-mobile-clone` PR #1 (SoundIsle) - merge commit `8aed770`
+  - `GeorgeQLe/audacy-mobile-clone` PR #1 (RadioPulse) - merge commit `9956036`
+  - `GeorgeQLe/ivoox-mobile-clone` PR #1 (VoxStream) - merge commit `80aefbf`
+- **Tranche 13 variant scaffolds:**
+  - Lane A: `GeorgeQLe/pocket-fm-mobile-clone` -> AudioTale - PR https://github.com/GeorgeQLe/pocket-fm-mobile-clone/pull/1, commit `1c3e33e`
+  - Lane B: `GeorgeQLe/storytel-mobile-clone` -> TaleStream - PR https://github.com/GeorgeQLe/storytel-mobile-clone/pull/1, commit `df6e5c7`
+  - Lane C: `GeorgeQLe/blinkist-mobile-clone` -> BlinkRead - PR https://github.com/GeorgeQLe/blinkist-mobile-clone/pull/1, commit `a21dbad`
+- **Validation:** AudioTale passed `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, and `git diff --check`; TaleStream passed `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, and `git diff --check`; BlinkRead passed `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, and `git diff --check`.
+- **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed targeting `main`, non-draft with clean merge state, source specs intact (`308-pocket-fm.md`, `309-storytel.md`, `902-blinkist.md`), blocker artifacts present, validation artifacts present, and no `.github/workflows` path on branches.
+- **Rate limit:** pre-execution 5000/5000, post-consolidation 4994/5000.
+- **No proprietary assets, brand claims, copied media, private APIs, production data, public visibility changes, or GitHub Actions.**
+
+### Carry-Forward Blockers
+
+- **AudioTale (Pocket FM-Inspired):** Production catalog/provider integrations, account sync, notifications, licensed audio/artwork/transcripts, audiobook/story rights, subscriptions/payments, offline/download rights, personalization/analytics, regional behavior, privacy/compliance, native permissions, push/background behavior, and Flutter/native runner verification remain blocked.
+- **TaleStream (Storytel-Inspired):** Production catalog/provider integrations, account sync, notifications, licensed audio/artwork/transcripts, audiobook/ebook rights, subscriptions/payments, offline/download rights, personalization/analytics, regional behavior, privacy/compliance, native permissions, push/background behavior, and Flutter/native runner verification remain blocked.
+- **BlinkRead (Blinkist-Inspired):** Production summary/catalog providers, account sync, notifications, licensed summaries/audio/artwork/transcripts, subscription/payment flows, offline/download rights, personalization/analytics, regional behavior, privacy/compliance, native permissions, push/background behavior, and Flutter/native runner verification remain blocked.
+
+### Ship Manifest
+
+- User goal: merge Step 15.14 validated PRs and execute Phase 15 Step 15.15 for Pocket FM, Storytel, and Blinkist across all five downstream variants each.
+- Changed files: three Step 15.14 downstream repos merged to main; three new downstream repos received synthetic fixtures/contracts, validation scripts/evidence, package scripts, blocker artifacts, implementation records, and React Native/Expo/Flutter/iOS Native/Android Native variant files; this planning repo changed `tasks/todo.md` and `tasks/history.md`.
+- Per-file purpose: downstream files provide original synthetic audio-story, audiobook, book-summary, chapter, queue, playback, reading/listening progress, subscription/offline, and regional surfaces with reproducible local checks; blocker artifacts document provider, media rights, catalog, billing, region, privacy, native permission, push/background, and toolchain dependencies; task/history docs record completion and next work.
+- User-goal mapping: satisfies Step 15.15 without proprietary app assets, brand claims, copied code/media, private APIs, production data, public visibility changes, provider parity claims, or GitHub Actions.
+- Tests run: lane-local `npm run validate`, variant structure checks, RN/Expo tests, `git diff --check`, GitHub PR/repo/source-spec/workflow metadata checks, and planning repo `git diff --check`.
+- Skipped tests: no planning-repo executable app test suite was relevant because this repo only changed task/history Markdown for downstream evidence.
+- Adversarial review: checked PR targets/branches/non-draft state, clean merge state, changed-file boundaries, PRIVATE visibility, source-spec presence, source-spec diffs for directly completed lanes, blocker artifacts, validation artifacts, and absence of GitHub Actions workflows.
+- Residual risk: Step 15.15 PRs remain open for the next merge cycle; production catalog/provider integrations, account sync, notifications, licensed audio/media/transcripts/artwork, subscriptions/payments, audiobook/summary rights, offline/download rights, personalization/analytics data, privacy/compliance, regional behavior, native permissions, push/background behavior, and Flutter/native runner blockers remain unresolved.
+- Rollback note: revert this planning commit to reopen Step 15.15; close or revert the three downstream PR branches to undo scaffolds.
+- Next command: `$run`
+
 ## 2026-05-22 - Phase 15 Step 15.14 — Merge Tranche 11 PRs and Execute Twelfth Tranche (BBC Sounds/Audacy/iVoox)
 
 - **Step 15.13 PR Merges:** Merged all three Step 15.13 PRs to `main`:
