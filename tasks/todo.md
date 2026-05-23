@@ -542,8 +542,39 @@
   - Residual risk: Step 15.18 PRs remain open for the next merge cycle; production catalog/provider integrations, DRM/entitlement, licensed text/artwork/audio/documents, store ecosystems, subscriptions/payments, offline/download rights, device sync, personalization/analytics, privacy/compliance, regional behavior, native permission/background behavior, and Flutter/native runner blockers remain unresolved.
   - Rollback note: revert this planning commit to reopen Step 15.18; close or revert the three downstream PR branches to undo scaffolds.
   - Next command: `$run`
-- [ ] Step 15.19: Merge Step 15.18 PRs and execute seventeenth tranche
+- [x] Step 15.19: Merge Step 15.18 PRs and execute seventeenth tranche
+  - Merged 3 Step 15.18 PRs (Apple Books/BookOrchard, Scribd/ScrollVault, Google Play Books/PlayShelf).
+  - Built variant scaffolds for 3 Tranche 17 e-reader/manga apps via branch-backed lanes; the MANGA Plus worker stalled before PR creation, so the main agent completed that downstream repo directly in an isolated `/private/tmp/phase15-step1519` worktree.
+  - Each lane: created branch, added synthetic e-reader or manga catalog/chapter/reader/library/progress/offline/entitlement fixtures, validation scripts, blocker artifacts, implementation/validation docs, package/config files, and 5 variant surfaces (React Native, Expo, Flutter, iOS Native, Android Native).
+  - Ran validation, opened PRs, and consolidation gate passed.
+  - Files: 3 downstream repos (shared/, variants/, scripts/, package/config, docs/implementation, docs/validation, tasks/blockers), `tasks/todo.md`, `tasks/history.md`
+  - **Merges:** Apple Books PR #1 merged, Scribd PR #1 merged, Google Play Books PR #1 merged.
+  - **Lane A (Nook/NookNest):** PR https://github.com/GeorgeQLe/nook-mobile-clone/pull/1 - commit `adfcc89` - `npm run validate` PASS with 5 NookNest variants and RN/Expo fixtures; `npm run validate:structure` PASS; `npm run test:rn` PASS; `npm run test:expo` PASS; `git diff --check` PASS.
+  - **Lane B (MANGA Plus/MangaPulse):** PR https://github.com/GeorgeQLe/manga-plus-mobile-clone/pull/1 - commit `e567aa1` - `npm run validate` PASS with 3 synthetic series, 6 chapters, 5 surfaces; `npm run validate:variants` PASS for 5 variants; `npm run test:rn` PASS; `npm run test:expo` PASS; `git diff --check` PASS.
+  - **Lane C (Shonen Jump/JumpVault):** PR https://github.com/GeorgeQLe/shonen-jump-mobile-clone/pull/1 - commit `5be2e09` - `npm run validate` PASS with 3 synthetic series and 5 chapters; `npm run validate:variants` PASS for 7 files; `npm run test:rn` PASS for 2 files; `git diff --check` PASS.
+  - **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed targeting `main`, non-draft with clean merge state, source specs intact/present (899-nook.md, 910-manga-plus.md, 911-shonen-jump.md), blocker artifacts present, validation artifacts or validation commands present, no `.github/workflows` path on branches.
+  - **Rate limit:** pre-execution 5000/5000, post-consolidation 4950/5000.
+
+  **Review / Ship Manifest:**
+  - User goal: merge Step 15.18 validated PRs and execute Step 15.19 seventeenth Podcasts, Books & Reading tranche.
+  - Changed files: `tasks/todo.md`, `tasks/history.md`, plus 3 downstream repos on branch-backed PRs.
+  - Per-file purpose: `tasks/todo.md` records Step 15.19 completion and prepares Step 15.20; `tasks/history.md` records consolidation evidence, blockers, and rollback notes.
+  - User-goal mapping: downstream PRs provide Nook, MANGA Plus, and Shonen Jump five-variant scaffolds using synthetic e-reader, manga catalog, chapter reader, library, progress, offline, entitlement, subscription, and licensed-media blocker fixtures.
+  - Tests run: lane-local validation commands, variant structure checks, React Native/Expo tests where added, `git diff --check`, GitHub PR/repo/source-spec/workflow metadata checks, and planning repo `git diff --check`.
+  - Skipped tests: no planning-repo executable app test suite was relevant because this repo only changed task/history Markdown for downstream evidence; downstream Flutter/iOS/Android runner tests were not added because the downstream repos have no dependency tree or native runner baseline.
+  - Adversarial review: checked PR targets/branches/non-draft state, clean merge state, changed-file boundaries, PRIVATE visibility, source-spec presence and untouched paths, blocker artifacts, validation artifacts or validation commands, and absence of GitHub Actions workflows.
+  - Residual risk: Step 15.19 PRs remain open for the next merge cycle; production catalog/provider integrations, DRM/entitlement, licensed text/artwork/manga pages/translations, store ecosystems, subscriptions/payments, regional availability, age gates, offline/download rights, reading history sync, personalization/analytics, privacy/compliance, native permission/background behavior, and Flutter/native runner blockers remain unresolved.
+  - Rollback note: revert this planning commit to reopen Step 15.19; close or revert the three downstream PR branches to undo scaffolds.
+  - Next command: `$run`
 - [ ] Step 15.20: Merge Step 15.19 PRs and execute eighteenth (final) tranche
+  - Merge Nook, MANGA Plus, and Shonen Jump PRs after checking PRIVATE visibility, non-draft clean PR state, source spec presence, blocker artifacts, validation evidence, and absence of `.github/workflows`.
+  - Execute final Tranche 18 lane packet:
+    - Lane A: VIZ Manga / VizShelf - `GeorgeQLe/viz-manga-mobile-clone`, branch `phase15/viz-manga-variant-scaffold`, source spec `docs/source-specs/912-viz-manga.md`.
+    - Lane B: Marvel Unlimited / HeroVault - `GeorgeQLe/marvel-unlimited-mobile-clone`, branch `phase15/marvel-unlimited-variant-scaffold`, source spec `docs/source-specs/913-marvel-unlimited.md`.
+    - Lane C: DC Universe Infinite / CosmicShelf - `GeorgeQLe/dc-universe-infinite-mobile-clone`, branch `phase15/dc-universe-infinite-variant-scaffold`, source spec `docs/source-specs/914-dc-universe-infinite.md`.
+  - For each lane, add synthetic comics/manga catalog, issue/chapter reader, library/favorites, progress, offline/entitlement/subscription fixtures; add validation scripts, blocker artifacts, implementation/validation docs, package/config files, and 5 variant surfaces.
+  - Required validation: lane-local `npm run validate`, variant structure checks, RN/Expo static tests where present, `git diff --check`, PR/repo/source-spec/workflow metadata checks, and planning repo `git diff --check`.
+  - Consolidation record must include PR URLs, commit SHAs, validation output, residual blockers, rollback notes, and rate-limit evidence.
 
 - [ ] Step 15.21: Merge Step 15.20 PRs and Phase 15 completion review
   - Merge final 3 PRs, verify all 54 apps merged, phase completion review.
