@@ -518,7 +518,30 @@
   - Residual risk: Step 15.17 PRs remain open for the next merge cycle; production catalog/provider integrations, DRM/entitlement, library card/institution access, licensed book text/artwork, store ecosystems, subscriptions/payments, offline/download rights, device sync, personalization/analytics, privacy/compliance, regional behavior, and Flutter/native runner blockers remain unresolved.
   - Rollback note: revert this planning commit to reopen Step 15.17; close or revert the three downstream PR branches to undo scaffolds.
   - Next command: `$run`
-- [ ] Step 15.18: Merge Step 15.17 PRs and execute sixteenth tranche
+- [x] Step 15.18: Merge Step 15.17 PRs and execute sixteenth tranche
+  - Merged 3 Step 15.17 PRs (Kindle/PageEmber, Libby/LibLend, Kobo Books/KoboShelf).
+  - Built variant scaffolds for 3 Tranche 16 e-reader/multi-format-library apps via branch-backed agent-team lanes.
+  - Each lane: created branch, added synthetic library/catalog/reader/progress/offline/entitlement fixtures or contracts, validation scripts, blocker artifacts, implementation/validation docs where applicable, package/config files, and 5 variant surfaces (React Native, Expo, Flutter, iOS Native, Android Native).
+  - Ran validation, opened PRs, and consolidation gate passed.
+  - Files: 3 downstream repos (shared/, variants/, scripts/, package/config, docs/implementation, docs/validation where added, tasks/blockers), `tasks/todo.md`, `tasks/history.md`
+  - **Merges:** Kindle PR #1 merged (`5f2171d`), Libby PR #1 merged (`752362f`), Kobo Books PR #1 merged (`353e874`).
+  - **Lane A (Apple Books/BookOrchard):** PR https://github.com/GeorgeQLe/apple-books-mobile-clone/pull/1 - commit `3905f5c` - `npm run check:structure` passed for 12 required paths; `npm run validate` passed for 5 variants; `npm test` passed 4 React Native/Expo scaffold tests; `git diff --check` PASS.
+  - **Lane B (Scribd/ScrollVault):** PR https://github.com/GeorgeQLe/scribd-mobile-clone/pull/1 - commit `5ef7a7b` - `npm run validate` PASS 25/25; `npm run check:variants` PASS 7/7; `npm run test:react-native` PASS 2/2; `npm run test:expo` PASS 2/2; `git diff --check` PASS.
+  - **Lane C (Google Play Books/PlayShelf):** PR https://github.com/GeorgeQLe/google-play-books-mobile-clone/pull/1 - commit `45e669a` - `npm run validate` PASS; `npm run validate:structure` PASS; `npm run test:rn` PASS; `npm run test:expo` PASS; `git diff --check` PASS.
+  - **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed targeting `main`, non-draft with clean merge state, source specs untouched (126-apple-books.md, 127-scribd.md, 898-google-play-books.md), blocker artifacts present, validation artifacts or validation commands present, no `.github/workflows` path on branches.
+  - **Rate limit:** pre-execution 4985/5000, post-consolidation 4984/5000.
+
+  **Review / Ship Manifest:**
+  - User goal: merge Step 15.17 validated PRs and execute Step 15.18 sixteenth Podcasts, Books & Reading tranche.
+  - Changed files: `tasks/todo.md`, `tasks/history.md`, plus 3 downstream repos on branch-backed PRs.
+  - Per-file purpose: `tasks/todo.md` records Step 15.18 completion and prepares Step 15.19; `tasks/history.md` records consolidation evidence, blockers, and rollback notes.
+  - User-goal mapping: downstream PRs provide Apple Books, Scribd, and Google Play Books five-variant scaffolds using synthetic e-reader, document, audiobook, catalog, progress, offline, entitlement, region, and subscription fixtures with explicit blocker artifacts.
+  - Tests run: lane-local validation commands, variant structure checks, React Native/Expo tests where added, `git diff --check`, GitHub PR/repo/source-spec/workflow metadata checks, and planning repo `git diff --check`.
+  - Skipped tests: no planning-repo executable app test suite was relevant because this repo only changed task/history Markdown for downstream evidence; downstream Flutter/iOS/Android runner tests were not added because the downstream repos have no dependency tree or native runner baseline.
+  - Adversarial review: checked PR targets/branches/non-draft state, clean merge state, changed-file boundaries, PRIVATE visibility, source-spec presence and untouched paths, blocker artifacts, validation artifacts or validation commands, and absence of GitHub Actions workflows.
+  - Residual risk: Step 15.18 PRs remain open for the next merge cycle; production catalog/provider integrations, DRM/entitlement, licensed text/artwork/audio/documents, store ecosystems, subscriptions/payments, offline/download rights, device sync, personalization/analytics, privacy/compliance, regional behavior, native permission/background behavior, and Flutter/native runner blockers remain unresolved.
+  - Rollback note: revert this planning commit to reopen Step 15.18; close or revert the three downstream PR branches to undo scaffolds.
+  - Next command: `$run`
 - [ ] Step 15.19: Merge Step 15.18 PRs and execute seventeenth tranche
 - [ ] Step 15.20: Merge Step 15.19 PRs and execute eighteenth (final) tranche
 

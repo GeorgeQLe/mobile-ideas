@@ -1,5 +1,39 @@
 # History
 
+## 2026-05-22 - Phase 15 Step 15.18 — Merge Tranche 15 PRs and Execute Sixteenth Tranche (Apple Books/Scribd/Google Play Books)
+
+- **Step 15.17 PR Merges:** Merged all three Step 15.17 PRs to `main`:
+  - `GeorgeQLe/kindle-mobile-clone` PR #1 (PageEmber) - merge commit `5f2171d`
+  - `GeorgeQLe/libby-mobile-clone` PR #1 (LibLend) - merge commit `752362f`
+  - `GeorgeQLe/kobo-books-mobile-clone` PR #1 (KoboShelf) - merge commit `353e874`
+- **Tranche 16 variant scaffolds:**
+  - Lane A: `GeorgeQLe/apple-books-mobile-clone` -> BookOrchard - PR https://github.com/GeorgeQLe/apple-books-mobile-clone/pull/1, commit `3905f5c`
+  - Lane B: `GeorgeQLe/scribd-mobile-clone` -> ScrollVault - PR https://github.com/GeorgeQLe/scribd-mobile-clone/pull/1, commit `5ef7a7b`
+  - Lane C: `GeorgeQLe/google-play-books-mobile-clone` -> PlayShelf - PR https://github.com/GeorgeQLe/google-play-books-mobile-clone/pull/1, commit `45e669a`
+- **Validation:** BookOrchard passed `npm run check:structure`, `npm run validate`, `npm test`, and `git diff --check`; ScrollVault passed `npm run validate` 25/25, `npm run check:variants` 7/7, `npm run test:react-native` 2/2, `npm run test:expo` 2/2, and `git diff --check`; PlayShelf passed `npm run validate`, `npm run validate:structure`, `npm run test:rn`, `npm run test:expo`, and `git diff --check`.
+- **Consolidation gate:** All 3 repos PRIVATE, PRs branch-backed targeting `main`, non-draft with clean merge state, source specs untouched (`126-apple-books.md`, `127-scribd.md`, `898-google-play-books.md`), blocker artifacts present, validation artifacts or validation commands present, and no `.github/workflows` path on branches.
+- **Rate limit:** pre-execution 4985/5000, post-consolidation 4984/5000.
+- **No proprietary assets, brand claims, copied media, private APIs, production data, public visibility changes, or GitHub Actions.**
+
+### Carry-Forward Blockers
+
+- **BookOrchard (Apple Books-Inspired):** Provider catalog integrations, DRM/entitlement, licensed text/artwork, Apple ecosystem/store behavior, subscriptions/payments, offline/download rights, personalization/analytics, privacy/compliance, regional behavior, and native runner/device verification remain blocked.
+- **ScrollVault (Scribd-Inspired):** Licensed catalog sources, subscription purchase/restore, DRM/unlock throttling, audiobook streaming rights, document rendering device verification, and privacy/compliance review remain blocked.
+- **PlayShelf (Google Play Books-Inspired):** Account/purchase/subscription sync, DRM/offline entitlement behavior, region/payment states, native permission/background download behavior, and first-party API or provider parity claims remain blocked pending lawful verification.
+
+### Ship Manifest
+
+- User goal: merge Step 15.17 validated PRs and execute Phase 15 Step 15.18 for Apple Books, Scribd, and Google Play Books across all five downstream variants each.
+- Changed files: three Step 15.17 downstream repos merged to main; three new downstream repos received synthetic fixtures/contracts, validation scripts/evidence, package scripts, blocker artifacts, implementation records, and React Native/Expo/Flutter/iOS Native/Android Native variant files; this planning repo changed `tasks/todo.md` and `tasks/history.md`.
+- Per-file purpose: downstream files provide original synthetic e-reader, document, audiobook, catalog, progress, offline, entitlement, region, and subscription surfaces with reproducible local checks; blocker artifacts document provider, media rights, DRM, store ecosystem, billing, region, privacy, native permission/background, and toolchain dependencies; task/history docs record completion and next work.
+- User-goal mapping: satisfies Step 15.18 without proprietary app assets, brand claims, copied code/media, private APIs, production data, public visibility changes, provider parity claims, or GitHub Actions.
+- Tests run: lane-local validation commands, variant structure checks, React Native/Expo tests where added, `git diff --check`, GitHub PR/repo/source-spec/workflow metadata checks, and planning repo `git diff --check`.
+- Skipped tests: no planning-repo executable app test suite was relevant because this repo only changed task/history Markdown for downstream evidence; downstream Flutter/iOS/Android runner tests were not added because the downstream repos have no dependency tree or native runner baseline.
+- Adversarial review: checked PR targets/branches/non-draft state, clean merge state, changed-file boundaries, PRIVATE visibility, source-spec presence and untouched paths, blocker artifacts, validation artifacts or validation commands, and absence of GitHub Actions workflows.
+- Residual risk: Step 15.18 PRs remain open for the next merge cycle; production catalog/provider integrations, DRM/entitlement, licensed text/artwork/audio/documents, store ecosystems, subscriptions/payments, offline/download rights, device sync, personalization/analytics, privacy/compliance, regional behavior, native permission/background behavior, and Flutter/native runner blockers remain unresolved.
+- Rollback note: revert this planning commit to reopen Step 15.18; close or revert the three downstream PR branches to undo scaffolds.
+- Next command: `$run`
+
 ## 2026-05-22 - Phase 15 Step 15.16 — Merge Tranche 13 PRs and Execute Fourteenth Tranche (Headway/Serial Reader/Webtoon)
 
 - **Step 15.15 PR Merges:** Merged all three Step 15.15 PRs to `main`:
