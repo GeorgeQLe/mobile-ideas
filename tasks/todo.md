@@ -783,7 +783,7 @@
   - Post-merge verification confirmed each repo remains `PRIVATE`, defaults to `main`, has the copied source spec under `docs/source-specs/`, and has no `.github/workflows` directory.
   - Post-merge rate-limit snapshot: core `used=90`, `remaining=4910`, `reset=1779909925`; GraphQL `used=226`, `remaining=4774`, `reset=1779908063`.
 
-- [ ] Step 16.15: Implement seventh Photo & Video Creation tranche across five downstream repos
+- [x] Step 16.15: Implement seventh Photo & Video Creation tranche across five downstream repos
   - Build all five variants for `CutFlow`, `MasterLayer`, `SpliceBoard`, `FusionFrame`, and `LeapStudio` in the selected downstream repos.
   - Keep work serial in this shared tree unless a later explicit `agent-team` plan creates separate branch-backed lanes with PR consolidation. Do not use GitHub Actions.
   - For each repo, verify it is `PRIVATE`, uses `main` as the target branch, contains the copied source spec under `docs/source-specs/`, and has no `.github/workflows` path before making changes.
@@ -846,6 +846,45 @@
   - Every selected repo has validation evidence for fixture/contract integrity and variant structure.
   - Core workflows are represented: timeline edit/export for `CutFlow`, multi-layer edit/export for `MasterLayer`, quick splice/export for `SpliceBoard`, pro multi-track export for `FusionFrame`, and effect stack/export for `LeapStudio`.
   - No downstream repo becomes public, gains GitHub Actions workflows, or claims verified provider/native/AI/video/camera parity without evidence.
+
+  **Result:**
+  Step 16.15 created branch-backed PRs for all five seventh-tranche repos:
+
+  | ID | Product | Repo | Branch | Commit | PR | Local Score |
+  |---:|---|---|---|---|---|---:|
+  | 249 | CutFlow | `GeorgeQLe/vn-video-editor-mobile-clone` | `phase16-step16-15-vn-video-editor` | `d1bc680` | https://github.com/GeorgeQLe/vn-video-editor-mobile-clone/pull/1 | 96/100 |
+  | 250 | MasterLayer | `GeorgeQLe/kinemaster-mobile-clone` | `phase16-step16-15-kinemaster` | `5f9b94d` | https://github.com/GeorgeQLe/kinemaster-mobile-clone/pull/1 | 96/100 |
+  | 251 | SpliceBoard | `GeorgeQLe/splice-mobile-clone` | `phase16-step16-15-splice` | `41e826c` | https://github.com/GeorgeQLe/splice-mobile-clone/pull/1 | 96/100 |
+  | 252 | FusionFrame | `GeorgeQLe/lumafusion-mobile-clone` | `phase16-step16-15-lumafusion` | `8d43fb2` | https://github.com/GeorgeQLe/lumafusion-mobile-clone/pull/1 | 96/100 |
+  | 253 | LeapStudio | `GeorgeQLe/videoleap-mobile-clone` | `phase16-step16-15-videoleap` | `9c2b1ef` | https://github.com/GeorgeQLe/videoleap-mobile-clone/pull/1 | 96/100 |
+
+  **Validation Evidence:**
+  - Each repo passed `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, and `git diff --check`.
+  - Each PR is open, non-draft, targets `main`, has `CLEAN` merge state, is `MERGEABLE`, and changes only planned Phase 16 scaffold paths.
+  - Each repo remains `PRIVATE`, defaults to `main`, keeps the copied source spec under `docs/source-specs/`, and has no `.github/workflows` directory.
+  - Each PR file list was checked and contains no `.github/workflows` path.
+  - Pre-execution rate-limit snapshot: core `used=90`, `remaining=4910`, `reset=1779909925`; GraphQL `used=227`, `remaining=4773`, `reset=1779908063`.
+  - Post-execution rate-limit snapshot: core `used=100`, `remaining=4900`, `reset=1779909925`; GraphQL `used=10`, `remaining=4990`, `reset=1779911744`.
+  - Native runtime parity remains blocked: Flutter/iOS/Android compile, GPU/media rendering, native camera/photo-library/file-picker/share-sheet behavior, codec/export behavior, video timeline export, AI/effect execution, and real-device performance are documented as blockers.
+  - Legal/provider/safety blockers remain explicit: licensed layouts/templates/fonts/stock/stickers/presets/filters/effects/music, model weights, proprietary algorithms, AI/video/media safety, consent/disclosure/bias review, cloud sync, provider import/export, marketplace publishing, subscriptions/payments, production media, and credentials.
+
+- [ ] Step 16.16: Merge seventh tranche PRs and plan the eighth Photo & Video Creation implementation tranche
+  - Merge the five Step 16.15 PRs only after confirming they are still open, non-draft, clean, private, source-spec-backed, and free of `.github/workflows`.
+  - Select the next 5 Phase 16 apps from the reconciled inventory, continuing through remaining video editor and animation/effects workflows.
+  - Candidate eighth tranche: Filmora (`254`), Alight Motion (`255`), Mojo (`256`), Apple Clips (`257`), and Magisto (`258`).
+  - Define original product names, branch names, owned downstream paths, validation commands, and blocker carry-forward for each app.
+  - Update this file with executable Step 16.17 implementation instructions.
+  - Files: modify `tasks/todo.md`, `tasks/history.md`, and merge state in the five Step 16.15 downstream repos only.
+
+  **What to Build:**
+  A merge-and-planning packet for the eighth Phase 16 tranche. This step should not scaffold the eighth-tranche variants yet; it should close the seventh-tranche PR loop and prepare a bounded execution plan for the next implementation step.
+
+  **Approach:**
+  1. Verify Step 16.15 PR metadata with `gh pr view` for all five repos.
+  2. Merge the PRs serially into `main` if all gates remain clean.
+  3. Verify merged repos remain private, source specs remain present, and no `.github/workflows` path exists.
+  4. Use `tasks/repo-seeding.md` and source specs to define the eighth tranche.
+  5. Record validation/merge evidence and write the Step 16.17 implementation packet.
 
 ### Milestone: Phase 16 — Photo & Video Creation Complete
 **Acceptance Criteria:**
