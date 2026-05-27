@@ -106,7 +106,7 @@
   - Licensed templates, music, fonts, stock assets, stickers, presets, filters, AI/beauty effects, branded content, proprietary algorithms, private APIs, production user data, and third-party provider credentials.
   - Flutter/iOS/Android native runner or local toolchain gaps must be recorded as explicit blockers instead of hidden failures.
 
-- [ ] Step 16.3: Implement first Photo & Video Creation tranche across five downstream repos
+- [x] Step 16.3: Implement first Photo & Video Creation tranche across five downstream repos
   - Build all five variants for `ClipForge`, `CanvasKit`, `ToneLab`, `MemoryGrid`, and `CollageBoard` in the selected downstream repos.
   - Keep work serial in this shared tree unless a later explicit `agent-team` plan creates separate branch-backed lanes with PR consolidation. Do not use GitHub Actions.
   - For each repo, verify it is `PRIVATE`, uses `main` as the target branch, contains the copied source spec under `docs/source-specs/`, and has no `.github/workflows` path before making changes.
@@ -129,6 +129,42 @@
   - Every selected repo has validation evidence for fixture/contract integrity and variant structure.
   - Core workflows are represented: timeline edit/export for `ClipForge`, canvas layer edit/export for `CanvasKit`, crop/filter/adjust/export for `ToneLab`, library/search/edit/export for `MemoryGrid`, and collage layout/edit/export for `CollageBoard`.
   - No downstream repo becomes public, gains GitHub Actions workflows, or claims verified provider/native parity without evidence.
+
+  **Result:**
+  Step 16.3 created branch-backed PRs for all five first-tranche repos:
+
+  | ID | Product | Repo | Branch | Commit | PR | Local Score |
+  |---:|---|---|---|---|---|---:|
+  | 096 | ClipForge | `GeorgeQLe/capcut-mobile-clone` | `phase16-step16-3-capcut` | `2b8f7b8` | https://github.com/GeorgeQLe/capcut-mobile-clone/pull/1 | 96/100 |
+  | 097 | CanvasKit | `GeorgeQLe/canva-mobile-clone` | `phase16-step16-3-canva` | `b538aff` | https://github.com/GeorgeQLe/canva-mobile-clone/pull/1 | 96/100 |
+  | 098 | ToneLab | `GeorgeQLe/lightroom-mobile-clone` | `phase16-step16-3-lightroom` | `f0ac995` | https://github.com/GeorgeQLe/lightroom-mobile-clone/pull/1 | 96/100 |
+  | 099 | MemoryGrid | `GeorgeQLe/google-photos-mobile-clone` | `phase16-step16-3-google-photos` | `5fb94ee` | https://github.com/GeorgeQLe/google-photos-mobile-clone/pull/1 | 96/100 |
+  | 243 | CollageBoard | `GeorgeQLe/piccollage-mobile-clone` | `phase16-step16-3-piccollage` | `aa555b1` | https://github.com/GeorgeQLe/piccollage-mobile-clone/pull/1 | 96/100 |
+
+  **Validation Evidence:**
+  - Each repo passed `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, and `git diff --check`.
+  - Each PR is open, non-draft, targets `main`, has clean merge state, and changes only the planned Phase 16 scaffold paths.
+  - Each repo remains `PRIVATE`, keeps the copied source spec under `docs/source-specs/`, and has no `.github/workflows` path in the PR file list.
+  - Native runtime parity remains blocked: Flutter/iOS/Android compile, GPU/media rendering, codec/export behavior, camera/photo-library/file-picker/share-sheet behavior, and real-device performance are documented as blockers.
+  - Legal/provider blockers remain explicit: licensed templates/music/fonts/stock/stickers/presets/filters, proprietary algorithms, cloud sync, collaboration, backup, provider import/export, production user data, credentials, subscriptions, and AI/beauty safety review.
+
+- [ ] Step 16.4: Merge first tranche PRs and plan the second Photo & Video Creation implementation tranche
+  - Merge the five Step 16.3 PRs only after confirming they are still open, non-draft, clean, private, source-spec-backed, and free of `.github/workflows`.
+  - Select the next 5 Phase 16 apps from the reconciled inventory, prioritizing photo editing/design workflows after the first mixed tranche.
+  - Candidate second tranche: Picsart (`223`), VSCO (`224`), Snapseed (`225`), Adobe Express (`226`), and Photoshop Express (`227`).
+  - Define original product names, branch names, owned downstream paths, validation commands, and blocker carry-forward for each app.
+  - Update this file with executable Step 16.5 implementation instructions.
+  - Files: modify `tasks/todo.md`, `tasks/history.md`, and merge state in the five Step 16.3 downstream repos only.
+
+  **What to Build:**
+  A merge-and-planning packet for the second Phase 16 tranche. This step should not scaffold the second-tranche variants yet; it should close the first-tranche PR loop and prepare a bounded execution plan for the next implementation step.
+
+  **Approach:**
+  1. Verify Step 16.3 PR metadata with `gh pr view` for all five repos.
+  2. Merge the PRs serially into `main` if all gates remain clean.
+  3. Verify merged repos remain private, source specs remain present, and no `.github/workflows` path exists.
+  4. Use `tasks/repo-seeding.md` and source specs to define the second tranche.
+  5. Record validation/merge evidence and write the Step 16.5 implementation packet.
 
 ### Milestone: Phase 16 — Photo & Video Creation Complete
 **Acceptance Criteria:**

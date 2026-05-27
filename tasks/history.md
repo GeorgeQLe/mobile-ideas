@@ -5567,3 +5567,37 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Residual risk: Step 15.20 PRs remain open for the next merge cycle; production catalog/provider integrations, DRM/entitlement, licensed text/artwork/comic pages/translations, store ecosystems, subscriptions/payments, regional availability, age gates, offline/download rights, reading history sync, personalization/analytics, privacy/compliance, native permission/background behavior, and Flutter/native runner blockers remain unresolved.
 - Rollback note: revert this planning commit to reopen Step 15.20; close or revert the three downstream PR branches to undo scaffolds.
 - Next: Step 15.21 - merge Step 15.20 PRs and Phase 15 completion review.
+
+## Step 16.3 - First Photo & Video Creation Tranche (2026-05-27)
+
+### New Downstream Scaffolds
+- Lane 16.3-A: `GeorgeQLe/capcut-mobile-clone` PR#1 (ClipForge) - CapCut-inspired synthetic video timeline, trim/split, text overlay, effects, audio placeholder, and export queue scaffold.
+- Lane 16.3-B: `GeorgeQLe/canva-mobile-clone` PR#1 (CanvasKit) - Canva-inspired synthetic canvas, template, layer, text/image block, resize, share, and export scaffold.
+- Lane 16.3-C: `GeorgeQLe/lightroom-mobile-clone` PR#1 (ToneLab) - Lightroom-inspired synthetic photo import, crop, adjustment, original preset, before/after, album export, and edit-history scaffold.
+- Lane 16.3-D: `GeorgeQLe/google-photos-mobile-clone` PR#1 (MemoryGrid) - Google Photos-inspired synthetic library, albums, search facets, memories, quick edit, selection, share, and export scaffold.
+- Lane 16.3-E: `GeorgeQLe/piccollage-mobile-clone` PR#1 (CollageBoard) - PicCollage-inspired synthetic collage grid, placeholder image, sticker shape, text, background, and export scaffold.
+
+### Validation
+- ClipForge: `npm run validate` PASS with 5 surfaces, 6 assets, score 96, 13 blockers; `npm run check:variants` PASS for 8 variant files; `npm run test:react-native` PASS; `npm run test:expo` PASS; `git diff --check` PASS.
+- CanvasKit: `npm run validate` PASS with 5 surfaces, 6 assets, score 96, 13 blockers; `npm run check:variants` PASS for 8 variant files; `npm run test:react-native` PASS; `npm run test:expo` PASS; `git diff --check` PASS.
+- ToneLab: `npm run validate` PASS with 5 surfaces, 6 assets, score 96, 13 blockers; `npm run check:variants` PASS for 8 variant files; `npm run test:react-native` PASS; `npm run test:expo` PASS; `git diff --check` PASS.
+- MemoryGrid: `npm run validate` PASS with 5 surfaces, 6 assets, score 96, 13 blockers; `npm run check:variants` PASS for 8 variant files; `npm run test:react-native` PASS; `npm run test:expo` PASS; `git diff --check` PASS.
+- CollageBoard: `npm run validate` PASS with 5 surfaces, 6 assets, score 96, 13 blockers; `npm run check:variants` PASS for 8 variant files; `npm run test:react-native` PASS; `npm run test:expo` PASS; `git diff --check` PASS.
+- Consolidation gate: all five repos PRIVATE, PRs branch-backed targeting `main`, non-draft with clean merge state, source specs present, changed-file lists confined to planned Phase 16 scaffold paths, and no `.github/workflows` path in PR file lists.
+- Rate limit after PR verification: core `used=15`, `remaining=4985`, `reset=1779906187`.
+
+### Carry-Forward Blockers
+- Account lifecycle, subscription/payment/restore, camera/photo-library/file-picker/share-sheet permissions, push/background export, native codec availability, GPU rendering, large-media performance, cloud sync, collaboration, backup, provider import/export, production user data, credentials, licensed templates/music/fonts/stock/stickers/presets/filters, proprietary algorithms, AI/beauty safety review, Flutter runtime, iOS native runner, Android Native runner, and real-device verification remain blocked.
+- Static scaffold scores are structure/contract validation scores only; no runtime media-performance or provider/native parity is claimed.
+
+### Ship Manifest
+- User goal: execute Step 16.3 first Photo & Video Creation tranche across five downstream repos.
+- Changed files: `scripts/implement-phase16-step16-3.mjs`, `tasks/todo.md`, `tasks/history.md`, plus five downstream branch-backed PRs.
+- Per-file purpose: generator script creates repeatable Phase 16 scaffold artifacts; `tasks/todo.md` records Step 16.3 completion and Step 16.4 execution detail; `tasks/history.md` records downstream PRs, validation, blockers, and rollback notes.
+- User-goal mapping: downstream PRs provide five variant surfaces each for timeline editing, canvas editing, photo adjustment, photo library/search, and collage workflows with synthetic fixtures/contracts and explicit blockers.
+- Tests run: downstream `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, `git diff --check`; GitHub PR/repo/source-spec/workflow metadata checks.
+- Skipped tests: planning repo has no executable app test suite; native Flutter/iOS/Android runtime tests were not run because the downstream repos do not yet have real runner baselines or local native toolchain contracts.
+- Adversarial review: verified PR base/head/non-draft/clean merge state, private visibility, source-spec presence, changed-file boundaries, no GitHub Actions workflows, synthetic-media-only fixtures, blocker artifacts, validation docs, and local score evidence.
+- Residual risk: PRs remain open for Step 16.4 merge; native media/runtime/provider/licensed-asset parity remains blocked.
+- Rollback note: revert this planning commit to reopen Step 16.3 in task history; close or revert the five downstream PR branches to undo scaffolds.
+- Next: Step 16.4 - merge first tranche PRs and plan second Photo & Video Creation tranche.
