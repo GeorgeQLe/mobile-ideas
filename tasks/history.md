@@ -1,5 +1,37 @@
 # History
 
+## 2026-05-27 - Phase 16 Step 16.9: Fourth Photo & Video Creation Tranche
+
+- Built the fourth Phase 16 implementation tranche as branch-backed PRs across five private downstream repos:
+  - `GeorgeQLe/prequel-mobile-clone` -> `EffectDeck` - PR https://github.com/GeorgeQLe/prequel-mobile-clone/pull/1, commit `5ef0953`
+  - `GeorgeQLe/facetune-mobile-clone` -> `PortraitForge` - PR https://github.com/GeorgeQLe/facetune-mobile-clone/pull/1, commit `19f06f8`
+  - `GeorgeQLe/beautyplus-mobile-clone` -> `GlowSuite` - PR https://github.com/GeorgeQLe/beautyplus-mobile-clone/pull/1, commit `699bd43`
+  - `GeorgeQLe/snow-mobile-clone` -> `StickerCam` - PR https://github.com/GeorgeQLe/snow-mobile-clone/pull/1, commit `0583d08`
+  - `GeorgeQLe/meitu-mobile-clone` -> `MeiCanvas` - PR https://github.com/GeorgeQLe/meitu-mobile-clone/pull/1, commit `a80a66a`
+- Each repo received original synthetic fixtures/contracts, validation scripts, blocker notes, validation docs, and five variant surfaces: React Native, Expo, Flutter, iOS Native, and Android Native.
+- Validation passed in every repo: `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, and `git diff --check`.
+- Verified each PR is open, non-draft, targets `main`, has `CLEAN` merge state, is `MERGEABLE`, remains private/source-spec-backed, and contains no `.github/workflows` path.
+- Rate-limit evidence: pre-execution core `4834/5000` remaining and GraphQL `4939/5000` remaining; post-execution core `4764/5000` remaining and GraphQL `4906/5000` remaining.
+- Planned Step 16.10 to merge these PRs and scope the fifth Photo & Video Creation tranche: Polish, PhotoRoom, Pixelcut, Lensa, and Remini.
+
+### Carry-Forward Blockers
+
+- Native runtime parity remains blocked: Flutter/iOS/Android compile, GPU/media rendering, native camera/photo-library/file-picker/share-sheet behavior, AR/camera behavior, codec/export behavior, and real-device performance.
+- Legal/provider/safety blockers remain explicit: licensed templates/fonts/stock/stickers/presets/filters/effects, model weights, proprietary algorithms, AI/beauty/face/minor safety, consent/disclosure/bias review, cloud sync, provider import/export, subscriptions/payments, production user media, and credentials.
+
+### Ship Manifest
+
+- User goal: execute Phase 16 Step 16.9 by implementing the fourth Photo & Video Creation tranche across five downstream repos.
+- Changed files: five downstream PR branches; this planning repo changed `tasks/todo.md` and `tasks/history.md`.
+- Per-file purpose: downstream repos add Phase 16 fixtures, contracts, variants, validation scripts, implementation notes, blocker notes, and validation evidence; `tasks/todo.md` records completion evidence and Step 16.10 instructions; `tasks/history.md` records execution evidence and the shipping boundary.
+- User-goal mapping: Step 16.9 required building the fourth tranche variants while preserving private repos, lawful synthetic assets, blocker clarity, and local validation evidence.
+- Tests run: each downstream repo passed `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, and `git diff --check`; PR/repo gates were verified with `gh pr view`, `gh repo view`, and `gh api`; planning repo ran `git diff --check`.
+- Skipped tests: Flutter/iOS/Android runtime builds, real-device camera/photo-library/share-sheet tests, AR/AI/beauty provider tests, codec/export benchmarks, and licensed-media/provider workflows were skipped because local toolchains, real devices, provider credentials, safety review, and asset licenses are blocked by design.
+- Adversarial review: checked branch/PR gates, private visibility, source-spec presence, workflow absence, synthetic-only fixture flags, validation scripts, blocker docs, no native/provider/AI/camera/AR parity claims, and next-step handoff completeness.
+- Residual risk: fourth-tranche PRs are not merged yet; runtime and provider behavior remains unverified until separate native/device/provider/safety work is approved and evidenced.
+- Rollback note: close the five Step 16.9 PRs and delete their branches to remove downstream changes; revert this planning commit to reopen Step 16.9 in task docs.
+- Next command: `$exec` for Step 16.10.
+
 ## 2026-05-27 - Phase 16 Step 16.8: Third Tranche Merge and Fourth Tranche Plan
 
 - Merged all five Step 16.7 third-tranche PRs serially into `main`:

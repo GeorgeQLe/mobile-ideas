@@ -423,7 +423,7 @@
   - Post-merge verification confirmed each repo remains `PRIVATE`, defaults to `main`, has the copied source spec under `docs/source-specs/`, and has no `.github/workflows` directory.
   - Post-merge rate-limit snapshot: core `used=166`, `remaining=4834`, `reset=1779906187`; GraphQL `used=42`, `remaining=4958`, `reset=1779908063`.
 
-- [ ] Step 16.9: Implement fourth Photo & Video Creation tranche across five downstream repos
+- [x] Step 16.9: Implement fourth Photo & Video Creation tranche across five downstream repos
   - Build all five variants for `EffectDeck`, `PortraitForge`, `GlowSuite`, `StickerCam`, and `MeiCanvas` in the selected downstream repos.
   - Keep work serial in this shared tree unless a later explicit `agent-team` plan creates separate branch-backed lanes with PR consolidation. Do not use GitHub Actions.
   - For each repo, verify it is `PRIVATE`, uses `main` as the target branch, contains the copied source spec under `docs/source-specs/`, and has no `.github/workflows` path before making changes.
@@ -486,6 +486,45 @@
   - Every selected repo has validation evidence for fixture/contract integrity and variant structure.
   - Core workflows are represented: effect stack/export for `EffectDeck`, portrait retouch/export for `PortraitForge`, beauty camera/edit/export for `GlowSuite`, AR sticker/camera export for `StickerCam`, and beauty/AI-art edit/export for `MeiCanvas`.
   - No downstream repo becomes public, gains GitHub Actions workflows, or claims verified provider/native/AI/camera/AR parity without evidence.
+
+  **Result:**
+  Step 16.9 created branch-backed PRs for all five fourth-tranche repos:
+
+  | ID | Product | Repo | Branch | Commit | PR | Local Score |
+  |---:|---|---|---|---|---|---:|
+  | 233 | EffectDeck | `GeorgeQLe/prequel-mobile-clone` | `phase16-step16-9-prequel` | `5ef0953` | https://github.com/GeorgeQLe/prequel-mobile-clone/pull/1 | 96/100 |
+  | 234 | PortraitForge | `GeorgeQLe/facetune-mobile-clone` | `phase16-step16-9-facetune` | `19f06f8` | https://github.com/GeorgeQLe/facetune-mobile-clone/pull/1 | 96/100 |
+  | 235 | GlowSuite | `GeorgeQLe/beautyplus-mobile-clone` | `phase16-step16-9-beautyplus` | `699bd43` | https://github.com/GeorgeQLe/beautyplus-mobile-clone/pull/1 | 96/100 |
+  | 236 | StickerCam | `GeorgeQLe/snow-mobile-clone` | `phase16-step16-9-snow` | `0583d08` | https://github.com/GeorgeQLe/snow-mobile-clone/pull/1 | 96/100 |
+  | 237 | MeiCanvas | `GeorgeQLe/meitu-mobile-clone` | `phase16-step16-9-meitu` | `a80a66a` | https://github.com/GeorgeQLe/meitu-mobile-clone/pull/1 | 96/100 |
+
+  **Validation Evidence:**
+  - Each repo passed `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, and `git diff --check`.
+  - Each PR is open, non-draft, targets `main`, has `CLEAN` merge state, is `MERGEABLE`, and changes only planned Phase 16 scaffold paths.
+  - Each repo remains `PRIVATE`, defaults to `main`, keeps the copied source spec under `docs/source-specs/`, and has no `.github/workflows` directory.
+  - Each PR file list was checked and contains no `.github/workflows` path.
+  - Pre-execution rate-limit snapshot: core `used=166`, `remaining=4834`, `reset=1779906187`; GraphQL `used=61`, `remaining=4939`, `reset=1779908063`.
+  - Post-execution rate-limit snapshot: core `used=236`, `remaining=4764`, `reset=1779906187`; GraphQL `used=94`, `remaining=4906`, `reset=1779908063`.
+  - Native runtime parity remains blocked: Flutter/iOS/Android compile, GPU/media rendering, native camera/photo-library/file-picker/share-sheet behavior, codec/export behavior, AR camera behavior, and real-device performance are documented as blockers.
+  - Legal/provider/safety blockers remain explicit: licensed templates/fonts/stock/stickers/presets/filters/effects, model weights, proprietary algorithms, AI/beauty/face/minor safety, consent/disclosure/bias review, cloud sync, provider import/export, subscriptions/payments, production user media, and credentials.
+
+- [ ] Step 16.10: Merge fourth tranche PRs and plan the fifth Photo & Video Creation implementation tranche
+  - Merge the five Step 16.9 PRs only after confirming they are still open, non-draft, clean, private, source-spec-backed, and free of `.github/workflows`.
+  - Select the next 5 Phase 16 apps from the reconciled inventory, continuing through AI/beauty/effects and creator-commerce photo tools.
+  - Candidate fifth tranche: Polish (`238`), PhotoRoom (`239`), Pixelcut (`240`), Lensa (`241`), and Remini (`242`).
+  - Define original product names, branch names, owned downstream paths, validation commands, and blocker carry-forward for each app.
+  - Update this file with executable Step 16.11 implementation instructions.
+  - Files: modify `tasks/todo.md`, `tasks/history.md`, and merge state in the five Step 16.9 downstream repos only.
+
+  **What to Build:**
+  A merge-and-planning packet for the fifth Phase 16 tranche. This step should not scaffold the fifth-tranche variants yet; it should close the fourth-tranche PR loop and prepare a bounded execution plan for the next implementation step.
+
+  **Approach:**
+  1. Verify Step 16.9 PR metadata with `gh pr view` for all five repos.
+  2. Merge the PRs serially into `main` if all gates remain clean.
+  3. Verify merged repos remain private, source specs remain present, and no `.github/workflows` path exists.
+  4. Use `tasks/repo-seeding.md` and source specs to define the fifth tranche.
+  5. Record validation/merge evidence and write the Step 16.11 implementation packet.
 
 ### Milestone: Phase 16 — Photo & Video Creation Complete
 **Acceptance Criteria:**
