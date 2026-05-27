@@ -1,5 +1,38 @@
 # History
 
+## 2026-05-27 - Phase 16 Step 16.7: Third Photo & Video Creation Tranche
+
+- Built the third Phase 16 implementation tranche as branch-backed PRs across five private downstream repos:
+  - `GeorgeQLe/procreate-pocket-mobile-clone` -> `BrushPocket` - PR https://github.com/GeorgeQLe/procreate-pocket-mobile-clone/pull/1, commit `e2f3aaa`
+  - `GeorgeQLe/sketchbook-mobile-clone` -> `SketchTable` - PR https://github.com/GeorgeQLe/sketchbook-mobile-clone/pull/1, commit `77b464f`
+  - `GeorgeQLe/ibis-paint-x-mobile-clone` -> `LayerInk` - PR https://github.com/GeorgeQLe/ibis-paint-x-mobile-clone/pull/1, commit `127dec2`
+  - `GeorgeQLe/clip-studio-paint-mobile-clone` -> `PanelForge` - PR https://github.com/GeorgeQLe/clip-studio-paint-mobile-clone/pull/1, commit `e08a4b3`
+  - `GeorgeQLe/bazaart-mobile-clone` -> `CutoutStudio` - PR https://github.com/GeorgeQLe/bazaart-mobile-clone/pull/1, commit `3278dc2`
+- Each repo received original synthetic fixtures/contracts, validation scripts, blocker notes, validation docs, and five variant surfaces: React Native, Expo, Flutter, iOS Native, and Android Native.
+- Validation passed in every repo: `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, and `git diff --check`.
+- Consolidation gate: all five PRs are open, non-draft, targeting `main`, `CLEAN`, `MERGEABLE`, branch-backed, source-spec-backed, and free of `.github/workflows` in PR file lists.
+- Repository gate: all five repos remain `PRIVATE`, default to `main`, retain copied source specs under `docs/source-specs/`, and have no `.github/workflows` directory.
+- Rate-limit evidence: pre-execution core `4894/5000` remaining and GraphQL `4897/5000` remaining; post-execution core `4864/5000` remaining and GraphQL `4980/5000` remaining.
+- No proprietary assets, brand claims, copied brushes/templates/artwork, private APIs, production data, provider credentials, public visibility changes, or GitHub Actions.
+
+### Carry-Forward Blockers
+
+- Native runtime parity remains blocked: Flutter/iOS/Android compile, GPU canvas/rendering, stylus and gesture behavior, native camera/photo-library/file-picker/share-sheet behavior, codec/export behavior, and real-device performance.
+- Legal/provider blockers remain explicit: licensed brushes, materials, templates, fonts, stock/stickers/presets/filters/artwork, proprietary algorithms, AI/provider cutout behavior, community/cloud sync, provider publishing/import/export, subscriptions/payments, production user media, and credentials.
+
+### Ship Manifest
+
+- User goal: execute Phase 16 Step 16.7 for Procreate Pocket, Sketchbook, ibis Paint X, Clip Studio Paint, and Bazaart across all five downstream variants each.
+- Changed files: five downstream repos received synthetic fixtures/contracts, validation scripts/evidence, package scripts, blocker artifacts, implementation records, and React Native/Expo/Flutter/iOS Native/Android Native variant files; this planning repo changed `tasks/todo.md` and `tasks/history.md`.
+- Per-file purpose: downstream files provide original synthetic drawing, sketching, illustration, comic-panel, cutout/composite, export, and blocker surfaces with reproducible local checks; task/history docs record completion evidence and the next merge/planning step.
+- User-goal mapping: satisfies Step 16.7 without proprietary app assets, brand claims, copied code/media/brushes/templates/artwork, private APIs, production data, provider parity claims, public visibility changes, or GitHub Actions.
+- Tests run: each downstream repo ran `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, and `git diff --check`; GitHub PR/repo/source-spec/workflow metadata checks; planning repo `git diff --check` and task-doc checks.
+- Skipped tests: no planning-repo executable app suite exists because this repo only changed Markdown task/history evidence; downstream Flutter/iOS/Android runner tests were not added because the repos have no dependency tree or native runner baseline, so those remain explicit blockers.
+- Adversarial review: checked PR target branches, open/non-draft state, clean mergeability, changed-file boundaries, PRIVATE visibility, source-spec presence, blocker artifacts, validation artifacts, no workflow files, and no unsupported native/provider/GPU parity claims.
+- Residual risk: Step 16.7 PRs remain open for the next merge cycle; native runtime behavior, provider integrations, licensed assets/brushes/materials/templates, AI/provider cutout behavior, cloud sync, subscriptions/payments, real-device performance, privacy/compliance, and store-readiness remain unresolved.
+- Rollback note: revert this planning commit to reopen Step 16.7; close or revert the five downstream PR branches to undo scaffolds.
+- Next command: `$exec` for Step 16.8.
+
 ## 2026-05-27 - Phase 16 Step 16.5: Second Photo & Video Creation Tranche
 
 - Built the second Phase 16 implementation tranche as branch-backed PRs across five private downstream repos:

@@ -303,7 +303,7 @@
   - Post-merge verification confirmed each repo remains `PRIVATE`, defaults to `main`, has the copied source spec under `docs/source-specs/`, and has no `.github/workflows` directory.
   - Post-merge rate-limit snapshot: core `used=106`, `remaining=4894`, `reset=1779906187`; GraphQL `used=102`, `remaining=4898`, `reset=1779904183`.
 
-- [ ] Step 16.7: Implement third Photo & Video Creation tranche across five downstream repos
+- [x] Step 16.7: Implement third Photo & Video Creation tranche across five downstream repos
   - Build all five variants for `BrushPocket`, `SketchTable`, `LayerInk`, `PanelForge`, and `CutoutStudio` in the selected downstream repos.
   - Keep work serial in this shared tree unless a later explicit `agent-team` plan creates separate branch-backed lanes with PR consolidation. Do not use GitHub Actions.
   - For each repo, verify it is `PRIVATE`, uses `main` as the target branch, contains the copied source spec under `docs/source-specs/`, and has no `.github/workflows` path before making changes.
@@ -366,6 +366,45 @@
   - Every selected repo has validation evidence for fixture/contract integrity and variant structure.
   - Core workflows are represented: pocket drawing/export for `BrushPocket`, sketch/layer/export for `SketchTable`, illustration/layer/export for `LayerInk`, comic panel/material/export for `PanelForge`, and cutout/composite/export for `CutoutStudio`.
   - No downstream repo becomes public, gains GitHub Actions workflows, or claims verified provider/native/GPU parity without evidence.
+
+  **Result:**
+  Step 16.7 created branch-backed PRs for all five third-tranche repos:
+
+  | ID | Product | Repo | Branch | Commit | PR | Local Score |
+  |---:|---|---|---|---|---|---:|
+  | 228 | BrushPocket | `GeorgeQLe/procreate-pocket-mobile-clone` | `phase16-step16-7-procreate-pocket` | `e2f3aaa` | https://github.com/GeorgeQLe/procreate-pocket-mobile-clone/pull/1 | 96/100 |
+  | 229 | SketchTable | `GeorgeQLe/sketchbook-mobile-clone` | `phase16-step16-7-sketchbook` | `77b464f` | https://github.com/GeorgeQLe/sketchbook-mobile-clone/pull/1 | 96/100 |
+  | 230 | LayerInk | `GeorgeQLe/ibis-paint-x-mobile-clone` | `phase16-step16-7-ibis-paint-x` | `127dec2` | https://github.com/GeorgeQLe/ibis-paint-x-mobile-clone/pull/1 | 96/100 |
+  | 231 | PanelForge | `GeorgeQLe/clip-studio-paint-mobile-clone` | `phase16-step16-7-clip-studio-paint` | `e08a4b3` | https://github.com/GeorgeQLe/clip-studio-paint-mobile-clone/pull/1 | 96/100 |
+  | 232 | CutoutStudio | `GeorgeQLe/bazaart-mobile-clone` | `phase16-step16-7-bazaart` | `3278dc2` | https://github.com/GeorgeQLe/bazaart-mobile-clone/pull/1 | 96/100 |
+
+  **Validation Evidence:**
+  - Each repo passed `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, and `git diff --check`.
+  - Each PR is open, non-draft, targets `main`, has `CLEAN` merge state, is `MERGEABLE`, and changes only planned Phase 16 scaffold paths.
+  - Each repo remains `PRIVATE`, defaults to `main`, keeps the copied source spec under `docs/source-specs/`, and has no `.github/workflows` directory.
+  - Each PR file list was checked and contains no `.github/workflows` path.
+  - Pre-execution rate-limit snapshot: core `used=106`, `remaining=4894`, `reset=1779906187`; GraphQL `used=103`, `remaining=4897`, `reset=1779904183`.
+  - Post-execution rate-limit snapshot: core `used=136`, `remaining=4864`, `reset=1779906187`; GraphQL `used=20`, `remaining=4980`, `reset=1779908063`.
+  - Native runtime parity remains blocked: Flutter/iOS/Android compile, GPU canvas/rendering, stylus/gesture behavior, native photo-library/file-picker/share-sheet behavior, codec/export behavior, and real-device performance are documented as blockers.
+  - Legal/provider blockers remain explicit: licensed brushes, materials, templates, fonts, stock/stickers/presets/filters/artwork, proprietary algorithms, AI/provider cutout behavior, community/cloud sync, provider publishing/import/export, subscriptions/payments, production user media, and credentials.
+
+- [ ] Step 16.8: Merge third tranche PRs and plan the fourth Photo & Video Creation implementation tranche
+  - Merge the five Step 16.7 PRs only after confirming they are still open, non-draft, clean, private, source-spec-backed, and free of `.github/workflows`.
+  - Select the next 5 Phase 16 apps from the reconciled inventory, moving into AI/beauty/effects photo tools.
+  - Candidate fourth tranche: Prequel (`233`), Facetune (`234`), BeautyPlus (`235`), SNOW (`236`), and Meitu (`237`).
+  - Define original product names, branch names, owned downstream paths, validation commands, and blocker carry-forward for each app.
+  - Update this file with executable Step 16.9 implementation instructions.
+  - Files: modify `tasks/todo.md`, `tasks/history.md`, and merge state in the five Step 16.7 downstream repos only.
+
+  **What to Build:**
+  A merge-and-planning packet for the fourth Phase 16 tranche. This step should not scaffold the fourth-tranche variants yet; it should close the third-tranche PR loop and prepare a bounded execution plan for the next implementation step.
+
+  **Approach:**
+  1. Verify Step 16.7 PR metadata with `gh pr view` for all five repos.
+  2. Merge the PRs serially into `main` if all gates remain clean.
+  3. Verify merged repos remain private, source specs remain present, and no `.github/workflows` path exists.
+  4. Use `tasks/repo-seeding.md` and source specs to define the fourth tranche.
+  5. Record validation/merge evidence and write the Step 16.9 implementation packet.
 
 ### Milestone: Phase 16 — Photo & Video Creation Complete
 **Acceptance Criteria:**
