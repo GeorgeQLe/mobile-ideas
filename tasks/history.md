@@ -1,5 +1,37 @@
 # History
 
+## 2026-05-27 - Phase 16 Step 16.17: Eighth Photo & Video Creation Tranche
+
+- Built the eighth Phase 16 implementation tranche as branch-backed PRs across five private downstream repos:
+  - `GeorgeQLe/filmora-mobile-clone` -> `SceneForge` - PR https://github.com/GeorgeQLe/filmora-mobile-clone/pull/1, commit `072978a`
+  - `GeorgeQLe/alight-motion-mobile-clone` -> `MotionLayer` - PR https://github.com/GeorgeQLe/alight-motion-mobile-clone/pull/1, commit `2e7e278`
+  - `GeorgeQLe/mojo-mobile-clone` -> `StoryMotion` - PR https://github.com/GeorgeQLe/mojo-mobile-clone/pull/1, commit `30ebbd6`
+  - `GeorgeQLe/apple-clips-mobile-clone` -> `ClipSpark` - PR https://github.com/GeorgeQLe/apple-clips-mobile-clone/pull/1, commit `16f7d84`
+  - `GeorgeQLe/magisto-mobile-clone` -> `AutoCut` - PR https://github.com/GeorgeQLe/magisto-mobile-clone/pull/1, commit `9fff1f0`
+- Each repo received original synthetic video/motion fixtures/contracts, validation scripts, blocker notes, validation docs, and five variant surfaces: React Native, Expo, Flutter, iOS Native, and Android Native.
+- Validation passed in every repo: `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, and `git diff --check`.
+- Verified each PR is open, non-draft, targets `main`, has `CLEAN` merge state, is `MERGEABLE`, remains private/source-spec-backed, and contains no `.github/workflows` path.
+- Rate-limit evidence: pre-execution core `4880/5000` remaining and GraphQL `4962/5000` remaining; post-execution core `4860/5000` remaining and GraphQL `4926/5000` remaining.
+- Planned Step 16.18 to merge these PRs and scope the final Photo & Video Creation tranche: GoPro Quik and VivaVideo.
+
+### Carry-Forward Blockers
+
+- Native runtime parity remains blocked: Flutter/iOS/Android compile, GPU/media rendering, native camera/photo-library/file-picker/share-sheet behavior, codec/export behavior, video timeline rendering/export, AI/effect execution, motion graphics rendering, and real-device performance.
+- Legal/provider/safety blockers remain explicit: licensed layouts/templates/fonts/stock/stickers/presets/filters/effects/music, model weights, proprietary algorithms, AI/video/media/minor safety, consent/disclosure/bias review, cloud sync, provider import/export, subscriptions/payments, production media, and credentials.
+
+### Ship Manifest
+
+- User goal: execute Phase 16 Step 16.17 by implementing the eighth Photo & Video Creation tranche across five downstream repos.
+- Changed files: five downstream PR branches; this planning repo changed `tasks/todo.md` and `tasks/history.md`.
+- Per-file purpose: downstream repos add Phase 16 fixtures, contracts, variants, validation scripts, implementation notes, blocker notes, and validation evidence; `tasks/todo.md` records completion evidence and Step 16.18 instructions; `tasks/history.md` records execution evidence and the shipping boundary.
+- User-goal mapping: Step 16.17 required building the eighth tranche variants while preserving private repos, lawful synthetic assets, blocker clarity, and local validation evidence.
+- Tests run: each downstream repo passed `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, and `git diff --check`; PR/repo gates were verified with `gh pr view`, `gh repo view`, and `gh api`; planning repo ran `git diff --check` and task-doc checks.
+- Skipped tests: Flutter/iOS/Android runtime builds, real-device camera/photo-library/share-sheet tests, video codec/export benchmarks, AI/effect/provider tests, motion graphics runtime benchmarks, and licensed-media/provider workflows were skipped because local toolchains, real devices, provider credentials, safety review, and asset licenses are blocked by design.
+- Adversarial review: checked branch/PR gates, private visibility, source-spec presence, workflow absence, synthetic-only fixture flags, validation scripts, blocker docs, no native/provider/AI/camera/video/motion parity claims, and next-step handoff completeness.
+- Residual risk: eighth-tranche PRs are not merged yet; runtime and provider behavior remains unverified until separate native/device/provider/safety work is approved and evidenced.
+- Rollback note: close the five Step 16.17 PRs and delete their branches to remove downstream changes; revert this planning commit to reopen Step 16.17 in task docs.
+- Next command: `$exec` for Step 16.18.
+
 ## 2026-05-27 - Phase 16 Step 16.16: Seventh Photo & Video Creation Merge
 
 - Merged the seventh Phase 16 implementation tranche PRs into `main` across five private downstream repos:
