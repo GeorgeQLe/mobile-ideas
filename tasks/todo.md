@@ -748,7 +748,7 @@
   - Native runtime parity remains blocked: Flutter/iOS/Android compile, GPU/media rendering, native camera/photo-library/file-picker/share-sheet behavior, codec/export behavior, AI/effect execution, video timeline export, and real-device performance are documented as blockers.
   - Legal/provider/safety blockers remain explicit: licensed layouts/templates/fonts/stock/stickers/presets/filters/effects/music, model weights, proprietary algorithms, AI/beauty/face/minor safety, consent/disclosure/bias review, cloud sync, provider import/export, marketplace publishing, subscriptions/payments, production user media, and credentials.
 
-- [ ] Step 16.14: Merge sixth tranche PRs and plan the seventh Photo & Video Creation implementation tranche
+- [x] Step 16.14: Merge sixth tranche PRs and plan the seventh Photo & Video Creation implementation tranche
   - Merge the five Step 16.13 PRs only after confirming they are still open, non-draft, clean, private, source-spec-backed, and free of `.github/workflows`.
   - Select the next 5 Phase 16 apps from the reconciled inventory, continuing through video editor workflows.
   - Candidate seventh tranche: VN Video Editor (`249`), KineMaster (`250`), Splice (`251`), LumaFusion (`252`), and Videoleap (`253`).
@@ -765,6 +765,87 @@
   3. Verify merged repos remain private, source specs remain present, and no `.github/workflows` path exists.
   4. Use `tasks/repo-seeding.md` and source specs to define the seventh tranche.
   5. Record validation/merge evidence and write the Step 16.15 implementation packet.
+
+  **Result:**
+  Step 16.14 merged all five sixth-tranche PRs to `main` and scoped the seventh implementation tranche:
+
+  | ID | Product | Repo | PR | Source Commit | Merge Commit | Merged At |
+  |---:|---|---|---|---|---|---|
+  | 244 | GridFrame | `GeorgeQLe/layout-mobile-clone` | https://github.com/GeorgeQLe/layout-mobile-clone/pull/1 | `e58584c` | `371ff15` | 2026-05-27T18:43:43Z |
+  | 245 | GlowDraft | `GeorgeQLe/hypic-mobile-clone` | https://github.com/GeorgeQLe/hypic-mobile-clone/pull/1 | `516f1f7` | `ac726fd` | 2026-05-27T18:43:47Z |
+  | 246 | FilmDiary | `GeorgeQLe/tezza-mobile-clone` | https://github.com/GeorgeQLe/tezza-mobile-clone/pull/1 | `ffc5dfb` | `9049070` | 2026-05-27T18:43:53Z |
+  | 247 | StoryFold | `GeorgeQLe/unfold-mobile-clone` | https://github.com/GeorgeQLe/unfold-mobile-clone/pull/1 | `e38bc32` | `b647005` | 2026-05-27T18:43:58Z |
+  | 248 | TrimStudio | `GeorgeQLe/inshot-mobile-clone` | https://github.com/GeorgeQLe/inshot-mobile-clone/pull/1 | `fe9e6cc` | `55f88d5` | 2026-05-27T18:44:04Z |
+
+  **Merge Verification Evidence:**
+  - Pre-merge rate-limit snapshot: core `used=60`, `remaining=4940`, `reset=1779909925`; GraphQL `used=205`, `remaining=4795`, `reset=1779908063`.
+  - Each PR was verified open, non-draft, targeting `main`, `CLEAN`, `MERGEABLE`, branch-backed, and free of `.github/workflows` in the PR file list before merge.
+  - Post-merge verification confirmed each repo remains `PRIVATE`, defaults to `main`, has the copied source spec under `docs/source-specs/`, and has no `.github/workflows` directory.
+  - Post-merge rate-limit snapshot: core `used=90`, `remaining=4910`, `reset=1779909925`; GraphQL `used=226`, `remaining=4774`, `reset=1779908063`.
+
+- [ ] Step 16.15: Implement seventh Photo & Video Creation tranche across five downstream repos
+  - Build all five variants for `CutFlow`, `MasterLayer`, `SpliceBoard`, `FusionFrame`, and `LeapStudio` in the selected downstream repos.
+  - Keep work serial in this shared tree unless a later explicit `agent-team` plan creates separate branch-backed lanes with PR consolidation. Do not use GitHub Actions.
+  - For each repo, verify it is `PRIVATE`, uses `main` as the target branch, contains the copied source spec under `docs/source-specs/`, and has no `.github/workflows` path before making changes.
+  - Create the implementation branch named below, add original synthetic fixtures/contracts, variant surfaces, validation scripts, blocker notes, and validation evidence, then open a PR to `main`.
+  - Preserve lawful scope: no original brands, logos, screenshots, proprietary media, copied layouts/templates/filters/effects/fonts/music/stickers, model weights, private APIs, production media data, provider credentials, or claims of verified native/provider/AI/video parity without evidence.
+  - Files: modify the five downstream repos only plus `tasks/todo.md` and `tasks/history.md` in this planning repo.
+
+  **Seventh Tranche Selection:**
+
+  | Lane | ID | App | Risk Group | Downstream Repo | Source Spec | Implementation Branch |
+  |---|---:|---|---|---|---|---|
+  | A | 249 | VN Video Editor | Video editors | `GeorgeQLe/vn-video-editor-mobile-clone` | `specs/batch-13/249-vn-video-editor.md` | `phase16-step16-15-vn-video-editor` |
+  | B | 250 | KineMaster | Video editors | `GeorgeQLe/kinemaster-mobile-clone` | `specs/batch-13/250-kinemaster.md` | `phase16-step16-15-kinemaster` |
+  | C | 251 | Splice | Video editors | `GeorgeQLe/splice-mobile-clone` | `specs/batch-13/251-splice.md` | `phase16-step16-15-splice` |
+  | D | 252 | LumaFusion | Video editors | `GeorgeQLe/lumafusion-mobile-clone` | `specs/batch-13/252-lumafusion.md` | `phase16-step16-15-lumafusion` |
+  | E | 253 | Videoleap | Video editors | `GeorgeQLe/videoleap-mobile-clone` | `specs/batch-13/253-videoleap.md` | `phase16-step16-15-videoleap` |
+
+  **Per-App Product Direction:**
+  - VN Video Editor-inspired product: `CutFlow`, an original mobile video editor with synthetic timeline projects, trim/split/reorder, text/effect placeholders, music placeholder tracks, export/share states, and codec/music/native-performance blockers.
+  - KineMaster-inspired product: `MasterLayer`, an original multi-layer video editor with timeline tracks, media layers, keyframe placeholder state, chroma/effect shells, export/share states, and asset-store/native-rendering blockers.
+  - Splice-inspired product: `SpliceBoard`, an original quick-edit video workspace with clip sequencing, transitions, beat/audio placeholder state, ratio controls, export/share states, and subscription/music/provider blockers.
+  - LumaFusion-inspired product: `FusionFrame`, an original pro timeline editor with synthetic multi-track projects, clip metadata, color/audio placeholder tools, project archive/export states, and native codec/GPU/iPad-parity blockers.
+  - Videoleap-inspired product: `LeapStudio`, an original effects video editor with clip layers, effect stacks, AI/template placeholders, before/after preview, export/share states, and model/template/provider blockers.
+
+  **Owned Downstream Paths Per Repo:**
+  - `README.md`
+  - `package.json`
+  - `fixtures/phase16/*.json`
+  - `contracts/phase16/*.json`
+  - `scripts/validate-phase16-*.mjs`
+  - `scripts/check-phase16-variants.mjs`
+  - `variants/react-native/**`
+  - `variants/expo/**`
+  - `variants/flutter/**`
+  - `variants/ios-native/**`
+  - `variants/android-native/**`
+  - `docs/implementation/phase16-step16-15.md`
+  - `docs/blockers/phase16-step16-15.md`
+  - `docs/validation/phase16-step16-15.md`
+
+  **Validation Commands Per Repo:**
+  - `npm run validate`
+  - `npm run check:variants`
+  - `npm run test:react-native`
+  - `npm run test:expo`
+  - `git diff --check`
+
+  **Implementation Packet:**
+  1. Start with VN Video Editor/`CutFlow`, then KineMaster/`MasterLayer`, Splice/`SpliceBoard`, LumaFusion/`FusionFrame`, and Videoleap/`LeapStudio`.
+  2. In each repo, create fixture data for media/projects/timelines/tracks/effects/audio placeholders/assets/exports and contract data for routes, entities, blocked parity, and validation expectations.
+  3. Add five variant directories: React Native, Expo, Flutter, iOS Native, and Android Native. Each variant must expose the same core timeline edit/export workflow for the app class and clearly mark native/toolchain blockers where execution cannot be proven locally.
+  4. Add validator scripts and package scripts for `validate`, `check:variants`, `test:react-native`, and `test:expo`; native compile commands are optional only if the repo has a real runner baseline.
+  5. Run the validation commands listed above for every repo. If a command is intentionally unavailable, replace it with a documented blocker and explain why it is not executable in `docs/validation/phase16-step16-15.md`.
+  6. Record benchmark or local validation score evidence for every variant. For static scaffolds, use structure/contract validation scores and avoid claiming runtime video, codec, GPU, AI, camera, or provider performance.
+  7. Verify each branch/PR file list contains no `.github/workflows` path and every repo remains `PRIVATE`.
+  8. Update this planning repo with the per-repo PR/commit/validation/blocker evidence and the next tranche plan.
+
+  **Acceptance Criteria For Step 16.15:**
+  - All five selected repos have five variant surfaces each, or explicit local/toolchain/provider/licensed-media blockers for any missing executable behavior.
+  - Every selected repo has validation evidence for fixture/contract integrity and variant structure.
+  - Core workflows are represented: timeline edit/export for `CutFlow`, multi-layer edit/export for `MasterLayer`, quick splice/export for `SpliceBoard`, pro multi-track export for `FusionFrame`, and effect stack/export for `LeapStudio`.
+  - No downstream repo becomes public, gains GitHub Actions workflows, or claims verified provider/native/AI/video/camera parity without evidence.
 
 ### Milestone: Phase 16 — Photo & Video Creation Complete
 **Acceptance Criteria:**
