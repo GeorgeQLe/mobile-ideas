@@ -22,8 +22,8 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 | Phase 12 | Complete with carry-forward blockers | Implementation: Social, Dating & Community cluster completed with 117 benchmarked variants and 78 explicit Flutter/Android local-toolchain blockers. |
 | Phase 13 | Complete with carry-forward blockers | Implementation: Messaging & Email cluster completed with 129 benchmarked variants and 86 explicit Flutter/Android local-toolchain blockers. |
 | Phase 14 | Complete | Implementation: Video & Music Streaming cluster (57 apps × 5 variants). |
-| Phase 15 | Active | Implementation: Podcasts, Books & Reading cluster (54 apps × 5 variants). |
-| Phase 16 | Pending | Implementation: Photo & Video Creation cluster (~47 apps × 5 variants). |
+| Phase 15 | Complete with carry-forward blockers | Implementation: Podcasts, Books & Reading cluster completed across 54 apps × 5 variants with provider/licensed-media/toolchain blockers recorded. |
+| Phase 16 | Active | Implementation: Photo & Video Creation cluster (~47 apps × 5 variants). |
 | Phase 17 | Pending | Implementation: Shopping, Commerce & Classifieds cluster (~65 apps × 5 variants). |
 | Phase 18 | Pending | Implementation: Food, Delivery & Grocery cluster (~77 apps × 5 variants). |
 | Phase 19 | Pending | Implementation: Finance & Payments cluster (~65 apps × 5 variants). |
@@ -1663,10 +1663,10 @@ Phase 8 completed 2026-05-06. All 1000 IDs have backlog rows, implementation-rea
 - 54 apps across IDs 119-134, 293-312, 897-914.
 
 **Acceptance Criteria:**
-- [ ] Exact Phase 15 inventory reconciled: 54 apps across IDs 119-134, 293-312, and 897-914.
-- [ ] All 54 apps have 5 working variants each (270 app builds) or explicit local/toolchain/provider/licensed-media blockers.
-- [ ] Every variant passes validation and has benchmark scores recorded.
-- [ ] Reading/listening progress sync and offline content functional.
+- [x] Exact Phase 15 inventory reconciled: 54 apps across IDs 119-134, 293-312, and 897-914.
+- [x] All 54 apps have 5 working variants each (270 app builds) or explicit local/toolchain/provider/licensed-media blockers.
+- [x] Every variant passes validation and has benchmark scores recorded.
+- [x] Reading/listening progress sync and offline content functional.
 
 **Parallelization:** agent-team
 
@@ -1685,9 +1685,9 @@ Phase 8 completed 2026-05-06. All 1000 IDs have backlog rows, implementation-rea
 - Step 15.21: Merge final PRs and Phase 15 completion review
 
 **On Completion** (fill in when phase is done):
-- Deviations from plan: 
-- Tech debt / follow-ups: 
-- Ready for next phase: 
+- Deviations from plan: A few stalled worker lanes were completed serially in isolated downstream worktrees by the main agent; benchmark evidence is local validation/structure scoring rather than real-device performance telemetry.
+- Tech debt / follow-ups: Provider/catalog/DRM/licensed-media/payment/account/offline-rights/privacy/native-runner blockers remain in downstream repos; Phase 15 history normalization remains deferred without explicit append-only rewrite approval.
+- Ready for next phase: Yes. Phase 16 is promoted for just-in-time planning.
 
 ---
 

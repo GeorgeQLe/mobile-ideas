@@ -1,5 +1,34 @@
 # History
 
+## 2026-05-27 - Phase 15 Step 15.21 — Merge Final Tranche PRs and Complete Phase 15
+
+- **Step 15.20 PR merges:** Merged all three final Phase 15 PRs to `main`:
+  - `GeorgeQLe/viz-manga-mobile-clone` PR #1 (VizShelf) - merge commit `03a3635`
+  - `GeorgeQLe/marvel-unlimited-mobile-clone` PR #1 (HeroVault) - merge commit `9a3705b`
+  - `GeorgeQLe/dc-universe-infinite-mobile-clone` PR #1 (CosmicShelf) - merge commit `eb9e91b`
+- **Final consolidation gate:** Before merge, all three repos were PRIVATE; PRs were open, non-draft, clean, branch-backed, and targeting `main`; source specs were present; blocker artifacts were present; and PR file lists contained no `.github/workflows` paths.
+- **Phase 15 closure:** Confirmed 54/54 apps completed across 18 tranches with 270 variant surfaces represented by downstream scaffolds and explicit provider, licensed-media, DRM, payment, account, offline-rights, privacy, and local/native toolchain blockers.
+- **Rate limit:** pre-merge 5000/5000 core; post-merge 4991/5000 core and 4988/5000 GraphQL remaining.
+- **No proprietary assets, brand claims, copied media, private APIs, production data, public visibility changes, or GitHub Actions.**
+
+### Carry-Forward Blockers
+
+- Production catalog/feed/provider integrations, account sync, notifications, premium/subscription/payment flows, DRM/entitlement behavior, licensed book/audio/comics/manga assets, offline/download rights, regional availability, privacy/compliance review, accessibility/device verification, and Flutter/iOS/Android runner baselines remain blocked in downstream repos until lawful verification and toolchain support exist.
+- Benchmark evidence remains local validation/structure score evidence and does not prove real-device performance, store compliance, provider parity, or accessibility parity.
+
+### Ship Manifest
+
+- User goal: merge Step 15.20 final PRs, complete Phase 15, archive the phase, and prepare Phase 16.
+- Changed files: `tasks/todo.md`, `tasks/roadmap.md`, `tasks/history.md`, `tasks/phases/phase-15.md`.
+- Per-file purpose: `tasks/todo.md` is promoted to Phase 16; `tasks/roadmap.md` records Phase 15 complete and Phase 16 active; `tasks/history.md` records final merge and closure evidence; `tasks/phases/phase-15.md` preserves the completed Phase 15 plan and review trail.
+- User-goal mapping: completes the Podcasts, Books & Reading cluster after final branch-backed PR merges and preserves blockers rather than claiming unverified proprietary/provider parity.
+- Tests run: GitHub PR/repo/source-spec/blocker/workflow metadata checks, `git diff --check`, and task-doc structural checks.
+- Skipped tests: no planning-repo runtime test suite exists for Markdown-only phase transition changes; downstream lane-local validation was already recorded for each tranche before merge.
+- Adversarial review: verified final PR target branches, merge state, privacy, branch backing, source-spec presence, blocker artifact presence, no workflow files, phase coverage count, and acceptance criteria wording.
+- Residual risk: downstream scaffolds are not production apps; provider, licensed-media, DRM, subscription/payment, real-device, accessibility, performance, privacy/compliance, and store-readiness work remains explicitly blocked.
+- Rollback note: revert this planning commit to restore Phase 15 as active; revert the three downstream merge commits if the final PR merges must be undone.
+- Next command: `$run`
+
 ## 2026-05-22 - Phase 15 Step 15.18 — Merge Tranche 15 PRs and Execute Sixteenth Tranche (Apple Books/Scribd/Google Play Books)
 
 - **Step 15.17 PR Merges:** Merged all three Step 15.17 PRs to `main`:
