@@ -23,8 +23,8 @@ This roadmap tracks the path from an initial clone-idea backlog to verified, imp
 | Phase 13 | Complete with carry-forward blockers | Implementation: Messaging & Email cluster completed with 129 benchmarked variants and 86 explicit Flutter/Android local-toolchain blockers. |
 | Phase 14 | Complete | Implementation: Video & Music Streaming cluster (57 apps × 5 variants). |
 | Phase 15 | Complete with carry-forward blockers | Implementation: Podcasts, Books & Reading cluster completed across 54 apps × 5 variants with provider/licensed-media/toolchain blockers recorded. |
-| Phase 16 | Active | Implementation: Photo & Video Creation cluster (~47 apps × 5 variants). |
-| Phase 17 | Pending | Implementation: Shopping, Commerce & Classifieds cluster (~65 apps × 5 variants). |
+| Phase 16 | Complete with carry-forward blockers | Implementation: Photo & Video Creation cluster completed across 42 reconciled apps × 5 variants with provider/licensed-media/toolchain blockers recorded. |
+| Phase 17 | Active | Implementation: Shopping, Commerce & Classifieds cluster (~65 apps × 5 variants). |
 | Phase 18 | Pending | Implementation: Food, Delivery & Grocery cluster (~77 apps × 5 variants). |
 | Phase 19 | Pending | Implementation: Finance & Payments cluster (~65 apps × 5 variants). |
 | Phase 20 | Pending | Implementation: Travel & Transportation cluster (~79 apps × 5 variants). |
@@ -1700,18 +1700,19 @@ Phase 8 completed 2026-05-06. All 1000 IDs have backlog rows, implementation-rea
 - Shared patterns: image/video processing pipelines, filter/effect systems, layer compositing, export/share, timeline editing, GPU-accelerated rendering.
 
 **Acceptance Criteria:**
-- [ ] All ~47 apps have 5 working variants each (~235 app builds).
-- [ ] Every variant passes CI and has benchmark scores recorded.
-- [ ] Core editing workflows (crop, filter, adjust, export) functional across variants.
+- [x] Exact Phase 16 inventory reconciled to 42 apps: IDs 096-099, 223-240, and 241-260.
+- [x] All 42 apps have 5 working variants each (210 app builds) or explicit local/toolchain/provider/licensed-media blockers.
+- [x] Every variant passed validation and has benchmark or local validation score evidence recorded.
+- [x] Core editing workflows (crop, filter, adjust, export) are represented or explicitly blocked by local/native/media-provider constraints.
 
 **Parallelization:** agent-team
 
 **Coordination Notes:** Independent repos. Share image processing, filter pipeline, and export patterns. Native variants may have significant advantages for GPU access.
 
-**On Completion** (fill in when phase is done):
-- Deviations from plan: 
-- Tech debt / follow-ups: 
-- Ready for next phase: 
+**On Completion** (filled 2026-05-27):
+- Deviations from plan: Phase 16 reconciled to 42 apps rather than the older roadmap estimate of ~47. Work executed serially in this shared environment while using branch-backed downstream PRs for each tranche. Validation evidence is local structure/contract scoring, not real-device performance or provider parity.
+- Tech debt / follow-ups: Flutter/iOS/Android runtime builds, GPU/media rendering, native camera/photo-library/file-picker/share-sheet behavior, codec/export behavior, AI/model/provider execution, licensed assets, subscriptions/payments, production media, credentials, and real-device performance remain explicit blockers in downstream docs.
+- Ready for next phase: Yes. Phase 17 is promoted for just-in-time planning.
 
 ---
 

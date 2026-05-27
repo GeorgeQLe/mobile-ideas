@@ -1,5 +1,33 @@
 # History
 
+## 2026-05-27 - Phase 16 Step 16.20: Photo & Video Creation Closeout
+
+- Merged the final Phase 16 implementation tranche PRs into `main` across two private downstream repos:
+  - `GeorgeQLe/gopro-quik-mobile-clone` -> `ActionReel` - PR https://github.com/GeorgeQLe/gopro-quik-mobile-clone/pull/1, merge `553cc4f`
+  - `GeorgeQLe/vivavideo-mobile-clone` -> `CutTempo` - PR https://github.com/GeorgeQLe/vivavideo-mobile-clone/pull/1, merge `641eb66`
+- Verified both repos remain private, default to `main`, keep copied source specs under `docs/source-specs/`, and have no `.github/workflows` directory.
+- Closed Phase 16 across 42 reconciled Photo & Video Creation apps with five variant surfaces per app, local validation or score evidence, and explicit local/toolchain/provider/licensed-media blockers.
+- Archived Phase 16 to `tasks/phases/phase-16.md`, marked Phase 16 complete in `tasks/roadmap.md`, and promoted Phase 17 into `tasks/todo.md`.
+- Rate-limit evidence: pre-merge core `4994/5000` remaining and GraphQL `4886/5000` remaining; post-merge core `4982/5000` remaining and GraphQL `4886/5000` remaining.
+
+### Carry-Forward Blockers
+
+- Native runtime parity remains blocked: Flutter/iOS/Android compile, GPU/media rendering, native camera/photo-library/file-picker/share-sheet behavior, codec/export behavior, video timeline rendering/export, AI/effect/model execution, camera hardware pairing, cloud backup, and real-device performance.
+- Legal/provider/safety blockers remain explicit: licensed filters/effects/templates/stickers/presets/music/fonts/stock media, model weights, proprietary algorithms, AI/video/media/minor safety, consent/disclosure/bias review, cloud sync, provider import/export, subscriptions/payments, production media, and credentials.
+
+### Ship Manifest
+
+- User goal: execute Phase 16 Step 16.20 by merging the final Photo & Video Creation PRs and closing Phase 16.
+- Changed files: downstream merge state in two private repos; this planning repo changed `tasks/todo.md`, `tasks/roadmap.md`, `tasks/history.md`, and `tasks/phases/phase-16.md`.
+- Per-file purpose: downstream repos now contain merged final-tranche scaffolds; `tasks/phases/phase-16.md` archives the completed phase; `tasks/roadmap.md` marks Phase 16 complete and Phase 17 active; `tasks/todo.md` seeds Phase 17 Step 17.1; `tasks/history.md` records execution evidence and shipping boundary.
+- User-goal mapping: Step 16.20 required closing the final PR loop while preserving private repos, source-spec backing, no GitHub Actions, and a self-contained next-phase handoff.
+- Tests run: GitHub PR metadata checks, repo privacy/default-branch/source-spec/workflow checks, rate-limit checks, `git diff --check`, and task-doc structure checks.
+- Skipped tests: no downstream runtime validation was rerun because Step 16.19 already recorded local validation for both final PRs and this step only merged those unchanged PRs plus updated planning Markdown.
+- Adversarial review: checked PR state, mergeability, changed-file boundaries, private visibility, source-spec presence, absence of GitHub Actions workflows, final milestone criteria, archive creation, Phase 17 handoff completeness, and blocker carry-forward.
+- Residual risk: provider/payment/native/media/AI/runtime parity remains blocked until separate device, provider, license, safety, and toolchain work is approved and evidenced.
+- Rollback note: revert this planning commit to restore Phase 16 as active; revert downstream merge commits `553cc4f` and `641eb66` if the final-tranche scaffolds must be removed from `main`.
+- Next command: `$exec` for Phase 17 Step 17.1.
+
 ## 2026-05-27 - Phase 16 Step 16.19: Final Photo & Video Creation Tranche
 
 - Built the final Phase 16 implementation tranche as branch-backed PRs across two private downstream repos:
