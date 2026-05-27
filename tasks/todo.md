@@ -51,7 +51,7 @@
   - Recorded before/after GitHub rate-limit evidence and the full inventory table in `tasks/repo-seeding.md`.
   - Carried forward account, payment, tax, shipping, provider, catalog, seller/admin, identity/KYC, fraud/risk, trust/safety, escrow/dispute, licensed-data, region, subscription, and hardware/permission blockers.
 
-- [ ] Step 17.2: Implement first Shopping, Commerce & Classifieds tranche
+- [x] Step 17.2: Implement first Shopping, Commerce & Classifieds tranche
   - Implement five downstream repos from the reconciled Phase 17 inventory:
     - `GeorgeQLe/amazon-mobile-clone` as an original broad retail marketplace scaffold.
     - `GeorgeQLe/temu-mobile-clone` as an original deal-heavy value marketplace scaffold.
@@ -73,6 +73,42 @@
   3. Implement the same commerce workflow spine across repos while tailoring domain-specific states: broad retail offers, deal/coupon flows, fashion sizing, handmade/custom seller workflows, and auction/offer flows.
   4. Run each repo's available lint/typecheck/test/build or documented local validation. If no executable validation exists, add or run the closest local smoke check and record the residual risk.
   5. Open/merge validated PRs or otherwise land on each repo's `main` only after private visibility, source-spec presence, root commit, and no-workflows checks pass.
+
+  **Review:**
+  - Added original static commerce prototypes to all five downstream repos and pushed them directly to `main` after rebasing onto the latest remote `main` where needed.
+  - Downstream commits:
+    - `GeorgeQLe/amazon-mobile-clone` -> `e608f84` (`MarketHub` broad retail marketplace scaffold).
+    - `GeorgeQLe/temu-mobile-clone` -> `500d0ea` (`DealCart` deal-heavy value marketplace scaffold).
+    - `GeorgeQLe/shein-mobile-clone` -> `a6c6310` (`StyleRack` fashion catalog and fit/review scaffold).
+    - `GeorgeQLe/etsy-mobile-clone` -> `ebe1463` (`CraftLane` handmade/custom marketplace scaffold).
+    - `GeorgeQLe/ebay-mobile-clone` -> `0bcb3fe` (`BidBay` auction/offer marketplace scaffold).
+  - Each repo now contains `package.json`, `src/index.html`, `src/styles.css`, `src/app.js`, and `scripts/smoke-test.mjs`.
+  - Each scaffold uses synthetic catalog items, original app names/copy, local-only cart and checkout simulation, order-tracking placeholders, seller/admin placeholders, and explicit payment/provider/tax/shipping/licensed-data/native verification blockers.
+  - Validation passed in all five repos with `npm test`.
+  - GitHub metadata checks confirmed all five repos remain `PRIVATE` on default branch `main`; local and API checks found no `.github/workflows` directory.
+
+- [ ] Step 17.3: Implement second Shopping, Commerce & Classifieds tranche
+  - Implement five downstream repos from the reconciled Phase 17 inventory:
+    - `GeorgeQLe/facebook-marketplace-mobile-clone` as an original local marketplace/listing scaffold.
+    - `GeorgeQLe/poshmark-mobile-clone` as an original social resale closet/bundle scaffold.
+    - `GeorgeQLe/depop-mobile-clone` as an original resale fashion feed/shop scaffold.
+    - `GeorgeQLe/stockx-mobile-clone` as an original bid/ask verification-market scaffold.
+    - `GeorgeQLe/shop-mobile-clone` as an original package tracking and merchant discovery scaffold.
+  - Keep implementation serial from this planning repo. Use branch-backed work only if the downstream repo requires it; otherwise land validated direct-to-`main` commits after rebasing onto latest remote `main`.
+  - Build only lawful original prototype surfaces using synthetic/local fixtures: browse/search/filter, listing or product detail, cart/offer/bid/order draft, checkout or provider-blocked quote simulation, tracking, reviews/ratings or trust signals, seller/listing/admin placeholders, and explicit blocker banners for real providers and regulated/payment behavior.
+  - Do not add or rely on GitHub Actions. Do not copy original logos, screenshots, listing data, product data, seller/customer data, private APIs, marketplace policy text, recommendation models, payment data, shipping evidence, authenticity data, or licensed media.
+  - Verify each repo remains `PRIVATE`, keeps its copied source spec, has a root commit, has no `.github/workflows`, and has local validation or blocker evidence recorded before shipping.
+  - Files: downstream repos above, then update `tasks/todo.md` and `tasks/history.md` with commit, validation, blocker, and invariant evidence.
+
+  **What to Build:**
+  Second Phase 17 implementation tranche across local marketplace, fashion resale, bid/ask marketplace, and package-tracking commerce apps. Each downstream repo should get a small but coherent original scaffold proving the app-specific workflow spine with synthetic data and explicit provider/payment/shipping/authenticity/licensed-data blockers.
+
+  **Approach:**
+  1. Inspect each downstream repo's current stack, task state, source spec copy, and validation commands before editing.
+  2. Rebase onto latest remote `main` before committing if the local checkout is behind.
+  3. Reuse the lightweight static prototype pattern only if no runtime stack already exists; otherwise follow the repo's selected stack.
+  4. Tailor each scaffold: local listing/messaging/pickup trust for Facebook Marketplace, closet/bundle/offer flows for Poshmark, feed/shop/resale moderation for Depop, bid/ask/authenticity placeholders for StockX, and shipment timeline/order import privacy blockers for Shop.
+  5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
 
 ### Milestone: Phase 17 — Shopping, Commerce & Classifieds Complete
 **Acceptance Criteria:**

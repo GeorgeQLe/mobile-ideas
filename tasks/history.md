@@ -6232,3 +6232,44 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Residual risk: downstream implementation work has not started for Phase 17; local toolchain and native runtime status must be rechecked in each downstream repo.
 - Rollback note: revert this planning commit to reopen Step 17.1 and remove the Phase 17 inventory packet.
 - Next: Step 17.2 - implement first Shopping, Commerce & Classifieds tranche.
+
+## Step 17.2 - First Shopping, Commerce & Classifieds Tranche (2026-05-27)
+
+### Downstream Commits
+- `GeorgeQLe/amazon-mobile-clone` -> `e608f84` (`MarketHub` broad retail marketplace scaffold).
+- `GeorgeQLe/temu-mobile-clone` -> `500d0ea` (`DealCart` deal-heavy value marketplace scaffold).
+- `GeorgeQLe/shein-mobile-clone` -> `a6c6310` (`StyleRack` fashion catalog and fit/review scaffold).
+- `GeorgeQLe/etsy-mobile-clone` -> `ebe1463` (`CraftLane` handmade/custom marketplace scaffold).
+- `GeorgeQLe/ebay-mobile-clone` -> `0bcb3fe` (`BidBay` auction/offer marketplace scaffold).
+
+### Implementation
+- Added lightweight original static prototypes to each downstream repo with `package.json`, `src/index.html`, `src/styles.css`, `src/app.js`, and `scripts/smoke-test.mjs`.
+- Covered synthetic browse/search/filter, product or listing detail, local cart, checkout quote simulation, order tracking placeholders, review/trust cues, seller/admin placeholders, and explicit verification blockers.
+- Kept all data synthetic and all app names/copy original; no original logos, screenshots, catalog/listing data, seller/customer data, private APIs, payment data, shipping evidence, recommendation models, marketplace policy text, or licensed media were added.
+
+### Validation
+- `npm test` passed in all five downstream repos:
+  - MarketHub smoke test passed.
+  - DealCart smoke test passed.
+  - StyleRack smoke test passed.
+  - CraftLane smoke test passed.
+  - BidBay smoke test passed.
+- GitHub metadata checks confirmed all five repos remain `PRIVATE` with default branch `main`.
+- Local and GitHub API workflow checks found no `.github/workflows` directory in the tranche repos.
+- Local checks confirmed each repo still has `README.md`, a root commit, and the seeded source spec under `docs/source-specs/`.
+
+### Carry-Forward Blockers
+- Account lifecycle, signup/login/recovery, payment authorization, taxes, shipping quote providers, real checkout, wallet/credits/points, marketplace provider integrations, licensed catalog/listing data, seller onboarding/verification, seller payouts, shipping labels, fraud/risk, trust/safety moderation, authenticity verification, returns/refunds, disputes, ads/promotions, region-specific behavior, native permissions, push notifications, and real-device verification remain blocked.
+- The tranche provides local prototype workflow coverage only; it does not claim exact native, provider, payment, shipping, tax, authenticity, seller, or support parity.
+
+### Ship Manifest
+- User goal: execute Step 17.2 and implement the first Shopping, Commerce & Classifieds tranche.
+- Changed files: downstream runtime scaffold files in five repos; `tasks/todo.md`; `tasks/history.md`.
+- Per-file purpose: downstream files add original local commerce prototypes and smoke tests; `tasks/todo.md` records Step 17.2 completion and Step 17.3 executable detail; `tasks/history.md` records commit, validation, blocker, and rollback evidence.
+- User-goal mapping: first five Phase 17 repos now have working local prototype scaffolds with validation evidence and explicit blockers.
+- Tests run: `npm test` in all five downstream repos; local repo invariant checks; GitHub repo metadata checks; GitHub workflow absence checks.
+- Skipped tests: no native iOS/Android, payment-provider, tax, shipping, seller-payout, authenticity, push-notification, account, or real-device tests were run because those behaviors are explicitly blocked pending lawful provider/device/account verification.
+- Adversarial review: verified original naming/data/copy posture, no GitHub Actions usage, private visibility, default branch, source-spec presence, workflow absence, direct-to-`main` pushes, and blocker carry-forward.
+- Residual risk: static prototypes are smoke-tested local scaffolds, not full Expo/native app implementations or five-variant benchmarked builds; provider and native parity remains blocked.
+- Rollback note: revert this planning commit to reopen Step 17.2; revert downstream commits `e608f84`, `500d0ea`, `a6c6310`, `ebe1463`, and `0bcb3fe` to remove the first-tranche scaffolds.
+- Next: Step 17.3 - implement second Shopping, Commerce & Classifieds tranche.
