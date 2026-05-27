@@ -868,7 +868,7 @@
   - Native runtime parity remains blocked: Flutter/iOS/Android compile, GPU/media rendering, native camera/photo-library/file-picker/share-sheet behavior, codec/export behavior, video timeline export, AI/effect execution, and real-device performance are documented as blockers.
   - Legal/provider/safety blockers remain explicit: licensed layouts/templates/fonts/stock/stickers/presets/filters/effects/music, model weights, proprietary algorithms, AI/video/media safety, consent/disclosure/bias review, cloud sync, provider import/export, marketplace publishing, subscriptions/payments, production media, and credentials.
 
-- [ ] Step 16.16: Merge seventh tranche PRs and plan the eighth Photo & Video Creation implementation tranche
+- [x] Step 16.16: Merge seventh tranche PRs and plan the eighth Photo & Video Creation implementation tranche
   - Merge the five Step 16.15 PRs only after confirming they are still open, non-draft, clean, private, source-spec-backed, and free of `.github/workflows`.
   - Select the next 5 Phase 16 apps from the reconciled inventory, continuing through remaining video editor and animation/effects workflows.
   - Candidate eighth tranche: Filmora (`254`), Alight Motion (`255`), Mojo (`256`), Apple Clips (`257`), and Magisto (`258`).
@@ -885,6 +885,87 @@
   3. Verify merged repos remain private, source specs remain present, and no `.github/workflows` path exists.
   4. Use `tasks/repo-seeding.md` and source specs to define the eighth tranche.
   5. Record validation/merge evidence and write the Step 16.17 implementation packet.
+
+  **Result:**
+  Step 16.16 merged all five seventh-tranche PRs to `main` and scoped the eighth implementation tranche:
+
+  | ID | Product | Repo | PR | Source Commit | Merge Commit | Merged At |
+  |---:|---|---|---|---|---|---|
+  | 249 | CutFlow | `GeorgeQLe/vn-video-editor-mobile-clone` | https://github.com/GeorgeQLe/vn-video-editor-mobile-clone/pull/1 | `d1bc680` | `a972e34` | 2026-05-27T19:00:38Z |
+  | 250 | MasterLayer | `GeorgeQLe/kinemaster-mobile-clone` | https://github.com/GeorgeQLe/kinemaster-mobile-clone/pull/1 | `5f9b94d` | `65b90db` | 2026-05-27T19:00:49Z |
+  | 251 | SpliceBoard | `GeorgeQLe/splice-mobile-clone` | https://github.com/GeorgeQLe/splice-mobile-clone/pull/1 | `41e826c` | `f34bae4` | 2026-05-27T19:00:56Z |
+  | 252 | FusionFrame | `GeorgeQLe/lumafusion-mobile-clone` | https://github.com/GeorgeQLe/lumafusion-mobile-clone/pull/1 | `8d43fb2` | `52cd324` | 2026-05-27T19:01:04Z |
+  | 253 | LeapStudio | `GeorgeQLe/videoleap-mobile-clone` | https://github.com/GeorgeQLe/videoleap-mobile-clone/pull/1 | `9c2b1ef` | `86a29f3` | 2026-05-27T19:01:11Z |
+
+  **Merge Verification Evidence:**
+  - Pre-merge rate-limit snapshot: core `used=100`, `remaining=4900`, `reset=1779909925`; GraphQL `used=11`, `remaining=4989`, `reset=1779911744`.
+  - Each PR was verified open, non-draft, targeting `main`, `CLEAN`, `MERGEABLE`, branch-backed, and free of `.github/workflows` in the PR file list before merge.
+  - Post-merge verification confirmed each repo remains `PRIVATE`, defaults to `main`, has the copied source spec under `docs/source-specs/`, and has no `.github/workflows` directory.
+  - Post-merge rate-limit snapshot: core `used=110`, `remaining=4890`, `reset=1779909925`; GraphQL `used=33`, `remaining=4967`, `reset=1779911744`.
+
+- [ ] Step 16.17: Implement eighth Photo & Video Creation tranche across five downstream repos
+  - Build all five variants for `SceneForge`, `MotionLayer`, `StoryMotion`, `ClipSpark`, and `AutoCut` in the selected downstream repos.
+  - Keep work serial in this shared tree unless a later explicit `agent-team` plan creates separate branch-backed lanes with PR consolidation. Do not use GitHub Actions.
+  - For each repo, verify it is `PRIVATE`, uses `main` as the target branch, contains the copied source spec under `docs/source-specs/`, and has no `.github/workflows` path before making changes.
+  - Create the implementation branch named below, add original synthetic fixtures/contracts, variant surfaces, validation scripts, blocker notes, and validation evidence, then open a PR to `main`.
+  - Preserve lawful scope: no original brands, logos, screenshots, proprietary media, copied layouts/templates/filters/effects/fonts/music/stickers, model weights, private APIs, production media data, provider credentials, or claims of verified native/provider/AI/video parity without evidence.
+  - Files: modify the five downstream repos only plus `tasks/todo.md` and `tasks/history.md` in this planning repo.
+
+  **Eighth Tranche Selection:**
+
+  | Lane | ID | App | Risk Group | Downstream Repo | Source Spec | Implementation Branch |
+  |---|---:|---|---|---|---|---|
+  | A | 254 | Filmora | Video editors | `GeorgeQLe/filmora-mobile-clone` | `specs/batch-13/254-filmora.md` | `phase16-step16-17-filmora` |
+  | B | 255 | Alight Motion | Animation/effects tools | `GeorgeQLe/alight-motion-mobile-clone` | `specs/batch-13/255-alight-motion.md` | `phase16-step16-17-alight-motion` |
+  | C | 256 | Mojo | Animation/effects tools | `GeorgeQLe/mojo-mobile-clone` | `specs/batch-13/256-mojo.md` | `phase16-step16-17-mojo` |
+  | D | 257 | Apple Clips | Video editors | `GeorgeQLe/apple-clips-mobile-clone` | `specs/batch-13/257-apple-clips.md` | `phase16-step16-17-apple-clips` |
+  | E | 258 | Magisto | Video editors | `GeorgeQLe/magisto-mobile-clone` | `specs/batch-13/258-magisto.md` | `phase16-step16-17-magisto` |
+
+  **Per-App Product Direction:**
+  - Filmora-inspired product: `SceneForge`, an original video editor with synthetic timeline projects, trim/split/reorder, template placeholders, effect stacks, audio placeholder tracks, export/share states, and codec/music/native-performance blockers.
+  - Alight Motion-inspired product: `MotionLayer`, an original motion graphics editor with keyframe timelines, shape/text layers, easing presets represented by original numeric recipes, export/share states, and GPU/rendering/subscription blockers.
+  - Mojo-inspired product: `StoryMotion`, an original animated story maker with synthetic story pages, motion templates represented by local geometry/timing, text/media layers, export/share states, and licensed-template/font/provider blockers.
+  - Apple Clips-inspired product: `ClipSpark`, an original short-clip creator with synthetic capture projects, live-title placeholder state, stickers/posters represented by local shapes, share/export states, and camera/device/iOS-platform blockers.
+  - Magisto-inspired product: `AutoCut`, an original automated video assembly app with synthetic media bins, auto-edit job shells, style/music placeholders, before/after review, export/share states, and AI/model/music/provider blockers.
+
+  **Owned Downstream Paths Per Repo:**
+  - `README.md`
+  - `package.json`
+  - `fixtures/phase16/*.json`
+  - `contracts/phase16/*.json`
+  - `scripts/validate-phase16-*.mjs`
+  - `scripts/check-phase16-variants.mjs`
+  - `variants/react-native/**`
+  - `variants/expo/**`
+  - `variants/flutter/**`
+  - `variants/ios-native/**`
+  - `variants/android-native/**`
+  - `docs/implementation/phase16-step16-17.md`
+  - `docs/blockers/phase16-step16-17.md`
+  - `docs/validation/phase16-step16-17.md`
+
+  **Validation Commands Per Repo:**
+  - `npm run validate`
+  - `npm run check:variants`
+  - `npm run test:react-native`
+  - `npm run test:expo`
+  - `git diff --check`
+
+  **Implementation Packet:**
+  1. Start with Filmora/`SceneForge`, then Alight Motion/`MotionLayer`, Mojo/`StoryMotion`, Apple Clips/`ClipSpark`, and Magisto/`AutoCut`.
+  2. In each repo, create fixture data for media/projects/timelines/layers/effects/motion styles/audio placeholders/exports and contract data for routes, entities, blocked parity, and validation expectations.
+  3. Add five variant directories: React Native, Expo, Flutter, iOS Native, and Android Native. Each variant must expose the same core video/motion/story/auto-edit workflow for the app class and clearly mark native/toolchain blockers where execution cannot be proven locally.
+  4. Add validator scripts and package scripts for `validate`, `check:variants`, `test:react-native`, and `test:expo`; native compile commands are optional only if the repo has a real runner baseline.
+  5. Run the validation commands listed above for every repo. If a command is intentionally unavailable, replace it with a documented blocker and explain why it is not executable in `docs/validation/phase16-step16-17.md`.
+  6. Record benchmark or local validation score evidence for every variant. For static scaffolds, use structure/contract validation scores and avoid claiming runtime video, codec, GPU, AI, camera, motion-rendering, or provider performance.
+  7. Verify each branch/PR file list contains no `.github/workflows` path and every repo remains `PRIVATE`.
+  8. Update this planning repo with the per-repo PR/commit/validation/blocker evidence and the next tranche plan.
+
+  **Acceptance Criteria For Step 16.17:**
+  - All five selected repos have five variant surfaces each, or explicit local/toolchain/provider/licensed-media blockers for any missing executable behavior.
+  - Every selected repo has validation evidence for fixture/contract integrity and variant structure.
+  - Core workflows are represented: timeline edit/export for `SceneForge`, motion layer/keyframe export for `MotionLayer`, animated story export for `StoryMotion`, short-clip capture/export for `ClipSpark`, and auto-edit assembly/export for `AutoCut`.
+  - No downstream repo becomes public, gains GitHub Actions workflows, or claims verified provider/native/AI/video/camera/motion parity without evidence.
 
 ### Milestone: Phase 16 — Photo & Video Creation Complete
 **Acceptance Criteria:**
