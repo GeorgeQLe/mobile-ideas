@@ -1,5 +1,25 @@
 # History
 
+## 2026-05-27 - Phase 16 Step 16.2: First Photo & Video Creation Tranche Plan
+
+- Planned the first Phase 16 implementation tranche as a five-app representative slice: CapCut/`ClipForge`, Canva/`CanvasKit`, Lightroom/`ToneLab`, Google Photos/`MemoryGrid`, and PicCollage/`CollageBoard`.
+- Selected the tranche to cover timeline editing, design/canvas editing, photo adjustment/filtering, photo-library/export, and collage/layout behavior before expanding to the rest of the 42-app inventory.
+- Defined downstream repos, source specs, implementation branch names, owned paths, validation commands, product directions, and required blocker carry-forward for Step 16.3.
+- Kept the step documentation-only in this planning repo; no downstream repo code was modified.
+
+### Ship Manifest
+
+- User goal: execute the next incomplete `$exec` step for Phase 16.
+- Changed files: `tasks/todo.md`, `tasks/history.md`.
+- Per-file purpose: `tasks/todo.md` marks Step 16.2 complete and adds executable Step 16.3 instructions; `tasks/history.md` records the tranche-planning result and shipping boundary.
+- User-goal mapping: Step 16.2 required converting the reconciled Phase 16 inventory into the first bounded implementation tranche without scaffolding downstream variants yet.
+- Tests run: `git diff --check`; task-doc checks for Step 16.2 completion, Step 16.3 presence, selected repo names, validation commands, and single-H1 task/history structure.
+- Skipped tests: no runtime tests were relevant because this step changed planning Markdown only and intentionally did not modify downstream app code.
+- Adversarial review: checked the selected apps against the verified 42-app inventory and confirmed the tranche spans video timeline, canvas/design, photo adjustment, library/export, and collage/layout workflows while preserving privacy, provider, media-rights, native-toolchain, and no-GitHub-Actions constraints.
+- Residual risk: the tranche plan does not prove downstream implementation, real-device behavior, provider/cloud sync, codec/export support, licensed template/music/stock availability, native GPU rendering, or store-readiness; those remain Step 16.3 blockers until validated.
+- Rollback note: revert this planning commit to restore Step 16.2 as the next active item and remove the Step 16.3 implementation packet.
+- Next command: `$exec` for Step 16.3.
+
 ## 2026-05-27 - Phase 16 Step 16.1: Photo & Video Creation Inventory Reconciliation
 
 - Reconciled the exact Phase 16 Photo & Video Creation inventory to 42 apps, replacing the older approximate ~47-app estimate with the Phase 9 Step 9.9 evidence-backed set: IDs `096-099`, `223-240`, and `241-260`.
