@@ -5905,3 +5905,40 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Residual risk: Step 16.13 implementation PRs are not created yet; native media/runtime/provider/licensed-asset/AI/video parity remains blocked.
 - Rollback note: revert this planning commit to reopen Step 16.12 in task history; revert the five downstream merge commits if the fifth-tranche scaffolds need to be removed from `main`.
 - Next: Step 16.13 - implement sixth Photo & Video Creation tranche.
+
+## Step 16.13 - Sixth Photo & Video Creation Implementation Tranche (2026-05-27)
+
+### PRs Created
+- `GeorgeQLe/layout-mobile-clone` PR#1 -> GridFrame scaffold on `phase16-step16-13-layout` (commit `e58584c`, score 96/100).
+- `GeorgeQLe/hypic-mobile-clone` PR#1 -> GlowDraft scaffold on `phase16-step16-13-hypic` (commit `516f1f7`, score 96/100).
+- `GeorgeQLe/tezza-mobile-clone` PR#1 -> FilmDiary scaffold on `phase16-step16-13-tezza` (commit `ffc5dfb`, score 96/100).
+- `GeorgeQLe/unfold-mobile-clone` PR#1 -> StoryFold scaffold on `phase16-step16-13-unfold` (commit `e38bc32`, score 96/100).
+- `GeorgeQLe/inshot-mobile-clone` PR#1 -> TrimStudio scaffold on `phase16-step16-13-inshot` (commit `fe9e6cc`, score 96/100).
+
+### Implementation
+- Added original synthetic fixtures, contracts, validation scripts, blocker docs, validation docs, and five variant surfaces per repo.
+- Covered collage grid/export, AI/effect edit/export, preset diary/export, story layout/export, and video trim/export workflows.
+- Kept all repos private, branch-backed, source-spec-backed, and free of GitHub Actions workflows.
+
+### Validation
+- Each repo passed `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, and `git diff --check`.
+- Each PR is open, non-draft, branch-backed, targeting `main`, `CLEAN`, `MERGEABLE`, and has no `.github/workflows` path in its file list.
+- Repo gate: all five repos remain PRIVATE, default to `main`, and keep copied source specs under `docs/source-specs/`.
+- Rate limit: pre-execution core `4955/5000` remaining and GraphQL `4832/5000` remaining; post-execution core `4940/5000` remaining and GraphQL `4796/5000` remaining.
+
+### Carry-Forward Blockers
+- Account lifecycle, subscriptions/payments/restore, cloud sync, collaborative editing, provider import/export, commerce marketplace publishing, region-specific catalog or entitlement behavior, and production credentials remain blocked.
+- Camera/photo-library/file-picker/share-sheet permissions, push/background export, native codec availability, GPU/media rendering, large-media performance, AI/effect execution, video timeline rendering/export, Flutter runtime, iOS native runner, Android Native runner, and real-device verification remain blocked.
+- Licensed layouts, templates, fonts, stock assets, stickers, presets, filters, effects, music, model weights, proprietary algorithms, AI/beauty/face/minor safety, consent/disclosure/bias review, production user media, and provider credentials remain blocked.
+
+### Ship Manifest
+- User goal: implement Step 16.13 sixth Photo & Video Creation tranche across five downstream repos.
+- Changed files: five downstream repos plus `tasks/todo.md` and `tasks/history.md`.
+- Per-file purpose: downstream repos add Phase 16 scaffolds, fixtures, contracts, validators, variant surfaces, blockers, and validation evidence; `tasks/todo.md` records Step 16.13 completion and Step 16.14 executable detail; `tasks/history.md` records PR evidence, validation, blockers, and rollback notes.
+- User-goal mapping: the sixth tranche now has branch-backed PRs for all five selected apps with validation scores and explicit native/provider/licensed-media blockers.
+- Tests run: per-repo `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, `git diff --check`, GitHub PR metadata checks, repo privacy/default-branch/source-spec/workflow checks, rate-limit checks, and planning repo Markdown/diff validation.
+- Skipped tests: native Flutter/iOS/Android compile and real media/camera/video/AI/provider tests were skipped because these repos contain static scaffolds without native runner baselines, lawful media providers, model weights, or real-device contracts.
+- Adversarial review: checked PR target, non-draft state, mergeability, changed-file boundaries, private visibility, source-spec presence, absence of GitHub Actions workflows, and sixth-tranche product scope against `tasks/repo-seeding.md`.
+- Residual risk: Step 16.13 PRs are not merged yet; native media/runtime/provider/licensed-asset/AI/video parity remains blocked.
+- Rollback note: close the five Step 16.13 PRs and delete their branches if the sixth-tranche scaffolds need to be withdrawn; revert this planning commit to reopen Step 16.13 in task history.
+- Next: Step 16.14 - merge sixth tranche PRs and plan seventh Photo & Video Creation tranche.
