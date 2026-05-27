@@ -1,5 +1,32 @@
 # History
 
+## 2026-05-27 - Phase 16 Step 16.4: First Tranche Merge and Second Tranche Plan
+
+- Merged all five Step 16.3 first-tranche PRs serially into `main`:
+  - `GeorgeQLe/capcut-mobile-clone` PR #1 (ClipForge) - merge commit `173112b`
+  - `GeorgeQLe/canva-mobile-clone` PR #1 (CanvasKit) - merge commit `c0504a1`
+  - `GeorgeQLe/lightroom-mobile-clone` PR #1 (ToneLab) - merge commit `599aabe`
+  - `GeorgeQLe/google-photos-mobile-clone` PR #1 (MemoryGrid) - merge commit `34ec71f`
+  - `GeorgeQLe/piccollage-mobile-clone` PR #1 (CollageBoard) - merge commit `7d72eea`
+- Verified before merge that each PR was open, non-draft, targeting `main`, `CLEAN`, `MERGEABLE`, branch-backed, and free of `.github/workflows` in the PR file list.
+- Verified after merge that each downstream repo remains `PRIVATE`, defaults to `main`, has `README.md`, has the copied source spec under `docs/source-specs/`, has `main` pointing at the merge commit, and has no `.github/workflows` directory.
+- Planned Step 16.5 as the second Photo & Video Creation tranche: Picsart/`ArtLab`, VSCO/`FilmTone`, Snapseed/`CropSmith`, Adobe Express/`PosterForge`, and Photoshop Express/`PocketRetouch`.
+- Rate-limit evidence: pre-merge core `4985/5000` remaining and GraphQL `4972/5000` remaining; post-merge core `4960/5000` remaining and GraphQL `4952/5000` remaining.
+- No proprietary assets, brand claims, copied templates, copyrighted media, private APIs, production data, public visibility changes, or GitHub Actions.
+
+### Ship Manifest
+
+- User goal: execute the next incomplete `$exec` step for Phase 16 by merging first-tranche PRs and planning the second tranche.
+- Changed files: five downstream PRs merged to `main`; this planning repo changed `tasks/todo.md` and `tasks/history.md`.
+- Per-file purpose: `tasks/todo.md` marks Step 16.4 complete, records merge evidence, and adds executable Step 16.5 instructions; `tasks/history.md` records merge/planning evidence and the shipping boundary.
+- User-goal mapping: Step 16.4 required closing the first-tranche PR loop and preparing the next bounded implementation step without scaffolding second-tranche variants yet.
+- Tests run: `gh pr view` PR metadata checks; `gh pr merge` serial merges; `gh api` repo/privacy/README/source-spec/workflow/main-commit checks; `gh api rate_limit` before and after; `git diff --check`; Markdown/task-doc structure checks.
+- Skipped tests: no downstream runtime validation was rerun because Step 16.3 already recorded lane-local validation before PR creation and this step only merged those unchanged PRs plus updated planning Markdown.
+- Adversarial review: checked PR gates, merge commits, PRIVATE visibility, source-spec presence, workflow absence, next-tranche coverage, blocker carry-forward, and that Step 16.5 does not claim native/provider/AI parity before evidence exists.
+- Residual risk: second-tranche implementation remains unbuilt; provider/cloud sync, licensed templates/fonts/stock/stickers/presets/filters, AI/beauty safety, native media permissions, GPU/rendering, codec/export, real-device performance, and Flutter/iOS/Android runner verification remain blocked until Step 16.5.
+- Rollback note: revert this planning commit to reopen Step 16.4 in task docs; revert the five downstream merge commits if the first-tranche merges must be undone.
+- Next command: `$exec` for Step 16.5.
+
 ## 2026-05-27 - Phase 16 Step 16.2: First Photo & Video Creation Tranche Plan
 
 - Planned the first Phase 16 implementation tranche as a five-app representative slice: CapCut/`ClipForge`, Canva/`CanvasKit`, Lightroom/`ToneLab`, Google Photos/`MemoryGrid`, and PicCollage/`CollageBoard`.

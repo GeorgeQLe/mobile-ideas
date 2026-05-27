@@ -148,7 +148,7 @@
   - Native runtime parity remains blocked: Flutter/iOS/Android compile, GPU/media rendering, codec/export behavior, camera/photo-library/file-picker/share-sheet behavior, and real-device performance are documented as blockers.
   - Legal/provider blockers remain explicit: licensed templates/music/fonts/stock/stickers/presets/filters, proprietary algorithms, cloud sync, collaboration, backup, provider import/export, production user data, credentials, subscriptions, and AI/beauty safety review.
 
-- [ ] Step 16.4: Merge first tranche PRs and plan the second Photo & Video Creation implementation tranche
+- [x] Step 16.4: Merge first tranche PRs and plan the second Photo & Video Creation implementation tranche
   - Merge the five Step 16.3 PRs only after confirming they are still open, non-draft, clean, private, source-spec-backed, and free of `.github/workflows`.
   - Select the next 5 Phase 16 apps from the reconciled inventory, prioritizing photo editing/design workflows after the first mixed tranche.
   - Candidate second tranche: Picsart (`223`), VSCO (`224`), Snapseed (`225`), Adobe Express (`226`), and Photoshop Express (`227`).
@@ -165,6 +165,87 @@
   3. Verify merged repos remain private, source specs remain present, and no `.github/workflows` path exists.
   4. Use `tasks/repo-seeding.md` and source specs to define the second tranche.
   5. Record validation/merge evidence and write the Step 16.5 implementation packet.
+
+  **Result:**
+  Step 16.4 merged all five first-tranche PRs to `main` and scoped the second implementation tranche:
+
+  | ID | Product | Repo | PR | Source Commit | Merge Commit | Merged At |
+  |---:|---|---|---|---|---|---|
+  | 096 | ClipForge | `GeorgeQLe/capcut-mobile-clone` | https://github.com/GeorgeQLe/capcut-mobile-clone/pull/1 | `2b8f7b8` | `173112b` | 2026-05-27T17:27:25Z |
+  | 097 | CanvasKit | `GeorgeQLe/canva-mobile-clone` | https://github.com/GeorgeQLe/canva-mobile-clone/pull/1 | `b538aff` | `c0504a1` | 2026-05-27T17:27:31Z |
+  | 098 | ToneLab | `GeorgeQLe/lightroom-mobile-clone` | https://github.com/GeorgeQLe/lightroom-mobile-clone/pull/1 | `f0ac995` | `599aabe` | 2026-05-27T17:27:37Z |
+  | 099 | MemoryGrid | `GeorgeQLe/google-photos-mobile-clone` | https://github.com/GeorgeQLe/google-photos-mobile-clone/pull/1 | `5fb94ee` | `34ec71f` | 2026-05-27T17:27:43Z |
+  | 243 | CollageBoard | `GeorgeQLe/piccollage-mobile-clone` | https://github.com/GeorgeQLe/piccollage-mobile-clone/pull/1 | `aa555b1` | `7d72eea` | 2026-05-27T17:27:49Z |
+
+  **Merge Verification Evidence:**
+  - Pre-merge rate-limit snapshot: core `used=15`, `remaining=4985`, `reset=1779906187`; GraphQL `used=28`, `remaining=4972`, `reset=1779904183`.
+  - Each PR was verified open, non-draft, targeting `main`, `CLEAN`, `MERGEABLE`, branch-backed, and free of `.github/workflows` in the PR file list before merge.
+  - Post-merge verification confirmed each repo remains `PRIVATE`, defaults to `main`, has `README.md`, has the copied source spec under `docs/source-specs/`, has `main` pointing at the merge commit, and has no `.github/workflows` directory.
+  - Post-merge rate-limit snapshot: core `used=40`, `remaining=4960`, `reset=1779906187`; GraphQL `used=48`, `remaining=4952`, `reset=1779904183`.
+
+- [ ] Step 16.5: Implement second Photo & Video Creation tranche across five downstream repos
+  - Build all five variants for `ArtLab`, `FilmTone`, `CropSmith`, `PosterForge`, and `PocketRetouch` in the selected downstream repos.
+  - Keep work serial in this shared tree unless a later explicit `agent-team` plan creates separate branch-backed lanes with PR consolidation. Do not use GitHub Actions.
+  - For each repo, verify it is `PRIVATE`, uses `main` as the target branch, contains the copied source spec under `docs/source-specs/`, and has no `.github/workflows` path before making changes.
+  - Create the implementation branch named below, add original synthetic fixtures/contracts, variant surfaces, validation scripts, blocker notes, and validation evidence, then open a PR to `main`.
+  - Preserve lawful scope: no original brands, logos, screenshots, proprietary media, copied templates, copyrighted presets, private APIs, production data, provider credentials, or claims of verified AI/native/provider parity without evidence.
+  - Files: modify the five downstream repos only plus `tasks/todo.md` and `tasks/history.md` in this planning repo.
+
+  **Second Tranche Selection:**
+
+  | Lane | ID | App | Risk Group | Downstream Repo | Source Spec | Implementation Branch |
+  |---|---:|---|---|---|---|---|
+  | A | 223 | Picsart | Photo editor / design remix | `GeorgeQLe/picsart-mobile-clone` | `specs/batch-12/223-picsart.md` | `phase16-step16-5-picsart` |
+  | B | 224 | VSCO | Camera/photo presets | `GeorgeQLe/vsco-mobile-clone` | `specs/batch-12/224-vsco.md` | `phase16-step16-5-vsco` |
+  | C | 225 | Snapseed | Photo adjustment/editor | `GeorgeQLe/snapseed-mobile-clone` | `specs/batch-12/225-snapseed.md` | `phase16-step16-5-snapseed` |
+  | D | 226 | Adobe Express | Design/canvas/social export | `GeorgeQLe/adobe-express-mobile-clone` | `specs/batch-12/226-adobe-express.md` | `phase16-step16-5-adobe-express` |
+  | E | 227 | Photoshop Express | Photo retouch/composite editor | `GeorgeQLe/photoshop-express-mobile-clone` | `specs/batch-12/227-photoshop-express.md` | `phase16-step16-5-photoshop-express` |
+
+  **Per-App Product Direction:**
+  - Picsart-inspired product: `ArtLab`, an original creative photo editor with synthetic remix projects, layer stacks, local sticker shapes, text overlays, brush/effect recipes, export/share states, and explicit AI, asset-rights, marketplace, and provider blockers.
+  - VSCO-inspired product: `FilmTone`, an original camera/photo journal with import queue, original numeric preset recipes, adjustment sliders, compare mode, gallery publishing states, membership/preset marketplace blockers, and no copied filter looks.
+  - Snapseed-inspired product: `CropSmith`, an original precision editor with local image fixture metadata, crop/rotate, selective adjustments, healing placeholder, preset stack history, export variants, and native/photo-library/toolchain blockers.
+  - Adobe Express-inspired product: `PosterForge`, an original template-driven design surface with synthetic poster/social layouts, text/image layers, resize/export/share states, collaboration/brand-kit/cloud blockers, and no copied templates or fonts.
+  - Photoshop Express-inspired product: `PocketRetouch`, an original quick retouch editor with crop, exposure/color, blemish placeholder, collage/composite shell, export/share states, AI/beauty safety blockers, and no proprietary algorithms or presets.
+
+  **Owned Downstream Paths Per Repo:**
+  - `README.md`
+  - `package.json`
+  - `fixtures/phase16/*.json`
+  - `contracts/phase16/*.json`
+  - `scripts/validate-phase16-*.mjs`
+  - `scripts/check-phase16-variants.mjs`
+  - `variants/react-native/**`
+  - `variants/expo/**`
+  - `variants/flutter/**`
+  - `variants/ios-native/**`
+  - `variants/android-native/**`
+  - `docs/implementation/phase16-step16-5.md`
+  - `docs/blockers/phase16-step16-5.md`
+  - `docs/validation/phase16-step16-5.md`
+
+  **Validation Commands Per Repo:**
+  - `npm run validate`
+  - `npm run check:variants`
+  - `npm run test:react-native`
+  - `npm run test:expo`
+  - `git diff --check`
+
+  **Implementation Packet:**
+  1. Start with Picsart/`ArtLab`, then VSCO/`FilmTone`, Snapseed/`CropSmith`, Adobe Express/`PosterForge`, and Photoshop Express/`PocketRetouch`.
+  2. In each repo, create fixture data for assets/projects/layers/adjustments/edits/exports and contract data for routes, entities, blocked parity, and validation expectations.
+  3. Add five variant directories: React Native, Expo, Flutter, iOS Native, and Android Native. Each variant must expose the same core workflow for the app class and clearly mark native/toolchain blockers where execution cannot be proven locally.
+  4. Add validator scripts and package scripts for `validate`, `check:variants`, `test:react-native`, and `test:expo`; native compile commands are optional only if the repo has a real runner baseline.
+  5. Run the validation commands listed above for every repo. If a command is intentionally unavailable, replace it with a documented blocker and explain why it is not executable in `docs/validation/phase16-step16-5.md`.
+  6. Record benchmark or local validation score evidence for every variant. For static scaffolds, use structure/contract validation scores and avoid claiming runtime performance.
+  7. Verify each branch/PR file list contains no `.github/workflows` path and every repo remains `PRIVATE`.
+  8. Update this planning repo with the per-repo PR/commit/validation/blocker evidence and the next tranche plan.
+
+  **Acceptance Criteria For Step 16.5:**
+  - All five selected repos have five variant surfaces each, or explicit local/toolchain/provider/licensed-media blockers for any missing executable behavior.
+  - Every selected repo has validation evidence for fixture/contract integrity and variant structure.
+  - Core workflows are represented: creative remix/export for `ArtLab`, preset adjustment/gallery export for `FilmTone`, precision crop/adjust/export for `CropSmith`, template canvas/export for `PosterForge`, and retouch/composite/export for `PocketRetouch`.
+  - No downstream repo becomes public, gains GitHub Actions workflows, or claims verified provider/native/AI parity without evidence.
 
 ### Milestone: Phase 16 — Photo & Video Creation Complete
 **Acceptance Criteria:**
