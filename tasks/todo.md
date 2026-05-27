@@ -988,7 +988,7 @@
   - Native runtime parity remains blocked: Flutter/iOS/Android compile, GPU/media rendering, native camera/photo-library/file-picker/share-sheet behavior, codec/export behavior, video timeline rendering/export, AI/effect execution, motion graphics rendering, and real-device performance are documented as blockers.
   - Legal/provider/safety blockers remain explicit: licensed layouts/templates/fonts/stock/stickers/presets/filters/effects/music, model weights, proprietary algorithms, AI/video/media/minor safety, consent/disclosure/bias review, cloud sync, provider import/export, subscriptions/payments, production media, and credentials.
 
-- [ ] Step 16.18: Merge eighth tranche PRs and plan the final Photo & Video Creation implementation tranche
+- [x] Step 16.18: Merge eighth tranche PRs and plan the final Photo & Video Creation implementation tranche
   - Merge the five Step 16.17 PRs only after confirming they are still open, non-draft, clean, private, source-spec-backed, and free of `.github/workflows`.
   - Select the final remaining Phase 16 apps from the reconciled inventory: GoPro Quik (`259`) and VivaVideo (`260`).
   - Define original product names, branch names, owned downstream paths, validation commands, and blocker carry-forward for each final app.
@@ -1004,6 +1004,81 @@
   3. Verify merged repos remain private, source specs remain present, and no `.github/workflows` path exists.
   4. Use `tasks/repo-seeding.md` and source specs to define the final two-app tranche.
   5. Record validation/merge evidence and write the Step 16.19 implementation packet.
+
+  **Result:**
+  Step 16.18 merged all five eighth-tranche PRs to `main` and scoped the final two-app implementation tranche:
+
+  | ID | Product | Repo | PR | Source Commit | Merge Commit | Merged At |
+  |---:|---|---|---|---|---|---|
+  | 254 | SceneForge | `GeorgeQLe/filmora-mobile-clone` | https://github.com/GeorgeQLe/filmora-mobile-clone/pull/1 | `072978a` | `27faaf9` | 2026-05-27T19:24:14Z |
+  | 255 | MotionLayer | `GeorgeQLe/alight-motion-mobile-clone` | https://github.com/GeorgeQLe/alight-motion-mobile-clone/pull/1 | `2e7e278` | `1b6ecd1` | 2026-05-27T19:24:19Z |
+  | 256 | StoryMotion | `GeorgeQLe/mojo-mobile-clone` | https://github.com/GeorgeQLe/mojo-mobile-clone/pull/1 | `30ebbd6` | `9ef94f8` | 2026-05-27T19:24:25Z |
+  | 257 | ClipSpark | `GeorgeQLe/apple-clips-mobile-clone` | https://github.com/GeorgeQLe/apple-clips-mobile-clone/pull/1 | `16f7d84` | `d756cb4` | 2026-05-27T19:24:30Z |
+  | 258 | AutoCut | `GeorgeQLe/magisto-mobile-clone` | https://github.com/GeorgeQLe/magisto-mobile-clone/pull/1 | `9fff1f0` | `fdf88f3` | 2026-05-27T19:24:37Z |
+
+  **Merge Verification Evidence:**
+  - Pre-merge rate-limit snapshot: core `used=140`, `remaining=4860`, `reset=1779909925`; GraphQL `used=77`, `remaining=4923`, `reset=1779911744`.
+  - Each PR was verified open, non-draft, targeting `main`, `CLEAN`, `MERGEABLE`, branch-backed, and free of `.github/workflows` in the PR file list before merge.
+  - Post-merge verification confirmed each repo remains `PRIVATE`, defaults to `main`, has the copied source spec under `docs/source-specs/`, and has no `.github/workflows` directory.
+  - Post-merge rate-limit snapshot: core `used=175`, `remaining=4825`, `reset=1779909925`; GraphQL `used=97`, `remaining=4903`, `reset=1779911744`.
+
+- [ ] Step 16.19: Implement final Photo & Video Creation tranche across two downstream repos
+  - Build all five variants for `ActionReel` and `CutTempo` in the selected downstream repos.
+  - Keep work serial in this shared tree unless a later explicit `agent-team` plan creates separate branch-backed lanes with PR consolidation. Do not use GitHub Actions.
+  - For each repo, verify it is `PRIVATE`, uses `main` as the target branch, contains the copied source spec under `docs/source-specs/`, and has no `.github/workflows` path before making changes.
+  - Create the implementation branch named below, add original synthetic fixtures/contracts, variant surfaces, validation scripts, blocker notes, and validation evidence, then open a PR to `main`.
+  - Preserve lawful scope: no original brands, logos, screenshots, proprietary media, copied filters/effects/templates/stickers/presets/music/model weights, private APIs, production camera/media data, provider credentials, or claims of verified native/provider/AI/video/camera parity without evidence.
+  - Files: modify the two downstream repos only plus `tasks/todo.md` and `tasks/history.md` in this planning repo.
+
+  **Final Tranche Selection:**
+
+  | Lane | ID | App | Risk Group | Downstream Repo | Source Spec | Implementation Branch |
+  |---|---:|---|---|---|---|---|
+  | A | 259 | GoPro Quik | Action-camera / auto video editor | `GeorgeQLe/gopro-quik-mobile-clone` | `specs/batch-13/259-gopro-quik.md` | `phase16-step16-19-gopro-quik` |
+  | B | 260 | VivaVideo | Mobile video editor / templates | `GeorgeQLe/vivavideo-mobile-clone` | `specs/batch-13/260-vivavideo.md` | `phase16-step16-19-vivavideo` |
+
+  **Per-App Product Direction:**
+  - GoPro Quik-inspired product: `ActionReel`, an original action-media editor with synthetic camera-import projects, auto-highlight job shells, mural/library organization, timeline trim/reorder, music placeholder tracks, export/share states, and explicit camera hardware, cloud backup, subscription, codec, provider, and native media blockers.
+  - VivaVideo-inspired product: `CutTempo`, an original mobile video editor with synthetic drafts, timeline clips, template placeholders, text/effect/sticker shells, music placeholder tracks, export/share states, and explicit licensed-asset, subscription, provider, codec, camera/media, and native rendering blockers.
+
+  **Owned Downstream Paths Per Repo:**
+  - `README.md`
+  - `package.json`
+  - `fixtures/phase16/*.json`
+  - `contracts/phase16/*.json`
+  - `scripts/validate-phase16-*.mjs`
+  - `scripts/check-phase16-variants.mjs`
+  - `variants/react-native/**`
+  - `variants/expo/**`
+  - `variants/flutter/**`
+  - `variants/ios-native/**`
+  - `variants/android-native/**`
+  - `docs/implementation/phase16-step16-19.md`
+  - `docs/blockers/phase16-step16-19.md`
+  - `docs/validation/phase16-step16-19.md`
+
+  **Validation Commands Per Repo:**
+  - `npm run validate`
+  - `npm run check:variants`
+  - `npm run test:react-native`
+  - `npm run test:expo`
+  - `git diff --check`
+
+  **Implementation Packet:**
+  1. Start with GoPro Quik/`ActionReel`, then VivaVideo/`CutTempo`.
+  2. In each repo, create fixture data for media/projects/timelines/effects/assets/exports and contract data for routes, entities, blocked parity, and validation expectations.
+  3. Add five variant directories: React Native, Expo, Flutter, iOS Native, and Android Native. Each variant must expose the same core video editing workflow for the app class and clearly mark native/toolchain blockers where execution cannot be proven locally.
+  4. Add validator scripts and package scripts for `validate`, `check:variants`, `test:react-native`, and `test:expo`; native compile commands are optional only if the repo has a real runner baseline.
+  5. Run the validation commands listed above for every repo. If a command is intentionally unavailable, replace it with a documented blocker and explain why it is not executable in `docs/validation/phase16-step16-19.md`.
+  6. Record benchmark or local validation score evidence for every variant. For static scaffolds, use structure/contract validation scores and avoid claiming runtime video, codec, GPU, AI, camera, hardware, cloud-backup, or provider performance.
+  7. Verify each branch/PR file list contains no `.github/workflows` path and every repo remains `PRIVATE`.
+  8. Update this planning repo with the per-repo PR/commit/validation/blocker evidence and Phase 16 completion readiness.
+
+  **Acceptance Criteria For Step 16.19:**
+  - Both selected repos have five variant surfaces each, or explicit local/toolchain/provider/licensed-media blockers for any missing executable behavior.
+  - Every selected repo has validation evidence for fixture/contract integrity and variant structure.
+  - Core workflows are represented: action-camera import/auto-edit/export for `ActionReel` and mobile timeline/template/export for `CutTempo`.
+  - No downstream repo becomes public, gains GitHub Actions workflows, or claims verified provider/native/AI/video/camera/hardware/cloud parity without evidence.
 
 ### Milestone: Phase 16 — Photo & Video Creation Complete
 **Acceptance Criteria:**

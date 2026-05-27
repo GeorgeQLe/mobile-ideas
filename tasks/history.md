@@ -6112,3 +6112,38 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Residual risk: Step 16.17 implementation PRs are not created yet; native media/runtime/provider/licensed-asset/AI/video/motion parity remains blocked.
 - Rollback note: revert this planning commit to reopen Step 16.16 in task history; revert the five downstream merge commits if the seventh-tranche scaffolds need to be removed from `main`.
 - Next: Step 16.17 - implement eighth Photo & Video Creation tranche.
+
+## Step 16.18 - Eighth Photo & Video Creation Merge And Final Tranche Plan (2026-05-27)
+
+### PR Merges (Step 16.17)
+- `GeorgeQLe/filmora-mobile-clone` PR#1 -> MERGED for SceneForge (merge `27faaf9`).
+- `GeorgeQLe/alight-motion-mobile-clone` PR#1 -> MERGED for MotionLayer (merge `1b6ecd1`).
+- `GeorgeQLe/mojo-mobile-clone` PR#1 -> MERGED for StoryMotion (merge `9ef94f8`).
+- `GeorgeQLe/apple-clips-mobile-clone` PR#1 -> MERGED for ClipSpark (merge `d756cb4`).
+- `GeorgeQLe/magisto-mobile-clone` PR#1 -> MERGED for AutoCut (merge `fdf88f3`).
+
+### Final Tranche Plan
+- Lane 16.19-A: `GeorgeQLe/gopro-quik-mobile-clone` (ActionReel) - GoPro Quik-inspired synthetic action-camera import, auto-highlight jobs, mural/library organization, timeline editing, music placeholders, export, and camera/cloud/codec/native blocker scaffold.
+- Lane 16.19-B: `GeorgeQLe/vivavideo-mobile-clone` (CutTempo) - VivaVideo-inspired synthetic mobile timeline drafts, template placeholders, text/effect/sticker shells, music placeholders, export, and licensed-asset/provider/codec/native blocker scaffold.
+
+### Validation
+- Pre-merge PR gate: all five Step 16.17 PRs were open, non-draft, branch-backed, targeting `main`, `CLEAN`, `MERGEABLE`, and had no `.github/workflows` path in PR file lists.
+- Post-merge repo gate: all five repos remain PRIVATE, default to `main`, keep copied source specs under `docs/source-specs/`, and have no `.github/workflows` directory.
+- Rate limit: pre-merge core `4860/5000` remaining and GraphQL `4923/5000` remaining; post-merge core `4825/5000` remaining and GraphQL `4903/5000` remaining.
+
+### Carry-Forward Blockers
+- Account lifecycle, subscriptions/payments/restore, cloud sync/backup, collaborative editing, provider import/export, marketplace publishing, region-specific catalog or entitlement behavior, and production credentials remain blocked.
+- Camera/photo-library/file-picker/share-sheet permissions, push/background export, native codec availability, GPU/media rendering, large-media performance, AI/effect execution, video timeline rendering/export, action-camera hardware integration, Flutter runtime, iOS native runner, Android Native runner, and real-device verification remain blocked.
+- Licensed layouts, templates, fonts, stock assets, stickers, presets, filters, effects, music, model weights, proprietary algorithms, AI/video/media/minor safety, consent/disclosure/bias review, production user media, and provider credentials remain blocked.
+
+### Ship Manifest
+- User goal: merge Step 16.17 validated PRs and prepare Step 16.19 final Photo & Video Creation tranche.
+- Changed files: `tasks/todo.md`, `tasks/history.md`, plus merge state in five downstream repos.
+- Per-file purpose: `tasks/todo.md` records Step 16.18 completion and Step 16.19 executable detail; `tasks/history.md` records merge evidence, final-tranche scope, blockers, and rollback notes.
+- User-goal mapping: downstream merges close the eighth tranche; the final implementation packet is ready for two video editor apps using original synthetic fixtures and explicit blockers.
+- Tests run: GitHub PR metadata checks, repo privacy/default-branch/source-spec/workflow checks, rate-limit checks, and planning repo Markdown/diff validation.
+- Skipped tests: no planning-repo executable app test suite is relevant because this step changed task/history Markdown and downstream merge state only; downstream validation was already produced by Step 16.17 and re-merge source commits were unchanged.
+- Adversarial review: checked PR target, non-draft state, mergeability, changed-file boundaries, private visibility, source-spec presence, absence of GitHub Actions workflows, and final-tranche inventory order against `tasks/repo-seeding.md`.
+- Residual risk: Step 16.19 implementation PRs are not created yet; native media/runtime/provider/licensed-asset/AI/video/camera/hardware/cloud parity remains blocked.
+- Rollback note: revert this planning commit to reopen Step 16.18 in task history; revert the five downstream merge commits if the eighth-tranche scaffolds need to be removed from `main`.
+- Next: Step 16.19 - implement final Photo & Video Creation tranche.
