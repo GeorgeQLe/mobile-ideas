@@ -268,7 +268,7 @@
   - Native runtime parity remains blocked: Flutter/iOS/Android compile, GPU rendering, native camera/photo-library/file-picker/share-sheet behavior, codec/export behavior, and real-device performance are documented as blockers.
   - Legal/provider blockers remain explicit: licensed templates/fonts/stock/stickers/presets/filters, proprietary algorithms, AI/beauty safety, marketplace entitlement, cloud sync, provider publishing/import/export, subscriptions/payments, production user media, and credentials.
 
-- [ ] Step 16.6: Merge second tranche PRs and plan the third Photo & Video Creation implementation tranche
+- [x] Step 16.6: Merge second tranche PRs and plan the third Photo & Video Creation implementation tranche
   - Merge the five Step 16.5 PRs only after confirming they are still open, non-draft, clean, private, source-spec-backed, and free of `.github/workflows`.
   - Select the next 5 Phase 16 apps from the reconciled inventory, continuing through the photo/video creation cluster after the second photo-editing tranche.
   - Candidate third tranche: Facetune (`228`), TouchRetouch (`229`), Prequel (`230`), Tezza (`231`), and Afterlight (`232`).
@@ -285,6 +285,87 @@
   3. Verify merged repos remain private, source specs remain present, and no `.github/workflows` path exists.
   4. Use `tasks/repo-seeding.md` and source specs to define the third tranche.
   5. Record validation/merge evidence and write the Step 16.7 implementation packet.
+
+  **Result:**
+  Step 16.6 merged all five second-tranche PRs to `main` and scoped the third implementation tranche from the reconciled inventory. The candidate list in the original Step 16.6 text was stale; IDs `228-232` are Procreate Pocket, Sketchbook, ibis Paint X, Clip Studio Paint, and Bazaart, while Facetune, Prequel, and Tezza occur later in the Phase 16 inventory.
+
+  | ID | Product | Repo | PR | Source Commit | Merge Commit | Merged At |
+  |---:|---|---|---|---|---|---|
+  | 223 | ArtLab | `GeorgeQLe/picsart-mobile-clone` | https://github.com/GeorgeQLe/picsart-mobile-clone/pull/1 | `5920983` | `811ed34` | 2026-05-27T17:43:18Z |
+  | 224 | FilmTone | `GeorgeQLe/vsco-mobile-clone` | https://github.com/GeorgeQLe/vsco-mobile-clone/pull/1 | `a7771f8` | `4089d17` | 2026-05-27T17:43:24Z |
+  | 225 | CropSmith | `GeorgeQLe/snapseed-mobile-clone` | https://github.com/GeorgeQLe/snapseed-mobile-clone/pull/1 | `5af3c1d` | `1a7df87` | 2026-05-27T17:43:32Z |
+  | 226 | PosterForge | `GeorgeQLe/adobe-express-mobile-clone` | https://github.com/GeorgeQLe/adobe-express-mobile-clone/pull/1 | `6669ff2` | `3c658fc` | 2026-05-27T17:43:37Z |
+  | 227 | PocketRetouch | `GeorgeQLe/photoshop-express-mobile-clone` | https://github.com/GeorgeQLe/photoshop-express-mobile-clone/pull/1 | `8736028` | `ea5cb4a` | 2026-05-27T17:43:45Z |
+
+  **Merge Verification Evidence:**
+  - Pre-merge rate-limit snapshot: core `used=81`, `remaining=4919`, `reset=1779906187`; GraphQL `used=82`, `remaining=4918`, `reset=1779904183`.
+  - Each PR was verified open, non-draft, targeting `main`, `CLEAN`, `MERGEABLE`, branch-backed, and free of `.github/workflows` in the PR file list before merge.
+  - Post-merge verification confirmed each repo remains `PRIVATE`, defaults to `main`, has the copied source spec under `docs/source-specs/`, and has no `.github/workflows` directory.
+  - Post-merge rate-limit snapshot: core `used=106`, `remaining=4894`, `reset=1779906187`; GraphQL `used=102`, `remaining=4898`, `reset=1779904183`.
+
+- [ ] Step 16.7: Implement third Photo & Video Creation tranche across five downstream repos
+  - Build all five variants for `BrushPocket`, `SketchTable`, `LayerInk`, `PanelForge`, and `CutoutStudio` in the selected downstream repos.
+  - Keep work serial in this shared tree unless a later explicit `agent-team` plan creates separate branch-backed lanes with PR consolidation. Do not use GitHub Actions.
+  - For each repo, verify it is `PRIVATE`, uses `main` as the target branch, contains the copied source spec under `docs/source-specs/`, and has no `.github/workflows` path before making changes.
+  - Create the implementation branch named below, add original synthetic fixtures/contracts, variant surfaces, validation scripts, blocker notes, and validation evidence, then open a PR to `main`.
+  - Preserve lawful scope: no original brands, logos, screenshots, proprietary media, copied brushes/templates/fonts/presets, copyrighted artwork, private APIs, production data, provider credentials, or claims of verified native/provider parity without evidence.
+  - Files: modify the five downstream repos only plus `tasks/todo.md` and `tasks/history.md` in this planning repo.
+
+  **Third Tranche Selection:**
+
+  | Lane | ID | App | Risk Group | Downstream Repo | Source Spec | Implementation Branch |
+  |---|---:|---|---|---|---|---|
+  | A | 228 | Procreate Pocket | Design/drawing tools | `GeorgeQLe/procreate-pocket-mobile-clone` | `specs/batch-12/228-procreate-pocket.md` | `phase16-step16-7-procreate-pocket` |
+  | B | 229 | Sketchbook | Design/drawing tools | `GeorgeQLe/sketchbook-mobile-clone` | `specs/batch-12/229-sketchbook.md` | `phase16-step16-7-sketchbook` |
+  | C | 230 | ibis Paint X | Design/drawing tools | `GeorgeQLe/ibis-paint-x-mobile-clone` | `specs/batch-12/230-ibis-paint-x.md` | `phase16-step16-7-ibis-paint-x` |
+  | D | 231 | Clip Studio Paint | Design/drawing tools | `GeorgeQLe/clip-studio-paint-mobile-clone` | `specs/batch-12/231-clip-studio-paint.md` | `phase16-step16-7-clip-studio-paint` |
+  | E | 232 | Bazaart | Design/cutout/composite tools | `GeorgeQLe/bazaart-mobile-clone` | `specs/batch-12/232-bazaart.md` | `phase16-step16-7-bazaart` |
+
+  **Per-App Product Direction:**
+  - Procreate Pocket-inspired product: `BrushPocket`, an original pocket drawing app with synthetic canvases, brush presets represented by original numeric recipes, layers, color palettes, gesture-state notes, export/share states, and native Apple Pencil/GPU/toolchain blockers.
+  - Sketchbook-inspired product: `SketchTable`, an original drawing workspace with sketch projects, brush library, layer stack, symmetry/ruler placeholders, gallery organization, export/share states, and stylus/native-rendering blockers.
+  - ibis Paint X-inspired product: `LayerInk`, an original illustration app with synthetic manga-style canvas metadata, layer/blend settings, brush/stabilizer recipes, timelapse placeholder state, export/share states, and ad/subscription/community blockers.
+  - Clip Studio Paint-inspired product: `PanelForge`, an original comic/illustration editor with panel layout fixtures, layer stacks, brush/material placeholders, timeline/animation shell, export/share states, and licensed-material/cloud/native blockers.
+  - Bazaart-inspired product: `CutoutStudio`, an original cutout/composite editor with local image fixtures, background removal placeholder, layer placement, text/sticker shapes, export/share states, and AI/provider/licensed-asset blockers.
+
+  **Owned Downstream Paths Per Repo:**
+  - `README.md`
+  - `package.json`
+  - `fixtures/phase16/*.json`
+  - `contracts/phase16/*.json`
+  - `scripts/validate-phase16-*.mjs`
+  - `scripts/check-phase16-variants.mjs`
+  - `variants/react-native/**`
+  - `variants/expo/**`
+  - `variants/flutter/**`
+  - `variants/ios-native/**`
+  - `variants/android-native/**`
+  - `docs/implementation/phase16-step16-7.md`
+  - `docs/blockers/phase16-step16-7.md`
+  - `docs/validation/phase16-step16-7.md`
+
+  **Validation Commands Per Repo:**
+  - `npm run validate`
+  - `npm run check:variants`
+  - `npm run test:react-native`
+  - `npm run test:expo`
+  - `git diff --check`
+
+  **Implementation Packet:**
+  1. Start with Procreate Pocket/`BrushPocket`, then Sketchbook/`SketchTable`, ibis Paint X/`LayerInk`, Clip Studio Paint/`PanelForge`, and Bazaart/`CutoutStudio`.
+  2. In each repo, create fixture data for canvases/projects/layers/brushes/materials/edits/exports and contract data for routes, entities, blocked parity, and validation expectations.
+  3. Add five variant directories: React Native, Expo, Flutter, iOS Native, and Android Native. Each variant must expose the same core drawing/compositing workflow for the app class and clearly mark native/toolchain blockers where execution cannot be proven locally.
+  4. Add validator scripts and package scripts for `validate`, `check:variants`, `test:react-native`, and `test:expo`; native compile commands are optional only if the repo has a real runner baseline.
+  5. Run the validation commands listed above for every repo. If a command is intentionally unavailable, replace it with a documented blocker and explain why it is not executable in `docs/validation/phase16-step16-7.md`.
+  6. Record benchmark or local validation score evidence for every variant. For static scaffolds, use structure/contract validation scores and avoid claiming runtime drawing performance.
+  7. Verify each branch/PR file list contains no `.github/workflows` path and every repo remains `PRIVATE`.
+  8. Update this planning repo with the per-repo PR/commit/validation/blocker evidence and the next tranche plan.
+
+  **Acceptance Criteria For Step 16.7:**
+  - All five selected repos have five variant surfaces each, or explicit local/toolchain/provider/licensed-media blockers for any missing executable behavior.
+  - Every selected repo has validation evidence for fixture/contract integrity and variant structure.
+  - Core workflows are represented: pocket drawing/export for `BrushPocket`, sketch/layer/export for `SketchTable`, illustration/layer/export for `LayerInk`, comic panel/material/export for `PanelForge`, and cutout/composite/export for `CutoutStudio`.
+  - No downstream repo becomes public, gains GitHub Actions workflows, or claims verified provider/native/GPU parity without evidence.
 
 ### Milestone: Phase 16 — Photo & Video Creation Complete
 **Acceptance Criteria:**

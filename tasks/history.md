@@ -5661,3 +5661,42 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Residual risk: PRs remain open for Step 16.4 merge; native media/runtime/provider/licensed-asset parity remains blocked.
 - Rollback note: revert this planning commit to reopen Step 16.3 in task history; close or revert the five downstream PR branches to undo scaffolds.
 - Next: Step 16.4 - merge first tranche PRs and plan second Photo & Video Creation tranche.
+
+## Step 16.6 - Second Photo & Video Creation Merge And Third Tranche Plan (2026-05-27)
+
+### PR Merges (Step 16.5)
+- `GeorgeQLe/picsart-mobile-clone` PR#1 -> MERGED for ArtLab (merge `811ed34`).
+- `GeorgeQLe/vsco-mobile-clone` PR#1 -> MERGED for FilmTone (merge `4089d17`).
+- `GeorgeQLe/snapseed-mobile-clone` PR#1 -> MERGED for CropSmith (merge `1a7df87`).
+- `GeorgeQLe/adobe-express-mobile-clone` PR#1 -> MERGED for PosterForge (merge `3c658fc`).
+- `GeorgeQLe/photoshop-express-mobile-clone` PR#1 -> MERGED for PocketRetouch (merge `ea5cb4a`).
+
+### Third Tranche Plan
+- Lane 16.7-A: `GeorgeQLe/procreate-pocket-mobile-clone` (BrushPocket) - Procreate Pocket-inspired synthetic pocket drawing, brush, layer, palette, gesture-state, and export scaffold.
+- Lane 16.7-B: `GeorgeQLe/sketchbook-mobile-clone` (SketchTable) - Sketchbook-inspired synthetic sketch project, brush library, layer, ruler/symmetry placeholder, gallery, and export scaffold.
+- Lane 16.7-C: `GeorgeQLe/ibis-paint-x-mobile-clone` (LayerInk) - ibis Paint X-inspired synthetic illustration, manga canvas, layer/blend, brush/stabilizer, timelapse placeholder, and export scaffold.
+- Lane 16.7-D: `GeorgeQLe/clip-studio-paint-mobile-clone` (PanelForge) - Clip Studio Paint-inspired synthetic comic panel, layer, brush/material placeholder, animation shell, and export scaffold.
+- Lane 16.7-E: `GeorgeQLe/bazaart-mobile-clone` (CutoutStudio) - Bazaart-inspired synthetic cutout, composite, layer placement, text/sticker shape, background, and export scaffold.
+
+### Validation
+- Pre-merge PR gate: all five Step 16.5 PRs were open, non-draft, branch-backed, targeting `main`, `CLEAN`, `MERGEABLE`, and had no `.github/workflows` path in PR file lists.
+- Post-merge repo gate: all five repos remain PRIVATE, default to `main`, keep copied source specs under `docs/source-specs/`, and have no `.github/workflows` directory.
+- Inventory correction: the original Step 16.6 candidate note listed stale app names for IDs `228-232`; the reconciled inventory confirms those IDs are Procreate Pocket, Sketchbook, ibis Paint X, Clip Studio Paint, and Bazaart.
+- Rate limit: pre-merge core `4919/5000` remaining and GraphQL `4918/5000` remaining; post-merge core `4894/5000` remaining and GraphQL `4898/5000` remaining.
+
+### Carry-Forward Blockers
+- Account lifecycle, subscriptions/payments, cloud sync, collaborative editing, community publishing, backup/import/export provider behavior, and region-specific catalog or entitlement behavior remain blocked.
+- Camera/photo-library/file-picker/share-sheet permissions, push/background export, native codec availability, GPU rendering, large-canvas performance, stylus/Apple Pencil behavior, gesture fidelity, native file storage, Flutter runtime, iOS native runner, Android Native runner, and real-device verification remain blocked.
+- Licensed brushes, templates, fonts, stock assets, stickers, materials, presets, filters, artwork, proprietary algorithms, AI cutout/beauty/effects safety review, production user media, and provider credentials remain blocked.
+
+### Ship Manifest
+- User goal: merge Step 16.5 validated PRs and prepare Step 16.7 third Photo & Video Creation tranche.
+- Changed files: `tasks/todo.md`, `tasks/history.md`, plus merge state in five downstream repos.
+- Per-file purpose: `tasks/todo.md` records Step 16.6 completion and Step 16.7 executable detail; `tasks/history.md` records merge evidence, inventory correction, blockers, and rollback notes.
+- User-goal mapping: downstream merges close the second tranche; the next implementation packet is ready for five drawing/composite apps using original synthetic fixtures and explicit blockers.
+- Tests run: GitHub PR metadata checks, repo privacy/default-branch/source-spec/workflow checks, rate-limit checks, and planning repo Markdown/diff validation.
+- Skipped tests: no planning-repo executable app test suite is relevant because this step changed task/history Markdown and downstream merge state only; downstream validation was already produced by Step 16.5 and re-merge source commits were unchanged.
+- Adversarial review: verified stale candidate IDs against `tasks/repo-seeding.md` and source specs, corrected the tranche selection to inventory order, checked PR file boundaries for GitHub Actions, and rechecked private visibility/source-spec presence after merge.
+- Residual risk: Step 16.7 implementation PRs are not created yet; native drawing/media/runtime/provider/licensed-asset parity remains blocked.
+- Rollback note: revert this planning commit to reopen Step 16.6 in task history; revert the five downstream merge commits if the second-tranche scaffolds need to be removed from `main`.
+- Next: Step 16.7 - implement third Photo & Video Creation tranche.
