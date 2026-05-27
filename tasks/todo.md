@@ -1022,7 +1022,7 @@
   - Post-merge verification confirmed each repo remains `PRIVATE`, defaults to `main`, has the copied source spec under `docs/source-specs/`, and has no `.github/workflows` directory.
   - Post-merge rate-limit snapshot: core `used=175`, `remaining=4825`, `reset=1779909925`; GraphQL `used=97`, `remaining=4903`, `reset=1779911744`.
 
-- [ ] Step 16.19: Implement final Photo & Video Creation tranche across two downstream repos
+- [x] Step 16.19: Implement final Photo & Video Creation tranche across two downstream repos
   - Build all five variants for `ActionReel` and `CutTempo` in the selected downstream repos.
   - Keep work serial in this shared tree unless a later explicit `agent-team` plan creates separate branch-backed lanes with PR consolidation. Do not use GitHub Actions.
   - For each repo, verify it is `PRIVATE`, uses `main` as the target branch, contains the copied source spec under `docs/source-specs/`, and has no `.github/workflows` path before making changes.
@@ -1079,6 +1079,41 @@
   - Every selected repo has validation evidence for fixture/contract integrity and variant structure.
   - Core workflows are represented: action-camera import/auto-edit/export for `ActionReel` and mobile timeline/template/export for `CutTempo`.
   - No downstream repo becomes public, gains GitHub Actions workflows, or claims verified provider/native/AI/video/camera/hardware/cloud parity without evidence.
+
+  **Result:**
+  Step 16.19 created branch-backed PRs for both final-tranche repos:
+
+  | ID | Product | Repo | Branch | Commit | PR | Local Score |
+  |---:|---|---|---|---|---|---:|
+  | 259 | ActionReel | `GeorgeQLe/gopro-quik-mobile-clone` | `phase16-step16-19-gopro-quik` | `8ad0615` | https://github.com/GeorgeQLe/gopro-quik-mobile-clone/pull/1 | 96/100 |
+  | 260 | CutTempo | `GeorgeQLe/vivavideo-mobile-clone` | `phase16-step16-19-vivavideo` | `c23f8eb` | https://github.com/GeorgeQLe/vivavideo-mobile-clone/pull/1 | 96/100 |
+
+  **Validation Evidence:**
+  - Each repo passed `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, and `git diff --check`.
+  - Each PR is open, non-draft, targets `main`, has `CLEAN` merge state, is `MERGEABLE`, and changes only planned Phase 16 scaffold paths.
+  - Each repo remains `PRIVATE`, defaults to `main`, keeps the copied source spec under `docs/source-specs/`, and has no `.github/workflows` directory.
+  - Each PR file list was checked and contains no `.github/workflows` path.
+  - Pre-execution rate-limit snapshot: core `used=0`, `remaining=5000`, `reset=1779913686`; GraphQL `used=98`, `remaining=4902`, `reset=1779911744`.
+  - Post-execution rate-limit snapshot: core `used=4`, `remaining=4996`, `reset=1779913722`; GraphQL `used=113`, `remaining=4887`, `reset=1779911744`.
+  - Native runtime parity remains blocked: Flutter/iOS/Android compile, GPU/media rendering, native camera/photo-library/file-picker/share-sheet behavior, codec/export behavior, video timeline rendering/export, AI/effect execution, camera hardware pairing, cloud backup, and real-device performance are documented as blockers.
+  - Legal/provider/safety blockers remain explicit: licensed filters/effects/templates/stickers/presets/music/fonts/stock media, model weights, proprietary algorithms, AI/video/media/minor safety, consent/disclosure/bias review, cloud sync, provider import/export, subscriptions/payments, production media, and credentials.
+
+- [ ] Step 16.20: Merge final tranche PRs and close Phase 16
+  - Merge the two Step 16.19 PRs only after confirming they are still open, non-draft, clean, private, source-spec-backed, and free of `.github/workflows`.
+  - Verify merged repos remain private, source specs remain present, default branches point at the merge commits, and no `.github/workflows` path exists.
+  - Mark Phase 16 milestone acceptance criteria complete only after the final two repos are merged and verified.
+  - Fill the `On Completion` section, archive Phase 16 to `tasks/phases/phase-16.md`, check off Phase 16 in `tasks/roadmap.md`, and prepare the next phase from the roadmap.
+  - Files: modify `tasks/todo.md`, `tasks/history.md`, `tasks/roadmap.md`, `tasks/phases/phase-16.md`, and merge state in the two Step 16.19 downstream repos only.
+
+  **What to Build:**
+  A final merge-and-close packet for Phase 16. This step should not create new variant scaffolds; it should close the final PR loop, prove the full Phase 16 inventory has merged scaffold coverage, and transition the planning docs to the next phase.
+
+  **Approach:**
+  1. Verify Step 16.19 PR metadata with `gh pr view` for both repos.
+  2. Merge the PRs serially into `main` if all gates remain clean.
+  3. Verify merged repos remain private, source specs remain present, main points at the merge commits, and no `.github/workflows` path exists.
+  4. Update Phase 16 milestone acceptance criteria and record final blocker carry-forward.
+  5. Archive Phase 16 and prepare the next roadmap phase.
 
 ### Milestone: Phase 16 — Photo & Video Creation Complete
 **Acceptance Criteria:**
