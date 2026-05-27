@@ -5797,3 +5797,41 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Residual risk: Step 16.7 implementation PRs are not created yet; native drawing/media/runtime/provider/licensed-asset parity remains blocked.
 - Rollback note: revert this planning commit to reopen Step 16.6 in task history; revert the five downstream merge commits if the second-tranche scaffolds need to be removed from `main`.
 - Next: Step 16.7 - implement third Photo & Video Creation tranche.
+
+## Step 16.10 - Fourth Photo & Video Creation Merge And Fifth Tranche Plan (2026-05-27)
+
+### PR Merges (Step 16.9)
+- `GeorgeQLe/prequel-mobile-clone` PR#1 -> MERGED for EffectDeck (merge `1f30741`).
+- `GeorgeQLe/facetune-mobile-clone` PR#1 -> MERGED for PortraitForge (merge `e7c65f3`).
+- `GeorgeQLe/beautyplus-mobile-clone` PR#1 -> MERGED for GlowSuite (merge `052b0d1`).
+- `GeorgeQLe/snow-mobile-clone` PR#1 -> MERGED for StickerCam (merge `411e60a`).
+- `GeorgeQLe/meitu-mobile-clone` PR#1 -> MERGED for MeiCanvas (merge `185909e`).
+
+### Fifth Tranche Plan
+- Lane 16.11-A: `GeorgeQLe/polish-mobile-clone` (PolishDeck) - Polish-inspired synthetic filter stack, text/sticker placeholder, collage, export, and subscription-blocker scaffold.
+- Lane 16.11-B: `GeorgeQLe/photoroom-mobile-clone` (RoomCut) - PhotoRoom-inspired synthetic product-photo, cutout placeholder, product scene template, export, and commerce/provider-blocker scaffold.
+- Lane 16.11-C: `GeorgeQLe/pixelcut-mobile-clone` (ProductCut) - Pixelcut-inspired synthetic seller image batch, cutout/background placeholder, resize, listing export, and marketplace/provider-blocker scaffold.
+- Lane 16.11-D: `GeorgeQLe/lensa-mobile-clone` (AuraLens) - Lensa-inspired synthetic portrait, avatar job shell, retouch/effect placeholder, export, and model/consent/safety-blocker scaffold.
+- Lane 16.11-E: `GeorgeQLe/remini-mobile-clone` (RestoreLab) - Remini-inspired synthetic restoration/enhancement job, degraded-image metadata, before/after compare, export, and AI/provider/privacy-blocker scaffold.
+
+### Validation
+- Pre-merge PR gate: all five Step 16.9 PRs were open, non-draft, branch-backed, targeting `main`, `CLEAN`, `MERGEABLE`, and had no `.github/workflows` path in PR file lists.
+- Post-merge repo gate: all five repos remain PRIVATE, default to `main`, keep copied source specs under `docs/source-specs/`, and have no `.github/workflows` directory.
+- Rate limit: pre-merge core `4764/5000` remaining and GraphQL `4906/5000` remaining; post-merge core `4749/5000` remaining and GraphQL `4891/5000` remaining.
+
+### Carry-Forward Blockers
+- Account lifecycle, subscriptions/payments/restore, cloud sync, collaborative editing, provider import/export, commerce marketplace publishing, region-specific catalog or entitlement behavior, and production credentials remain blocked.
+- Camera/photo-library/file-picker/share-sheet permissions, push/background export, native codec availability, GPU/media rendering, large-media performance, native cutout/restoration pipelines, Flutter runtime, iOS native runner, Android Native runner, and real-device verification remain blocked.
+- Licensed templates, fonts, stock assets, stickers, presets, filters, effects, model weights, proprietary algorithms, AI/beauty/face/minor safety, consent/disclosure/bias review, production user media, and provider credentials remain blocked.
+
+### Ship Manifest
+- User goal: merge Step 16.9 validated PRs and prepare Step 16.11 fifth Photo & Video Creation tranche.
+- Changed files: `tasks/todo.md`, `tasks/history.md`, plus merge state in five downstream repos.
+- Per-file purpose: `tasks/todo.md` records Step 16.10 completion and Step 16.11 executable detail; `tasks/history.md` records merge evidence, fifth-tranche scope, blockers, and rollback notes.
+- User-goal mapping: downstream merges close the fourth tranche; the next implementation packet is ready for five effects, cutout, product-photo, AI portrait, and restoration apps using original synthetic fixtures and explicit blockers.
+- Tests run: GitHub PR metadata checks, repo privacy/default-branch/source-spec/workflow checks, rate-limit checks, and planning repo Markdown/diff validation.
+- Skipped tests: no planning-repo executable app test suite is relevant because this step changed task/history Markdown and downstream merge state only; downstream validation was already produced by Step 16.9 and re-merge source commits were unchanged.
+- Adversarial review: checked PR target, non-draft state, mergeability, changed-file boundaries, private visibility, source-spec presence, absence of GitHub Actions workflows, and fifth-tranche inventory order against `tasks/repo-seeding.md`.
+- Residual risk: Step 16.11 implementation PRs are not created yet; native media/runtime/provider/licensed-asset/AI cutout/restoration parity remains blocked.
+- Rollback note: revert this planning commit to reopen Step 16.10 in task history; revert the five downstream merge commits if the fourth-tranche scaffolds need to be removed from `main`.
+- Next: Step 16.11 - implement fifth Photo & Video Creation tranche.

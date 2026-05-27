@@ -508,7 +508,7 @@
   - Native runtime parity remains blocked: Flutter/iOS/Android compile, GPU/media rendering, native camera/photo-library/file-picker/share-sheet behavior, codec/export behavior, AR camera behavior, and real-device performance are documented as blockers.
   - Legal/provider/safety blockers remain explicit: licensed templates/fonts/stock/stickers/presets/filters/effects, model weights, proprietary algorithms, AI/beauty/face/minor safety, consent/disclosure/bias review, cloud sync, provider import/export, subscriptions/payments, production user media, and credentials.
 
-- [ ] Step 16.10: Merge fourth tranche PRs and plan the fifth Photo & Video Creation implementation tranche
+- [x] Step 16.10: Merge fourth tranche PRs and plan the fifth Photo & Video Creation implementation tranche
   - Merge the five Step 16.9 PRs only after confirming they are still open, non-draft, clean, private, source-spec-backed, and free of `.github/workflows`.
   - Select the next 5 Phase 16 apps from the reconciled inventory, continuing through AI/beauty/effects and creator-commerce photo tools.
   - Candidate fifth tranche: Polish (`238`), PhotoRoom (`239`), Pixelcut (`240`), Lensa (`241`), and Remini (`242`).
@@ -525,6 +525,87 @@
   3. Verify merged repos remain private, source specs remain present, and no `.github/workflows` path exists.
   4. Use `tasks/repo-seeding.md` and source specs to define the fifth tranche.
   5. Record validation/merge evidence and write the Step 16.11 implementation packet.
+
+  **Result:**
+  Step 16.10 merged all five fourth-tranche PRs to `main` and scoped the fifth implementation tranche:
+
+  | ID | Product | Repo | PR | Source Commit | Merge Commit | Merged At |
+  |---:|---|---|---|---|---|---|
+  | 233 | EffectDeck | `GeorgeQLe/prequel-mobile-clone` | https://github.com/GeorgeQLe/prequel-mobile-clone/pull/1 | `5ef0953` | `1f30741` | 2026-05-27T18:15:52Z |
+  | 234 | PortraitForge | `GeorgeQLe/facetune-mobile-clone` | https://github.com/GeorgeQLe/facetune-mobile-clone/pull/1 | `19f06f8` | `e7c65f3` | 2026-05-27T18:15:58Z |
+  | 235 | GlowSuite | `GeorgeQLe/beautyplus-mobile-clone` | https://github.com/GeorgeQLe/beautyplus-mobile-clone/pull/1 | `699bd43` | `052b0d1` | 2026-05-27T18:16:03Z |
+  | 236 | StickerCam | `GeorgeQLe/snow-mobile-clone` | https://github.com/GeorgeQLe/snow-mobile-clone/pull/1 | `0583d08` | `411e60a` | 2026-05-27T18:16:09Z |
+  | 237 | MeiCanvas | `GeorgeQLe/meitu-mobile-clone` | https://github.com/GeorgeQLe/meitu-mobile-clone/pull/1 | `a80a66a` | `185909e` | 2026-05-27T18:16:16Z |
+
+  **Merge Verification Evidence:**
+  - Pre-merge rate-limit snapshot: core `used=236`, `remaining=4764`, `reset=1779906187`; GraphQL `used=94`, `remaining=4906`, `reset=1779908063`.
+  - Each PR was verified open, non-draft, targeting `main`, `CLEAN`, `MERGEABLE`, branch-backed, and free of `.github/workflows` in the PR file list before merge.
+  - Post-merge verification confirmed each repo remains `PRIVATE`, defaults to `main`, has the copied source spec under `docs/source-specs/`, and has no `.github/workflows` directory.
+  - Post-merge rate-limit snapshot: core `used=251`, `remaining=4749`, `reset=1779906187`; GraphQL `used=109`, `remaining=4891`, `reset=1779908063`.
+
+- [ ] Step 16.11: Implement fifth Photo & Video Creation tranche across five downstream repos
+  - Build all five variants for `PolishDeck`, `RoomCut`, `ProductCut`, `AuraLens`, and `RestoreLab` in the selected downstream repos.
+  - Keep work serial in this shared tree unless a later explicit `agent-team` plan creates separate branch-backed lanes with PR consolidation. Do not use GitHub Actions.
+  - For each repo, verify it is `PRIVATE`, uses `main` as the target branch, contains the copied source spec under `docs/source-specs/`, and has no `.github/workflows` path before making changes.
+  - Create the implementation branch named below, add original synthetic fixtures/contracts, variant surfaces, validation scripts, blocker notes, and validation evidence, then open a PR to `main`.
+  - Preserve lawful scope: no original brands, logos, screenshots, proprietary media, copied filters/effects/templates/stickers/presets, model weights, private APIs, production face/product/media data, provider credentials, or claims of verified native/provider/AI parity without evidence.
+  - Files: modify the five downstream repos only plus `tasks/todo.md` and `tasks/history.md` in this planning repo.
+
+  **Fifth Tranche Selection:**
+
+  | Lane | ID | App | Risk Group | Downstream Repo | Source Spec | Implementation Branch |
+  |---|---:|---|---|---|---|---|
+  | A | 238 | Polish | AI/beauty/effects photo tools | `GeorgeQLe/polish-mobile-clone` | `specs/batch-12/238-polish.md` | `phase16-step16-11-polish` |
+  | B | 239 | PhotoRoom | Creator commerce/stock tools | `GeorgeQLe/photoroom-mobile-clone` | `specs/batch-12/239-photoroom.md` | `phase16-step16-11-photoroom` |
+  | C | 240 | Pixelcut | Creator commerce/stock tools | `GeorgeQLe/pixelcut-mobile-clone` | `specs/batch-12/240-pixelcut.md` | `phase16-step16-11-pixelcut` |
+  | D | 241 | Lensa | AI/beauty/effects photo tools | `GeorgeQLe/lensa-mobile-clone` | `specs/batch-13/241-lensa.md` | `phase16-step16-11-lensa` |
+  | E | 242 | Remini | AI/beauty/effects photo tools | `GeorgeQLe/remini-mobile-clone` | `specs/batch-13/242-remini.md` | `phase16-step16-11-remini` |
+
+  **Per-App Product Direction:**
+  - Polish-inspired product: `PolishDeck`, an original photo/effects editor with synthetic projects, filter stacks, text/sticker placeholders, collage/export states, subscription blockers, and no copied presets or effects.
+  - PhotoRoom-inspired product: `RoomCut`, an original product-photo workspace with synthetic catalog images, background removal placeholder, product scene templates represented by local shapes, export/share states, and AI/provider/commerce blockers.
+  - Pixelcut-inspired product: `ProductCut`, an original seller image editor with synthetic product fixtures, cutout/background placeholder, listing image batches, resize/export states, and marketplace/provider/licensed-template blockers.
+  - Lensa-inspired product: `AuraLens`, an original AI portrait/effects editor with face-safe fixture metadata, avatar/job shells, retouch/effect placeholders, export/share states, and model/consent/beauty-safety blockers.
+  - Remini-inspired product: `RestoreLab`, an original photo restoration/enhancement app with synthetic degraded-image metadata, enhancement job shells, before/after compare, export/share states, and AI/model/provider/privacy blockers.
+
+  **Owned Downstream Paths Per Repo:**
+  - `README.md`
+  - `package.json`
+  - `fixtures/phase16/*.json`
+  - `contracts/phase16/*.json`
+  - `scripts/validate-phase16-*.mjs`
+  - `scripts/check-phase16-variants.mjs`
+  - `variants/react-native/**`
+  - `variants/expo/**`
+  - `variants/flutter/**`
+  - `variants/ios-native/**`
+  - `variants/android-native/**`
+  - `docs/implementation/phase16-step16-11.md`
+  - `docs/blockers/phase16-step16-11.md`
+  - `docs/validation/phase16-step16-11.md`
+
+  **Validation Commands Per Repo:**
+  - `npm run validate`
+  - `npm run check:variants`
+  - `npm run test:react-native`
+  - `npm run test:expo`
+  - `git diff --check`
+
+  **Implementation Packet:**
+  1. Start with Polish/`PolishDeck`, then PhotoRoom/`RoomCut`, Pixelcut/`ProductCut`, Lensa/`AuraLens`, and Remini/`RestoreLab`.
+  2. In each repo, create fixture data for media/projects/effects/cutouts/enhancement jobs/assets/exports and contract data for routes, entities, blocked parity, and validation expectations.
+  3. Add five variant directories: React Native, Expo, Flutter, iOS Native, and Android Native. Each variant must expose the same core edit/cutout/enhance/export workflow for the app class and clearly mark native/toolchain blockers where execution cannot be proven locally.
+  4. Add validator scripts and package scripts for `validate`, `check:variants`, `test:react-native`, and `test:expo`; native compile commands are optional only if the repo has a real runner baseline.
+  5. Run the validation commands listed above for every repo. If a command is intentionally unavailable, replace it with a documented blocker and explain why it is not executable in `docs/validation/phase16-step16-11.md`.
+  6. Record benchmark or local validation score evidence for every variant. For static scaffolds, use structure/contract validation scores and avoid claiming runtime AI, camera, cutout, restoration, or provider performance.
+  7. Verify each branch/PR file list contains no `.github/workflows` path and every repo remains `PRIVATE`.
+  8. Update this planning repo with the per-repo PR/commit/validation/blocker evidence and the next tranche plan.
+
+  **Acceptance Criteria For Step 16.11:**
+  - All five selected repos have five variant surfaces each, or explicit local/toolchain/provider/licensed-media blockers for any missing executable behavior.
+  - Every selected repo has validation evidence for fixture/contract integrity and variant structure.
+  - Core workflows are represented: filter/collage export for `PolishDeck`, product cutout/export for `RoomCut`, seller image batch/export for `ProductCut`, portrait AI job/export for `AuraLens`, and restoration enhance/export for `RestoreLab`.
+  - No downstream repo becomes public, gains GitHub Actions workflows, or claims verified provider/native/AI/camera/cutout/restoration parity without evidence.
 
 ### Milestone: Phase 16 — Photo & Video Creation Complete
 **Acceptance Criteria:**
