@@ -388,7 +388,7 @@
   - Native runtime parity remains blocked: Flutter/iOS/Android compile, GPU canvas/rendering, stylus/gesture behavior, native photo-library/file-picker/share-sheet behavior, codec/export behavior, and real-device performance are documented as blockers.
   - Legal/provider blockers remain explicit: licensed brushes, materials, templates, fonts, stock/stickers/presets/filters/artwork, proprietary algorithms, AI/provider cutout behavior, community/cloud sync, provider publishing/import/export, subscriptions/payments, production user media, and credentials.
 
-- [ ] Step 16.8: Merge third tranche PRs and plan the fourth Photo & Video Creation implementation tranche
+- [x] Step 16.8: Merge third tranche PRs and plan the fourth Photo & Video Creation implementation tranche
   - Merge the five Step 16.7 PRs only after confirming they are still open, non-draft, clean, private, source-spec-backed, and free of `.github/workflows`.
   - Select the next 5 Phase 16 apps from the reconciled inventory, moving into AI/beauty/effects photo tools.
   - Candidate fourth tranche: Prequel (`233`), Facetune (`234`), BeautyPlus (`235`), SNOW (`236`), and Meitu (`237`).
@@ -405,6 +405,87 @@
   3. Verify merged repos remain private, source specs remain present, and no `.github/workflows` path exists.
   4. Use `tasks/repo-seeding.md` and source specs to define the fourth tranche.
   5. Record validation/merge evidence and write the Step 16.9 implementation packet.
+
+  **Result:**
+  Step 16.8 merged all five third-tranche PRs to `main` and scoped the fourth implementation tranche:
+
+  | ID | Product | Repo | PR | Source Commit | Merge Commit | Merged At |
+  |---:|---|---|---|---|---|---|
+  | 228 | BrushPocket | `GeorgeQLe/procreate-pocket-mobile-clone` | https://github.com/GeorgeQLe/procreate-pocket-mobile-clone/pull/1 | `e2f3aaa` | `5eedb7c` | 2026-05-27T18:00:30Z |
+  | 229 | SketchTable | `GeorgeQLe/sketchbook-mobile-clone` | https://github.com/GeorgeQLe/sketchbook-mobile-clone/pull/1 | `77b464f` | `d34f24f` | 2026-05-27T18:00:34Z |
+  | 230 | LayerInk | `GeorgeQLe/ibis-paint-x-mobile-clone` | https://github.com/GeorgeQLe/ibis-paint-x-mobile-clone/pull/1 | `127dec2` | `2f7de00` | 2026-05-27T18:00:37Z |
+  | 231 | PanelForge | `GeorgeQLe/clip-studio-paint-mobile-clone` | https://github.com/GeorgeQLe/clip-studio-paint-mobile-clone/pull/1 | `e08a4b3` | `0a321e5` | 2026-05-27T18:00:41Z |
+  | 232 | CutoutStudio | `GeorgeQLe/bazaart-mobile-clone` | https://github.com/GeorgeQLe/bazaart-mobile-clone/pull/1 | `3278dc2` | `53be69f` | 2026-05-27T18:00:44Z |
+
+  **Merge Verification Evidence:**
+  - Pre-merge rate-limit snapshot: core `used=136`, `remaining=4864`, `reset=1779906187`; GraphQL `used=20`, `remaining=4980`, `reset=1779908063`.
+  - Each PR was verified open, non-draft, targeting `main`, `CLEAN`, `MERGEABLE`, branch-backed, and free of `.github/workflows` in the PR file list before merge.
+  - Post-merge verification confirmed each repo remains `PRIVATE`, defaults to `main`, has the copied source spec under `docs/source-specs/`, and has no `.github/workflows` directory.
+  - Post-merge rate-limit snapshot: core `used=166`, `remaining=4834`, `reset=1779906187`; GraphQL `used=42`, `remaining=4958`, `reset=1779908063`.
+
+- [ ] Step 16.9: Implement fourth Photo & Video Creation tranche across five downstream repos
+  - Build all five variants for `EffectDeck`, `PortraitForge`, `GlowSuite`, `StickerCam`, and `MeiCanvas` in the selected downstream repos.
+  - Keep work serial in this shared tree unless a later explicit `agent-team` plan creates separate branch-backed lanes with PR consolidation. Do not use GitHub Actions.
+  - For each repo, verify it is `PRIVATE`, uses `main` as the target branch, contains the copied source spec under `docs/source-specs/`, and has no `.github/workflows` path before making changes.
+  - Create the implementation branch named below, add original synthetic fixtures/contracts, variant surfaces, validation scripts, blocker notes, and validation evidence, then open a PR to `main`.
+  - Preserve lawful scope: no original brands, logos, screenshots, proprietary media, copied filters/effects/templates/stickers/presets, model weights, private APIs, production face/media data, provider credentials, or claims of verified native/provider/AI parity without evidence.
+  - Files: modify the five downstream repos only plus `tasks/todo.md` and `tasks/history.md` in this planning repo.
+
+  **Fourth Tranche Selection:**
+
+  | Lane | ID | App | Risk Group | Downstream Repo | Source Spec | Implementation Branch |
+  |---|---:|---|---|---|---|---|
+  | A | 233 | Prequel | AI/effects photo-video editor | `GeorgeQLe/prequel-mobile-clone` | `specs/batch-12/233-prequel.md` | `phase16-step16-9-prequel` |
+  | B | 234 | Facetune | Portrait retouch / AI editor | `GeorgeQLe/facetune-mobile-clone` | `specs/batch-12/234-facetune.md` | `phase16-step16-9-facetune` |
+  | C | 235 | BeautyPlus | Beauty camera / retouch editor | `GeorgeQLe/beautyplus-mobile-clone` | `specs/batch-12/235-beautyplus.md` | `phase16-step16-9-beautyplus` |
+  | D | 236 | SNOW | Camera filters / AR stickers | `GeorgeQLe/snow-mobile-clone` | `specs/batch-12/236-snow.md` | `phase16-step16-9-snow` |
+  | E | 237 | Meitu | Beauty / AI art editor | `GeorgeQLe/meitu-mobile-clone` | `specs/batch-12/237-meitu.md` | `phase16-step16-9-meitu` |
+
+  **Per-App Product Direction:**
+  - Prequel-inspired product: `EffectDeck`, an original effect studio with synthetic photo/video projects, effect stacks, template placeholders, AI job shell, export/share states, and explicit model, asset, subscription, camera/media, and provider blockers.
+  - Facetune-inspired product: `PortraitForge`, an original portrait retouch editor with local face-safe fixture metadata, retouch tools represented by placeholders, background/object edit shells, compare/export states, and AI/beauty safety blockers.
+  - BeautyPlus-inspired product: `GlowSuite`, an original beauty camera/editor with synthetic selfie projects, makeup/filter placeholders, sticker/template shapes, export/share states, ad/subscription blockers, and no copied presets or effects.
+  - SNOW-inspired product: `StickerCam`, an original camera-effects surface with AR sticker placeholders, filter/effect recipes, paid-item restore states, capture/export/share states, and camera/privacy/minor-safety blockers.
+  - Meitu-inspired product: `MeiCanvas`, an original beauty and AI-art editor with synthetic photo/video projects, retouch/effect/template shells, cloud/account states, export/share states, and cross-border data, AI consent, and provider blockers.
+
+  **Owned Downstream Paths Per Repo:**
+  - `README.md`
+  - `package.json`
+  - `fixtures/phase16/*.json`
+  - `contracts/phase16/*.json`
+  - `scripts/validate-phase16-*.mjs`
+  - `scripts/check-phase16-variants.mjs`
+  - `variants/react-native/**`
+  - `variants/expo/**`
+  - `variants/flutter/**`
+  - `variants/ios-native/**`
+  - `variants/android-native/**`
+  - `docs/implementation/phase16-step16-9.md`
+  - `docs/blockers/phase16-step16-9.md`
+  - `docs/validation/phase16-step16-9.md`
+
+  **Validation Commands Per Repo:**
+  - `npm run validate`
+  - `npm run check:variants`
+  - `npm run test:react-native`
+  - `npm run test:expo`
+  - `git diff --check`
+
+  **Implementation Packet:**
+  1. Start with Prequel/`EffectDeck`, then Facetune/`PortraitForge`, BeautyPlus/`GlowSuite`, SNOW/`StickerCam`, and Meitu/`MeiCanvas`.
+  2. In each repo, create fixture data for media/projects/effects/retouch operations/assets/exports and contract data for routes, entities, blocked parity, and validation expectations.
+  3. Add five variant directories: React Native, Expo, Flutter, iOS Native, and Android Native. Each variant must expose the same core effects/beauty/camera workflow for the app class and clearly mark native/toolchain blockers where execution cannot be proven locally.
+  4. Add validator scripts and package scripts for `validate`, `check:variants`, `test:react-native`, and `test:expo`; native compile commands are optional only if the repo has a real runner baseline.
+  5. Run the validation commands listed above for every repo. If a command is intentionally unavailable, replace it with a documented blocker and explain why it is not executable in `docs/validation/phase16-step16-9.md`.
+  6. Record benchmark or local validation score evidence for every variant. For static scaffolds, use structure/contract validation scores and avoid claiming runtime AI, camera, AR, or beauty-filter performance.
+  7. Verify each branch/PR file list contains no `.github/workflows` path and every repo remains `PRIVATE`.
+  8. Update this planning repo with the per-repo PR/commit/validation/blocker evidence and the next tranche plan.
+
+  **Acceptance Criteria For Step 16.9:**
+  - All five selected repos have five variant surfaces each, or explicit local/toolchain/provider/licensed-media blockers for any missing executable behavior.
+  - Every selected repo has validation evidence for fixture/contract integrity and variant structure.
+  - Core workflows are represented: effect stack/export for `EffectDeck`, portrait retouch/export for `PortraitForge`, beauty camera/edit/export for `GlowSuite`, AR sticker/camera export for `StickerCam`, and beauty/AI-art edit/export for `MeiCanvas`.
+  - No downstream repo becomes public, gains GitHub Actions workflows, or claims verified provider/native/AI/camera/AR parity without evidence.
 
 ### Milestone: Phase 16 — Photo & Video Creation Complete
 **Acceptance Criteria:**

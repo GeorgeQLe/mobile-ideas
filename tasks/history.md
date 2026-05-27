@@ -1,5 +1,37 @@
 # History
 
+## 2026-05-27 - Phase 16 Step 16.8: Third Tranche Merge and Fourth Tranche Plan
+
+- Merged all five Step 16.7 third-tranche PRs serially into `main`:
+  - `GeorgeQLe/procreate-pocket-mobile-clone` PR #1 (BrushPocket) - merge commit `5eedb7c`
+  - `GeorgeQLe/sketchbook-mobile-clone` PR #1 (SketchTable) - merge commit `d34f24f`
+  - `GeorgeQLe/ibis-paint-x-mobile-clone` PR #1 (LayerInk) - merge commit `2f7de00`
+  - `GeorgeQLe/clip-studio-paint-mobile-clone` PR #1 (PanelForge) - merge commit `0a321e5`
+  - `GeorgeQLe/bazaart-mobile-clone` PR #1 (CutoutStudio) - merge commit `53be69f`
+- Verified before merge that each PR was open, non-draft, targeting `main`, `CLEAN`, `MERGEABLE`, branch-backed, and free of `.github/workflows` in the PR file list.
+- Verified after merge that each downstream repo remains `PRIVATE`, defaults to `main`, has the copied source spec under `docs/source-specs/`, and has no `.github/workflows` directory.
+- Planned Step 16.9 as the fourth Photo & Video Creation tranche: Prequel/`EffectDeck`, Facetune/`PortraitForge`, BeautyPlus/`GlowSuite`, SNOW/`StickerCam`, and Meitu/`MeiCanvas`.
+- Rate-limit evidence: pre-merge core `4864/5000` remaining and GraphQL `4980/5000` remaining; post-merge core `4834/5000` remaining and GraphQL `4958/5000` remaining.
+- No proprietary assets, brand claims, copied filters/effects/templates/stickers/presets, model weights, private APIs, production face/media data, provider credentials, public visibility changes, or GitHub Actions.
+
+### Carry-Forward Blockers
+
+- Native runtime parity remains blocked: Flutter/iOS/Android compile, GPU rendering, native camera/photo-library/file-picker/share-sheet behavior, AR/face-effect behavior, codec/export behavior, and real-device performance.
+- Legal/provider blockers remain explicit: licensed templates/fonts/stock/stickers/presets/filters/effects, proprietary algorithms/model weights, AI/beauty/face safety, marketplace entitlement, ad/analytics SDK behavior, cloud sync, provider publishing/import/export, subscriptions/payments, production user media, face data, and credentials.
+
+### Ship Manifest
+
+- User goal: execute Phase 16 Step 16.8 by merging third-tranche PRs and planning the fourth tranche.
+- Changed files: five downstream PRs merged to `main`; this planning repo changed `tasks/todo.md` and `tasks/history.md`.
+- Per-file purpose: `tasks/todo.md` marks Step 16.8 complete, records merge evidence, and adds executable Step 16.9 instructions; `tasks/history.md` records merge/planning evidence and the shipping boundary.
+- User-goal mapping: Step 16.8 required closing the third-tranche PR loop and preparing the next bounded implementation step without scaffolding fourth-tranche variants yet.
+- Tests run: `gh pr view` PR metadata checks; `gh pr merge` serial merges; `gh api` repo/privacy/source-spec/workflow checks; `gh api rate_limit` before and after; `git diff --check`; Markdown/task-doc structure checks.
+- Skipped tests: no downstream runtime validation was rerun because Step 16.7 already recorded lane-local validation before PR creation and this step only merged those unchanged PRs plus updated planning Markdown.
+- Adversarial review: checked PR gates, merge commits, PRIVATE visibility, source-spec presence, workflow absence, next-tranche coverage, blocker carry-forward, and that Step 16.9 does not claim native/provider/AI/camera/AR parity before evidence exists.
+- Residual risk: fourth-tranche implementation remains unbuilt; provider/cloud sync, licensed templates/fonts/stock/stickers/presets/filters/effects, AI/beauty/face safety, ad/analytics SDK behavior, native media permissions, AR/camera behavior, GPU/rendering, codec/export, real-device performance, and Flutter/iOS/Android runner verification remain blocked until Step 16.9.
+- Rollback note: revert this planning commit to reopen Step 16.8 in task docs; revert the five downstream merge commits if the third-tranche merges must be undone.
+- Next command: `$exec` for Step 16.9.
+
 ## 2026-05-27 - Phase 16 Step 16.7: Third Photo & Video Creation Tranche
 
 - Built the third Phase 16 implementation tranche as branch-backed PRs across five private downstream repos:
