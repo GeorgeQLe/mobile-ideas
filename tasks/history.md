@@ -1,5 +1,25 @@
 # History
 
+## 2026-05-27 - Phase 16 Step 16.1: Photo & Video Creation Inventory Reconciliation
+
+- Reconciled the exact Phase 16 Photo & Video Creation inventory to 42 apps, replacing the older approximate ~47-app estimate with the Phase 9 Step 9.9 evidence-backed set: IDs `096-099`, `223-240`, and `241-260`.
+- Verified all 42 downstream repos serially with `gh api`: every repo is `PRIVATE`, defaults to `main`, has a default-branch commit, contains `README.md`, contains the matching copied source spec under `docs/source-specs/`, and has no `.github/workflows` directory.
+- Recorded before/after rate-limit evidence and the full readiness table in `tasks/repo-seeding.md`.
+- Updated `tasks/todo.md` to mark Step 16.1 complete and added Step 16.2 for first-tranche implementation planning.
+
+### Ship Manifest
+
+- User goal: execute the next incomplete `$exec` step for Phase 16.
+- Changed files: `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+- Per-file purpose: `tasks/todo.md` records Step 16.1 completion and next Step 16.2 plan; `tasks/repo-seeding.md` stores the exact verified inventory and rate-limit evidence; `tasks/history.md` records the work and shipping boundary.
+- User-goal mapping: Step 16.1 required reconciling Phase 16 app inventory and downstream readiness without downstream code changes.
+- Tests run: `gh api rate_limit` before and after; serial `gh api` repo/content checks for 42 repos; corrected serial default-branch commit check for 42 repos.
+- Skipped tests: no runtime tests were run because this step changed planning/task documentation only and performed read-only downstream metadata verification.
+- Adversarial review: checked the reconciled ID ranges against Phase 9 Step 9.9 history, the seeding manifest, source-spec paths, workflow absence evidence, and the old ~47 estimate to avoid overclaiming.
+- Residual risk: exact hands-on native behavior, account/subscription gates, camera/photo/media permission behavior, codec/export support, licensed templates/music/stock assets, cloud sync, AI/beauty safety, native GPU rendering, and real-device checks remain blocked until implementation tranches verify them.
+- Rollback note: revert this planning commit to restore the pre-reconciliation Phase 16 task state and remove the Phase 16 readiness table.
+- Next command: `$exec` for Step 16.2.
+
 ## 2026-05-27 - Phase 15 Step 15.21 — Merge Final Tranche PRs and Complete Phase 15
 
 - **Step 15.20 PR merges:** Merged all three final Phase 15 PRs to `main`:

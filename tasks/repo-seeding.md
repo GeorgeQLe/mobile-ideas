@@ -115,6 +115,61 @@ Guardrails:
 - GitHub Actions status: no workflow was enabled, dispatched, or used for this verification.
 
 
+### Phase 16 Downstream Readiness Reconciliation - 2026-05-27
+
+- Scope: Phase 16 Photo & Video Creation inventory reconciled to 42 downstream repos: IDs 096-099, 223-240, and 241-260. This exact count follows the Phase 9 Step 9.9 build-plan evidence and supersedes the older roadmap estimate of ~47 apps.
+- Source evidence: all 42 manifest rows are checked in the downstream repo checklist and every corresponding source spec exists under `specs/batch-*`.
+- Rate-limit evidence before scan: `gh api rate_limit` reported core `used=9`, `remaining=4991`, `reset=1779900687`; GraphQL `used=15`, `remaining=4985`, `reset=1779900441`.
+- GitHub verification evidence: serial read-only `gh api` metadata/content checks confirmed every repo is `PRIVATE`, has default branch `main`, has a default-branch commit, contains `README.md`, contains the matching source spec under `docs/source-specs/`, and does not contain `.github/workflows`.
+- Rate-limit evidence after scan: `gh api rate_limit` reported core `used=219`, `remaining=4781`, `reset=1779900687`; GraphQL `used=16`, `remaining=4984`, `reset=1779900441`.
+- Required blocker carry-forward: IDs 101-1000 remain planning/scaffold repos while specs are Draft 1 or public-source V1 planning artifacts; Phase 16 implementation must not claim exact native parity until hands-on account/subscription, camera/photo/media permissions, codec/export, provider/cloud sync, AI/beauty-edit safety, licensed templates/music/stock assets, native GPU/rendering, and real-device verification are complete.
+- GitHub Actions status: no workflow was enabled, dispatched, or used for this verification.
+
+| ID | App | Risk Group | Repo | Source Spec | Visibility | Branch | README | Source Spec Copy | Root Commit | Workflows |
+|---:|---|---|---|---|---|---|---|---|---|---|
+| 096 | CapCut | Video editors | `GeorgeQLe/capcut-mobile-clone` | `specs/batch-05/096-capcut.md` | PRIVATE | main | yes | yes | `0c7fcc5` | absent |
+| 097 | Canva | Design/drawing tools | `GeorgeQLe/canva-mobile-clone` | `specs/batch-05/097-canva.md` | PRIVATE | main | yes | yes | `f81c873` | absent |
+| 098 | Lightroom | Photo editors | `GeorgeQLe/lightroom-mobile-clone` | `specs/batch-05/098-lightroom.md` | PRIVATE | main | yes | yes | `fcfad48` | absent |
+| 099 | Google Photos | Photo library/cloud tools | `GeorgeQLe/google-photos-mobile-clone` | `specs/batch-05/099-google-photos.md` | PRIVATE | main | yes | yes | `05af21c` | absent |
+| 223 | Picsart | Photo editors | `GeorgeQLe/picsart-mobile-clone` | `specs/batch-12/223-picsart.md` | PRIVATE | main | yes | yes | `634585b` | absent |
+| 224 | VSCO | Photo editors | `GeorgeQLe/vsco-mobile-clone` | `specs/batch-12/224-vsco.md` | PRIVATE | main | yes | yes | `76ab31e` | absent |
+| 225 | Snapseed | Photo editors | `GeorgeQLe/snapseed-mobile-clone` | `specs/batch-12/225-snapseed.md` | PRIVATE | main | yes | yes | `1559035` | absent |
+| 226 | Adobe Express | Design/drawing tools | `GeorgeQLe/adobe-express-mobile-clone` | `specs/batch-12/226-adobe-express.md` | PRIVATE | main | yes | yes | `e987d90` | absent |
+| 227 | Photoshop Express | Photo editors | `GeorgeQLe/photoshop-express-mobile-clone` | `specs/batch-12/227-photoshop-express.md` | PRIVATE | main | yes | yes | `3afe175` | absent |
+| 228 | Procreate Pocket | Design/drawing tools | `GeorgeQLe/procreate-pocket-mobile-clone` | `specs/batch-12/228-procreate-pocket.md` | PRIVATE | main | yes | yes | `1c40f50` | absent |
+| 229 | Sketchbook | Design/drawing tools | `GeorgeQLe/sketchbook-mobile-clone` | `specs/batch-12/229-sketchbook.md` | PRIVATE | main | yes | yes | `77e4f74` | absent |
+| 230 | ibis Paint X | Design/drawing tools | `GeorgeQLe/ibis-paint-x-mobile-clone` | `specs/batch-12/230-ibis-paint-x.md` | PRIVATE | main | yes | yes | `55028f4` | absent |
+| 231 | Clip Studio Paint | Design/drawing tools | `GeorgeQLe/clip-studio-paint-mobile-clone` | `specs/batch-12/231-clip-studio-paint.md` | PRIVATE | main | yes | yes | `57c46c4` | absent |
+| 232 | Bazaart | Design/drawing tools | `GeorgeQLe/bazaart-mobile-clone` | `specs/batch-12/232-bazaart.md` | PRIVATE | main | yes | yes | `24b3ca6` | absent |
+| 233 | Prequel | AI/beauty/effects photo tools | `GeorgeQLe/prequel-mobile-clone` | `specs/batch-12/233-prequel.md` | PRIVATE | main | yes | yes | `f92ec42` | absent |
+| 234 | Facetune | AI/beauty/effects photo tools | `GeorgeQLe/facetune-mobile-clone` | `specs/batch-12/234-facetune.md` | PRIVATE | main | yes | yes | `1fcab9e` | absent |
+| 235 | BeautyPlus | AI/beauty/effects photo tools | `GeorgeQLe/beautyplus-mobile-clone` | `specs/batch-12/235-beautyplus.md` | PRIVATE | main | yes | yes | `37b3b3a` | absent |
+| 236 | SNOW | AI/beauty/effects photo tools | `GeorgeQLe/snow-mobile-clone` | `specs/batch-12/236-snow.md` | PRIVATE | main | yes | yes | `a38a1ea` | absent |
+| 237 | Meitu | AI/beauty/effects photo tools | `GeorgeQLe/meitu-mobile-clone` | `specs/batch-12/237-meitu.md` | PRIVATE | main | yes | yes | `9e0bae5` | absent |
+| 238 | Polish | AI/beauty/effects photo tools | `GeorgeQLe/polish-mobile-clone` | `specs/batch-12/238-polish.md` | PRIVATE | main | yes | yes | `e861336` | absent |
+| 239 | PhotoRoom | Creator commerce/stock tools | `GeorgeQLe/photoroom-mobile-clone` | `specs/batch-12/239-photoroom.md` | PRIVATE | main | yes | yes | `cae3d28` | absent |
+| 240 | Pixelcut | Creator commerce/stock tools | `GeorgeQLe/pixelcut-mobile-clone` | `specs/batch-12/240-pixelcut.md` | PRIVATE | main | yes | yes | `40aa6c6` | absent |
+| 241 | Lensa | AI/beauty/effects photo tools | `GeorgeQLe/lensa-mobile-clone` | `specs/batch-13/241-lensa.md` | PRIVATE | main | yes | yes | `628ea1d` | absent |
+| 242 | Remini | AI/beauty/effects photo tools | `GeorgeQLe/remini-mobile-clone` | `specs/batch-13/242-remini.md` | PRIVATE | main | yes | yes | `1cca55e` | absent |
+| 243 | PicCollage | Collage/layout tools | `GeorgeQLe/piccollage-mobile-clone` | `specs/batch-13/243-piccollage.md` | PRIVATE | main | yes | yes | `be355ca` | absent |
+| 244 | Layout | Collage/layout tools | `GeorgeQLe/layout-mobile-clone` | `specs/batch-13/244-layout.md` | PRIVATE | main | yes | yes | `67b2dab` | absent |
+| 245 | Hypic | AI/beauty/effects photo tools | `GeorgeQLe/hypic-mobile-clone` | `specs/batch-13/245-hypic.md` | PRIVATE | main | yes | yes | `bf8853a` | absent |
+| 246 | Tezza | AI/beauty/effects photo tools | `GeorgeQLe/tezza-mobile-clone` | `specs/batch-13/246-tezza.md` | PRIVATE | main | yes | yes | `a012be7` | absent |
+| 247 | Unfold | Collage/layout tools | `GeorgeQLe/unfold-mobile-clone` | `specs/batch-13/247-unfold.md` | PRIVATE | main | yes | yes | `be1607a` | absent |
+| 248 | InShot | Video editors | `GeorgeQLe/inshot-mobile-clone` | `specs/batch-13/248-inshot.md` | PRIVATE | main | yes | yes | `08ff926` | absent |
+| 249 | VN Video Editor | Video editors | `GeorgeQLe/vn-video-editor-mobile-clone` | `specs/batch-13/249-vn-video-editor.md` | PRIVATE | main | yes | yes | `942324d` | absent |
+| 250 | KineMaster | Video editors | `GeorgeQLe/kinemaster-mobile-clone` | `specs/batch-13/250-kinemaster.md` | PRIVATE | main | yes | yes | `31567f4` | absent |
+| 251 | Splice | Video editors | `GeorgeQLe/splice-mobile-clone` | `specs/batch-13/251-splice.md` | PRIVATE | main | yes | yes | `10857e1` | absent |
+| 252 | LumaFusion | Video editors | `GeorgeQLe/lumafusion-mobile-clone` | `specs/batch-13/252-lumafusion.md` | PRIVATE | main | yes | yes | `fe7133f` | absent |
+| 253 | Videoleap | Video editors | `GeorgeQLe/videoleap-mobile-clone` | `specs/batch-13/253-videoleap.md` | PRIVATE | main | yes | yes | `dad1b84` | absent |
+| 254 | Filmora | Video editors | `GeorgeQLe/filmora-mobile-clone` | `specs/batch-13/254-filmora.md` | PRIVATE | main | yes | yes | `43a3bfd` | absent |
+| 255 | Alight Motion | Animation/effects tools | `GeorgeQLe/alight-motion-mobile-clone` | `specs/batch-13/255-alight-motion.md` | PRIVATE | main | yes | yes | `378c0aa` | absent |
+| 256 | Mojo | Animation/effects tools | `GeorgeQLe/mojo-mobile-clone` | `specs/batch-13/256-mojo.md` | PRIVATE | main | yes | yes | `8557ee1` | absent |
+| 257 | Apple Clips | Video editors | `GeorgeQLe/apple-clips-mobile-clone` | `specs/batch-13/257-apple-clips.md` | PRIVATE | main | yes | yes | `c5fc363` | absent |
+| 258 | Magisto | Video editors | `GeorgeQLe/magisto-mobile-clone` | `specs/batch-13/258-magisto.md` | PRIVATE | main | yes | yes | `b79d938` | absent |
+| 259 | GoPro Quik | Video editors | `GeorgeQLe/gopro-quik-mobile-clone` | `specs/batch-13/259-gopro-quik.md` | PRIVATE | main | yes | yes | `63d1f6e` | absent |
+| 260 | VivaVideo | Video editors | `GeorgeQLe/vivavideo-mobile-clone` | `specs/batch-13/260-vivavideo.md` | PRIVATE | main | yes | yes | `69198b7` | absent |
+
 
 ### Step 6.1 Audit - 2026-04-20
 
