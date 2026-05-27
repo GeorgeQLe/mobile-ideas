@@ -170,6 +170,87 @@ Guardrails:
 | 259 | GoPro Quik | Video editors | `GeorgeQLe/gopro-quik-mobile-clone` | `specs/batch-13/259-gopro-quik.md` | PRIVATE | main | yes | yes | `63d1f6e` | absent |
 | 260 | VivaVideo | Video editors | `GeorgeQLe/vivavideo-mobile-clone` | `specs/batch-13/260-vivavideo.md` | PRIVATE | main | yes | yes | `69198b7` | absent |
 
+### Phase 17 Downstream Readiness Reconciliation - 2026-05-27
+
+- Scope: Phase 17 Shopping, Commerce & Classifieds inventory reconciled to 68 downstream repos: IDs 046-055, 393-406, 442-471, and 968-981. This exact count follows the Phase 9 Step 9.10 build-plan evidence and supersedes the older roadmap estimate of ~65 apps.
+- Source evidence: all 68 manifest rows are checked in the downstream repo checklist and every corresponding source spec exists under `specs/batch-*`.
+- Rate-limit evidence before scan: `gh api rate_limit` reported core `used=22`, `remaining=4978`, `reset=1779913722`; GraphQL `used=117`, `remaining=4883`, `reset=1779911744`.
+- GitHub verification evidence: serial read-only `gh api` metadata/content checks confirmed every repo is `PRIVATE`, has default branch `main`, has a default-branch commit, contains `README.md`, contains the matching source spec under `docs/source-specs/`, and does not contain `.github/workflows`.
+- Rate-limit evidence after scan: `gh api rate_limit` reported core `used=294`, `remaining=4706`, `reset=1779913722`; GraphQL `used=119`, `remaining=4881`, `reset=1779911744`.
+- Required blocker carry-forward: IDs 101-1000 remain planning/scaffold repos while specs are Draft 1 or public-source V1 planning artifacts; Phase 17 implementation must not claim exact native parity until account lifecycle, subscriptions, payment processing, tax calculation, shipping/fulfillment, marketplace providers, licensed catalog/product data, seller/admin eligibility, identity/KYC, fraud/risk controls, trust/safety moderation, escrow/dispute behavior, returns/refunds, promotions/ads, region-specific availability, hardware/permission behavior, and real-device verification are complete.
+- GitHub Actions status: no workflow was enabled, dispatched, or used for this verification.
+
+| ID | App | Risk Group | Repo | Source Spec | Visibility | Branch | README | Source Spec Copy | Root Commit | Workflows |
+|---:|---|---|---|---|---|---|---|---|---|---|
+| 046 | Amazon | Broad retail marketplaces | `GeorgeQLe/amazon-mobile-clone` | `specs/batch-03/046-amazon.md` | PRIVATE | main | yes | yes | `9f9c972` | absent |
+| 047 | Temu | Broad retail marketplaces | `GeorgeQLe/temu-mobile-clone` | `specs/batch-03/047-temu.md` | PRIVATE | main | yes | yes | `0fed5c2` | absent |
+| 048 | SHEIN | Broad retail marketplaces | `GeorgeQLe/shein-mobile-clone` | `specs/batch-03/048-shein.md` | PRIVATE | main | yes | yes | `a03ddf0` | absent |
+| 049 | Etsy | Broad retail marketplaces | `GeorgeQLe/etsy-mobile-clone` | `specs/batch-03/049-etsy.md` | PRIVATE | main | yes | yes | `1e74b5b` | absent |
+| 050 | eBay | Broad retail marketplaces | `GeorgeQLe/ebay-mobile-clone` | `specs/batch-03/050-ebay.md` | PRIVATE | main | yes | yes | `249c84b` | absent |
+| 051 | Facebook Marketplace | Fashion resale/trust marketplace | `GeorgeQLe/facebook-marketplace-mobile-clone` | `specs/batch-03/051-facebook-marketplace.md` | PRIVATE | main | yes | yes | `6b3e8a1` | absent |
+| 052 | Poshmark | Fashion resale/trust marketplace | `GeorgeQLe/poshmark-mobile-clone` | `specs/batch-03/052-poshmark.md` | PRIVATE | main | yes | yes | `8f9e9bd` | absent |
+| 053 | Depop | Fashion resale/trust marketplace | `GeorgeQLe/depop-mobile-clone` | `specs/batch-03/053-depop.md` | PRIVATE | main | yes | yes | `7120a2d` | absent |
+| 054 | StockX | Fashion resale/trust marketplace | `GeorgeQLe/stockx-mobile-clone` | `specs/batch-03/054-stockx.md` | PRIVATE | main | yes | yes | `1f9814e` | absent |
+| 055 | Shop | Order/package tracking commerce | `GeorgeQLe/shop-mobile-clone` | `specs/batch-03/055-shop.md` | PRIVATE | main | yes | yes | `223313a` | absent |
+| 393 | Walmart | Retail/grocery marketplaces | `GeorgeQLe/walmart-mobile-clone` | `specs/batch-20/393-walmart.md` | PRIVATE | main | yes | yes | `021b05a` | absent |
+| 394 | Target | Retail/grocery marketplaces | `GeorgeQLe/target-mobile-clone` | `specs/batch-20/394-target.md` | PRIVATE | main | yes | yes | `3f02402` | absent |
+| 395 | Costco | Retail/grocery marketplaces | `GeorgeQLe/costco-mobile-clone` | `specs/batch-20/395-costco.md` | PRIVATE | main | yes | yes | `c3a6654` | absent |
+| 396 | Sam's Club | Retail/grocery marketplaces | `GeorgeQLe/sam-s-club-mobile-clone` | `specs/batch-20/396-sam-s-club.md` | PRIVATE | main | yes | yes | `dedf232` | absent |
+| 397 | Kroger | Retail/grocery marketplaces | `GeorgeQLe/kroger-mobile-clone` | `specs/batch-20/397-kroger.md` | PRIVATE | main | yes | yes | `b0398f7` | absent |
+| 398 | Safeway | Retail/grocery marketplaces | `GeorgeQLe/safeway-mobile-clone` | `specs/batch-20/398-safeway.md` | PRIVATE | main | yes | yes | `787456d` | absent |
+| 399 | Albertsons | Retail/grocery marketplaces | `GeorgeQLe/albertsons-mobile-clone` | `specs/batch-20/399-albertsons.md` | PRIVATE | main | yes | yes | `33ba440` | absent |
+| 400 | Whole Foods Market | Retail/grocery marketplaces | `GeorgeQLe/whole-foods-market-mobile-clone` | `specs/batch-20/400-whole-foods-market.md` | PRIVATE | main | yes | yes | `18722c1` | absent |
+| 401 | Publix | Retail/grocery marketplaces | `GeorgeQLe/publix-mobile-clone` | `specs/batch-21/401-publix.md` | PRIVATE | main | yes | yes | `0ba2ed1` | absent |
+| 402 | H-E-B | Retail/grocery marketplaces | `GeorgeQLe/h-e-b-mobile-clone` | `specs/batch-21/402-h-e-b.md` | PRIVATE | main | yes | yes | `91dc7b1` | absent |
+| 403 | Meijer | Retail/grocery marketplaces | `GeorgeQLe/meijer-mobile-clone` | `specs/batch-21/403-meijer.md` | PRIVATE | main | yes | yes | `909d29b` | absent |
+| 404 | ALDI | Retail/grocery marketplaces | `GeorgeQLe/aldi-mobile-clone` | `specs/batch-21/404-aldi.md` | PRIVATE | main | yes | yes | `955b1d1` | absent |
+| 405 | Lidl | Retail/grocery marketplaces | `GeorgeQLe/lidl-mobile-clone` | `specs/batch-21/405-lidl.md` | PRIVATE | main | yes | yes | `9c1576a` | absent |
+| 406 | Wegmans | Retail/grocery marketplaces | `GeorgeQLe/wegmans-mobile-clone` | `specs/batch-21/406-wegmans.md` | PRIVATE | main | yes | yes | `ecccd7c` | absent |
+| 442 | Best Buy | Brand retail/catalog commerce | `GeorgeQLe/best-buy-mobile-clone` | `specs/batch-23/442-best-buy.md` | PRIVATE | main | yes | yes | `79fb5b4` | absent |
+| 443 | Home Depot | Brand retail/catalog commerce | `GeorgeQLe/home-depot-mobile-clone` | `specs/batch-23/443-home-depot.md` | PRIVATE | main | yes | yes | `853c3cb` | absent |
+| 444 | Lowe's | Brand retail/catalog commerce | `GeorgeQLe/lowe-s-mobile-clone` | `specs/batch-23/444-lowe-s.md` | PRIVATE | main | yes | yes | `1b9c2fb` | absent |
+| 445 | IKEA | Brand retail/catalog commerce | `GeorgeQLe/ikea-mobile-clone` | `specs/batch-23/445-ikea.md` | PRIVATE | main | yes | yes | `a213431` | absent |
+| 446 | Wayfair | Brand retail/catalog commerce | `GeorgeQLe/wayfair-mobile-clone` | `specs/batch-23/446-wayfair.md` | PRIVATE | main | yes | yes | `4cca37d` | absent |
+| 447 | Kohl's | Brand retail/catalog commerce | `GeorgeQLe/kohl-s-mobile-clone` | `specs/batch-23/447-kohl-s.md` | PRIVATE | main | yes | yes | `0d70d37` | absent |
+| 448 | Macy's | Brand retail/catalog commerce | `GeorgeQLe/macy-s-mobile-clone` | `specs/batch-23/448-macy-s.md` | PRIVATE | main | yes | yes | `8b464f3` | absent |
+| 449 | Nordstrom | Brand retail/catalog commerce | `GeorgeQLe/nordstrom-mobile-clone` | `specs/batch-23/449-nordstrom.md` | PRIVATE | main | yes | yes | `115e304` | absent |
+| 450 | Sephora | Brand retail/catalog commerce | `GeorgeQLe/sephora-mobile-clone` | `specs/batch-23/450-sephora.md` | PRIVATE | main | yes | yes | `4ab9c30` | absent |
+| 451 | Ulta Beauty | Brand retail/catalog commerce | `GeorgeQLe/ulta-beauty-mobile-clone` | `specs/batch-23/451-ulta-beauty.md` | PRIVATE | main | yes | yes | `eb28a5a` | absent |
+| 452 | Nike | Brand retail/catalog commerce | `GeorgeQLe/nike-mobile-clone` | `specs/batch-23/452-nike.md` | PRIVATE | main | yes | yes | `503e77f` | absent |
+| 453 | Adidas | Brand retail/catalog commerce | `GeorgeQLe/adidas-mobile-clone` | `specs/batch-23/453-adidas.md` | PRIVATE | main | yes | yes | `a18ab2e` | absent |
+| 454 | Zara | Brand retail/catalog commerce | `GeorgeQLe/zara-mobile-clone` | `specs/batch-23/454-zara.md` | PRIVATE | main | yes | yes | `265b801` | absent |
+| 455 | H&M | Brand retail/catalog commerce | `GeorgeQLe/handm-mobile-clone` | `specs/batch-23/455-handm.md` | PRIVATE | main | yes | yes | `1099361` | absent |
+| 456 | Uniqlo | Brand retail/catalog commerce | `GeorgeQLe/uniqlo-mobile-clone` | `specs/batch-23/456-uniqlo.md` | PRIVATE | main | yes | yes | `14ba548` | absent |
+| 457 | Lululemon | Brand retail/catalog commerce | `GeorgeQLe/lululemon-mobile-clone` | `specs/batch-23/457-lululemon.md` | PRIVATE | main | yes | yes | `6fe96a4` | absent |
+| 458 | GOAT | Fashion resale | `GeorgeQLe/goat-mobile-clone` | `specs/batch-23/458-goat.md` | PRIVATE | main | yes | yes | `0de8fa3` | absent |
+| 459 | Grailed | Fashion resale | `GeorgeQLe/grailed-mobile-clone` | `specs/batch-23/459-grailed.md` | PRIVATE | main | yes | yes | `2fec501` | absent |
+| 460 | Mercari | Fashion resale | `GeorgeQLe/mercari-mobile-clone` | `specs/batch-23/460-mercari.md` | PRIVATE | main | yes | yes | `d18c7de` | absent |
+| 461 | Vinted | Fashion resale | `GeorgeQLe/vinted-mobile-clone` | `specs/batch-24/461-vinted.md` | PRIVATE | main | yes | yes | `f335e98` | absent |
+| 462 | OfferUp | Classifieds/local marketplaces | `GeorgeQLe/offerup-mobile-clone` | `specs/batch-24/462-offerup.md` | PRIVATE | main | yes | yes | `bb47d54` | absent |
+| 463 | Craigslist | Classifieds/local marketplaces | `GeorgeQLe/craigslist-mobile-clone` | `specs/batch-24/463-craigslist.md` | PRIVATE | main | yes | yes | `199af8c` | absent |
+| 464 | AliExpress | Cross-border/value retail marketplaces | `GeorgeQLe/aliexpress-mobile-clone` | `specs/batch-24/464-aliexpress.md` | PRIVATE | main | yes | yes | `16804d5` | absent |
+| 465 | Wish | Cross-border/value retail marketplaces | `GeorgeQLe/wish-mobile-clone` | `specs/batch-24/465-wish.md` | PRIVATE | main | yes | yes | `af49286` | absent |
+| 466 | Lazada | Cross-border/value retail marketplaces | `GeorgeQLe/lazada-mobile-clone` | `specs/batch-24/466-lazada.md` | PRIVATE | main | yes | yes | `56c94d7` | absent |
+| 467 | Shopee | Cross-border/value retail marketplaces | `GeorgeQLe/shopee-mobile-clone` | `specs/batch-24/467-shopee.md` | PRIVATE | main | yes | yes | `f682855` | absent |
+| 468 | Flipkart | Cross-border/value retail marketplaces | `GeorgeQLe/flipkart-mobile-clone` | `specs/batch-24/468-flipkart.md` | PRIVATE | main | yes | yes | `8461d29` | absent |
+| 469 | Myntra | Cross-border/value retail marketplaces | `GeorgeQLe/myntra-mobile-clone` | `specs/batch-24/469-myntra.md` | PRIVATE | main | yes | yes | `3c4c0ae` | absent |
+| 470 | Rakuten | Cross-border/value retail marketplaces | `GeorgeQLe/rakuten-mobile-clone` | `specs/batch-24/470-rakuten.md` | PRIVATE | main | yes | yes | `a8ddedf` | absent |
+| 471 | Newegg | Cross-border/value retail marketplaces | `GeorgeQLe/newegg-mobile-clone` | `specs/batch-24/471-newegg.md` | PRIVATE | main | yes | yes | `15b4b01` | absent |
+| 968 | letgo | Classifieds/local marketplaces | `GeorgeQLe/letgo-mobile-clone` | `specs/batch-49/968-letgo.md` | PRIVATE | main | yes | yes | `ee50c8f` | absent |
+| 969 | VarageSale | Classifieds/local marketplaces | `GeorgeQLe/varagesale-mobile-clone` | `specs/batch-49/969-varagesale.md` | PRIVATE | main | yes | yes | `3d181cf` | absent |
+| 970 | Kijiji | Classifieds/local marketplaces | `GeorgeQLe/kijiji-mobile-clone` | `specs/batch-49/970-kijiji.md` | PRIVATE | main | yes | yes | `b36ecb0` | absent |
+| 971 | Gumtree | Classifieds/local marketplaces | `GeorgeQLe/gumtree-mobile-clone` | `specs/batch-49/971-gumtree.md` | PRIVATE | main | yes | yes | `7c9904d` | absent |
+| 972 | CarGurus | Automotive marketplaces | `GeorgeQLe/cargurus-mobile-clone` | `specs/batch-49/972-cargurus.md` | PRIVATE | main | yes | yes | `c54afce` | absent |
+| 973 | AutoTrader | Automotive marketplaces | `GeorgeQLe/autotrader-mobile-clone` | `specs/batch-49/973-autotrader.md` | PRIVATE | main | yes | yes | `aca24e0` | absent |
+| 974 | Cars.com | Automotive marketplaces | `GeorgeQLe/cars-com-mobile-clone` | `specs/batch-49/974-cars-com.md` | PRIVATE | main | yes | yes | `394b35d` | absent |
+| 975 | Carvana | Automotive marketplaces | `GeorgeQLe/carvana-mobile-clone` | `specs/batch-49/975-carvana.md` | PRIVATE | main | yes | yes | `7e53ba2` | absent |
+| 976 | CarMax | Automotive marketplaces | `GeorgeQLe/carmax-mobile-clone` | `specs/batch-49/976-carmax.md` | PRIVATE | main | yes | yes | `646c532` | absent |
+| 977 | TrueCar | Automotive marketplaces | `GeorgeQLe/truecar-mobile-clone` | `specs/batch-49/977-truecar.md` | PRIVATE | main | yes | yes | `151c5b8` | absent |
+| 978 | Copart | Automotive marketplaces | `GeorgeQLe/copart-mobile-clone` | `specs/batch-49/978-copart.md` | PRIVATE | main | yes | yes | `390b92c` | absent |
+| 979 | Bring a Trailer | Automotive marketplaces | `GeorgeQLe/bring-a-trailer-mobile-clone` | `specs/batch-49/979-bring-a-trailer.md` | PRIVATE | main | yes | yes | `055c025` | absent |
+| 980 | Autolist | Automotive marketplaces | `GeorgeQLe/autolist-mobile-clone` | `specs/batch-49/980-autolist.md` | PRIVATE | main | yes | yes | `8bb6907` | absent |
+| 981 | Gumroad | Creator commerce/seller tools | `GeorgeQLe/gumroad-mobile-clone` | `specs/batch-50/981-gumroad.md` | PRIVATE | main | yes | yes | `ed0cf12` | absent |
+
 
 ### Step 6.1 Audit - 2026-04-20
 

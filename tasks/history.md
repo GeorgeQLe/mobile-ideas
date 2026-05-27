@@ -6204,3 +6204,31 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Residual risk: Step 16.19 implementation PRs are not created yet; native media/runtime/provider/licensed-asset/AI/video/camera/hardware/cloud parity remains blocked.
 - Rollback note: revert this planning commit to reopen Step 16.18 in task history; revert the five downstream merge commits if the eighth-tranche scaffolds need to be removed from `main`.
 - Next: Step 16.19 - implement final Photo & Video Creation tranche.
+
+## Step 17.1 - Shopping, Commerce & Classifieds Inventory Reconciliation (2026-05-27)
+
+### Inventory
+- Reconciled Phase 17 to 68 downstream repos using Phase 9.10 build-plan evidence: IDs 046-055, 393-406, 442-471, and 968-981.
+- Superseded the older roadmap estimate of ~65 apps with the exact Phase 9.10 ranges.
+- Risk groups recorded in `tasks/repo-seeding.md`: broad retail marketplaces, fashion resale/trust marketplaces, order/package tracking commerce, retail/grocery marketplaces, brand retail/catalog commerce, cross-border/value retail marketplaces, classifieds/local marketplaces, automotive marketplaces, and creator commerce/seller tools.
+
+### Validation
+- Rate-limit evidence before scan: core `4978/5000` remaining and GraphQL `4883/5000` remaining.
+- Serial read-only `gh api` checks confirmed all 68 repos are `PRIVATE`, default to `main`, have a default-branch commit, contain `README.md`, contain their copied source spec under `docs/source-specs/`, and have no `.github/workflows` directory.
+- Rate-limit evidence after scan: core `4706/5000` remaining and GraphQL `4881/5000` remaining.
+
+### Carry-Forward Blockers
+- Account lifecycle, subscriptions, payment processing, tax calculation, shipping/fulfillment, marketplace providers, licensed catalog/product data, seller/admin eligibility, identity/KYC, fraud/risk controls, trust/safety moderation, escrow/dispute behavior, returns/refunds, promotions/ads, region-specific availability, hardware/permission behavior, and real-device verification remain blocked.
+- No provider/payment/native parity claim was made for Phase 17; this step only proved downstream readiness and blocker posture.
+
+### Ship Manifest
+- User goal: execute Step 17.1 and produce the canonical Phase 17 inventory/readiness packet.
+- Changed files: `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+- Per-file purpose: `tasks/todo.md` marks Step 17.1 done and defines Step 17.2; `tasks/repo-seeding.md` records rate-limit evidence and the 68-row inventory; `tasks/history.md` records the execution trail.
+- User-goal mapping: downstream readiness is now proven before Shopping, Commerce & Classifieds implementation tranches begin.
+- Tests run: read-only GitHub API metadata/content checks; local Markdown/task grep checks.
+- Skipped tests: no runtime app tests are relevant in this planning repo because this step changed documentation and GitHub metadata evidence only.
+- Adversarial review: checked exact ID ranges against Phase 9.10, verified every repo private/source-spec/root-commit/no-workflows state, and carried forward commerce-specific provider/payment/licensed-data blockers.
+- Residual risk: downstream implementation work has not started for Phase 17; local toolchain and native runtime status must be rechecked in each downstream repo.
+- Rollback note: revert this planning commit to reopen Step 17.1 and remove the Phase 17 inventory packet.
+- Next: Step 17.2 - implement first Shopping, Commerce & Classifieds tranche.
