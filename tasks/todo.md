@@ -183,7 +183,7 @@
   - Post-merge verification confirmed each repo remains `PRIVATE`, defaults to `main`, has `README.md`, has the copied source spec under `docs/source-specs/`, has `main` pointing at the merge commit, and has no `.github/workflows` directory.
   - Post-merge rate-limit snapshot: core `used=40`, `remaining=4960`, `reset=1779906187`; GraphQL `used=48`, `remaining=4952`, `reset=1779904183`.
 
-- [ ] Step 16.5: Implement second Photo & Video Creation tranche across five downstream repos
+- [x] Step 16.5: Implement second Photo & Video Creation tranche across five downstream repos
   - Build all five variants for `ArtLab`, `FilmTone`, `CropSmith`, `PosterForge`, and `PocketRetouch` in the selected downstream repos.
   - Keep work serial in this shared tree unless a later explicit `agent-team` plan creates separate branch-backed lanes with PR consolidation. Do not use GitHub Actions.
   - For each repo, verify it is `PRIVATE`, uses `main` as the target branch, contains the copied source spec under `docs/source-specs/`, and has no `.github/workflows` path before making changes.
@@ -246,6 +246,45 @@
   - Every selected repo has validation evidence for fixture/contract integrity and variant structure.
   - Core workflows are represented: creative remix/export for `ArtLab`, preset adjustment/gallery export for `FilmTone`, precision crop/adjust/export for `CropSmith`, template canvas/export for `PosterForge`, and retouch/composite/export for `PocketRetouch`.
   - No downstream repo becomes public, gains GitHub Actions workflows, or claims verified provider/native/AI parity without evidence.
+
+  **Result:**
+  Step 16.5 created branch-backed PRs for all five second-tranche repos:
+
+  | ID | Product | Repo | Branch | Commit | PR | Local Score |
+  |---:|---|---|---|---|---|---:|
+  | 223 | ArtLab | `GeorgeQLe/picsart-mobile-clone` | `phase16-step16-5-picsart` | `5920983` | https://github.com/GeorgeQLe/picsart-mobile-clone/pull/1 | 96/100 |
+  | 224 | FilmTone | `GeorgeQLe/vsco-mobile-clone` | `phase16-step16-5-vsco` | `a7771f8` | https://github.com/GeorgeQLe/vsco-mobile-clone/pull/1 | 96/100 |
+  | 225 | CropSmith | `GeorgeQLe/snapseed-mobile-clone` | `phase16-step16-5-snapseed` | `5af3c1d` | https://github.com/GeorgeQLe/snapseed-mobile-clone/pull/1 | 96/100 |
+  | 226 | PosterForge | `GeorgeQLe/adobe-express-mobile-clone` | `phase16-step16-5-adobe-express` | `6669ff2` | https://github.com/GeorgeQLe/adobe-express-mobile-clone/pull/1 | 96/100 |
+  | 227 | PocketRetouch | `GeorgeQLe/photoshop-express-mobile-clone` | `phase16-step16-5-photoshop-express` | `8736028` | https://github.com/GeorgeQLe/photoshop-express-mobile-clone/pull/1 | 96/100 |
+
+  **Validation Evidence:**
+  - Each repo passed `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, and `git diff --check`.
+  - Each PR is open, non-draft, targets `main`, has `CLEAN` merge state, is `MERGEABLE`, and changes only planned Phase 16 scaffold paths.
+  - Each repo remains `PRIVATE`, defaults to `main`, keeps the copied source spec under `docs/source-specs/`, and has no `.github/workflows` directory.
+  - Each PR file list was checked and contains no `.github/workflows` path.
+  - Pre-execution rate-limit snapshot: core `used=40`, `remaining=4960`, `reset=1779906187`; GraphQL `used=48`, `remaining=4952`, `reset=1779904183`.
+  - Post-execution rate-limit snapshot: core `used=81`, `remaining=4919`, `reset=1779906187`; GraphQL `used=82`, `remaining=4918`, `reset=1779904183`.
+  - Native runtime parity remains blocked: Flutter/iOS/Android compile, GPU rendering, native camera/photo-library/file-picker/share-sheet behavior, codec/export behavior, and real-device performance are documented as blockers.
+  - Legal/provider blockers remain explicit: licensed templates/fonts/stock/stickers/presets/filters, proprietary algorithms, AI/beauty safety, marketplace entitlement, cloud sync, provider publishing/import/export, subscriptions/payments, production user media, and credentials.
+
+- [ ] Step 16.6: Merge second tranche PRs and plan the third Photo & Video Creation implementation tranche
+  - Merge the five Step 16.5 PRs only after confirming they are still open, non-draft, clean, private, source-spec-backed, and free of `.github/workflows`.
+  - Select the next 5 Phase 16 apps from the reconciled inventory, continuing through the photo/video creation cluster after the second photo-editing tranche.
+  - Candidate third tranche: Facetune (`228`), TouchRetouch (`229`), Prequel (`230`), Tezza (`231`), and Afterlight (`232`).
+  - Define original product names, branch names, owned downstream paths, validation commands, and blocker carry-forward for each app.
+  - Update this file with executable Step 16.7 implementation instructions.
+  - Files: modify `tasks/todo.md`, `tasks/history.md`, and merge state in the five Step 16.5 downstream repos only.
+
+  **What to Build:**
+  A merge-and-planning packet for the third Phase 16 tranche. This step should not scaffold the third-tranche variants yet; it should close the second-tranche PR loop and prepare a bounded execution plan for the next implementation step.
+
+  **Approach:**
+  1. Verify Step 16.5 PR metadata with `gh pr view` for all five repos.
+  2. Merge the PRs serially into `main` if all gates remain clean.
+  3. Verify merged repos remain private, source specs remain present, and no `.github/workflows` path exists.
+  4. Use `tasks/repo-seeding.md` and source specs to define the third tranche.
+  5. Record validation/merge evidence and write the Step 16.7 implementation packet.
 
 ### Milestone: Phase 16 — Photo & Video Creation Complete
 **Acceptance Criteria:**

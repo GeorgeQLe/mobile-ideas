@@ -1,5 +1,38 @@
 # History
 
+## 2026-05-27 - Phase 16 Step 16.5: Second Photo & Video Creation Tranche
+
+- Built the second Phase 16 implementation tranche as branch-backed PRs across five private downstream repos:
+  - `GeorgeQLe/picsart-mobile-clone` -> `ArtLab` - PR https://github.com/GeorgeQLe/picsart-mobile-clone/pull/1, commit `5920983`
+  - `GeorgeQLe/vsco-mobile-clone` -> `FilmTone` - PR https://github.com/GeorgeQLe/vsco-mobile-clone/pull/1, commit `a7771f8`
+  - `GeorgeQLe/snapseed-mobile-clone` -> `CropSmith` - PR https://github.com/GeorgeQLe/snapseed-mobile-clone/pull/1, commit `5af3c1d`
+  - `GeorgeQLe/adobe-express-mobile-clone` -> `PosterForge` - PR https://github.com/GeorgeQLe/adobe-express-mobile-clone/pull/1, commit `6669ff2`
+  - `GeorgeQLe/photoshop-express-mobile-clone` -> `PocketRetouch` - PR https://github.com/GeorgeQLe/photoshop-express-mobile-clone/pull/1, commit `8736028`
+- Each repo received original synthetic fixtures/contracts, validation scripts, blocker notes, validation docs, and five variant surfaces: React Native, Expo, Flutter, iOS Native, and Android Native.
+- Validation passed in every repo: `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, and `git diff --check`.
+- Consolidation gate: all five PRs are open, non-draft, targeting `main`, `CLEAN`, `MERGEABLE`, branch-backed, source-spec-backed, and free of `.github/workflows` in PR file lists.
+- Repository gate: all five repos remain `PRIVATE`, default to `main`, retain copied source specs under `docs/source-specs/`, and have no `.github/workflows` directory.
+- Rate-limit evidence: pre-execution core `4960/5000` remaining and GraphQL `4952/5000` remaining; post-execution core `4919/5000` remaining and GraphQL `4918/5000` remaining.
+- No proprietary assets, brand claims, copied templates, copyrighted presets, private APIs, production data, provider credentials, public visibility changes, or GitHub Actions.
+
+### Carry-Forward Blockers
+
+- Native runtime parity remains blocked: Flutter/iOS/Android compile, GPU rendering, native camera/photo-library/file-picker/share-sheet behavior, codec/export behavior, and real-device performance.
+- Legal/provider blockers remain explicit: licensed templates/fonts/stock/stickers/presets/filters, proprietary algorithms, AI/beauty safety, marketplace entitlement, cloud sync, provider publishing/import/export, subscriptions/payments, production user media, and credentials.
+
+### Ship Manifest
+
+- User goal: execute Phase 16 Step 16.5 for Picsart, VSCO, Snapseed, Adobe Express, and Photoshop Express across all five downstream variants each.
+- Changed files: five downstream repos received synthetic fixtures/contracts, validation scripts/evidence, package scripts, blocker artifacts, implementation records, and React Native/Expo/Flutter/iOS Native/Android Native variant files; this planning repo changed `tasks/todo.md` and `tasks/history.md`.
+- Per-file purpose: downstream files provide original synthetic photo editing, preset, crop/adjust, design canvas, retouch/composite, export, and blocker surfaces with reproducible local checks; task/history docs record completion evidence and the next merge/planning step.
+- User-goal mapping: satisfies Step 16.5 without proprietary app assets, brand claims, copied code/media/templates, private APIs, production data, provider parity claims, AI parity claims, public visibility changes, or GitHub Actions.
+- Tests run: each downstream repo ran `npm run validate`, `npm run check:variants`, `npm run test:react-native`, `npm run test:expo`, and `git diff --check`; GitHub PR/repo/source-spec/workflow metadata checks; planning repo `git diff --check` and task-doc checks.
+- Skipped tests: no planning-repo executable app suite exists because this repo only changed Markdown task/history evidence; downstream Flutter/iOS/Android runner tests were not added because the repos have no dependency tree or native runner baseline, so those remain explicit blockers.
+- Adversarial review: checked PR target branches, open/non-draft state, clean mergeability, changed-file boundaries, PRIVATE visibility, source-spec presence, blocker artifacts, validation artifacts, no workflow files, and no unsupported native/provider/AI parity claims.
+- Residual risk: Step 16.5 PRs remain open for the next merge cycle; native runtime behavior, provider integrations, licensed assets/presets/templates, AI/beauty safety, cloud sync, subscriptions/payments, real-device performance, privacy/compliance, and store-readiness remain unresolved.
+- Rollback note: revert this planning commit to reopen Step 16.5; close or revert the five downstream PR branches to undo scaffolds.
+- Next command: `$exec` for Step 16.6.
+
 ## 2026-05-27 - Phase 16 Step 16.4: First Tranche Merge and Second Tranche Plan
 
 - Merged all five Step 16.3 first-tranche PRs serially into `main`:
