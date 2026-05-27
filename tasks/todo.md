@@ -628,7 +628,7 @@
   - Native runtime parity remains blocked: Flutter/iOS/Android compile, GPU/media rendering, native camera/photo-library/file-picker/share-sheet behavior, codec/export behavior, AI cutout/restoration, and real-device performance are documented as blockers.
   - Legal/provider/safety blockers remain explicit: licensed templates/fonts/stock/stickers/presets/filters/effects, model weights, proprietary algorithms, AI/beauty/face/product-media safety, consent/disclosure/bias review, cloud sync, provider import/export, marketplace publishing, subscriptions/payments, production user media, and credentials.
 
-- [ ] Step 16.12: Merge fifth tranche PRs and plan the sixth Photo & Video Creation implementation tranche
+- [x] Step 16.12: Merge fifth tranche PRs and plan the sixth Photo & Video Creation implementation tranche
   - Merge the five Step 16.11 PRs only after confirming they are still open, non-draft, clean, private, source-spec-backed, and free of `.github/workflows`.
   - Select the next 5 Phase 16 apps from the reconciled inventory, continuing through collage/layout, AI/effects, and the first video editor workflow.
   - Candidate sixth tranche: Layout (`244`), Hypic (`245`), Tezza (`246`), Unfold (`247`), and InShot (`248`).
@@ -645,6 +645,87 @@
   3. Verify merged repos remain private, source specs remain present, and no `.github/workflows` path exists.
   4. Use `tasks/repo-seeding.md` and source specs to define the sixth tranche.
   5. Record validation/merge evidence and write the Step 16.13 implementation packet.
+
+  **Result:**
+  Step 16.12 merged all five fifth-tranche PRs to `main` and scoped the sixth implementation tranche:
+
+  | ID | Product | Repo | PR | Source Commit | Merge Commit | Merged At |
+  |---:|---|---|---|---|---|---|
+  | 238 | PolishDeck | `GeorgeQLe/polish-mobile-clone` | https://github.com/GeorgeQLe/polish-mobile-clone/pull/1 | `9861839` | `bc97061` | 2026-05-27T18:29:26Z |
+  | 239 | RoomCut | `GeorgeQLe/photoroom-mobile-clone` | https://github.com/GeorgeQLe/photoroom-mobile-clone/pull/1 | `2a9b407` | `3e2ef9b` | 2026-05-27T18:29:36Z |
+  | 240 | ProductCut | `GeorgeQLe/pixelcut-mobile-clone` | https://github.com/GeorgeQLe/pixelcut-mobile-clone/pull/1 | `625ea69` | `596fb74` | 2026-05-27T18:29:43Z |
+  | 241 | AuraLens | `GeorgeQLe/lensa-mobile-clone` | https://github.com/GeorgeQLe/lensa-mobile-clone/pull/1 | `3d26754` | `a0787c7` | 2026-05-27T18:29:54Z |
+  | 242 | RestoreLab | `GeorgeQLe/remini-mobile-clone` | https://github.com/GeorgeQLe/remini-mobile-clone/pull/1 | `442abff` | `582914d` | 2026-05-27T18:30:00Z |
+
+  **Merge Verification Evidence:**
+  - Pre-merge rate-limit snapshot: core `used=10`, `remaining=4990`, `reset=1779909925`; GraphQL `used=147`, `remaining=4853`, `reset=1779908063`.
+  - Each PR was verified open, non-draft, targeting `main`, `CLEAN`, `MERGEABLE`, branch-backed, and free of `.github/workflows` in the PR file list before merge.
+  - Post-merge verification confirmed each repo remains `PRIVATE`, defaults to `main`, has the copied source spec under `docs/source-specs/`, and has no `.github/workflows` directory.
+  - Post-merge rate-limit snapshot: core `used=45`, `remaining=4955`, `reset=1779909925`; GraphQL `used=168`, `remaining=4832`, `reset=1779908063`.
+
+- [ ] Step 16.13: Implement sixth Photo & Video Creation tranche across five downstream repos
+  - Build all five variants for `GridFrame`, `GlowDraft`, `FilmDiary`, `StoryFold`, and `TrimStudio` in the selected downstream repos.
+  - Keep work serial in this shared tree unless a later explicit `agent-team` plan creates separate branch-backed lanes with PR consolidation. Do not use GitHub Actions.
+  - For each repo, verify it is `PRIVATE`, uses `main` as the target branch, contains the copied source spec under `docs/source-specs/`, and has no `.github/workflows` path before making changes.
+  - Create the implementation branch named below, add original synthetic fixtures/contracts, variant surfaces, validation scripts, blocker notes, and validation evidence, then open a PR to `main`.
+  - Preserve lawful scope: no original brands, logos, screenshots, proprietary media, copied layouts/templates/filters/effects/fonts/music/stickers, model weights, private APIs, production media data, provider credentials, or claims of verified native/provider/AI/video parity without evidence.
+  - Files: modify the five downstream repos only plus `tasks/todo.md` and `tasks/history.md` in this planning repo.
+
+  **Sixth Tranche Selection:**
+
+  | Lane | ID | App | Risk Group | Downstream Repo | Source Spec | Implementation Branch |
+  |---|---:|---|---|---|---|---|
+  | A | 244 | Layout | Collage/layout tools | `GeorgeQLe/layout-mobile-clone` | `specs/batch-13/244-layout.md` | `phase16-step16-13-layout` |
+  | B | 245 | Hypic | AI/beauty/effects photo tools | `GeorgeQLe/hypic-mobile-clone` | `specs/batch-13/245-hypic.md` | `phase16-step16-13-hypic` |
+  | C | 246 | Tezza | AI/beauty/effects photo tools | `GeorgeQLe/tezza-mobile-clone` | `specs/batch-13/246-tezza.md` | `phase16-step16-13-tezza` |
+  | D | 247 | Unfold | Collage/layout tools | `GeorgeQLe/unfold-mobile-clone` | `specs/batch-13/247-unfold.md` | `phase16-step16-13-unfold` |
+  | E | 248 | InShot | Video editors | `GeorgeQLe/inshot-mobile-clone` | `specs/batch-13/248-inshot.md` | `phase16-step16-13-inshot` |
+
+  **Per-App Product Direction:**
+  - Layout-inspired product: `GridFrame`, an original collage layout app with synthetic photo placeholders, grid templates represented by local numeric geometry, border/spacing controls, export/share states, and photo-library/provider blockers.
+  - Hypic-inspired product: `GlowDraft`, an original AI/effects editor with synthetic portrait-safe media metadata, retouch/effect placeholders, template shells, export/share states, and AI/model/beauty-safety blockers.
+  - Tezza-inspired product: `FilmDiary`, an original photo/video diary editor with original numeric preset recipes, planning boards, before/after compare, export/share states, subscription/preset marketplace blockers, and no copied filter looks.
+  - Unfold-inspired product: `StoryFold`, an original story/layout editor with synthetic story pages, text/image layers, original layout frames, export/share states, brand-kit/cloud/template blockers, and no copied templates or fonts.
+  - InShot-inspired product: `TrimStudio`, an original video editor with synthetic timeline clips, trim/split, canvas ratio, text/sticker placeholders, audio placeholder track, export job state, and codec/music/native-performance blockers.
+
+  **Owned Downstream Paths Per Repo:**
+  - `README.md`
+  - `package.json`
+  - `fixtures/phase16/*.json`
+  - `contracts/phase16/*.json`
+  - `scripts/validate-phase16-*.mjs`
+  - `scripts/check-phase16-variants.mjs`
+  - `variants/react-native/**`
+  - `variants/expo/**`
+  - `variants/flutter/**`
+  - `variants/ios-native/**`
+  - `variants/android-native/**`
+  - `docs/implementation/phase16-step16-13.md`
+  - `docs/blockers/phase16-step16-13.md`
+  - `docs/validation/phase16-step16-13.md`
+
+  **Validation Commands Per Repo:**
+  - `npm run validate`
+  - `npm run check:variants`
+  - `npm run test:react-native`
+  - `npm run test:expo`
+  - `git diff --check`
+
+  **Implementation Packet:**
+  1. Start with Layout/`GridFrame`, then Hypic/`GlowDraft`, Tezza/`FilmDiary`, Unfold/`StoryFold`, and InShot/`TrimStudio`.
+  2. In each repo, create fixture data for media/projects/layouts/effects/timeline edits/assets/exports and contract data for routes, entities, blocked parity, and validation expectations.
+  3. Add five variant directories: React Native, Expo, Flutter, iOS Native, and Android Native. Each variant must expose the same core collage/effects/story/video workflow for the app class and clearly mark native/toolchain blockers where execution cannot be proven locally.
+  4. Add validator scripts and package scripts for `validate`, `check:variants`, `test:react-native`, and `test:expo`; native compile commands are optional only if the repo has a real runner baseline.
+  5. Run the validation commands listed above for every repo. If a command is intentionally unavailable, replace it with a documented blocker and explain why it is not executable in `docs/validation/phase16-step16-13.md`.
+  6. Record benchmark or local validation score evidence for every variant. For static scaffolds, use structure/contract validation scores and avoid claiming runtime AI, camera, video, codec, or provider performance.
+  7. Verify each branch/PR file list contains no `.github/workflows` path and every repo remains `PRIVATE`.
+  8. Update this planning repo with the per-repo PR/commit/validation/blocker evidence and the next tranche plan.
+
+  **Acceptance Criteria For Step 16.13:**
+  - All five selected repos have five variant surfaces each, or explicit local/toolchain/provider/licensed-media blockers for any missing executable behavior.
+  - Every selected repo has validation evidence for fixture/contract integrity and variant structure.
+  - Core workflows are represented: collage grid/export for `GridFrame`, AI/effect edit/export for `GlowDraft`, preset diary/export for `FilmDiary`, story layout/export for `StoryFold`, and video trim/export for `TrimStudio`.
+  - No downstream repo becomes public, gains GitHub Actions workflows, or claims verified provider/native/AI/video/camera parity without evidence.
 
 ### Milestone: Phase 16 — Photo & Video Creation Complete
 **Acceptance Criteria:**
