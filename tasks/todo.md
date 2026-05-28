@@ -420,7 +420,7 @@
   - GitHub metadata checks confirmed all five repos remain `PRIVATE` on default branch `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have a root commit at `main`, and return `404` for `.github/workflows` (absent).
   - Post-verification rate-limit evidence: core `4930/5000` remaining, reset `1779998237`.
 
-- [ ] Step 17.12: Implement eleventh Shopping, Commerce & Classifieds tranche
+- [x] Step 17.12: Implement eleventh Shopping, Commerce & Classifieds tranche
   - Implement five downstream repos from the reconciled Phase 17 inventory:
     - `GeorgeQLe/flipkart-mobile-clone` as an original regional marketplace, offer, delivery, and payment/provider-blocked scaffold.
     - `GeorgeQLe/myntra-mobile-clone` as an original fashion marketplace, sizing, wishlist, and returns-blocked scaffold.
@@ -442,6 +442,37 @@
   3. Reuse the lightweight static prototype pattern only if no runtime stack already exists; otherwise follow the repo's selected stack.
   4. Tailor each scaffold: regional offer and delivery blockers for Flipkart, fashion sizing and returns blockers for Myntra, cashback/rewards blockers for Rakuten, electronics compatibility/warranty blockers for Newegg, and local listing/messaging/trust blockers for letgo.
   5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
+
+  **Review:**
+  - Added original static regional retail, fashion, cashback, electronics, and local classifieds prototypes to all five downstream repos and pushed them directly to `main`.
+  - Downstream commits:
+    - `GeorgeQLe/flipkart-mobile-clone` -> `8cc2b99` (`OfferBridge` regional marketplace, offer, delivery, and payment/provider-blocked scaffold).
+    - `GeorgeQLe/myntra-mobile-clone` -> `99d721c` (`FitGallery` fashion marketplace, sizing, wishlist, and returns-blocked scaffold).
+    - `GeorgeQLe/rakuten-mobile-clone` -> `736d490` (`RewardMall` cashback marketplace, merchant discovery, order draft, and rewards/provider-blocked scaffold).
+    - `GeorgeQLe/newegg-mobile-clone` -> `6cfb15e` (`BuildCart` electronics marketplace, compatibility, cart, and warranty/returns-blocked scaffold).
+    - `GeorgeQLe/letgo-mobile-clone` -> `9b4e918` (`LocalLoop` local classifieds listing, messaging, pickup, and trust/safety-blocked scaffold).
+  - Each repo now contains `package.json`, `src/index.html`, `src/styles.css`, `src/app.js`, and `scripts/smoke-test.mjs`.
+  - Each scaffold uses synthetic listings/products/merchants, original app names/copy, local-only cart, wishlist, reward, quote, order-draft, pickup, or shipping simulation, seller/listing/trust/admin placeholders, and explicit payment/provider/tax/shipping/rewards/returns/warranty/compatibility/messaging/trust-safety/licensed-data blockers.
+  - Validation passed in all five repos with `npm test`; unstaged diffs passed `git diff --check` before commit.
+  - GitHub metadata checks confirmed all five repos remain `PRIVATE` on default branch `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have a root commit at `main`, and return `404` for `.github/workflows` (absent).
+  - Post-verification rate-limit evidence: core `4915/5000` remaining, reset `1779998237`.
+
+- [ ] Step 17.13: Close out Phase 17 validation and prepare the next phase
+  - Reconcile Phase 17 completion across every Shopping, Commerce & Classifieds downstream repo recorded in `tasks/repo-seeding.md`.
+  - Verify every Phase 17 repo has either a local scaffold with validation evidence or an explicit local/toolchain/provider/payment/licensed-data blocker.
+  - Confirm each repo remains `PRIVATE`, has default branch `main`, keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit, and has no `.github/workflows`.
+  - Review whether acceptance criteria can be checked as satisfied by current static scaffold evidence plus explicit blockers, or whether any repo needs a follow-up tranche before phase archive.
+  - Fill the Phase 17 "On Completion" section if acceptance is met, archive the phase to `tasks/phases/phase-17.md`, update `tasks/roadmap.md`, and promote the next roadmap phase into `tasks/todo.md`.
+  - Files: `tasks/todo.md`, `tasks/roadmap.md`, `tasks/phases/phase-17.md`, `tasks/repo-seeding.md`, and `tasks/history.md`.
+
+  **What to Build:**
+  A Phase 17 closeout packet that proves the implementation evidence is complete enough to archive the Shopping, Commerce & Classifieds phase without overstating native/provider parity.
+
+  **Approach:**
+  1. Read the full Phase 17 evidence in this file, `tasks/history.md`, and `tasks/repo-seeding.md`.
+  2. Use GitHub API checks serially enough to avoid rate-limit pressure; stop on any `403`, `429`, auth failure, non-private visibility, missing source spec, missing root commit, or workflow path.
+  3. Run local doc checks and any available project hygiene command for task structure.
+  4. If all acceptance criteria are supported, archive Phase 17 and prepare the next phase. If not, document exact blockers and leave Phase 17 active with a follow-up step.
 
 ### Milestone: Phase 17 — Shopping, Commerce & Classifieds Complete
 **Acceptance Criteria:**
