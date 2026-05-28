@@ -51,7 +51,7 @@
   - Recorded before/after GitHub rate-limit evidence and the full inventory table in `tasks/repo-seeding.md`.
   - Carried forward account, subscription, payment, tax/tip/fee, courier/driver dispatch, location/map, inventory/menu/provider, merchant/admin, loyalty/rewards, SNAP/EBT, alcohol/regulated goods, pharmacy-adjacent, refund/support, identity/fraud/risk, region, licensed-data, hardware/permission, real-time tracking, and real-device blockers.
 
-- [ ] Step 18.2: Implement first Food, Delivery & Grocery tranche
+- [x] Step 18.2: Implement first Food, Delivery & Grocery tranche
   - Implement five downstream repos from the reconciled Phase 18 inventory:
     - `GeorgeQLe/doordash-mobile-clone` as an original restaurant/store delivery marketplace scaffold.
     - `GeorgeQLe/uber-eats-mobile-clone` as an original local-commerce delivery and merchant-menu scaffold.
@@ -72,6 +72,42 @@
   2. Rebase onto latest remote `main` before committing if the local checkout is behind.
   3. Reuse the lightweight static prototype pattern only if no runtime stack already exists; otherwise follow the repo's selected stack.
   4. Tailor each scaffold: marketplace restaurant/store delivery for DoorDash, local commerce and merchant menus for Uber Eats, grocery substitutions and shopper handoff for Instacart, coffee ordering and rewards for Starbucks, and QSR deals/pickup/delivery handoff for McDonald's.
+  5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
+
+  **Review:**
+  - Built and pushed original static mobile prototype scaffolds for all five repos on `main`:
+    - `GeorgeQLe/doordash-mobile-clone` -> commit `950fbab`.
+    - `GeorgeQLe/uber-eats-mobile-clone` -> commit `4ee7c0e`.
+    - `GeorgeQLe/instacart-mobile-clone` -> commit `873c5fd`.
+    - `GeorgeQLe/starbucks-mobile-clone` -> commit `62601eb`.
+    - `GeorgeQLe/mcdonalds-mobile-clone` -> commit `3032f6d`.
+  - Each repo now has `index.html`, `package.json`, `src/styles.css`, and `src/app.js` with synthetic/local fixture workflows only.
+  - Covered location/address setup, discovery, menu/catalog browse, cart/order draft or basket quote, pickup/delivery/order status, support placeholders, loyalty/deals placeholders where relevant, and explicit blocked gates for real providers, payment, tax/tip/fees, live tracking, regulated goods, loyalty/stored value, refunds/support escalation, and account/native verification.
+  - Validation passed in all five repos with `npm run check`; post-rebase `git status --short --branch` was clean and matched `origin/main` in every downstream repo.
+  - Serial GitHub invariant scan confirmed every repo remains `private`, defaults to `main`, keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit on `main`, and has no `.github/workflows`.
+  - GitHub rate-limit evidence: pre-scan core `4315/5000` remaining, post-scan core `4295/5000` remaining, reset `1780001929`.
+
+- [ ] Step 18.3: Implement second Food, Delivery & Grocery tranche
+  - Implement five downstream repos from the reconciled Phase 18 inventory:
+    - `GeorgeQLe/opentable-mobile-clone` as an original restaurant discovery, reservation search, waitlist-blocked, and dining profile scaffold.
+    - `GeorgeQLe/yelp-mobile-clone` as an original local discovery, business profile, review-draft, quote/request, and moderation-blocked scaffold.
+    - `GeorgeQLe/too-good-to-go-mobile-clone` as an original surplus-food marketplace, pickup window, surprise-bag reservation, and refund/support-blocked scaffold.
+    - `GeorgeQLe/chick-fil-a-mobile-clone` as an original QSR ordering, pickup/drive-thru handoff, menu customization, and loyalty-blocked scaffold.
+    - `GeorgeQLe/dunkin-mobile-clone` as an original coffee/QSR ordering, pickup, offers/rewards, stored-value-blocked, and delivery-handoff scaffold.
+  - Keep implementation serial from this planning repo. Rebase each downstream checkout onto latest remote `main` before committing if remote has advanced.
+  - Use original static/local scaffolds unless a repo already has a runtime stack; do not introduce backend, auth, payment, provider, map, analytics, delivery, reservation, review, or regulated-item infrastructure.
+  - Use synthetic/local fixtures only. Do not copy original logos, screenshots, business listings, menus, restaurant data, reviews, ratings, photos, pricing, availability, offers, payment data, courier evidence, reservation inventory, licensed data, or private APIs.
+  - Verify each repo remains `PRIVATE`, defaults to `main`, keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit, has no `.github/workflows`, and has local validation or blocker evidence recorded before shipping.
+  - Files: downstream repos above, then update `tasks/todo.md` and `tasks/history.md` with commit, validation, blocker, and invariant evidence.
+
+  **What to Build:**
+  Second Phase 18 implementation tranche across restaurant reservations/local discovery, surplus-food pickup, QSR ordering, and coffee/QSR loyalty apps. Each downstream repo should get a coherent original scaffold proving search/discovery, listing or menu detail, cart/reservation/request draft, pickup or handoff status, support/moderation placeholders, and provider/payment/location/reservation/review/regulated blockers with synthetic data.
+
+  **Approach:**
+  1. Inspect each downstream repo's current stack, task state, source spec copy, and validation commands before editing.
+  2. Rebase onto latest remote `main` before committing if the local checkout is behind.
+  3. Reuse the lightweight static prototype pattern from Step 18.2 only when no runtime stack already exists; otherwise follow the repo's selected stack.
+  4. Tailor each scaffold: reservation/waitlist for OpenTable, local discovery/review draft for Yelp, pickup windows and reservation for Too Good To Go, QSR ordering and pickup/drive-thru handoff for Chick-fil-A, and coffee/QSR ordering with rewards blockers for Dunkin.
   5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
 
 ### Milestone: Phase 18 — Food, Delivery & Grocery Complete

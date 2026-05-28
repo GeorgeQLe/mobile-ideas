@@ -1,5 +1,36 @@
 # History
 
+## 2026-05-28 - Phase 18 Step 18.2: First Food, Delivery & Grocery Tranche
+
+- Built the first Phase 18 implementation tranche as direct-to-`main` commits across five private downstream repos:
+  - `GeorgeQLe/doordash-mobile-clone` - commit `950fbab`.
+  - `GeorgeQLe/uber-eats-mobile-clone` - commit `4ee7c0e`.
+  - `GeorgeQLe/instacart-mobile-clone` - commit `873c5fd`.
+  - `GeorgeQLe/starbucks-mobile-clone` - commit `62601eb`.
+  - `GeorgeQLe/mcdonalds-mobile-clone` - commit `3032f6d`.
+- Each repo received an original static prototype with `index.html`, `package.json`, `src/styles.css`, and `src/app.js`.
+- The prototypes cover synthetic location/address setup, discovery, menu/catalog browse, cart/order draft or quote, pickup/delivery/order status, support placeholders, loyalty/deals placeholders where relevant, and explicit provider/payment/location/regulated behavior blockers.
+- Verified all five repos remain private, default to `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have root commits at `main`, and have no `.github/workflows` directory.
+- Planned Step 18.3 for OpenTable, Yelp, Too Good To Go, Chick-fil-A, and Dunkin.
+
+**Validation:**
+- `npm run check` passed in each of the five downstream repos.
+- `git diff --check` passed before downstream commits.
+- Serial GitHub API invariant scan: `checked=5`, `status=ok`.
+- GitHub rate-limit evidence: pre-scan core `4315/5000` remaining, post-scan core `4295/5000` remaining, reset `1780001929`.
+
+**Ship Manifest:**
+- User goal: execute Phase 18 Step 18.2 by implementing the first Food, Delivery & Grocery tranche across five downstream repos.
+- Changed files: downstream repos listed above, `tasks/todo.md`, and `tasks/history.md`.
+- Per-file purpose: downstream repos add original local static prototypes and validation scripts; `tasks/todo.md` marks Step 18.2 complete and contains a self-contained Step 18.3 plan; `tasks/history.md` records execution evidence and shipping boundary.
+- User-goal mapping: the first five Phase 18 apps now have working local prototype scaffolds with validation evidence and explicit blockers rather than unimplemented planning-only repos.
+- Tests run: `npm run check` in each downstream repo; `git diff --check` in each downstream repo; serial GitHub privacy/default-branch/README/source-spec/root-commit/no-workflows invariant checks for each repo.
+- Skipped tests: native iOS/Android builds, browser visual QA, provider/payment/tax/tip/fee/location/courier/shopping/loyalty/stored-value/refund/support/account flows, and regulated goods checks remain blocked until separate provider/toolchain/device/legal access exists. The planning repo has no executable runtime test for downstream static prototypes.
+- Adversarial review: verified no GitHub Actions were added, every repo stayed private, copied source specs remained present, scaffolds use synthetic data only, and real provider/payment/location/regulated behavior is presented as blocked rather than verified parity.
+- Residual risk: static prototypes prove local scaffold coverage and JavaScript syntax only; native UX, accessibility, production performance, real data feeds, payments, live tracking, loyalty, and regulated provider integrations remain unverified.
+- Rollback note: revert the listed downstream commits and this planning commit to reopen Step 18.2.
+- Next command: `$exec` for Step 18.3.
+
 ## 2026-05-28 - Phase 18 Step 18.1: Food, Delivery & Grocery Inventory Reconciliation
 
 - Reconciled Phase 18 to 66 Food, Delivery & Grocery downstream repos from Phase 9.11 evidence: IDs `038-045`, `369-392`, and `407-440`.
