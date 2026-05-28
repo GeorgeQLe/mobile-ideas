@@ -1,5 +1,32 @@
 # History
 
+## 2026-05-28 - Phase 17 Step 17.13: Shopping, Commerce & Classifieds Closeout Check
+
+- Reconciled all 68 Phase 17 Shopping, Commerce & Classifieds downstream repos against `tasks/repo-seeding.md`.
+- Verified every repo remains private, defaults to `main`, keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit at `main`, and has no `.github/workflows` directory.
+- Did not archive Phase 17 because 13 repos still lack local scaffold and validation surfaces: `GeorgeQLe/varagesale-mobile-clone`, `GeorgeQLe/kijiji-mobile-clone`, `GeorgeQLe/gumtree-mobile-clone`, `GeorgeQLe/cargurus-mobile-clone`, `GeorgeQLe/autotrader-mobile-clone`, `GeorgeQLe/cars-com-mobile-clone`, `GeorgeQLe/carvana-mobile-clone`, `GeorgeQLe/carmax-mobile-clone`, `GeorgeQLe/truecar-mobile-clone`, `GeorgeQLe/copart-mobile-clone`, `GeorgeQLe/bring-a-trailer-mobile-clone`, `GeorgeQLe/autolist-mobile-clone`, and `GeorgeQLe/gumroad-mobile-clone`.
+- Confirmed those 13 repos return `404` for `package.json`, `src/index.html`, and `scripts/smoke-test.mjs`; Phase 17 remains active with Step 17.14 queued as the final implementation tranche.
+- Post-verification GitHub rate-limit evidence: core `4711/5000` remaining, reset `1779998237`.
+
+### Carry-Forward Blockers
+
+- Phase closeout remains blocked until the final 13 repos have local scaffolds and validation evidence.
+- Runtime/native parity remains blocked: iOS/Android native builds, mobile browser/device QA, real push notifications, camera/photo evidence, real location, provider event webhooks, production performance, accessibility audits, and native commerce integrations.
+- Legal/provider/safety blockers remain explicit: payment authorization, tax/shipping quotes, real inventory/catalog/pricing data, vehicle/dealer/auction/title/inspection data, financing/appraisal, local marketplace messaging, seller/customer data, fraud/risk review, licensed media/data, payout flows, and provider credentials.
+
+### Ship Manifest
+
+- User goal: execute Phase 17 Step 17.13 by validating whether Shopping, Commerce & Classifieds was ready to close and preparing the next phase only if acceptance was supported.
+- Changed files: `tasks/todo.md`, `tasks/repo-seeding.md`, and `tasks/history.md`.
+- Per-file purpose: `tasks/todo.md` records the closeout finding and queues Step 17.14; `tasks/repo-seeding.md` records invariant and scaffold-gap evidence; `tasks/history.md` records execution evidence and shipping boundary.
+- User-goal mapping: Step 17.13 required proving Phase 17 completeness without overstating native/provider parity. The evidence showed repo invariants are clean but implementation evidence is incomplete for 13 repos.
+- Tests run: GitHub repo/source-spec/root-commit/workflow invariants for all 68 repos; GitHub scaffold content checks for the 13 missing-evidence repos; Markdown diff review.
+- Skipped tests: downstream `npm test` was skipped for the 13 remaining repos because no `package.json` or smoke test exists yet; native/mobile runtime builds and real provider/payment/vehicle/auction/messaging workflows remain blocked until separate toolchain/provider/legal/safety approval.
+- Adversarial review: checked that closeout did not archive an incomplete phase, kept acceptance criteria open, identified the exact missing repos, and converted the gap into an executable final tranche.
+- Residual risk: the invariant checks prove repository hygiene, not workflow functionality for the final 13 repos. Phase 17 cannot close until Step 17.14 lands and validates those scaffolds.
+- Rollback note: revert this planning commit to reopen Step 17.13 as unchecked; no downstream runtime files were changed.
+- Next command: `$exec` for Step 17.14.
+
 ## 2026-05-28 - Phase 17 Step 17.12: Eleventh Shopping, Commerce & Classifieds Tranche
 
 - Built the eleventh Phase 17 implementation tranche as direct-to-`main` commits across five private downstream repos:

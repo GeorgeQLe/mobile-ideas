@@ -457,7 +457,7 @@
   - GitHub metadata checks confirmed all five repos remain `PRIVATE` on default branch `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have a root commit at `main`, and return `404` for `.github/workflows` (absent).
   - Post-verification rate-limit evidence: core `4915/5000` remaining, reset `1779998237`.
 
-- [ ] Step 17.13: Close out Phase 17 validation and prepare the next phase
+- [x] Step 17.13: Close out Phase 17 validation and prepare the next phase
   - Reconcile Phase 17 completion across every Shopping, Commerce & Classifieds downstream repo recorded in `tasks/repo-seeding.md`.
   - Verify every Phase 17 repo has either a local scaffold with validation evidence or an explicit local/toolchain/provider/payment/licensed-data blocker.
   - Confirm each repo remains `PRIVATE`, has default branch `main`, keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit, and has no `.github/workflows`.
@@ -473,6 +473,44 @@
   2. Use GitHub API checks serially enough to avoid rate-limit pressure; stop on any `403`, `429`, auth failure, non-private visibility, missing source spec, missing root commit, or workflow path.
   3. Run local doc checks and any available project hygiene command for task structure.
   4. If all acceptance criteria are supported, archive Phase 17 and prepare the next phase. If not, document exact blockers and leave Phase 17 active with a follow-up step.
+
+  **Review:**
+  - Reconciled all 68 Phase 17 downstream repos from `tasks/repo-seeding.md`.
+  - GitHub checks confirmed all 68 repos remain `PRIVATE`, default to `main`, keep `README.md`, keep their copied source specs under `docs/source-specs/`, have a root commit at `main`, and return `404` for `.github/workflows`.
+  - Closeout could not archive Phase 17 because 13 repos still lack local scaffold and validation surfaces: `GeorgeQLe/varagesale-mobile-clone`, `GeorgeQLe/kijiji-mobile-clone`, `GeorgeQLe/gumtree-mobile-clone`, `GeorgeQLe/cargurus-mobile-clone`, `GeorgeQLe/autotrader-mobile-clone`, `GeorgeQLe/cars-com-mobile-clone`, `GeorgeQLe/carvana-mobile-clone`, `GeorgeQLe/carmax-mobile-clone`, `GeorgeQLe/truecar-mobile-clone`, `GeorgeQLe/copart-mobile-clone`, `GeorgeQLe/bring-a-trailer-mobile-clone`, `GeorgeQLe/autolist-mobile-clone`, and `GeorgeQLe/gumroad-mobile-clone`.
+  - For those 13 repos, GitHub content checks returned `404` for `package.json`, `src/index.html`, and `scripts/smoke-test.mjs`, so the remaining Phase 17 acceptance criteria stay open.
+  - Post-verification rate-limit evidence: core `4711/5000` remaining, reset `1779998237`.
+
+- [ ] Step 17.14: Implement final Shopping, Commerce & Classifieds tranche
+  - Implement the remaining 13 downstream repos from the reconciled Phase 17 inventory:
+    - `GeorgeQLe/varagesale-mobile-clone` as an original local community classifieds, member trust, listing, and moderation-blocked scaffold.
+    - `GeorgeQLe/kijiji-mobile-clone` as an original classifieds marketplace, category search, reply, and moderation-blocked scaffold.
+    - `GeorgeQLe/gumtree-mobile-clone` as an original local classifieds marketplace, posting, search, reply, and trust/safety-blocked scaffold.
+    - `GeorgeQLe/cargurus-mobile-clone` as an original automotive marketplace, vehicle search, lead, pricing, and dealer-data-blocked scaffold.
+    - `GeorgeQLe/autotrader-mobile-clone` as an original automotive marketplace, saved search, lead, finance, and dealer-data-blocked scaffold.
+    - `GeorgeQLe/cars-com-mobile-clone` as an original automotive marketplace, research, listing, dealer contact, and pricing-data-blocked scaffold.
+    - `GeorgeQLe/carvana-mobile-clone` as an original vehicle retail, financing, delivery, trade-in, and regulated-provider-blocked scaffold.
+    - `GeorgeQLe/carmax-mobile-clone` as an original vehicle retail, appointment, appraisal, financing, and regulated-provider-blocked scaffold.
+    - `GeorgeQLe/truecar-mobile-clone` as an original vehicle pricing, offer, dealer lead, and pricing-data-blocked scaffold.
+    - `GeorgeQLe/copart-mobile-clone` as an original vehicle auction, bidding, inspection, title, and auction-provider-blocked scaffold.
+    - `GeorgeQLe/bring-a-trailer-mobile-clone` as an original enthusiast vehicle auction, watchlist, bidding, comments, and auction-provider-blocked scaffold.
+    - `GeorgeQLe/autolist-mobile-clone` as an original vehicle listing aggregator, saved search, lead, and provider-data-blocked scaffold.
+    - `GeorgeQLe/gumroad-mobile-clone` as an original creator commerce storefront, product checkout draft, library, payout, and payment-provider-blocked scaffold.
+  - Keep implementation serial from this planning repo. Use branch-backed work only if a downstream repo requires it; otherwise land validated direct-to-`main` commits after rebasing onto latest remote `main`.
+  - Build only lawful original prototype surfaces using synthetic/local fixtures: browse/search/filter, listing or product detail, cart/offer/bid/lead/order draft, seller/listing/admin placeholders, reviews/trust signals, and explicit blocker banners for real providers and regulated/payment behavior.
+  - Do not add or rely on GitHub Actions. Do not copy original logos, screenshots, listing data, vehicle data, product data, seller/customer data, private APIs, marketplace policy text, recommendation models, payment data, financing data, dealer data, auction evidence, title/inspection data, payout data, or licensed media.
+  - Verify each repo remains `PRIVATE`, keeps its copied source spec, has a root commit, has no `.github/workflows`, and has local validation evidence recorded before shipping.
+  - Files: downstream repos above, then update `tasks/todo.md`, `tasks/repo-seeding.md`, and `tasks/history.md` with commit, validation, blocker, and invariant evidence.
+
+  **What to Build:**
+  Final Phase 17 implementation tranche across community classifieds, automotive marketplaces, vehicle retail/auction, listing aggregation, and creator commerce. Each downstream repo should get a small but coherent original scaffold proving browse/search/detail/listing/cart-or-lead/order-draft/bid-or-checkout workflow coverage with synthetic data and explicit provider/payment/tax/shipping/financing/dealer/auction/title/inspection/payout/licensed-data blockers.
+
+  **Approach:**
+  1. Inspect each downstream repo's current stack, task state, source spec copy, and validation commands before editing.
+  2. Rebase onto latest remote `main` before committing if the local checkout is behind.
+  3. Reuse the lightweight static prototype pattern only if no runtime stack already exists; otherwise follow the repo's selected stack.
+  4. Tailor each scaffold: local classifieds trust and reply flows for VarageSale, Kijiji, and Gumtree; vehicle search, lead, pricing, appraisal, financing, auction, title, and inspection blockers for the automotive repos; and creator product/checkout/library/payout blockers for Gumroad.
+  5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
 
 ### Milestone: Phase 17 — Shopping, Commerce & Classifieds Complete
 **Acceptance Criteria:**
