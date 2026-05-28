@@ -6458,3 +6458,46 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Residual risk: static prototypes are smoke-tested local scaffolds, not full Expo/native app implementations or five-variant benchmarked builds; provider and native parity remains blocked.
 - Rollback note: revert this planning commit to reopen Step 17.5; revert downstream commits `6ac0578`, `9cd23c8`, `23ded16`, `8e4a499`, and `1b38830` to remove the fourth-tranche scaffolds.
 - Next: Step 17.6 - implement fifth Shopping, Commerce & Classifieds tranche.
+
+## Step 17.8 - Seventh Shopping, Commerce & Classifieds Tranche (2026-05-28)
+
+### Downstream Commits
+- `GeorgeQLe/macy-s-mobile-clone` -> `48f82c8` (`StyleHall` department store, offers, pickup, and returns-blocked scaffold).
+- `GeorgeQLe/nordstrom-mobile-clone` -> `cc9316c` (`AtelierRow` premium department retail, stylist/service, pickup, and returns-blocked scaffold).
+- `GeorgeQLe/sephora-mobile-clone` -> `12813db` (`ShadeStudio` beauty retail, shade finder, samples, and regulated/claims-blocked scaffold).
+- `GeorgeQLe/ulta-beauty-mobile-clone` -> `b0a26d5` (`GlowLedger` beauty retail, rewards, salon-service-blocked, and pickup scaffold).
+- `GeorgeQLe/nike-mobile-clone` -> `6ebd7d4` (`StrideDrop` athletic retail, launch/member, pickup, and returns-blocked scaffold).
+
+### Implementation
+- Added lightweight original static prototypes to each downstream repo with `package.json`, `src/index.html`, `src/styles.css`, `src/app.js`, and `scripts/smoke-test.mjs`.
+- Covered synthetic browse/search/filter, product detail, local cart/order draft, pickup/delivery quote states, offers/rewards/member placeholders, service/stylist/salon/launch/returns blockers, beauty claims blockers, and explicit verification blockers.
+- Kept all data synthetic and all app names/copy original; no original logos, screenshots, catalog data, loyalty data, pricing data, store inventory, beauty profile data, service records, launch/member data, private APIs, recommendation models, payment data, delivery evidence, returns data, claims text, or licensed media were added.
+
+### Validation
+- `npm test` passed in all five downstream repos:
+  - StyleHall smoke test passed.
+  - AtelierRow smoke test passed.
+  - ShadeStudio smoke test passed.
+  - GlowLedger smoke test passed.
+  - StrideDrop smoke test passed.
+- `git diff --check` passed before each downstream commit.
+- GitHub metadata checks confirmed all five repos remain `PRIVATE` with default branch `main`.
+- GitHub API checks confirmed each repo keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit at `main`, and returns `404` for `.github/workflows` (absent).
+- Rate-limit evidence before tranche verification: core `5000/5000` remaining, reset `1779998237`.
+- Rate-limit evidence after tranche verification: core `4980/5000` remaining, reset `1779998237`.
+
+### Carry-Forward Blockers
+- Account lifecycle, signup/login/recovery, payment authorization, taxes, shipping quote providers, delivery dispatch, real checkout, loyalty/rewards/member identity, store inventory, beauty profile import, stylist/service/salon booking systems, product launch eligibility, regulated cosmetic or wellness claims, provider integrations, licensed catalog data, fraud/risk, trust/safety moderation, returns/refunds, disputes, region-specific behavior, native permissions, push notifications, and real-device verification remain blocked.
+- The tranche provides local prototype workflow coverage only; it does not claim exact native, provider, payment, shipping, tax, inventory, loyalty, beauty, service, launch, returns, or support parity.
+
+### Ship Manifest
+- User goal: execute Step 17.8 and implement the seventh Shopping, Commerce & Classifieds tranche.
+- Changed files: downstream runtime scaffold files in five repos; `tasks/todo.md`; `tasks/repo-seeding.md`; `tasks/history.md`.
+- Per-file purpose: downstream files add original local department, beauty, and athletic retail prototypes and smoke tests; `tasks/todo.md` records Step 17.8 completion and Step 17.9 executable detail; `tasks/repo-seeding.md` updates root-commit evidence; `tasks/history.md` records commit, validation, blocker, and rollback evidence.
+- User-goal mapping: five more Phase 17 retail repos now have working local prototype scaffolds with validation evidence and explicit blockers.
+- Tests run: `npm test` in all five downstream repos; `git diff --check` in all five downstream repos; GitHub repo metadata checks; GitHub README/source-spec/root-commit/workflow absence checks.
+- Skipped tests: no native iOS/Android, payment-provider, tax, shipping, inventory-provider, loyalty, beauty-profile, stylist/service/salon, launch/member, regulated-claims, push-notification, account, or real-device tests were run because those behaviors are explicitly blocked pending lawful provider/device/account verification.
+- Adversarial review: verified original naming/data/copy posture, no GitHub Actions usage, private visibility, default branch, source-spec presence, root commit presence, workflow absence, direct-to-`main` pushes, and blocker carry-forward.
+- Residual risk: static prototypes are smoke-tested local scaffolds, not full Expo/native app implementations or five-variant benchmarked builds; provider and native parity remains blocked.
+- Rollback note: revert this planning commit to reopen Step 17.8; revert downstream commits `48f82c8`, `cc9316c`, `12813db`, `b0a26d5`, and `6ebd7d4` to remove the seventh-tranche scaffolds.
+- Next: Step 17.9 - implement eighth Shopping, Commerce & Classifieds tranche.

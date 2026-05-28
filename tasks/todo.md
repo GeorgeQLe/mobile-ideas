@@ -272,7 +272,7 @@
   - GitHub metadata checks confirmed all five repos remain `PRIVATE` on default branch `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have a root commit at `main`, and return `404` for `.github/workflows` (absent).
   - Post-verification rate-limit evidence: core `5000/5000` remaining, reset `1779997806`.
 
-- [ ] Step 17.8: Implement seventh Shopping, Commerce & Classifieds tranche
+- [x] Step 17.8: Implement seventh Shopping, Commerce & Classifieds tranche
   - Implement five downstream repos from the reconciled Phase 17 inventory:
     - `GeorgeQLe/macy-s-mobile-clone` as an original department store, offers, pickup, and returns-blocked scaffold.
     - `GeorgeQLe/nordstrom-mobile-clone` as an original premium department retail, stylist/service, pickup, and returns-blocked scaffold.
@@ -293,6 +293,43 @@
   2. Rebase onto latest remote `main` before committing if the local checkout is behind.
   3. Reuse the lightweight static prototype pattern only if no runtime stack already exists; otherwise follow the repo's selected stack.
   4. Tailor each scaffold: department offers and returns for Macy's, premium stylist/service blockers for Nordstrom, shade/sample/claims blockers for Sephora, rewards and salon blockers for Ulta Beauty, and member launch/pickup/returns blockers for Nike.
+  5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
+
+- **Review:**
+  - Added original static department, beauty, and athletic retail prototypes to all five downstream repos and pushed them directly to `main`.
+  - Downstream commits:
+    - `GeorgeQLe/macy-s-mobile-clone` -> `48f82c8` (`StyleHall` department store, offers, pickup, and returns-blocked scaffold).
+    - `GeorgeQLe/nordstrom-mobile-clone` -> `cc9316c` (`AtelierRow` premium department retail, stylist/service, pickup, and returns-blocked scaffold).
+    - `GeorgeQLe/sephora-mobile-clone` -> `12813db` (`ShadeStudio` beauty retail, shade finder, samples, and regulated/claims-blocked scaffold).
+    - `GeorgeQLe/ulta-beauty-mobile-clone` -> `b0a26d5` (`GlowLedger` beauty retail, rewards, salon-service-blocked, and pickup scaffold).
+    - `GeorgeQLe/nike-mobile-clone` -> `6ebd7d4` (`StrideDrop` athletic retail, launch/member, pickup, and returns-blocked scaffold).
+  - Each repo now contains `package.json`, `src/index.html`, `src/styles.css`, `src/app.js`, and `scripts/smoke-test.mjs`.
+  - Each scaffold uses synthetic products/orders, original app names/copy, local-only cart/order-draft or pickup/delivery quote simulation, offers/rewards/member placeholders where relevant, and explicit payment/provider/tax/shipping/inventory/loyalty/beauty-profile/service/salon/launch/returns/claims/licensed-data blockers.
+  - Validation passed in all five repos with `npm test`; unstaged diffs passed `git diff --check` before commit.
+  - GitHub metadata checks confirmed all five repos remain `PRIVATE` on default branch `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have a root commit at `main`, and return `404` for `.github/workflows` (absent).
+  - Post-verification rate-limit evidence: core `4980/5000` remaining, reset `1779998237`.
+
+- [ ] Step 17.9: Implement eighth Shopping, Commerce & Classifieds tranche
+  - Implement five downstream repos from the reconciled Phase 17 inventory:
+    - `GeorgeQLe/adidas-mobile-clone` as an original athletic retail, launch/member, pickup, and returns-blocked scaffold.
+    - `GeorgeQLe/zara-mobile-clone` as an original fashion retail, trend edit, pickup/delivery, and returns-blocked scaffold.
+    - `GeorgeQLe/handm-mobile-clone` as an original value fashion retail, offers, pickup, and sustainability-claims-blocked scaffold.
+    - `GeorgeQLe/uniqlo-mobile-clone` as an original essentials apparel retail, sizing, pickup, and alterations-blocked scaffold.
+    - `GeorgeQLe/lululemon-mobile-clone` as an original athletic apparel retail, community/event, pickup, and returns-blocked scaffold.
+  - Keep implementation serial from this planning repo. Use branch-backed work only if the downstream repo requires it; otherwise land validated direct-to-`main` commits after rebasing onto latest remote `main`.
+  - Build only lawful original prototype surfaces using synthetic/local fixtures: browse/search/filter, product detail, cart/order draft, pickup/delivery quote simulation, offers/member/community placeholders where relevant, launch/sizing/alterations/events/returns blockers where relevant, and explicit blocker banners for real providers and regulated/payment behavior.
+  - Do not add or rely on GitHub Actions. Do not copy original logos, screenshots, catalog data, loyalty data, pricing data, store inventory, member data, launch data, event records, private APIs, recommendation models, payment data, delivery evidence, returns data, claims text, or licensed media.
+  - Verify each repo remains `PRIVATE`, keeps its copied source spec, has a root commit, has no `.github/workflows`, and has local validation or blocker evidence recorded before shipping.
+  - Files: downstream repos above, then update `tasks/todo.md`, `tasks/repo-seeding.md`, and `tasks/history.md` with commit, validation, blocker, and invariant evidence.
+
+  **What to Build:**
+  Eighth Phase 17 implementation tranche across athletic and fashion retail apps. Each downstream repo should get a small but coherent original scaffold proving browse/search/detail/cart/order-draft/pickup-or-delivery workflow coverage with synthetic data and explicit provider/payment/tax/shipping/inventory/loyalty/member/launch/sizing/alterations/event/returns/licensed-data blockers.
+
+  **Approach:**
+  1. Inspect each downstream repo's current stack, task state, source spec copy, and validation commands before editing.
+  2. Rebase onto latest remote `main` before committing if the local checkout is behind.
+  3. Reuse the lightweight static prototype pattern only if no runtime stack already exists; otherwise follow the repo's selected stack.
+  4. Tailor each scaffold: member launches for Adidas, trend edits for Zara, value offers and sustainability-claims blockers for H&M, sizing and alterations blockers for Uniqlo, and community/event plus returns blockers for Lululemon.
   5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
 
 ### Milestone: Phase 17 — Shopping, Commerce & Classifieds Complete
