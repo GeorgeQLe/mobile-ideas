@@ -3156,6 +3156,85 @@ core: limit=5000, remaining=4854, reset=1779326349
 
 **Summary:** 54/54 repos PASS. All PRIVATE, all have `docs/plans/README.md`, none have `.github/workflows`. Phase 15 downstream readiness confirmed.
 
+### Phase 18 Downstream Readiness Reconciliation - 2026-05-28
+
+- Scope: Phase 18 Food, Delivery & Grocery inventory reconciled to 66 downstream repos: IDs 038-045, 369-392, and 407-440. This exact count follows the Phase 9 Step 9.11 build-plan evidence and supersedes the older roadmap estimate of ~77 apps.
+- Source evidence: Phase 9 Step 9.11 generated build plans for the same 66 repos, all corresponding source specs exist under `specs/batch-*`, and the seeded repo manifest marks every target row done.
+- Rate-limit evidence before scan: `gh api rate_limit` reported core `used=419`, `remaining=4581`, `reset=1780001929`; GraphQL `used=115`, `remaining=4885`, `reset=1780000077`.
+- GitHub verification evidence: serial read-only `gh api` metadata/content checks confirmed every repo is `PRIVATE`, has default branch `main`, has a default-branch commit, contains `README.md`, contains the matching source spec under `docs/source-specs/`, and does not contain `.github/workflows`.
+- Rate-limit evidence after scan: `gh api rate_limit` reported core `used=685`, `remaining=4315`, `reset=1780001929`; GraphQL `used=115`, `remaining=4885`, `reset=1780000077`.
+- Required blocker carry-forward: IDs 101-1000 remain planning/scaffold repos while specs are Draft 1 or public-source V1 planning artifacts; Phase 18 implementation must not claim exact native parity until account lifecycle, subscriptions, payment processing, tax/tip/fee calculation, courier/driver dispatch, location services/maps, inventory/menu/provider data, merchant/admin tools, loyalty/rewards, SNAP/EBT, alcohol/regulated goods, pharmacy-adjacent flows, refund/support, identity/fraud/risk controls, region availability, licensed data, hardware/permission behavior, real-time tracking, and real-device verification are complete.
+- GitHub Actions status: no workflow was enabled, dispatched, or used for this verification.
+
+| ID | App | Risk Group | Repo | Source Spec | Visibility | Branch | README | Source Spec Copy | Root Commit | Workflows |
+|---:|---|---|---|---|---|---|---|---|---|---|
+| 038 | DoorDash | Restaurant delivery marketplaces | `GeorgeQLe/doordash-mobile-clone` | `specs/batch-02/038-doordash.md` | PRIVATE | main | yes | yes | `df48aa6` | absent |
+| 039 | Uber Eats | Restaurant delivery marketplaces | `GeorgeQLe/uber-eats-mobile-clone` | `specs/batch-02/039-uber-eats.md` | PRIVATE | main | yes | yes | `854b5c4` | absent |
+| 040 | Instacart | Grocery delivery marketplaces | `GeorgeQLe/instacart-mobile-clone` | `specs/batch-02/040-instacart.md` | PRIVATE | main | yes | yes | `b3ef07d` | absent |
+| 041 | Starbucks | Coffee/QSR loyalty | `GeorgeQLe/starbucks-mobile-clone` | `specs/batch-03/041-starbucks.md` | PRIVATE | main | yes | yes | `61f58f7` | absent |
+| 042 | McDonald's | QSR ordering/loyalty | `GeorgeQLe/mcdonalds-mobile-clone` | `specs/batch-03/042-mcdonalds.md` | PRIVATE | main | yes | yes | `86dab2e` | absent |
+| 043 | OpenTable | Reservations/local discovery | `GeorgeQLe/opentable-mobile-clone` | `specs/batch-03/043-opentable.md` | PRIVATE | main | yes | yes | `e737b28` | absent |
+| 044 | Yelp | Reservations/local discovery | `GeorgeQLe/yelp-mobile-clone` | `specs/batch-03/044-yelp.md` | PRIVATE | main | yes | yes | `9b2d9ba` | absent |
+| 045 | Too Good To Go | Surplus/regulated food commerce | `GeorgeQLe/too-good-to-go-mobile-clone` | `specs/batch-03/045-too-good-to-go.md` | PRIVATE | main | yes | yes | `aacaec5` | absent |
+| 369 | Chick-fil-A | QSR ordering/loyalty | `GeorgeQLe/chick-fil-a-mobile-clone` | `specs/batch-19/369-chick-fil-a.md` | PRIVATE | main | yes | yes | `40fdb60` | absent |
+| 370 | Dunkin | Coffee/QSR loyalty | `GeorgeQLe/dunkin-mobile-clone` | `specs/batch-19/370-dunkin.md` | PRIVATE | main | yes | yes | `3a40da7` | absent |
+| 371 | Chipotle | QSR ordering/loyalty | `GeorgeQLe/chipotle-mobile-clone` | `specs/batch-19/371-chipotle.md` | PRIVATE | main | yes | yes | `cbd50a0` | absent |
+| 372 | Taco Bell | QSR ordering/loyalty | `GeorgeQLe/taco-bell-mobile-clone` | `specs/batch-19/372-taco-bell.md` | PRIVATE | main | yes | yes | `75abb3f` | absent |
+| 373 | Subway | QSR ordering/loyalty | `GeorgeQLe/subway-mobile-clone` | `specs/batch-19/373-subway.md` | PRIVATE | main | yes | yes | `2ddd965` | absent |
+| 374 | Panera Bread | QSR ordering/loyalty | `GeorgeQLe/panera-bread-mobile-clone` | `specs/batch-19/374-panera-bread.md` | PRIVATE | main | yes | yes | `e8487db` | absent |
+| 375 | Wendy's | QSR ordering/loyalty | `GeorgeQLe/wendy-s-mobile-clone` | `specs/batch-19/375-wendy-s.md` | PRIVATE | main | yes | yes | `e984acb` | absent |
+| 376 | Burger King | QSR ordering/loyalty | `GeorgeQLe/burger-king-mobile-clone` | `specs/batch-19/376-burger-king.md` | PRIVATE | main | yes | yes | `78aeffd` | absent |
+| 377 | Domino's | Pizza/QSR order tracking | `GeorgeQLe/domino-s-mobile-clone` | `specs/batch-19/377-domino-s.md` | PRIVATE | main | yes | yes | `19350b9` | absent |
+| 378 | Pizza Hut | Pizza/QSR order tracking | `GeorgeQLe/pizza-hut-mobile-clone` | `specs/batch-19/378-pizza-hut.md` | PRIVATE | main | yes | yes | `67a3bc3` | absent |
+| 379 | Papa Johns | Pizza/QSR order tracking | `GeorgeQLe/papa-johns-mobile-clone` | `specs/batch-19/379-papa-johns.md` | PRIVATE | main | yes | yes | `4711c16` | absent |
+| 380 | Little Caesars | Pizza/QSR order tracking | `GeorgeQLe/little-caesars-mobile-clone` | `specs/batch-19/380-little-caesars.md` | PRIVATE | main | yes | yes | `335d527` | absent |
+| 381 | KFC | QSR ordering/loyalty | `GeorgeQLe/kfc-mobile-clone` | `specs/batch-20/381-kfc.md` | PRIVATE | main | yes | yes | `2f846eb` | absent |
+| 382 | Popeyes | QSR ordering/loyalty | `GeorgeQLe/popeyes-mobile-clone` | `specs/batch-20/382-popeyes.md` | PRIVATE | main | yes | yes | `c553fae` | absent |
+| 383 | SONIC Drive-In | QSR ordering/loyalty | `GeorgeQLe/sonic-drive-in-mobile-clone` | `specs/batch-20/383-sonic-drive-in.md` | PRIVATE | main | yes | yes | `63642d0` | absent |
+| 384 | Shake Shack | QSR ordering/loyalty | `GeorgeQLe/shake-shack-mobile-clone` | `specs/batch-20/384-shake-shack.md` | PRIVATE | main | yes | yes | `2aeb5cd` | absent |
+| 385 | sweetgreen | QSR ordering/loyalty | `GeorgeQLe/sweetgreen-mobile-clone` | `specs/batch-20/385-sweetgreen.md` | PRIVATE | main | yes | yes | `5da18b3` | absent |
+| 386 | CAVA | QSR ordering/loyalty | `GeorgeQLe/cava-mobile-clone` | `specs/batch-20/386-cava.md` | PRIVATE | main | yes | yes | `a0c7f25` | absent |
+| 387 | Wingstop | QSR ordering/loyalty | `GeorgeQLe/wingstop-mobile-clone` | `specs/batch-20/387-wingstop.md` | PRIVATE | main | yes | yes | `f741c77` | absent |
+| 388 | Dairy Queen | QSR ordering/loyalty | `GeorgeQLe/dairy-queen-mobile-clone` | `specs/batch-20/388-dairy-queen.md` | PRIVATE | main | yes | yes | `a894806` | absent |
+| 389 | Dutch Bros | Coffee/QSR loyalty | `GeorgeQLe/dutch-bros-mobile-clone` | `specs/batch-20/389-dutch-bros.md` | PRIVATE | main | yes | yes | `e2d7b5b` | absent |
+| 390 | 7-Eleven | Convenience/regulated-item commerce | `GeorgeQLe/7-eleven-mobile-clone` | `specs/batch-20/390-7-eleven.md` | PRIVATE | main | yes | yes | `5de7b9c` | absent |
+| 391 | Krispy Kreme | Coffee/QSR loyalty | `GeorgeQLe/krispy-kreme-mobile-clone` | `specs/batch-20/391-krispy-kreme.md` | PRIVATE | main | yes | yes | `ca9f915` | absent |
+| 392 | Jamba | Coffee/QSR loyalty | `GeorgeQLe/jamba-mobile-clone` | `specs/batch-20/392-jamba.md` | PRIVATE | main | yes | yes | `b6bfe8e` | absent |
+| 407 | Food Lion | Grocery pickup/delivery | `GeorgeQLe/food-lion-mobile-clone` | `specs/batch-21/407-food-lion.md` | PRIVATE | main | yes | yes | `2db54be` | absent |
+| 408 | Giant Eagle | Grocery pickup/delivery | `GeorgeQLe/giant-eagle-mobile-clone` | `specs/batch-21/408-giant-eagle.md` | PRIVATE | main | yes | yes | `46d00d8` | absent |
+| 409 | Stop & Shop | Grocery pickup/delivery | `GeorgeQLe/stop-and-shop-mobile-clone` | `specs/batch-21/409-stop-and-shop.md` | PRIVATE | main | yes | yes | `42b437e` | absent |
+| 410 | ShopRite | Grocery pickup/delivery | `GeorgeQLe/shoprite-mobile-clone` | `specs/batch-21/410-shoprite.md` | PRIVATE | main | yes | yes | `3842959` | absent |
+| 411 | FreshDirect | Grocery pickup/delivery | `GeorgeQLe/freshdirect-mobile-clone` | `specs/batch-21/411-freshdirect.md` | PRIVATE | main | yes | yes | `a1c3b17` | absent |
+| 412 | Misfits Market | Meal/grocery subscription | `GeorgeQLe/misfits-market-mobile-clone` | `specs/batch-21/412-misfits-market.md` | PRIVATE | main | yes | yes | `8f0265a` | absent |
+| 413 | Thrive Market | Meal/grocery subscription | `GeorgeQLe/thrive-market-mobile-clone` | `specs/batch-21/413-thrive-market.md` | PRIVATE | main | yes | yes | `e44f3ad` | absent |
+| 414 | Ocado | Grocery pickup/delivery | `GeorgeQLe/ocado-mobile-clone` | `specs/batch-21/414-ocado.md` | PRIVATE | main | yes | yes | `bdcab23` | absent |
+| 415 | Carrefour | Grocery pickup/delivery | `GeorgeQLe/carrefour-mobile-clone` | `specs/batch-21/415-carrefour.md` | PRIVATE | main | yes | yes | `f711dfc` | absent |
+| 416 | Tesco | Grocery pickup/delivery | `GeorgeQLe/tesco-mobile-clone` | `specs/batch-21/416-tesco.md` | PRIVATE | main | yes | yes | `25e84bb` | absent |
+| 417 | Sainsbury's | Grocery pickup/delivery | `GeorgeQLe/sainsbury-s-mobile-clone` | `specs/batch-21/417-sainsbury-s.md` | PRIVATE | main | yes | yes | `590b992` | absent |
+| 418 | Grubhub | Restaurant delivery marketplaces | `GeorgeQLe/grubhub-mobile-clone` | `specs/batch-21/418-grubhub.md` | PRIVATE | main | yes | yes | `8e3da9f` | absent |
+| 419 | Gopuff | Convenience/regulated-item commerce | `GeorgeQLe/gopuff-mobile-clone` | `specs/batch-21/419-gopuff.md` | PRIVATE | main | yes | yes | `f22d985` | absent |
+| 420 | Deliveroo | Restaurant delivery marketplaces | `GeorgeQLe/deliveroo-mobile-clone` | `specs/batch-21/420-deliveroo.md` | PRIVATE | main | yes | yes | `e75ed41` | absent |
+| 421 | Just Eat | Restaurant delivery marketplaces | `GeorgeQLe/just-eat-mobile-clone` | `specs/batch-22/421-just-eat.md` | PRIVATE | main | yes | yes | `79ef107` | absent |
+| 422 | Glovo | Convenience/regulated-item commerce | `GeorgeQLe/glovo-mobile-clone` | `specs/batch-22/422-glovo.md` | PRIVATE | main | yes | yes | `ca3f331` | absent |
+| 423 | Bolt Food | Restaurant delivery marketplaces | `GeorgeQLe/bolt-food-mobile-clone` | `specs/batch-22/423-bolt-food.md` | PRIVATE | main | yes | yes | `3646b07` | absent |
+| 424 | foodpanda | Restaurant delivery marketplaces | `GeorgeQLe/foodpanda-mobile-clone` | `specs/batch-22/424-foodpanda.md` | PRIVATE | main | yes | yes | `0a434b9` | absent |
+| 425 | Swiggy | Restaurant delivery marketplaces | `GeorgeQLe/swiggy-mobile-clone` | `specs/batch-22/425-swiggy.md` | PRIVATE | main | yes | yes | `6286b63` | absent |
+| 426 | Zomato | Restaurant delivery marketplaces | `GeorgeQLe/zomato-mobile-clone` | `specs/batch-22/426-zomato.md` | PRIVATE | main | yes | yes | `0fe5d62` | absent |
+| 427 | Rappi | Convenience/regulated-item commerce | `GeorgeQLe/rappi-mobile-clone` | `specs/batch-22/427-rappi.md` | PRIVATE | main | yes | yes | `2e46846` | absent |
+| 428 | Grab | Convenience/regulated-item commerce | `GeorgeQLe/grab-mobile-clone` | `specs/batch-22/428-grab.md` | PRIVATE | main | yes | yes | `b173474` | absent |
+| 429 | Gojek | Convenience/regulated-item commerce | `GeorgeQLe/gojek-mobile-clone` | `specs/batch-22/429-gojek.md` | PRIVATE | main | yes | yes | `73318bf` | absent |
+| 430 | DiDi Food | Restaurant delivery marketplaces | `GeorgeQLe/didi-food-mobile-clone` | `specs/batch-22/430-didi-food.md` | PRIVATE | main | yes | yes | `03a1060` | absent |
+| 431 | Meituan | Convenience/regulated-item commerce | `GeorgeQLe/meituan-mobile-clone` | `specs/batch-22/431-meituan.md` | PRIVATE | main | yes | yes | `bf26365` | absent |
+| 432 | Ele.me | Restaurant delivery marketplaces | `GeorgeQLe/ele-me-mobile-clone` | `specs/batch-22/432-ele-me.md` | PRIVATE | main | yes | yes | `4d0cd5b` | absent |
+| 433 | Deliveroo Rider | Courier/driver tracking | `GeorgeQLe/deliveroo-rider-mobile-clone` | `specs/batch-22/433-deliveroo-rider.md` | PRIVATE | main | yes | yes | `4d856f9` | absent |
+| 434 | DoorDash Dasher | Courier/driver tracking | `GeorgeQLe/doordash-dasher-mobile-clone` | `specs/batch-22/434-doordash-dasher.md` | PRIVATE | main | yes | yes | `d3e02c7` | absent |
+| 435 | Uber Driver | Courier/driver tracking | `GeorgeQLe/uber-driver-mobile-clone` | `specs/batch-22/435-uber-driver.md` | PRIVATE | main | yes | yes | `1ba6188` | absent |
+| 436 | Instacart Shopper | Courier/driver tracking | `GeorgeQLe/instacart-shopper-mobile-clone` | `specs/batch-22/436-instacart-shopper.md` | PRIVATE | main | yes | yes | `9977525` | absent |
+| 437 | Shipt | Courier/driver tracking | `GeorgeQLe/shipt-mobile-clone` | `specs/batch-22/437-shipt.md` | PRIVATE | main | yes | yes | `977bcbe` | absent |
+| 438 | Favor | Courier/driver tracking | `GeorgeQLe/favor-mobile-clone` | `specs/batch-22/438-favor.md` | PRIVATE | main | yes | yes | `fb53f73` | absent |
+| 439 | SkipTheDishes | Restaurant delivery marketplaces | `GeorgeQLe/skipthedishes-mobile-clone` | `specs/batch-22/439-skipthedishes.md` | PRIVATE | main | yes | yes | `a095f23` | absent |
+| 440 | Talabat | Convenience/regulated-item commerce | `GeorgeQLe/talabat-mobile-clone` | `specs/batch-22/440-talabat.md` | PRIVATE | main | yes | yes | `a91de14` | absent |
+
 ## Next Steps
 
 - 2026-05-28 Phase 17 Step 17.6 downstream implementation verification: pre-verification rate limit was `core: limit=5000, remaining=4980, reset=1779986327`. Added original static commerce prototypes to `GeorgeQLe/meijer-mobile-clone` (`b116543`), `GeorgeQLe/aldi-mobile-clone` (`78c3c8c`), `GeorgeQLe/lidl-mobile-clone` (`04a9060`), `GeorgeQLe/wegmans-mobile-clone` (`376a050`), and `GeorgeQLe/best-buy-mobile-clone` (`abae9a4`). Each repo passed `npm test` and `git diff --check`, remained `PRIVATE` on default branch `main`, retained `README.md`, retained its copied source spec under `docs/source-specs/`, had a root commit at `main`, and returned `404` for `.github/workflows`. Post-verification rate limit was `core: limit=5000, remaining=4965, reset=1779986327`.

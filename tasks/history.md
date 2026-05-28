@@ -1,5 +1,28 @@
 # History
 
+## 2026-05-28 - Phase 18 Step 18.1: Food, Delivery & Grocery Inventory Reconciliation
+
+- Reconciled Phase 18 to 66 Food, Delivery & Grocery downstream repos from Phase 9.11 evidence: IDs `038-045`, `369-392`, and `407-440`.
+- Serial GitHub API verification confirmed all 66 repos remain `PRIVATE`, default to `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have a root commit at `main`, and have no `.github/workflows`.
+- Recorded the full inventory, risk groups, before/after rate-limit evidence, and carry-forward blockers in `tasks/repo-seeding.md`.
+- Planned Phase 18 Step 18.2 as the first five-repo implementation tranche: DoorDash, Uber Eats, Instacart, Starbucks, and McDonald's.
+
+**Validation:**
+- GitHub API invariant scan: `checked=66`, `status=ok`.
+- GitHub rate-limit evidence: pre-scan core `4581/5000` remaining, post-scan core `4315/5000` remaining, reset `1780001929`.
+
+**Ship Manifest:**
+- User goal: execute Phase 18 Step 18.1 by reconciling the exact Food, Delivery & Grocery inventory and downstream readiness before implementation.
+- Changed files: `tasks/todo.md`, `tasks/repo-seeding.md`, and `tasks/history.md`.
+- Per-file purpose: `tasks/todo.md` marks Step 18.1 complete and contains a self-contained Step 18.2 implementation plan; `tasks/repo-seeding.md` records the exact inventory, GitHub verification, rate-limit evidence, and blockers; `tasks/history.md` records execution evidence and shipping boundary.
+- User-goal mapping: Phase 18 now starts from a verified 66-repo inventory rather than the older approximate 77-app estimate.
+- Tests run: serial `gh api` invariant scan across 66 downstream repos, post-scan `gh api rate_limit`, Markdown diff review.
+- Skipped tests: downstream `npm test` and native/mobile builds were not run because Step 18.1 is documentation and GitHub metadata reconciliation only; implementation validation starts in Step 18.2.
+- Adversarial review: checked whether the inventory overstates implementation readiness or native/provider parity; account, payment, tax/tip/fee, location/map, courier dispatch, merchant/provider, inventory/menu, regulated goods, SNAP/EBT, pharmacy-adjacent, refund/support, licensed-data, and real-device behavior remains explicitly blocked.
+- Residual risk: GitHub content checks prove repository invariants, not hands-on native/provider/payment/location parity.
+- Rollback note: revert this planning commit to restore Phase 18 Step 18.1 as incomplete and remove the reconciliation packet.
+- Next command: `$exec` for Phase 18 Step 18.2.
+
 ## 2026-05-28 - Phase 17 Step 17.15: Shopping, Commerce & Classifieds Closeout
 
 - Closed Phase 17 after reconciling all 68 Shopping, Commerce & Classifieds downstream repos.

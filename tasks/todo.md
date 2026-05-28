@@ -9,7 +9,7 @@
 - Shared patterns: location-based search, real-time order tracking, cart/checkout, driver/delivery tracking, menu/catalog browsing, loyalty programs.
 
 **Acceptance Criteria:**
-- [ ] Exact Phase 18 inventory reconciled with app IDs, app names, repo slugs, source specs, and downstream readiness.
+- [x] Exact Phase 18 inventory reconciled with app IDs, app names, repo slugs, source specs, and downstream readiness.
 - [ ] All Phase 18 apps have 5 working variants each or explicit local/toolchain/provider/payment/licensed-data/location/regulated-food blockers.
 - [ ] Every variant passes validation and has benchmark or local validation score evidence recorded.
 - [ ] Order flow, tracking, location-based discovery, cart, checkout, menu/catalog, and loyalty workflows are functional across variants or explicitly blocked by local/provider/regulatory constraints.
@@ -26,7 +26,7 @@
 
 ### Implementation
 
-- [ ] Step 18.1: Reconcile exact Food, Delivery & Grocery app inventory and downstream readiness
+- [x] Step 18.1: Reconcile exact Food, Delivery & Grocery app inventory and downstream readiness
   - Identify the canonical Phase 18 app set from `specs/`, downstream repo naming, `tasks/repo-seeding.md`, `tasks/roadmap.md`, and Phase 9 build-plan evidence.
   - Produce an inventory table with app ID, app name, repo slug, source spec path, downstream repository URL, visibility, default branch, README presence, source-spec copy presence, root commit presence, and `.github/workflows` absence.
   - Verify every downstream repo is `PRIVATE` and does not contain `.github/workflows`.
@@ -45,9 +45,38 @@
   4. Record the reconciled inventory and carry-forward blockers without claiming provider/payment/location/native parity.
   5. Update this file with executable Step 18.2 planning instructions.
 
+  **Review:**
+  - Reconciled Phase 18 to 66 apps from Phase 9.11 build-plan evidence: IDs `038-045`, `369-392`, and `407-440`; this supersedes the older roadmap estimate of `~77`.
+  - Read-only GitHub verification confirmed every downstream repo is `PRIVATE`, defaults to `main`, has a root commit, contains `README.md`, contains its copied source spec under `docs/source-specs/`, and has no `.github/workflows` directory.
+  - Recorded before/after GitHub rate-limit evidence and the full inventory table in `tasks/repo-seeding.md`.
+  - Carried forward account, subscription, payment, tax/tip/fee, courier/driver dispatch, location/map, inventory/menu/provider, merchant/admin, loyalty/rewards, SNAP/EBT, alcohol/regulated goods, pharmacy-adjacent, refund/support, identity/fraud/risk, region, licensed-data, hardware/permission, real-time tracking, and real-device blockers.
+
+- [ ] Step 18.2: Implement first Food, Delivery & Grocery tranche
+  - Implement five downstream repos from the reconciled Phase 18 inventory:
+    - `GeorgeQLe/doordash-mobile-clone` as an original restaurant/store delivery marketplace scaffold.
+    - `GeorgeQLe/uber-eats-mobile-clone` as an original local-commerce delivery and merchant-menu scaffold.
+    - `GeorgeQLe/instacart-mobile-clone` as an original grocery retailer, cart, substitutions, and shopper-handoff scaffold.
+    - `GeorgeQLe/starbucks-mobile-clone` as an original coffee ordering, pickup, stored-value-blocked, and loyalty scaffold.
+    - `GeorgeQLe/mcdonalds-mobile-clone` as an original quick-service menu, deals, pickup, and delivery-handoff scaffold.
+  - Keep implementation serial from this planning repo. Use branch-backed work only if the downstream repo requires it; otherwise land validated direct-to-`main` commits after rebasing onto latest remote `main`.
+  - Build only lawful original prototype surfaces using synthetic/local fixtures: location/address setup, store/restaurant discovery, menu/catalog browse, item customization, cart/order draft, checkout quote simulation, pickup/delivery status, order tracking, support/refund placeholders, loyalty/rewards placeholders where relevant, and explicit blocker banners for real providers and regulated/payment behavior.
+  - Do not add or rely on GitHub Actions. Do not copy original logos, screenshots, menu data, catalog data, loyalty data, pricing data, store inventory, private APIs, recommendation models, payment data, courier/shopping evidence, merchant/admin data, regulated-food data, or licensed media.
+  - Verify each repo remains `PRIVATE`, keeps its copied source spec, has a root commit, has no `.github/workflows`, and has local validation or blocker evidence recorded before shipping.
+  - Files: downstream repos above, then update `tasks/todo.md` and `tasks/history.md` with commit, validation, blocker, and invariant evidence.
+
+  **What to Build:**
+  First Phase 18 implementation tranche across restaurant delivery, grocery delivery, coffee loyalty, and QSR ordering apps. Each downstream repo should get a small but coherent original scaffold proving location/address setup, discovery, menu/catalog, cart/order draft, pickup or delivery tracking, support/refund, and loyalty/provider/payment blockers with synthetic data.
+
+  **Approach:**
+  1. Inspect each downstream repo's current stack, task state, source spec copy, and validation commands before editing.
+  2. Rebase onto latest remote `main` before committing if the local checkout is behind.
+  3. Reuse the lightweight static prototype pattern only if no runtime stack already exists; otherwise follow the repo's selected stack.
+  4. Tailor each scaffold: marketplace restaurant/store delivery for DoorDash, local commerce and merchant menus for Uber Eats, grocery substitutions and shopper handoff for Instacart, coffee ordering and rewards for Starbucks, and QSR deals/pickup/delivery handoff for McDonald's.
+  5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
+
 ### Milestone: Phase 18 — Food, Delivery & Grocery Complete
 **Acceptance Criteria:**
-- [ ] Exact Phase 18 inventory reconciled with app IDs, app names, repo slugs, source specs, and downstream readiness.
+- [x] Exact Phase 18 inventory reconciled with app IDs, app names, repo slugs, source specs, and downstream readiness.
 - [ ] All Phase 18 apps have 5 working variants each or explicit local/toolchain/provider/payment/licensed-data/location/regulated-food blockers.
 - [ ] Every variant passes validation and has benchmark or local validation score evidence recorded.
 - [ ] Order flow, tracking, location-based discovery, cart, checkout, menu/catalog, and loyalty workflows are functional across variants or explicitly blocked by local/provider/regulatory constraints.
