@@ -217,11 +217,11 @@ Guardrails:
 | 450 | Sephora | Brand retail/catalog commerce | `GeorgeQLe/sephora-mobile-clone` | `specs/batch-23/450-sephora.md` | PRIVATE | main | yes | yes | `12813db` | absent |
 | 451 | Ulta Beauty | Brand retail/catalog commerce | `GeorgeQLe/ulta-beauty-mobile-clone` | `specs/batch-23/451-ulta-beauty.md` | PRIVATE | main | yes | yes | `b0a26d5` | absent |
 | 452 | Nike | Brand retail/catalog commerce | `GeorgeQLe/nike-mobile-clone` | `specs/batch-23/452-nike.md` | PRIVATE | main | yes | yes | `6ebd7d4` | absent |
-| 453 | Adidas | Brand retail/catalog commerce | `GeorgeQLe/adidas-mobile-clone` | `specs/batch-23/453-adidas.md` | PRIVATE | main | yes | yes | `a18ab2e` | absent |
-| 454 | Zara | Brand retail/catalog commerce | `GeorgeQLe/zara-mobile-clone` | `specs/batch-23/454-zara.md` | PRIVATE | main | yes | yes | `265b801` | absent |
-| 455 | H&M | Brand retail/catalog commerce | `GeorgeQLe/handm-mobile-clone` | `specs/batch-23/455-handm.md` | PRIVATE | main | yes | yes | `1099361` | absent |
-| 456 | Uniqlo | Brand retail/catalog commerce | `GeorgeQLe/uniqlo-mobile-clone` | `specs/batch-23/456-uniqlo.md` | PRIVATE | main | yes | yes | `14ba548` | absent |
-| 457 | Lululemon | Brand retail/catalog commerce | `GeorgeQLe/lululemon-mobile-clone` | `specs/batch-23/457-lululemon.md` | PRIVATE | main | yes | yes | `6fe96a4` | absent |
+| 453 | Adidas | Brand retail/catalog commerce | `GeorgeQLe/adidas-mobile-clone` | `specs/batch-23/453-adidas.md` | PRIVATE | main | yes | yes | `47355fe` | absent |
+| 454 | Zara | Brand retail/catalog commerce | `GeorgeQLe/zara-mobile-clone` | `specs/batch-23/454-zara.md` | PRIVATE | main | yes | yes | `6825653` | absent |
+| 455 | H&M | Brand retail/catalog commerce | `GeorgeQLe/handm-mobile-clone` | `specs/batch-23/455-handm.md` | PRIVATE | main | yes | yes | `47fea79` | absent |
+| 456 | Uniqlo | Brand retail/catalog commerce | `GeorgeQLe/uniqlo-mobile-clone` | `specs/batch-23/456-uniqlo.md` | PRIVATE | main | yes | yes | `10dc90a` | absent |
+| 457 | Lululemon | Brand retail/catalog commerce | `GeorgeQLe/lululemon-mobile-clone` | `specs/batch-23/457-lululemon.md` | PRIVATE | main | yes | yes | `67c1da0` | absent |
 | 458 | GOAT | Fashion resale | `GeorgeQLe/goat-mobile-clone` | `specs/batch-23/458-goat.md` | PRIVATE | main | yes | yes | `0de8fa3` | absent |
 | 459 | Grailed | Fashion resale | `GeorgeQLe/grailed-mobile-clone` | `specs/batch-23/459-grailed.md` | PRIVATE | main | yes | yes | `2fec501` | absent |
 | 460 | Mercari | Fashion resale | `GeorgeQLe/mercari-mobile-clone` | `specs/batch-23/460-mercari.md` | PRIVATE | main | yes | yes | `d18c7de` | absent |

@@ -309,7 +309,7 @@
   - GitHub metadata checks confirmed all five repos remain `PRIVATE` on default branch `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have a root commit at `main`, and return `404` for `.github/workflows` (absent).
   - Post-verification rate-limit evidence: core `4980/5000` remaining, reset `1779998237`.
 
-- [ ] Step 17.9: Implement eighth Shopping, Commerce & Classifieds tranche
+- [x] Step 17.9: Implement eighth Shopping, Commerce & Classifieds tranche
   - Implement five downstream repos from the reconciled Phase 17 inventory:
     - `GeorgeQLe/adidas-mobile-clone` as an original athletic retail, launch/member, pickup, and returns-blocked scaffold.
     - `GeorgeQLe/zara-mobile-clone` as an original fashion retail, trend edit, pickup/delivery, and returns-blocked scaffold.
@@ -330,6 +330,43 @@
   2. Rebase onto latest remote `main` before committing if the local checkout is behind.
   3. Reuse the lightweight static prototype pattern only if no runtime stack already exists; otherwise follow the repo's selected stack.
   4. Tailor each scaffold: member launches for Adidas, trend edits for Zara, value offers and sustainability-claims blockers for H&M, sizing and alterations blockers for Uniqlo, and community/event plus returns blockers for Lululemon.
+  5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
+
+  **Review:**
+  - Added original static athletic and fashion retail prototypes to all five downstream repos and pushed them directly to `main`.
+  - Downstream commits:
+    - `GeorgeQLe/adidas-mobile-clone` -> `47355fe` (`LaunchLine` athletic retail, launch/member, pickup, and returns-blocked scaffold).
+    - `GeorgeQLe/zara-mobile-clone` -> `6825653` (`TrendRoom` fashion retail, trend edit, pickup/delivery, and returns-blocked scaffold).
+    - `GeorgeQLe/handm-mobile-clone` -> `47fea79` (`ValueThread` value fashion retail, offers, pickup, and sustainability-claims-blocked scaffold).
+    - `GeorgeQLe/uniqlo-mobile-clone` -> `10dc90a` (`CoreFit` essentials apparel retail, sizing, pickup, and alterations-blocked scaffold).
+    - `GeorgeQLe/lululemon-mobile-clone` -> `67c1da0` (`StudioStride` athletic apparel retail, community/event, pickup, and returns-blocked scaffold).
+  - Each repo now contains `package.json`, `src/index.html`, `src/styles.css`, `src/app.js`, and `scripts/smoke-test.mjs`.
+  - Each scaffold uses synthetic products/orders, original app names/copy, local-only cart/order-draft or pickup/delivery quote simulation, offers/member/community placeholders where relevant, and explicit payment/provider/tax/shipping/inventory/loyalty/member/launch/sizing/alterations/event/returns/claims/licensed-data blockers.
+  - Validation passed in all five repos with `npm test`; unstaged diffs passed `git diff --check` before commit.
+  - GitHub metadata checks confirmed all five repos remain `PRIVATE` on default branch `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have a root commit at `main`, and return `404` for `.github/workflows` (absent).
+  - Post-verification rate-limit evidence: core `4965/5000` remaining, reset `1779998237`.
+
+- [ ] Step 17.10: Implement ninth Shopping, Commerce & Classifieds tranche
+  - Implement five downstream repos from the reconciled Phase 17 inventory:
+    - `GeorgeQLe/goat-mobile-clone` as an original sneaker/resale marketplace, bid/offer, authenticity, and payout-blocked scaffold.
+    - `GeorgeQLe/grailed-mobile-clone` as an original menswear resale, listing, offer, and moderation-blocked scaffold.
+    - `GeorgeQLe/mercari-mobile-clone` as an original general resale marketplace, listing/shipping, and payout-blocked scaffold.
+    - `GeorgeQLe/vinted-mobile-clone` as an original fashion resale, bundle, label/shipping, and buyer-protection-blocked scaffold.
+    - `GeorgeQLe/offerup-mobile-clone` as an original local classifieds marketplace, listing, messaging, pickup, and trust/safety-blocked scaffold.
+  - Keep implementation serial from this planning repo. Use branch-backed work only if the downstream repo requires it; otherwise land validated direct-to-`main` commits after rebasing onto latest remote `main`.
+  - Build only lawful original prototype surfaces using synthetic/local fixtures: browse/search/filter, listing or product detail, cart/offer/bid/order draft, pickup/shipping quote simulation, seller/listing/admin placeholders, reviews/trust signals, and explicit blocker banners for real providers and regulated/payment behavior.
+  - Do not add or rely on GitHub Actions. Do not copy original logos, screenshots, listing data, product data, seller/customer data, private APIs, marketplace policy text, recommendation models, payment data, shipping evidence, authenticity data, moderation data, buyer-protection text, or licensed media.
+  - Verify each repo remains `PRIVATE`, keeps its copied source spec, has a root commit, has no `.github/workflows`, and has local validation or blocker evidence recorded before shipping.
+  - Files: downstream repos above, then update `tasks/todo.md`, `tasks/repo-seeding.md`, and `tasks/history.md` with commit, validation, blocker, and invariant evidence.
+
+  **What to Build:**
+  Ninth Phase 17 implementation tranche across fashion resale and local marketplace apps. Each downstream repo should get a small but coherent original scaffold proving browse/search/detail/listing/cart-or-offer/order-draft/pickup-or-shipping workflow coverage with synthetic data and explicit provider/payment/tax/shipping/authenticity/identity/moderation/buyer-protection/licensed-data blockers.
+
+  **Approach:**
+  1. Inspect each downstream repo's current stack, task state, source spec copy, and validation commands before editing.
+  2. Rebase onto latest remote `main` before committing if the local checkout is behind.
+  3. Reuse the lightweight static prototype pattern only if no runtime stack already exists; otherwise follow the repo's selected stack.
+  4. Tailor each scaffold: bid/offer and authenticity blockers for GOAT, curated menswear listing and moderation blockers for Grailed, general resale listing/shipping and payout blockers for Mercari, bundle and label/buyer-protection blockers for Vinted, and local pickup/messaging/trust blockers for OfferUp.
   5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
 
 ### Milestone: Phase 17 — Shopping, Commerce & Classifieds Complete
