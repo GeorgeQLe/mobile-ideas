@@ -161,7 +161,7 @@
   - GitHub metadata checks confirmed all five repos remain `PRIVATE` on default branch `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have a root commit at `main`, and return `404` for `.github/workflows` (absent).
   - Post-verification rate-limit evidence: core `4950/5000` remaining, reset `1779982602`.
 
-- [ ] Step 17.5: Implement fourth Shopping, Commerce & Classifieds tranche
+- [x] Step 17.5: Implement fourth Shopping, Commerce & Classifieds tranche
   - Implement five downstream repos from the reconciled Phase 17 inventory:
     - `GeorgeQLe/safeway-mobile-clone` as an original grocery delivery, pickup, and loyalty/coupon scaffold.
     - `GeorgeQLe/albertsons-mobile-clone` as an original grocery pickup, pharmacy-blocked, and rewards scaffold.
@@ -182,6 +182,43 @@
   2. Rebase onto latest remote `main` before committing if the local checkout is behind.
   3. Reuse the lightweight static prototype pattern only if no runtime stack already exists; otherwise follow the repo's selected stack.
   4. Tailor each scaffold: grocery delivery and loyalty/coupons for Safeway, pharmacy/rewards blockers for Albertsons, premium prepared-foods and delivery-provider blockers for Whole Foods Market, deli/coupon pickup for Publix, and curbside/substitution regional grocery flows for H-E-B.
+  5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
+
+  **Review:**
+  - Added original static grocery prototypes to all five downstream repos and pushed them directly to `main`.
+  - Downstream commits:
+    - `GeorgeQLe/safeway-mobile-clone` -> `6ac0578` (`AisleWay` grocery delivery, pickup, and loyalty/coupon scaffold).
+    - `GeorgeQLe/albertsons-mobile-clone` -> `9cd23c8` (`MarketReward` grocery pickup, pharmacy-blocked, and rewards scaffold).
+    - `GeorgeQLe/whole-foods-market-mobile-clone` -> `23ded16` (`HarvestTable` premium grocery and prepared-foods scaffold).
+    - `GeorgeQLe/publix-mobile-clone` -> `8e4a499` (`DeliCart` grocery deli, pickup, and coupon scaffold).
+    - `GeorgeQLe/h-e-b-mobile-clone` -> `1b38830` (`CurbsideTable` regional curbside and substitution scaffold).
+  - Each repo now contains `package.json`, `src/index.html`, `src/styles.css`, `src/app.js`, and `scripts/smoke-test.mjs`.
+  - Each scaffold uses synthetic grocery products/orders, original app names/copy, local-only cart/order-draft simulation, pickup/delivery/curbside placeholders, substitution/rewards/coupon placeholders, and explicit payment/provider/tax/inventory/loyalty/pharmacy/alcohol/regulated-item/licensed-data blockers.
+  - Validation passed in all five repos with `npm test`; unstaged diffs passed `git diff --check` before commit.
+  - GitHub metadata checks confirmed all five repos remain `PRIVATE` on default branch `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have a root commit at `main`, and return `404` for `.github/workflows` (absent).
+  - Post-verification rate-limit evidence: core `4980/5000` remaining, reset `1779986327`.
+
+- [ ] Step 17.6: Implement fifth Shopping, Commerce & Classifieds tranche
+  - Implement five downstream repos from the reconciled Phase 17 inventory:
+    - `GeorgeQLe/meijer-mobile-clone` as an original regional grocery, pickup, rewards, and curbside scaffold.
+    - `GeorgeQLe/aldi-mobile-clone` as an original value grocery, weekly finds, and cart/planning scaffold.
+    - `GeorgeQLe/lidl-mobile-clone` as an original value grocery, offers, bakery, and pickup/delivery-provider-blocked scaffold.
+    - `GeorgeQLe/wegmans-mobile-clone` as an original premium grocery, meals, pharmacy-blocked, and curbside scaffold.
+    - `GeorgeQLe/best-buy-mobile-clone` as an original electronics retail, pickup, warranty/service, and trade-in-blocked scaffold.
+  - Keep implementation serial from this planning repo. Use branch-backed work only if the downstream repo requires it; otherwise land validated direct-to-`main` commits after rebasing onto latest remote `main`.
+  - Build only lawful original prototype surfaces using synthetic/local fixtures: browse/search/filter, product detail, cart/order draft, pickup/delivery/curbside or store pickup quote simulation, offers/rewards placeholders where relevant, service/warranty/trade-in blockers where relevant, and explicit blocker banners for real providers and regulated/payment behavior.
+  - Do not add or rely on GitHub Actions. Do not copy original logos, screenshots, catalog data, loyalty data, pricing data, store inventory, pharmacy data, private APIs, recommendation models, payment data, delivery evidence, warranty/service records, trade-in data, membership data, or licensed media.
+  - Verify each repo remains `PRIVATE`, keeps its copied source spec, has a root commit, has no `.github/workflows`, and has local validation or blocker evidence recorded before shipping.
+  - Files: downstream repos above, then update `tasks/todo.md`, `tasks/repo-seeding.md`, and `tasks/history.md` with commit, validation, blocker, and invariant evidence.
+
+  **What to Build:**
+  Fifth Phase 17 implementation tranche crossing the final grocery-marketplace repos and the first brand retail/catalog commerce repo. Each downstream repo should get a small but coherent original scaffold proving browse/search/detail/cart/order-draft/pickup-or-delivery workflow coverage with synthetic data and explicit provider/payment/tax/shipping/inventory/loyalty/pharmacy/service/warranty/trade-in/licensed-data blockers.
+
+  **Approach:**
+  1. Inspect each downstream repo's current stack, task state, source spec copy, and validation commands before editing.
+  2. Rebase onto latest remote `main` before committing if the local checkout is behind.
+  3. Reuse the lightweight static prototype pattern only if no runtime stack already exists; otherwise follow the repo's selected stack.
+  4. Tailor each scaffold: regional grocery pickup/rewards for Meijer, value weekly-find planning for ALDI, value offers/bakery/provider blockers for Lidl, premium meal planning and pharmacy blockers for Wegmans, and electronics pickup/service/warranty/trade-in blockers for Best Buy.
   5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
 
 ### Milestone: Phase 17 — Shopping, Commerce & Classifieds Complete

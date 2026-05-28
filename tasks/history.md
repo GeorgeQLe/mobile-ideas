@@ -6349,3 +6349,46 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Residual risk: static prototypes are smoke-tested local scaffolds, not full Expo/native app implementations or five-variant benchmarked builds; provider and native parity remains blocked.
 - Rollback note: revert this planning commit to reopen Step 17.4; revert downstream commits `59994d6`, `9efd0a3`, `2c3cbf9`, `da79dc0`, and `da77c02` to remove the third-tranche scaffolds.
 - Next: Step 17.5 - implement fourth Shopping, Commerce & Classifieds tranche.
+
+## Step 17.5 - Fourth Shopping, Commerce & Classifieds Tranche (2026-05-28)
+
+### Downstream Commits
+- `GeorgeQLe/safeway-mobile-clone` -> `6ac0578` (`AisleWay` grocery delivery, pickup, and loyalty/coupon scaffold).
+- `GeorgeQLe/albertsons-mobile-clone` -> `9cd23c8` (`MarketReward` grocery pickup, pharmacy-blocked, and rewards scaffold).
+- `GeorgeQLe/whole-foods-market-mobile-clone` -> `23ded16` (`HarvestTable` premium grocery and prepared-foods scaffold).
+- `GeorgeQLe/publix-mobile-clone` -> `8e4a499` (`DeliCart` grocery deli, pickup, and coupon scaffold).
+- `GeorgeQLe/h-e-b-mobile-clone` -> `1b38830` (`CurbsideTable` regional curbside and substitution scaffold).
+
+### Implementation
+- Added lightweight original static prototypes to each downstream repo with `package.json`, `src/index.html`, `src/styles.css`, `src/app.js`, and `scripts/smoke-test.mjs`.
+- Covered synthetic browse/search/filter, product detail, local cart/order draft, pickup/delivery/curbside quote states, rewards/coupon/substitution placeholders, pharmacy/alcohol/regulated-item blockers, and explicit verification blockers.
+- Kept all data synthetic and all app names/copy original; no original logos, screenshots, catalog data, loyalty data, pricing data, store inventory, pharmacy data, private APIs, recommendation models, payment data, delivery evidence, membership data, or licensed media were added.
+
+### Validation
+- `npm test` passed in all five downstream repos:
+  - AisleWay smoke test passed.
+  - MarketReward smoke test passed.
+  - HarvestTable smoke test passed.
+  - DeliCart smoke test passed.
+  - CurbsideTable smoke test passed after fixing a smoke-test token casing mismatch before commit.
+- `git diff --check` passed before each downstream commit.
+- GitHub metadata checks confirmed all five repos remain `PRIVATE` with default branch `main`.
+- GitHub API checks confirmed each repo keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit at `main`, and returns `404` for `.github/workflows` (absent).
+- Rate-limit evidence before tranche work: core `4950/5000` remaining, reset `1779982602`.
+- Rate-limit evidence after tranche verification: core `4980/5000` remaining, reset `1779986327`.
+
+### Carry-Forward Blockers
+- Account lifecycle, signup/login/recovery, payment authorization, taxes, shipping quote providers, delivery dispatch, real checkout, loyalty/rewards/coupons, store inventory, pharmacy, alcohol or regulated grocery checks, provider integrations, licensed catalog data, fraud/risk, trust/safety moderation, returns/refunds, disputes, region-specific behavior, native permissions, push notifications, and real-device verification remain blocked.
+- The tranche provides local prototype workflow coverage only; it does not claim exact native, provider, payment, shipping, tax, inventory, loyalty, regulated-item, or support parity.
+
+### Ship Manifest
+- User goal: execute Step 17.5 and implement the fourth Shopping, Commerce & Classifieds tranche.
+- Changed files: downstream runtime scaffold files in five repos; `tasks/todo.md`; `tasks/repo-seeding.md`; `tasks/history.md`.
+- Per-file purpose: downstream files add original local grocery prototypes and smoke tests; `tasks/todo.md` records Step 17.5 completion and Step 17.6 executable detail; `tasks/repo-seeding.md` updates root-commit evidence; `tasks/history.md` records commit, validation, blocker, and rollback evidence.
+- User-goal mapping: five more Phase 17 grocery repos now have working local prototype scaffolds with validation evidence and explicit blockers.
+- Tests run: `npm test` in all five downstream repos; `git diff --check` in all five downstream repos; GitHub repo metadata checks; GitHub README/source-spec/root-commit/workflow absence checks.
+- Skipped tests: no native iOS/Android, payment-provider, tax, shipping, inventory-provider, loyalty, pharmacy, alcohol, regulated-item, push-notification, account, or real-device tests were run because those behaviors are explicitly blocked pending lawful provider/device/account verification.
+- Adversarial review: verified original naming/data/copy posture, no GitHub Actions usage, private visibility, default branch, source-spec presence, root commit presence, workflow absence, direct-to-`main` pushes, and blocker carry-forward.
+- Residual risk: static prototypes are smoke-tested local scaffolds, not full Expo/native app implementations or five-variant benchmarked builds; provider and native parity remains blocked.
+- Rollback note: revert this planning commit to reopen Step 17.5; revert downstream commits `6ac0578`, `9cd23c8`, `23ded16`, `8e4a499`, and `1b38830` to remove the fourth-tranche scaffolds.
+- Next: Step 17.6 - implement fifth Shopping, Commerce & Classifieds tranche.

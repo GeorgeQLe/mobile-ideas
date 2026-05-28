@@ -197,11 +197,11 @@ Guardrails:
 | 395 | Costco | Retail/grocery marketplaces | `GeorgeQLe/costco-mobile-clone` | `specs/batch-20/395-costco.md` | PRIVATE | main | yes | yes | `c3a6654` | absent |
 | 396 | Sam's Club | Retail/grocery marketplaces | `GeorgeQLe/sam-s-club-mobile-clone` | `specs/batch-20/396-sam-s-club.md` | PRIVATE | main | yes | yes | `dedf232` | absent |
 | 397 | Kroger | Retail/grocery marketplaces | `GeorgeQLe/kroger-mobile-clone` | `specs/batch-20/397-kroger.md` | PRIVATE | main | yes | yes | `b0398f7` | absent |
-| 398 | Safeway | Retail/grocery marketplaces | `GeorgeQLe/safeway-mobile-clone` | `specs/batch-20/398-safeway.md` | PRIVATE | main | yes | yes | `787456d` | absent |
-| 399 | Albertsons | Retail/grocery marketplaces | `GeorgeQLe/albertsons-mobile-clone` | `specs/batch-20/399-albertsons.md` | PRIVATE | main | yes | yes | `33ba440` | absent |
-| 400 | Whole Foods Market | Retail/grocery marketplaces | `GeorgeQLe/whole-foods-market-mobile-clone` | `specs/batch-20/400-whole-foods-market.md` | PRIVATE | main | yes | yes | `18722c1` | absent |
-| 401 | Publix | Retail/grocery marketplaces | `GeorgeQLe/publix-mobile-clone` | `specs/batch-21/401-publix.md` | PRIVATE | main | yes | yes | `0ba2ed1` | absent |
-| 402 | H-E-B | Retail/grocery marketplaces | `GeorgeQLe/h-e-b-mobile-clone` | `specs/batch-21/402-h-e-b.md` | PRIVATE | main | yes | yes | `91dc7b1` | absent |
+| 398 | Safeway | Retail/grocery marketplaces | `GeorgeQLe/safeway-mobile-clone` | `specs/batch-20/398-safeway.md` | PRIVATE | main | yes | yes | `6ac0578` | absent |
+| 399 | Albertsons | Retail/grocery marketplaces | `GeorgeQLe/albertsons-mobile-clone` | `specs/batch-20/399-albertsons.md` | PRIVATE | main | yes | yes | `9cd23c8` | absent |
+| 400 | Whole Foods Market | Retail/grocery marketplaces | `GeorgeQLe/whole-foods-market-mobile-clone` | `specs/batch-20/400-whole-foods-market.md` | PRIVATE | main | yes | yes | `23ded16` | absent |
+| 401 | Publix | Retail/grocery marketplaces | `GeorgeQLe/publix-mobile-clone` | `specs/batch-21/401-publix.md` | PRIVATE | main | yes | yes | `8e4a499` | absent |
+| 402 | H-E-B | Retail/grocery marketplaces | `GeorgeQLe/h-e-b-mobile-clone` | `specs/batch-21/402-h-e-b.md` | PRIVATE | main | yes | yes | `1b38830` | absent |
 | 403 | Meijer | Retail/grocery marketplaces | `GeorgeQLe/meijer-mobile-clone` | `specs/batch-21/403-meijer.md` | PRIVATE | main | yes | yes | `909d29b` | absent |
 | 404 | ALDI | Retail/grocery marketplaces | `GeorgeQLe/aldi-mobile-clone` | `specs/batch-21/404-aldi.md` | PRIVATE | main | yes | yes | `955b1d1` | absent |
 | 405 | Lidl | Retail/grocery marketplaces | `GeorgeQLe/lidl-mobile-clone` | `specs/batch-21/405-lidl.md` | PRIVATE | main | yes | yes | `9c1576a` | absent |
