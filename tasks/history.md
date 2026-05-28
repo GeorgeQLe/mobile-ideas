@@ -1,5 +1,29 @@
 # History
 
+## 2026-05-28 - Phase 17 Step 17.15: Shopping, Commerce & Classifieds Closeout
+
+- Closed Phase 17 after reconciling all 68 Shopping, Commerce & Classifieds downstream repos.
+- Serial GitHub API verification confirmed all 68 repos remain `PRIVATE`, default to `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have a root commit at `main`, and have no `.github/workflows`.
+- Final-tranche scaffold checks confirmed `package.json`, `src/index.html`, and `scripts/smoke-test.mjs` exist on `main` for the 13 repos added by Step 17.14.
+- Archived Phase 17 to `tasks/phases/phase-17.md`, marked Phase 17 complete with carry-forward blockers in `tasks/roadmap.md`, and promoted Phase 18 into `tasks/todo.md`.
+- Planned Phase 18 Step 18.1 to reconcile the Food, Delivery & Grocery inventory and downstream readiness before implementation tranches begin.
+
+**Validation:**
+- GitHub API invariant scan: `checked=68`, `final_tranche_scaffold_checked=13`, `status=ok`.
+- GitHub rate-limit evidence: pre-scan core `4961/5000` remaining, post-scan core `4581/5000` remaining, reset `1780001929`.
+
+**Ship Manifest:**
+- User goal: execute Phase 17 Step 17.15 by validating Phase 17 completion and preparing Phase 18.
+- Changed files: `tasks/todo.md`, `tasks/roadmap.md`, `tasks/phases/phase-17.md`, `tasks/repo-seeding.md`, and `tasks/history.md`.
+- Per-file purpose: `tasks/todo.md` now contains Phase 18 Step 18.1; `tasks/roadmap.md` records Phase 17 completion and Phase 18 activation; `tasks/phases/phase-17.md` archives closeout evidence; `tasks/repo-seeding.md` records GitHub/rate-limit evidence; `tasks/history.md` records execution evidence and shipping boundary.
+- User-goal mapping: Phase 17 is closed only after current repo invariant and scaffold checks passed, and Phase 18 has a self-contained next step.
+- Tests run: serial `gh api` invariant scan across 68 downstream repos, post-scan `gh api rate_limit`, Markdown structure checks before shipping.
+- Skipped tests: downstream `npm test` was not rerun because Step 17.15 is a closeout step and tranche-level `npm test` evidence is already recorded in Steps 17.2-17.14.
+- Adversarial review: checked whether the closeout overstates provider/payment/native parity; residual provider, payment, location, dealer, auction, financing, payout, licensed-data, and real-device behavior remains explicitly blocked.
+- Residual risk: GitHub content checks prove repository invariants and scaffold-file presence, not hands-on native/provider parity.
+- Rollback note: revert this planning commit to restore Phase 17 as the active phase and remove the Phase 17 archive/promotion changes.
+- Next command: `$exec` for Phase 18 Step 18.1.
+
 ## 2026-05-28 - Phase 17 Step 17.14: Final Shopping, Commerce & Classifieds Tranche
 
 - Built the final Phase 17 implementation tranche as direct-to-`main` commits across 13 private downstream repos:
