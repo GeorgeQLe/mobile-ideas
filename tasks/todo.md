@@ -198,7 +198,7 @@
   - GitHub metadata checks confirmed all five repos remain `PRIVATE` on default branch `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have a root commit at `main`, and return `404` for `.github/workflows` (absent).
   - Post-verification rate-limit evidence: core `4980/5000` remaining, reset `1779986327`.
 
-- [ ] Step 17.6: Implement fifth Shopping, Commerce & Classifieds tranche
+- [x] Step 17.6: Implement fifth Shopping, Commerce & Classifieds tranche
   - Implement five downstream repos from the reconciled Phase 17 inventory:
     - `GeorgeQLe/meijer-mobile-clone` as an original regional grocery, pickup, rewards, and curbside scaffold.
     - `GeorgeQLe/aldi-mobile-clone` as an original value grocery, weekly finds, and cart/planning scaffold.
@@ -219,6 +219,43 @@
   2. Rebase onto latest remote `main` before committing if the local checkout is behind.
   3. Reuse the lightweight static prototype pattern only if no runtime stack already exists; otherwise follow the repo's selected stack.
   4. Tailor each scaffold: regional grocery pickup/rewards for Meijer, value weekly-find planning for ALDI, value offers/bakery/provider blockers for Lidl, premium meal planning and pharmacy blockers for Wegmans, and electronics pickup/service/warranty/trade-in blockers for Best Buy.
+  5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
+
+  **Review:**
+  - Added original static grocery/electronics prototypes to all five downstream repos and pushed them directly to `main`.
+  - Downstream commits:
+    - `GeorgeQLe/meijer-mobile-clone` -> `b116543` (`MarketRun` regional grocery pickup, rewards, and curbside scaffold).
+    - `GeorgeQLe/aldi-mobile-clone` -> `78c3c8c` (`ValueAisle` value grocery weekly finds and trip-planning scaffold).
+    - `GeorgeQLe/lidl-mobile-clone` -> `04a9060` (`FreshValue` value grocery offers, bakery, and provider-blocked pickup/delivery scaffold).
+    - `GeorgeQLe/wegmans-mobile-clone` -> `376a050` (`HarvestLine` premium grocery, meal planning, pharmacy-blocked, and curbside scaffold).
+    - `GeorgeQLe/best-buy-mobile-clone` -> `abae9a4` (`CircuitPickup` electronics pickup, warranty/service, and trade-in-blocked scaffold).
+  - Each repo now contains `package.json`, `src/index.html`, `src/styles.css`, `src/app.js`, and `scripts/smoke-test.mjs`.
+  - Each scaffold uses synthetic products/orders, original app names/copy, local-only cart/order-draft or pickup quote simulation, grocery fulfillment or electronics service placeholders, and explicit payment/provider/tax/shipping/inventory/loyalty/pharmacy/service/warranty/trade-in/licensed-data blockers.
+  - Validation passed in all five repos with `npm test`; unstaged diffs passed `git diff --check` before commit.
+  - GitHub metadata checks confirmed all five repos remain `PRIVATE` on default branch `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have a root commit at `main`, and return `404` for `.github/workflows` (absent).
+  - Post-verification rate-limit evidence: core `4965/5000` remaining, reset `1779986327`.
+
+- [ ] Step 17.7: Implement sixth Shopping, Commerce & Classifieds tranche
+  - Implement five downstream repos from the reconciled Phase 17 inventory:
+    - `GeorgeQLe/home-depot-mobile-clone` as an original home improvement retail, project list, store pickup, and pro-service-blocked scaffold.
+    - `GeorgeQLe/lowe-s-mobile-clone` as an original home improvement retail, project planning, fulfillment, and installation-blocked scaffold.
+    - `GeorgeQLe/ikea-mobile-clone` as an original furniture catalog, room planning, pickup/delivery, and assembly-service-blocked scaffold.
+    - `GeorgeQLe/wayfair-mobile-clone` as an original home goods marketplace, room inspiration, delivery, and returns-blocked scaffold.
+    - `GeorgeQLe/kohl-s-mobile-clone` as an original department retail, offers/rewards, pickup, and returns-blocked scaffold.
+  - Keep implementation serial from this planning repo. Use branch-backed work only if the downstream repo requires it; otherwise land validated direct-to-`main` commits after rebasing onto latest remote `main`.
+  - Build only lawful original prototype surfaces using synthetic/local fixtures: browse/search/filter, product detail, cart/order draft, pickup/delivery quote simulation, project/room/list planning where relevant, offers/rewards placeholders where relevant, service/installation/assembly/returns blockers where relevant, and explicit blocker banners for real providers and regulated/payment behavior.
+  - Do not add or rely on GitHub Actions. Do not copy original logos, screenshots, catalog data, loyalty data, pricing data, store inventory, pro/service records, installation/assembly data, returns data, private APIs, recommendation models, payment data, delivery evidence, membership data, or licensed media.
+  - Verify each repo remains `PRIVATE`, keeps its copied source spec, has a root commit, has no `.github/workflows`, and has local validation or blocker evidence recorded before shipping.
+  - Files: downstream repos above, then update `tasks/todo.md`, `tasks/repo-seeding.md`, and `tasks/history.md` with commit, validation, blocker, and invariant evidence.
+
+  **What to Build:**
+  Sixth Phase 17 implementation tranche across home improvement, furniture/home goods, and department retail apps. Each downstream repo should get a small but coherent original scaffold proving browse/search/detail/cart/order-draft/pickup-or-delivery workflow coverage with synthetic data and explicit provider/payment/tax/shipping/inventory/loyalty/pro-service/installation/assembly/returns/licensed-data blockers.
+
+  **Approach:**
+  1. Inspect each downstream repo's current stack, task state, source spec copy, and validation commands before editing.
+  2. Rebase onto latest remote `main` before committing if the local checkout is behind.
+  3. Reuse the lightweight static prototype pattern only if no runtime stack already exists; otherwise follow the repo's selected stack.
+  4. Tailor each scaffold: project lists and pro-service blockers for Home Depot, project planning and installation blockers for Lowe's, furniture/room planning and assembly blockers for IKEA, room inspiration and returns blockers for Wayfair, and offers/rewards plus returns blockers for Kohl's.
   5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
 
 ### Milestone: Phase 17 — Shopping, Commerce & Classifieds Complete

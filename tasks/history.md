@@ -1,5 +1,38 @@
 # History
 
+## 2026-05-28 - Phase 17 Step 17.6: Fifth Shopping, Commerce & Classifieds Tranche
+
+- Built the fifth Phase 17 implementation tranche as direct-to-`main` commits across five private downstream repos:
+  - `GeorgeQLe/meijer-mobile-clone` -> `MarketRun` - commit `b116543`
+  - `GeorgeQLe/aldi-mobile-clone` -> `ValueAisle` - commit `78c3c8c`
+  - `GeorgeQLe/lidl-mobile-clone` -> `FreshValue` - commit `04a9060`
+  - `GeorgeQLe/wegmans-mobile-clone` -> `HarvestLine` - commit `376a050`
+  - `GeorgeQLe/best-buy-mobile-clone` -> `CircuitPickup` - commit `abae9a4`
+- Each repo received an original synthetic commerce prototype with `package.json`, `src/index.html`, `src/styles.css`, `src/app.js`, and `scripts/smoke-test.mjs`.
+- The prototypes cover browse/search/filter, product detail cards, local cart/order-draft or pickup-quote simulation, grocery fulfillment or electronics service placeholders, and explicit provider/payment/tax/shipping/inventory/loyalty/pharmacy/service/warranty/trade-in/licensed-data blockers.
+- Validation passed in every repo with `npm test`; downstream diffs passed `git diff --check` before commit.
+- Verified all five repos remain private, default to `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have root commits at `main`, and have no `.github/workflows` directory.
+- Post-verification GitHub rate-limit evidence: core `4965/5000` remaining, reset `1779986327`.
+- Planned Step 17.7 to implement Home Depot, Lowe's, IKEA, Wayfair, and Kohl's.
+
+### Carry-Forward Blockers
+
+- Runtime/native parity remains blocked: iOS/Android native builds, mobile browser/device QA, real push notifications, camera/photo evidence, real location, provider event webhooks, production performance, accessibility audits, and native commerce integrations.
+- Legal/provider/safety blockers remain explicit: payment authorization, tax/shipping quotes, real inventory/catalog/pricing data, loyalty/membership identity, seller/customer data, pharmacy and age-gated commerce, warranty/service records, trade-in quotes/payouts, fraud/risk review, licensed media/data, and provider credentials.
+
+### Ship Manifest
+
+- User goal: execute Phase 17 Step 17.6 by implementing the fifth Shopping, Commerce & Classifieds tranche across five downstream repos.
+- Changed files: five downstream repos changed runtime scaffold files; this planning repo changed `tasks/todo.md`, `tasks/repo-seeding.md`, and `tasks/history.md`.
+- Per-file purpose: downstream repos add Phase 17 synthetic commerce prototypes and smoke tests; `tasks/todo.md` records completion evidence and Step 17.7 instructions; `tasks/repo-seeding.md` records rate-limit and invariant evidence; `tasks/history.md` records execution evidence and shipping boundary.
+- User-goal mapping: Step 17.6 required lawful original scaffolds for regional grocery, value grocery, premium grocery, and electronics retail workflows while preserving private repos, source-spec backing, no GitHub Actions, and explicit blocker posture.
+- Tests run: each downstream repo passed `npm test`; each downstream unstaged diff passed `git diff --check`; GitHub repo/source-spec/workflow invariants were checked with `gh repo view` and `gh api`; planning repo ran Markdown diff review.
+- Skipped tests: native/mobile runtime builds, real-device QA, production payment, tax, shipping, loyalty, pharmacy, inventory, warranty, service, trade-in, delivery, licensed-data, and provider workflows were skipped because they require separate device/toolchain/provider/legal/safety approval and credentials.
+- Adversarial review: checked commit boundaries, private visibility, default branch, source-spec presence, workflow absence, synthetic-only fixture data, original names/copy, blocker text, direct-to-main push state, and next-tranche handoff.
+- Residual risk: static prototypes prove only local workflow shape and smoke-test coverage; real marketplace/provider/native behavior remains unverified until separately approved and evidenced.
+- Rollback note: revert downstream commits `b116543`, `78c3c8c`, `04a9060`, `376a050`, and `abae9a4`; revert this planning commit to reopen Step 17.6.
+- Next command: `$exec` for Step 17.7.
+
 ## 2026-05-28 - Phase 17 Step 17.3: Second Shopping, Commerce & Classifieds Tranche
 
 - Built the second Phase 17 implementation tranche as direct-to-`main` commits across five private downstream repos:
