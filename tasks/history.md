@@ -6534,3 +6534,46 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Residual risk: static prototypes are smoke-tested local scaffolds, not full Expo/native app implementations or five-variant benchmarked builds; provider and native parity remains blocked.
 - Rollback note: revert this planning commit to reopen Step 17.8; revert downstream commits `48f82c8`, `cc9316c`, `12813db`, `b0a26d5`, and `6ebd7d4` to remove the seventh-tranche scaffolds.
 - Next: Step 17.9 - implement eighth Shopping, Commerce & Classifieds tranche.
+
+## Step 17.10 - Ninth Shopping, Commerce & Classifieds Tranche (2026-05-28)
+
+### Downstream Commits
+- `GeorgeQLe/goat-mobile-clone` -> `8ea3e1e` (`VaultStep` sneaker resale, bid/offer, authenticity, and payout-blocked scaffold).
+- `GeorgeQLe/grailed-mobile-clone` -> `8fe2d86` (`ThreadLedger` menswear resale, listing, offer, and moderation-blocked scaffold).
+- `GeorgeQLe/mercari-mobile-clone` -> `0a4dd5c` (`SwapCrate` general resale listing, shipping, and payout-blocked scaffold).
+- `GeorgeQLe/vinted-mobile-clone` -> `a6c0889` (`ClosetRelay` fashion resale, bundle, label/shipping, and buyer-protection-blocked scaffold).
+- `GeorgeQLe/offerup-mobile-clone` -> `12ef3a1` (`PorchPost` local classifieds listing, messaging, pickup, and trust/safety-blocked scaffold).
+
+### Implementation
+- Added lightweight original static prototypes to each downstream repo with `package.json`, `src/index.html`, `src/styles.css`, `src/app.js`, and `scripts/smoke-test.mjs`.
+- Covered synthetic browse/search/filter, product or listing detail, local cart/offer/bid/bundle/order draft, pickup/shipping quote states, seller/listing/trust/admin placeholders, and explicit verification blockers.
+- Kept all data synthetic and all app names/copy original; no original logos, screenshots, listing data, product data, seller/customer data, private APIs, marketplace policy text, recommendation models, payment data, shipping evidence, authenticity data, moderation data, buyer-protection text, or licensed media were added.
+
+### Validation
+- `npm test` passed in all five downstream repos:
+  - VaultStep smoke test passed.
+  - ThreadLedger smoke test passed.
+  - SwapCrate smoke test passed.
+  - ClosetRelay smoke test passed.
+  - PorchPost smoke test passed.
+- `git diff --check` passed before each downstream commit.
+- GitHub metadata checks confirmed all five repos remain `PRIVATE` with default branch `main`.
+- GitHub API checks confirmed each repo keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit at `main`, and returns `404` for `.github/workflows` (absent).
+- Rate-limit evidence before tranche verification: core `4965/5000` remaining, reset `1779998237`.
+- Rate-limit evidence after tranche verification: core `4950/5000` remaining, reset `1779998237`.
+
+### Carry-Forward Blockers
+- Account lifecycle, signup/login/recovery, payment authorization, taxes, shipping quote providers, delivery dispatch, real checkout, seller payout rails, identity verification, authenticity inspection, trust/safety moderation, messaging delivery, buyer protection, refunds/disputes, provider integrations, licensed catalog/listing data, fraud/risk, region-specific behavior, native permissions, push notifications, and real-device verification remain blocked.
+- The tranche provides local prototype workflow coverage only; it does not claim exact native, provider, payment, shipping, tax, identity, authenticity, moderation, buyer-protection, payout, or support parity.
+
+### Ship Manifest
+- User goal: execute Step 17.10 and implement the ninth Shopping, Commerce & Classifieds tranche.
+- Changed files: downstream runtime scaffold files in five repos; `tasks/todo.md`; `tasks/repo-seeding.md`; `tasks/history.md`.
+- Per-file purpose: downstream files add original local fashion resale and classifieds prototypes and smoke tests; `tasks/todo.md` records Step 17.10 completion and Step 17.11 executable detail; `tasks/repo-seeding.md` updates root-commit evidence; `tasks/history.md` records commit, validation, blocker, and rollback evidence.
+- User-goal mapping: five more Phase 17 resale/classifieds repos now have working local prototype scaffolds with validation evidence and explicit blockers.
+- Tests run: `npm test` in all five downstream repos; `git diff --check` in all five downstream repos; GitHub repo metadata checks; GitHub README/source-spec/root-commit/workflow absence checks.
+- Skipped tests: no native iOS/Android, payment-provider, tax, shipping-provider, seller-payout, identity, authenticity, messaging, moderation, buyer-protection, push-notification, account, or real-device tests were run because those behaviors are explicitly blocked pending lawful provider/device/account verification.
+- Adversarial review: verified original naming/data/copy posture, no GitHub Actions usage, private visibility, default branch, source-spec presence, root commit presence, workflow absence, direct-to-`main` pushes, and blocker carry-forward.
+- Residual risk: static prototypes are smoke-tested local scaffolds, not full Expo/native app implementations or five-variant benchmarked builds; provider and native parity remains blocked.
+- Rollback note: revert this planning commit to reopen Step 17.10; revert downstream commits `8ea3e1e`, `8fe2d86`, `0a4dd5c`, `a6c0889`, and `12ef3a1` to remove the ninth-tranche scaffolds.
+- Next: Step 17.11 - implement tenth Shopping, Commerce & Classifieds tranche.
