@@ -383,7 +383,7 @@
   - GitHub metadata checks confirmed all five repos remain `PRIVATE` on default branch `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have a root commit at `main`, and return `404` for `.github/workflows` (absent).
   - Post-verification rate-limit evidence: core `4950/5000` remaining, reset `1779998237`.
 
-- [ ] Step 17.11: Implement tenth Shopping, Commerce & Classifieds tranche
+- [x] Step 17.11: Implement tenth Shopping, Commerce & Classifieds tranche
   - Implement five downstream repos from the reconciled Phase 17 inventory:
     - `GeorgeQLe/craigslist-mobile-clone` as an original classifieds marketplace, posting, search, reply, and moderation-blocked scaffold.
     - `GeorgeQLe/aliexpress-mobile-clone` as an original cross-border value retail marketplace, cart, shipping, and import/tax-blocked scaffold.
@@ -404,6 +404,43 @@
   2. Rebase onto latest remote `main` before committing if the local checkout is behind.
   3. Reuse the lightweight static prototype pattern only if no runtime stack already exists; otherwise follow the repo's selected stack.
   4. Tailor each scaffold: posting/search/reply and moderation blockers for Craigslist, cross-border cart and customs/import blockers for AliExpress and Wish, regional seller/logistics blockers for Lazada, and voucher/chat/logistics/payment blockers for Shopee.
+  5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
+
+  **Review:**
+  - Added original static classifieds and cross-border/value marketplace prototypes to all five downstream repos and pushed them directly to `main`.
+  - Downstream commits:
+    - `GeorgeQLe/craigslist-mobile-clone` -> `518b1f7` (`PostYard` classifieds posting, search, reply, and moderation-blocked scaffold).
+    - `GeorgeQLe/aliexpress-mobile-clone` -> `8d0c509` (`BorderCart` cross-border value marketplace, cart, shipping, and customs/import-blocked scaffold).
+    - `GeorgeQLe/wish-mobile-clone` -> `57409e6` (`DealDrift` deal-heavy marketplace, cart, shipping, and provider-blocked scaffold).
+    - `GeorgeQLe/lazada-mobile-clone` -> `8486a71` (`FlashBay` regional marketplace, flash deal, seller, and logistics-blocked scaffold).
+    - `GeorgeQLe/shopee-mobile-clone` -> `1d23095` (`VoucherPort` voucher-led marketplace, seller chat, logistics, and payment-blocked scaffold).
+  - Each repo now contains `package.json`, `src/index.html`, `src/styles.css`, `src/app.js`, and `scripts/smoke-test.mjs`.
+  - Each scaffold uses synthetic listings/products, original app names/copy, local-only cart, reply, deal, voucher, order-draft, pickup, or shipping quote simulation, seller/listing/trust/admin placeholders, and explicit payment/provider/tax/shipping/customs/import/logistics/moderation/chat/licensed-data blockers.
+  - Validation passed in all five repos with `npm test`; unstaged diffs passed `git diff --check` before commit.
+  - GitHub metadata checks confirmed all five repos remain `PRIVATE` on default branch `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have a root commit at `main`, and return `404` for `.github/workflows` (absent).
+  - Post-verification rate-limit evidence: core `4930/5000` remaining, reset `1779998237`.
+
+- [ ] Step 17.12: Implement eleventh Shopping, Commerce & Classifieds tranche
+  - Implement five downstream repos from the reconciled Phase 17 inventory:
+    - `GeorgeQLe/flipkart-mobile-clone` as an original regional marketplace, offer, delivery, and payment/provider-blocked scaffold.
+    - `GeorgeQLe/myntra-mobile-clone` as an original fashion marketplace, sizing, wishlist, and returns-blocked scaffold.
+    - `GeorgeQLe/rakuten-mobile-clone` as an original cashback marketplace, merchant discovery, order draft, and rewards/provider-blocked scaffold.
+    - `GeorgeQLe/newegg-mobile-clone` as an original electronics marketplace, compatibility, cart, and warranty/returns-blocked scaffold.
+    - `GeorgeQLe/letgo-mobile-clone` as an original local classifieds marketplace, listing, messaging, pickup, and trust/safety-blocked scaffold.
+  - Keep implementation serial from this planning repo. Use branch-backed work only if the downstream repo requires it; otherwise land validated direct-to-`main` commits after rebasing onto latest remote `main`.
+  - Build only lawful original prototype surfaces using synthetic/local fixtures: browse/search/filter, listing or product detail, cart/offer/order draft, shipping or pickup quote simulation, seller/listing/admin placeholders, rewards/trust signals, and explicit blocker banners for real providers and regulated/payment behavior.
+  - Do not add or rely on GitHub Actions. Do not copy original logos, screenshots, listing data, product data, seller/customer data, private APIs, marketplace policy text, recommendation models, payment data, shipping evidence, cashback/reward evidence, moderation data, compatibility data, warranty data, returns data, or licensed media.
+  - Verify each repo remains `PRIVATE`, keeps its copied source spec, has a root commit, has no `.github/workflows`, and has local validation or blocker evidence recorded before shipping.
+  - Files: downstream repos above, then update `tasks/todo.md`, `tasks/repo-seeding.md`, and `tasks/history.md` with commit, validation, blocker, and invariant evidence.
+
+  **What to Build:**
+  Eleventh Phase 17 implementation tranche across regional retail, fashion, cashback, electronics, and local classifieds apps. Each downstream repo should get a small but coherent original scaffold proving browse/search/detail/listing/cart/order-draft/pickup-or-shipping workflow coverage with synthetic data and explicit provider/payment/tax/shipping/rewards/returns/warranty/trust-safety/licensed-data blockers.
+
+  **Approach:**
+  1. Inspect each downstream repo's current stack, task state, source spec copy, and validation commands before editing.
+  2. Rebase onto latest remote `main` before committing if the local checkout is behind.
+  3. Reuse the lightweight static prototype pattern only if no runtime stack already exists; otherwise follow the repo's selected stack.
+  4. Tailor each scaffold: regional offer and delivery blockers for Flipkart, fashion sizing and returns blockers for Myntra, cashback/rewards blockers for Rakuten, electronics compatibility/warranty blockers for Newegg, and local listing/messaging/trust blockers for letgo.
   5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
 
 ### Milestone: Phase 17 — Shopping, Commerce & Classifieds Complete
