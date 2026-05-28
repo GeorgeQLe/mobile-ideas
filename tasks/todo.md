@@ -481,7 +481,7 @@
   - For those 13 repos, GitHub content checks returned `404` for `package.json`, `src/index.html`, and `scripts/smoke-test.mjs`, so the remaining Phase 17 acceptance criteria stay open.
   - Post-verification rate-limit evidence: core `4711/5000` remaining, reset `1779998237`.
 
-- [ ] Step 17.14: Implement final Shopping, Commerce & Classifieds tranche
+- [x] Step 17.14: Implement final Shopping, Commerce & Classifieds tranche
   - Implement the remaining 13 downstream repos from the reconciled Phase 17 inventory:
     - `GeorgeQLe/varagesale-mobile-clone` as an original local community classifieds, member trust, listing, and moderation-blocked scaffold.
     - `GeorgeQLe/kijiji-mobile-clone` as an original classifieds marketplace, category search, reply, and moderation-blocked scaffold.
@@ -511,6 +511,46 @@
   3. Reuse the lightweight static prototype pattern only if no runtime stack already exists; otherwise follow the repo's selected stack.
   4. Tailor each scaffold: local classifieds trust and reply flows for VarageSale, Kijiji, and Gumtree; vehicle search, lead, pricing, appraisal, financing, auction, title, and inspection blockers for the automotive repos; and creator product/checkout/library/payout blockers for Gumroad.
   5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
+
+  **Review:**
+  - Added original static community classifieds, automotive marketplace/retail/auction, listing aggregator, and creator-commerce prototypes to all 13 remaining downstream repos and pushed them directly to `main`.
+  - Downstream commits:
+    - `GeorgeQLe/varagesale-mobile-clone` -> `5abbd7b` (`NeighborTrust` local community classifieds, member trust, listing, and moderation-blocked scaffold).
+    - `GeorgeQLe/kijiji-mobile-clone` -> `bad2cfd` (`ClassiFind` classifieds category search, reply, and moderation-blocked scaffold).
+    - `GeorgeQLe/gumtree-mobile-clone` -> `657d2eb` (`LocalBranch` local classifieds posting, search, reply, and trust/safety-blocked scaffold).
+    - `GeorgeQLe/cargurus-mobile-clone` -> `3b38ed2` (`AutoSignal` automotive vehicle search, lead, pricing, and dealer-data-blocked scaffold).
+    - `GeorgeQLe/autotrader-mobile-clone` -> `b8aaf0b` (`DriveScout` automotive saved search, lead, finance, and dealer-data-blocked scaffold).
+    - `GeorgeQLe/cars-com-mobile-clone` -> `3c33ba7` (`CarAtlas` automotive research, listing, dealer contact, and pricing-data-blocked scaffold).
+    - `GeorgeQLe/carvana-mobile-clone` -> `996985a` (`AutoPorch` vehicle retail financing, delivery, trade-in, and regulated-provider-blocked scaffold).
+    - `GeorgeQLe/carmax-mobile-clone` -> `6e9875c` (`LotReserve` vehicle retail appointment, appraisal, financing, and regulated-provider-blocked scaffold).
+    - `GeorgeQLe/truecar-mobile-clone` -> `f6750b4` (`PriceLane` vehicle pricing, offer, dealer lead, and pricing-data-blocked scaffold).
+    - `GeorgeQLe/copart-mobile-clone` -> `32c9e1b` (`AuctionYard` vehicle auction bidding, inspection, title, and auction-provider-blocked scaffold).
+    - `GeorgeQLe/bring-a-trailer-mobile-clone` -> `a7ba533` (`EnthusiastBid` enthusiast vehicle auction watchlist, bidding, comments, and auction-provider-blocked scaffold).
+    - `GeorgeQLe/autolist-mobile-clone` -> `deb85a7` (`ListingRadar` vehicle listing aggregator saved search, lead, and provider-data-blocked scaffold).
+    - `GeorgeQLe/gumroad-mobile-clone` -> `c81ee58` (`CreatorShelf` creator commerce storefront, product checkout draft, library, payout, and payment-provider-blocked scaffold).
+  - Each repo now contains `package.json`, `src/index.html`, `src/styles.css`, `src/app.js`, and `scripts/smoke-test.mjs`.
+  - Each scaffold uses synthetic listings, vehicles, products, sellers, and merchants; original app names/copy; local-only cart, lead, bid, order-draft, checkout, appointment, appraisal, saved-search, library, or payout simulations; seller/listing/trust/admin placeholders; and explicit payment/provider/tax/shipping/financing/dealer/auction/title/inspection/payout/moderation/licensed-data blockers.
+  - Validation passed in all 13 repos with `npm test`; unstaged diffs passed `git diff --check` before commit.
+  - GitHub metadata checks confirmed all 13 repos remain `PRIVATE` on default branch `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have a root commit at `main`, and return `404` for `.github/workflows` (absent).
+  - Post-verification rate-limit evidence: core `4961/5000` remaining, reset `1780001929`.
+
+- [ ] Step 17.15: Close out Phase 17 validation and prepare Phase 18
+  - Reconcile Phase 17 completion across every Shopping, Commerce & Classifieds downstream repo recorded in `tasks/repo-seeding.md`.
+  - Verify every Phase 17 repo has either a local scaffold with validation evidence or an explicit local/toolchain/provider/payment/licensed-data blocker.
+  - Confirm each repo remains `PRIVATE`, has default branch `main`, keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit, and has no `.github/workflows`.
+  - Confirm local validation evidence exists for the final tranche by checking `package.json`, `src/index.html`, and `scripts/smoke-test.mjs` in the 13 repos added by Step 17.14.
+  - Review whether acceptance criteria can be checked as satisfied by current static scaffold evidence plus explicit blockers.
+  - If supported, check the remaining Phase 17 acceptance criteria, fill the Phase 17 "On Completion" section, archive the phase to `tasks/phases/phase-17.md`, mark Phase 17 complete in `tasks/roadmap.md`, and promote Phase 18 into `tasks/todo.md`.
+  - Files: `tasks/todo.md`, `tasks/roadmap.md`, `tasks/phases/phase-17.md`, `tasks/repo-seeding.md`, and `tasks/history.md`.
+
+  **What to Build:**
+  A final Phase 17 closeout packet that proves Shopping, Commerce & Classifieds has complete scaffold/validation evidence without overstating native/provider/payment/vehicle/dealer/auction parity.
+
+  **Approach:**
+  1. Read the full Phase 17 evidence in this file, `tasks/history.md`, and `tasks/repo-seeding.md`.
+  2. Use GitHub API checks serially enough to avoid rate-limit pressure; stop on any `403`, `429`, auth failure, non-private visibility, missing source spec, missing root commit, missing scaffold file, or workflow path.
+  3. Run local doc checks and any available project hygiene command for task structure.
+  4. If all acceptance criteria are supported, archive Phase 17 and prepare Phase 18. If not, document exact blockers and leave Phase 17 active with a follow-up step.
 
 ### Milestone: Phase 17 — Shopping, Commerce & Classifieds Complete
 **Acceptance Criteria:**

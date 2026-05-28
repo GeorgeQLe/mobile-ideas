@@ -1,5 +1,46 @@
 # History
 
+## 2026-05-28 - Phase 17 Step 17.14: Final Shopping, Commerce & Classifieds Tranche
+
+- Built the final Phase 17 implementation tranche as direct-to-`main` commits across 13 private downstream repos:
+  - `GeorgeQLe/varagesale-mobile-clone` -> `NeighborTrust` - commit `5abbd7b`
+  - `GeorgeQLe/kijiji-mobile-clone` -> `ClassiFind` - commit `bad2cfd`
+  - `GeorgeQLe/gumtree-mobile-clone` -> `LocalBranch` - commit `657d2eb`
+  - `GeorgeQLe/cargurus-mobile-clone` -> `AutoSignal` - commit `3b38ed2`
+  - `GeorgeQLe/autotrader-mobile-clone` -> `DriveScout` - commit `b8aaf0b`
+  - `GeorgeQLe/cars-com-mobile-clone` -> `CarAtlas` - commit `3c33ba7`
+  - `GeorgeQLe/carvana-mobile-clone` -> `AutoPorch` - commit `996985a`
+  - `GeorgeQLe/carmax-mobile-clone` -> `LotReserve` - commit `6e9875c`
+  - `GeorgeQLe/truecar-mobile-clone` -> `PriceLane` - commit `f6750b4`
+  - `GeorgeQLe/copart-mobile-clone` -> `AuctionYard` - commit `32c9e1b`
+  - `GeorgeQLe/bring-a-trailer-mobile-clone` -> `EnthusiastBid` - commit `a7ba533`
+  - `GeorgeQLe/autolist-mobile-clone` -> `ListingRadar` - commit `deb85a7`
+  - `GeorgeQLe/gumroad-mobile-clone` -> `CreatorShelf` - commit `c81ee58`
+- Each repo received an original synthetic commerce prototype with `package.json`, `src/index.html`, `src/styles.css`, `src/app.js`, and `scripts/smoke-test.mjs`.
+- The prototypes cover browse/search/filter, listing/product/vehicle detail cards, local cart/lead/bid/order-draft/checkout/appointment/appraisal/saved-search/library/payout simulations, seller/listing/trust/admin placeholders, and explicit provider/payment/tax/shipping/financing/dealer/auction/title/inspection/payout/moderation/licensed-data blockers.
+- Validation passed in every repo with `npm test`; downstream diffs passed `git diff --check` before commit.
+- Verified all 13 repos remain private, default to `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have root commits at `main`, and have no `.github/workflows` directory.
+- Post-verification GitHub rate-limit evidence: core `4961/5000` remaining, reset `1780001929`.
+- Planned Step 17.15 to close out Phase 17 validation, archive the phase if acceptance is supported, and prepare Phase 18.
+
+### Carry-Forward Blockers
+
+- Runtime/native parity remains blocked: iOS/Android native builds, mobile browser/device QA, real push notifications, camera/photo evidence, real location, provider event webhooks, production performance, accessibility audits, and native commerce integrations.
+- Legal/provider/safety blockers remain explicit: payment authorization, tax/shipping quotes, real inventory/catalog/pricing data, vehicle/dealer/auction/title/inspection data, financing/appraisal, local marketplace messaging, seller/customer data, fraud/risk review, licensed media/data, payout flows, and provider credentials.
+
+### Ship Manifest
+
+- User goal: execute Phase 17 Step 17.14 by implementing the final Shopping, Commerce & Classifieds tranche across 13 downstream repos.
+- Changed files: downstream repos listed above, `tasks/todo.md`, `tasks/repo-seeding.md`, and `tasks/history.md`.
+- Per-file purpose: downstream repos add final Phase 17 synthetic commerce prototypes and smoke tests; `tasks/todo.md` records completion evidence and Step 17.15 instructions; `tasks/repo-seeding.md` records rate-limit and invariant evidence; `tasks/history.md` records execution evidence and shipping boundary.
+- User-goal mapping: the final 13 Phase 17 repos now have working local prototype scaffolds with validation evidence and explicit blockers.
+- Tests run: `npm test` and `git diff --check` in each of the 13 downstream repos; GitHub privacy/default-branch/README/source-spec/root-commit/no-workflows invariant checks for each repo; Markdown diff review.
+- Skipped tests: native/mobile runtime builds, provider/payment/vehicle/dealer/auction/title/inspection/payout workflows, real listing/messaging flows, and licensed-data validation remain blocked until separate toolchain/provider/legal/safety approval. No project-level executable test exists in this planning repo.
+- Adversarial review: verified no GitHub Actions were added, every repo stayed private, all copied source specs remained present, scaffold files were committed on `main`, and real provider/payment/vehicle/auction/creator payout behavior was explicitly blocked rather than simulated as verified parity.
+- Residual risk: static prototypes and smoke tests prove local scaffold coverage only; native UX, accessibility, production performance, real data feeds, and regulated provider integrations remain unverified.
+- Rollback note: revert the listed downstream commits and this planning commit to reopen Step 17.14.
+- Next command: `$exec` for Step 17.15.
+
 ## 2026-05-28 - Phase 17 Step 17.13: Shopping, Commerce & Classifieds Closeout Check
 
 - Reconciled all 68 Phase 17 Shopping, Commerce & Classifieds downstream repos against `tasks/repo-seeding.md`.
