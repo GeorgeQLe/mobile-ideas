@@ -1,5 +1,38 @@
 # History
 
+## 2026-05-28 - Phase 17 Step 17.3: Second Shopping, Commerce & Classifieds Tranche
+
+- Built the second Phase 17 implementation tranche as direct-to-`main` commits across five private downstream repos:
+  - `GeorgeQLe/facebook-marketplace-mobile-clone` -> `NeighborList` - commit `faed4b5`
+  - `GeorgeQLe/poshmark-mobile-clone` -> `ClosetCircle` - commit `c34f782`
+  - `GeorgeQLe/depop-mobile-clone` -> `ReThread` - commit `998d414`
+  - `GeorgeQLe/stockx-mobile-clone` -> `LedgerDrop` - commit `a2d062a`
+  - `GeorgeQLe/shop-mobile-clone` -> `ParcelPilot` - commit `9e9c17d`
+- Each repo received an original synthetic commerce prototype with `package.json`, `src/index.html`, `src/styles.css`, `src/app.js`, and `scripts/smoke-test.mjs`.
+- The prototypes cover browse/search/filter, listing or order detail cards, local draft/quote simulation, tracking placeholders, seller/trust/admin placeholders, and explicit provider/payment/shipping/authenticity/privacy/identity/licensed-data blockers.
+- Validation passed in every repo with `npm test`; staged downstream diffs passed `git diff --cached --check` before commit.
+- Verified all five repos remain private, default to `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have root commits at `main`, and have no `.github/workflows` directory.
+- Post-verification GitHub rate-limit evidence: core `4980/5000` remaining, reset `1779917748`.
+- Planned Step 17.4 to implement Walmart, Target, Costco, Sam's Club, and Kroger.
+
+### Carry-Forward Blockers
+
+- Runtime/native parity remains blocked: iOS/Android native builds, mobile browser/device QA, real push notifications, camera/photo evidence, real location, real messaging, provider event webhooks, production performance, and accessibility audits.
+- Legal/provider/safety blockers remain explicit: payment authorization, tax/shipping quotes, real inventory/catalog/pricing data, loyalty/membership identity, seller/customer data, authenticity inspection evidence, marketplace messaging, KYC/payouts, fraud/risk review, escrow/dispute workflows, licensed media/data, and provider credentials.
+
+### Ship Manifest
+
+- User goal: execute Phase 17 Step 17.3 by implementing the second Shopping, Commerce & Classifieds tranche across five downstream repos.
+- Changed files: five downstream repos changed runtime scaffold files; this planning repo changed `tasks/todo.md` and `tasks/history.md`.
+- Per-file purpose: downstream repos add Phase 17 synthetic commerce prototypes and smoke tests; `tasks/todo.md` records completion evidence and Step 17.4 instructions; `tasks/history.md` records execution evidence and shipping boundary.
+- User-goal mapping: Step 17.3 required lawful original scaffolds for local marketplace, social resale, resale fashion, bid/ask verification, and package tracking workflows while preserving private repos, source-spec backing, no GitHub Actions, and explicit blocker posture.
+- Tests run: each downstream repo passed `npm test`; each downstream staged diff passed `git diff --cached --check`; GitHub repo/source-spec/workflow invariants were checked with `gh repo view` and `gh api`.
+- Skipped tests: native/mobile runtime builds, real-device QA, production payment, shipping, messaging, email import, carrier sync, authenticity verification, KYC/payout, fraud, dispute, licensed-data, and provider workflows were skipped because they require separate device/toolchain/provider/legal/safety approval and credentials.
+- Adversarial review: checked commit boundaries, private visibility, default branch, source-spec presence, workflow absence, synthetic-only fixture data, original names/copy, blocker text, and direct-to-main push state.
+- Residual risk: static prototypes prove only local workflow shape and smoke-test coverage; real marketplace/provider/native behavior remains unverified until separately approved and evidenced.
+- Rollback note: revert downstream commits `faed4b5`, `c34f782`, `998d414`, `a2d062a`, and `9e9c17d`; revert this planning commit to reopen Step 17.3.
+- Next command: `$exec` for Step 17.4.
+
 ## 2026-05-27 - Phase 16 Step 16.20: Photo & Video Creation Closeout
 
 - Merged the final Phase 16 implementation tranche PRs into `main` across two private downstream repos:

@@ -87,7 +87,7 @@
   - Validation passed in all five repos with `npm test`.
   - GitHub metadata checks confirmed all five repos remain `PRIVATE` on default branch `main`; local and API checks found no `.github/workflows` directory.
 
-- [ ] Step 17.3: Implement second Shopping, Commerce & Classifieds tranche
+- [x] Step 17.3: Implement second Shopping, Commerce & Classifieds tranche
   - Implement five downstream repos from the reconciled Phase 17 inventory:
     - `GeorgeQLe/facebook-marketplace-mobile-clone` as an original local marketplace/listing scaffold.
     - `GeorgeQLe/poshmark-mobile-clone` as an original social resale closet/bundle scaffold.
@@ -108,6 +108,43 @@
   2. Rebase onto latest remote `main` before committing if the local checkout is behind.
   3. Reuse the lightweight static prototype pattern only if no runtime stack already exists; otherwise follow the repo's selected stack.
   4. Tailor each scaffold: local listing/messaging/pickup trust for Facebook Marketplace, closet/bundle/offer flows for Poshmark, feed/shop/resale moderation for Depop, bid/ask/authenticity placeholders for StockX, and shipment timeline/order import privacy blockers for Shop.
+  5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
+
+  **Review:**
+  - Added original static commerce prototypes to all five downstream repos and pushed them directly to `main` after rebasing onto the latest remote `main`.
+  - Downstream commits:
+    - `GeorgeQLe/facebook-marketplace-mobile-clone` -> `faed4b5` (`NeighborList` local marketplace and pickup scaffold).
+    - `GeorgeQLe/poshmark-mobile-clone` -> `c34f782` (`ClosetCircle` social resale closet and bundle scaffold).
+    - `GeorgeQLe/depop-mobile-clone` -> `998d414` (`ReThread` resale fashion feed/shop scaffold).
+    - `GeorgeQLe/stockx-mobile-clone` -> `a2d062a` (`LedgerDrop` bid/ask verification-market scaffold).
+    - `GeorgeQLe/shop-mobile-clone` -> `9e9c17d` (`ParcelPilot` package tracking and merchant discovery scaffold).
+  - Each repo now contains `package.json`, `src/index.html`, `src/styles.css`, `src/app.js`, and `scripts/smoke-test.mjs`.
+  - Each scaffold uses synthetic listings/orders, original app names/copy, local-only draft/quote simulation, tracking placeholders, seller/trust/admin placeholders, and explicit payment/provider/shipping/authenticity/privacy/identity/licensed-data blockers.
+  - Validation passed in all five repos with `npm test`; staged diffs passed `git diff --cached --check` before commit.
+  - GitHub metadata checks confirmed all five repos remain `PRIVATE` on default branch `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have a root commit at `main`, and return `404` for `.github/workflows` (absent).
+  - Post-verification rate-limit evidence: core `4980/5000` remaining, reset `1779917748`.
+
+- [ ] Step 17.4: Implement third Shopping, Commerce & Classifieds tranche
+  - Implement five downstream repos from the reconciled Phase 17 inventory:
+    - `GeorgeQLe/walmart-mobile-clone` as an original retail/grocery marketplace scaffold.
+    - `GeorgeQLe/target-mobile-clone` as an original retail pickup, offers, and loyalty-adjacent scaffold.
+    - `GeorgeQLe/costco-mobile-clone` as an original membership warehouse retail scaffold.
+    - `GeorgeQLe/sam-s-club-mobile-clone` as an original club retail, scan-and-go-blocked scaffold.
+    - `GeorgeQLe/kroger-mobile-clone` as an original grocery cart, pickup, and coupon scaffold.
+  - Keep implementation serial from this planning repo. Use branch-backed work only if the downstream repo requires it; otherwise land validated direct-to-`main` commits after rebasing onto latest remote `main`.
+  - Build only lawful original prototype surfaces using synthetic/local fixtures: browse/search/filter, product detail, cart/order draft, pickup/delivery quote simulation, tracking, reviews/ratings or trust signals, seller/store/admin placeholders where relevant, and explicit blocker banners for real providers and regulated/payment behavior.
+  - Do not add or rely on GitHub Actions. Do not copy original logos, screenshots, catalog data, loyalty data, pricing data, store inventory, private APIs, recommendation models, payment data, delivery evidence, membership data, or licensed media.
+  - Verify each repo remains `PRIVATE`, keeps its copied source spec, has a root commit, has no `.github/workflows`, and has local validation or blocker evidence recorded before shipping.
+  - Files: downstream repos above, then update `tasks/todo.md` and `tasks/history.md` with commit, validation, blocker, and invariant evidence.
+
+  **What to Build:**
+  Third Phase 17 implementation tranche across retail and grocery marketplace apps. Each downstream repo should get a small but coherent original scaffold proving browse/search/detail/cart/order-draft/pickup-or-delivery workflow coverage with synthetic data and explicit provider/payment/tax/shipping/inventory/loyalty/membership/licensed-data blockers.
+
+  **Approach:**
+  1. Inspect each downstream repo's current stack, task state, source spec copy, and validation commands before editing.
+  2. Rebase onto latest remote `main` before committing if the local checkout is behind.
+  3. Reuse the lightweight static prototype pattern only if no runtime stack already exists; otherwise follow the repo's selected stack.
+  4. Tailor each scaffold: broad retail/grocery cart and store fulfillment for Walmart, pickup/offers for Target, membership and warehouse pack sizes for Costco, club checkout and scan-and-go blockers for Sam's Club, and grocery coupons/pickup substitutions for Kroger.
   5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
 
 ### Milestone: Phase 17 — Shopping, Commerce & Classifieds Complete
