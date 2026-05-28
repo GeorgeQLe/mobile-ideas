@@ -124,7 +124,7 @@
   - GitHub metadata checks confirmed all five repos remain `PRIVATE` on default branch `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have a root commit at `main`, and return `404` for `.github/workflows` (absent).
   - Post-verification rate-limit evidence: core `4980/5000` remaining, reset `1779917748`.
 
-- [ ] Step 17.4: Implement third Shopping, Commerce & Classifieds tranche
+- [x] Step 17.4: Implement third Shopping, Commerce & Classifieds tranche
   - Implement five downstream repos from the reconciled Phase 17 inventory:
     - `GeorgeQLe/walmart-mobile-clone` as an original retail/grocery marketplace scaffold.
     - `GeorgeQLe/target-mobile-clone` as an original retail pickup, offers, and loyalty-adjacent scaffold.
@@ -145,6 +145,43 @@
   2. Rebase onto latest remote `main` before committing if the local checkout is behind.
   3. Reuse the lightweight static prototype pattern only if no runtime stack already exists; otherwise follow the repo's selected stack.
   4. Tailor each scaffold: broad retail/grocery cart and store fulfillment for Walmart, pickup/offers for Target, membership and warehouse pack sizes for Costco, club checkout and scan-and-go blockers for Sam's Club, and grocery coupons/pickup substitutions for Kroger.
+  5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
+
+  **Review:**
+  - Added original static retail/grocery prototypes to all five downstream repos and pushed them directly to `main`.
+  - Downstream commits:
+    - `GeorgeQLe/walmart-mobile-clone` -> `59994d6` (`MarketBasket` retail/grocery marketplace scaffold).
+    - `GeorgeQLe/target-mobile-clone` -> `9efd0a3` (`PickupPoint` retail pickup and offers scaffold).
+    - `GeorgeQLe/costco-mobile-clone` -> `2c3cbf9` (`WarehouseLoop` membership warehouse retail scaffold).
+    - `GeorgeQLe/sam-s-club-mobile-clone` -> `da79dc0` (`ClubCart` club retail and scan-and-go-blocked scaffold).
+    - `GeorgeQLe/kroger-mobile-clone` -> `da77c02` (`FreshCart` grocery pickup and coupon scaffold).
+  - Each repo now contains `package.json`, `src/index.html`, `src/styles.css`, `src/app.js`, and `scripts/smoke-test.mjs`.
+  - Each scaffold uses synthetic products/orders, original app names/copy, local-only cart and order-draft simulation, pickup/delivery/shipping placeholders, and explicit payment/provider/tax/shipping/inventory/loyalty/membership/licensed-data blockers.
+  - Validation passed in all five repos with `npm test`; unstaged diffs passed `git diff --check` before commit.
+  - GitHub metadata checks confirmed all five repos remain `PRIVATE` on default branch `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have a root commit at `main`, and return `404` for `.github/workflows` (absent).
+  - Post-verification rate-limit evidence: core `4950/5000` remaining, reset `1779982602`.
+
+- [ ] Step 17.5: Implement fourth Shopping, Commerce & Classifieds tranche
+  - Implement five downstream repos from the reconciled Phase 17 inventory:
+    - `GeorgeQLe/safeway-mobile-clone` as an original grocery delivery, pickup, and loyalty/coupon scaffold.
+    - `GeorgeQLe/albertsons-mobile-clone` as an original grocery pickup, pharmacy-blocked, and rewards scaffold.
+    - `GeorgeQLe/whole-foods-market-mobile-clone` as an original premium grocery, prepared-foods, and delivery-provider-blocked scaffold.
+    - `GeorgeQLe/publix-mobile-clone` as an original grocery deli, pickup, and coupon scaffold.
+    - `GeorgeQLe/h-e-b-mobile-clone` as an original regional grocery, curbside, and substitution scaffold.
+  - Keep implementation serial from this planning repo. Use branch-backed work only if the downstream repo requires it; otherwise land validated direct-to-`main` commits after rebasing onto latest remote `main`.
+  - Build only lawful original prototype surfaces using synthetic/local fixtures: browse/search/filter, product detail, grocery cart/order draft, pickup/delivery/curbside quote simulation, substitution preferences, tracking, coupon/rewards placeholders, pharmacy/alcohol/regulated-item blockers where relevant, and explicit blocker banners for real providers and regulated/payment behavior.
+  - Do not add or rely on GitHub Actions. Do not copy original logos, screenshots, catalog data, loyalty data, pricing data, store inventory, pharmacy data, private APIs, recommendation models, payment data, delivery evidence, membership data, or licensed media.
+  - Verify each repo remains `PRIVATE`, keeps its copied source spec, has a root commit, has no `.github/workflows`, and has local validation or blocker evidence recorded before shipping.
+  - Files: downstream repos above, then update `tasks/todo.md` and `tasks/history.md` with commit, validation, blocker, and invariant evidence.
+
+  **What to Build:**
+  Fourth Phase 17 implementation tranche across grocery marketplace apps. Each downstream repo should get a small but coherent original scaffold proving browse/search/detail/cart/order-draft/pickup-or-delivery workflow coverage with synthetic data and explicit provider/payment/tax/shipping/inventory/loyalty/pharmacy/alcohol/licensed-data blockers.
+
+  **Approach:**
+  1. Inspect each downstream repo's current stack, task state, source spec copy, and validation commands before editing.
+  2. Rebase onto latest remote `main` before committing if the local checkout is behind.
+  3. Reuse the lightweight static prototype pattern only if no runtime stack already exists; otherwise follow the repo's selected stack.
+  4. Tailor each scaffold: grocery delivery and loyalty/coupons for Safeway, pharmacy/rewards blockers for Albertsons, premium prepared-foods and delivery-provider blockers for Whole Foods Market, deli/coupon pickup for Publix, and curbside/substitution regional grocery flows for H-E-B.
   5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
 
 ### Milestone: Phase 17 — Shopping, Commerce & Classifieds Complete

@@ -6306,3 +6306,46 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Residual risk: static prototypes are smoke-tested local scaffolds, not full Expo/native app implementations or five-variant benchmarked builds; provider and native parity remains blocked.
 - Rollback note: revert this planning commit to reopen Step 17.2; revert downstream commits `e608f84`, `500d0ea`, `a6c6310`, `ebe1463`, and `0bcb3fe` to remove the first-tranche scaffolds.
 - Next: Step 17.3 - implement second Shopping, Commerce & Classifieds tranche.
+
+## Step 17.4 - Third Shopping, Commerce & Classifieds Tranche (2026-05-28)
+
+### Downstream Commits
+- `GeorgeQLe/walmart-mobile-clone` -> `59994d6` (`MarketBasket` retail/grocery marketplace scaffold).
+- `GeorgeQLe/target-mobile-clone` -> `9efd0a3` (`PickupPoint` retail pickup and offers scaffold).
+- `GeorgeQLe/costco-mobile-clone` -> `2c3cbf9` (`WarehouseLoop` membership warehouse retail scaffold).
+- `GeorgeQLe/sam-s-club-mobile-clone` -> `da79dc0` (`ClubCart` club retail and scan-and-go-blocked scaffold).
+- `GeorgeQLe/kroger-mobile-clone` -> `da77c02` (`FreshCart` grocery pickup and coupon scaffold).
+
+### Implementation
+- Added lightweight original static prototypes to each downstream repo with `package.json`, `src/index.html`, `src/styles.css`, `src/app.js`, and `scripts/smoke-test.mjs`.
+- Covered synthetic browse/search/filter, product detail, local cart/order draft, pickup/delivery/shipping/scan simulation where relevant, fulfillment workflow states, and explicit verification blockers.
+- Kept all data synthetic and all app names/copy original; no original logos, screenshots, catalog data, loyalty data, pricing data, store inventory, private APIs, recommendation models, payment data, delivery evidence, membership data, or licensed media were added.
+
+### Validation
+- `npm test` passed in all five downstream repos:
+  - MarketBasket smoke test passed.
+  - PickupPoint smoke test passed.
+  - WarehouseLoop smoke test passed.
+  - ClubCart smoke test passed.
+  - FreshCart smoke test passed.
+- `git diff --check` passed before each downstream commit.
+- GitHub metadata checks confirmed all five repos remain `PRIVATE` with default branch `main`.
+- GitHub API checks confirmed each repo keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit at `main`, and returns `404` for `.github/workflows` (absent).
+- Rate-limit evidence before tranche verification: core `4970/5000` remaining, reset `1779982602`.
+- Rate-limit evidence after tranche verification: core `4950/5000` remaining, reset `1779982602`.
+
+### Carry-Forward Blockers
+- Account lifecycle, signup/login/recovery, payment authorization, taxes, shipping quote providers, delivery dispatch, real checkout, loyalty/rewards/coupons, membership identity, warehouse/club/store inventory, scan-and-go hardware validation, pharmacy/fuel/optical/cafe services, alcohol or regulated grocery checks, provider integrations, licensed catalog data, fraud/risk, trust/safety moderation, returns/refunds, disputes, region-specific behavior, native permissions, push notifications, and real-device verification remain blocked.
+- The tranche provides local prototype workflow coverage only; it does not claim exact native, provider, payment, shipping, tax, inventory, membership, loyalty, regulated-item, or support parity.
+
+### Ship Manifest
+- User goal: execute Step 17.4 and implement the third Shopping, Commerce & Classifieds tranche.
+- Changed files: downstream runtime scaffold files in five repos; `tasks/todo.md`; `tasks/history.md`.
+- Per-file purpose: downstream files add original local retail/grocery prototypes and smoke tests; `tasks/todo.md` records Step 17.4 completion and Step 17.5 executable detail; `tasks/history.md` records commit, validation, blocker, and rollback evidence.
+- User-goal mapping: five more Phase 17 retail/grocery repos now have working local prototype scaffolds with validation evidence and explicit blockers.
+- Tests run: `npm test` in all five downstream repos; `git diff --check` in all five downstream repos; GitHub repo metadata checks; GitHub README/source-spec/root-commit/workflow absence checks.
+- Skipped tests: no native iOS/Android, payment-provider, tax, shipping, inventory-provider, loyalty, membership, regulated-item, push-notification, account, or real-device tests were run because those behaviors are explicitly blocked pending lawful provider/device/account verification.
+- Adversarial review: verified original naming/data/copy posture, no GitHub Actions usage, private visibility, default branch, source-spec presence, root commit presence, workflow absence, direct-to-`main` pushes, and blocker carry-forward.
+- Residual risk: static prototypes are smoke-tested local scaffolds, not full Expo/native app implementations or five-variant benchmarked builds; provider and native parity remains blocked.
+- Rollback note: revert this planning commit to reopen Step 17.4; revert downstream commits `59994d6`, `9efd0a3`, `2c3cbf9`, `da79dc0`, and `da77c02` to remove the third-tranche scaffolds.
+- Next: Step 17.5 - implement fourth Shopping, Commerce & Classifieds tranche.
