@@ -6952,3 +6952,43 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Residual risk: static prototypes are syntax-checked local scaffolds, not full Expo/native app implementations or five-variant benchmarked builds; provider and native parity remains blocked.
 - Rollback note: revert this planning commit to reopen Step 18.6; revert downstream commits `87d2c7b`, `4334e61`, `afa3620`, `9b1f03d`, and `89b33a7` to remove the fifth-tranche scaffolds.
 - Next: Step 18.7 - implement sixth Food, Delivery & Grocery tranche.
+
+## Step 18.7 - Sixth Food, Delivery & Grocery Tranche (2026-06-01)
+
+### Downstream Commits
+- `GeorgeQLe/cava-mobile-clone` -> `e0dc159` original Mediterranean bowl/pita ordering, ingredient customization, pickup/delivery handoff, and nutrition/allergen/provider-blocked scaffold.
+- `GeorgeQLe/wingstop-mobile-clone` -> `e123851` original wings QSR ordering, flavor/quantity customization, pickup/delivery handoff, offers placeholders, and provider/payment-blocked scaffold.
+- `GeorgeQLe/dairy-queen-mobile-clone` -> `83faedb` original treat/QSR ordering, frozen item customization, pickup/delivery handoff, and loyalty/provider-blocked scaffold.
+- `GeorgeQLe/dutch-bros-mobile-clone` -> `e76a03c` original coffee/beverage ordering, drink customization, offers/rewards placeholders, stored-value-blocked, and provider/payment-blocked scaffold.
+- `GeorgeQLe/7-eleven-mobile-clone` -> `4c7e975` original convenience cart, pickup/delivery handoff, age/regulated-item blockers, inventory/provider/payment-blocked scaffold.
+
+### Implementation
+- Added lightweight original static prototypes to each downstream repo with `index.html`, `package.json`, `src/styles.css`, and `src/app.js`.
+- Covered synthetic store or location selection, menu/catalog customization, cart/order draft, local quote simulation, pickup/delivery handoff status, support placeholders, offers/rewards or stored-value placeholders where relevant, nutrition/allergen blockers, and age/regulated-item/inventory blockers.
+- Kept all data synthetic and all app UI names/copy original; no original logos, screenshots, menus, product catalogs, nutrition/allergen data, rewards data, offers, prices, photos, payment data, courier evidence, franchise data, age-restricted item data, licensed data, or private APIs were added.
+
+### Validation
+- `npm run check` passed in all five downstream repos.
+- `git diff --check` and `git diff --check --cached` passed in all five downstream repos before commit.
+- Post-push `git status --short --branch` was clean and matched `origin/main` in every temporary downstream clone.
+- GitHub metadata checks confirmed all five repos remain `PRIVATE` with default branch `main`.
+- GitHub API checks confirmed each repo keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit at `main`, and has no `.github/workflows`.
+- Browser rendered verification was skipped because the Browser plugin's required Node browser-control tool was not available after tool discovery.
+- Rate-limit evidence before tranche verification: core `4945/5000` remaining, reset `1780325056`.
+- Rate-limit evidence after tranche verification: core `4980/5000` remaining, reset `1780328900`.
+
+### Carry-Forward Blockers
+- Account lifecycle, signup/login/recovery, payment authorization, taxes/tips/fees, delivery/courier dispatch, live maps/location, store availability, real menus/catalogs/prices/offers, inventory, nutrition/allergen verification, loyalty/rewards redemption, stored value, order tracking provider states, pickup shelf/drive-thru check-in, refunds/support automation, regulated food/alcohol/tobacco/pharmacy-adjacent goods, age verification, provider integrations, licensed menu/catalog data, fraud/risk, franchise variation, region-specific behavior, native permissions, push notifications, and real-device verification remain blocked.
+- The tranche provides local prototype workflow coverage only; it does not claim exact native, provider, payment, delivery, tracker, loyalty, nutrition/allergen, inventory, regulated-item, age-verification, franchise, or support parity.
+
+### Ship Manifest
+- User goal: execute Step 18.7 and implement the sixth Food, Delivery & Grocery tranche.
+- Changed files: downstream runtime scaffold files in five repos; `tasks/todo.md`; `tasks/repo-seeding.md`; `tasks/history.md`.
+- Per-file purpose: downstream files add original local fast-casual bowl, wings, treat/QSR, beverage, and convenience-commerce prototypes; `tasks/todo.md` records Step 18.7 completion and Step 18.8 executable detail; `tasks/repo-seeding.md` updates root-commit and rate-limit evidence; `tasks/history.md` records commit, validation, blocker, and rollback evidence.
+- User-goal mapping: five more Phase 18 food/delivery/grocery repos now have working local prototype scaffolds with validation evidence and explicit blockers.
+- Tests run: `npm run check` in all five downstream repos; `git diff --check` and `git diff --check --cached` in all five downstream repos; GitHub repo metadata checks; GitHub README/source-spec/root-commit/workflow absence checks.
+- Skipped tests: Browser rendered verification was skipped because the Browser plugin's required Node browser-control tool was unavailable; no native iOS/Android, payment-provider, tax/tip/fee, location/map-provider, delivery/courier, menu/catalog-provider, inventory, nutrition/allergen, loyalty/rewards/stored-value, age-verification, regulated-item, order-tracking-provider, pickup shelf/drive-thru check-in, franchise-variation, push-notification, account, or real-device tests were run because those behaviors are explicitly blocked pending lawful provider/device/account verification.
+- Adversarial review: verified original naming/data/copy posture, no GitHub Actions usage, private visibility, default branch, source-spec presence, root commit presence, workflow absence, direct-to-`main` pushes, clean downstream status, and blocker carry-forward.
+- Residual risk: static prototypes are syntax-checked local scaffolds, not full Expo/native app implementations or five-variant benchmarked builds; provider and native parity remains blocked.
+- Rollback note: revert this planning commit to reopen Step 18.7; revert downstream commits `e0dc159`, `e123851`, `83faedb`, `e76a03c`, and `4c7e975` to remove the sixth-tranche scaffolds.
+- Next: Step 18.8 - implement seventh Food, Delivery & Grocery tranche.

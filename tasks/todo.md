@@ -233,7 +233,7 @@
   - Serial GitHub invariant scan confirmed every repo remains `private`, defaults to `main`, keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit on `main`, and has no `.github/workflows`.
   - GitHub rate-limit evidence: pre-scan core `4965/5000` remaining, post-scan core `4945/5000` remaining, reset `1780325056`.
 
-- [ ] Step 18.7: Implement sixth Food, Delivery & Grocery tranche
+- [x] Step 18.7: Implement sixth Food, Delivery & Grocery tranche
   - Implement five downstream repos from the reconciled Phase 18 inventory:
     - `GeorgeQLe/cava-mobile-clone` as an original Mediterranean bowl/pita ordering, ingredient customization, pickup/delivery handoff, and nutrition/allergen/provider-blocked scaffold.
     - `GeorgeQLe/wingstop-mobile-clone` as an original wings QSR ordering, flavor/quantity customization, pickup/delivery handoff, offers placeholders, and provider/payment-blocked scaffold.
@@ -254,6 +254,44 @@
   2. Rebase or fast-forward onto latest remote `main` before committing if the local checkout is behind.
   3. Reuse the lightweight static prototype pattern from Steps 18.2-18.6 only when no runtime stack already exists; otherwise follow the repo's selected stack.
   4. Tailor each scaffold: Mediterranean bowl/pita ingredient customization for CAVA, wing flavor/quantity selection for Wingstop, treat/custom item flows for Dairy Queen, drink customization and rewards blockers for Dutch Bros, and convenience cart plus age/regulated-item blockers for 7-Eleven.
+  5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
+
+  **Review:**
+  - Built and pushed original static mobile prototype scaffolds for all five repos on `main`:
+    - `GeorgeQLe/cava-mobile-clone` -> commit `e0dc159`.
+    - `GeorgeQLe/wingstop-mobile-clone` -> commit `e123851`.
+    - `GeorgeQLe/dairy-queen-mobile-clone` -> commit `83faedb`.
+    - `GeorgeQLe/dutch-bros-mobile-clone` -> commit `e76a03c`.
+    - `GeorgeQLe/7-eleven-mobile-clone` -> commit `4c7e975`.
+  - Each repo now has `index.html`, `package.json`, `src/styles.css`, and `src/app.js` with synthetic/local fixture workflows only.
+  - Covered store/location selection, menu/catalog customization, cart/order draft, local quote simulation, pickup/delivery handoff status, support placeholders, offers/rewards or stored-value placeholders where relevant, nutrition/allergen blockers for bowl/beverage workflows, and age/regulated-item/inventory blockers for convenience workflows.
+  - Validation passed in all five repos with `npm run check`; downstream diffs passed `git diff --check` and `git diff --check --cached` before commit.
+  - Browser rendered verification was skipped because the Browser plugin's required Node browser-control tool was not available after tool discovery.
+  - Post-push `git status --short --branch` was clean and matched `origin/main` in every temporary downstream clone.
+  - Serial GitHub invariant scan confirmed every repo remains `private`, defaults to `main`, keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit on `main`, and has no `.github/workflows`.
+  - GitHub rate-limit evidence: pre-scan core `4945/5000` remaining, reset `1780325056`; post-scan core `4980/5000` remaining, reset `1780328900`.
+
+- [ ] Step 18.8: Implement seventh Food, Delivery & Grocery tranche
+  - Implement five downstream repos from the reconciled Phase 18 inventory:
+    - `GeorgeQLe/krispy-kreme-mobile-clone` as an original doughnut/coffee ordering, box customization, pickup/delivery handoff, and rewards/payment/provider-blocked scaffold.
+    - `GeorgeQLe/jamba-mobile-clone` as an original smoothie/bowl ordering, boosts/customization, pickup/delivery handoff, and nutrition/allergen/provider-blocked scaffold.
+    - `GeorgeQLe/food-lion-mobile-clone` as an original grocery browse, cart, substitutions, pickup/delivery handoff, loyalty, and inventory/provider/payment-blocked scaffold.
+    - `GeorgeQLe/giant-eagle-mobile-clone` as an original grocery cart, substitutions, pickup/delivery handoff, perks placeholders, pharmacy-adjacent blockers, and inventory/provider/payment-blocked scaffold.
+    - `GeorgeQLe/stop-and-shop-mobile-clone` as an original grocery browse, cart, substitutions, pickup/delivery handoff, loyalty/offers placeholders, and inventory/provider/payment-blocked scaffold.
+  - Keep implementation serial from this planning repo. Use temporary or local checkouts as needed, but land validated direct-to-`main` commits after confirming each checkout matches remote `main`.
+  - Use original static/local scaffolds unless a repo already has a runtime stack; do not introduce backend, auth, payment, provider, map, analytics, delivery, loyalty, order-tracking-provider, nutrition/allergen, pharmacy, inventory, or regulated-item infrastructure.
+  - Use synthetic/local fixtures only. Do not copy original logos, screenshots, menus, product catalogs, nutrition/allergen data, rewards data, offers, prices, photos, payment data, courier evidence, franchise/store data, age-restricted item data, prescription/pharmacy data, licensed data, or private APIs.
+  - Verify each repo remains `PRIVATE`, defaults to `main`, keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit, has no `.github/workflows`, and has local validation or blocker evidence recorded before shipping.
+  - Files: downstream repos above, then update `tasks/todo.md`, `tasks/repo-seeding.md`, and `tasks/history.md` with commit, validation, blocker, and invariant evidence.
+
+  **What to Build:**
+  Seventh Phase 18 implementation tranche across doughnut/coffee, smoothie/bowl, and grocery pickup/delivery apps. Each downstream repo should get a coherent original scaffold proving store selection, menu/catalog browse, item customization or substitution preferences, cart/order draft, pickup/delivery handoff status, offers/rewards placeholders where relevant, support placeholders, and provider/payment/location/nutrition/inventory/pharmacy-adjacent blockers with synthetic data.
+
+  **Approach:**
+  1. Inspect each downstream repo's current stack, task state, source spec copy, and validation commands before editing.
+  2. Rebase or fast-forward onto latest remote `main` before committing if the local checkout is behind.
+  3. Reuse the lightweight static prototype pattern from Steps 18.2-18.7 only when no runtime stack already exists; otherwise follow the repo's selected stack.
+  4. Tailor each scaffold: doughnut box and coffee customization for Krispy Kreme, smoothie boosts and bowl customization for Jamba, grocery substitutions and pickup/delivery cart flows for Food Lion and Stop & Shop, and grocery/perks plus pharmacy-adjacent blockers for Giant Eagle.
   5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
 
 ### Milestone: Phase 18 — Food, Delivery & Grocery Complete
