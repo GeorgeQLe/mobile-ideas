@@ -123,7 +123,7 @@
   - Serial GitHub invariant scan confirmed every repo remains `private`, defaults to `main`, keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit on `main`, and has no `.github/workflows`.
   - GitHub rate-limit evidence: pre-scan core `5000/5000` remaining, post-scan core `4990/5000` remaining, reset `1780289885`.
 
-- [ ] Step 18.4: Implement third Food, Delivery & Grocery tranche
+- [x] Step 18.4: Implement third Food, Delivery & Grocery tranche
   - Implement five downstream repos from the reconciled Phase 18 inventory:
     - `GeorgeQLe/chipotle-mobile-clone` as an original fast-casual ordering, bowl/burrito customization, pickup/delivery handoff, and rewards-blocked scaffold.
     - `GeorgeQLe/taco-bell-mobile-clone` as an original QSR ordering, menu customization, offers/rewards, pickup/delivery handoff, and payment-blocked scaffold.
@@ -144,6 +144,42 @@
   2. Rebase onto latest remote `main` before committing if the local checkout is behind.
   3. Reuse the lightweight static prototype pattern from Steps 18.2-18.3 only when no runtime stack already exists; otherwise follow the repo's selected stack.
   4. Tailor each scaffold: ingredient-line customization for Chipotle/Subway, late-night/offers-oriented QSR ordering for Taco Bell, bakery-cafe pickup/rewards/subscription blockers for Panera Bread, and QSR deals/pickup/delivery handoff for Wendy's.
+  5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
+
+  **Review:**
+  - Built and pushed original static mobile prototype scaffolds for all five repos on `main`:
+    - `GeorgeQLe/chipotle-mobile-clone` -> commit `511a82f`.
+    - `GeorgeQLe/taco-bell-mobile-clone` -> commit `4d643c3`.
+    - `GeorgeQLe/subway-mobile-clone` -> commit `ceb7ec2`.
+    - `GeorgeQLe/panera-bread-mobile-clone` -> commit `94c6486`.
+    - `GeorgeQLe/wendy-s-mobile-clone` -> commit `48f03b7`.
+  - Each repo now has `index.html`, `package.json`, `src/styles.css`, and `src/app.js` with synthetic/local fixture workflows only.
+  - Covered store selection, menu/category browse, item customization, basket/order draft, pickup or delivery handoff status, support placeholders, offers/rewards/subscription placeholders where relevant, and explicit blocked gates for real providers, payment, tax/tip/fees, live location/maps, menu/provider data, nutrition/allergen data, regulated food, loyalty/rewards, subscriptions/stored value, pickup shelf/drive-thru check-in, refunds/support escalation, franchise variation, and account/native verification.
+  - Validation passed in all five repos with `npm run check`; downstream diffs passed `git diff --check` before commit.
+  - Serial GitHub invariant scan confirmed every repo remains `private`, defaults to `main`, keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit on `main`, and has no `.github/workflows`.
+  - GitHub rate-limit evidence: pre-scan core `5000/5000` remaining, post-scan core `4985/5000` remaining, reset `1780325056`.
+
+- [ ] Step 18.5: Implement fourth Food, Delivery & Grocery tranche
+  - Implement five downstream repos from the reconciled Phase 18 inventory:
+    - `GeorgeQLe/burger-king-mobile-clone` as an original QSR ordering, deals/rewards, pickup/delivery handoff, and provider/payment-blocked scaffold.
+    - `GeorgeQLe/domino-s-mobile-clone` as an original pizza ordering, customization, tracker-style status, carryout/delivery handoff, and provider-blocked scaffold.
+    - `GeorgeQLe/pizza-hut-mobile-clone` as an original pizza/QSR ordering, deals, cart, delivery/carryout status, and payment/provider-blocked scaffold.
+    - `GeorgeQLe/papa-johns-mobile-clone` as an original pizza ordering, toppings/customization, loyalty/offers, delivery/carryout handoff, and provider-blocked scaffold.
+    - `GeorgeQLe/little-caesars-mobile-clone` as an original pizza pickup portal, ready-box-style handoff placeholder, cart/order draft, and payment/provider-blocked scaffold.
+  - Keep implementation serial from this planning repo. Rebase each downstream checkout onto latest remote `main` before committing if remote has advanced.
+  - Use original static/local scaffolds unless a repo already has a runtime stack; do not introduce backend, auth, payment, provider, map, analytics, delivery, loyalty, order-tracking-provider, nutrition/allergen, or regulated-item infrastructure.
+  - Use synthetic/local fixtures only. Do not copy original logos, screenshots, menus, restaurant data, nutrition/allergen data, rewards data, offers, prices, photos, payment data, courier evidence, franchise data, order-tracker state machines, licensed data, or private APIs.
+  - Verify each repo remains `PRIVATE`, defaults to `main`, keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit, has no `.github/workflows`, and has local validation or blocker evidence recorded before shipping.
+  - Files: downstream repos above, then update `tasks/todo.md`, `tasks/repo-seeding.md`, and `tasks/history.md` with commit, validation, blocker, and invariant evidence.
+
+  **What to Build:**
+  Fourth Phase 18 implementation tranche across burger QSR and pizza ordering apps. Each downstream repo should get a coherent original scaffold proving store selection, menu/pizza customization, cart/order draft, carryout/delivery handoff status, tracker/status placeholders, offers/rewards placeholders, support placeholders, and provider/payment/location/tracker/loyalty blockers with synthetic data.
+
+  **Approach:**
+  1. Inspect each downstream repo's current stack, task state, source spec copy, and validation commands before editing.
+  2. Rebase onto latest remote `main` before committing if the local checkout is behind.
+  3. Reuse the lightweight static prototype pattern from Steps 18.2-18.4 only when no runtime stack already exists; otherwise follow the repo's selected stack.
+  4. Tailor each scaffold: QSR deals/pickup/delivery for Burger King, pizza builder and tracker placeholders for Domino's, deals and delivery/carryout status for Pizza Hut, toppings/loyalty/offers for Papa Johns, and pickup portal/ready-box handoff placeholders for Little Caesars.
   5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
 
 ### Milestone: Phase 18 — Food, Delivery & Grocery Complete
