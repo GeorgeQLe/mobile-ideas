@@ -1,5 +1,37 @@
 # History
 
+## 2026-06-01 - Phase 18 Step 18.8: Seventh Food, Delivery & Grocery Tranche
+
+- Built the seventh Phase 18 implementation tranche as direct-to-`main` commits across five private downstream repos:
+  - `GeorgeQLe/krispy-kreme-mobile-clone` - commit `775986d`.
+  - `GeorgeQLe/jamba-mobile-clone` - commit `80ed162`.
+  - `GeorgeQLe/food-lion-mobile-clone` - commit `3b69045`.
+  - `GeorgeQLe/giant-eagle-mobile-clone` - commit `3e4fec1`.
+  - `GeorgeQLe/stop-and-shop-mobile-clone` - commit `24c944d`.
+- Each repo received an original static prototype with `index.html`, `package.json`, `src/styles.css`, and `src/app.js`.
+- The prototypes cover synthetic store/location selection, doughnut/coffee box customization, smoothie/bowl boosts, grocery catalog browse, cart/order draft, substitution preferences, pickup/delivery/curbside handoff status, loyalty/coupon/perks placeholders, support placeholders, and explicit provider/payment/location/inventory/nutrition/allergen/pharmacy-adjacent blockers.
+- Verified all five repos remain private, default to `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have root commits at `main`, and have no `.github/workflows` directory.
+- Planned Step 18.9 for ShopRite, FreshDirect, Misfits Market, Thrive Market, and Ocado.
+
+**Validation:**
+- `npm run check` passed in each of the five downstream repos.
+- `git diff --check --cached` passed before each downstream commit.
+- Serial GitHub API invariant scan: `checked=5`, `status=ok`.
+- GitHub rate-limit evidence: pre-scan core `4980/5000` remaining, post-scan core `4960/5000` remaining, reset `1780328900`.
+- Browser rendered verification was skipped because Browser navigation/screenshot tools were not surfaced by tool discovery in this session.
+
+**Ship Manifest:**
+- User goal: execute Phase 18 Step 18.8 by implementing the seventh Food, Delivery & Grocery tranche across five downstream repos.
+- Changed files: downstream repos listed above, `tasks/todo.md`, `tasks/repo-seeding.md`, and `tasks/history.md`.
+- Per-file purpose: downstream repos add original local static prototypes and validation scripts; `tasks/todo.md` marks Step 18.8 complete and contains a self-contained Step 18.9 plan; `tasks/repo-seeding.md` records rate-limit and invariant evidence; `tasks/history.md` records execution evidence and shipping boundary.
+- User-goal mapping: these five Phase 18 apps now have working local prototype scaffolds with validation evidence and explicit blockers rather than seeded-only planning repos.
+- Tests run: `npm run check` in each downstream repo; `git diff --check --cached` in each downstream repo; serial GitHub privacy/default-branch/README/source-spec/root-commit/no-workflows invariant checks for each repo; planning-doc diff review.
+- Skipped tests: native iOS/Android builds, mobile browser/device QA, provider/payment/tax/tip/fee/location/courier/loyalty/coupon/perks/inventory/nutrition/allergen/pharmacy-adjacent/refund/support/account flows, and regulated goods checks remain blocked until separate provider/toolchain/device/legal access exists. Browser rendered verification was skipped because Browser navigation/screenshot tools were unavailable in this session.
+- Adversarial review: verified no GitHub Actions were added, every repo stayed private, copied source specs remained present, scaffolds use synthetic data only, and real provider/payment/location/inventory/nutrition/allergen/pharmacy-adjacent behavior is presented as blocked rather than verified parity.
+- Residual risk: static prototypes prove local scaffold coverage and JavaScript syntax only; native UX, accessibility, production performance, real data feeds, payments, live tracking, loyalty, inventory, nutrition/allergen, pharmacy-adjacent, and regulated provider integrations remain unverified.
+- Rollback note: revert the listed downstream commits and this planning commit to reopen Step 18.8.
+- Next command: `$exec` for Step 18.9.
+
 ## 2026-05-28 - Phase 18 Step 18.2: First Food, Delivery & Grocery Tranche
 
 - Built the first Phase 18 implementation tranche as direct-to-`main` commits across five private downstream repos:

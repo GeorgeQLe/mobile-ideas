@@ -271,7 +271,7 @@
   - Serial GitHub invariant scan confirmed every repo remains `private`, defaults to `main`, keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit on `main`, and has no `.github/workflows`.
   - GitHub rate-limit evidence: pre-scan core `4945/5000` remaining, reset `1780325056`; post-scan core `4980/5000` remaining, reset `1780328900`.
 
-- [ ] Step 18.8: Implement seventh Food, Delivery & Grocery tranche
+- [x] Step 18.8: Implement seventh Food, Delivery & Grocery tranche
   - Implement five downstream repos from the reconciled Phase 18 inventory:
     - `GeorgeQLe/krispy-kreme-mobile-clone` as an original doughnut/coffee ordering, box customization, pickup/delivery handoff, and rewards/payment/provider-blocked scaffold.
     - `GeorgeQLe/jamba-mobile-clone` as an original smoothie/bowl ordering, boosts/customization, pickup/delivery handoff, and nutrition/allergen/provider-blocked scaffold.
@@ -292,6 +292,44 @@
   2. Rebase or fast-forward onto latest remote `main` before committing if the local checkout is behind.
   3. Reuse the lightweight static prototype pattern from Steps 18.2-18.7 only when no runtime stack already exists; otherwise follow the repo's selected stack.
   4. Tailor each scaffold: doughnut box and coffee customization for Krispy Kreme, smoothie boosts and bowl customization for Jamba, grocery substitutions and pickup/delivery cart flows for Food Lion and Stop & Shop, and grocery/perks plus pharmacy-adjacent blockers for Giant Eagle.
+  5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
+
+  **Review:**
+  - Built and pushed original static mobile prototype scaffolds for all five repos on `main`:
+    - `GeorgeQLe/krispy-kreme-mobile-clone` -> commit `775986d`.
+    - `GeorgeQLe/jamba-mobile-clone` -> commit `80ed162`.
+    - `GeorgeQLe/food-lion-mobile-clone` -> commit `3b69045`.
+    - `GeorgeQLe/giant-eagle-mobile-clone` -> commit `3e4fec1`.
+    - `GeorgeQLe/stop-and-shop-mobile-clone` -> commit `24c944d`.
+  - Each repo now has `index.html`, `package.json`, `src/styles.css`, and `src/app.js` with synthetic/local fixture workflows only.
+  - Covered store/location selection, doughnut/coffee box customization, smoothie/bowl boosts, grocery catalog browse, cart/order draft, substitutions, pickup/delivery/curbside handoff status, loyalty/coupon/perks placeholders, support placeholders, and pharmacy-adjacent blocked placeholders where relevant.
+  - Validation passed in all five repos with `npm run check`; downstream diffs passed `git diff --check --cached` before commit.
+  - Browser rendered verification was skipped because Browser navigation/screenshot tools were not surfaced by tool discovery in this session.
+  - Post-push `git status --short --branch` was clean and matched `origin/main` in every temporary downstream clone.
+  - Serial GitHub invariant scan confirmed every repo remains `private`, defaults to `main`, keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit on `main`, and has no `.github/workflows`.
+  - GitHub rate-limit evidence: pre-scan core `4980/5000` remaining, reset `1780328900`; post-scan core `4960/5000` remaining, reset `1780328900`.
+
+- [ ] Step 18.9: Implement eighth Food, Delivery & Grocery tranche
+  - Implement five downstream repos from the reconciled Phase 18 inventory:
+    - `GeorgeQLe/shoprite-mobile-clone` as an original grocery browse, cart, substitutions, pickup/delivery handoff, loyalty/coupon, and inventory/provider/payment-blocked scaffold.
+    - `GeorgeQLe/freshdirect-mobile-clone` as an original online grocery, fresh/prepared-food catalog, delivery slot, substitutions, and provider/payment-blocked scaffold.
+    - `GeorgeQLe/misfits-market-mobile-clone` as an original grocery box/subscription, produce customization, delivery schedule, membership, and inventory/provider/payment-blocked scaffold.
+    - `GeorgeQLe/thrive-market-mobile-clone` as an original membership grocery, pantry/wellness catalog, subscription/eligibility placeholders, and provider/payment/claims-blocked scaffold.
+    - `GeorgeQLe/ocado-mobile-clone` as an original online grocery cart, delivery slot, substitutions, order change, and inventory/provider/payment-blocked scaffold.
+  - Keep implementation serial from this planning repo. Use temporary or local checkouts as needed, but land validated direct-to-`main` commits after confirming each checkout matches remote `main`.
+  - Use original static/local scaffolds unless a repo already has a runtime stack; do not introduce backend, auth, payment, provider, map, analytics, delivery, loyalty, order-tracking-provider, nutrition/allergen, subscription, inventory, claims, or regulated-item infrastructure.
+  - Use synthetic/local fixtures only. Do not copy original logos, screenshots, product catalogs, nutrition/allergen data, rewards data, offers, prices, photos, payment data, courier evidence, store/warehouse data, age-restricted item data, health/wellness claims data, licensed data, or private APIs.
+  - Verify each repo remains `PRIVATE`, defaults to `main`, keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit, has no `.github/workflows`, and has local validation or blocker evidence recorded before shipping.
+  - Files: downstream repos above, then update `tasks/todo.md`, `tasks/repo-seeding.md`, and `tasks/history.md` with commit, validation, blocker, and invariant evidence.
+
+  **What to Build:**
+  Eighth Phase 18 implementation tranche across grocery pickup/delivery, online grocery, and grocery membership/subscription apps. Each downstream repo should get a coherent original scaffold proving store or fulfillment selection, catalog browse, cart/order draft, substitution preferences, pickup/delivery slot or subscription schedule status, loyalty/membership placeholders where relevant, support placeholders, and provider/payment/location/inventory/subscription/claims blockers with synthetic data.
+
+  **Approach:**
+  1. Inspect each downstream repo's current stack, task state, source spec copy, and validation commands before editing.
+  2. Rebase or fast-forward onto latest remote `main` before committing if the local checkout is behind.
+  3. Reuse the lightweight static prototype pattern from Steps 18.2-18.8 only when no runtime stack already exists; otherwise follow the repo's selected stack.
+  4. Tailor each scaffold: coupon/loyalty grocery cart for ShopRite, fresh/prepared-food delivery slots for FreshDirect, produce box/subscription schedule for Misfits Market, membership grocery and claims blockers for Thrive Market, and online grocery substitution/order-change slots for Ocado.
   5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
 
 ### Milestone: Phase 18 — Food, Delivery & Grocery Complete
