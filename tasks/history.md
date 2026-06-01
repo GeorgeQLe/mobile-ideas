@@ -6799,3 +6799,40 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Residual risk: static prototypes are smoke-tested local scaffolds, not full Expo/native app implementations or five-variant benchmarked builds; provider and native parity remains blocked.
 - Rollback note: revert this planning commit to reopen Step 17.11; revert downstream commits `518b1f7`, `8d0c509`, `57409e6`, `8486a71`, and `1d23095` to remove the tenth-tranche scaffolds.
 - Next: Step 17.12 - implement eleventh Shopping, Commerce & Classifieds tranche.
+
+## Step 18.3 - Second Food, Delivery & Grocery Tranche (2026-06-01)
+
+### Downstream Commits
+- `GeorgeQLe/opentable-mobile-clone` -> `cf75f01` original restaurant discovery, availability search, reservation draft, dining profile, and waitlist/provider-blocked scaffold.
+- `GeorgeQLe/yelp-mobile-clone` -> `86e48ff` original local discovery, business profile, review draft, quote request, and moderation/owner-tool-blocked scaffold.
+- `GeorgeQLe/too-good-to-go-mobile-clone` -> `b6964a2` original surplus-food discovery, pickup window, reservation draft, impact, and refund/food-safety-blocked scaffold.
+- `GeorgeQLe/chick-fil-a-mobile-clone` -> `62c138f` original QSR menu customization, basket quote, pickup/drive-thru handoff, and loyalty/payment-blocked scaffold.
+- `GeorgeQLe/dunkin-mobile-clone` -> `09bb266` original coffee/QSR ordering, pickup, offers/rewards placeholders, and stored-value/delivery-blocked scaffold.
+
+### Implementation
+- Added lightweight original static prototypes to each downstream repo with `index.html`, `package.json`, `src/styles.css`, and `src/app.js`.
+- Covered synthetic search/discovery, listing/menu detail, reservation/request/basket draft, pickup or handoff status, support/moderation placeholders, and explicit verification blockers.
+- Kept all data synthetic and all app names/copy original; no original logos, screenshots, business listings, menus, restaurant data, reviews, ratings, photos, pricing, availability, offers, payment data, courier evidence, reservation inventory, licensed data, or private APIs were added.
+
+### Validation
+- `npm run check` passed in all five downstream repos.
+- GitHub metadata checks confirmed all five repos remain `PRIVATE` with default branch `main`.
+- GitHub API checks confirmed each repo keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit at `main`, and has no `.github/workflows`.
+- Rate-limit evidence before tranche verification: core `5000/5000` remaining, reset `1780289755`.
+- Rate-limit evidence after tranche verification: core `4990/5000` remaining, reset `1780289885`.
+
+### Carry-Forward Blockers
+- Account lifecycle, signup/login/recovery, payment authorization, taxes/tips/fees, stored value, rewards/loyalty redemption, live maps/location, reservation inventory, review submission/moderation, owner/merchant tools, delivery/courier dispatch, refund/support automation, regulated food/alcohol, food-safety/allergen/nutrition verification, provider integrations, licensed listing/menu data, fraud/risk, region-specific behavior, native permissions, push notifications, and real-device verification remain blocked.
+- The tranche provides local prototype workflow coverage only; it does not claim exact native, provider, payment, delivery, reservation, review, loyalty, regulated-food, nutrition/allergen, or support parity.
+
+### Ship Manifest
+- User goal: execute Step 18.3 and implement the second Food, Delivery & Grocery tranche.
+- Changed files: downstream runtime scaffold files in five repos; `tasks/todo.md`; `tasks/repo-seeding.md`; `tasks/history.md`.
+- Per-file purpose: downstream files add original local reservation, local-discovery, surplus-pickup, QSR, and coffee-ordering prototypes; `tasks/todo.md` records Step 18.3 completion and Step 18.4 executable detail; `tasks/repo-seeding.md` updates root-commit evidence; `tasks/history.md` records commit, validation, blocker, and rollback evidence.
+- User-goal mapping: five more Phase 18 food/delivery/grocery repos now have working local prototype scaffolds with validation evidence and explicit blockers.
+- Tests run: `npm run check` in all five downstream repos; GitHub repo metadata checks; GitHub README/source-spec/root-commit/workflow absence checks.
+- Skipped tests: no native iOS/Android, payment-provider, tax/tip/fee, location/map-provider, delivery/courier, reservation-provider, review/moderation, merchant/owner-tool, loyalty/stored-value, food-safety/allergen/nutrition, push-notification, account, or real-device tests were run because those behaviors are explicitly blocked pending lawful provider/device/account verification.
+- Adversarial review: verified original naming/data/copy posture, no GitHub Actions usage, private visibility, default branch, source-spec presence, root commit presence, workflow absence, direct-to-`main` pushes, and blocker carry-forward.
+- Residual risk: static prototypes are syntax-checked local scaffolds, not full Expo/native app implementations or five-variant benchmarked builds; provider and native parity remains blocked.
+- Rollback note: revert this planning commit to reopen Step 18.3; revert downstream commits `cf75f01`, `86e48ff`, `b6964a2`, `62c138f`, and `09bb266` to remove the second-tranche scaffolds.
+- Next: Step 18.4 - implement third Food, Delivery & Grocery tranche.

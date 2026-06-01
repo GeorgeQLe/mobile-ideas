@@ -3173,11 +3173,11 @@ core: limit=5000, remaining=4854, reset=1779326349
 | 040 | Instacart | Grocery delivery marketplaces | `GeorgeQLe/instacart-mobile-clone` | `specs/batch-02/040-instacart.md` | PRIVATE | main | yes | yes | `b3ef07d` | absent |
 | 041 | Starbucks | Coffee/QSR loyalty | `GeorgeQLe/starbucks-mobile-clone` | `specs/batch-03/041-starbucks.md` | PRIVATE | main | yes | yes | `61f58f7` | absent |
 | 042 | McDonald's | QSR ordering/loyalty | `GeorgeQLe/mcdonalds-mobile-clone` | `specs/batch-03/042-mcdonalds.md` | PRIVATE | main | yes | yes | `86dab2e` | absent |
-| 043 | OpenTable | Reservations/local discovery | `GeorgeQLe/opentable-mobile-clone` | `specs/batch-03/043-opentable.md` | PRIVATE | main | yes | yes | `e737b28` | absent |
-| 044 | Yelp | Reservations/local discovery | `GeorgeQLe/yelp-mobile-clone` | `specs/batch-03/044-yelp.md` | PRIVATE | main | yes | yes | `9b2d9ba` | absent |
-| 045 | Too Good To Go | Surplus/regulated food commerce | `GeorgeQLe/too-good-to-go-mobile-clone` | `specs/batch-03/045-too-good-to-go.md` | PRIVATE | main | yes | yes | `aacaec5` | absent |
-| 369 | Chick-fil-A | QSR ordering/loyalty | `GeorgeQLe/chick-fil-a-mobile-clone` | `specs/batch-19/369-chick-fil-a.md` | PRIVATE | main | yes | yes | `40fdb60` | absent |
-| 370 | Dunkin | Coffee/QSR loyalty | `GeorgeQLe/dunkin-mobile-clone` | `specs/batch-19/370-dunkin.md` | PRIVATE | main | yes | yes | `3a40da7` | absent |
+| 043 | OpenTable | Reservations/local discovery | `GeorgeQLe/opentable-mobile-clone` | `specs/batch-03/043-opentable.md` | PRIVATE | main | yes | yes | `cf75f01` | absent |
+| 044 | Yelp | Reservations/local discovery | `GeorgeQLe/yelp-mobile-clone` | `specs/batch-03/044-yelp.md` | PRIVATE | main | yes | yes | `86e48ff` | absent |
+| 045 | Too Good To Go | Surplus/regulated food commerce | `GeorgeQLe/too-good-to-go-mobile-clone` | `specs/batch-03/045-too-good-to-go.md` | PRIVATE | main | yes | yes | `b6964a2` | absent |
+| 369 | Chick-fil-A | QSR ordering/loyalty | `GeorgeQLe/chick-fil-a-mobile-clone` | `specs/batch-19/369-chick-fil-a.md` | PRIVATE | main | yes | yes | `62c138f` | absent |
+| 370 | Dunkin | Coffee/QSR loyalty | `GeorgeQLe/dunkin-mobile-clone` | `specs/batch-19/370-dunkin.md` | PRIVATE | main | yes | yes | `09bb266` | absent |
 | 371 | Chipotle | QSR ordering/loyalty | `GeorgeQLe/chipotle-mobile-clone` | `specs/batch-19/371-chipotle.md` | PRIVATE | main | yes | yes | `cbd50a0` | absent |
 | 372 | Taco Bell | QSR ordering/loyalty | `GeorgeQLe/taco-bell-mobile-clone` | `specs/batch-19/372-taco-bell.md` | PRIVATE | main | yes | yes | `75abb3f` | absent |
 | 373 | Subway | QSR ordering/loyalty | `GeorgeQLe/subway-mobile-clone` | `specs/batch-19/373-subway.md` | PRIVATE | main | yes | yes | `2ddd965` | absent |
