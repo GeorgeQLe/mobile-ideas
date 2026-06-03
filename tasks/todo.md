@@ -253,6 +253,71 @@
     - Crypto on-ramp (MoonPay, Strike): MoonPay (fiat-to-crypto quotes, multi-payment methods, KYC tiers, sell off-ramp, NFT checkout), Strike (Bitcoin/Lightning focus, Lightning send/receive, pay-me links, auto-buy DCA, global payments).
   - All regulated crypto features explicitly blocked: exchange licensing, order matching, hot/cold custody, on-chain transactions, gas estimation, DeFi protocols, NFT rendering, staking validators, KYC/AML/sanctions, real balances/keys, seed phrase security, hardware wallet communication, fiat on/off-ramp, and regulatory disclosures.
 
+- [ ] Step 19.7: Sixth Finance & Payments implementation tranche — Market Data, Budgeting, Remittance, BNPL & Remaining
+  - **Apps (21):** Bloomberg (137), Yahoo Finance (138), Stocktwits (139), Mint/Credit Karma (062), YNAB (063), Rocket Money (064), Empower (518), Wise (147), Remitly (500), WorldRemit (501), Western Union (502), MoneyGram (503), Xoom (504), N26 (496), Starling Bank (497), Dave (517), Apple Wallet (065), Klarna (520), Afterpay (521), Affirm (522), EarnIn (519).
+  - **Downstream repos:** `GeorgeQLe/bloomberg-mobile-clone`, `GeorgeQLe/yahoo-finance-mobile-clone`, `GeorgeQLe/stocktwits-mobile-clone`, `GeorgeQLe/mint-credit-karma-mobile-clone`, `GeorgeQLe/ynab-mobile-clone`, `GeorgeQLe/rocket-money-mobile-clone`, `GeorgeQLe/empower-mobile-clone`, `GeorgeQLe/wise-mobile-clone`, `GeorgeQLe/remitly-mobile-clone`, `GeorgeQLe/worldremit-mobile-clone`, `GeorgeQLe/western-union-mobile-clone`, `GeorgeQLe/moneygram-mobile-clone`, `GeorgeQLe/xoom-mobile-clone`, `GeorgeQLe/n26-mobile-clone`, `GeorgeQLe/starling-bank-mobile-clone`, `GeorgeQLe/dave-mobile-clone`, `GeorgeQLe/apple-wallet-mobile-clone`, `GeorgeQLe/klarna-mobile-clone`, `GeorgeQLe/afterpay-mobile-clone`, `GeorgeQLe/affirm-mobile-clone`, `GeorgeQLe/earnin-mobile-clone`.
+
+  **What to Build:**
+  Original static prototypes for each of the 21 remaining finance apps. Each repo gets:
+  - `index.html` — single-page prototype shell with category-specific screens
+  - `package.json` — with `check` script (syntax validation)
+  - `src/styles.css` — app-specific styling (unique color scheme per brand)
+  - `src/app.js` — synthetic app logic
+
+  **Prototype Coverage:**
+  - Market data/news (Bloomberg, Yahoo Finance, Stocktwits):
+    - Market overview dashboards, watchlists, stock/crypto quotes, charts
+    - News feed, analysis, earnings calendar
+    - Social feed / message boards (Stocktwits)
+    - Portfolio tracker (read-only, no trading)
+  - Budgeting/personal finance (Mint/Credit Karma, YNAB, Rocket Money, Empower):
+    - Account aggregation, net worth, linked accounts placeholder
+    - Transaction categorization, spending breakdown, budgets
+    - Bill tracking, subscription management (Rocket Money)
+    - Credit score/report placeholder (Mint/Credit Karma)
+    - Zero-based budgeting (YNAB), goal tracking
+  - Remittance (Wise, Remitly, WorldRemit, Western Union, MoneyGram, Xoom):
+    - Send money internationally, FX quotes, fee comparison
+    - Recipient management, delivery methods (bank, mobile money, cash pickup)
+    - Transaction tracking, transfer history
+    - Multi-corridor support, KYC placeholder
+  - Neobanks (N26, Starling Bank, Dave):
+    - Account dashboard, transaction history, card controls
+    - Spaces/savings goals, round-ups
+    - Overdraft/advance (Dave), budgeting insights (Starling)
+  - BNPL (Klarna, Afterpay, Affirm):
+    - Pay-in-4 / installment plans, payment schedule
+    - Shopping directory, in-store/online checkout
+    - Order tracking, payment history
+  - Payroll/earned-wage (EarnIn):
+    - Earned wage access, shift tracking, balance available
+    - Cash out flow, tip-based model
+  - Digital wallets (Apple Wallet):
+    - Card management, passes, transit, keys placeholder
+  - All apps: settings, notifications, security, and explicit blocker banners for regulated features
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-scan evidence.
+  2. For each of the 21 repos, serially:
+     a. Clone the downstream repo locally.
+     b. Read the source spec from `docs/source-specs/` for app-specific context.
+     c. Create `index.html`, `package.json`, `src/styles.css`, `src/app.js` with original prototype code.
+     d. Run `npm run check` and `git diff --check --cached` before commit.
+     e. Commit and push to `main`.
+     f. Verify via `gh api`: PRIVATE, `main` branch, README, source spec, root commit, no `.github/workflows`.
+  3. `gh api rate_limit` — record post-scan evidence.
+  4. Update `tasks/todo.md` (check off 19.7), `tasks/repo-seeding.md` (rate-limit + commit evidence), `tasks/history.md` (execution evidence).
+
+  **Acceptance Criteria:**
+  - All 21 repos have original static prototypes committed and pushed to `main`.
+  - `npm run check` passes in each repo.
+  - All 21 repos verified PRIVATE with required artifacts post-push.
+  - Rate-limit evidence recorded before and after.
+  - No 403/429/auth failures.
+  - All real market-data/budgeting/remittance/banking/BNPL/payroll/wallet features marked as explicitly blocked.
+
+  **Files:** downstream repos (21), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+
 ### Milestone: Phase 19 — Finance & Payments Complete
 **Acceptance Criteria:**
 - [ ] Exact Phase 19 inventory reconciled with app IDs, app names, repo slugs, source specs, and downstream readiness.
