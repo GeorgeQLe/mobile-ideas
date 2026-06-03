@@ -461,7 +461,7 @@
   - Serial GitHub invariant scan confirmed every repo remains `private`, defaults to `main`, keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit on `main`, and has no `.github/workflows`.
   - GitHub rate-limit evidence: pre-scan core `4970/5000` remaining, reset `1780498913`; post-scan core `4950/5000` remaining, reset `1780498913`.
 
-- [ ] Step 18.13: Implement twelfth Food, Delivery & Grocery tranche
+- [x] Step 18.13: Implement twelfth Food, Delivery & Grocery tranche
   - Implement five downstream repos from the remaining reconciled Phase 18 inventory:
     - `GeorgeQLe/didi-food-mobile-clone` as an original restaurant delivery marketplace, serviceability, menu/cart quote, courier handoff, offers/support, and provider/payment/location-blocked scaffold.
     - `GeorgeQLe/meituan-mobile-clone` as an original multi-category local commerce scaffold with food/shop catalog, cart/task quote, membership/coupon placeholders, regulated-item blockers, and inventory/provider/payment/location/courier-blocked gates.
@@ -483,6 +483,47 @@
   3. Reuse the lightweight static prototype pattern from Steps 18.2-18.12 only when no runtime stack already exists; otherwise follow the repo's selected stack.
   4. Tailor each scaffold: restaurant delivery/serviceability for DiDi Food and Ele.me, multi-category local-commerce gates for Meituan, rider task/earnings/safety placeholders for Deliveroo Rider, and dasher zone/task/earnings/support placeholders for DoorDash Dasher.
   5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
+
+  **Review:**
+  - Built and pushed original static mobile prototype scaffolds for all five repos on `main`:
+    - `GeorgeQLe/didi-food-mobile-clone` -> commit `249b1b0`.
+    - `GeorgeQLe/meituan-mobile-clone` -> commit `d41909f`.
+    - `GeorgeQLe/ele-me-mobile-clone` -> commit `17079de`.
+    - `GeorgeQLe/deliveroo-rider-mobile-clone` -> commit `6f6f9a3`.
+    - `GeorgeQLe/doordash-dasher-mobile-clone` -> commit `4d8098b`.
+  - Each repo now has `index.html`, `package.json`, `src/styles.css`, and `src/app.js` with synthetic/local fixture workflows only.
+  - Covered serviceability or zone setup, merchant/category or task-offer browse, cart/task/order quote, delivery/pickup/courier handoff status, rewards/offers/membership or earnings placeholders where relevant, support/safety placeholders, regulated-item gates for multi-category commerce, and explicit provider/payment/location/inventory/courier/identity/background-check/vehicle blockers.
+  - Validation passed in all five repos with `npm run check`; downstream diffs passed `git diff --check` and `git diff --check --cached` before commit.
+  - Browser rendered verification was skipped because Browser navigation/screenshot tools were not surfaced by tool discovery in this session.
+  - Post-push `git status --short --branch` was clean and matched `origin/main` in every downstream clone.
+  - Serial GitHub invariant scan confirmed every repo remains `private`, defaults to `main`, keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit on `main`, and has no `.github/workflows`.
+  - Initial non-escalated GitHub invariant scan hit sandbox API connectivity errors; escalated GitHub API checks succeeded.
+  - GitHub rate-limit evidence: pre-scan core `4950/5000` remaining, reset `1780498913`; post-scan core `4975/5000` remaining, reset `1780503031`.
+
+- [ ] Step 18.14: Implement final Food, Delivery & Grocery tranche and close Phase 18
+  - Implement six downstream repos from the remaining reconciled Phase 18 inventory:
+    - `GeorgeQLe/uber-driver-mobile-clone` as an original driver workflow scaffold with zone/session setup, trip or delivery offers, pickup/dropoff status, earnings/tips/pay placeholders, safety/support, and background-check/identity/vehicle/location/provider-blocked gates.
+    - `GeorgeQLe/instacart-shopper-mobile-clone` as an original shopper workflow scaffold with batch offers, store aisle picking, substitutions, checkout handoff, delivery status, earnings placeholders, and identity/payment/inventory/location/provider-blocked gates.
+    - `GeorgeQLe/shipt-mobile-clone` as an original grocery shopper workflow scaffold with member order batches, substitution chat placeholders, store checkout, delivery proof, earnings/support, and provider/payment/inventory/location/identity-blocked gates.
+    - `GeorgeQLe/favor-mobile-clone` as an original runner/local-delivery workflow scaffold with task offers, shopping/pickup status, customer handoff, earnings/support/safety placeholders, and provider/payment/location/identity-blocked gates.
+    - `GeorgeQLe/skipthedishes-mobile-clone` as an original restaurant delivery marketplace scaffold with serviceability, restaurant/menu browse, cart quote, courier handoff, offers/support placeholders, and provider/payment/location-blocked gates.
+    - `GeorgeQLe/talabat-mobile-clone` as an original restaurant and quick-commerce scaffold with address/serviceability, food/shop catalog, cart quote, regulated-item blockers, loyalty/offers/support placeholders, and inventory/provider/payment/location/courier-blocked gates.
+  - Keep implementation serial from this planning repo. Use temporary or local checkouts as needed, but land validated direct-to-`main` commits after confirming each checkout matches remote `main`.
+  - Use original static/local scaffolds unless a repo already has a runtime stack; do not introduce backend, auth, payment, provider, map, analytics, delivery, loyalty, order-tracking-provider, subscription, inventory, courier dispatch, driver or shopper onboarding, identity/background checks, vehicle verification, regulated-item, ride-hailing, or real shopper checkout infrastructure.
+  - Use synthetic/local fixtures only. Do not copy original logos, screenshots, menus, restaurant data, product catalogs, nutrition/allergen data, loyalty/reward data, offers, prices, photos, payment data, courier evidence, driver/shopper earnings data, merchant/provider data, age-restricted item data, licensed data, or private APIs.
+  - Verify each repo remains `PRIVATE`, defaults to `main`, keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit, has no `.github/workflows`, and has local validation or blocker evidence recorded before shipping.
+  - Files: downstream repos above, then update `tasks/todo.md`, `tasks/repo-seeding.md`, and `tasks/history.md` with commit, validation, blocker, invariant, and Phase 18 closeout evidence.
+
+  **What to Build:**
+  Final Phase 18 implementation tranche across courier/driver, grocery shopper, local runner, restaurant delivery, and quick-commerce apps. Each downstream repo should get a coherent original scaffold proving serviceability/zone setup, batch/task/merchant/category browse, cart/task/order quote, pickup/shopping/delivery/courier handoff status, earnings/offers/loyalty/support/safety placeholders where relevant, and provider/payment/location/inventory/courier/identity/regulated-item blockers with synthetic data.
+
+  **Approach:**
+  1. Inspect each downstream repo's current stack, task state, source spec copy, and validation commands before editing.
+  2. Rebase or fast-forward onto latest remote `main` before committing if the local checkout is behind.
+  3. Reuse the lightweight static prototype pattern from Steps 18.2-18.13 only when no runtime stack already exists; otherwise follow the repo's selected stack.
+  4. Tailor each scaffold: driver offer/session and earnings placeholders for Uber Driver, shopper batch/substitution/checkout placeholders for Instacart Shopper and Shipt, runner task and customer handoff placeholders for Favor, restaurant delivery marketplace flow for SkipTheDishes, and quick-commerce plus regulated-item gates for Talabat.
+  5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
+  6. After all six repos are validated, perform a Phase 18 closeout review against the reconciled 66-repo inventory and mark the Phase 18 acceptance criteria complete only if every repo has scaffold/validation evidence or explicit blockers.
 
 ### Milestone: Phase 18 — Food, Delivery & Grocery Complete
 **Acceptance Criteria:**
