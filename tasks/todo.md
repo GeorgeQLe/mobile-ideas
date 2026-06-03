@@ -114,7 +114,7 @@
   - Each prototype includes: synthetic account dashboards (checking/savings/spending/multi-currency), transaction history with categories, internal/external transfers, debit card controls, savings goals/pots/vaults/buckets, and explicit blocker banners for all regulated features.
   - Neobank-specific features per app: Chime (round-ups, early DD, credit builder, overdraft cushion), Current (savings pods, teen banking, crypto, point rewards), SoFi (investing, loans, credit card, robo-advisor, crypto), Ally (CDs, buckets, auto lending, Zelle, robo portfolio), Marcus (high-yield savings, no-penalty CDs, personal loans, credit insights), Monzo (pots, budgeting, bill splitting, salary sorting, UK GBP), Revolut (multi-currency FX, crypto, stocks, vaults, virtual cards, international transfers).
 
-- [ ] Step 19.5: Fourth Finance & Payments implementation tranche — Investing & Brokerage
+- [x] Step 19.5: Fourth Finance & Payments implementation tranche — Investing & Brokerage
   - **Apps (13):** Robinhood (060), Public (140), Acorns (141), Stash (142), Wealthfront (143), Betterment (144), Fidelity (488), Schwab Mobile (489), E*TRADE (490), Webull (491), moomoo (492), Interactive Brokers (493), Vanguard (494).
   - **Downstream repos:** `GeorgeQLe/robinhood-mobile-clone`, `GeorgeQLe/public-mobile-clone`, `GeorgeQLe/acorns-mobile-clone`, `GeorgeQLe/stash-mobile-clone`, `GeorgeQLe/wealthfront-mobile-clone`, `GeorgeQLe/betterment-mobile-clone`, `GeorgeQLe/fidelity-mobile-clone`, `GeorgeQLe/schwab-mobile-mobile-clone`, `GeorgeQLe/e-trade-mobile-clone`, `GeorgeQLe/webull-mobile-clone`, `GeorgeQLe/moomoo-mobile-clone`, `GeorgeQLe/interactive-brokers-mobile-clone`, `GeorgeQLe/vanguard-mobile-clone`.
   - **Source specs:** `specs/batch-03/060-robinhood.md`, `specs/batch-07/140-public.md`, `specs/batch-08/141-acorns.md`, `specs/batch-08/142-stash.md`, `specs/batch-08/143-wealthfront.md`, `specs/batch-08/144-betterment.md`, `specs/batch-25/488-fidelity.md`, `specs/batch-25/489-schwab-mobile.md`, `specs/batch-25/490-e-trade.md`, `specs/batch-25/491-webull.md`, `specs/batch-25/492-moomoo.md`, `specs/batch-25/493-interactive-brokers.md`, `specs/batch-25/494-vanguard.md`.
@@ -164,6 +164,22 @@
   - All real brokerage/investing/trading/regulatory features marked as explicitly blocked.
 
   **Files:** downstream repos (13), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+
+  **Execution Evidence:**
+  - All 13 repos received original static prototypes: `index.html`, `package.json`, `src/styles.css`, `src/app.js`.
+  - `npm run check` passed in all 13 repos before commit.
+  - Commits pushed to `main`: `robinhood-mobile-clone` (fafccd0d), `public-mobile-clone` (65e1df63), `acorns-mobile-clone` (13b9fe0f), `stash-mobile-clone` (dcde0de7), `wealthfront-mobile-clone` (915f6215), `betterment-mobile-clone` (77564958), `fidelity-mobile-clone` (93d5ba13), `schwab-mobile-mobile-clone` (0cb42585), `e-trade-mobile-clone` (cb7f04df), `webull-mobile-clone` (ec7c9e88), `moomoo-mobile-clone` (f0c0efd9), `interactive-brokers-mobile-clone` (9feaa951), `vanguard-mobile-clone` (b350630b).
+  - Serial GitHub API verification: all 13 repos PRIVATE, default `main`, README present, source spec present, `index.html` present, `src/app.js` present, root commit present, no `.github/workflows`.
+  - Pre-scan rate limit: `core: 4958/5000, reset: 1780511444`. Post-scan: `core: 4958/5000, reset: 1780511444`. No 403/429/auth failures.
+  - Each prototype includes: synthetic portfolio dashboard with holdings and P&L, watchlists, quote/detail pages, order ticket simulation, account summary (multi-account where relevant), order history with filled/pending/cancelled states, and explicit blocker banners for all regulated brokerage features.
+  - App-specific features per category:
+    - Commission-free/active brokerages (Robinhood, Public, Webull, moomoo): options chains, crypto, futures, social feed, community, advanced charts, paper trading, screeners, multi-market access.
+    - Micro-investing/robo-advisors (Acorns, Stash, Wealthfront, Betterment): round-ups, recurring investments, automated portfolios, tax-loss harvesting, bond ladders, goal-based investing, custodial accounts, stock-rewards card, cash accounts, financial planning.
+    - Full-service brokerages (Fidelity, Schwab, E*TRADE, Interactive Brokers, Vanguard): mutual funds, ETFs, fixed income, managed portfolios, checking/banking, retirement (Roth/Traditional/SEP/401k/529), target-date funds, advisory services, multi-asset (stocks/options/futures/forex/bonds), portfolio margin.
+
+- [ ] Step 19.6: Fifth Finance & Payments implementation tranche — Crypto Exchanges & Wallets
+  - **Apps (10):** Coinbase (061), Crypto.com (062), Binance.US (063), Kraken (064), Gemini (065), Trust Wallet (137), MetaMask (138), Phantom (147), Ledger Live (500), Exodus (501).
+  - Plan details TBD — next planning step.
 
 ### Milestone: Phase 19 — Finance & Payments Complete
 **Acceptance Criteria:**
