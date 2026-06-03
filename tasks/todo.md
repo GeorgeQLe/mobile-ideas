@@ -87,51 +87,64 @@
   - Pre-scan rate limit: `core: 4712/5000, reset: 1780506937`. Post-scan: `core: 4676/5000, reset: 1780506937`. No 403/429/auth failures.
   - Each prototype includes: synthetic account dashboard with balance, transaction history, send/receive/request flows, payment method management, app-specific services and settings, and explicit blocker banners for all regulated features.
 
-- [ ] Step 19.3: Second Finance & Payments implementation tranche — Traditional Banking
+- [x] Step 19.3: Second Finance & Payments implementation tranche — Traditional Banking
   - **Apps (13):** Chase Mobile (472), Bank of America (473), Wells Fargo (474), Citi Mobile (475), Capital One (476), American Express (477), Discover (478), U.S. Bank (479), PNC Mobile (480), TD Bank (481), Truist (482), USAA (483), Navy Federal Credit Union (484).
   - **Downstream repos:** `GeorgeQLe/chase-mobile-mobile-clone`, `GeorgeQLe/bank-of-america-mobile-banking-mobile-clone`, `GeorgeQLe/wells-fargo-mobile-mobile-clone`, `GeorgeQLe/citi-mobile-mobile-clone`, `GeorgeQLe/capital-one-mobile-mobile-clone`, `GeorgeQLe/american-express-mobile-clone`, `GeorgeQLe/discover-mobile-mobile-clone`, `GeorgeQLe/u-s-bank-mobile-clone`, `GeorgeQLe/pnc-mobile-mobile-clone`, `GeorgeQLe/td-bank-mobile-clone`, `GeorgeQLe/truist-mobile-clone`, `GeorgeQLe/usaa-mobile-clone`, `GeorgeQLe/navy-federal-credit-union-mobile-clone`.
   - **Source specs:** `specs/batch-24/472-chase-mobile.md` through `specs/batch-24/480-pnc-mobile.md`, `specs/batch-25/481-td-bank.md` through `specs/batch-25/484-navy-federal-credit-union.md`.
 
+  **Execution Evidence:**
+  - All 13 repos received original static prototypes: `index.html`, `package.json`, `src/styles.css`, `src/app.js`.
+  - `npm run check` passed in all 13 repos before commit.
+  - Commits pushed to `main`: `chase-mobile-mobile-clone` (2e00274e), `bank-of-america-mobile-banking-mobile-clone` (7159d903), `wells-fargo-mobile-mobile-clone` (6e2be28b), `citi-mobile-mobile-clone` (0e7bfa4d), `capital-one-mobile-mobile-clone` (c201842a), `american-express-mobile-clone` (615695f6), `discover-mobile-mobile-clone` (005c2642), `u-s-bank-mobile-clone` (cadf7843), `pnc-mobile-mobile-clone` (e3b96aed), `td-bank-mobile-clone` (9cac973e), `truist-mobile-clone` (40899957), `usaa-mobile-clone` (e4b73cbf), `navy-federal-credit-union-mobile-clone` (4b2c8961).
+  - Serial GitHub API verification: all 13 repos PRIVATE, default `main`, README present, source spec present, `index.html` present, `src/app.js` present, root commit present, no `.github/workflows`.
+  - Pre-scan rate limit: `core: 4676/5000, reset: 1780506937`. Post-scan: `core: 4585/5000, reset: 1780506937`. No 403/429/auth failures.
+  - Each prototype includes: synthetic checking/savings/credit card dashboards, transaction history, internal/external/wire/Zelle transfer flows, bill pay with payee management, mobile check deposit, ATM/branch locator, card management (lock/replace/dispute/rewards), bank-specific services, settings, and explicit blocker banners for 15 regulated feature categories.
+
+- [ ] Step 19.4: Third Finance & Payments implementation tranche — Neobanks
+  - **Apps (8):** Chime (137), Current (138), Varo (139), SoFi (140), Ally Bank (141), Marcus by Goldman Sachs (142), Monzo (143), Revolut (144).
+  - **Downstream repos:** `GeorgeQLe/chime-mobile-clone`, `GeorgeQLe/current-mobile-clone`, `GeorgeQLe/varo-mobile-clone`, `GeorgeQLe/sofi-mobile-clone`, `GeorgeQLe/ally-bank-mobile-clone`, `GeorgeQLe/marcus-by-goldman-sachs-mobile-clone`, `GeorgeQLe/monzo-mobile-clone`, `GeorgeQLe/revolut-mobile-clone`.
+
   **What to Build:**
-  Original static prototypes for each of the 13 apps. Each repo gets:
-  - `index.html` — single-page prototype shell with bank-specific screens
+  Original static prototypes for each of the 8 neobank apps. Each repo gets:
+  - `index.html` — single-page prototype shell with neobank-specific screens
   - `package.json` — with `check` script (syntax validation)
-  - `src/styles.css` — bank-specific styling (unique color scheme per bank)
+  - `src/styles.css` — neobank-specific styling (unique color scheme per brand)
   - `src/app.js` — synthetic app logic
 
   **Prototype Coverage:**
-  - Synthetic account dashboard with checking/savings/credit card balance display
-  - Transaction history list with synthetic entries (deposits, withdrawals, purchases, transfers, pending)
-  - Internal and external transfer flows with account selection
-  - Bill pay placeholder with payee management
-  - Mobile check deposit placeholder
-  - ATM/branch locator placeholder
-  - Card management (debit/credit lock, replace, dispute, rewards)
-  - Notification and alert preferences placeholder
-  - Support/help and security settings placeholders
-  - Explicit blocker banners for: real banking rails, ACH/wire transfers, KYC/AML, FDIC/NCUA, biometric auth, mobile check capture, bill pay execution, card provisioning, loan/mortgage/credit products, and regulatory compliance
+  - Synthetic account dashboard with spending account/savings pods/round-ups display
+  - Transaction history with synthetic entries and category tagging
+  - Internal transfers and external ACH transfers
+  - Early direct deposit and paycheck advance placeholders
+  - Fee-free ATM network locator placeholder
+  - Debit card management (lock, replace, virtual card)
+  - Savings goals, auto-save rules, and high-yield interest placeholders
+  - Credit builder / credit score monitoring placeholders
+  - Budgeting and spending insights placeholders
+  - Notification and alert preferences
+  - Explicit blocker banners for: real banking rails, ACH transfers, KYC/AML, FDIC pass-through, biometric auth, early direct deposit processing, paycheck advance underwriting, credit builder reporting, real balances/transactions, and regulatory compliance
 
   **Approach:**
   1. `gh api rate_limit` — record pre-scan evidence.
-  2. For each of the 13 repos, serially:
+  2. For each of the 8 repos, serially:
      a. Clone the downstream repo locally (if not already cloned).
-     b. Read the source spec from `docs/source-specs/` for bank-specific context.
+     b. Read the source spec from `docs/source-specs/` for neobank-specific context.
      c. Create `index.html`, `package.json`, `src/styles.css`, `src/app.js` with original prototype code.
      d. Run `npm run check` and `git diff --check --cached` before commit.
      e. Commit and push to `main`.
      f. Verify via `gh api`: PRIVATE, `main` branch, README, source spec, root commit, no `.github/workflows`.
   3. `gh api rate_limit` — record post-scan evidence.
-  4. Update `tasks/todo.md` (check off 19.3, add Step 19.4 plan), `tasks/repo-seeding.md` (rate-limit + commit evidence), `tasks/history.md` (execution evidence).
+  4. Update `tasks/todo.md` (check off 19.4, add Step 19.5 plan), `tasks/repo-seeding.md` (rate-limit + commit evidence), `tasks/history.md` (execution evidence).
 
   **Acceptance Criteria:**
-  - All 13 repos have original static prototypes committed and pushed to `main`.
+  - All 8 repos have original static prototypes committed and pushed to `main`.
   - `npm run check` passes in each repo.
-  - All 13 repos verified PRIVATE with required artifacts post-push.
+  - All 8 repos verified PRIVATE with required artifacts post-push.
   - Rate-limit evidence recorded before and after.
   - No 403/429/auth failures.
   - All real banking/payment/identity/regulatory features marked as explicitly blocked.
 
-  **Files:** downstream repos (13), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+  **Files:** downstream repos (8), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
 ### Milestone: Phase 19 — Finance & Payments Complete
 **Acceptance Criteria:**
