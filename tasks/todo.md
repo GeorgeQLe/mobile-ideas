@@ -423,7 +423,7 @@
   - Serial GitHub invariant scan confirmed every repo remains `private`, defaults to `main`, keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit on `main`, and has no `.github/workflows`.
   - Initial non-escalated GitHub invariant scan hit sandbox API connectivity errors; escalated GitHub API checks succeeded. GitHub rate-limit evidence: pre-scan core `4925/5000` remaining, reset `1780340376`; post-scan core `4841/5000` remaining, reset `1780340376`.
 
-- [ ] Step 18.12: Implement eleventh Food, Delivery & Grocery tranche
+- [x] Step 18.12: Implement eleventh Food, Delivery & Grocery tranche
   - Implement five downstream repos from the reconciled Phase 18 inventory:
     - `GeorgeQLe/swiggy-mobile-clone` as an original restaurant delivery marketplace, menu browse, cart quote, delivery handoff, offers/membership placeholders, support/refund, and provider/payment/location-blocked scaffold.
     - `GeorgeQLe/zomato-mobile-clone` as an original restaurant discovery and delivery scaffold with restaurant browse, menu/cart quote, dining/offers placeholders, delivery/pickup handoff, support/refund, and provider/payment/location-blocked gates.
@@ -444,6 +444,44 @@
   2. Rebase or fast-forward onto latest remote `main` before committing if the local checkout is behind.
   3. Reuse the lightweight static prototype pattern from Steps 18.2-18.11 only when no runtime stack already exists; otherwise follow the repo's selected stack.
   4. Tailor each scaffold: restaurant delivery and offers for Swiggy, restaurant discovery plus delivery/pickup for Zomato, multi-category courier and regulated-item gates for Rappi, food/quick-commerce rewards placeholders for Grab, and food/local-service courier handoff boundaries for Gojek.
+  5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
+
+  **Review:**
+  - Built and pushed original static mobile prototype scaffolds for all five repos on `main`:
+    - `GeorgeQLe/swiggy-mobile-clone` -> commit `20c9ca8`.
+    - `GeorgeQLe/zomato-mobile-clone` -> commit `65c15ef`.
+    - `GeorgeQLe/rappi-mobile-clone` -> commit `e21b697`.
+    - `GeorgeQLe/grab-mobile-clone` -> commit `1710926`.
+    - `GeorgeQLe/gojek-mobile-clone` -> commit `893d2f6`.
+  - Each repo now has `index.html`, `package.json`, `src/styles.css`, and `src/app.js` with synthetic/local fixture workflows only.
+  - Covered serviceability/address or locality selection, restaurant or category browse, menu/catalog detail, cart/task/order quote, delivery/pickup/courier handoff status, rewards/offers/membership placeholders where relevant, support/refund placeholders, regulated-item gates for Rappi, and super-app boundary gates for Gojek.
+  - Validation passed in all five repos with `npm run check`; downstream diffs passed `git diff --check --cached` before commit and `git diff --check` after commit.
+  - Browser rendered verification was skipped because Browser navigation/screenshot tools were not surfaced by tool discovery in this session.
+  - Post-push `git status --short --branch` was clean and matched `origin/main` in every downstream clone.
+  - Serial GitHub invariant scan confirmed every repo remains `private`, defaults to `main`, keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit on `main`, and has no `.github/workflows`.
+  - GitHub rate-limit evidence: pre-scan core `4970/5000` remaining, reset `1780498913`; post-scan core `4950/5000` remaining, reset `1780498913`.
+
+- [ ] Step 18.13: Implement twelfth Food, Delivery & Grocery tranche
+  - Implement five downstream repos from the remaining reconciled Phase 18 inventory:
+    - `GeorgeQLe/didi-food-mobile-clone` as an original restaurant delivery marketplace, serviceability, menu/cart quote, courier handoff, offers/support, and provider/payment/location-blocked scaffold.
+    - `GeorgeQLe/meituan-mobile-clone` as an original multi-category local commerce scaffold with food/shop catalog, cart/task quote, membership/coupon placeholders, regulated-item blockers, and inventory/provider/payment/location/courier-blocked gates.
+    - `GeorgeQLe/ele-me-mobile-clone` as an original restaurant delivery marketplace, menu/cart quote, delivery/pickup handoff, membership/support placeholders, and provider/payment/location-blocked scaffold.
+    - `GeorgeQLe/deliveroo-rider-mobile-clone` as an original courier/rider workflow scaffold with task offers, pickup/dropoff status, earnings/pay placeholders, safety/support, and account/identity/vehicle/location/provider-blocked gates.
+    - `GeorgeQLe/doordash-dasher-mobile-clone` as an original courier/dasher workflow scaffold with zone/session setup, delivery offers, pickup/dropoff status, earnings/tips/pay placeholders, support/safety, and background-check/identity/vehicle/location/provider-blocked gates.
+  - Keep implementation serial from this planning repo. Use temporary or local checkouts as needed, but land validated direct-to-`main` commits after confirming each checkout matches remote `main`.
+  - Use original static/local scaffolds unless a repo already has a runtime stack; do not introduce backend, auth, payment, provider, map, analytics, delivery, loyalty, order-tracking-provider, subscription, inventory, courier dispatch, driver onboarding, identity/background checks, vehicle verification, regulated-item, ride-hailing, or super-app infrastructure.
+  - Use synthetic/local fixtures only. Do not copy original logos, screenshots, menus, restaurant data, product catalogs, nutrition/allergen data, loyalty/reward data, offers, prices, photos, payment data, courier evidence, driver earnings data, merchant/provider data, age-restricted item data, licensed data, or private APIs.
+  - Verify each repo remains `PRIVATE`, defaults to `main`, keeps `README.md`, keeps its copied source spec under `docs/source-specs/`, has a root commit, has no `.github/workflows`, and has local validation or blocker evidence recorded before shipping.
+  - Files: downstream repos above, then update `tasks/todo.md`, `tasks/repo-seeding.md`, and `tasks/history.md` with commit, validation, blocker, and invariant evidence.
+
+  **What to Build:**
+  Twelfth Phase 18 implementation tranche across international restaurant delivery, multi-category local commerce, and courier/driver workflow apps. Each downstream repo should get a coherent original scaffold proving serviceability/zone setup, merchant/category or task browse, cart/task/order quote, delivery/pickup/courier handoff status, rewards/offers/membership or earnings placeholders where relevant, support/safety placeholders, and provider/payment/location/inventory/courier/identity/regulated-item blockers with synthetic data.
+
+  **Approach:**
+  1. Inspect each downstream repo's current stack, task state, source spec copy, and validation commands before editing.
+  2. Rebase or fast-forward onto latest remote `main` before committing if the local checkout is behind.
+  3. Reuse the lightweight static prototype pattern from Steps 18.2-18.12 only when no runtime stack already exists; otherwise follow the repo's selected stack.
+  4. Tailor each scaffold: restaurant delivery/serviceability for DiDi Food and Ele.me, multi-category local-commerce gates for Meituan, rider task/earnings/safety placeholders for Deliveroo Rider, and dasher zone/task/earnings/support placeholders for DoorDash Dasher.
   5. Run each repo's available validation, verify GitHub privacy/default-branch/source-spec/no-workflows invariants, commit/push serially, and record evidence here.
 
 ### Milestone: Phase 18 — Food, Delivery & Grocery Complete
