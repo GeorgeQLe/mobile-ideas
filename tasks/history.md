@@ -1,5 +1,35 @@
 # History
 
+## 2026-06-03 - Phase 19 Step 19.4: Neobank Prototypes
+
+- Built original static prototypes for 7 neobank apps as direct-to-`main` commits across seven private downstream repos:
+  - `GeorgeQLe/chime-mobile-clone` - commit `4ab8a03a`. Neobank with partner-bank checking/savings, early direct deposit, round-ups, fee-free overdraft cushion, secured credit builder card, credit score monitoring, and 12 blocker categories.
+  - `GeorgeQLe/current-mobile-clone` - commit `2cc990b7`. Neobank + crypto with spending account, savings pods with progress bars, teen banking with parental controls, point rewards, crypto trading/rewards entry points, and 12 blocker categories.
+  - `GeorgeQLe/sofi-mobile-clone` - commit `af517f95`. Banking & investing super-app with checking, 4.00% APY savings vaults, active/automated investing, retirement IRA, student loan refi, personal loans, credit card, crypto, financial planning, and 12 blocker categories.
+  - `GeorgeQLe/ally-mobile-clone` - commit `2973fc41`. Online bank with interest checking, 4.20% APY savings, savings buckets with goals, high-yield/raise-your-rate/no-penalty CDs, self-directed trading/robo portfolio/IRA investing, auto loan/refinance, Zelle, and 12 blocker categories.
+  - `GeorgeQLe/marcus-mobile-clone` - commit `2012c695`. Savings & lending with 4.40% APY high-yield savings, savings goals, no-penalty/high-yield CDs, personal loans with payoff tracking, credit score and factor analysis, and 10 blocker categories.
+  - `GeorgeQLe/monzo-mobile-clone` - commit `8e065928`. UK neobank (GBP) with current account, pots (locked/round-up/goal-based), monthly budget with per-category breakdowns, salary sorting, bill splitting, fee-free international spending, gambling block, and 12 blocker categories.
+  - `GeorgeQLe/revolut-mobile-clone` - commit `afc09991`. Global neobank with multi-currency accounts (GBP/EUR/USD), currency exchange at interbank rates, crypto portfolio (BTC/ETH/SOL), stock/ETF trading, savings vaults with round-ups, virtual cards, international transfers (SWIFT/SEPA), subscription management, and 14 blocker categories.
+- Plan originally listed 8 apps (including Varo) but Varo has no downstream repo or source spec in the manifest; 7 repos were implemented.
+- Each prototype includes: `index.html`, `package.json` (with `check` script), `src/styles.css` (unique brand color scheme), `src/app.js` (synthetic data and rendering).
+- All prototypes feature synthetic account dashboards, transaction histories with categories, transfer flows, savings goals/pots/vaults/buckets, card controls, app-specific financial services, settings, and explicit blocker banners for all regulated features.
+
+**Validation:**
+- Pre-scan rate limit: `core: 5000/5000, reset: 1780510834`.
+- Post-scan rate limit: `core: 4958/5000, reset: 1780511444`.
+- `npm run check` passed in all 7 repos before commit.
+- Serial GitHub API verification: all 7 repos PRIVATE, default `main`, README present, source spec present, `index.html` present, `src/app.js` present, root commit present, no `.github/workflows`.
+- No 403/429/auth/permission failures.
+
+**Ship Manifest:**
+- User goal: execute Phase 19 Step 19.4 by building neobank prototypes across 7 downstream repos.
+- Changed files: 7 downstream repos (4 files each), `tasks/todo.md` (checked off 19.4), `tasks/repo-seeding.md` (rate-limit and commit evidence), `tasks/history.md` (execution evidence).
+- Tests run: `npm run check` in each repo, `git diff --check --cached` in each repo, serial `gh api` verification for all invariants.
+- Adversarial review: verified all 7 repos remain PRIVATE, no GitHub Actions present, source specs intact, all real banking/payment/identity/regulatory features marked as explicitly blocked.
+- Residual risk: none for this prototype step; all provider/regulatory risks are in blocker banners.
+- Rollback note: revert prototype commits in each downstream repo to restore scaffold-only state.
+- Next command: `/ship` for Step 19.4.
+
 ## 2026-06-03 - Phase 19 Step 19.3: Traditional Banking Prototypes
 
 - Built original static prototypes for 13 traditional banking apps as direct-to-`main` commits across thirteen private downstream repos:
