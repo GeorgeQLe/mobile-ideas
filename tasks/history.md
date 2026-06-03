@@ -1,5 +1,39 @@
 # History
 
+## 2026-06-03 - Phase 18 Step 18.11: Tenth Food, Delivery & Grocery Tranche
+
+- Built the tenth Phase 18 implementation tranche as direct-to-`main` commits across five private downstream repos:
+  - `GeorgeQLe/deliveroo-mobile-clone` - commit `f917ccb`.
+  - `GeorgeQLe/just-eat-mobile-clone` - commit `130d665`.
+  - `GeorgeQLe/glovo-mobile-clone` - commit `963feda`.
+  - `GeorgeQLe/bolt-food-mobile-clone` - commit `3b2de7d`.
+  - `GeorgeQLe/foodpanda-mobile-clone` - commit `2c9d5dc`.
+- Each repo received an original static prototype with `index.html`, `package.json`, `src/styles.css`, and `src/app.js`.
+- The prototypes cover synthetic serviceability/address selection, restaurant or category browse, menu/catalog detail, basket/cart/order quote, scheduled delivery or pickup/collection handoff, courier/task status placeholders, offers/voucher/loyalty placeholders where relevant, support/refund placeholders, and explicit provider/payment/location/inventory/courier/regulated-item blockers.
+- Verified all five repos remain private, default to `main`, keep `README.md`, keep copied source specs under `docs/source-specs/`, have root commits at `main`, and have no `.github/workflows` directory.
+- Planned Step 18.12 for Swiggy, Zomato, Rappi, Grab, and Gojek.
+
+**Validation:**
+- `npm run check` passed in each of the five downstream repos.
+- `git diff --check` and `git diff --check --cached` passed before each downstream commit.
+- Post-push `git status --short --branch` was clean and matched `origin/main` in every downstream clone.
+- Serial GitHub API invariant scan: `checked=5`, `status=ok`.
+- GitHub rate-limit evidence: pre-scan core `4925/5000` remaining, reset `1780340376`; post-scan core `4841/5000` remaining, reset `1780340376`.
+- Initial non-escalated GitHub invariant scan hit sandbox API connectivity errors; escalated GitHub API checks succeeded.
+- Browser rendered verification was skipped because Browser navigation/screenshot tools were not surfaced by tool discovery in this session.
+
+**Ship Manifest:**
+- User goal: execute Phase 18 Step 18.11 by implementing the tenth Food, Delivery & Grocery tranche across five downstream repos.
+- Changed files: downstream repos listed above, `tasks/todo.md`, `tasks/repo-seeding.md`, and `tasks/history.md`.
+- Per-file purpose: downstream repos add original local static prototypes and validation scripts; `tasks/todo.md` marks Step 18.11 complete and contains a self-contained Step 18.12 plan; `tasks/repo-seeding.md` records rate-limit and invariant evidence; `tasks/history.md` records execution evidence and shipping boundary.
+- User-goal mapping: these five Phase 18 apps now have working local prototype scaffolds with validation evidence and explicit blockers rather than seeded-only planning repos.
+- Tests run: `npm run check` in each downstream repo; `git diff --check` and `git diff --check --cached` in each downstream repo; serial GitHub privacy/default-branch/README/source-spec/root-commit/no-workflows invariant checks for each repo; planning-doc diff review.
+- Skipped tests: native iOS/Android builds, mobile browser/device QA, provider/payment/tax/tip/fee/location/courier/loyalty/voucher/member/inventory/catalog/menu/regulated-item/age-verification/refund/support/account flows, and real regional serviceability checks remain blocked until separate provider/toolchain/device/legal access exists. Browser rendered verification was skipped because browser-control tooling was unavailable in this session.
+- Adversarial review: verified no GitHub Actions were added, every repo stayed private, copied source specs remained present, scaffolds use synthetic data only, and real provider/payment/location/inventory/courier/loyalty/regulated-item behavior is presented as blocked rather than verified parity.
+- Residual risk: static prototypes prove local scaffold coverage and JavaScript syntax only; native UX, accessibility, production performance, real data feeds, payments, live tracking, loyalty, inventory, courier dispatch, regulated goods, age verification, and provider integrations remain unverified.
+- Rollback note: revert the listed downstream commits and this planning commit to reopen Step 18.11.
+- Next command: `$exec` for Step 18.12.
+
 ## 2026-06-01 - Phase 18 Step 18.10: Ninth Food, Delivery & Grocery Tranche
 
 - Built the ninth Phase 18 implementation tranche as direct-to-`main` commits across five private downstream repos:
