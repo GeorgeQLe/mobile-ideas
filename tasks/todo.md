@@ -36,14 +36,48 @@
   - Carry-forward blockers documented: KYC/AML/sanctions, payment rails/card networks, bank-link/open-banking, brokerage order routing/custody, crypto exchange/on-chain, lending/credit underwriting, market-data licensing, PCI-adjacent storage, biometric/native auth, fraud/risk, remittance/cross-border, tax/disclosures, real balances/transactions, disputes/chargebacks, financial disclosures/regulatory notices, region/regulator controls.
   - Full inventory and blocker posture recorded in `tasks/repo-seeding.md` under "Phase 19 Finance & Payments Inventory (72 Apps)".
 
-- [ ] Step 19.2: First Finance & Payments implementation tranche
-  - Select 5–6 apps from the P2P payments and digital wallets risk groups for the first tranche.
-  - Build original static prototypes with `index.html`, `package.json`, `src/styles.css`, and `src/app.js` for each app.
-  - Prototypes should cover synthetic account dashboard, transaction history, send/receive/request flows, contact/recipient selection, payment method management, balance display, notification preferences, and support/security placeholders.
-  - Mark all payment rail, KYC/AML, bank-link, biometric, and fraud/risk features as explicitly blocked.
-  - Verify each downstream repo retains PRIVATE visibility, `main` branch, README, source spec, root commit, and no `.github/workflows` after push.
-  - Record rate-limit evidence before and after in `tasks/repo-seeding.md`.
-  - Files: downstream repos, `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+- [ ] Step 19.2: First Finance & Payments implementation tranche — P2P Payments & Digital Wallets
+  - **Apps (6):** Cash App (056), Venmo (057), PayPal (058), Zelle (059), Skrill (498), Neteller (499).
+  - **Downstream repos:** `GeorgeQLe/cash-app-mobile-clone`, `GeorgeQLe/venmo-mobile-clone`, `GeorgeQLe/paypal-mobile-clone`, `GeorgeQLe/zelle-mobile-clone`, `GeorgeQLe/skrill-mobile-clone`, `GeorgeQLe/neteller-mobile-clone`.
+
+  **What to Build:**
+  Original static prototypes for each of the 6 apps. Each repo gets:
+  - `index.html` — single-page prototype shell with app-specific screens
+  - `package.json` — with `check` and `test` scripts (syntax validation)
+  - `src/styles.css` — app-specific styling
+  - `src/app.js` — synthetic app logic
+
+  **Prototype Coverage:**
+  - Synthetic account dashboard with balance display and recent activity
+  - Transaction history list with synthetic entries (sent/received/pending)
+  - Send/receive/request money flows with contact/recipient selection
+  - Payment method management (linked bank, card placeholders)
+  - QR code / payment link placeholder (where app-relevant)
+  - Notification preferences placeholder
+  - Support/help and security settings placeholders
+  - Explicit blocker banners for: real payment rails, KYC/AML identity verification, bank-link (Plaid/open-banking), biometric auth, fraud/risk monitoring, real balances/transactions, PCI-adjacent card storage, and P2P transfer execution
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-scan evidence.
+  2. For each of the 6 repos, serially:
+     a. Clone the downstream repo locally.
+     b. Read the source spec from `docs/source-specs/` for app-specific context.
+     c. Create `index.html`, `package.json`, `src/styles.css`, `src/app.js` with original prototype code.
+     d. Run `npm run check` and `git diff --check --cached` before commit.
+     e. Commit and push to `main`.
+     f. Verify via `gh api`: PRIVATE, `main` branch, README, source spec, root commit, no `.github/workflows`.
+  3. `gh api rate_limit` — record post-scan evidence.
+  4. Update `tasks/todo.md` (check off 19.2, add Step 19.3 plan), `tasks/repo-seeding.md` (rate-limit + commit evidence), `tasks/history.md` (execution evidence).
+
+  **Acceptance Criteria:**
+  - All 6 repos have original static prototypes committed and pushed to `main`.
+  - `npm run check` passes in each repo.
+  - All 6 repos verified PRIVATE with required artifacts post-push.
+  - Rate-limit evidence recorded before and after.
+  - No 403/429/auth failures.
+  - All real payment/banking/identity/fraud features marked as explicitly blocked.
+
+  **Files:** downstream repos (6), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
 ### Milestone: Phase 19 — Finance & Payments Complete
 **Acceptance Criteria:**
