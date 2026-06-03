@@ -114,6 +114,57 @@
   - Each prototype includes: synthetic account dashboards (checking/savings/spending/multi-currency), transaction history with categories, internal/external transfers, debit card controls, savings goals/pots/vaults/buckets, and explicit blocker banners for all regulated features.
   - Neobank-specific features per app: Chime (round-ups, early DD, credit builder, overdraft cushion), Current (savings pods, teen banking, crypto, point rewards), SoFi (investing, loans, credit card, robo-advisor, crypto), Ally (CDs, buckets, auto lending, Zelle, robo portfolio), Marcus (high-yield savings, no-penalty CDs, personal loans, credit insights), Monzo (pots, budgeting, bill splitting, salary sorting, UK GBP), Revolut (multi-currency FX, crypto, stocks, vaults, virtual cards, international transfers).
 
+- [ ] Step 19.5: Fourth Finance & Payments implementation tranche — Investing & Brokerage
+  - **Apps (13):** Robinhood (060), Public (140), Acorns (141), Stash (142), Wealthfront (143), Betterment (144), Fidelity (488), Schwab Mobile (489), E*TRADE (490), Webull (491), moomoo (492), Interactive Brokers (493), Vanguard (494).
+  - **Downstream repos:** `GeorgeQLe/robinhood-mobile-clone`, `GeorgeQLe/public-mobile-clone`, `GeorgeQLe/acorns-mobile-clone`, `GeorgeQLe/stash-mobile-clone`, `GeorgeQLe/wealthfront-mobile-clone`, `GeorgeQLe/betterment-mobile-clone`, `GeorgeQLe/fidelity-mobile-clone`, `GeorgeQLe/schwab-mobile-mobile-clone`, `GeorgeQLe/e-trade-mobile-clone`, `GeorgeQLe/webull-mobile-clone`, `GeorgeQLe/moomoo-mobile-clone`, `GeorgeQLe/interactive-brokers-mobile-clone`, `GeorgeQLe/vanguard-mobile-clone`.
+  - **Source specs:** `specs/batch-03/060-robinhood.md`, `specs/batch-07/140-public.md`, `specs/batch-08/141-acorns.md`, `specs/batch-08/142-stash.md`, `specs/batch-08/143-wealthfront.md`, `specs/batch-08/144-betterment.md`, `specs/batch-25/488-fidelity.md`, `specs/batch-25/489-schwab-mobile.md`, `specs/batch-25/490-e-trade.md`, `specs/batch-25/491-webull.md`, `specs/batch-25/492-moomoo.md`, `specs/batch-25/493-interactive-brokers.md`, `specs/batch-25/494-vanguard.md`.
+
+  **What to Build:**
+  Original static prototypes for each of the 13 investing/brokerage apps. Each repo gets:
+  - `index.html` — single-page prototype shell with investing-specific screens
+  - `package.json` — with `check` script (syntax validation)
+  - `src/styles.css` — app-specific styling (unique color scheme per brand)
+  - `src/app.js` — synthetic app logic
+
+  **Prototype Coverage:**
+  - Synthetic portfolio dashboard with total value, daily gain/loss, and holdings breakdown
+  - Watchlist with synthetic stock/ETF/crypto entries and price data
+  - Quote/detail page for individual securities with synthetic chart placeholder
+  - Order ticket simulation (buy/sell with quantity, order type, review, confirmation)
+  - Account summary (buying power, margin, cash, portfolio allocation)
+  - Transaction/order history with filled/pending/cancelled states
+  - Account types (individual brokerage, IRA, Roth IRA, 401k rollover) where app-relevant
+  - Cash management / sweep account where app-relevant
+  - Robo-advisor / automated investing where app-relevant (Acorns, Wealthfront, Betterment, Stash)
+  - Round-ups / recurring investment where app-relevant
+  - Options / advanced order types where app-relevant (Robinhood, E*TRADE, IBKR, Webull)
+  - Crypto trading entry point where app-relevant
+  - Tax-loss harvesting / tax reporting placeholder where app-relevant
+  - Settings, notifications, security, support placeholders
+  - Explicit blocker banners for: brokerage order routing, trade execution, market data licensing, custody/clearing, SIPC protection, margin lending, options underwriting, crypto exchange, robo-advisor algorithms, tax-loss harvesting, KYC/AML, real balances/positions, regulatory disclosures (Reg T, Reg NMS, best execution), and financial advisor licensing
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-scan evidence.
+  2. For each of the 13 repos, serially:
+     a. Clone the downstream repo locally (if not already cloned).
+     b. Read the source spec from `docs/source-specs/` for app-specific context.
+     c. Create `index.html`, `package.json`, `src/styles.css`, `src/app.js` with original prototype code.
+     d. Run `npm run check` and `git diff --check --cached` before commit.
+     e. Commit and push to `main`.
+     f. Verify via `gh api`: PRIVATE, `main` branch, README, source spec, root commit, no `.github/workflows`.
+  3. `gh api rate_limit` — record post-scan evidence.
+  4. Update `tasks/todo.md` (check off 19.5, add Step 19.6 plan), `tasks/repo-seeding.md` (rate-limit + commit evidence), `tasks/history.md` (execution evidence).
+
+  **Acceptance Criteria:**
+  - All 13 repos have original static prototypes committed and pushed to `main`.
+  - `npm run check` passes in each repo.
+  - All 13 repos verified PRIVATE with required artifacts post-push.
+  - Rate-limit evidence recorded before and after.
+  - No 403/429/auth failures.
+  - All real brokerage/investing/trading/regulatory features marked as explicitly blocked.
+
+  **Files:** downstream repos (13), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+
 ### Milestone: Phase 19 — Finance & Payments Complete
 **Acceptance Criteria:**
 - [ ] Exact Phase 19 inventory reconciled with app IDs, app names, repo slugs, source specs, and downstream readiness.
