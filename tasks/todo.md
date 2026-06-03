@@ -88,9 +88,50 @@
   - Each prototype includes: synthetic account dashboard with balance, transaction history, send/receive/request flows, payment method management, app-specific services and settings, and explicit blocker banners for all regulated features.
 
 - [ ] Step 19.3: Second Finance & Payments implementation tranche — Traditional Banking
-  - **Apps (13):** IDs 472–484 covering traditional banking apps.
-  - Build original static prototypes for each downstream repo with account dashboards, checking/savings views, transaction history, transfer flows, bill pay, mobile check deposit, ATM/branch locator, card management, and explicit blockers for real banking rails, KYC, FDIC, and regulatory features.
-  - Same serial approach: clone, build, `npm run check`, commit, push, verify via GitHub API.
+  - **Apps (13):** Chase Mobile (472), Bank of America (473), Wells Fargo (474), Citi Mobile (475), Capital One (476), American Express (477), Discover (478), U.S. Bank (479), PNC Mobile (480), TD Bank (481), Truist (482), USAA (483), Navy Federal Credit Union (484).
+  - **Downstream repos:** `GeorgeQLe/chase-mobile-mobile-clone`, `GeorgeQLe/bank-of-america-mobile-banking-mobile-clone`, `GeorgeQLe/wells-fargo-mobile-mobile-clone`, `GeorgeQLe/citi-mobile-mobile-clone`, `GeorgeQLe/capital-one-mobile-mobile-clone`, `GeorgeQLe/american-express-mobile-clone`, `GeorgeQLe/discover-mobile-mobile-clone`, `GeorgeQLe/u-s-bank-mobile-clone`, `GeorgeQLe/pnc-mobile-mobile-clone`, `GeorgeQLe/td-bank-mobile-clone`, `GeorgeQLe/truist-mobile-clone`, `GeorgeQLe/usaa-mobile-clone`, `GeorgeQLe/navy-federal-credit-union-mobile-clone`.
+  - **Source specs:** `specs/batch-24/472-chase-mobile.md` through `specs/batch-24/480-pnc-mobile.md`, `specs/batch-25/481-td-bank.md` through `specs/batch-25/484-navy-federal-credit-union.md`.
+
+  **What to Build:**
+  Original static prototypes for each of the 13 apps. Each repo gets:
+  - `index.html` — single-page prototype shell with bank-specific screens
+  - `package.json` — with `check` script (syntax validation)
+  - `src/styles.css` — bank-specific styling (unique color scheme per bank)
+  - `src/app.js` — synthetic app logic
+
+  **Prototype Coverage:**
+  - Synthetic account dashboard with checking/savings/credit card balance display
+  - Transaction history list with synthetic entries (deposits, withdrawals, purchases, transfers, pending)
+  - Internal and external transfer flows with account selection
+  - Bill pay placeholder with payee management
+  - Mobile check deposit placeholder
+  - ATM/branch locator placeholder
+  - Card management (debit/credit lock, replace, dispute, rewards)
+  - Notification and alert preferences placeholder
+  - Support/help and security settings placeholders
+  - Explicit blocker banners for: real banking rails, ACH/wire transfers, KYC/AML, FDIC/NCUA, biometric auth, mobile check capture, bill pay execution, card provisioning, loan/mortgage/credit products, and regulatory compliance
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-scan evidence.
+  2. For each of the 13 repos, serially:
+     a. Clone the downstream repo locally (if not already cloned).
+     b. Read the source spec from `docs/source-specs/` for bank-specific context.
+     c. Create `index.html`, `package.json`, `src/styles.css`, `src/app.js` with original prototype code.
+     d. Run `npm run check` and `git diff --check --cached` before commit.
+     e. Commit and push to `main`.
+     f. Verify via `gh api`: PRIVATE, `main` branch, README, source spec, root commit, no `.github/workflows`.
+  3. `gh api rate_limit` — record post-scan evidence.
+  4. Update `tasks/todo.md` (check off 19.3, add Step 19.4 plan), `tasks/repo-seeding.md` (rate-limit + commit evidence), `tasks/history.md` (execution evidence).
+
+  **Acceptance Criteria:**
+  - All 13 repos have original static prototypes committed and pushed to `main`.
+  - `npm run check` passes in each repo.
+  - All 13 repos verified PRIVATE with required artifacts post-push.
+  - Rate-limit evidence recorded before and after.
+  - No 403/429/auth failures.
+  - All real banking/payment/identity/regulatory features marked as explicitly blocked.
+
+  **Files:** downstream repos (13), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
 ### Milestone: Phase 19 — Finance & Payments Complete
 **Acceptance Criteria:**
