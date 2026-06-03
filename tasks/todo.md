@@ -178,8 +178,68 @@
     - Full-service brokerages (Fidelity, Schwab, E*TRADE, Interactive Brokers, Vanguard): mutual funds, ETFs, fixed income, managed portfolios, checking/banking, retirement (Roth/Traditional/SEP/401k/529), target-date funds, advisory services, multi-asset (stocks/options/futures/forex/bonds), portfolio margin.
 
 - [ ] Step 19.6: Fifth Finance & Payments implementation tranche — Crypto Exchanges & Wallets
-  - **Apps (10):** Coinbase (061), Crypto.com (062), Binance.US (063), Kraken (064), Gemini (065), Trust Wallet (137), MetaMask (138), Phantom (147), Ledger Live (500), Exodus (501).
-  - Plan details TBD — next planning step.
+  - **Apps (12):** Coinbase (061), Crypto.com (505), Binance (506), Kraken (507), Gemini Crypto (508), Phantom (509), MetaMask (510), Trust Wallet (511), Exodus (512), Ledger Live (513), MoonPay (514), Strike (515).
+  - **Downstream repos:** `GeorgeQLe/coinbase-mobile-clone`, `GeorgeQLe/crypto-com-mobile-clone`, `GeorgeQLe/binance-mobile-clone`, `GeorgeQLe/kraken-mobile-clone`, `GeorgeQLe/gemini-crypto-mobile-clone`, `GeorgeQLe/phantom-mobile-clone`, `GeorgeQLe/metamask-mobile-clone`, `GeorgeQLe/trust-wallet-mobile-clone`, `GeorgeQLe/exodus-mobile-clone`, `GeorgeQLe/ledger-live-mobile-clone`, `GeorgeQLe/moonpay-mobile-clone`, `GeorgeQLe/strike-mobile-clone`.
+  - **Source specs:** `specs/batch-04/061-coinbase.md`, `specs/batch-26/505-crypto-com.md`, `specs/batch-26/506-binance.md`, `specs/batch-26/507-kraken.md`, `specs/batch-26/508-gemini-crypto.md`, `specs/batch-26/509-phantom.md`, `specs/batch-26/510-metamask.md`, `specs/batch-26/511-trust-wallet.md`, `specs/batch-26/512-exodus.md`, `specs/batch-26/513-ledger-live.md`, `specs/batch-26/514-moonpay.md`, `specs/batch-26/515-strike.md`.
+
+  **What to Build:**
+  Original static prototypes for each of the 12 crypto exchange/wallet/on-ramp apps. Each repo gets:
+  - `index.html` — single-page prototype shell with crypto-specific screens
+  - `package.json` — with `check` script (syntax validation)
+  - `src/styles.css` — app-specific styling (unique color scheme per brand)
+  - `src/app.js` — synthetic app logic
+
+  **Prototype Coverage:**
+  - Crypto exchanges (Coinbase, Crypto.com, Binance, Kraken, Gemini Crypto):
+    - Synthetic portfolio with crypto holdings and fiat balance
+    - Market/price list with synthetic crypto prices and 24h change
+    - Spot trading: buy/sell order ticket with market/limit types
+    - Order book / trade history placeholder
+    - Staking / earn / rewards where app-relevant
+    - Crypto send/receive with address and network selection placeholder
+    - Transaction history with deposits/withdrawals/trades
+    - Account types (individual, institutional where relevant)
+    - Crypto-specific: NFT gallery placeholder, DeFi browser placeholder where relevant
+  - Crypto wallets (Phantom, MetaMask, Trust Wallet, Exodus, Ledger Live):
+    - Multi-chain wallet with token balances per network
+    - Send/receive with address entry and network/gas fee placeholder
+    - Token swap / DEX aggregator placeholder
+    - DApp browser / Web3 connection placeholder
+    - NFT gallery placeholder
+    - Staking directly from wallet where chain-relevant
+    - Transaction history per chain
+    - Seed phrase / recovery backup reminder
+    - Hardware wallet pairing placeholder (Ledger Live)
+  - Crypto on-ramp (MoonPay, Strike):
+    - Fiat-to-crypto purchase flow with payment method selection
+    - Supported crypto list and price quotes
+    - Transaction status tracking
+    - KYC verification placeholder
+    - Bitcoin-focus features (Strike): Lightning Network, payments
+  - All apps: settings, notifications, security placeholders
+  - Explicit blocker banners for: crypto exchange licensing (MSB/MTL/state), order matching/execution, hot/cold wallet custody, on-chain transactions, gas estimation, DeFi protocol interaction, NFT rendering, staking validator operations, KYC/AML/sanctions, real balances/keys, seed phrase security, hardware wallet communication, fiat on/off-ramp payment processing, and regulatory disclosures
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-scan evidence.
+  2. For each of the 12 repos, serially:
+     a. Clone the downstream repo locally (if not already cloned).
+     b. Read the source spec from `docs/source-specs/` for app-specific context.
+     c. Create `index.html`, `package.json`, `src/styles.css`, `src/app.js` with original prototype code.
+     d. Run `npm run check` and `git diff --check --cached` before commit.
+     e. Commit and push to `main`.
+     f. Verify via `gh api`: PRIVATE, `main` branch, README, source spec, root commit, no `.github/workflows`.
+  3. `gh api rate_limit` — record post-scan evidence.
+  4. Update `tasks/todo.md` (check off 19.6, add Step 19.7 plan), `tasks/repo-seeding.md` (rate-limit + commit evidence), `tasks/history.md` (execution evidence).
+
+  **Acceptance Criteria:**
+  - All 12 repos have original static prototypes committed and pushed to `main`.
+  - `npm run check` passes in each repo.
+  - All 12 repos verified PRIVATE with required artifacts post-push.
+  - Rate-limit evidence recorded before and after.
+  - No 403/429/auth failures.
+  - All real crypto exchange/wallet/custody/on-chain/regulatory features marked as explicitly blocked.
+
+  **Files:** downstream repos (12), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
 ### Milestone: Phase 19 — Finance & Payments Complete
 **Acceptance Criteria:**
