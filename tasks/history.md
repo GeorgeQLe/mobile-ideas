@@ -7453,3 +7453,14 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Adversarial review: verified all 15 repos remain PRIVATE, no GitHub Actions present, source specs intact, all live GPS/dispatch/payment/transit-feed/vehicle-hardware/regulatory features marked as explicitly blocked.
 - Residual risk: none for this prototype step; all provider/regulatory risks are in blocker banners.
 - Rollback note: revert prototype commits in each downstream repo to restore scaffold-only state.
+
+### 2026-06-04 — Phase 20 Step 20.4: Hotels & Accommodation Prototypes (20 apps)
+
+- **What**: Built original static prototypes for 20 hotel/accommodation/activity apps across 20 private downstream repos. Serial GitHub API verification confirmed all 20 repos PRIVATE with README, index.html, package.json, src/app.js, src/styles.css, root commits, and no GitHub Actions (checked=20, pass=20, fail=0).
+- **App groups**: Hotel chains (7: Marriott Bonvoy, Hilton Honors, Hyatt, IHG One Rewards, Wyndham Hotels, Choice Hotels, Accor ALL), OTA/meta-search (5: Hotels.com, Booking.com, Agoda, HotelTonight, Tripadvisor), Vacation rentals (2: Airbnb, Vrbo), Hostels/social (2: Hostelworld, Couchsurfing), Activities (3: Klook, GetYourGuide, Viator), Trip planning (1: Roadtrippers).
+- **Rate-limit evidence**: pre-scan 4730/5000, post-scan 4430/5000.
+- **Changed files**: 20 downstream repos (4 files each), `tasks/todo.md` (checked off 20.4), `tasks/repo-seeding.md` (rate-limit and verification evidence), `tasks/history.md` (execution evidence).
+- **Tests run**: `npm run check` in each repo, serial `gh api` verification for all invariants.
+- **Adversarial review**: verified all 20 repos remain PRIVATE, no GitHub Actions present, source specs intact, all hotel PMS/CRS, OTA booking engines, payment processing, mobile key BLE/NFC, loyalty engines, property listing verification, voucher/e-ticket systems, maps/routing APIs, review/trust systems, and regulatory features marked as explicitly blocked.
+- **Residual risk**: none for this prototype step; all provider/regulatory risks are in blocker banners.
+- **Rollback note**: revert prototype commits in each downstream repo to restore scaffold-only state.

@@ -131,7 +131,7 @@
 
   **Files:** downstream repos (24), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
-- [ ] Step 20.4: Third Travel & Transportation implementation tranche — Hotels & Accommodation (20 apps)
+- [x] Step 20.4: Third Travel & Transportation implementation tranche — Hotels & Accommodation (20 apps, completed 2026-06-04)
   - **Apps:** Marriott Bonvoy (547), Hilton Honors (548), Hyatt (549), IHG One Rewards (550), Wyndham Hotels (551), Choice Hotels (552), Accor ALL (553), Hotels.com (554), Booking.com (034), Vrbo (555), Airbnb (033), Hostelworld (556), Couchsurfing (557), Klook (558), GetYourGuide (559), Viator (560), Roadtrippers (570), Tripadvisor (561), HotelTonight (569), Agoda (567).
 
   **What to Build:**
