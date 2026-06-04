@@ -78,7 +78,7 @@
 
   **Files:** downstream repos (15), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
-- [ ] Step 20.3: Second Travel & Transportation implementation tranche — Airlines (24 apps)
+- [x] Step 20.3: Second Travel & Transportation implementation tranche — Airlines (24 apps, completed 2026-06-04)
   - **Apps:** Delta (523), United Airlines (524), American Airlines (525), Southwest Airlines (526), JetBlue (527), Alaska Airlines (528), Spirit Airlines (529), Frontier Airlines (530), Hawaiian Airlines (531), Air Canada (532), British Airways (533), Lufthansa (534), Air France (535), KLM (536), Emirates (537), Qatar Airways (538), Singapore Airlines (539), Turkish Airlines (540), Ryanair (541), easyJet (542), Wizz Air (543), ANA (544), JAL (545), Cathay Pacific (546).
 
   **What to Build:**

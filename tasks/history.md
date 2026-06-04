@@ -1,5 +1,36 @@
 # History
 
+## 2026-06-04 - Phase 20 Step 20.3: Airline Prototypes
+
+- Built original static prototypes for 24 airline apps as direct-to-`main` commits across 24 private downstream repos:
+  - **US Legacy (7):** `GeorgeQLe/delta-mobile-clone` (SkyMiles, SkyTeam), `GeorgeQLe/united-airlines-mobile-clone` (MileagePlus, Star Alliance), `GeorgeQLe/american-airlines-mobile-clone` (AAdvantage, oneworld), `GeorgeQLe/southwest-airlines-mobile-clone` (Rapid Rewards, open seating), `GeorgeQLe/jetblue-mobile-clone` (TrueBlue, Mint), `GeorgeQLe/alaska-airlines-mobile-clone` (Mileage Plan, oneworld), `GeorgeQLe/hawaiian-airlines-mobile-clone` (HawaiianMiles, inter-island).
+  - **US Ultra-Low-Cost (2):** `GeorgeQLe/spirit-airlines-mobile-clone` (Free Spirit, bare fare + ancillary), `GeorgeQLe/frontier-airlines-mobile-clone` (FRONTIER Miles, GoWild! pass).
+  - **Canadian/European Legacy (5):** `GeorgeQLe/air-canada-mobile-clone` (Aeroplan, Star Alliance), `GeorgeQLe/british-airways-mobile-clone` (Avios, oneworld), `GeorgeQLe/lufthansa-mobile-clone` (Miles & More, Star Alliance), `GeorgeQLe/air-france-mobile-clone` (Flying Blue, SkyTeam), `GeorgeQLe/klm-mobile-clone` (Flying Blue, SkyTeam).
+  - **Middle East Premium (2):** `GeorgeQLe/emirates-mobile-clone` (Skywards, First Class suites + chauffeur), `GeorgeQLe/qatar-airways-mobile-clone` (Privilege Club, Qsuite).
+  - **Asian Premium (4):** `GeorgeQLe/singapore-airlines-mobile-clone` (KrisFlyer, Suites class), `GeorgeQLe/ana-mobile-clone` (ANA Mileage Club, THE Suite/Room), `GeorgeQLe/jal-mobile-clone` (JAL Mileage Bank, SKY SUITE), `GeorgeQLe/cathay-pacific-mobile-clone` (Asia Miles, The Pier lounges).
+  - **European Low-Cost (3):** `GeorgeQLe/ryanair-mobile-clone` (myRyanair, bare fare + bundles), `GeorgeQLe/easyjet-mobile-clone` (easyJet Plus, FLEXI fare), `GeorgeQLe/wizz-air-mobile-clone` (WIZZ Discount Club, Go/Plus bundles).
+  - **Turkish (1):** `GeorgeQLe/turkish-airlines-mobile-clone` (Miles&Smiles, Star Alliance, Istanbul hub).
+- Each prototype includes: `index.html`, `package.json` (with `check` script), `src/styles.css` (carrier-branded color scheme), `src/app.js` (synthetic flight data, loyalty, and booking rendering).
+- All prototypes feature flight search with cabin classes, booking management, check-in and boarding pass placeholders, flight status, carrier-specific loyalty programs with tier status, airport maps and lounge finder, and explicit blocker banners for GDS/PSS, payment, check-in/boarding pass, flight data, loyalty engines, baggage tracking, lounge access, and aviation regulatory compliance.
+- Premium carriers (Emirates, Qatar, Singapore, ANA, JAL, Cathay Pacific) include premium services sections (private suites, chauffeur, premium lounges).
+- LCC carriers (Spirit, Frontier, Ryanair, easyJet, Wizz Air) include ancillary add-on sections (bags, seats, priority, bundles).
+
+**Validation:**
+- Pre-scan rate limit: `core: 4619/5000`.
+- Post-scan rate limit: `core: 4374/5000`.
+- `npm run check` passed in all 24 repos before commit.
+- Serial GitHub API verification: all 24 repos PRIVATE, default `main`, README present, `index.html`, `package.json`, `src/app.js`, `src/styles.css` present, root commit present, no `.github/workflows`.
+- Checked=24, Pass=24, Fail=0. No 403/429/auth/permission failures.
+
+**Ship Manifest:**
+- User goal: execute Phase 20 Step 20.3 by building airline prototypes across 24 downstream repos.
+- Changed files: 24 downstream repos (4 files each), `tasks/todo.md` (checked off 20.3), `tasks/repo-seeding.md` (rate-limit and verification evidence), `tasks/history.md` (session record).
+- Tests run: `npm run check` in each repo, serial `gh api` verification for all invariants.
+- Adversarial review: verified all 24 repos remain PRIVATE, no GitHub Actions present, source specs intact, all real airline reservation/payment/check-in/flight data/loyalty/baggage/regulatory features marked as explicitly blocked.
+- Residual risk: none for this prototype step; all provider/regulatory risks are in blocker banners.
+- Rollback note: revert prototype commits in each downstream repo to restore scaffold-only state.
+- Next command: `/ship` for Step 20.3.
+
 ## 2026-06-03 - Phase 19 Step 19.4: Neobank Prototypes
 
 - Built original static prototypes for 7 neobank apps as direct-to-`main` commits across seven private downstream repos:
