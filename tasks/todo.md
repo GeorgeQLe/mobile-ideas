@@ -181,20 +181,55 @@
 
   **Files:** downstream repos (20), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
-- [ ] Step 20.5: Fourth Travel & Transportation implementation tranche — Travel Booking, Car Rental, Parking, EV & Vehicles (25 apps)
+- [ ] Step 20.5: Fourth Travel & Transportation implementation tranche — Travel Booking, Car Rental, Parking, EV & Vehicles (27 apps)
   - **Apps:** Expedia (035), Hopper (036), TripIt (037), Rome2Rio (562), Skyscanner (563), KAYAK (564), momondo (565), Priceline (566), trivago (568), Zipcar (579), Getaround (580), Enterprise Rent-A-Car (581), Hertz (582), Avis (583), SpotHero (584), ParkMobile (585), Passport Parking (586), PlugShare (587), ChargePoint (588), Electrify America (589), Tesla (590), FordPass (591), myChevrolet (592), Toyota (593), Hyundai Bluelink (594), BMW (595), Mercedes me (596).
 
-  **Note:** This tranche has 27 apps (not 25) — adjusted to include all remaining apps.
-
   **What to Build:**
-  Original static prototypes for each of the 27 remaining travel/transport apps covering:
+  Original static prototypes (`index.html`, `package.json`, `src/styles.css`, `src/app.js`) for each of the 27 remaining travel/transport downstream repos covering:
   - Travel booking/OTA (Expedia, Hopper, Priceline, Skyscanner, KAYAK, momondo, trivago, Rome2Rio): multi-modal search (flights, hotels, cars, packages), price alerts/predictions (Hopper), fare comparison, booking management
   - Trip management (TripIt): itinerary aggregation, email parsing placeholder, travel timeline, flight/hotel/car details, sharing
   - Car rental (Zipcar, Getaround, Enterprise, Hertz, Avis): vehicle search, reservation, keyless unlock placeholder (Zipcar/Getaround), fleet availability, pickup/return, loyalty programs
   - Parking (SpotHero, ParkMobile, Passport Parking): parking search by location, reservation/payment, session management, meter extension
   - EV charging (PlugShare, ChargePoint, Electrify America): station finder with map, connector types, real-time availability placeholder, charging session, payment, station reviews
   - Vehicle connectivity (Tesla, FordPass, myChevrolet, Toyota, Hyundai Bluelink, BMW, Mercedes me): vehicle status (battery/fuel, range, tire pressure), remote commands (lock/unlock, climate, horn), trip history, service scheduling, charging management (EV models), OTA update placeholder
+  - All apps: unique brand-themed color scheme matching platform/brand identity
   - Explicit blockers for OTA/GDS integration, car rental fleet systems, parking meter APIs, EV charging protocols (OCPP/OCPI), vehicle telematics (OBD-II, CAN bus, manufacturer APIs), payment processing, and automotive regulatory compliance
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-scan evidence.
+  2. Read source specs from `specs/batch-02/` (035, 036, 037), `specs/batch-29/` (562–566, 568, 579, 580), and `specs/batch-30/` (581–596) for app-specific features.
+  3. Write a Node.js generator script at `/tmp/generate-travel-vehicle-prototypes.mjs` defining all 27 apps with category-specific data (travel booking with multi-modal search, trip management with itinerary aggregation, car rental with fleet/keyless, parking with session management, EV charging with station finder/OCPP, vehicle connectivity with remote commands/telematics).
+  4. For each of the 27 repos, serially: clone to /tmp, create prototype files (`index.html`, `package.json`, `src/styles.css`, `src/app.js`), run `npm run check`, commit, push, verify via `gh api` (PRIVATE, main, README, spec, commit, no-workflows).
+  5. `gh api rate_limit` — record post-scan evidence.
+  6. Update `tasks/todo.md` (mark step complete), `tasks/repo-seeding.md` (add implementation log entry), `tasks/history.md` (append session record).
+
+  **Repo slugs (27):**
+  `expedia-mobile-clone`, `hopper-mobile-clone`, `tripit-mobile-clone`, `rome2rio-mobile-clone`, `skyscanner-mobile-clone`, `kayak-mobile-clone`, `momondo-mobile-clone`, `priceline-mobile-clone`, `trivago-mobile-clone`, `zipcar-mobile-clone`, `getaround-mobile-clone`, `enterprise-rent-a-car-mobile-clone`, `hertz-mobile-clone`, `avis-mobile-clone`, `spothero-mobile-clone`, `parkmobile-mobile-clone`, `passport-parking-mobile-clone`, `plugshare-mobile-clone`, `chargepoint-mobile-clone`, `electrify-america-mobile-clone`, `tesla-mobile-clone`, `fordpass-mobile-clone`, `mychevrolet-mobile-clone`, `toyota-mobile-clone`, `hyundai-bluelink-mobile-clone`, `bmw-mobile-clone`, `mercedes-me-mobile-clone`
+
+  **Source specs:**
+  - `specs/batch-02/035-expedia.md`, `specs/batch-02/036-hopper.md`, `specs/batch-02/037-tripit.md`
+  - `specs/batch-29/562-rome2rio.md` through `specs/batch-29/566-priceline.md`, `specs/batch-29/568-trivago.md`, `specs/batch-29/579-zipcar.md`, `specs/batch-29/580-getaround.md`
+  - `specs/batch-30/581-enterprise-rent-a-car.md` through `specs/batch-30/596-mercedes-me.md`
+
+  **App groups:**
+  - Travel booking/OTA (8): Expedia, Hopper, Priceline, Skyscanner, KAYAK, momondo, trivago, Rome2Rio — multi-modal search (flights+hotels+cars+packages), fare comparison, price predictions (Hopper), meta-search, multi-modal routing (Rome2Rio)
+  - Trip management (1): TripIt — itinerary aggregation, email forwarding placeholder, travel timeline, flight/hotel/car detail cards, trip sharing
+  - Car rental (5): Zipcar, Getaround, Enterprise, Hertz, Avis — vehicle search/reserve, keyless unlock placeholder (Zipcar/Getaround P2P), fleet availability, pickup/return, loyalty (National Emerald Club, Hertz Gold Plus, Avis Preferred)
+  - Parking (3): SpotHero, ParkMobile, Passport Parking — parking search by location/map, reservation/payment, active session management, meter extension, garage/lot/street
+  - EV charging (3): PlugShare, ChargePoint, Electrify America — station finder map, connector types (CCS/CHAdeMO/J1772/Tesla), real-time availability placeholder, charging session start/stop, payment, station reviews/check-ins
+  - Vehicle connectivity (7): Tesla, FordPass, myChevrolet, Toyota, Hyundai Bluelink, BMW, Mercedes me — vehicle status (battery/fuel, range, tire pressure, odometer), remote commands (lock/unlock, climate pre-conditioning, horn/lights, frunk/trunk), trip history, service scheduling, charging management (EV/PHEV), OTA software update placeholder
+
+  **Execution profile:** serial, main agent integration owner, low conflict risk.
+
+  **Acceptance Criteria:**
+  - All 27 repos have `index.html`, `package.json`, `src/styles.css`, `src/app.js` committed and pushed.
+  - `npm run check` passes in each repo.
+  - Each repo verified PRIVATE with all required artifacts via `gh api`.
+  - Rate-limit evidence recorded pre and post.
+  - Category-specific blockers documented per app (OTA/GDS, car rental fleet, parking meter APIs, EV charging OCPP/OCPI, vehicle telematics OBD-II/CAN bus, payment, automotive regulatory).
+  - App-specific features: travel booking multi-modal search, trip itinerary aggregation, car rental keyless/fleet, parking session management, EV station finder/charging, vehicle remote commands/status.
+
+  **Ship-one-step handoff:** Implement only Step 20.5, validate it, then run `/ship` when done.
 
   **Files:** downstream repos (27), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
