@@ -135,7 +135,7 @@
   - **Apps:** Marriott Bonvoy (547), Hilton Honors (548), Hyatt (549), IHG One Rewards (550), Wyndham Hotels (551), Choice Hotels (552), Accor ALL (553), Hotels.com (554), Booking.com (034), Vrbo (555), Airbnb (033), Hostelworld (556), Couchsurfing (557), Klook (558), GetYourGuide (559), Viator (560), Roadtrippers (570), Tripadvisor (561), HotelTonight (569), Agoda (567).
 
   **What to Build:**
-  Original static prototypes for each of the 20 hotel/accommodation/activity apps covering:
+  Original static prototypes (`index.html`, `package.json`, `src/styles.css`, `src/app.js`) for each of the 20 hotel/accommodation/activity downstream repos covering:
   - Hotel chains (Marriott, Hilton, Hyatt, IHG, Wyndham, Choice, Accor): property search, room booking, mobile check-in/key placeholder, loyalty program with points/tier, room preferences, special requests
   - OTA/meta-search (Hotels.com, Booking.com, Agoda, HotelTonight, Tripadvisor): property search/filter, price comparison, guest reviews, booking management, last-minute deals
   - Vacation rentals (Airbnb, Vrbo): listing search, property detail with photos/amenities, host messaging, booking/payment placeholder, reviews, hosting dashboard
@@ -143,7 +143,41 @@
   - Social travel (Couchsurfing): host finder, request to stay, community events, references
   - Activities (Klook, GetYourGuide, Viator): activity/tour search, booking, voucher/ticket, reviews
   - Trip planning (Roadtrippers): route planner, points of interest, road trip itinerary
+  - All apps: unique brand-themed color scheme matching property/platform identity
   - Explicit blockers for hotel PMS/CRS, OTA booking engines, payment processing, mobile key (BLE/NFC), loyalty engines, property listing verification, and hospitality regulatory compliance
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-scan evidence.
+  2. Read source specs from `specs/batch-02/` (033, 034), `specs/batch-28/` (547–560), and `specs/batch-29/` (561, 567, 569, 570) for app-specific features.
+  3. Write a Node.js generator script at `/tmp/generate-hotel-prototypes.mjs` defining all 20 apps with category-specific data (hotel chains with loyalty programs, OTAs with search/comparison, vacation rentals with host/guest flows, activities with voucher/booking, trip planning with route/POI).
+  4. For each of the 20 repos, serially: clone to /tmp, create prototype files (`index.html`, `package.json`, `src/styles.css`, `src/app.js`), run `npm run check`, commit, push, verify via `gh api` (PRIVATE, main, README, spec, commit, no-workflows).
+  5. `gh api rate_limit` — record post-scan evidence.
+  6. Update `tasks/todo.md` (mark step complete), `tasks/repo-seeding.md` (add implementation log entry), `tasks/history.md` (append session record).
+
+  **Repo slugs (20):**
+  `marriott-bonvoy-mobile-clone`, `hilton-honors-mobile-clone`, `hyatt-mobile-clone`, `ihg-one-rewards-mobile-clone`, `wyndham-hotels-mobile-clone`, `choice-hotels-mobile-clone`, `accor-all-mobile-clone`, `hotels-com-mobile-clone`, `booking-com-mobile-clone`, `vrbo-mobile-clone`, `airbnb-mobile-clone`, `hostelworld-mobile-clone`, `couchsurfing-mobile-clone`, `klook-mobile-clone`, `getyourguide-mobile-clone`, `viator-mobile-clone`, `roadtrippers-mobile-clone`, `tripadvisor-mobile-clone`, `hoteltonight-mobile-clone`, `agoda-mobile-clone`
+
+  **Source specs:** `specs/batch-02/033-airbnb.md`, `specs/batch-02/034-booking-com.md`, `specs/batch-28/547-marriott-bonvoy.md` through `specs/batch-28/560-viator.md`, `specs/batch-29/561-tripadvisor.md`, `specs/batch-29/567-agoda.md`, `specs/batch-29/569-hoteltonight.md`, `specs/batch-29/570-roadtrippers.md`
+
+  **App groups:**
+  - Hotel chains (7): Marriott Bonvoy, Hilton Honors, Hyatt, IHG One Rewards, Wyndham Hotels, Choice Hotels, Accor ALL — loyalty programs (Bonvoy/Honors/World of Hyatt/IHG One Rewards/Wyndham Rewards/Choice Privileges/Accor Live Limitless), mobile check-in/key, room preferences
+  - OTA/meta-search (5): Hotels.com, Booking.com, Agoda, HotelTonight, Tripadvisor — price comparison, guest reviews, last-minute deals, multi-property search
+  - Vacation rentals (2): Airbnb, Vrbo — listing search, host/guest messaging, booking, hosting dashboard, reviews
+  - Hostels/social (2): Hostelworld, Couchsurfing — dorm selection, social features, community events, trust/references
+  - Activities (3): Klook, GetYourGuide, Viator — tour/activity search, booking, voucher/ticket, reviews
+  - Trip planning (1): Roadtrippers — route planner, POI discovery, road trip itinerary
+
+  **Execution profile:** serial, main agent integration owner, low conflict risk.
+
+  **Acceptance Criteria:**
+  - All 20 repos have `index.html`, `package.json`, `src/styles.css`, `src/app.js` committed and pushed.
+  - `npm run check` passes in each repo.
+  - Each repo verified PRIVATE with all required artifacts via `gh api`.
+  - Rate-limit evidence recorded pre and post.
+  - Category-specific blockers documented per app (hotel PMS/CRS, OTA booking engines, payment, mobile key BLE/NFC, loyalty engines, property listing verification, hospitality regulatory).
+  - App-specific features: hotel loyalty programs, OTA price comparison, vacation rental host/guest flows, activity vouchers, trip route planning.
+
+  **Ship-one-step handoff:** Implement only Step 20.4, validate it, then run `/ship` when done.
 
   **Files:** downstream repos (20), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
