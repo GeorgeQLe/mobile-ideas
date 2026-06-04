@@ -58,9 +58,23 @@
 
   **Approach:**
   1. `gh api rate_limit` — record pre-scan evidence.
-  2. For each of the 15 repos, serially: clone, create prototype files, `npm run check`, commit, push, verify via gh api.
+  2. For each of the 15 repos, serially: clone to /tmp, read source spec for app-specific features, create prototype files (`index.html`, `package.json`, `src/styles.css`, `src/app.js`), run `npm run check`, commit, push, verify via `gh api` (PRIVATE, main, README, spec, commit, no-workflows).
   3. `gh api rate_limit` — record post-scan evidence.
-  4. Update task files.
+  4. Update `tasks/todo.md` (mark step complete), `tasks/repo-seeding.md` (add implementation log entry), `tasks/history.md` (append session record).
+
+  **Repo slugs (15):**
+  `google-maps-mobile-clone`, `apple-maps-mobile-clone`, `waze-mobile-clone`, `uber-mobile-clone`, `lyft-mobile-clone`, `lime-mobile-clone`, `turo-mobile-clone`, `transit-mobile-clone`, `citymapper-mobile-clone`, `moovit-mobile-clone`, `curb-mobile-clone`, `via-mobile-clone`, `bolt-mobile-clone`, `free-now-mobile-clone`, `blablacar-mobile-clone`
+
+  **Execution profile:** serial, main agent integration owner, low conflict risk.
+
+  **Acceptance Criteria:**
+  - All 15 repos have `index.html`, `package.json`, `src/styles.css`, `src/app.js` committed and pushed.
+  - `npm run check` passes in each repo.
+  - Each repo verified PRIVATE with all required artifacts via `gh api`.
+  - Rate-limit evidence recorded pre and post.
+  - Category-specific blockers documented per app.
+
+  **Ship-one-step handoff:** Implement only Step 20.2, validate it, then run `/ship` when done.
 
   **Files:** downstream repos (15), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
