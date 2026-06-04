@@ -43,7 +43,7 @@
 
   **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`.
 
-- [ ] Step 20.2: First Travel & Transportation implementation tranche — Ride-Hailing, Transit & Navigation (15 apps)
+- [x] Step 20.2: First Travel & Transportation implementation tranche — Ride-Hailing, Transit & Navigation (15 apps, completed 2026-06-04)
   - **Apps:** Google Maps (026), Apple Maps (027), Waze (028), Uber (029), Lyft (030), Lime (031), Turo (032), Transit (571), Citymapper (572), Moovit (573), Curb (574), Via (575), Bolt (576), FREE NOW (577), BlaBlaCar (578).
 
   **What to Build:**

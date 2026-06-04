@@ -7395,3 +7395,30 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - All 86 source specs verified present locally in specs/batch-02/, specs/batch-27/, specs/batch-28/, specs/batch-29/, specs/batch-30/.
 - Risk group classification (8 groups): Airlines (24), Hotels & Accommodation (20), Travel Booking & Planning (9), Ride-Hailing & Micromobility (9), Transit & Navigation (6), Car Rental (5), Parking & EV Charging (6), Vehicle Connectivity (7).
 - Carry-forward blockers documented (18 categories): GDS/PSS, hotel PMS/CRS, OTA booking engines, payment processing, ride-hailing dispatch, real-time GPS/vehicle tracking, GTFS/GTFS-RT transit feeds, map/geocoding APIs, car rental fleet management, parking meter APIs, EV charging protocols (OCPP/OCPI), vehicle telematics (OBD-II/CAN bus), loyalty/frequent flyer programs, check-in/boarding pass generation, identity/travel document verification, regulated transportation features, property listing verification, and mobile key/IoT.
+
+## 2026-06-04 - Phase 20 Step 20.2: Ride-Hailing, Transit & Navigation Prototypes
+
+- Built original static prototypes for 15 ride-hailing, transit, navigation, micromobility, car-sharing, and carpooling apps as direct-to-`main` commits across 15 private downstream repos:
+  - **Maps/Navigation (3):** `GeorgeQLe/google-maps-mobile-clone` — map view, search, directions, traffic, navigation placeholder, saved places, offline maps. `GeorgeQLe/apple-maps-mobile-clone` — privacy-focused maps, guides, Look Around placeholder, EV routing, hiking trails. `GeorgeQLe/waze-mobile-clone` — driver navigation, community reports, speed cameras, gas prices, toll estimates, planned drives.
+  - **Ride-Hailing (5):** `GeorgeQLe/uber-mobile-clone` — ride request, vehicle selection, upfront pricing, driver matching, trip tracking, safety toolkit. `GeorgeQLe/lyft-mobile-clone` — rideshare, Wait & Save, Women+ Connect, scheduled rides, bikes/scooters. `GeorgeQLe/curb-mobile-clone` — taxi request, Pair & Pay, wheelchair accessible, scheduled rides. `GeorgeQLe/bolt-mobile-clone` — multimodal rides, scooters, safety toolkit, EUR pricing. `GeorgeQLe/free-now-mobile-clone` — taxi booking, business profiles, vouchers, multi-city EUR.
+  - **Micromobility (1):** `GeorgeQLe/lime-mobile-clone` — vehicle map, QR unlock, ride tracking, pricing, Lime Prime, group rides, parking zones.
+  - **Car Sharing (1):** `GeorgeQLe/turo-mobile-clone` — peer-to-peer car rental, vehicle listings, booking, protection plans, host dashboard, earnings.
+  - **Carpooling (2):** `GeorgeQLe/via-mobile-clone` — on-demand shared rides, corner pickup, service zones, WAV, fare passes. `GeorgeQLe/blablacar-mobile-clone` — intercity carpooling/bus, ride publishing, seat booking, trust profiles, cross-border.
+  - **Transit (3):** `GeorgeQLe/transit-mobile-clone` — real-time departures, trip planner, GO navigation placeholder, service alerts, favorites. `GeorgeQLe/citymapper-mobile-clone` — multimodal routing, live navigation placeholder, line status, fare caps, bikes/scooters. `GeorgeQLe/moovit-mobile-clone` — transit planning, arrival board, live navigation, ticketing placeholder, AR wayfinding, community reports.
+- Each prototype includes: `index.html`, `package.json` (with `check` script), `src/styles.css` (unique brand-themed color scheme), `src/app.js` (synthetic data and DOM rendering).
+- All prototypes feature app-specific UI sections with synthetic data, category-appropriate workflows, and explicit blocker banners for all regulated/live features.
+
+**Validation:**
+- Pre-scan rate limit: `core: 4739/5000`.
+- Post-scan rate limit: `core: 4619/5000`.
+- `npm run check` (node --check src/app.js) passed in all 15 repos before commit.
+- Serial GitHub API verification: all 15 repos PRIVATE, default `main`, README present, `index.html` present, `package.json` present, `src/app.js` present, `src/styles.css` present, no `.github/workflows`.
+- Checked=15, Pass=15, Fail=0. No 403/429/auth/permission failures.
+
+**Ship Manifest:**
+- User goal: execute Phase 20 Step 20.2 by building ride-hailing, transit & navigation prototypes across 15 downstream repos.
+- Changed files: 15 downstream repos (4 files each), `tasks/todo.md` (checked off 20.2), `tasks/repo-seeding.md` (rate-limit and verification evidence), `tasks/history.md` (execution evidence).
+- Tests run: `npm run check` in each repo, serial `gh api` verification for all invariants.
+- Adversarial review: verified all 15 repos remain PRIVATE, no GitHub Actions present, source specs intact, all live GPS/dispatch/payment/transit-feed/vehicle-hardware/regulatory features marked as explicitly blocked.
+- Residual risk: none for this prototype step; all provider/regulatory risks are in blocker banners.
+- Rollback note: revert prototype commits in each downstream repo to restore scaffold-only state.
