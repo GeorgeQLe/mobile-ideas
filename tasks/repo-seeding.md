@@ -3367,8 +3367,150 @@ All 72 apps carry one or more of these blockers until verified with lawful sandb
 
 `core: 4712/5000, reset: 1780506937`
 
+## Phase 20 Travel & Transportation Inventory (86 Apps)
+
+Reconciled 2026-06-04, Step 20.1. Source: Phase 9 build-plan evidence and manifest IDs 026–037 (batch-02), 523–596 (batches 27–30). Supersedes the ~84 roadmap estimate.
+
+### Pre-Scan Rate Limit
+
+`core: 5000/5000, reset: 1780611211`
+
+### Inventory Verification
+
+`checked=86, pass=86, fail=0`
+
+| ID | App | Risk Group | Repo | Spec | Vis | Branch | README | Spec | Commit | No-WF |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 026 | Google Maps | Transit & Navigation | google-maps-mobile-clone | specs/batch-02/026-google-maps.md | private | main | yes | yes | yes | yes |
+| 027 | Apple Maps | Transit & Navigation | apple-maps-mobile-clone | specs/batch-02/027-apple-maps.md | private | main | yes | yes | yes | yes |
+| 028 | Waze | Transit & Navigation | waze-mobile-clone | specs/batch-02/028-waze.md | private | main | yes | yes | yes | yes |
+| 029 | Uber | Ride-Hailing & Micromobility | uber-mobile-clone | specs/batch-02/029-uber.md | private | main | yes | yes | yes | yes |
+| 030 | Lyft | Ride-Hailing & Micromobility | lyft-mobile-clone | specs/batch-02/030-lyft.md | private | main | yes | yes | yes | yes |
+| 031 | Lime | Ride-Hailing & Micromobility | lime-mobile-clone | specs/batch-02/031-lime.md | private | main | yes | yes | yes | yes |
+| 032 | Turo | Ride-Hailing & Micromobility | turo-mobile-clone | specs/batch-02/032-turo.md | private | main | yes | yes | yes | yes |
+| 033 | Airbnb | Hotels & Accommodation | airbnb-mobile-clone | specs/batch-02/033-airbnb.md | private | main | yes | yes | yes | yes |
+| 034 | Booking.com | Hotels & Accommodation | booking-com-mobile-clone | specs/batch-02/034-booking-com.md | private | main | yes | yes | yes | yes |
+| 035 | Expedia | Travel Booking & Planning | expedia-mobile-clone | specs/batch-02/035-expedia.md | private | main | yes | yes | yes | yes |
+| 036 | Hopper | Travel Booking & Planning | hopper-mobile-clone | specs/batch-02/036-hopper.md | private | main | yes | yes | yes | yes |
+| 037 | TripIt | Travel Booking & Planning | tripit-mobile-clone | specs/batch-02/037-tripit.md | private | main | yes | yes | yes | yes |
+| 523 | Delta | Airlines | delta-mobile-clone | specs/batch-27/523-delta.md | private | main | yes | yes | yes | yes |
+| 524 | United Airlines | Airlines | united-airlines-mobile-clone | specs/batch-27/524-united-airlines.md | private | main | yes | yes | yes | yes |
+| 525 | American Airlines | Airlines | american-airlines-mobile-clone | specs/batch-27/525-american-airlines.md | private | main | yes | yes | yes | yes |
+| 526 | Southwest Airlines | Airlines | southwest-airlines-mobile-clone | specs/batch-27/526-southwest-airlines.md | private | main | yes | yes | yes | yes |
+| 527 | JetBlue | Airlines | jetblue-mobile-clone | specs/batch-27/527-jetblue.md | private | main | yes | yes | yes | yes |
+| 528 | Alaska Airlines | Airlines | alaska-airlines-mobile-clone | specs/batch-27/528-alaska-airlines.md | private | main | yes | yes | yes | yes |
+| 529 | Spirit Airlines | Airlines | spirit-airlines-mobile-clone | specs/batch-27/529-spirit-airlines.md | private | main | yes | yes | yes | yes |
+| 530 | Frontier Airlines | Airlines | frontier-airlines-mobile-clone | specs/batch-27/530-frontier-airlines.md | private | main | yes | yes | yes | yes |
+| 531 | Hawaiian Airlines | Airlines | hawaiian-airlines-mobile-clone | specs/batch-27/531-hawaiian-airlines.md | private | main | yes | yes | yes | yes |
+| 532 | Air Canada | Airlines | air-canada-mobile-clone | specs/batch-27/532-air-canada.md | private | main | yes | yes | yes | yes |
+| 533 | British Airways | Airlines | british-airways-mobile-clone | specs/batch-27/533-british-airways.md | private | main | yes | yes | yes | yes |
+| 534 | Lufthansa | Airlines | lufthansa-mobile-clone | specs/batch-27/534-lufthansa.md | private | main | yes | yes | yes | yes |
+| 535 | Air France | Airlines | air-france-mobile-clone | specs/batch-27/535-air-france.md | private | main | yes | yes | yes | yes |
+| 536 | KLM | Airlines | klm-mobile-clone | specs/batch-27/536-klm.md | private | main | yes | yes | yes | yes |
+| 537 | Emirates | Airlines | emirates-mobile-clone | specs/batch-27/537-emirates.md | private | main | yes | yes | yes | yes |
+| 538 | Qatar Airways | Airlines | qatar-airways-mobile-clone | specs/batch-27/538-qatar-airways.md | private | main | yes | yes | yes | yes |
+| 539 | Singapore Airlines | Airlines | singapore-airlines-mobile-clone | specs/batch-27/539-singapore-airlines.md | private | main | yes | yes | yes | yes |
+| 540 | Turkish Airlines | Airlines | turkish-airlines-mobile-clone | specs/batch-27/540-turkish-airlines.md | private | main | yes | yes | yes | yes |
+| 541 | Ryanair | Airlines | ryanair-mobile-clone | specs/batch-28/541-ryanair.md | private | main | yes | yes | yes | yes |
+| 542 | easyJet | Airlines | easyjet-mobile-clone | specs/batch-28/542-easyjet.md | private | main | yes | yes | yes | yes |
+| 543 | Wizz Air | Airlines | wizz-air-mobile-clone | specs/batch-28/543-wizz-air.md | private | main | yes | yes | yes | yes |
+| 544 | ANA | Airlines | ana-mobile-clone | specs/batch-28/544-ana.md | private | main | yes | yes | yes | yes |
+| 545 | JAL | Airlines | jal-mobile-clone | specs/batch-28/545-jal.md | private | main | yes | yes | yes | yes |
+| 546 | Cathay Pacific | Airlines | cathay-pacific-mobile-clone | specs/batch-28/546-cathay-pacific.md | private | main | yes | yes | yes | yes |
+| 547 | Marriott Bonvoy | Hotels & Accommodation | marriott-bonvoy-mobile-clone | specs/batch-28/547-marriott-bonvoy.md | private | main | yes | yes | yes | yes |
+| 548 | Hilton Honors | Hotels & Accommodation | hilton-honors-mobile-clone | specs/batch-28/548-hilton-honors.md | private | main | yes | yes | yes | yes |
+| 549 | Hyatt | Hotels & Accommodation | hyatt-mobile-clone | specs/batch-28/549-hyatt.md | private | main | yes | yes | yes | yes |
+| 550 | IHG One Rewards | Hotels & Accommodation | ihg-one-rewards-mobile-clone | specs/batch-28/550-ihg-one-rewards.md | private | main | yes | yes | yes | yes |
+| 551 | Wyndham Hotels | Hotels & Accommodation | wyndham-hotels-mobile-clone | specs/batch-28/551-wyndham-hotels.md | private | main | yes | yes | yes | yes |
+| 552 | Choice Hotels | Hotels & Accommodation | choice-hotels-mobile-clone | specs/batch-28/552-choice-hotels.md | private | main | yes | yes | yes | yes |
+| 553 | Accor ALL | Hotels & Accommodation | accor-all-mobile-clone | specs/batch-28/553-accor-all.md | private | main | yes | yes | yes | yes |
+| 554 | Hotels.com | Hotels & Accommodation | hotels-com-mobile-clone | specs/batch-28/554-hotels-com.md | private | main | yes | yes | yes | yes |
+| 555 | Vrbo | Hotels & Accommodation | vrbo-mobile-clone | specs/batch-28/555-vrbo.md | private | main | yes | yes | yes | yes |
+| 556 | Hostelworld | Hotels & Accommodation | hostelworld-mobile-clone | specs/batch-28/556-hostelworld.md | private | main | yes | yes | yes | yes |
+| 557 | Couchsurfing | Hotels & Accommodation | couchsurfing-mobile-clone | specs/batch-28/557-couchsurfing.md | private | main | yes | yes | yes | yes |
+| 558 | Klook | Hotels & Accommodation | klook-mobile-clone | specs/batch-28/558-klook.md | private | main | yes | yes | yes | yes |
+| 559 | GetYourGuide | Hotels & Accommodation | getyourguide-mobile-clone | specs/batch-28/559-getyourguide.md | private | main | yes | yes | yes | yes |
+| 560 | Viator | Hotels & Accommodation | viator-mobile-clone | specs/batch-28/560-viator.md | private | main | yes | yes | yes | yes |
+| 561 | Tripadvisor | Hotels & Accommodation | tripadvisor-mobile-clone | specs/batch-29/561-tripadvisor.md | private | main | yes | yes | yes | yes |
+| 562 | Rome2Rio | Travel Booking & Planning | rome2rio-mobile-clone | specs/batch-29/562-rome2rio.md | private | main | yes | yes | yes | yes |
+| 563 | Skyscanner | Travel Booking & Planning | skyscanner-mobile-clone | specs/batch-29/563-skyscanner.md | private | main | yes | yes | yes | yes |
+| 564 | KAYAK | Travel Booking & Planning | kayak-mobile-clone | specs/batch-29/564-kayak.md | private | main | yes | yes | yes | yes |
+| 565 | momondo | Travel Booking & Planning | momondo-mobile-clone | specs/batch-29/565-momondo.md | private | main | yes | yes | yes | yes |
+| 566 | Priceline | Travel Booking & Planning | priceline-mobile-clone | specs/batch-29/566-priceline.md | private | main | yes | yes | yes | yes |
+| 567 | Agoda | Hotels & Accommodation | agoda-mobile-clone | specs/batch-29/567-agoda.md | private | main | yes | yes | yes | yes |
+| 568 | trivago | Hotels & Accommodation | trivago-mobile-clone | specs/batch-29/568-trivago.md | private | main | yes | yes | yes | yes |
+| 569 | HotelTonight | Hotels & Accommodation | hoteltonight-mobile-clone | specs/batch-29/569-hoteltonight.md | private | main | yes | yes | yes | yes |
+| 570 | Roadtrippers | Travel Booking & Planning | roadtrippers-mobile-clone | specs/batch-29/570-roadtrippers.md | private | main | yes | yes | yes | yes |
+| 571 | Transit | Transit & Navigation | transit-mobile-clone | specs/batch-29/571-transit.md | private | main | yes | yes | yes | yes |
+| 572 | Citymapper | Transit & Navigation | citymapper-mobile-clone | specs/batch-29/572-citymapper.md | private | main | yes | yes | yes | yes |
+| 573 | Moovit | Transit & Navigation | moovit-mobile-clone | specs/batch-29/573-moovit.md | private | main | yes | yes | yes | yes |
+| 574 | Curb | Ride-Hailing & Micromobility | curb-mobile-clone | specs/batch-29/574-curb.md | private | main | yes | yes | yes | yes |
+| 575 | Via | Ride-Hailing & Micromobility | via-mobile-clone | specs/batch-29/575-via.md | private | main | yes | yes | yes | yes |
+| 576 | Bolt | Ride-Hailing & Micromobility | bolt-mobile-clone | specs/batch-29/576-bolt.md | private | main | yes | yes | yes | yes |
+| 577 | FREE NOW | Ride-Hailing & Micromobility | free-now-mobile-clone | specs/batch-29/577-free-now.md | private | main | yes | yes | yes | yes |
+| 578 | BlaBlaCar | Ride-Hailing & Micromobility | blablacar-mobile-clone | specs/batch-29/578-blablacar.md | private | main | yes | yes | yes | yes |
+| 579 | Zipcar | Car Rental | zipcar-mobile-clone | specs/batch-29/579-zipcar.md | private | main | yes | yes | yes | yes |
+| 580 | Getaround | Car Rental | getaround-mobile-clone | specs/batch-29/580-getaround.md | private | main | yes | yes | yes | yes |
+| 581 | Enterprise Rent-A-Car | Car Rental | enterprise-rent-a-car-mobile-clone | specs/batch-30/581-enterprise-rent-a-car.md | private | main | yes | yes | yes | yes |
+| 582 | Hertz | Car Rental | hertz-mobile-clone | specs/batch-30/582-hertz.md | private | main | yes | yes | yes | yes |
+| 583 | Avis | Car Rental | avis-mobile-clone | specs/batch-30/583-avis.md | private | main | yes | yes | yes | yes |
+| 584 | SpotHero | Parking & EV | spothero-mobile-clone | specs/batch-30/584-spothero.md | private | main | yes | yes | yes | yes |
+| 585 | ParkMobile | Parking & EV | parkmobile-mobile-clone | specs/batch-30/585-parkmobile.md | private | main | yes | yes | yes | yes |
+| 586 | Passport Parking | Parking & EV | passport-parking-mobile-clone | specs/batch-30/586-passport-parking.md | private | main | yes | yes | yes | yes |
+| 587 | PlugShare | Parking & EV | plugshare-mobile-clone | specs/batch-30/587-plugshare.md | private | main | yes | yes | yes | yes |
+| 588 | ChargePoint | Parking & EV | chargepoint-mobile-clone | specs/batch-30/588-chargepoint.md | private | main | yes | yes | yes | yes |
+| 589 | Electrify America | Parking & EV | electrify-america-mobile-clone | specs/batch-30/589-electrify-america.md | private | main | yes | yes | yes | yes |
+| 590 | Tesla | Vehicle Connectivity | tesla-mobile-clone | specs/batch-30/590-tesla.md | private | main | yes | yes | yes | yes |
+| 591 | FordPass | Vehicle Connectivity | fordpass-mobile-clone | specs/batch-30/591-fordpass.md | private | main | yes | yes | yes | yes |
+| 592 | myChevrolet | Vehicle Connectivity | mychevrolet-mobile-clone | specs/batch-30/592-mychevrolet.md | private | main | yes | yes | yes | yes |
+| 593 | Toyota | Vehicle Connectivity | toyota-mobile-clone | specs/batch-30/593-toyota.md | private | main | yes | yes | yes | yes |
+| 594 | Hyundai Bluelink | Vehicle Connectivity | hyundai-bluelink-mobile-clone | specs/batch-30/594-hyundai-bluelink.md | private | main | yes | yes | yes | yes |
+| 595 | BMW | Vehicle Connectivity | bmw-mobile-clone | specs/batch-30/595-bmw.md | private | main | yes | yes | yes | yes |
+| 596 | Mercedes me | Vehicle Connectivity | mercedes-me-mobile-clone | specs/batch-30/596-mercedes-me.md | private | main | yes | yes | yes | yes |
+
+### Risk Group Classification
+
+| Risk Group | App IDs | Count |
+|---|---|---|
+| Airlines | 523–546 | 24 |
+| Hotels & Accommodation | 033, 034, 547–560, 561, 567, 568, 569 | 20 |
+| Travel Booking & Planning | 035, 036, 037, 562, 563, 564, 565, 566, 570 | 9 |
+| Ride-Hailing & Micromobility | 029, 030, 031, 032, 574, 575, 576, 577, 578 | 9 |
+| Transit & Navigation | 026, 027, 028, 571, 572, 573 | 6 |
+| Car Rental | 579, 580, 581, 582, 583 | 5 |
+| Parking & EV Charging | 584, 585, 586, 587, 588, 589 | 6 |
+| Vehicle Connectivity | 590, 591, 592, 593, 594, 595, 596 | 7 |
+
+### Carry-Forward Travel/Transportation Blockers
+
+All 86 apps carry one or more of these blockers until verified with lawful provider/device/regulatory access:
+
+- **Airline reservation systems (GDS/PSS)**: Amadeus, Sabre, Travelport integration for flight search, booking, PNR management, ticketing. Affects all 24 airline apps and 9 travel booking/OTA apps.
+- **Hotel PMS/CRS**: Property management systems and central reservation systems for room inventory, rate management, booking confirmation. Affects 20 hotel/accommodation apps and travel OTAs.
+- **OTA booking engines**: Multi-supplier aggregation, real-time availability/pricing, package bundling, fare comparison algorithms. Affects travel booking apps (035, 036, 562–566, 570).
+- **Payment processing**: PCI-compliant card tokenization, 3D Secure, multi-currency, refund/cancellation flows. Affects all 86 apps with booking/payment flows.
+- **Ride-hailing dispatch**: Real-time driver matching, surge pricing, ETA calculation, trip routing, driver/rider communication. Affects ride-hailing apps (029, 030, 574–578).
+- **Real-time GPS / vehicle tracking**: Live location streaming, geofencing, turn-by-turn navigation, traffic data, speed cameras. Affects transit/navigation (026–028, 571–573), ride-hailing, and micromobility (031) apps.
+- **Transit data feeds (GTFS/GTFS-RT)**: Static and real-time transit schedules, service alerts, vehicle positions from transit agencies. Affects transit apps (571, 572, 573) and navigation apps (026–028).
+- **Map / geocoding APIs**: Google Maps Platform, Apple MapKit, Mapbox, HERE for map rendering, geocoding, directions, places search. Affects all location-dependent apps (~50+).
+- **Car rental fleet management**: Vehicle inventory, fleet allocation, keyless unlock (Zipcar/Getaround), pickup/return logistics, damage assessment. Affects car rental apps (579–583).
+- **Parking meter APIs**: Municipal parking meter integration, session start/stop, meter extension, zone/rate lookup. Affects parking apps (584–586).
+- **EV charging protocols (OCPP/OCPI)**: Open Charge Point Protocol for charging session management, connector status, payment, roaming between networks. Affects EV charging apps (587–589).
+- **Vehicle telematics (OBD-II/CAN bus/manufacturer APIs)**: Vehicle status (battery, fuel, tire pressure), remote commands (lock/unlock, climate, horn), trip history, OTA updates. Affects vehicle connectivity apps (590–596).
+- **Loyalty programs / frequent flyer engines**: Points/miles accrual, tier qualification, redemption, alliance benefits (Star Alliance, oneworld, SkyTeam), hotel elite status. Affects airlines (523–546) and hotel chains (547–553).
+- **Check-in / boarding pass generation**: Mobile boarding passes (BCBP/PKPASS), seat selection, upgrade processing, document verification. Affects airline apps (523–546).
+- **Identity verification / travel documents**: Passport/visa verification, APIS/TIMATIC data, TSA PreCheck, Global Entry integration. Affects airline and international travel apps.
+- **Regulated transportation features**: DOT/FAA compliance for airlines, TNC/PUC licensing for ride-hailing, FRA/FTA compliance for transit, FMCSA for vehicle connectivity, state parking regulations.
+- **Property listing verification**: Host/property verification, listing quality standards, professional photography, superhost/premier host programs. Affects vacation rental apps (033, 555).
+- **Mobile key / IoT**: BLE/NFC for hotel room keys and car unlock, smart device pairing, vehicle Bluetooth connectivity. Affects hotel chains (547–553) and car-sharing (579, 580).
+
+### Post-Scan Rate Limit
+
+`core: 4742/5000, reset: 1780611265`
+
 ## Next Steps
 
+- 2026-06-04 Phase 20 Step 20.1 Travel & Transportation inventory reconciliation: pre-scan rate limit `core: 5000/5000, reset: 1780611211`. Serial GitHub API verification of all 86 Travel & Transportation downstream repos (IDs 026–037, 523–596) confirmed `checked=86, pass=86, fail=0`. Every repo is `PRIVATE`, defaults to `main`, has `README.md`, has a source spec under `docs/source-specs/`, has a root commit, and returns `404` for `.github/workflows`. No `403`, `429`, or auth failures encountered. Risk-group classification covers 8 categories: Airlines (24), Hotels & Accommodation (20), Travel Booking & Planning (9), Ride-Hailing & Micromobility (9), Transit & Navigation (6), Car Rental (5), Parking & EV Charging (6), Vehicle Connectivity (7). Carry-forward blockers documented for GDS/PSS, hotel PMS/CRS, OTA engines, payment processing, ride-hailing dispatch, real-time GPS, GTFS/GTFS-RT, map/geocoding APIs, car rental fleet systems, parking meter APIs, OCPP/OCPI, vehicle telematics, loyalty programs, check-in/boarding passes, identity/travel docs, regulated transport, property listing verification, and mobile key/IoT. Post-scan rate limit `core: 4742/5000, reset: 1780611265`. All 86 source specs verified present locally.
 - 2026-06-03 Phase 19 Step 19.1 Finance & Payments inventory reconciliation: pre-scan rate limit `core: 5000/5000, reset: 1780506911`. Serial GitHub API verification of all 72 Finance & Payments downstream repos (IDs 056–065, 137–147, 472–522) confirmed `checked=72, pass=72, fail=0`. Every repo is `PRIVATE`, defaults to `main`, has `README.md`, has a source spec under `docs/source-specs/`, has a root commit, and returns `404` for `.github/workflows`. No `403`, `429`, or auth failures encountered. Risk-group classification covers 15 categories. Carry-forward blockers documented for account lifecycle, KYC/AML, sanctions, payment rails, card networks, bank-link, brokerage, crypto, lending, market-data licensing, PCI, biometric auth, fraud/risk, remittance, tax/disclosures, disputes, and regulatory controls. Post-scan rate limit `core: 4712/5000, reset: 1780506937`.
 - 2026-06-03 Phase 18 Step 18.14 downstream implementation and closeout verification: pre-verification rate limit was `core: limit=5000, remaining=4975, reset=1780503031`. Added original static driver, shopper, runner, restaurant delivery marketplace, and quick-commerce prototypes to `GeorgeQLe/uber-driver-mobile-clone` (`44a4c23`), `GeorgeQLe/instacart-shopper-mobile-clone` (`3ec7585`), `GeorgeQLe/shipt-mobile-clone` (`93dcfe7`), `GeorgeQLe/favor-mobile-clone` (`3262145`), `GeorgeQLe/skipthedishes-mobile-clone` (`19495df`), and `GeorgeQLe/talabat-mobile-clone` (`c7aac16`). Each repo passed `npm run check` and `git diff --check --cached`, remained `PRIVATE` on default branch `main`, retained `README.md`, retained its copied source spec under `docs/source-specs/`, had a root commit at `main`, and returned `404` for `.github/workflows`. Browser rendered verification was skipped because Browser navigation/screenshot tools were not surfaced by tool discovery in this session. An initial non-escalated invariant scan hit sandbox API connectivity errors and was rerun successfully with escalated GitHub API access. Phase 18 closeout checked the reconciled 66-repo inventory and found `phase18_inventory_rows=66`, `bad_rows=0`; acceptance is satisfied by recorded local scaffold/validation evidence across all tranches plus explicit provider/payment/tax/tip/fee/location/courier/loyalty/inventory/catalog/menu/regulated-item/age-verification/identity/background-check/vehicle/refund/support/account/native blockers. Post-verification rate limit was `core: limit=5000, remaining=4947, reset=1780503031`.
 - 2026-06-03 Phase 18 Step 18.13 downstream implementation verification: pre-verification rate limit was `core: limit=5000, remaining=4950, reset=1780498913`. Added original static restaurant delivery, multi-category local commerce, rider workflow, and courier shift prototypes to `GeorgeQLe/didi-food-mobile-clone` (`249b1b0`), `GeorgeQLe/meituan-mobile-clone` (`d41909f`), `GeorgeQLe/ele-me-mobile-clone` (`17079de`), `GeorgeQLe/deliveroo-rider-mobile-clone` (`6f6f9a3`), and `GeorgeQLe/doordash-dasher-mobile-clone` (`4d8098b`). Each repo passed `npm run check`, `git diff --check`, and `git diff --check --cached`, remained `PRIVATE` on default branch `main`, retained `README.md`, retained its copied source spec under `docs/source-specs/`, had a root commit at `main`, and returned `404` for `.github/workflows`. Browser rendered verification was skipped because Browser navigation/screenshot tools were not surfaced by tool discovery in this session. An initial non-escalated invariant scan hit sandbox API connectivity errors and was rerun successfully with escalated GitHub API access. Post-verification rate limit was `core: limit=5000, remaining=4975, reset=1780503031`.

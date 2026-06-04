@@ -6,11 +6,11 @@
 **Goal**: Build all five variants for every app in the Travel & Transportation cluster.
 
 **Scope**:
-- Apps: Airlines (24), hotels & accommodation (20), travel booking & planning (11), ride-hailing & micromobility (9), public transit & navigation (6), car rental (5), parking & EV charging (6), vehicle connectivity (7), travel reviews (1).
+- Apps (86 reconciled): Airlines (24), Hotels & Accommodation (20), Travel Booking & Planning (9), Ride-Hailing & Micromobility (9), Transit & Navigation (6), Car Rental (5), Parking & EV Charging (6), Vehicle Connectivity (7).
 - Shared patterns: search/filter with dates/locations, booking flows, itinerary management, real-time vehicle tracking, boarding passes, maps integration, loyalty programs, check-in flows, route planning, fare comparison.
 
 **Acceptance Criteria:**
-- [ ] Exact Phase 20 inventory reconciled with app IDs, app names, repo slugs, source specs, and downstream readiness.
+- [x] Exact Phase 20 inventory reconciled with app IDs, app names, repo slugs, source specs, and downstream readiness (86 apps, 2026-06-04).
 - [ ] All Phase 20 apps have 5 working variants each or explicit local/toolchain/provider/booking/transit/vehicle/regulatory blockers.
 - [ ] Every variant passes validation and has benchmark or local validation score evidence recorded.
 - [ ] Search, booking, and itinerary flows, transit/navigation surfaces, ride-hailing/vehicle tracking, loyalty/rewards, and check-in/boarding flows are functional across variants or explicitly blocked by local/provider/regulatory constraints.
@@ -28,7 +28,7 @@
 
 ### Implementation
 
-- [ ] Step 20.1: Reconcile exact Travel & Transportation app inventory and downstream readiness
+- [x] Step 20.1: Reconcile exact Travel & Transportation app inventory and downstream readiness (86 apps verified 2026-06-04)
   - Reconcile all ~84 apps across IDs 026-037 (batch-02), 523-546 (batch-27), 541-560 (batch-28), 561-580 (batch-29), 581-596 (batch-30).
   - Serial GitHub API verification: visibility == PRIVATE, default branch == main, README present, source spec present under docs/source-specs/, root commit present, no .github/workflows.
   - Record pre/post rate-limit evidence.
