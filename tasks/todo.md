@@ -82,7 +82,7 @@
   - **Apps:** Delta (523), United Airlines (524), American Airlines (525), Southwest Airlines (526), JetBlue (527), Alaska Airlines (528), Spirit Airlines (529), Frontier Airlines (530), Hawaiian Airlines (531), Air Canada (532), British Airways (533), Lufthansa (534), Air France (535), KLM (536), Emirates (537), Qatar Airways (538), Singapore Airlines (539), Turkish Airlines (540), Ryanair (541), easyJet (542), Wizz Air (543), ANA (544), JAL (545), Cathay Pacific (546).
 
   **What to Build:**
-  Original static prototypes for each of the 24 airline apps covering:
+  Original static prototypes (`index.html`, `package.json`, `src/styles.css`, `src/app.js`) for each of the 24 airline downstream repos covering:
   - Flight search and booking flow with origin/destination, dates, cabin class, passengers
   - Booking management with PNR/confirmation, seat selection, upgrade options
   - Check-in flow with boarding pass generation placeholder
@@ -93,6 +93,41 @@
   - Airport maps and lounge finder
   - Carrier-specific: low-cost carrier (Spirit, Frontier, Ryanair, easyJet, Wizz Air) ancillary upsells, premium carrier (Emirates, Qatar, Singapore) premium services, alliance benefits (Star Alliance, oneworld, SkyTeam)
   - Explicit blockers for GDS/PSS reservation systems, payment processing, check-in/boarding pass, real-time flight data, loyalty program engines, baggage systems, and airline regulatory compliance
+  - All apps: unique brand-themed color scheme matching airline identity
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-scan evidence.
+  2. Read source specs from `specs/batch-27/` (523–546) for carrier-specific features.
+  3. Write a Node.js generator script at `/tmp/generate-airline-prototypes.mjs` defining all 24 airlines with carrier-specific data (flight routes, loyalty programs, cabin classes, alliance membership, low-cost vs premium features).
+  4. For each of the 24 repos, serially: clone to /tmp, create prototype files (`index.html`, `package.json`, `src/styles.css`, `src/app.js`), run `npm run check`, commit, push, verify via `gh api` (PRIVATE, main, README, spec, commit, no-workflows).
+  5. `gh api rate_limit` — record post-scan evidence.
+  6. Update `tasks/todo.md` (mark step complete), `tasks/repo-seeding.md` (add implementation log entry), `tasks/history.md` (append session record).
+
+  **Repo slugs (24):**
+  `delta-mobile-clone`, `united-airlines-mobile-clone`, `american-airlines-mobile-clone`, `southwest-airlines-mobile-clone`, `jetblue-mobile-clone`, `alaska-airlines-mobile-clone`, `spirit-airlines-mobile-clone`, `frontier-airlines-mobile-clone`, `hawaiian-airlines-mobile-clone`, `air-canada-mobile-clone`, `british-airways-mobile-clone`, `lufthansa-mobile-clone`, `air-france-mobile-clone`, `klm-mobile-clone`, `emirates-mobile-clone`, `qatar-airways-mobile-clone`, `singapore-airlines-mobile-clone`, `turkish-airlines-mobile-clone`, `ryanair-mobile-clone`, `easyjet-mobile-clone`, `wizz-air-mobile-clone`, `ana-mobile-clone`, `jal-mobile-clone`, `cathay-pacific-mobile-clone`
+
+  **Source specs:** `specs/batch-27/523-delta.md` through `specs/batch-27/546-cathay-pacific.md`
+
+  **Carrier groups:**
+  - US legacy (Delta, United, American, Southwest, JetBlue, Alaska, Hawaiian): SkyMiles/MileagePlus/AAdvantage, first/business/economy+, alliance benefits
+  - US ultra-low-cost (Spirit, Frontier): bare fare + ancillary upsells (bags, seats, bundles), no loyalty tiers
+  - Canadian/European legacy (Air Canada, British Airways, Lufthansa, Air France, KLM): Aeroplan/Avios/Miles&More/FlyingBlue, multi-cabin, alliance networks
+  - Middle East premium (Emirates, Qatar): Skywards/Privilege Club, first/business suites, chauffeur, lounge
+  - Asian premium (Singapore, ANA, JAL, Cathay Pacific): KrisFlyer/ANA Mileage Club/JAL Mileage Bank/Asia Miles, premium economy, in-flight chef
+  - European low-cost (Ryanair, easyJet, Wizz Air): bare fare + priority/bags/seats, WIZZ Go/Plus bundles
+  - Turkish (Turkish Airlines): Miles&Smiles, Star Alliance, Istanbul hub
+
+  **Execution profile:** serial, main agent integration owner, low conflict risk.
+
+  **Acceptance Criteria:**
+  - All 24 repos have `index.html`, `package.json`, `src/styles.css`, `src/app.js` committed and pushed.
+  - `npm run check` passes in each repo.
+  - Each repo verified PRIVATE with all required artifacts via `gh api`.
+  - Rate-limit evidence recorded pre and post.
+  - Category-specific blockers documented per airline (GDS/PSS, payment, check-in, flight data, loyalty, baggage, regulatory).
+  - Carrier-specific features: alliance membership, cabin class structure, loyalty program, LCC ancillary upsells, premium services.
+
+  **Ship-one-step handoff:** Implement only Step 20.3, validate it, then run `/ship` when done.
 
   **Files:** downstream repos (24), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
