@@ -7730,3 +7730,13 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - **Verification**: 26/26 pass. All repos PRIVATE, Expo files present (package.json, app.json, tsconfig.json, app/(tabs)/_layout.tsx, BLOCKERS.md), no `.github/workflows`.
 - **Rate limit**: pre-run core used=160/remaining=4840; post-run core used=342/remaining=4658.
 - **Changed files**: 26 downstream repos (Expo variant scaffolds), `tasks/todo.md` (checked off 22.5, added results), `tasks/repo-seeding.md` (verification evidence), `tasks/history.md` (this entry).
+
+### 2026-06-05 — Phase 22 Step 22.6: iOS Native (SwiftUI) Variant Scaffolds (26 Education & Learning apps)
+- **What**: Built iOS Native (SwiftUI) variant scaffolds (`variants/ios-native/`) for all 26 Education & Learning downstream repos.
+- **Each scaffold**: `Package.swift` (swift-tools-version 6.0, iOS 17+), `Sources/App/<AppName>App.swift` (SwiftUI @main App with TabView), `Sources/Views/` (5 category-specific tab views), `Sources/Components/` (5 shared components), `Sources/Services/` (3-4 mock data services with actor isolation), `Sources/Models/` (2-3 data models with Codable/Identifiable/Sendable), `Sources/ViewModels/` (2-3 @Observable view models), `BLOCKERS.md`.
+- **Key differences from cross-platform variants**: SwiftUI with @Observable (iOS 17+ Observation framework), TabView with native tab bar and SF Symbols, NavigationStack, Swift Package Manager, Swift 6 strict concurrency (actor isolation, Sendable conformance).
+- **Categories**: language-learning (5), education-platform (1), higher-education (2), math-stem (1), classroom (2), lms (2), kids-education (3), kids-media (3), translation (2), transcription (1), writing-assistant (4).
+- **Generator script**: `/tmp/generate-education-ios-variants.mjs`. Serial clone → scaffold → commit → push → verify.
+- **Verification**: 26/26 pass. All repos PRIVATE, iOS files present (Package.swift, <AppName>App.swift, BLOCKERS.md), no `.github/workflows`.
+- **Rate limit**: pre-run core used=346/remaining=4654; post-run core used=130/remaining=4870 (window reset during run).
+- **Changed files**: 26 downstream repos (iOS Native variant scaffolds), `tasks/todo.md` (checked off 22.6, added results), `tasks/repo-seeding.md` (verification evidence), `tasks/history.md` (this entry).

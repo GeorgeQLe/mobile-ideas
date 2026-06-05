@@ -278,6 +278,31 @@
   - Full evidence in `tasks/repo-seeding.md` under "Phase 22 Step 22.6".
 
 - [ ] Step 22.7: Build Android Native (Kotlin/Jetpack Compose) variant scaffolds for all 26 Education & Learning apps
+  - Build `variants/android-native/` scaffold for all 26 Education & Learning downstream repos.
+  - Each scaffold: `build.gradle.kts` (Kotlin 2.0+, Compose BOM 2024.12+, minSdk 26, targetSdk 35), `settings.gradle.kts`, `gradle.properties` (Compose compiler, AndroidX), `src/main/AndroidManifest.xml`, `src/main/java/com/clone/<apppackage>/MainActivity.kt` (ComponentActivity with setContent), `src/main/java/com/clone/<apppackage>/App.kt` (top-level Composable with NavHost + BottomNavigation), `src/main/java/com/clone/<apppackage>/ui/screens/` (5 category-specific screen composables per app), `src/main/java/com/clone/<apppackage>/ui/components/` (5 shared composables), `src/main/java/com/clone/<apppackage>/data/` (3-4 mock data services/repositories), `src/main/java/com/clone/<apppackage>/model/` (2-3 data classes), `src/main/java/com/clone/<apppackage>/viewmodel/` (2-3 ViewModels extending ViewModel with StateFlow), `BLOCKERS.md` (category-specific + Android-specific blockers).
+  - Education-category-specific screens match the RN/Flutter/Expo/iOS pattern: language-learning (LessonScreen, PracticeScreen, LeaderboardScreen, ProfileScreen, ReviewScreen), translation (TranslateScreen, CameraScreen, ConversationScreen, HistoryScreen, SettingsScreen), classroom/LMS (CourseListScreen, AssignmentScreen, GradeScreen, CalendarScreen, MessageScreen), kids-education (LearningPathScreen, GameScreen, CreativeScreen, ProgressScreen, ParentScreen), kids-media (LibraryScreen, PlayerScreen, CollectionScreen, ParentControlScreen, ProfileScreen), education-platform (CourseScreen, PracticeScreen, ProgressScreen, ClassroomScreen, SearchScreen), higher-education (CatalogScreen, StudyScreen, AssessScreen, CertificateScreen, ProfileScreen), math/STEM (CameraScreen, SolutionScreen, GraphScreen, HistoryScreen, SettingsScreen), transcription (RecordScreen, TranscriptScreen, SummaryScreen, SearchScreen, SettingsScreen), writing-assistant (EditorScreen, SuggestionScreen, ToolsScreen, StatsScreen, SettingsScreen).
+  - Key differences from other variants: Jetpack Compose with Material 3, Navigation Compose, ViewModel with StateFlow/MutableStateFlow, Kotlin coroutines, Gradle Kotlin DSL, Android-specific permissions and manifest entries.
+  - Generator script at `/tmp/generate-education-android-variants.mjs` — generates Kotlin source files, serial clone → scaffold → commit → push → verify.
+  - Serial GitHub API verification post-scaffold.
+  - Record pre/post rate-limit evidence.
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-run evidence.
+  2. Build generator script at `/tmp/generate-education-android-variants.mjs`.
+  3. Serial execution: for each of 26 repos, clone/pull → scaffold → commit → push → verify.
+  4. `gh api rate_limit` — record post-run evidence.
+  5. Update `tasks/todo.md` with results, `tasks/repo-seeding.md` with verification evidence.
+
+  **Execution profile:** serial, main agent integration owner, low conflict risk.
+
+  **Acceptance Criteria:**
+  - 26 repos have `variants/android-native/` with build.gradle.kts, MainActivity.kt, App.kt, screens, components, data, model, viewmodel, BLOCKERS.md.
+  - All repos remain PRIVATE with no GitHub Actions.
+  - Rate-limit evidence recorded.
+
+  **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`, 26 downstream repos (`variants/android-native/`).
+
+  **Ship-one-step handoff:** Implement only Step 22.7, validate it, then run `/ship` when done.
 
 ### Milestone: Phase 22 — Education & Learning Complete
 **Acceptance Criteria:**
