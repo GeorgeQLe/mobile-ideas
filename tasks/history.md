@@ -7684,3 +7684,12 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - **Adversarial review**: verified all 19 repos remain PRIVATE, no GitHub Actions present, Flutter SDK toolchain blocker documented, all HIPAA compliance, telehealth video/audio (WebRTC platform channels), e-prescribing (EPCS/DEA), pharmacy dispensing, insurance claims, patient records (HL7 FHIR), therapy licensing, payment processing marked as explicitly blocked in BLOCKERS.md.
 - **Residual risk**: none for this scaffold step; all regulatory/provider risks documented in blocker files.
 - **Rollback note**: revert Flutter variant commits in each downstream repo to remove `variants/flutter/`.
+
+### 2026-06-05 — Phase 22 Step 22.1: Education & Learning Inventory Reconciliation (26 apps)
+- **What**: Reconciled exact Education & Learning app inventory across 26 downstream repos. Serial GitHub API verification confirmed all repos PRIVATE with required artifacts.
+- **Apps**: Duolingo (077), Khan Academy (078), Quizlet (079), Coursera (080), Photomath (081), ClassDojo (170), Remind (171), Canvas Student (172), Google Classroom (173), ScratchJr (174), ABCmouse (175), Khan Academy Kids (176), Epic! (177), YouTube Kids (178), PBS Kids (179), Babbel (180), Rosetta Stone (181), Busuu (182), Google Translate (183), DeepL (184), Otter.ai (185), Grammarly (186), ELSA Speak (212), Grammarly Keyboard (214), Wordtune (215), QuillBot (216).
+- **Categories**: Language Learning (5), Translation (2), LMS/Classroom (4), Kids Education (3), Kids Media (3), Education Platform (1), Higher Education (2), Math/STEM (1), Writing/Transcription (4), Writing Assistant (1), Classroom Messaging (1), Classroom Tools (1).
+- **Verification**: 26 checked, 26 PRIVATE with main branch + README + source spec + root commit. 22/26 workflow-clean; 4 batch-11 repos (212, 214-216) have unauthorized .github/workflows requiring remediation.
+- **Rate limit**: pre-scan core used=604/remaining=4396; post-scan core used=743/remaining=4257.
+- **Risk groups documented**: COPPA/KOSA (kids apps), FERPA (LMS/classroom/higher ed), speech recognition APIs, translation APIs/models, LMS integrations (LTI/SCORM), camera OCR, video delivery, NLP/AI models, custom keyboard APIs, academic integrity, content licensing, subscription tiers.
+- **Changed files**: `tasks/todo.md` (checked off 22.1, added results), `tasks/repo-seeding.md` (Phase 22 evidence), `tasks/history.md` (this entry).

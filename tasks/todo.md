@@ -10,7 +10,7 @@
 - Shared patterns: lesson/course structure, progress tracking, quizzes/assessments, gamification, spaced repetition, video lessons, certificates, speech recognition, translation engines, content moderation for minors.
 
 **Acceptance Criteria:**
-- [ ] Exact Phase 22 inventory reconciled with app IDs, app names, repo slugs, source specs, and downstream readiness.
+- [x] Exact Phase 22 inventory reconciled with app IDs, app names, repo slugs, source specs, and downstream readiness.
 - [ ] All Phase 22 apps have 5 working variants each or explicit local/toolchain/provider/education/regulatory blockers.
 - [ ] Every variant passes validation and has benchmark or local validation score evidence recorded.
 - [ ] Lesson flow, progress tracking, and assessment features functional across variants or explicitly blocked.
@@ -28,7 +28,7 @@
 
 ### Implementation
 
-- [ ] Step 22.1: Reconcile exact Education & Learning app inventory and downstream readiness (~26 apps)
+- [x] Step 22.1: Reconcile exact Education & Learning app inventory and downstream readiness (~26 apps)
   - Reconcile all ~26 apps across IDs 077-081 (batch-04/05), 170-180 (batch-09), 181-186 (batch-10), 212, 214-216 (batch-11).
   - Serial GitHub API verification: visibility == PRIVATE, default branch == main, README present, source spec present under docs/source-specs/, root commit present, no .github/workflows.
   - Record pre/post rate-limit evidence.
@@ -83,6 +83,15 @@
   **Ship-one-step handoff:** Implement only Step 22.1, validate it, then run `/ship` when done.
 
   **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`.
+
+  **Step 22.1 Results (2026-06-05):**
+  - 26 apps verified across IDs 077-081, 170-186, 212, 214-216.
+  - All 26 repos: PRIVATE, default branch `main`, README present, source spec present, root commit present.
+  - 22/26 repos workflow-clean. 4 batch-11 repos (212, 214-216) have unauthorized `.github/workflows` requiring remediation.
+  - Risk groups documented: Language Learning (5), Translation (2), LMS/Classroom (4), Kids Education (3), Kids Media (3), Education Platform (1), Higher Education (2), Math/STEM (1), Writing/Transcription (4), Writing Assistant (1), Classroom Messaging (1), Classroom Tools (1).
+  - Carry-forward blockers: COPPA/KOSA (kids apps), FERPA (LMS/classroom), speech recognition APIs, translation APIs/models, LMS integrations (LTI/SCORM), camera OCR, video delivery, NLP/AI models, custom keyboard APIs, academic integrity, content licensing, subscription tiers.
+  - Rate-limit evidence: pre-scan core used=604/remaining=4396; post-scan core used=743/remaining=4257. No rate-limit violations.
+  - Full evidence in `tasks/repo-seeding.md` under "Phase 22 Step 22.1".
 
 ### Milestone: Phase 22 — Education & Learning Complete
 **Acceptance Criteria:**

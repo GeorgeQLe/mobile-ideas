@@ -3836,3 +3836,67 @@ The Step 21.4 full entry is preserved below:
 | 21 | FamilyAlbum | 697 | familyalbum-mobile-clone | PASS | PASS | PASS |
 
 **Result**: 21 checked, 21 pass, 0 fail.
+
+### Phase 22 Step 22.1 — Education & Learning Inventory Reconciliation (26 apps) - 2026-06-05
+
+- Scope: Phase 22 Education & Learning inventory reconciled to 26 downstream repos: IDs 077-081 (batch-04/05), 170-180 (batch-09), 181-186 (batch-10), 212, 214-216 (batch-11).
+- Source evidence: all 26 source specs confirmed present locally under `specs/batch-*`.
+- Rate-limit evidence before scan: `gh api rate_limit` reported core `used=604`, `remaining=4396`, `reset=1780676942`; GraphQL `used=5`, `remaining=4995`, `reset=1780679520`.
+- GitHub verification evidence: serial read-only `gh api` metadata/content checks confirmed every repo is `PRIVATE`, has default branch `main`, has a default-branch commit, contains `README.md`, and contains the matching source spec under `docs/source-specs/`.
+- Workflow verification: 22/26 repos have no `.github/workflows` directory (HTTP 404 confirmed). 4 repos (IDs 212, 214, 215, 216 — all batch-11) contain unauthorized GitHub Actions workflow files (`android-native.yml`, `benchmark.yml`, `expo.yml`, `flutter.yml`, `ios-native.yml`, `react-native.yml`). These violate the project no-GitHub-Actions policy and are carried forward as blockers for remediation.
+- Rate-limit evidence after scan: `gh api rate_limit` reported core `used=743`, `remaining=4257`, `reset=1780676942`; GraphQL `used=5`, `remaining=4995`, `reset=1780679520`.
+- Required blocker carry-forward: IDs 101-1000 remain planning/scaffold repos while specs are Draft 1; Phase 22 implementation must not claim implementation-ready parity until exact-source verification and category risk review (COPPA/KOSA for kids apps, FERPA for education/LMS, speech recognition APIs, translation APIs/models, LMS integrations, academic integrity, content licensing) are complete.
+- GitHub Actions status: no workflow was enabled, dispatched, or used for this verification. 4 batch-11 repos have pre-existing unauthorized workflows requiring remediation.
+
+| ID | App | Category | Repo | Visibility | Branch | README | Source Spec | Root Commit | Workflows |
+|---:|---|---|---|---|---|---|---|---|---|
+| 077 | Duolingo | Language Learning | `GeorgeQLe/duolingo-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 078 | Khan Academy | Education Platform | `GeorgeQLe/khan-academy-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 079 | Quizlet | Study Tools | `GeorgeQLe/quizlet-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 080 | Coursera | Higher Education | `GeorgeQLe/coursera-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 081 | Photomath | Math/STEM | `GeorgeQLe/photomath-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 170 | ClassDojo | Classroom Tools | `GeorgeQLe/classdojo-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 171 | Remind | Classroom Messaging | `GeorgeQLe/remind-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 172 | Canvas Student | LMS | `GeorgeQLe/canvas-student-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 173 | Google Classroom | LMS | `GeorgeQLe/google-classroom-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 174 | ScratchJr | Kids Coding | `GeorgeQLe/scratchjr-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 175 | ABCmouse | Kids Education | `GeorgeQLe/abcmouse-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 176 | Khan Academy Kids | Kids Education | `GeorgeQLe/khan-academy-kids-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 177 | Epic! | Kids Reading | `GeorgeQLe/epic-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 178 | YouTube Kids | Kids Video | `GeorgeQLe/youtube-kids-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 179 | PBS Kids | Kids Video | `GeorgeQLe/pbs-kids-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 180 | Babbel | Language Learning | `GeorgeQLe/babbel-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 181 | Rosetta Stone | Language Learning | `GeorgeQLe/rosetta-stone-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 182 | Busuu | Language Learning | `GeorgeQLe/busuu-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 183 | Google Translate | Translation | `GeorgeQLe/google-translate-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 184 | DeepL | Translation | `GeorgeQLe/deepl-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 185 | Otter.ai | Transcription | `GeorgeQLe/otter-ai-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 186 | Grammarly | Writing Assistant | `GeorgeQLe/grammarly-mobile-clone` | PRIVATE | main | yes | yes | yes | absent |
+| 212 | ELSA Speak | Language Learning | `GeorgeQLe/elsa-speak-mobile-clone` | PRIVATE | main | yes | yes | yes | PRESENT |
+| 214 | Grammarly Keyboard | Writing Assistant | `GeorgeQLe/grammarly-keyboard-mobile-clone` | PRIVATE | main | yes | yes | yes | PRESENT |
+| 215 | Wordtune | Writing Assistant | `GeorgeQLe/wordtune-mobile-clone` | PRIVATE | main | yes | yes | yes | PRESENT |
+| 216 | QuillBot | Writing Assistant | `GeorgeQLe/quillbot-mobile-clone` | PRIVATE | main | yes | yes | yes | PRESENT |
+
+**Result**: 26 checked, 26 PRIVATE with main branch + README + source spec + root commit. 22/26 workflow-clean. 4 batch-11 repos (212, 214-216) have unauthorized workflows requiring remediation.
+
+**Risk Groups & Carry-Forward Blockers:**
+
+| Risk Group | Apps | Key Blockers |
+|---|---|---|
+| Language Learning (5) | Duolingo, Babbel, Rosetta Stone, Busuu, ELSA Speak | Speech recognition APIs, spaced repetition algorithms, gamification engines, lesson content licensing, subscription/paywall tiers, push notifications |
+| Translation (2) | Google Translate, DeepL | Translation API/model integration, offline model download, camera OCR/real-time translation, language pair licensing |
+| LMS/Classroom (4) | Canvas Student, Google Classroom, ClassDojo, Remind | LTI/SCORM integration, FERPA compliance, school district SSO/rostering, real-time messaging, push notifications, parent/teacher/student role separation |
+| Kids Education (3) | Khan Academy Kids, ABCmouse, ScratchJr | COPPA/KOSA compliance, age-gating, parental consent/controls, child-safe content moderation, offline content delivery |
+| Kids Media (3) | Epic!, YouTube Kids, PBS Kids | COPPA/KOSA compliance, content licensing, video/audio streaming, parental controls, ad-free/subscription models, content curation for minors |
+| Education Platform (1) | Khan Academy | Lesson/course structure, progress tracking, mastery-based learning, video delivery, exercise engine, content licensing |
+| Higher Education (2) | Coursera, Quizlet | FERPA compliance, certificate/credential generation, academic integrity, proctoring, course catalog integration, subscription tiers |
+| Math/STEM (1) | Photomath | Camera OCR, math solver engine, step-by-step solution rendering, AR overlay, offline computation |
+| Writing/Transcription (4) | Grammarly, Otter.ai, Grammarly Keyboard, Wordtune | NLP/AI writing models, custom keyboard extension API (iOS/Android), real-time audio transcription, speaker diarization, subscription tiers |
+| Writing Assistant (1) | QuillBot | NLP/AI paraphrasing models, grammar checking, citation generation, subscription tiers |
+| Classroom Messaging (1) | Remind | FERPA compliance, real-time messaging, SMS gateway, parent notification, school district integration |
+| Classroom Tools (1) | ClassDojo | COPPA/FERPA compliance, behavior tracking, parent/teacher communication, school district integration, child data privacy |
+
+**Unauthorized Workflows Remediation (batch-11 IDs 212, 214-216):**
+- Files found: `android-native.yml`, `benchmark.yml`, `expo.yml`, `flutter.yml`, `ios-native.yml`, `react-native.yml`
+- Action required: delete `.github/workflows/` directory from these 4 repos in a future step.
+- These workflows were not enabled, dispatched, or triggered during this verification.
