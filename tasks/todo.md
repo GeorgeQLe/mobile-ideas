@@ -207,6 +207,44 @@
 
   **Files:** downstream repos (21), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
+- [ ] Step 21.6: Fifth Health & Fitness tranche — React Native variant for Fitness & Activity Tracking apps (20 apps)
+  - **Apps:** Same 20 apps from Step 21.2: Headspace (082), Calm (083), Strava (084), Nike Run Club (085), MyFitnessPal (086), Fitbit (087), Peloton (356), Zwift (357), Garmin Connect (358), Nike Training Club (359), Fitbod (360), Strong (361), Hevy (362), Runkeeper (363), MapMyRun (364), Komoot (365), Relive (366), TrainerRoad (367), TrainingPeaks (368), Athlytic (682).
+
+  **What to Build:**
+  React Native variant scaffolds under `variants/react-native/` for each of the 20 downstream repos. Each scaffold includes:
+  - `variants/react-native/package.json` with React Native + Expo dependencies, lint/typecheck/test scripts
+  - `variants/react-native/tsconfig.json` with strict TypeScript config
+  - `variants/react-native/app.json` with Expo app config
+  - `variants/react-native/index.js` entry point
+  - `variants/react-native/src/screens/` with HomeScreen and category-specific screens (e.g., WorkoutScreen, ActivityScreen, ProfileScreen)
+  - `variants/react-native/src/components/` with shared UI components
+  - `variants/react-native/src/navigation/` with React Navigation stack/tab setup
+  - `variants/react-native/src/services/` with mock data services
+  - `variants/react-native/src/hooks/` with custom hooks
+  - Category-specific screens per app type: meditation (guided session, sleep stories), running (activity recording, routes), nutrition (food log, macros), wearable (dashboard, device sync), connected fitness (classes, leaderboard), gym (workout builder, exercise library), cycling training (plans, zones)
+  - Explicit blockers carried forward from Step 21.2 plus React Native-specific: Expo SDK version constraints, native module linking (HealthKit, BLE), EAS Build requirements, Metro bundler config
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-scan evidence.
+  2. Write a Node.js generator script at `/tmp/generate-fitness-rn-variants.mjs` defining all 20 apps with category-specific React Native screens.
+  3. For each of the 20 repos, serially: clone to /tmp, create `variants/react-native/` scaffold files, run lint check (if applicable), commit, push, verify via `gh api`.
+  4. `gh api rate_limit` — record post-scan evidence.
+  5. Update `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+
+  **Repo slugs (20):** Same as Step 21.2.
+
+  **Execution profile:** serial, main agent integration owner, low conflict risk.
+
+  **Acceptance Criteria:**
+  - All 20 repos have `variants/react-native/` scaffold with `package.json`, `tsconfig.json`, `app.json`, `index.js`, and `src/` directory committed and pushed.
+  - Each repo verified PRIVATE with new variant files via `gh api`.
+  - Rate-limit evidence recorded pre and post.
+  - Category-specific React Native blockers documented.
+
+  **Ship-one-step handoff:** Implement only Step 21.6, validate it, then run `/ship` when done.
+
+  **Files:** downstream repos (20), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+
 ### Milestone: Phase 21 — Health, Fitness & Wellness Complete
 **Acceptance Criteria:**
 - [x] Exact Phase 21 inventory reconciled with app IDs, app names, repo slugs, source specs, and downstream readiness (82 apps).
