@@ -7720,3 +7720,13 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - **Verification**: 26/26 pass. All repos PRIVATE, Flutter files present (pubspec.yaml, lib/main.dart, BLOCKERS.md), no `.github/workflows`.
 - **Rate limit**: pre-run core used=30/remaining=4970; post-run core used=160/remaining=4840.
 - **Changed files**: 26 downstream repos (Flutter variant scaffolds), `tasks/todo.md` (checked off 22.4, added results), `tasks/repo-seeding.md` (verification evidence), `tasks/history.md` (this entry).
+
+### 2026-06-05 — Phase 22 Step 22.5: Expo Variant Scaffolds (26 Education & Learning apps)
+- **What**: Built Expo variant scaffolds (`variants/expo/`) for all 26 Education & Learning downstream repos.
+- **Each scaffold**: `package.json` (Expo ~52.0.0, expo-router ~4.0.0, expo-status-bar, react-native-safe-area-context), `tsconfig.json` (strict), `app.json` (Expo config with scheme), `app/_layout.tsx` (root Stack layout), `app/(tabs)/_layout.tsx` (tab layout), `app/(tabs)/index.tsx` + tab screens (.tsx), `src/components/` (5 shared, TypeScript), `src/services/` (3-4 mock), `src/hooks/` (3 custom), `src/stores/` (2-3 state stores), `BLOCKERS.md`.
+- **Key difference from RN variant**: Expo Router (file-based routing in `app/` directory) instead of React Navigation, TypeScript throughout (.tsx), state stores instead of navigation-centric architecture.
+- **Categories**: language-learning (5), education-platform (1), higher-education (2), math-stem (1), classroom (2), lms (2), kids-education (3), kids-media (3), translation (2), transcription (1), writing-assistant (4).
+- **Generator script**: `/tmp/generate-education-expo-variants.mjs`. Serial clone → scaffold → commit → push → verify.
+- **Verification**: 26/26 pass. All repos PRIVATE, Expo files present (package.json, app.json, tsconfig.json, app/(tabs)/_layout.tsx, BLOCKERS.md), no `.github/workflows`.
+- **Rate limit**: pre-run core used=160/remaining=4840; post-run core used=342/remaining=4658.
+- **Changed files**: 26 downstream repos (Expo variant scaffolds), `tasks/todo.md` (checked off 22.5, added results), `tasks/repo-seeding.md` (verification evidence), `tasks/history.md` (this entry).

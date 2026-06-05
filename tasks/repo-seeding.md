@@ -96,6 +96,48 @@ Guardrails:
 
 ## Execution Status And Evidence Log
 
+### Phase 22 Step 22.5 — Expo Variant Scaffolds (26 Education & Learning apps) - 2026-06-05
+
+- Scope: Expo variant scaffolds (`variants/expo/`) for 26 Education & Learning downstream repos: IDs 077-081, 170-186, 212, 214-216.
+- Rate-limit evidence before run: core used=160, remaining=4840.
+- Generator script: `/tmp/generate-education-expo-variants.mjs`. Serial clone → scaffold → commit → push → verify.
+- Each scaffold includes: `package.json` (Expo ~52.0.0, expo-router ~4.0.0, expo-status-bar, react-native-safe-area-context), `tsconfig.json` (strict), `app.json` (Expo config with expo-router scheme), `app/_layout.tsx` (root Stack layout), `app/(tabs)/_layout.tsx` (tab layout with category-specific tabs), `app/(tabs)/index.tsx` (home screen), `app/(tabs)/*.tsx` (5 category-specific tab screens per app), `src/components/` (5 shared components, TypeScript), `src/services/` (3-4 mock data services, TypeScript), `src/hooks/` (3 custom hooks), `src/stores/` (2-3 state stores), `BLOCKERS.md` (category-specific + Expo-specific blockers).
+- Key difference from RN variant: Expo Router (file-based routing in `app/` directory) instead of React Navigation stack, TypeScript throughout (.tsx), state stores instead of navigation-centric architecture.
+- GitHub verification evidence: serial `gh api` content checks confirmed every repo is PRIVATE, contains `variants/expo/package.json`, `variants/expo/tsconfig.json`, `variants/expo/app.json`, `variants/expo/app/(tabs)/_layout.tsx`, `variants/expo/BLOCKERS.md`, and does not contain `.github/workflows`. Checked=26, pass=26, fail=0.
+- Rate-limit evidence after run: core used=342, remaining=4658.
+- Category-specific Expo blockers documented per app: speech recognition APIs (Duolingo, Babbel, Rosetta Stone, Busuu, ELSA Speak), spaced repetition algorithms (Duolingo, Babbel, Busuu, Quizlet), translation APIs/models (Google Translate, DeepL), camera OCR (Photomath, Google Translate), LMS integration LTI/SCORM (Canvas Student, Google Classroom), COPPA/KOSA compliance (ScratchJr, ABCmouse, Khan Academy Kids, Epic!, YouTube Kids, PBS Kids, ClassDojo), FERPA compliance (Canvas Student, Google Classroom, ClassDojo, Remind), DRM video content (YouTube Kids, PBS Kids, Epic!, Coursera), NLP/AI models (Grammarly, Grammarly Keyboard, Wordtune, QuillBot, Otter.ai), custom keyboard APIs (Grammarly Keyboard), real-time transcription (Otter.ai), math solver engine (Photomath), certificate generation (Coursera), parent gate controls (kids apps).
+- Expo SDK constraints: ~52.0.0 required, expo-router ~4.0.0 for file-based routing, EAS Build needed for native modules (camera, audio, BLE, speech), expo-dev-client for custom native code, OTA updates via expo-updates for JS-only changes.
+- GitHub Actions status: no workflow was enabled, dispatched, or used.
+
+| ID | App | Category | Repo | Visibility | package.json | app.json | _layout.tsx | BLOCKERS.md | Workflows |
+|---:|---|---|---|---|---|---|---|---|---|
+| 077 | Duolingo | language-learning | `GeorgeQLe/duolingo-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 078 | Khan Academy | education-platform | `GeorgeQLe/khan-academy-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 079 | Quizlet | higher-education | `GeorgeQLe/quizlet-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 080 | Coursera | higher-education | `GeorgeQLe/coursera-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 081 | Photomath | math-stem | `GeorgeQLe/photomath-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 170 | ClassDojo | classroom | `GeorgeQLe/classdojo-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 171 | Remind | classroom | `GeorgeQLe/remind-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 172 | Canvas Student | lms | `GeorgeQLe/canvas-student-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 173 | Google Classroom | lms | `GeorgeQLe/google-classroom-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 174 | ScratchJr | kids-education | `GeorgeQLe/scratchjr-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 175 | ABCmouse | kids-education | `GeorgeQLe/abcmouse-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 176 | Khan Academy Kids | kids-education | `GeorgeQLe/khan-academy-kids-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 177 | Epic! | kids-media | `GeorgeQLe/epic-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 178 | YouTube Kids | kids-media | `GeorgeQLe/youtube-kids-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 179 | PBS Kids | kids-media | `GeorgeQLe/pbs-kids-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 180 | Babbel | language-learning | `GeorgeQLe/babbel-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 181 | Rosetta Stone | language-learning | `GeorgeQLe/rosetta-stone-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 182 | Busuu | language-learning | `GeorgeQLe/busuu-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 183 | Google Translate | translation | `GeorgeQLe/google-translate-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 184 | DeepL | translation | `GeorgeQLe/deepl-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 185 | Otter.ai | transcription | `GeorgeQLe/otter-ai-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 186 | Grammarly | writing-assistant | `GeorgeQLe/grammarly-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 212 | ELSA Speak | language-learning | `GeorgeQLe/elsa-speak-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 214 | Grammarly Keyboard | writing-assistant | `GeorgeQLe/grammarly-keyboard-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 215 | Wordtune | writing-assistant | `GeorgeQLe/wordtune-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 216 | QuillBot | writing-assistant | `GeorgeQLe/quillbot-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+
 ### Phase 22 Step 22.4 — Flutter Variant Scaffolds (26 Education & Learning apps) - 2026-06-05
 
 - Scope: Flutter variant scaffolds (`variants/flutter/`) for 26 Education & Learning downstream repos: IDs 077-081, 170-186, 212, 214-216.

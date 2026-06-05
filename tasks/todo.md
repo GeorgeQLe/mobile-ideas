@@ -203,7 +203,7 @@
   - **Generator script:** `/tmp/generate-education-flutter-variants.mjs`.
   - Full evidence in `tasks/repo-seeding.md` under "Phase 22 Step 22.4".
 
-- [ ] Step 22.5: Build Expo variant scaffolds for all 26 Education & Learning apps
+- [x] Step 22.5: Build Expo variant scaffolds for all 26 Education & Learning apps
   - Build `variants/expo/` scaffold for all 26 Education & Learning downstream repos.
   - Each scaffold: `package.json` (Expo ~52.0.0, expo-router, expo-status-bar, react-native-safe-area-context), `tsconfig.json` (strict), `app.json` (Expo config with expo-router scheme), `app/_layout.tsx` (root layout with tabs), `app/(tabs)/` (5 category-specific tab screens per app), `src/components/` (5 shared components), `src/services/` (3-4 mock data services), `src/hooks/` (3 custom hooks), `src/stores/` (2-3 state stores), `BLOCKERS.md` (category-specific + Expo-specific blockers).
   - Education-category-specific screens match the RN/Flutter pattern: language-learning (lesson, practice, leaderboard, profile, review), translation (translate, camera, conversation, history, settings), classroom/LMS (course-list, assignment, grade, calendar, message), kids-education (learning-path, game, creative, progress, parent), kids-media (library, player, collection, parent-control, profile), education-platform (course, practice, progress, classroom, search), higher-education (catalog, study, assess, certificate, profile), math/STEM (camera, solution, graph, history, settings), transcription (record, transcript, summary, search, settings), writing-assistant (editor, suggestion, tools, stats, settings).
@@ -229,6 +229,16 @@
   **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`, 26 downstream repos (`variants/expo/`).
 
   **Ship-one-step handoff:** Implement only Step 22.5, validate it, then run `/ship` when done.
+
+  **Step 22.5 Results (2026-06-05):**
+  - **Expo Variant Scaffolds:** 26/26 repos scaffolded with `variants/expo/` (package.json, tsconfig.json, app.json, app/_layout.tsx, app/(tabs)/_layout.tsx, app/(tabs)/index.tsx, app/(tabs)/*.tsx, src/components/, src/services/, src/hooks/, src/stores/, BLOCKERS.md).
+  - Each scaffold uses Expo ~52.0.0 + Expo Router ~4.0.0 with file-based routing, TypeScript throughout, 5 category-specific tab screens, 5 shared components, 3-4 mock data services, 3 custom hooks, 2-3 state stores, and category-specific + Expo-specific blockers.
+  - Key difference from RN variant: Expo Router (file-based routing in `app/` directory) instead of React Navigation, TypeScript `.tsx` files, state stores (`src/stores/`) for state management.
+  - Categories covered: language-learning (5 apps — Duolingo, Babbel, Rosetta Stone, Busuu, ELSA Speak), education-platform (1 — Khan Academy), higher-education (2 — Quizlet, Coursera), math-stem (1 — Photomath), classroom (2 — ClassDojo, Remind), lms (2 — Canvas Student, Google Classroom), kids-education (3 — ScratchJr, ABCmouse, Khan Academy Kids), kids-media (3 — Epic!, YouTube Kids, PBS Kids), translation (2 — Google Translate, DeepL), transcription (1 — Otter.ai), writing-assistant (4 — Grammarly, Grammarly Keyboard, Wordtune, QuillBot).
+  - **Verification:** 26/26 pass. All repos PRIVATE, Expo files present (package.json, app.json, tsconfig.json, app/(tabs)/_layout.tsx, BLOCKERS.md), no `.github/workflows`.
+  - **Rate-limit evidence:** pre-run core used=160/remaining=4840; post-run core used=342/remaining=4658. No rate-limit violations.
+  - **Generator script:** `/tmp/generate-education-expo-variants.mjs`.
+  - Full evidence in `tasks/repo-seeding.md` under "Phase 22 Step 22.5".
 
 - [ ] Step 22.6: Build iOS Native (SwiftUI) variant scaffolds for all 26 Education & Learning apps
 - [ ] Step 22.7: Build Android Native (Kotlin/Jetpack Compose) variant scaffolds for all 26 Education & Learning apps
