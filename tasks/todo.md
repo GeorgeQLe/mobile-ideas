@@ -493,6 +493,50 @@
 
   **Files:** downstream repos (19), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
+- [ ] Step 21.12: Eleventh Health & Fitness tranche — Flutter variant for Sleep, Nutrition, Wellness & Wearable Platforms (22 apps)
+  - **Apps:** Same 22 apps from Steps 21.4/21.8: Oura (158), Whoop (159), Sleep Cycle (160), Flo (088), Clue (161), Ovia (162), Nurx (668), Endel (291), Brain.fm (292), Noom (670), Lose It! (671), Cronometer (672), Lifesum (673), WaterMinder (674), Pillow (675), AutoSleep (676), SleepScore (677), Withings Health Mate (678), Samsung Health (679), Apple Health (680), Google Fit (681), Welltory (683).
+
+  **What to Build:**
+  Flutter variant scaffolds under `variants/flutter/` for each of the 22 downstream repos. Each scaffold includes:
+  - `variants/flutter/pubspec.yaml` — Flutter SDK, Dart deps (go_router, provider, http, flutter_svg), dev deps (flutter_test, flutter_lints)
+  - `variants/flutter/analysis_options.yaml` — strict Dart lint rules
+  - `variants/flutter/lib/main.dart` — app entry point with MaterialApp + GoRouter
+  - `variants/flutter/lib/screens/` — HomeScreen and category-specific screens (matching RN variant screens from Step 21.8)
+  - `variants/flutter/lib/widgets/` — shared UI widgets
+  - `variants/flutter/lib/services/` — mock data services
+  - `variants/flutter/lib/models/` — data models
+  - `variants/flutter/BLOCKERS.md` — category-specific + Flutter-specific blockers (including Flutter SDK toolchain blocker)
+  - Category-specific screens per app type:
+    - Sleep tracking (Oura, Whoop, Sleep Cycle, Pillow, AutoSleep, SleepScore): SleepDashboardScreen, SleepStagesScreen, ReadinessScreen, TrendsScreen, SettingsScreen
+    - Women's health (Flo, Clue, Ovia, Nurx): CycleScreen, CalendarScreen, SymptomsScreen, InsightsScreen
+    - Wellness audio (Endel, Brain.fm): PlayerScreen, SoundscapeScreen, TimerScreen, LibraryScreen
+    - Nutrition (Noom, Lose It!, Cronometer, Lifesum, WaterMinder): DiaryScreen, FoodSearchScreen, NutritionScreen, WeightScreen
+    - Wearable platforms (Withings Health Mate, Samsung Health, Apple Health, Google Fit, Welltory): DashboardScreen, DevicesScreen, HealthMetricsScreen, ActivityScreen
+  - Explicit blockers: Flutter SDK not installed locally (toolchain blocker), HealthKit/Google Fit platform channels, BLE device pairing (wearables), biometric sensors, reproductive health data privacy (state-specific), AI audio generation, nutrition database licensing, barcode scanner camera API, HRV algorithms, sleep sensor hardware
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-scan evidence.
+  2. Write a Node.js generator script at `/tmp/generate-wellness-flutter-variants.mjs` defining all 22 apps with category-specific Flutter screens/widgets/services/models. Follow the same pattern as `/tmp/generate-fitness-flutter-variants.mjs` and `/tmp/generate-telehealth-flutter-variants.mjs`.
+  3. For each of the 22 repos, serially: clone to /tmp, create `variants/flutter/` scaffold files, commit, push, verify via `gh api`.
+  4. `gh api rate_limit` — record post-scan evidence.
+  5. Update `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+
+  **Repo slugs (22):**
+  `oura-mobile-clone`, `whoop-mobile-clone`, `sleep-cycle-mobile-clone`, `flo-mobile-clone`, `clue-mobile-clone`, `ovia-mobile-clone`, `nurx-mobile-clone`, `endel-mobile-clone`, `brain-fm-mobile-clone`, `noom-mobile-clone`, `lose-it-mobile-clone`, `cronometer-mobile-clone`, `lifesum-mobile-clone`, `waterminder-mobile-clone`, `pillow-mobile-clone`, `autosleep-mobile-clone`, `sleepscore-mobile-clone`, `withings-health-mate-mobile-clone`, `samsung-health-mobile-clone`, `apple-health-mobile-clone`, `google-fit-mobile-clone`, `welltory-mobile-clone`
+
+  **Execution profile:** serial, main agent integration owner, low conflict risk.
+
+  **Acceptance Criteria:**
+  - All 22 repos have `variants/flutter/` scaffold with `pubspec.yaml`, `analysis_options.yaml`, `lib/main.dart`, `lib/screens/`, `lib/widgets/`, `lib/services/`, `lib/models/`, and `BLOCKERS.md` committed and pushed.
+  - Each repo verified PRIVATE with new variant files via `gh api`.
+  - Rate-limit evidence recorded pre and post.
+  - Flutter toolchain blocker documented (local Flutter SDK unavailable — `flutter analyze` cannot run).
+  - Category-specific blockers documented: HealthKit/Google Fit platform channels, BLE wearable pairing, biometric sensors, reproductive data privacy, AI audio generation, nutrition databases.
+
+  **Ship-one-step handoff:** Implement only Step 21.12, validate it, then run `/ship` when done.
+
+  **Files:** downstream repos (22), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+
 ### Milestone: Phase 21 — Health, Fitness & Wellness Complete
 **Acceptance Criteria:**
 - [x] Exact Phase 21 inventory reconciled with app IDs, app names, repo slugs, source specs, and downstream readiness (82 apps).
