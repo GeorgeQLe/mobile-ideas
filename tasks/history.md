@@ -1,5 +1,15 @@
 # History
 
+## 2026-06-05 - Phase 21 Step 21.12: Flutter Variant for Sleep, Nutrition, Wellness & Wearable Platforms (22 apps)
+
+- Built and verified Flutter variant scaffolds (`variants/flutter/`) for 22 sleep, nutrition, wellness & wearable platform apps across 22 private downstream repos.
+- Categories: Sleep Tracking (6: Oura, Whoop, Sleep Cycle, Pillow, AutoSleep, SleepScore), Women's Health (4: Flo, Clue, Ovia, Nurx), Wellness Audio (2: Endel, Brain.fm), Nutrition (5: Noom, Lose It!, Cronometer, Lifesum, WaterMinder), Wearable Platforms (5: Withings Health Mate, Samsung Health, Apple Health, Google Fit, Welltory).
+- Each scaffold: pubspec.yaml (Flutter >=3.16.0, go_router, provider, http, flutter_svg), analysis_options.yaml (strict lints), lib/main.dart (MaterialApp + GoRouter), 5-6 category-specific screens, 5 widgets, 4 services, 4 models, BLOCKERS.md with category + Flutter-specific blockers.
+- All 22 repos verified PRIVATE with pubspec.yaml, analysis_options.yaml, lib/main.dart, BLOCKERS.md, and no GitHub Actions (checked=22, pass=22, fail=0).
+- Rate-limit evidence: pre-run 264/5000, post-run 396/5000 (remaining=4604).
+- Category-specific blockers documented: HealthKit/Google Fit platform channels, BLE wearable device pairing (Oura Ring, Whoop strap, Withings devices, Galaxy Watch), biometric sensor APIs (HRV, SpO2, skin temp, ECG), reproductive health data privacy (state-specific laws), AI audio generation engines (Endel adaptive, Brain.fm neural phase-locking), nutrition database licensing (USDA, NCCDB), barcode scanner camera API, sleep detection algorithms (microphone, accelerometer), smart alarm scheduling, medical device regulations, platform-specific SDKs (Samsung Health Android-only, Apple HealthKit iOS-only), Flutter SDK toolchain blocker (not installed locally).
+- Generator script: `/tmp/generate-wellness-flutter-variants.mjs`.
+
 ## 2026-06-05 - Phase 21 Step 21.8: React Native Variant for Sleep, Nutrition, Wellness & Wearable Platforms (22 apps)
 
 - Built and verified React Native variant scaffolds (`variants/react-native/`) for 22 sleep, nutrition, wellness & wearable platform apps across 22 private downstream repos.

@@ -3712,3 +3712,35 @@ The Step 21.4 full entry is preserved below:
 | 19 | Maven Clinic | 669 | maven-clinic-mobile-clone | PASS | PASS | PASS |
 
 **Result**: 19 checked, 19 pass, 0 fail.
+
+### Phase 21 Step 21.12 — Flutter Variant: Sleep, Nutrition, Wellness & Wearable Platforms (22 apps)
+
+**Pre-run rate limit**: core used=264, remaining=4736, limit=5000
+**Post-run rate limit**: core used=396, remaining=4604, limit=5000
+
+| # | App | ID | Repo | Flutter Variant | PRIVATE | No Actions |
+|---|-----|----|------|-----------------|---------|------------|
+| 1 | Oura | 158 | oura-mobile-clone | PASS | PASS | PASS |
+| 2 | Whoop | 159 | whoop-mobile-clone | PASS | PASS | PASS |
+| 3 | Sleep Cycle | 160 | sleep-cycle-mobile-clone | PASS | PASS | PASS |
+| 4 | Flo | 088 | flo-mobile-clone | PASS | PASS | PASS |
+| 5 | Clue | 161 | clue-mobile-clone | PASS | PASS | PASS |
+| 6 | Ovia | 162 | ovia-mobile-clone | PASS | PASS | PASS |
+| 7 | Nurx | 668 | nurx-mobile-clone | PASS | PASS | PASS |
+| 8 | Endel | 291 | endel-mobile-clone | PASS | PASS | PASS |
+| 9 | Brain.fm | 292 | brain-fm-mobile-clone | PASS | PASS | PASS |
+| 10 | Noom | 670 | noom-mobile-clone | PASS | PASS | PASS |
+| 11 | Lose It! | 671 | lose-it-mobile-clone | PASS | PASS | PASS |
+| 12 | Cronometer | 672 | cronometer-mobile-clone | PASS | PASS | PASS |
+| 13 | Lifesum | 673 | lifesum-mobile-clone | PASS | PASS | PASS |
+| 14 | WaterMinder | 674 | waterminder-mobile-clone | PASS | PASS | PASS |
+| 15 | Pillow | 675 | pillow-mobile-clone | PASS | PASS | PASS |
+| 16 | AutoSleep | 676 | autosleep-mobile-clone | PASS | PASS | PASS |
+| 17 | SleepScore | 677 | sleepscore-mobile-clone | PASS | PASS | PASS |
+| 18 | Withings Health Mate | 678 | withings-health-mate-mobile-clone | PASS | PASS | PASS |
+| 19 | Samsung Health | 679 | samsung-health-mobile-clone | PASS | PASS | PASS |
+| 20 | Apple Health | 680 | apple-health-mobile-clone | PASS | PASS | PASS |
+| 21 | Google Fit | 681 | google-fit-mobile-clone | PASS | PASS | PASS |
+| 22 | Welltory | 683 | welltory-mobile-clone | PASS | PASS | PASS |
+
+**Result**: 22 checked, 22 pass, 0 fail.
