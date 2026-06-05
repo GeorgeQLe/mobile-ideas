@@ -3805,3 +3805,34 @@ The Step 21.4 full entry is preserved below:
 | 20 | Athlytic | 682 | athlytic-mobile-clone | PASS | PASS | PASS |
 
 **Result**: 20 checked, 20 pass, 0 fail.
+
+### Step 21.14 Tranche 4 — Expo Variant for Pregnancy, Parenting, Family Safety & Remaining (21 apps) — 2026-06-05
+
+**Pre-run rate limit**: core used=427, remaining=4573, limit=5000
+**Post-run rate limit**: core used=574, remaining=4426, limit=5000
+
+| # | App | ID | Repo Slug | PRIVATE | Expo Scaffold | No Actions |
+|---|-----|----|-----------|---------|---------------|------------|
+| 1 | BabyCenter | 163 | babycenter-mobile-clone | PASS | PASS | PASS |
+| 2 | Huckleberry | 164 | huckleberry-mobile-clone | PASS | PASS | PASS |
+| 3 | Cozi | 165 | cozi-mobile-clone | PASS | PASS | PASS |
+| 4 | Life360 | 166 | life360-mobile-clone | PASS | PASS | PASS |
+| 5 | Bark | 167 | bark-mobile-clone | PASS | PASS | PASS |
+| 6 | Qustodio | 168 | qustodio-mobile-clone | PASS | PASS | PASS |
+| 7 | Google Family Link | 169 | google-family-link-mobile-clone | PASS | PASS | PASS |
+| 8 | Rise Sleep | 684 | rise-sleep-mobile-clone | PASS | PASS | PASS |
+| 9 | Pzizz | 685 | pzizz-mobile-clone | PASS | PASS | PASS |
+| 10 | The Bump | 686 | the-bump-mobile-clone | PASS | PASS | PASS |
+| 11 | What to Expect | 687 | what-to-expect-mobile-clone | PASS | PASS | PASS |
+| 12 | Peanut | 688 | peanut-mobile-clone | PASS | PASS | PASS |
+| 13 | Find My Kids | 689 | find-my-kids-mobile-clone | PASS | PASS | PASS |
+| 14 | Family Link | 690 | family-link-mobile-clone | PASS | PASS | PASS |
+| 15 | OurPact | 691 | ourpact-mobile-clone | PASS | PASS | PASS |
+| 16 | Circle Parental Controls | 692 | circle-parental-controls-mobile-clone | PASS | PASS | PASS |
+| 17 | FamCal | 693 | famcal-mobile-clone | PASS | PASS | PASS |
+| 18 | Winnie | 694 | winnie-mobile-clone | PASS | PASS | PASS |
+| 19 | Kinedu | 695 | kinedu-mobile-clone | PASS | PASS | PASS |
+| 20 | Sprout Baby | 696 | sprout-baby-mobile-clone | PASS | PASS | PASS |
+| 21 | FamilyAlbum | 697 | familyalbum-mobile-clone | PASS | PASS | PASS |
+
+**Result**: 21 checked, 21 pass, 0 fail.

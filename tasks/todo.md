@@ -586,7 +586,7 @@
 
   **Files:** downstream repos (21), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
-- [ ] Step 21.14: Remaining variants (Expo + Native iOS/Android) and Phase 21 completion (82 apps) — Tranche 1 (Fitness 20 apps) Expo DONE 2026-06-05, Tranche 2 (Telehealth 19 apps) Expo DONE 2026-06-05, Tranche 3 (Wellness 22 apps) Expo DONE 2026-06-05
+- [ ] Step 21.14: Remaining variants (Expo + Native iOS/Android) and Phase 21 completion (82 apps) — Tranche 1 (Fitness 20 apps) Expo DONE 2026-06-05, Tranche 2 (Telehealth 19 apps) Expo DONE 2026-06-05, Tranche 3 (Wellness 22 apps) Expo DONE 2026-06-05, Tranche 4 (Family 21 apps) Expo DONE 2026-06-05
   - **Goal:** Build Expo variant scaffolds for all 82 apps (4 tranches matching Steps 21.2-21.5), then document Native iOS (Swift/SwiftUI) and Native Android (Kotlin/Jetpack Compose) as explicitly blocked by local toolchain constraints. Check off all Phase 21 milestone acceptance criteria.
 
   **What to Build — Expo Variant (variant 4):**
