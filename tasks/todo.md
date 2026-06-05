@@ -203,6 +203,36 @@
   - **Generator script:** `/tmp/generate-education-flutter-variants.mjs`.
   - Full evidence in `tasks/repo-seeding.md` under "Phase 22 Step 22.4".
 
+- [ ] Step 22.5: Build Expo variant scaffolds for all 26 Education & Learning apps
+  - Build `variants/expo/` scaffold for all 26 Education & Learning downstream repos.
+  - Each scaffold: `package.json` (Expo ~52.0.0, expo-router, expo-status-bar, react-native-safe-area-context), `tsconfig.json` (strict), `app.json` (Expo config with expo-router scheme), `app/_layout.tsx` (root layout with tabs), `app/(tabs)/` (5 category-specific tab screens per app), `src/components/` (5 shared components), `src/services/` (3-4 mock data services), `src/hooks/` (3 custom hooks), `src/stores/` (2-3 state stores), `BLOCKERS.md` (category-specific + Expo-specific blockers).
+  - Education-category-specific screens match the RN/Flutter pattern: language-learning (lesson, practice, leaderboard, profile, review), translation (translate, camera, conversation, history, settings), classroom/LMS (course-list, assignment, grade, calendar, message), kids-education (learning-path, game, creative, progress, parent), kids-media (library, player, collection, parent-control, profile), education-platform (course, practice, progress, classroom, search), higher-education (catalog, study, assess, certificate, profile), math/STEM (camera, solution, graph, history, settings), transcription (record, transcript, summary, search, settings), writing-assistant (editor, suggestion, tools, stats, settings).
+  - Key difference from RN variant: uses Expo Router (file-based routing) instead of React Navigation, TypeScript throughout (.tsx), `app/` directory convention.
+  - Generator script at `/tmp/generate-education-expo-variants.mjs` following Phase 21 Expo pattern.
+  - Serial GitHub API verification post-scaffold.
+  - Record pre/post rate-limit evidence.
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-run evidence.
+  2. Build generator script at `/tmp/generate-education-expo-variants.mjs` following Phase 21 fitness/telehealth Expo variant pattern.
+  3. Serial execution: for each of 26 repos, clone/pull → scaffold → commit → push → verify.
+  4. `gh api rate_limit` — record post-run evidence.
+  5. Update `tasks/todo.md` with results, `tasks/repo-seeding.md` with verification evidence.
+
+  **Execution profile:** serial, main agent integration owner, low conflict risk.
+
+  **Acceptance Criteria:**
+  - 26 repos have `variants/expo/` with package.json, app.json, tsconfig.json, app/_layout.tsx, tab screens, components, services, hooks, stores, BLOCKERS.md.
+  - All repos remain PRIVATE with no GitHub Actions.
+  - Rate-limit evidence recorded.
+
+  **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`, 26 downstream repos (`variants/expo/`).
+
+  **Ship-one-step handoff:** Implement only Step 22.5, validate it, then run `/ship` when done.
+
+- [ ] Step 22.6: Build iOS Native (SwiftUI) variant scaffolds for all 26 Education & Learning apps
+- [ ] Step 22.7: Build Android Native (Kotlin/Jetpack Compose) variant scaffolds for all 26 Education & Learning apps
+
 ### Milestone: Phase 22 — Education & Learning Complete
 **Acceptance Criteria:**
 - [ ] Exact Phase 22 inventory reconciled.
