@@ -131,6 +131,40 @@ Guardrails:
 | 368 | TrainingPeaks | cycling | `GeorgeQLe/trainingpeaks-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
 | 682 | Athlytic | wearable | `GeorgeQLe/athlytic-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
 
+### Phase 21 Step 21.7 React Native Variant — Telehealth, Pharmacy & Health Records (19 apps) - 2026-06-05
+
+- Scope: React Native variant scaffolds (`variants/react-native/`) for 19 telehealth, pharmacy & health records downstream repos: IDs 150-157, 658-667, 669.
+- Rate-limit evidence before run: core used=435, remaining=4565.
+- Generator script: `/tmp/generate-telehealth-rn-variants.mjs`. Serial clone → scaffold → commit → push → verify.
+- Each scaffold includes: `package.json` (Expo ~52.0.0 + React Navigation), `tsconfig.json` (strict), `app.json` (Expo config), `index.js` (entry), `src/screens/` (5 category-specific screens per app), `src/components/` (5 shared components), `src/navigation/AppNavigator.js` (bottom tab navigator), `src/services/` (3-5 mock data services), `src/hooks/` (3 custom hooks), `BLOCKERS.md` (category-specific + RN-specific blockers).
+- GitHub verification evidence: serial `gh api` content checks confirmed every repo is PRIVATE, contains `variants/react-native/package.json`, `tsconfig.json`, `app.json`, `index.js`, `src/navigation/AppNavigator.js`, `BLOCKERS.md`, and does not contain `.github/workflows`. Checked=19, pass=19, fail=0.
+- Rate-limit evidence after run: core used=568, remaining=4432.
+- Category-specific React Native blockers documented per app: HIPAA-compliant data storage/transmission (all apps), telehealth video/audio WebRTC native modules (Teladoc, Amwell, MDLIVE, Doctor On Demand, HealthTap, BetterHelp, Talkspace, Maven Clinic), e-prescribing EPCS/DEA (Teladoc, Amwell, MDLIVE, Doctor On Demand, Hims & Hers, Ro, Walgreens, CVS Health), pharmacy dispensing (Walgreens, CVS Health), insurance verification/claims (Zocdoc, Amwell, Express Scripts, Talkspace), HL7 FHIR patient records (MyChart, Doximity, One Medical), therapy licensing/encryption (BetterHelp, Talkspace), PBM integration (Express Scripts), CME tracking (Doximity), reproductive health data privacy (Maven Clinic), drug pricing database (GoodRx), membership systems (One Medical, Carbon Health), crisis intervention protocols (BetterHelp, Talkspace).
+- Expo SDK constraints: ~52.0.0 required, native module linking needed for WebRTC video/audio, camera (Rx scanning), secure storage (HIPAA), EAS Build required for production, Metro bundler config for monorepo.
+- GitHub Actions status: no workflow was enabled, dispatched, or used.
+
+| ID | App | Category | Repo | Visibility | RN package.json | app.json | index.js | AppNavigator | BLOCKERS.md | Workflows |
+|---:|---|---|---|---|---|---|---|---|---|---|
+| 150 | GoodRx | prescription-pricing | `GeorgeQLe/goodrx-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 151 | Walgreens | pharmacy | `GeorgeQLe/walgreens-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 152 | Zocdoc | doctor-booking | `GeorgeQLe/zocdoc-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 153 | Teladoc | telehealth | `GeorgeQLe/teladoc-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 154 | BetterHelp | therapy | `GeorgeQLe/betterhelp-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 155 | Talkspace | therapy | `GeorgeQLe/talkspace-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 156 | Hims & Hers | dtc-telehealth | `GeorgeQLe/hims-and-hers-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 157 | Ro | dtc-telehealth | `GeorgeQLe/ro-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 658 | MyChart | health-records | `GeorgeQLe/mychart-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 659 | Doximity | provider-network | `GeorgeQLe/doximity-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 660 | CVS Health | pharmacy | `GeorgeQLe/cvs-health-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 661 | Express Scripts | pharmacy-benefits | `GeorgeQLe/express-scripts-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 662 | Amwell | telehealth | `GeorgeQLe/amwell-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 663 | MDLIVE | telehealth | `GeorgeQLe/mdlive-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 664 | Doctor On Demand | telehealth | `GeorgeQLe/doctor-on-demand-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 665 | HealthTap | telehealth | `GeorgeQLe/healthtap-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 666 | One Medical | primary-care | `GeorgeQLe/one-medical-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 667 | Carbon Health | primary-care | `GeorgeQLe/carbon-health-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 669 | Maven Clinic | specialty-telehealth | `GeorgeQLe/maven-clinic-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+
 ### 1000-Repo Seeding Rate-Limit Policy - 2026-04-21
 
 - User approval: private GitHub downstream repo creation batches approved on 2026-04-21.

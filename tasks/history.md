@@ -1,5 +1,15 @@
 # History
 
+## 2026-06-05 - Phase 21 Step 21.7: React Native Variant for Telehealth, Pharmacy & Health Records (19 apps)
+
+- Built and verified React Native variant scaffolds (`variants/react-native/`) for 19 telehealth, pharmacy & health records apps across 19 private downstream repos.
+- Categories: Prescription Pricing (1: GoodRx), Pharmacy (2: Walgreens, CVS Health), Pharmacy Benefits (1: Express Scripts), Doctor Booking (1: Zocdoc), Telehealth (5: Teladoc, Amwell, MDLIVE, Doctor On Demand, HealthTap), DTC Telehealth (2: Hims & Hers, Ro), Therapy (2: BetterHelp, Talkspace), Specialty Telehealth (1: Maven Clinic), Primary Care (2: One Medical, Carbon Health), Health Records (1: MyChart), Provider Network (1: Doximity).
+- Each scaffold: Expo ~52.0.0 + React Navigation bottom tabs, 5 category-specific screens, 5 shared components, 3-5 mock data services, 3 custom hooks, TypeScript config, BLOCKERS.md with category + RN-specific blockers.
+- All 19 repos verified PRIVATE with variants/react-native/package.json, tsconfig.json, app.json, index.js, AppNavigator.js, BLOCKERS.md, and no GitHub Actions (checked=19, pass=19, fail=0).
+- Rate-limit evidence: pre-run 435/5000, post-verification 568/5000 (remaining=4432).
+- Category-specific blockers documented: HIPAA-compliant data storage/transmission, telehealth video/audio (WebRTC native modules), e-prescribing (EPCS/DEA), pharmacy dispensing, insurance verification/claims, HL7 FHIR patient records, therapy session encryption, crisis intervention protocols, PBM integration, provider directory licensing, CME tracking, reproductive health data privacy, Expo SDK constraints, EAS Build requirements, secure storage for patient data.
+- Generator script: `/tmp/generate-telehealth-rn-variants.mjs`.
+
 ## 2026-06-05 - Phase 21 Step 21.6: React Native Variant for Fitness & Activity Tracking (20 apps)
 
 - Built and verified React Native variant scaffolds (`variants/react-native/`) for 20 fitness & activity tracking apps across 20 private downstream repos.

@@ -245,7 +245,7 @@
 
   **Files:** downstream repos (20), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
-- [ ] Step 21.7: Sixth Health & Fitness tranche — React Native variant for Telehealth, Pharmacy & Health Records (19 apps)
+- [x] Step 21.7: Sixth Health & Fitness tranche — React Native variant for Telehealth, Pharmacy & Health Records (19 apps) (completed 2026-06-05)
   - **Apps:** Same 19 apps from Step 21.3: GoodRx (150), Walgreens (151), Zocdoc (152), Teladoc (153), BetterHelp (154), Talkspace (155), Hims & Hers (156), Ro (157), MyChart (658), Doximity (659), CVS Health (660), Express Scripts (661), Amwell (662), MDLIVE (663), Doctor On Demand (664), HealthTap (665), One Medical (666), Carbon Health (667), Maven Clinic (669).
 
   **What to Build:**
