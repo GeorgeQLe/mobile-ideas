@@ -168,6 +168,32 @@
   - **Generator script:** `/tmp/generate-education-rn-variants.mjs`.
   - Full evidence in `tasks/repo-seeding.md` under "Phase 22 Step 22.3".
 
+- [ ] Step 22.4: Build Flutter variant scaffolds for all 26 Education & Learning apps
+  - Build `variants/flutter/` scaffold for all 26 Education & Learning downstream repos.
+  - Each scaffold: `pubspec.yaml` (Flutter SDK ^3.24.0, go_router, provider, http, shared_preferences), `analysis_options.yaml` (flutter_lints), `lib/main.dart` (entry + MaterialApp + GoRouter), `lib/screens/` (5 category-specific screens per app), `lib/widgets/` (5 shared widgets), `lib/services/` (3-4 mock data services), `lib/models/` (2-3 data models), `lib/providers/` (2-3 state providers), `BLOCKERS.md` (category-specific + Flutter-specific blockers).
+  - Education-category-specific screens: language-learning (LessonScreen, PracticeScreen, LeaderboardScreen, ProfileScreen, ReviewScreen), translation (TranslateScreen, CameraScreen, ConversationScreen, HistoryScreen, SettingsScreen), classroom/LMS (CourseListScreen, AssignmentScreen, GradeScreen, CalendarScreen, MessageScreen), kids-education (LearningPathScreen, GameScreen, CreativeScreen, ProgressScreen, ParentScreen), kids-media (LibraryScreen, PlayerScreen, CollectionScreen, ParentControlScreen, ProfileScreen), education-platform (CourseScreen, PracticeScreen, ProgressScreen, ClassroomScreen, SearchScreen), higher-education (CatalogScreen, StudyScreen, AssessScreen, CertificateScreen, ProfileScreen), math/STEM (CameraScreen, SolutionScreen, GraphScreen, HistoryScreen, SettingsScreen), transcription (RecordScreen, TranscriptScreen, SummaryScreen, SearchScreen, SettingsScreen), writing-assistant (EditorScreen, SuggestionScreen, ToolsScreen, StatsScreen, SettingsScreen).
+  - Generator script at `/tmp/generate-education-flutter-variants.mjs` following Phase 21 Flutter pattern.
+  - Serial GitHub API verification post-scaffold.
+  - Record pre/post rate-limit evidence.
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-run evidence.
+  2. Build generator script at `/tmp/generate-education-flutter-variants.mjs` following Phase 21 fitness/telehealth Flutter variant pattern.
+  3. Serial execution: for each of 26 repos, clone/pull → scaffold → commit → push → verify.
+  4. `gh api rate_limit` — record post-run evidence.
+  5. Update `tasks/todo.md` with results, `tasks/repo-seeding.md` with verification evidence.
+
+  **Execution profile:** serial, main agent integration owner, low conflict risk.
+
+  **Acceptance Criteria:**
+  - 26 repos have `variants/flutter/` with pubspec.yaml, lib/main.dart, screens, widgets, services, models, providers, BLOCKERS.md.
+  - All repos remain PRIVATE with no GitHub Actions.
+  - Rate-limit evidence recorded.
+
+  **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`, 26 downstream repos (`variants/flutter/`).
+
+  **Ship-one-step handoff:** Implement only Step 22.4, validate it, then run `/ship` when done.
+
 ### Milestone: Phase 22 — Education & Learning Complete
 **Acceptance Criteria:**
 - [ ] Exact Phase 22 inventory reconciled.
