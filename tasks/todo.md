@@ -181,7 +181,7 @@
 
   **Files:** downstream repos (20), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
-- [ ] Step 20.5: Fourth Travel & Transportation implementation tranche — Travel Booking, Car Rental, Parking, EV & Vehicles (27 apps)
+- [x] Step 20.5: Fourth Travel & Transportation implementation tranche — Travel Booking, Car Rental, Parking, EV & Vehicles (27 apps, completed 2026-06-04)
   - **Apps:** Expedia (035), Hopper (036), TripIt (037), Rome2Rio (562), Skyscanner (563), KAYAK (564), momondo (565), Priceline (566), trivago (568), Zipcar (579), Getaround (580), Enterprise Rent-A-Car (581), Hertz (582), Avis (583), SpotHero (584), ParkMobile (585), Passport Parking (586), PlugShare (587), ChargePoint (588), Electrify America (589), Tesla (590), FordPass (591), myChevrolet (592), Toyota (593), Hyundai Bluelink (594), BMW (595), Mercedes me (596).
 
   **What to Build:**

@@ -1,5 +1,35 @@
 # History
 
+## 2026-06-04 - Phase 20 Step 20.5: Travel Booking, Car Rental, Parking, EV & Vehicle Prototypes
+
+- Built original static prototypes for 27 travel/transport apps as direct-to-`main` commits across 27 private downstream repos:
+  - **Travel Booking/OTA (3):** `GeorgeQLe/expedia-mobile-clone` (One Key, multi-modal flights+hotels+cars+packages), `GeorgeQLe/hopper-mobile-clone` (Carrot Cash, price predictions, Price Freeze), `GeorgeQLe/priceline-mobile-clone` (VIP, Express Deals).
+  - **Travel Meta-Search (5):** `GeorgeQLe/skyscanner-mobile-clone` (Explore Everywhere, Greener Choice), `GeorgeQLe/kayak-mobile-clone` (fare forecast, Hacker Fares), `GeorgeQLe/momondo-mobile-clone` (Flight Insight, CO2 emissions), `GeorgeQLe/trivago-mobile-clone` (hotel meta-search, tRI rating), `GeorgeQLe/rome2rio-mobile-clone` (multi-modal routing: plane/train/bus/ferry/drive).
+  - **Trip Management (1):** `GeorgeQLe/tripit-mobile-clone` (TripIt Pro, itinerary aggregation, email parsing, flight alerts, trip sharing).
+  - **Car Rental P2P (2):** `GeorgeQLe/zipcar-mobile-clone` (hourly/daily, keyless unlock), `GeorgeQLe/getaround-mobile-clone` (P2P marketplace, Getaround Connect keyless).
+  - **Car Rental Fleet (3):** `GeorgeQLe/enterprise-rent-a-car-mobile-clone` (Enterprise Plus, We'll Pick You Up), `GeorgeQLe/hertz-mobile-clone` (Gold Plus Rewards, Skip the Counter, EV fleet), `GeorgeQLe/avis-mobile-clone` (Avis Preferred, Connected Car, digital unlock).
+  - **Parking (3):** `GeorgeQLe/spothero-mobile-clone` (garage/lot reservation, event parking), `GeorgeQLe/parkmobile-mobile-clone` (zone-based meter payment, session management), `GeorgeQLe/passport-parking-mobile-clone` (meter payment, permit parking).
+  - **EV Charging (3):** `GeorgeQLe/plugshare-mobile-clone` (community station reviews, trip planner), `GeorgeQLe/chargepoint-mobile-clone` (session start/stop, Waitlist), `GeorgeQLe/electrify-america-mobile-clone` (ultra-fast DC, Pass+, Plug&Charge).
+  - **Vehicle Connectivity (7):** `GeorgeQLe/tesla-mobile-clone` (Supercharger, Sentry Mode, OTA updates), `GeorgeQLe/fordpass-mobile-clone` (FordPass Rewards, BlueOval Charge Network), `GeorgeQLe/mychevrolet-mobile-clone` (OnStar, My Chevrolet Rewards), `GeorgeQLe/toyota-mobile-clone` (Remote Connect, Toyota Safety Sense), `GeorgeQLe/hyundai-bluelink-mobile-clone` (Bluelink, valet/curfew alerts), `GeorgeQLe/bmw-mobile-clone` (BMW Digital Key UWB, Connected Drive), `GeorgeQLe/mercedes-me-mobile-clone` (Mercedes me connect, concierge).
+- Each prototype includes: `index.html`, `package.json` (with `check` script), `src/styles.css` (brand-themed color scheme), `src/app.js` (category-specific UI panels with synthetic data).
+- All prototypes feature category-specific panels (travel search, vehicle status, charging sessions, parking sessions, etc.), brand-specific loyalty/rewards, and explicit blocker banners for OTA/GDS, car rental fleet systems, parking meter APIs, EV charging OCPP/OCPI, vehicle telematics OBD-II/CAN bus, payment processing, keyless unlock BLE/NFC, digital key UWB, and automotive/consumer regulatory compliance.
+
+**Validation:**
+- Pre-scan rate limit: `core: 4430/5000`.
+- Post-scan rate limit: `core: 4295/5000`.
+- `npm run check` passed in all 27 repos before commit.
+- Serial GitHub API verification: all 27 repos PRIVATE, default `main`, README present, `index.html`, `package.json`, `src/app.js`, `src/styles.css` present, source spec present under `docs/source-specs/`, root commit present, no `.github/workflows`.
+- Checked=27, Pass=27, Fail=0. No 403/429/auth/permission failures.
+
+**Ship Manifest:**
+- User goal: execute Phase 20 Step 20.5 by building travel booking, car rental, parking, EV charging, and vehicle connectivity prototypes across 27 downstream repos.
+- Changed files: 27 downstream repos (4 files each), `tasks/todo.md` (checked off 20.5), `tasks/repo-seeding.md` (rate-limit and verification evidence), `tasks/history.md` (session record).
+- Tests run: `npm run check` in each repo, serial `gh api` verification for all invariants.
+- Adversarial review: verified all 27 repos remain PRIVATE, no GitHub Actions present, source specs intact, all real OTA/GDS/fleet/parking/EV/telematics/payment/regulatory features marked as explicitly blocked.
+- Residual risk: none for this prototype step; all provider/regulatory risks are in blocker banners.
+- Rollback note: revert prototype commits in each downstream repo to restore scaffold-only state.
+- Next command: `/ship` for Step 20.5.
+
 ## 2026-06-04 - Phase 20 Step 20.3: Airline Prototypes
 
 - Built original static prototypes for 24 airline apps as direct-to-`main` commits across 24 private downstream repos:
