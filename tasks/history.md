@@ -1,5 +1,15 @@
 # History
 
+## 2026-06-05 - Phase 21 Step 21.6: React Native Variant for Fitness & Activity Tracking (20 apps)
+
+- Built and verified React Native variant scaffolds (`variants/react-native/`) for 20 fitness & activity tracking apps across 20 private downstream repos.
+- Categories: Meditation/Wellness (2: Headspace, Calm), Running/Outdoor (6: Strava, Nike Run Club, Runkeeper, MapMyRun, Komoot, Relive), Nutrition (1: MyFitnessPal), Wearable/Health (3: Fitbit, Garmin Connect, Athlytic), Connected Fitness (2: Peloton, Zwift), Gym/Strength (4: Nike Training Club, Fitbod, Strong, Hevy), Cycling Training (2: TrainerRoad, TrainingPeaks).
+- Each scaffold: Expo ~52.0.0 + React Navigation bottom tabs, 5 category-specific screens, 5 shared components, 3-4 mock data services, 3 custom hooks, TypeScript config, BLOCKERS.md with RN-specific blockers.
+- All 20 repos verified PRIVATE with variants/react-native/package.json, app.json, index.js, AppNavigator.js, and no GitHub Actions (checked=20, pass=20, fail=0).
+- Rate-limit evidence: pre-run 315/5000, post-verification 435/5000 (remaining=4565).
+- RN-specific blockers documented: BLE device pairing, GPS/location, HealthKit/Google Fit sync, background audio, 3D rendering, live video streaming, AI/ML algorithms, Apple Watch companion, camera API, subscription/paywall tiers, Expo SDK constraints, EAS Build requirements.
+- Generator script: `/tmp/generate-fitness-rn-variants.mjs`.
+
 ## 2026-06-05 - Phase 21 Step 21.5: Pregnancy, Parenting, Family Safety & Remaining Prototypes
 
 - Built and verified original static prototypes for 21 pregnancy, parenting, family safety, sleep optimization, parental controls, and family photo apps across 21 private downstream repos.

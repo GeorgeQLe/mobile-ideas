@@ -96,6 +96,41 @@ Guardrails:
 
 ## Execution Status And Evidence Log
 
+### Phase 21 Step 21.6 React Native Variant — Fitness & Activity Tracking (20 apps) - 2026-06-05
+
+- Scope: React Native variant scaffolds (`variants/react-native/`) for 20 fitness & activity tracking downstream repos: IDs 082-087, 356-368, 682.
+- Rate-limit evidence before run: core used=315, remaining=4685.
+- Generator script: `/tmp/generate-fitness-rn-variants.mjs`. Serial clone → scaffold → commit → push → verify.
+- Each scaffold includes: `package.json` (Expo ~52.0.0 + React Navigation), `tsconfig.json` (strict), `app.json` (Expo config), `index.js` (entry), `src/screens/` (5 category-specific screens per app), `src/components/` (5 shared components), `src/navigation/AppNavigator.js` (bottom tab navigator), `src/services/` (3-4 mock data services), `src/hooks/` (3 custom hooks), `BLOCKERS.md` (category-specific + RN-specific blockers).
+- GitHub verification evidence: serial `gh api` content checks confirmed every repo is PRIVATE, contains `variants/react-native/package.json`, `app.json`, `index.js`, `src/navigation/AppNavigator.js`, and does not contain `.github/workflows`. Checked=20, pass=20, fail=0.
+- Rate-limit evidence after run: core used=435, remaining=4565.
+- Category-specific React Native blockers documented per app: BLE device pairing (Fitbit, Garmin, Peloton, Zwift, TrainerRoad, TrainingPeaks), GPS/location (Strava, NRC, Runkeeper, MapMyRun, Komoot), HealthKit/Google Fit sync (most apps), background audio (Headspace, Calm, NRC), 3D rendering (Zwift, Relive), live video streaming (Peloton), AI/ML algorithms (Fitbod, TrainerRoad), Apple Watch companion (Athlytic, Strong, Fitbod, Hevy), camera API (MyFitnessPal barcode), subscription/paywall tiers (all apps).
+- Expo SDK constraints: ~52.0.0 required, native module linking needed for HealthKit/BLE/GPS, EAS Build required for production, Metro bundler config for monorepo.
+- GitHub Actions status: no workflow was enabled, dispatched, or used.
+
+| ID | App | Category | Repo | Visibility | RN package.json | app.json | index.js | AppNavigator | Workflows |
+|---:|---|---|---|---|---|---|---|---|---|
+| 082 | Headspace | meditation | `GeorgeQLe/headspace-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 083 | Calm | meditation | `GeorgeQLe/calm-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 084 | Strava | running | `GeorgeQLe/strava-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 085 | Nike Run Club | running | `GeorgeQLe/nike-run-club-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 086 | MyFitnessPal | nutrition | `GeorgeQLe/myfitnesspal-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 087 | Fitbit | wearable | `GeorgeQLe/fitbit-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 356 | Peloton | connected-fitness | `GeorgeQLe/peloton-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 357 | Zwift | connected-fitness | `GeorgeQLe/zwift-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 358 | Garmin Connect | wearable | `GeorgeQLe/garmin-connect-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 359 | Nike Training Club | gym | `GeorgeQLe/nike-training-club-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 360 | Fitbod | gym | `GeorgeQLe/fitbod-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 361 | Strong | gym | `GeorgeQLe/strong-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 362 | Hevy | gym | `GeorgeQLe/hevy-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 363 | Runkeeper | running | `GeorgeQLe/runkeeper-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 364 | MapMyRun | running | `GeorgeQLe/mapmyrun-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 365 | Komoot | running | `GeorgeQLe/komoot-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 366 | Relive | running | `GeorgeQLe/relive-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 367 | TrainerRoad | cycling | `GeorgeQLe/trainerroad-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 368 | TrainingPeaks | cycling | `GeorgeQLe/trainingpeaks-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+| 682 | Athlytic | wearable | `GeorgeQLe/athlytic-mobile-clone` | PRIVATE | yes | yes | yes | yes | absent |
+
 ### 1000-Repo Seeding Rate-Limit Policy - 2026-04-21
 
 - User approval: private GitHub downstream repo creation batches approved on 2026-04-21.
