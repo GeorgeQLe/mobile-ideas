@@ -586,6 +586,47 @@
 
   **Files:** downstream repos (21), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
+- [ ] Step 21.14: Remaining variants (Expo + Native iOS/Android) and Phase 21 completion (82 apps)
+  - **Goal:** Build Expo variant scaffolds for all 82 apps (4 tranches matching Steps 21.2-21.5), then document Native iOS (Swift/SwiftUI) and Native Android (Kotlin/Jetpack Compose) as explicitly blocked by local toolchain constraints. Check off all Phase 21 milestone acceptance criteria.
+
+  **What to Build — Expo Variant (variant 4):**
+  Each of the 82 downstream repos gets `variants/expo/` scaffold:
+  - `variants/expo/package.json` — Expo ~52.0.0, expo-router, @react-navigation, react-native-safe-area-context
+  - `variants/expo/tsconfig.json` — strict TypeScript config
+  - `variants/expo/app.json` — Expo config with app name/slug
+  - `variants/expo/app/` — file-based routing (Expo Router): `_layout.tsx`, `index.tsx`, category-specific tab screens
+  - `variants/expo/components/` — shared UI components
+  - `variants/expo/services/` — mock data services
+  - `variants/expo/hooks/` — custom hooks
+  - `variants/expo/BLOCKERS.md` — category + Expo-specific blockers (EAS Build, native modules, etc.)
+
+  **Native Variants (variants 4-5) — Document as Blocked:**
+  - Native iOS (Swift/SwiftUI): blocked by Xcode toolchain not available, no iOS Simulator
+  - Native Android (Kotlin/Jetpack Compose): blocked by Android SDK/Gradle not available, no Android Emulator
+  - Document these blockers in each repo's existing `BLOCKERS.md` or as a summary in `tasks/todo.md`
+
+  **Approach:**
+  1. Build Expo variant generator scripts (4 tranches: fitness 20, telehealth 19, wellness 22, family 21) following the same serial pattern as Steps 21.6-21.13.
+  2. After all 82 Expo scaffolds verified, document Native iOS/Android blockers.
+  3. Check off Phase 21 milestone criteria:
+     - 3 working variants (static, RN, Flutter) + 1 Expo variant + 2 explicitly blocked (Native iOS, Native Android) = 5 variants addressed per app
+     - Validation evidence from all `gh api` checks
+     - Health/workout/content flows rendered in prototypes or explicitly blocked
+     - Category-specific risk review consolidated from all steps' BLOCKERS.md files
+  4. Archive Phase 21, advance to Phase 22.
+
+  **Execution profile:** serial, main agent integration owner, low conflict risk.
+
+  **Acceptance Criteria:**
+  - All 82 repos have `variants/expo/` scaffold with `package.json`, `tsconfig.json`, `app.json`, `app/`, and `BLOCKERS.md`.
+  - Native iOS/Android variants documented as blocked by local toolchain constraints.
+  - All Phase 21 milestone acceptance criteria checked off.
+  - Phase archived to `tasks/phases/phase-21.md`.
+
+  **Ship-one-step handoff:** Implement only Step 21.14 Expo tranche 1 (Fitness & Activity Tracking, 20 apps), validate it, then run `/ship` when done. Subsequent Expo tranches follow in separate steps if needed.
+
+  **Files:** downstream repos (82), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`, `tasks/phases/phase-21.md`.
+
 ### Milestone: Phase 21 — Health, Fitness & Wellness Complete
 **Acceptance Criteria:**
 - [x] Exact Phase 21 inventory reconciled with app IDs, app names, repo slugs, source specs, and downstream readiness (82 apps).
