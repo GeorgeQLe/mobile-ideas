@@ -345,6 +345,58 @@
 
   **Files:** downstream repos (22), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
+- [ ] Step 21.9: Eighth Health & Fitness tranche — React Native variant for Pregnancy, Parenting, Family Safety & Remaining (21 apps)
+  - **Apps:** Same 21 apps from Step 21.5: BabyCenter (163), Huckleberry (164), Cozi (165), Life360 (166), Bark (167), Qustodio (168), Google Family Link (169), Rise Sleep (684), Pzizz (685), The Bump (686), What to Expect (687), Peanut (688), Find My Kids (689), Family Link (690), OurPact (691), Circle Parental Controls (692), FamCal (693), Winnie (694), Kinedu (695), Sprout Baby (696), FamilyAlbum (697).
+
+  **What to Build:**
+  React Native variant scaffolds under `variants/react-native/` for each of the 21 downstream repos. Each scaffold includes:
+  - `variants/react-native/package.json` with React Native + Expo dependencies, lint/typecheck/test scripts
+  - `variants/react-native/tsconfig.json` with strict TypeScript config
+  - `variants/react-native/app.json` with Expo app config
+  - `variants/react-native/index.js` entry point
+  - `variants/react-native/src/screens/` with HomeScreen and category-specific screens
+  - `variants/react-native/src/components/` with shared UI components
+  - `variants/react-native/src/navigation/` with React Navigation stack/tab setup
+  - `variants/react-native/src/services/` with mock data services
+  - `variants/react-native/src/hooks/` with custom hooks
+  - `variants/react-native/BLOCKERS.md` with category-specific + RN-specific blockers
+  - Category-specific screens per app type:
+    - Pregnancy/maternity (BabyCenter, The Bump, What to Expect): WeekByWeekScreen, MilestonesScreen, ArticlesScreen, CommunityScreen
+    - Baby tracking (Huckleberry, Sprout Baby, Kinedu): TrackingScreen, ScheduleScreen, MilestonesScreen, ActivitiesScreen
+    - Parenting community (Peanut): MatchScreen, GroupsScreen, FeedScreen, EventsScreen
+    - Family calendar (Cozi, FamCal): CalendarScreen, ListsScreen, MealPlanScreen, JournalScreen
+    - Childcare (Winnie): SearchScreen, ReviewsScreen, WaitlistScreen, CommunityScreen
+    - Family safety (Life360, Find My Kids): MapScreen, MembersScreen, PlacesScreen, AlertsScreen
+    - Parental monitoring (Bark): MonitorScreen, AlertsScreen, ScreenTimeScreen, LocationScreen
+    - Parental controls (Qustodio, Google Family Link, Family Link, OurPact, Circle Parental Controls): DevicesScreen, ScreenTimeScreen, ContentFilterScreen, LocationScreen
+    - Sleep optimization (Rise Sleep, Pzizz): SleepDebtScreen, CircadianScreen, SoundsScreen, SessionScreen
+    - Family photos (FamilyAlbum): AlbumScreen, MomentsScreen, MembersScreen, SettingsScreen
+  - Explicit blockers: COPPA/KOSA child-directed compliance, family GPS location tracking, MDM/device management APIs, screen time APIs, social media monitoring, pregnancy health data privacy, AI sleep prediction, algorithmic audio generation, community moderation, photo storage, Expo SDK constraints, EAS Build requirements
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-scan evidence.
+  2. Write a Node.js generator script at `/tmp/generate-family-rn-variants.mjs` defining all 21 apps with category-specific React Native screens.
+  3. For each of the 21 repos, serially: clone to /tmp, create `variants/react-native/` scaffold files, commit, push, verify via `gh api`.
+  4. `gh api rate_limit` — record post-scan evidence.
+  5. Update `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+
+  **Repo slugs (21):**
+  `babycenter-mobile-clone`, `huckleberry-mobile-clone`, `cozi-mobile-clone`, `life360-mobile-clone`, `bark-mobile-clone`, `qustodio-mobile-clone`, `google-family-link-mobile-clone`, `rise-sleep-mobile-clone`, `pzizz-mobile-clone`, `the-bump-mobile-clone`, `what-to-expect-mobile-clone`, `peanut-mobile-clone`, `find-my-kids-mobile-clone`, `family-link-mobile-clone`, `ourpact-mobile-clone`, `circle-parental-controls-mobile-clone`, `famcal-mobile-clone`, `winnie-mobile-clone`, `kinedu-mobile-clone`, `sprout-baby-mobile-clone`, `familyalbum-mobile-clone`
+
+  **Source specs:** `specs/batch-09/163-babycenter.md` through `specs/batch-09/169-google-family-link.md`, `specs/batch-35/684-rise-sleep.md` through `specs/batch-35/697-familyalbum.md`
+
+  **Execution profile:** serial, main agent integration owner, low conflict risk.
+
+  **Acceptance Criteria:**
+  - All 21 repos have `variants/react-native/` scaffold with `package.json`, `tsconfig.json`, `app.json`, `index.js`, and `src/` directory committed and pushed.
+  - Each repo verified PRIVATE with new variant files via `gh api`.
+  - Rate-limit evidence recorded pre and post.
+  - Category-specific React Native blockers documented: COPPA/KOSA child-directed, family GPS tracking, MDM/device management APIs, screen time APIs, social media API monitoring, pregnancy health data privacy, AI sleep/audio generation, community moderation, photo storage/fulfillment, Expo SDK constraints, EAS Build requirements.
+
+  **Ship-one-step handoff:** Implement only Step 21.9, validate it, then run `/ship` when done.
+
+  **Files:** downstream repos (21), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+
 ### Milestone: Phase 21 — Health, Fitness & Wellness Complete
 **Acceptance Criteria:**
 - [x] Exact Phase 21 inventory reconciled with app IDs, app names, repo slugs, source specs, and downstream readiness (82 apps).
