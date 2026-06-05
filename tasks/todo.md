@@ -240,7 +240,7 @@
   - **Generator script:** `/tmp/generate-education-expo-variants.mjs`.
   - Full evidence in `tasks/repo-seeding.md` under "Phase 22 Step 22.5".
 
-- [ ] Step 22.6: Build iOS Native (SwiftUI) variant scaffolds for all 26 Education & Learning apps
+- [x] Step 22.6: Build iOS Native (SwiftUI) variant scaffolds for all 26 Education & Learning apps
   - Build `variants/ios-native/` scaffold for all 26 Education & Learning downstream repos.
   - Each scaffold: `Package.swift` (swift-tools-version 6.0, iOS 17+), `Sources/App/<AppName>App.swift` (SwiftUI @main App with TabView), `Sources/Views/` (5 category-specific tab views per app), `Sources/Components/` (5 shared components), `Sources/Services/` (3-4 mock data services), `Sources/Models/` (2-3 data models with Codable/Identifiable), `Sources/ViewModels/` (2-3 @Observable view models), `BLOCKERS.md` (category-specific + iOS-specific blockers).
   - Education-category-specific views match the RN/Flutter/Expo pattern: language-learning (LessonView, PracticeView, LeaderboardView, ProfileView, ReviewView), translation (TranslateView, CameraView, ConversationView, HistoryView, SettingsView), classroom/LMS (CourseListView, AssignmentView, GradeView, CalendarView, MessageView), kids-education (LearningPathView, GameView, CreativeView, ProgressView, ParentView), kids-media (LibraryView, PlayerView, CollectionView, ParentControlView, ProfileView), education-platform (CourseView, PracticeView, ProgressView, ClassroomView, SearchView), higher-education (CatalogView, StudyView, AssessView, CertificateView, ProfileView), math/STEM (CameraView, SolutionView, GraphView, HistoryView, SettingsView), transcription (RecordView, TranscriptView, SummaryView, SearchView, SettingsView), writing-assistant (EditorView, SuggestionView, ToolsView, StatsView, SettingsView).
@@ -266,6 +266,16 @@
   **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`, 26 downstream repos (`variants/ios-native/`).
 
   **Ship-one-step handoff:** Implement only Step 22.6, validate it, then run `/ship` when done.
+
+  **Step 22.6 Results (2026-06-05):**
+  - **iOS Native (SwiftUI) Variant Scaffolds:** 26/26 repos scaffolded with `variants/ios-native/` (Package.swift, Sources/App/<AppName>App.swift, Sources/Views/, Sources/Components/, Sources/Services/, Sources/Models/, Sources/ViewModels/, BLOCKERS.md).
+  - Each scaffold uses Swift 6 strict concurrency + SwiftUI @Observable (iOS 17+) with TabView + NavigationStack, 5 category-specific tab views, 5 shared components, 3-4 mock data services (actor isolation), 2-3 data models (Codable/Identifiable/Sendable), 2-3 @Observable view models, and category-specific + iOS-specific blockers.
+  - Key differences from cross-platform variants: SwiftUI with @Observable (iOS 17+ Observation framework), TabView with native tab bar and SF Symbols, NavigationStack, Swift Package Manager (swift-tools-version 6.0), Swift 6 strict concurrency (actor isolation, Sendable conformance).
+  - Categories covered: language-learning (5 apps — Duolingo, Babbel, Rosetta Stone, Busuu, ELSA Speak), education-platform (1 — Khan Academy), higher-education (2 — Quizlet, Coursera), math-stem (1 — Photomath), classroom (2 — ClassDojo, Remind), lms (2 — Canvas Student, Google Classroom), kids-education (3 — ScratchJr, ABCmouse, Khan Academy Kids), kids-media (3 — Epic!, YouTube Kids, PBS Kids), translation (2 — Google Translate, DeepL), transcription (1 — Otter.ai), writing-assistant (4 — Grammarly, Grammarly Keyboard, Wordtune, QuillBot).
+  - **Verification:** 26/26 pass. All repos PRIVATE, iOS files present (Package.swift, <AppName>App.swift, BLOCKERS.md), no `.github/workflows`.
+  - **Rate-limit evidence:** pre-run core used=346/remaining=4654; post-run core used=130/remaining=4870 (window reset during run). No rate-limit violations.
+  - **Generator script:** `/tmp/generate-education-ios-variants.mjs`.
+  - Full evidence in `tasks/repo-seeding.md` under "Phase 22 Step 22.6".
 
 - [ ] Step 22.7: Build Android Native (Kotlin/Jetpack Compose) variant scaffolds for all 26 Education & Learning apps
 

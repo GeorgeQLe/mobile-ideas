@@ -96,6 +96,48 @@ Guardrails:
 
 ## Execution Status And Evidence Log
 
+### Phase 22 Step 22.6 — iOS Native (SwiftUI) Variant Scaffolds (26 Education & Learning apps) - 2026-06-05
+
+- Scope: iOS Native (SwiftUI) variant scaffolds (`variants/ios-native/`) for 26 Education & Learning downstream repos: IDs 077-081, 170-186, 212, 214-216.
+- Rate-limit evidence before run: core used=346, remaining=4654.
+- Generator script: `/tmp/generate-education-ios-variants.mjs`. Serial clone → scaffold → commit → push → verify.
+- Each scaffold includes: `Package.swift` (swift-tools-version 6.0, iOS 17+), `Sources/App/<AppName>App.swift` (SwiftUI @main App with TabView), `Sources/Views/` (5 category-specific tab views per app), `Sources/Components/` (5 shared components), `Sources/Services/` (3-4 mock data services using actor isolation), `Sources/Models/` (2-3 data models with Codable/Identifiable/Sendable), `Sources/ViewModels/` (2-3 @Observable view models), `BLOCKERS.md` (category-specific + iOS-specific blockers).
+- Key differences from cross-platform variants: SwiftUI with @Observable (iOS 17+ Observation framework), TabView with native tab bar, NavigationStack, Swift Package Manager, Swift 6 strict concurrency (actor isolation, Sendable), native SF Symbols for tab icons.
+- GitHub verification evidence: serial `gh api` content checks confirmed every repo is PRIVATE, contains `variants/ios-native/Package.swift`, `variants/ios-native/Sources/App/<AppName>App.swift`, `variants/ios-native/BLOCKERS.md`, and does not contain `.github/workflows`. Checked=26, pass=26, fail=0.
+- Rate-limit evidence after run: core used=130, remaining=4870 (rate limit window reset during run).
+- Category-specific iOS blockers documented per app: Speech framework (Duolingo, Babbel, Rosetta Stone, Busuu, ELSA Speak), spaced repetition algorithms (Duolingo, Babbel, Busuu, Quizlet), Apple Translation framework (Google Translate, DeepL), Vision framework OCR (Photomath, Google Translate), LMS integration LTI/SCORM (Canvas Student, Google Classroom), COPPA/KOSA compliance (ScratchJr, ABCmouse, Khan Academy Kids, Epic!, YouTube Kids, PBS Kids, ClassDojo), FERPA compliance (Canvas Student, Google Classroom, ClassDojo, Remind), FairPlay DRM (YouTube Kids, PBS Kids, Epic!, Coursera), NLP/AI models (Grammarly, Grammarly Keyboard, Wordtune, QuillBot, Otter.ai), Custom Keyboard Extension (Grammarly Keyboard), SFSpeechRecognizer (Otter.ai), math solver engine (Photomath), certificate generation (Coursera), FamilyControls (kids apps).
+- iOS SDK constraints: Swift 6 strict concurrency, iOS 17+ required for @Observable, Xcode 16+ for Swift 6, StoreKit 2 for IAP, APNs for push notifications, App Extension targets for keyboard/widgets, TestFlight for beta distribution.
+- GitHub Actions status: no workflow was enabled, dispatched, or used.
+
+| ID | App | Category | Repo | Visibility | Package.swift | App.swift | BLOCKERS.md | Workflows |
+|---:|---|---|---|---|---|---|---|---|
+| 077 | Duolingo | language-learning | `GeorgeQLe/duolingo-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 078 | Khan Academy | education-platform | `GeorgeQLe/khan-academy-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 079 | Quizlet | higher-education | `GeorgeQLe/quizlet-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 080 | Coursera | higher-education | `GeorgeQLe/coursera-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 081 | Photomath | math-stem | `GeorgeQLe/photomath-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 170 | ClassDojo | classroom | `GeorgeQLe/classdojo-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 171 | Remind | classroom | `GeorgeQLe/remind-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 172 | Canvas Student | lms | `GeorgeQLe/canvas-student-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 173 | Google Classroom | lms | `GeorgeQLe/google-classroom-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 174 | ScratchJr | kids-education | `GeorgeQLe/scratchjr-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 175 | ABCmouse | kids-education | `GeorgeQLe/abcmouse-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 176 | Khan Academy Kids | kids-education | `GeorgeQLe/khan-academy-kids-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 177 | Epic! | kids-media | `GeorgeQLe/epic-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 178 | YouTube Kids | kids-media | `GeorgeQLe/youtube-kids-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 179 | PBS Kids | kids-media | `GeorgeQLe/pbs-kids-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 180 | Babbel | language-learning | `GeorgeQLe/babbel-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 181 | Rosetta Stone | language-learning | `GeorgeQLe/rosetta-stone-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 182 | Busuu | language-learning | `GeorgeQLe/busuu-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 183 | Google Translate | translation | `GeorgeQLe/google-translate-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 184 | DeepL | translation | `GeorgeQLe/deepl-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 185 | Otter.ai | transcription | `GeorgeQLe/otter-ai-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 186 | Grammarly | writing-assistant | `GeorgeQLe/grammarly-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 212 | ELSA Speak | language-learning | `GeorgeQLe/elsa-speak-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 214 | Grammarly Keyboard | writing-assistant | `GeorgeQLe/grammarly-keyboard-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 215 | Wordtune | writing-assistant | `GeorgeQLe/wordtune-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 216 | QuillBot | writing-assistant | `GeorgeQLe/quillbot-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+
 ### Phase 22 Step 22.5 — Expo Variant Scaffolds (26 Education & Learning apps) - 2026-06-05
 
 - Scope: Expo variant scaffolds (`variants/expo/`) for 26 Education & Learning downstream repos: IDs 077-081, 170-186, 212, 214-216.
