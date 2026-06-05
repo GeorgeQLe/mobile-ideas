@@ -96,6 +96,47 @@ Guardrails:
 
 ## Execution Status And Evidence Log
 
+### Phase 22 Step 22.3 — React Native Variant Scaffolds (26 Education & Learning apps) - 2026-06-05
+
+- Scope: React Native (Expo) variant scaffolds (`variants/react-native/`) for 26 Education & Learning downstream repos: IDs 077-081, 170-186, 212, 214-216.
+- Rate-limit evidence before run: core used=134, remaining=4866.
+- Generator script: `/tmp/generate-education-rn-variants.mjs`. Serial clone → scaffold → commit → push → verify.
+- Each scaffold includes: `package.json` (Expo ~52.0.0 + React Navigation), `tsconfig.json` (strict), `app.json` (Expo config), `index.js` (entry), `src/screens/` (5 category-specific screens per app), `src/components/` (5 shared components), `src/navigation/AppNavigator.js` (bottom tab navigator), `src/services/` (3-4 mock data services), `src/hooks/` (3 custom hooks), `BLOCKERS.md` (category-specific + RN-specific blockers).
+- GitHub verification evidence: serial `gh api` content checks confirmed every repo is PRIVATE, contains `variants/react-native/package.json`, `app.json`, `index.js`, `src/navigation/AppNavigator.js`, `BLOCKERS.md`, and does not contain `.github/workflows`. Checked=26, pass=26, fail=0.
+- Rate-limit evidence after run: core used=420, remaining=4580.
+- Category-specific React Native blockers documented per app: speech recognition APIs (Duolingo, Babbel, Rosetta Stone, Busuu, ELSA Speak), spaced repetition algorithms (Duolingo, Babbel, Busuu, Quizlet), translation APIs/models (Google Translate, DeepL), camera OCR (Photomath, Google Translate), LMS integration LTI/SCORM (Canvas Student, Google Classroom), COPPA/KOSA compliance (ScratchJr, ABCmouse, Khan Academy Kids, Epic!, YouTube Kids, PBS Kids, ClassDojo), FERPA compliance (Canvas Student, Google Classroom, ClassDojo, Remind), DRM video content (YouTube Kids, PBS Kids, Epic!, Coursera), NLP/AI models (Grammarly, Grammarly Keyboard, Wordtune, QuillBot, Otter.ai), custom keyboard APIs (Grammarly Keyboard), real-time transcription (Otter.ai), math solver engine (Photomath), certificate generation (Coursera), parent gate controls (kids apps).
+- Expo SDK constraints: ~52.0.0 required, native module linking needed for speech recognition/camera/audio/secure storage, EAS Build required for production, Metro bundler config for monorepo.
+- GitHub Actions status: no workflow was enabled, dispatched, or used.
+
+| ID | App | Category | Repo | Visibility | RN package.json | app.json | index.js | AppNavigator | BLOCKERS.md | Workflows |
+|---:|---|---|---|---|---|---|---|---|---|---|
+| 077 | Duolingo | language-learning | `GeorgeQLe/duolingo-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 078 | Khan Academy | education-platform | `GeorgeQLe/khan-academy-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 079 | Quizlet | higher-education | `GeorgeQLe/quizlet-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 080 | Coursera | higher-education | `GeorgeQLe/coursera-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 081 | Photomath | math-stem | `GeorgeQLe/photomath-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 170 | ClassDojo | classroom | `GeorgeQLe/classdojo-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 171 | Remind | classroom | `GeorgeQLe/remind-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 172 | Canvas Student | lms | `GeorgeQLe/canvas-student-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 173 | Google Classroom | lms | `GeorgeQLe/google-classroom-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 174 | ScratchJr | kids-education | `GeorgeQLe/scratchjr-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 175 | ABCmouse | kids-education | `GeorgeQLe/abcmouse-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 176 | Khan Academy Kids | kids-education | `GeorgeQLe/khan-academy-kids-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 177 | Epic! | kids-media | `GeorgeQLe/epic-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 178 | YouTube Kids | kids-media | `GeorgeQLe/youtube-kids-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 179 | PBS Kids | kids-media | `GeorgeQLe/pbs-kids-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 180 | Babbel | language-learning | `GeorgeQLe/babbel-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 181 | Rosetta Stone | language-learning | `GeorgeQLe/rosetta-stone-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 182 | Busuu | language-learning | `GeorgeQLe/busuu-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 183 | Google Translate | translation | `GeorgeQLe/google-translate-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 184 | DeepL | translation | `GeorgeQLe/deepl-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 185 | Otter.ai | transcription | `GeorgeQLe/otter-ai-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 186 | Grammarly | writing-assistant | `GeorgeQLe/grammarly-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 212 | ELSA Speak | language-learning | `GeorgeQLe/elsa-speak-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 214 | Grammarly Keyboard | writing-assistant | `GeorgeQLe/grammarly-keyboard-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 215 | Wordtune | writing-assistant | `GeorgeQLe/wordtune-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+| 216 | QuillBot | writing-assistant | `GeorgeQLe/quillbot-mobile-clone` | PRIVATE | yes | yes | yes | yes | yes | absent |
+
 ### Phase 22 Step 22.2 — Workflow Remediation + Static Variant Scaffolds (26 Education & Learning apps) - 2026-06-05
 
 - **Part A — Workflow Remediation (4 repos):**

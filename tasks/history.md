@@ -1,5 +1,14 @@
 # History
 
+## 2026-06-05 - Phase 22 Step 22.3: React Native Variant Scaffolds (26 Education & Learning apps)
+
+- Built and verified React Native (Expo) variant scaffolds (`variants/react-native/`) for all 26 Education & Learning downstream repos.
+- Categories: Language Learning (5: Duolingo, Babbel, Rosetta Stone, Busuu, ELSA Speak), Education Platform (1: Khan Academy), Higher Education (2: Quizlet, Coursera), Math/STEM (1: Photomath), Classroom (2: ClassDojo, Remind), LMS (2: Canvas Student, Google Classroom), Kids Education (3: ScratchJr, ABCmouse, Khan Academy Kids), Kids Media (3: Epic!, YouTube Kids, PBS Kids), Translation (2: Google Translate, DeepL), Transcription (1: Otter.ai), Writing Assistant (4: Grammarly, Grammarly Keyboard, Wordtune, QuillBot).
+- Each scaffold: package.json (Expo ~52.0.0 + React Navigation v7), tsconfig.json (strict), app.json, index.js, src/screens/ (5 category-specific), src/components/ (5 shared), src/navigation/AppNavigator.js, src/services/ (3-4 mock), src/hooks/ (3 custom), BLOCKERS.md.
+- Verification: 26/26 pass. All repos PRIVATE, RN files present, no GitHub Actions.
+- Rate-limit evidence: pre=134/4866, post=420/4580.
+- Generator script: `/tmp/generate-education-rn-variants.mjs`.
+
 ## 2026-06-05 - Phase 21 Complete — Health, Fitness & Wellness (82 apps × 5 variants addressed)
 
 - Completed Phase 21: Health, Fitness & Wellness cluster across 82 private downstream repos.
