@@ -443,6 +443,56 @@
 
   **Files:** downstream repos (20), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
+- [ ] Step 21.11: Tenth Health & Fitness tranche — Flutter variant for Telehealth, Pharmacy & Health Records (19 apps)
+  - **Apps:** Same 19 apps from Steps 21.3/21.7: GoodRx (150), Walgreens (151), Zocdoc (152), Teladoc (153), BetterHelp (154), Talkspace (155), Hims & Hers (156), Ro (157), MyChart (658), Doximity (659), CVS Health (660), Express Scripts (661), Amwell (662), MDLIVE (663), Doctor On Demand (664), HealthTap (665), One Medical (666), Carbon Health (667), Maven Clinic (669).
+
+  **What to Build:**
+  Flutter variant scaffolds under `variants/flutter/` for each of the 19 downstream repos. Each scaffold includes:
+  - `variants/flutter/pubspec.yaml` — Flutter SDK, Dart deps (go_router, provider, http, flutter_svg), dev deps (flutter_test, flutter_lints)
+  - `variants/flutter/analysis_options.yaml` — strict Dart lint rules
+  - `variants/flutter/lib/main.dart` — app entry point with MaterialApp + GoRouter
+  - `variants/flutter/lib/screens/` — HomeScreen and category-specific screens (matching RN variant screens from Step 21.7)
+  - `variants/flutter/lib/widgets/` — shared UI widgets
+  - `variants/flutter/lib/services/` — mock data services
+  - `variants/flutter/lib/models/` — data models
+  - `variants/flutter/BLOCKERS.md` — category-specific + Flutter-specific blockers (including Flutter SDK toolchain blocker)
+  - Category-specific screens per app type:
+    - Prescription pricing (GoodRx): DrugSearchScreen, PriceCompareScreen, CouponScreen, PharmacyFinderScreen
+    - Pharmacy (Walgreens, CVS Health): RxManagementScreen, RefillScreen, PharmacyScreen, RewardsScreen
+    - Pharmacy benefits (Express Scripts): BenefitsScreen, MailOrderScreen, FormularyScreen
+    - Doctor booking (Zocdoc): DoctorSearchScreen, BookingScreen, InsuranceScreen, ReviewsScreen
+    - Telehealth (Teladoc, Amwell, MDLIVE, Doctor On Demand, HealthTap): VisitBookingScreen, ConsultationScreen, PrescriptionsScreen, HistoryScreen
+    - DTC telehealth (Hims & Hers, Ro): TreatmentScreen, DeliveryScreen, SubscriptionScreen
+    - Therapy (BetterHelp, Talkspace): TherapistMatchScreen, SessionScreen, JournalScreen, WorksheetScreen
+    - Specialty telehealth (Maven Clinic): ProgramScreen, FertilityScreen, MaternityScreen
+    - Primary care (One Medical, Carbon Health): MembershipScreen, AppointmentScreen, MessagingScreen, LabResultsScreen
+    - Health records (MyChart): PortalScreen, LabResultsScreen, MedicationsScreen, ImmunizationsScreen
+    - Provider network (Doximity): DirectoryScreen, SecureMessageScreen, CMEScreen
+  - Explicit blockers: Flutter SDK not installed locally (toolchain blocker), HIPAA compliance, telehealth video/audio (platform channels), e-prescribing (EPCS/DEA), pharmacy dispensing, insurance claims, patient records (HL7 FHIR), therapy licensing, payment processing
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-scan evidence.
+  2. Write a Node.js generator script at `/tmp/generate-telehealth-flutter-variants.mjs` defining all 19 apps with category-specific Flutter screens/widgets/services/models. Follow the same pattern as `/tmp/generate-fitness-flutter-variants.mjs`.
+  3. For each of the 19 repos, serially: clone to /tmp, create `variants/flutter/` scaffold files, commit, push, verify via `gh api`.
+  4. `gh api rate_limit` — record post-scan evidence.
+  5. Update `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+
+  **Repo slugs (19):**
+  `goodrx-mobile-clone`, `walgreens-mobile-clone`, `zocdoc-mobile-clone`, `teladoc-mobile-clone`, `betterhelp-mobile-clone`, `talkspace-mobile-clone`, `hims-and-hers-mobile-clone`, `ro-mobile-clone`, `mychart-mobile-clone`, `doximity-mobile-clone`, `cvs-health-mobile-clone`, `express-scripts-mobile-clone`, `amwell-mobile-clone`, `mdlive-mobile-clone`, `doctor-on-demand-mobile-clone`, `healthtap-mobile-clone`, `one-medical-mobile-clone`, `carbon-health-mobile-clone`, `maven-clinic-mobile-clone`
+
+  **Execution profile:** serial, main agent integration owner, low conflict risk.
+
+  **Acceptance Criteria:**
+  - All 19 repos have `variants/flutter/` scaffold with `pubspec.yaml`, `analysis_options.yaml`, `lib/main.dart`, `lib/screens/`, `lib/widgets/`, `lib/services/`, `lib/models/`, and `BLOCKERS.md` committed and pushed.
+  - Each repo verified PRIVATE with new variant files via `gh api`.
+  - Rate-limit evidence recorded pre and post.
+  - Flutter toolchain blocker documented (local Flutter SDK unavailable — `flutter analyze` cannot run).
+  - Category-specific blockers documented: HIPAA, telehealth A/V, e-prescribing, pharmacy dispensing, insurance, patient records, therapy licensing.
+
+  **Ship-one-step handoff:** Implement only Step 21.11, validate it, then run `/ship` when done.
+
+  **Files:** downstream repos (19), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+
 ### Milestone: Phase 21 — Health, Fitness & Wellness Complete
 **Acceptance Criteria:**
 - [x] Exact Phase 21 inventory reconciled with app IDs, app names, repo slugs, source specs, and downstream readiness (82 apps).
