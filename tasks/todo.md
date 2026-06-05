@@ -397,6 +397,52 @@
 
   **Files:** downstream repos (21), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
+- [ ] Step 21.10: Ninth Health & Fitness tranche — Flutter variant for Fitness & Activity Tracking apps (20 apps)
+  - **Apps:** Same 20 apps from Steps 21.2/21.6: Headspace (082), Calm (083), Strava (084), Nike Run Club (085), MyFitnessPal (086), Fitbit (087), Peloton (356), Zwift (357), Garmin Connect (358), Nike Training Club (359), Fitbod (360), Strong (361), Hevy (362), Runkeeper (363), MapMyRun (364), Komoot (365), Relive (366), TrainerRoad (367), TrainingPeaks (368), Athlytic (682).
+
+  **What to Build:**
+  Flutter variant scaffolds under `variants/flutter/` for each of the 20 downstream repos. Each scaffold includes:
+  - `variants/flutter/pubspec.yaml` — Flutter SDK, Dart deps (go_router, provider, http, flutter_svg), dev deps (flutter_test, flutter_lints)
+  - `variants/flutter/analysis_options.yaml` — strict Dart lint rules
+  - `variants/flutter/lib/main.dart` — app entry point with MaterialApp + GoRouter
+  - `variants/flutter/lib/screens/` — HomeScreen and category-specific screens (matching RN variant screens)
+  - `variants/flutter/lib/widgets/` — shared UI widgets (matching RN variant components)
+  - `variants/flutter/lib/services/` — mock data services
+  - `variants/flutter/lib/models/` — data models
+  - `variants/flutter/BLOCKERS.md` — category-specific + Flutter-specific blockers (including local Flutter SDK toolchain blocker)
+  - Category-specific screens per app type:
+    - Meditation/wellness (Headspace, Calm): GuidedSessionScreen, SleepStoriesScreen, FocusScreen, ProgressScreen
+    - Running/outdoor (Strava, NRC, Runkeeper, MapMyRun, Komoot, Relive): ActivityScreen, RoutesScreen, StatsScreen, SocialScreen
+    - Nutrition (MyFitnessPal): FoodLogScreen, MacrosScreen, WeightScreen, MealPlanScreen
+    - Wearable/health (Fitbit, Garmin, Athlytic): DashboardScreen, DeviceScreen, MetricsScreen, ChallengesScreen
+    - Connected fitness (Peloton, Zwift): ClassesScreen, WorkoutScreen, LeaderboardScreen, HistoryScreen
+    - Gym/strength (NTC, Fitbod, Strong, Hevy): WorkoutBuilderScreen, ExerciseLibraryScreen, ProgressScreen, HistoryScreen
+    - Cycling training (TrainerRoad, TrainingPeaks): PlanScreen, ZonesScreen, CalendarScreen, AnalyticsScreen
+  - Explicit blockers: Flutter SDK not installed locally (toolchain blocker — `flutter analyze` cannot run), HealthKit/Google Fit platform channels, BLE device pairing, biometric sensors, GPS/location, payment/subscription, push notifications
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-scan evidence.
+  2. Write a Node.js generator script at `/tmp/generate-fitness-flutter-variants.mjs` defining all 20 apps with category-specific Flutter screens/widgets.
+  3. For each of the 20 repos, serially: clone to /tmp, create `variants/flutter/` scaffold files, commit, push, verify via `gh api`.
+  4. `gh api rate_limit` — record post-scan evidence.
+  5. Update `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+
+  **Repo slugs (20):** Same as Steps 21.2/21.6.
+  `headspace-mobile-clone`, `calm-mobile-clone`, `strava-mobile-clone`, `nike-run-club-mobile-clone`, `myfitnesspal-mobile-clone`, `fitbit-mobile-clone`, `peloton-mobile-clone`, `zwift-mobile-clone`, `garmin-connect-mobile-clone`, `nike-training-club-mobile-clone`, `fitbod-mobile-clone`, `strong-mobile-clone`, `hevy-mobile-clone`, `runkeeper-mobile-clone`, `mapmyrun-mobile-clone`, `komoot-mobile-clone`, `relive-mobile-clone`, `trainerroad-mobile-clone`, `trainingpeaks-mobile-clone`, `athlytic-mobile-clone`
+
+  **Execution profile:** serial, main agent integration owner, low conflict risk.
+
+  **Acceptance Criteria:**
+  - All 20 repos have `variants/flutter/` scaffold with `pubspec.yaml`, `analysis_options.yaml`, `lib/main.dart`, `lib/screens/`, `lib/widgets/`, `lib/services/`, `lib/models/`, and `BLOCKERS.md` committed and pushed.
+  - Each repo verified PRIVATE with new variant files via `gh api`.
+  - Rate-limit evidence recorded pre and post.
+  - Flutter toolchain blocker documented (local Flutter SDK unavailable — `flutter analyze` cannot run).
+  - Category-specific blockers documented per app.
+
+  **Ship-one-step handoff:** Implement only Step 21.10, validate it, then run `/ship` when done.
+
+  **Files:** downstream repos (20), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+
 ### Milestone: Phase 21 — Health, Fitness & Wellness Complete
 **Acceptance Criteria:**
 - [x] Exact Phase 21 inventory reconciled with app IDs, app names, repo slugs, source specs, and downstream readiness (82 apps).
