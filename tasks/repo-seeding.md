@@ -96,6 +96,48 @@ Guardrails:
 
 ## Execution Status And Evidence Log
 
+### Phase 22 Step 22.7 — Android Native (Kotlin/Jetpack Compose) Variant Scaffolds (26 Education & Learning apps) - 2026-06-05
+
+- Scope: Android Native (Kotlin/Jetpack Compose) variant scaffolds (`variants/android-native/`) for 26 Education & Learning downstream repos: IDs 077-081, 170-186, 212, 214-216.
+- Rate-limit evidence before run: core used=130, remaining=4870.
+- Generator script: `/tmp/generate-education-android-variants.mjs`. Serial clone → scaffold → commit → push → verify.
+- Each scaffold includes: `build.gradle.kts` (Kotlin 2.1.0, Compose BOM 2024.12.01, minSdk 26, targetSdk 35), `settings.gradle.kts`, `gradle.properties`, `src/main/AndroidManifest.xml`, `src/main/java/com/clone/<pkg>/MainActivity.kt` (ComponentActivity with setContent), `src/main/java/com/clone/<pkg>/App.kt` (NavHost + NavigationBar with Material 3), `ui/screens/` (5 category-specific screen composables per app), `ui/components/` (5 shared composables), `data/` (3-4 mock data repositories with coroutines), `model/` (2-3 data classes), `viewmodel/` (2-3 ViewModels extending ViewModel with StateFlow/MutableStateFlow), `BLOCKERS.md` (category-specific + Android-specific blockers).
+- Key differences from other variants: Jetpack Compose with Material 3, Navigation Compose, ViewModel with StateFlow/MutableStateFlow, Kotlin coroutines, Gradle Kotlin DSL, Android-specific permissions and manifest entries, Material Icons Extended, edge-to-edge display.
+- GitHub verification evidence: serial `gh api` content checks confirmed every repo is PRIVATE, contains `variants/android-native/build.gradle.kts`, `variants/android-native/src/main/java/com/clone/<pkg>/MainActivity.kt`, `variants/android-native/BLOCKERS.md`, and does not contain `.github/workflows`. Checked=26, pass=26, fail=0.
+- Rate-limit evidence after run: core used=260, remaining=4740.
+- Category-specific Android blockers documented per app: Android SpeechRecognizer / ML Kit (Duolingo, Babbel, Rosetta Stone, Busuu, ELSA Speak), spaced repetition algorithms (Duolingo, Babbel, Busuu, Quizlet), ML Kit Translation (Google Translate, DeepL), ML Kit Text Recognition OCR (Photomath, Google Translate), LMS integration LTI/SCORM (Canvas Student, Google Classroom), COPPA/KOSA compliance (ScratchJr, ABCmouse, Khan Academy Kids, Epic!, YouTube Kids, PBS Kids, ClassDojo), FERPA compliance (Canvas Student, Google Classroom, ClassDojo, Remind), Widevine DRM (YouTube Kids, PBS Kids, Epic!, Coursera), NLP/AI models (Grammarly, Grammarly Keyboard, Wordtune, QuillBot, Otter.ai), InputMethodService keyboard (Grammarly Keyboard), ML Kit Digital Ink Recognition (Photomath), math solver engine (Photomath), certificate generation (Coursera), Google Family Link (kids apps), ExoPlayer/Media3 (video apps).
+- Android SDK constraints: Kotlin 2.0+, Compose BOM 2024.12+, minSdk 26, targetSdk 35, Navigation Compose, ViewModel + StateFlow, Kotlin coroutines, Gradle Kotlin DSL, Google Play Billing Library for IAP, FCM for push, ProGuard/R8 for release.
+- GitHub Actions status: no workflow was enabled, dispatched, or used.
+
+| ID | App | Category | Repo | Visibility | build.gradle.kts | MainActivity.kt | BLOCKERS.md | Workflows |
+|---:|---|---|---|---|---|---|---|---|
+| 077 | Duolingo | language-learning | `GeorgeQLe/duolingo-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 078 | Khan Academy | education-platform | `GeorgeQLe/khan-academy-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 079 | Quizlet | higher-education | `GeorgeQLe/quizlet-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 080 | Coursera | higher-education | `GeorgeQLe/coursera-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 081 | Photomath | math-stem | `GeorgeQLe/photomath-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 170 | ClassDojo | classroom | `GeorgeQLe/classdojo-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 171 | Remind | classroom | `GeorgeQLe/remind-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 172 | Canvas Student | lms | `GeorgeQLe/canvas-student-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 173 | Google Classroom | lms | `GeorgeQLe/google-classroom-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 174 | ScratchJr | kids-education | `GeorgeQLe/scratchjr-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 175 | ABCmouse | kids-education | `GeorgeQLe/abcmouse-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 176 | Khan Academy Kids | kids-education | `GeorgeQLe/khan-academy-kids-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 177 | Epic! | kids-media | `GeorgeQLe/epic-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 178 | YouTube Kids | kids-media | `GeorgeQLe/youtube-kids-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 179 | PBS Kids | kids-media | `GeorgeQLe/pbs-kids-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 180 | Babbel | language-learning | `GeorgeQLe/babbel-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 181 | Rosetta Stone | language-learning | `GeorgeQLe/rosetta-stone-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 182 | Busuu | language-learning | `GeorgeQLe/busuu-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 183 | Google Translate | translation | `GeorgeQLe/google-translate-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 184 | DeepL | translation | `GeorgeQLe/deepl-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 185 | Otter.ai | transcription | `GeorgeQLe/otter-ai-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 186 | Grammarly | writing-assistant | `GeorgeQLe/grammarly-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 212 | ELSA Speak | language-learning | `GeorgeQLe/elsa-speak-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 214 | Grammarly Keyboard | writing-assistant | `GeorgeQLe/grammarly-keyboard-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 215 | Wordtune | writing-assistant | `GeorgeQLe/wordtune-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+| 216 | QuillBot | writing-assistant | `GeorgeQLe/quillbot-mobile-clone` | PRIVATE | yes | yes | yes | absent |
+
 ### Phase 22 Step 22.6 — iOS Native (SwiftUI) Variant Scaffolds (26 Education & Learning apps) - 2026-06-05
 
 - Scope: iOS Native (SwiftUI) variant scaffolds (`variants/ios-native/`) for 26 Education & Learning downstream repos: IDs 077-081, 170-186, 212, 214-216.
