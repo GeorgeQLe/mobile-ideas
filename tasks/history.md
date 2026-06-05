@@ -1,5 +1,15 @@
 # History
 
+## 2026-06-05 - Phase 21 Step 21.8: React Native Variant for Sleep, Nutrition, Wellness & Wearable Platforms (22 apps)
+
+- Built and verified React Native variant scaffolds (`variants/react-native/`) for 22 sleep, nutrition, wellness & wearable platform apps across 22 private downstream repos.
+- Categories: Sleep Tracking (6: Oura, Whoop, Sleep Cycle, Pillow, AutoSleep, SleepScore), Women's Health (4: Flo, Clue, Ovia, Nurx), Wellness Audio (2: Endel, Brain.fm), Nutrition (5: Noom, Lose It!, Cronometer, Lifesum, WaterMinder), Wearable Platforms (5: Withings Health Mate, Samsung Health, Apple Health, Google Fit, Welltory).
+- Each scaffold: Expo ~52.0.0 + React Navigation bottom tabs, 5 category-specific screens (SleepDashboard/CycleScreen/PlayerScreen/DiaryScreen/DashboardScreen per category), 5 shared components, 3-4 mock data services, 3 custom hooks, TypeScript config, BLOCKERS.md with category + RN-specific blockers.
+- All 22 repos verified PRIVATE with variants/react-native/package.json, tsconfig.json, app.json, index.js, AppNavigator.js, BLOCKERS.md, and no GitHub Actions (checked=22, pass=22, fail=0).
+- Rate-limit evidence: pre-run 568/5000, post-verification 722/5000 (remaining=4278).
+- Category-specific blockers documented: HealthKit/Google Fit native modules, BLE device pairing (Oura Ring, Whoop strap, Withings devices), biometric sensor APIs (HRV, SpO2, skin temp), reproductive health data privacy (state-level laws), AI audio generation engines (proprietary), nutrition database licensing (USDA, NCCDB), barcode scanner camera API, sleep sound analysis (microphone), smart alarm scheduling, Apple Watch companion apps, medical device regulations (ECG/BP), platform-specific SDKs (Samsung Health Android-only, Apple Health iOS-only), Expo SDK constraints, EAS Build requirements.
+- Generator script: `/tmp/generate-wellness-rn-variants.mjs`.
+
 ## 2026-06-05 - Phase 21 Step 21.7: React Native Variant for Telehealth, Pharmacy & Health Records (19 apps)
 
 - Built and verified React Native variant scaffolds (`variants/react-native/`) for 19 telehealth, pharmacy & health records apps across 19 private downstream repos.

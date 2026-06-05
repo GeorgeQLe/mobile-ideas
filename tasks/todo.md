@@ -298,7 +298,7 @@
 
   **Files:** downstream repos (19), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
-- [ ] Step 21.8: Seventh Health & Fitness tranche — React Native variant for Sleep, Nutrition, Wellness & Wearable Platforms (22 apps)
+- [x] Step 21.8: Seventh Health & Fitness tranche — React Native variant for Sleep, Nutrition, Wellness & Wearable Platforms (22 apps) (completed 2026-06-05)
   - **Apps:** Same 22 apps from Step 21.4: Oura (158), Whoop (159), Sleep Cycle (160), Flo (088), Clue (161), Ovia (162), Nurx (668), Endel (291), Brain.fm (292), Noom (670), Lose It! (671), Cronometer (672), Lifesum (673), WaterMinder (674), Pillow (675), AutoSleep (676), SleepScore (677), Withings Health Mate (678), Samsung Health (679), Apple Health (680), Google Fit (681), Welltory (683).
 
   **What to Build:**
