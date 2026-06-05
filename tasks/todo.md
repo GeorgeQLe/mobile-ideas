@@ -623,40 +623,34 @@
   - All Phase 21 milestone acceptance criteria checked off.
   - Phase archived to `tasks/phases/phase-21.md`.
 
-  **Ship-one-step handoff:** Implement only Step 21.14 Expo tranche 2 (Telehealth, Pharmacy & Health Records, 19 apps), validate it, then run `/ship` when done. Subsequent Expo tranches follow in separate steps.
+  **Ship-one-step handoff:** Implement only Step 21.14 Expo tranche 3 (Sleep, Nutrition, Wellness & Wearable Platforms, 22 apps), validate it, then run `/ship` when done. Subsequent Expo tranches follow in separate steps.
 
-  **Tranche 2 Implementation Plan (this step):** Expo variant for Telehealth, Pharmacy & Health Records (19 apps)
+  **Tranche 3 Implementation Plan (this step):** Expo variant for Sleep, Nutrition, Wellness & Wearable Platforms (22 apps)
 
-  **Apps (19):** GoodRx (150), Walgreens (151), Zocdoc (152), Teladoc (153), BetterHelp (154), Talkspace (155), Hims & Hers (156), Ro (157), MyChart (658), Doximity (659), CVS Health (660), Express Scripts (661), Amwell (662), MDLIVE (663), Doctor On Demand (664), HealthTap (665), One Medical (666), Carbon Health (667), Maven Clinic (669).
+  **Apps (22):** Oura (158), Whoop (159), Sleep Cycle (160), Flo (088), Clue (161), Ovia (162), Nurx (668), Endel (291), Brain.fm (292), Noom (670), Lose It! (671), Cronometer (672), Lifesum (673), WaterMinder (674), Pillow (675), AutoSleep (676), SleepScore (677), Withings Health Mate (678), Samsung Health (679), Apple Health (680), Google Fit (681), Welltory (683).
 
-  **Repo slugs (19):** `goodrx-mobile-clone`, `walgreens-mobile-clone`, `zocdoc-mobile-clone`, `teladoc-mobile-clone`, `betterhelp-mobile-clone`, `talkspace-mobile-clone`, `hims-and-hers-mobile-clone`, `ro-mobile-clone`, `mychart-mobile-clone`, `doximity-mobile-clone`, `cvs-health-mobile-clone`, `express-scripts-mobile-clone`, `amwell-mobile-clone`, `mdlive-mobile-clone`, `doctor-on-demand-mobile-clone`, `healthtap-mobile-clone`, `one-medical-mobile-clone`, `carbon-health-mobile-clone`, `maven-clinic-mobile-clone`
+  **Repo slugs (22):** `oura-mobile-clone`, `whoop-mobile-clone`, `sleep-cycle-mobile-clone`, `flo-mobile-clone`, `clue-mobile-clone`, `ovia-mobile-clone`, `nurx-mobile-clone`, `endel-mobile-clone`, `brain-fm-mobile-clone`, `noom-mobile-clone`, `lose-it-mobile-clone`, `cronometer-mobile-clone`, `lifesum-mobile-clone`, `waterminder-mobile-clone`, `pillow-mobile-clone`, `autosleep-mobile-clone`, `sleepscore-mobile-clone`, `withings-health-mate-mobile-clone`, `samsung-health-mobile-clone`, `apple-health-mobile-clone`, `google-fit-mobile-clone`, `welltory-mobile-clone`
 
   **What to build per repo:**
   - `variants/expo/package.json` — Expo ~52.0.0, expo-router ~4.0.0, React Navigation
   - `variants/expo/tsconfig.json` — strict TypeScript config
   - `variants/expo/app.json` — Expo config with app name/slug
   - `variants/expo/app/` — file-based routing: `_layout.tsx`, `index.tsx`, category-specific tab screens
-  - `variants/expo/components/` — shared UI components (5 per app)
-  - `variants/expo/services/` — mock data services (3-4 per app)
-  - `variants/expo/hooks/` — custom hooks (3 per app)
-  - `variants/expo/BLOCKERS.md` — category + Expo-specific blockers (HIPAA, telehealth A/V, e-prescribing, EAS Build)
+  - `variants/expo/components/` — 5 per app, category-specific UI components
+  - `variants/expo/services/` — 3-4 per app, mock data services
+  - `variants/expo/hooks/` — 3 per app, custom hooks
+  - `variants/expo/BLOCKERS.md` — category + Expo-specific blockers (HealthKit/Google Fit, BLE, reproductive data privacy, AI audio, EAS Build)
 
   **Category-specific tabs:**
-  - Prescription pricing (GoodRx): home, search, compare, coupons, profile
-  - Pharmacy (Walgreens, CVS Health): home, prescriptions, pharmacy, rewards, profile
-  - Pharmacy benefits (Express Scripts): home, benefits, orders, formulary, profile
-  - Doctor booking (Zocdoc): home, search, bookings, insurance, profile
-  - Telehealth (Teladoc, Amwell, MDLIVE, Doctor On Demand, HealthTap): home, visits, consult, prescriptions, profile
-  - DTC telehealth (Hims & Hers, Ro): home, treatments, delivery, subscription, profile
-  - Therapy (BetterHelp, Talkspace): home, therapist, sessions, journal, profile
-  - Specialty telehealth (Maven Clinic): home, programs, fertility, maternity, profile
-  - Primary care (One Medical, Carbon Health): home, appointments, messages, labs, profile
-  - Health records (MyChart): home, records, appointments, messages, profile
-  - Provider network (Doximity): home, directory, messages, telehealth, profile
+  - Sleep tracking (Oura, Whoop, Sleep Cycle, Pillow, AutoSleep, SleepScore): home, sleep, readiness/recovery, trends, profile
+  - Women's health (Flo, Clue, Ovia, Nurx): home, cycle, calendar, insights, profile
+  - Wellness audio (Endel, Brain.fm): home, player, library, timer, profile
+  - Nutrition (Noom, Lose It!, Cronometer, Lifesum, WaterMinder): home, diary, nutrition, weight/hydration, profile
+  - Wearable platforms (Withings Health Mate, Samsung Health, Apple Health, Google Fit, Welltory): home, dashboard, devices, metrics, profile
 
   **Approach:**
   1. `gh api rate_limit` — record pre-scan evidence.
-  2. Write Node.js generator at `/tmp/generate-telehealth-expo-variants.mjs` following same pattern as `/tmp/generate-fitness-expo-variants.mjs`.
+  2. Write Node.js generator at `/tmp/generate-wellness-expo-variants.mjs` following same pattern as `/tmp/generate-fitness-expo-variants.mjs` and `/tmp/generate-telehealth-expo-variants.mjs`.
   3. Serial clone → create `variants/expo/` scaffold → commit → push → verify via `gh api`.
   4. `gh api rate_limit` — record post-scan evidence.
   5. Update `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
@@ -664,14 +658,14 @@
   **Execution profile:** serial, main agent integration owner, low conflict risk.
 
   **Acceptance Criteria:**
-  - All 19 repos have `variants/expo/` scaffold with `package.json`, `tsconfig.json`, `app.json`, `app/_layout.tsx`, `BLOCKERS.md`.
+  - All 22 repos have `variants/expo/` scaffold with `package.json`, `tsconfig.json`, `app.json`, `app/_layout.tsx`, `BLOCKERS.md`.
   - Each repo verified PRIVATE, no GitHub Actions.
   - Rate-limit evidence recorded pre and post.
-  - Category-specific Expo blockers documented: HIPAA compliance, telehealth video/audio (WebRTC), e-prescribing (EPCS/DEA), pharmacy dispensing, insurance claims, patient records (HL7 FHIR), therapy licensing, EAS Build for native modules.
+  - Category-specific Expo blockers documented: HealthKit/Google Fit native modules, BLE device pairing (wearables), biometric sensors (HRV, SpO2), reproductive health data privacy, AI audio generation, nutrition database licensing, barcode scanner camera API, sleep detection algorithms, EAS Build for native modules.
 
-  **Ship-one-step handoff:** Implement only Step 21.14 tranche 2 (Telehealth 19 apps), validate it, then run `/ship` when done.
+  **Ship-one-step handoff:** Implement only Step 21.14 tranche 3 (Wellness 22 apps), validate it, then run `/ship` when done.
 
-  **Files:** downstream repos (19), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+  **Files:** downstream repos (22), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
 ### Milestone: Phase 21 — Health, Fitness & Wellness Complete
 **Acceptance Criteria:**
