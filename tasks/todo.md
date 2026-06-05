@@ -245,6 +245,59 @@
 
   **Files:** downstream repos (20), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
+- [ ] Step 21.7: Sixth Health & Fitness tranche — React Native variant for Telehealth, Pharmacy & Health Records (19 apps)
+  - **Apps:** Same 19 apps from Step 21.3: GoodRx (150), Walgreens (151), Zocdoc (152), Teladoc (153), BetterHelp (154), Talkspace (155), Hims & Hers (156), Ro (157), MyChart (658), Doximity (659), CVS Health (660), Express Scripts (661), Amwell (662), MDLIVE (663), Doctor On Demand (664), HealthTap (665), One Medical (666), Carbon Health (667), Maven Clinic (669).
+
+  **What to Build:**
+  React Native variant scaffolds under `variants/react-native/` for each of the 19 downstream repos. Each scaffold includes:
+  - `variants/react-native/package.json` with React Native + Expo dependencies, lint/typecheck/test scripts
+  - `variants/react-native/tsconfig.json` with strict TypeScript config
+  - `variants/react-native/app.json` with Expo app config
+  - `variants/react-native/index.js` entry point
+  - `variants/react-native/src/screens/` with HomeScreen and category-specific screens
+  - `variants/react-native/src/components/` with shared UI components
+  - `variants/react-native/src/navigation/` with React Navigation stack/tab setup
+  - `variants/react-native/src/services/` with mock data services
+  - `variants/react-native/src/hooks/` with custom hooks
+  - `variants/react-native/BLOCKERS.md` with category-specific + RN-specific blockers
+  - Category-specific screens per app type:
+    - Prescription pricing (GoodRx): DrugSearchScreen, PriceCompareScreen, CouponScreen, PharmacyFinderScreen
+    - Pharmacy (Walgreens, CVS Health): RxManagementScreen, RefillScreen, PharmacyScreen, RewardsScreen
+    - Pharmacy benefits (Express Scripts): BenefitsScreen, MailOrderScreen, FormularyScreen
+    - Doctor booking (Zocdoc): DoctorSearchScreen, BookingScreen, InsuranceScreen, ReviewsScreen
+    - Telehealth (Teladoc, Amwell, MDLIVE, Doctor On Demand, HealthTap): VisitBookingScreen, ConsultationScreen, PrescriptionsScreen, HistoryScreen
+    - DTC telehealth (Hims & Hers, Ro): TreatmentScreen, DeliveryScreen, SubscriptionScreen
+    - Therapy (BetterHelp, Talkspace): TherapistMatchScreen, SessionScreen, JournalScreen, WorksheetScreen
+    - Specialty telehealth (Maven Clinic): ProgramScreen, FertilityScreen, MaternityScreen
+    - Primary care (One Medical, Carbon Health): MembershipScreen, AppointmentScreen, MessagingScreen, LabResultsScreen
+    - Health records (MyChart): PortalScreen, LabResultsScreen, MedicationsScreen, ImmunizationsScreen
+    - Provider network (Doximity): DirectoryScreen, SecureMessageScreen, CMEScreen
+  - Explicit blockers carried forward from Step 21.3 plus React Native-specific: Expo SDK constraints, native module linking (video/audio for telehealth, camera for Rx scanning), EAS Build requirements, HIPAA-compliant data storage considerations
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-scan evidence.
+  2. Write a Node.js generator script at `/tmp/generate-telehealth-rn-variants.mjs` defining all 19 apps with category-specific React Native screens.
+  3. For each of the 19 repos, serially: clone to /tmp, create `variants/react-native/` scaffold files, commit, push, verify via `gh api`.
+  4. `gh api rate_limit` — record post-scan evidence.
+  5. Update `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+
+  **Repo slugs (19):**
+  `goodrx-mobile-clone`, `walgreens-mobile-clone`, `zocdoc-mobile-clone`, `teladoc-mobile-clone`, `betterhelp-mobile-clone`, `talkspace-mobile-clone`, `hims-and-hers-mobile-clone`, `ro-mobile-clone`, `mychart-mobile-clone`, `doximity-mobile-clone`, `cvs-health-mobile-clone`, `express-scripts-mobile-clone`, `amwell-mobile-clone`, `mdlive-mobile-clone`, `doctor-on-demand-mobile-clone`, `healthtap-mobile-clone`, `one-medical-mobile-clone`, `carbon-health-mobile-clone`, `maven-clinic-mobile-clone`
+
+  **Source specs:** `specs/batch-08/150-goodrx.md` through `specs/batch-08/157-ro.md`, `specs/batch-33/658-mychart.md` through `specs/batch-33/660-cvs-health.md`, `specs/batch-34/661-express-scripts.md` through `specs/batch-34/669-maven-clinic.md`
+
+  **Execution profile:** serial, main agent integration owner, low conflict risk.
+
+  **Acceptance Criteria:**
+  - All 19 repos have `variants/react-native/` scaffold with `package.json`, `tsconfig.json`, `app.json`, `index.js`, and `src/` directory committed and pushed.
+  - Each repo verified PRIVATE with new variant files via `gh api`.
+  - Rate-limit evidence recorded pre and post.
+  - Category-specific React Native blockers documented: HIPAA data handling, telehealth video/audio (WebRTC native modules), e-prescribing, pharmacy Rx scanning (camera), insurance verification, HL7 FHIR patient records, therapy session encryption, payment processing.
+
+  **Ship-one-step handoff:** Implement only Step 21.7, validate it, then run `/ship` when done.
+
+  **Files:** downstream repos (19), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+
 ### Milestone: Phase 21 — Health, Fitness & Wellness Complete
 **Acceptance Criteria:**
 - [x] Exact Phase 21 inventory reconciled with app IDs, app names, repo slugs, source specs, and downstream readiness (82 apps).
