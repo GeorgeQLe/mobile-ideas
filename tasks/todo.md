@@ -298,6 +298,53 @@
 
   **Files:** downstream repos (19), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
+- [ ] Step 21.8: Seventh Health & Fitness tranche — React Native variant for Sleep, Nutrition, Wellness & Wearable Platforms (22 apps)
+  - **Apps:** Same 22 apps from Step 21.4: Oura (158), Whoop (159), Sleep Cycle (160), Flo (088), Clue (161), Ovia (162), Nurx (668), Endel (291), Brain.fm (292), Noom (670), Lose It! (671), Cronometer (672), Lifesum (673), WaterMinder (674), Pillow (675), AutoSleep (676), SleepScore (677), Withings Health Mate (678), Samsung Health (679), Apple Health (680), Google Fit (681), Welltory (683).
+
+  **What to Build:**
+  React Native variant scaffolds under `variants/react-native/` for each of the 22 downstream repos. Each scaffold includes:
+  - `variants/react-native/package.json` with React Native + Expo dependencies, lint/typecheck/test scripts
+  - `variants/react-native/tsconfig.json` with strict TypeScript config
+  - `variants/react-native/app.json` with Expo app config
+  - `variants/react-native/index.js` entry point
+  - `variants/react-native/src/screens/` with HomeScreen and category-specific screens
+  - `variants/react-native/src/components/` with shared UI components
+  - `variants/react-native/src/navigation/` with React Navigation stack/tab setup
+  - `variants/react-native/src/services/` with mock data services
+  - `variants/react-native/src/hooks/` with custom hooks
+  - `variants/react-native/BLOCKERS.md` with category-specific + RN-specific blockers
+  - Category-specific screens per app type:
+    - Sleep tracking (Oura, Whoop, Sleep Cycle, Pillow, AutoSleep, SleepScore): SleepDashboardScreen, SleepStagesScreen, ReadinessScreen, TrendsScreen, SettingsScreen
+    - Women's health (Flo, Clue, Ovia, Nurx): CycleScreen, CalendarScreen, SymptomsScreen, InsightsScreen
+    - Wellness audio (Endel, Brain.fm): PlayerScreen, SoundscapeScreen, TimerScreen, LibraryScreen
+    - Nutrition (Noom, Lose It!, Cronometer, Lifesum, WaterMinder): DiaryScreen, FoodSearchScreen, NutritionScreen, WeightScreen
+    - Wearable platforms (Withings Health Mate, Samsung Health, Apple Health, Google Fit, Welltory): DashboardScreen, DevicesScreen, HealthMetricsScreen, ActivityScreen
+  - Explicit blockers carried forward from Step 21.4 plus React Native-specific: Expo SDK constraints, native module linking (HealthKit, BLE, biometric sensors), EAS Build requirements, reproductive health data privacy, AI audio generation, nutrition database licensing
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-scan evidence.
+  2. Write a Node.js generator script at `/tmp/generate-wellness-rn-variants.mjs` defining all 22 apps with category-specific React Native screens.
+  3. For each of the 22 repos, serially: clone to /tmp, create `variants/react-native/` scaffold files, commit, push, verify via `gh api`.
+  4. `gh api rate_limit` — record post-scan evidence.
+  5. Update `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+
+  **Repo slugs (22):**
+  `oura-mobile-clone`, `whoop-mobile-clone`, `sleep-cycle-mobile-clone`, `flo-mobile-clone`, `clue-mobile-clone`, `ovia-mobile-clone`, `nurx-mobile-clone`, `endel-mobile-clone`, `brain-fm-mobile-clone`, `noom-mobile-clone`, `lose-it-mobile-clone`, `cronometer-mobile-clone`, `lifesum-mobile-clone`, `waterminder-mobile-clone`, `pillow-mobile-clone`, `autosleep-mobile-clone`, `sleepscore-mobile-clone`, `withings-health-mate-mobile-clone`, `samsung-health-mobile-clone`, `apple-health-mobile-clone`, `google-fit-mobile-clone`, `welltory-mobile-clone`
+
+  **Source specs:** `specs/batch-08/158-oura.md` through `specs/batch-08/160-sleep-cycle.md`, `specs/batch-05/088-flo.md`, `specs/batch-09/161-clue.md`, `specs/batch-09/162-ovia.md`, `specs/batch-34/668-nurx.md`, `specs/batch-15/291-endel.md`, `specs/batch-15/292-brain-fm.md`, `specs/batch-34/670-noom.md` through `specs/batch-34/680-apple-health.md`, `specs/batch-35/681-google-fit.md`, `specs/batch-35/683-welltory.md`
+
+  **Execution profile:** serial, main agent integration owner, low conflict risk.
+
+  **Acceptance Criteria:**
+  - All 22 repos have `variants/react-native/` scaffold with `package.json`, `tsconfig.json`, `app.json`, `index.js`, and `src/` directory committed and pushed.
+  - Each repo verified PRIVATE with new variant files via `gh api`.
+  - Rate-limit evidence recorded pre and post.
+  - Category-specific React Native blockers documented: HealthKit/Google Fit native modules, BLE device pairing (wearables), biometric sensor APIs, reproductive data privacy, AI audio generation engine, nutrition database licensing, barcode scanner camera API, HRV algorithms, sleep sensor hardware.
+
+  **Ship-one-step handoff:** Implement only Step 21.8, validate it, then run `/ship` when done.
+
+  **Files:** downstream repos (22), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+
 ### Milestone: Phase 21 — Health, Fitness & Wellness Complete
 **Acceptance Criteria:**
 - [x] Exact Phase 21 inventory reconciled with app IDs, app names, repo slugs, source specs, and downstream readiness (82 apps).
