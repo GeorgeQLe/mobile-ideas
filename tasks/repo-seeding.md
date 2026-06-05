@@ -3744,3 +3744,34 @@ The Step 21.4 full entry is preserved below:
 | 22 | Welltory | 683 | welltory-mobile-clone | PASS | PASS | PASS |
 
 **Result**: 22 checked, 22 pass, 0 fail.
+
+### Phase 21 Step 21.13 — Flutter Variant: Pregnancy, Parenting, Family Safety & Remaining (21 apps)
+
+**Pre-run rate limit**: core used=396, remaining=4604, limit=5000
+**Post-run rate limit**: core used=522, remaining=4478, limit=5000
+
+| # | App | ID | Repo | Flutter Variant | PRIVATE | No Actions |
+|---|-----|----|------|-----------------|---------|------------|
+| 1 | BabyCenter | 163 | babycenter-mobile-clone | PASS | PASS | PASS |
+| 2 | Huckleberry | 164 | huckleberry-mobile-clone | PASS | PASS | PASS |
+| 3 | Cozi | 165 | cozi-mobile-clone | PASS | PASS | PASS |
+| 4 | Life360 | 166 | life360-mobile-clone | PASS | PASS | PASS |
+| 5 | Bark | 167 | bark-mobile-clone | PASS | PASS | PASS |
+| 6 | Qustodio | 168 | qustodio-mobile-clone | PASS | PASS | PASS |
+| 7 | Google Family Link | 169 | google-family-link-mobile-clone | PASS | PASS | PASS |
+| 8 | Rise Sleep | 684 | rise-sleep-mobile-clone | PASS | PASS | PASS |
+| 9 | Pzizz | 685 | pzizz-mobile-clone | PASS | PASS | PASS |
+| 10 | The Bump | 686 | the-bump-mobile-clone | PASS | PASS | PASS |
+| 11 | What to Expect | 687 | what-to-expect-mobile-clone | PASS | PASS | PASS |
+| 12 | Peanut | 688 | peanut-mobile-clone | PASS | PASS | PASS |
+| 13 | Find My Kids | 689 | find-my-kids-mobile-clone | PASS | PASS | PASS |
+| 14 | Family Link | 690 | family-link-mobile-clone | PASS | PASS | PASS |
+| 15 | OurPact | 691 | ourpact-mobile-clone | PASS | PASS | PASS |
+| 16 | Circle Parental Controls | 692 | circle-parental-controls-mobile-clone | PASS | PASS | PASS |
+| 17 | FamCal | 693 | famcal-mobile-clone | PASS | PASS | PASS |
+| 18 | Winnie | 694 | winnie-mobile-clone | PASS | PASS | PASS |
+| 19 | Kinedu | 695 | kinedu-mobile-clone | PASS | PASS | PASS |
+| 20 | Sprout Baby | 696 | sprout-baby-mobile-clone | PASS | PASS | PASS |
+| 21 | FamilyAlbum | 697 | familyalbum-mobile-clone | PASS | PASS | PASS |
+
+**Result**: 21 checked, 21 pass, 0 fail.
