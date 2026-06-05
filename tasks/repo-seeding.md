@@ -3683,3 +3683,32 @@ The Step 21.4 full entry is preserved below:
 | 20 | Athlytic | 682 | athlytic-mobile-clone | PASS | PASS | PASS |
 
 **Result**: 20 checked, 20 pass, 0 fail.
+
+### Phase 21 Step 21.11 — Flutter Variant: Telehealth, Pharmacy & Health Records (19 apps)
+
+**Pre-run rate limit**: core used=150, remaining=4850, limit=5000
+**Post-run rate limit**: core used=264, remaining=4736, limit=5000
+
+| # | App | ID | Repo | Flutter Variant | PRIVATE | No Actions |
+|---|-----|----|------|-----------------|---------|------------|
+| 1 | GoodRx | 150 | goodrx-mobile-clone | PASS | PASS | PASS |
+| 2 | Walgreens | 151 | walgreens-mobile-clone | PASS | PASS | PASS |
+| 3 | Zocdoc | 152 | zocdoc-mobile-clone | PASS | PASS | PASS |
+| 4 | Teladoc | 153 | teladoc-mobile-clone | PASS | PASS | PASS |
+| 5 | BetterHelp | 154 | betterhelp-mobile-clone | PASS | PASS | PASS |
+| 6 | Talkspace | 155 | talkspace-mobile-clone | PASS | PASS | PASS |
+| 7 | Hims & Hers | 156 | hims-and-hers-mobile-clone | PASS | PASS | PASS |
+| 8 | Ro | 157 | ro-mobile-clone | PASS | PASS | PASS |
+| 9 | MyChart | 658 | mychart-mobile-clone | PASS | PASS | PASS |
+| 10 | Doximity | 659 | doximity-mobile-clone | PASS | PASS | PASS |
+| 11 | CVS Health | 660 | cvs-health-mobile-clone | PASS | PASS | PASS |
+| 12 | Express Scripts | 661 | express-scripts-mobile-clone | PASS | PASS | PASS |
+| 13 | Amwell | 662 | amwell-mobile-clone | PASS | PASS | PASS |
+| 14 | MDLIVE | 663 | mdlive-mobile-clone | PASS | PASS | PASS |
+| 15 | Doctor On Demand | 664 | doctor-on-demand-mobile-clone | PASS | PASS | PASS |
+| 16 | HealthTap | 665 | healthtap-mobile-clone | PASS | PASS | PASS |
+| 17 | One Medical | 666 | one-medical-mobile-clone | PASS | PASS | PASS |
+| 18 | Carbon Health | 667 | carbon-health-mobile-clone | PASS | PASS | PASS |
+| 19 | Maven Clinic | 669 | maven-clinic-mobile-clone | PASS | PASS | PASS |
+
+**Result**: 19 checked, 19 pass, 0 fail.
