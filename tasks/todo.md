@@ -241,6 +241,32 @@
   - Full evidence in `tasks/repo-seeding.md` under "Phase 22 Step 22.5".
 
 - [ ] Step 22.6: Build iOS Native (SwiftUI) variant scaffolds for all 26 Education & Learning apps
+  - Build `variants/ios-native/` scaffold for all 26 Education & Learning downstream repos.
+  - Each scaffold: `Package.swift` (swift-tools-version 6.0, iOS 17+), `Sources/App/<AppName>App.swift` (SwiftUI @main App with TabView), `Sources/Views/` (5 category-specific tab views per app), `Sources/Components/` (5 shared components), `Sources/Services/` (3-4 mock data services), `Sources/Models/` (2-3 data models with Codable/Identifiable), `Sources/ViewModels/` (2-3 @Observable view models), `BLOCKERS.md` (category-specific + iOS-specific blockers).
+  - Education-category-specific views match the RN/Flutter/Expo pattern: language-learning (LessonView, PracticeView, LeaderboardView, ProfileView, ReviewView), translation (TranslateView, CameraView, ConversationView, HistoryView, SettingsView), classroom/LMS (CourseListView, AssignmentView, GradeView, CalendarView, MessageView), kids-education (LearningPathView, GameView, CreativeView, ProgressView, ParentView), kids-media (LibraryView, PlayerView, CollectionView, ParentControlView, ProfileView), education-platform (CourseView, PracticeView, ProgressView, ClassroomView, SearchView), higher-education (CatalogView, StudyView, AssessView, CertificateView, ProfileView), math/STEM (CameraView, SolutionView, GraphView, HistoryView, SettingsView), transcription (RecordView, TranscriptView, SummaryView, SearchView, SettingsView), writing-assistant (EditorView, SuggestionView, ToolsView, StatsView, SettingsView).
+  - Key differences from cross-platform variants: SwiftUI with @Observable (iOS 17+ Observation framework), TabView with native tab bar, NavigationStack, Swift Package Manager, Swift 6 strict concurrency.
+  - Generator script at `/tmp/generate-education-ios-variants.mjs` — generates Swift source files, serial clone → scaffold → commit → push → verify.
+  - Serial GitHub API verification post-scaffold.
+  - Record pre/post rate-limit evidence.
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-run evidence.
+  2. Build generator script at `/tmp/generate-education-ios-variants.mjs`.
+  3. Serial execution: for each of 26 repos, clone/pull → scaffold → commit → push → verify.
+  4. `gh api rate_limit` — record post-run evidence.
+  5. Update `tasks/todo.md` with results, `tasks/repo-seeding.md` with verification evidence.
+
+  **Execution profile:** serial, main agent integration owner, low conflict risk.
+
+  **Acceptance Criteria:**
+  - 26 repos have `variants/ios-native/` with Package.swift, App entry, Views, Components, Services, Models, ViewModels, BLOCKERS.md.
+  - All repos remain PRIVATE with no GitHub Actions.
+  - Rate-limit evidence recorded.
+
+  **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`, 26 downstream repos (`variants/ios-native/`).
+
+  **Ship-one-step handoff:** Implement only Step 22.6, validate it, then run `/ship` when done.
+
 - [ ] Step 22.7: Build Android Native (Kotlin/Jetpack Compose) variant scaffolds for all 26 Education & Learning apps
 
 ### Milestone: Phase 22 — Education & Learning Complete
