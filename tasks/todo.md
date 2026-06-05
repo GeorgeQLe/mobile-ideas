@@ -537,6 +537,55 @@
 
   **Files:** downstream repos (22), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
+- [ ] Step 21.13: Twelfth Health & Fitness tranche — Flutter variant for Pregnancy, Parenting, Family Safety & Remaining (21 apps)
+  - **Apps:** Same 21 apps from Steps 21.5/21.9: BabyCenter (163), Huckleberry (164), Cozi (165), Life360 (166), Bark (167), Qustodio (168), Google Family Link (169), Rise Sleep (684), Pzizz (685), The Bump (686), What to Expect (687), Peanut (688), Find My Kids (689), Family Link (690), OurPact (691), Circle Parental Controls (692), FamCal (693), Winnie (694), Kinedu (695), Sprout Baby (696), FamilyAlbum (697).
+
+  **What to Build:**
+  Flutter variant scaffolds under `variants/flutter/` for each of the 21 downstream repos. Each scaffold includes:
+  - `variants/flutter/pubspec.yaml` — Flutter SDK, Dart deps (go_router, provider, http, flutter_svg), dev deps (flutter_test, flutter_lints)
+  - `variants/flutter/analysis_options.yaml` — strict Dart lint rules
+  - `variants/flutter/lib/main.dart` — app entry point with MaterialApp + GoRouter
+  - `variants/flutter/lib/screens/` — HomeScreen and category-specific screens (matching RN variant screens from Step 21.9)
+  - `variants/flutter/lib/widgets/` — shared UI widgets
+  - `variants/flutter/lib/services/` — mock data services
+  - `variants/flutter/lib/models/` — data models
+  - `variants/flutter/BLOCKERS.md` — category-specific + Flutter-specific blockers (including Flutter SDK toolchain blocker)
+  - Category-specific screens per app type:
+    - Pregnancy/maternity (BabyCenter, The Bump, What to Expect): WeekByWeekScreen, MilestonesScreen, ArticlesScreen, CommunityScreen
+    - Baby tracking (Huckleberry, Sprout Baby, Kinedu): TrackingScreen, ScheduleScreen, MilestonesScreen, ActivitiesScreen
+    - Parenting community (Peanut): MatchScreen, GroupsScreen, FeedScreen, EventsScreen
+    - Family calendar (Cozi, FamCal): CalendarScreen, ListsScreen, MealPlanScreen, JournalScreen
+    - Childcare (Winnie): SearchScreen, ReviewsScreen, WaitlistScreen, CommunityScreen
+    - Family safety (Life360, Find My Kids): MapScreen, MembersScreen, PlacesScreen, AlertsScreen
+    - Parental monitoring (Bark): MonitorScreen, AlertsScreen, ScreenTimeScreen, LocationScreen
+    - Parental controls (Qustodio, Google Family Link, Family Link, OurPact, Circle Parental Controls): DevicesScreen, ScreenTimeScreen, ContentFilterScreen, LocationScreen
+    - Sleep optimization (Rise Sleep, Pzizz): SleepDebtScreen, CircadianScreen, SoundsScreen, SessionScreen
+    - Family photos (FamilyAlbum): AlbumScreen, MomentsScreen, MembersScreen, SettingsScreen
+  - Explicit blockers: Flutter SDK not installed locally (toolchain blocker), COPPA/KOSA child-directed compliance, family GPS location tracking, MDM/device management APIs (platform channels), screen time APIs, social media monitoring, pregnancy health data privacy, AI sleep prediction, algorithmic audio generation, community moderation, photo storage
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-scan evidence.
+  2. Write a Node.js generator script at `/tmp/generate-family-flutter-variants.mjs` defining all 21 apps with category-specific Flutter screens/widgets/services/models. Follow the same pattern as `/tmp/generate-wellness-flutter-variants.mjs`.
+  3. For each of the 21 repos, serially: clone to /tmp, create `variants/flutter/` scaffold files, commit, push, verify via `gh api`.
+  4. `gh api rate_limit` — record post-scan evidence.
+  5. Update `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+
+  **Repo slugs (21):**
+  `babycenter-mobile-clone`, `huckleberry-mobile-clone`, `cozi-mobile-clone`, `life360-mobile-clone`, `bark-mobile-clone`, `qustodio-mobile-clone`, `google-family-link-mobile-clone`, `rise-sleep-mobile-clone`, `pzizz-mobile-clone`, `the-bump-mobile-clone`, `what-to-expect-mobile-clone`, `peanut-mobile-clone`, `find-my-kids-mobile-clone`, `family-link-mobile-clone`, `ourpact-mobile-clone`, `circle-parental-controls-mobile-clone`, `famcal-mobile-clone`, `winnie-mobile-clone`, `kinedu-mobile-clone`, `sprout-baby-mobile-clone`, `familyalbum-mobile-clone`
+
+  **Execution profile:** serial, main agent integration owner, low conflict risk.
+
+  **Acceptance Criteria:**
+  - All 21 repos have `variants/flutter/` scaffold with `pubspec.yaml`, `analysis_options.yaml`, `lib/main.dart`, `lib/screens/`, `lib/widgets/`, `lib/services/`, `lib/models/`, and `BLOCKERS.md` committed and pushed.
+  - Each repo verified PRIVATE with new variant files via `gh api`.
+  - Rate-limit evidence recorded pre and post.
+  - Flutter toolchain blocker documented (local Flutter SDK unavailable — `flutter analyze` cannot run).
+  - Category-specific blockers documented: COPPA/KOSA child-directed, family GPS tracking, MDM/device management APIs, screen time APIs, pregnancy health data privacy, AI sleep/audio generation.
+
+  **Ship-one-step handoff:** Implement only Step 21.13, validate it, then run `/ship` when done.
+
+  **Files:** downstream repos (21), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+
 ### Milestone: Phase 21 — Health, Fitness & Wellness Complete
 **Acceptance Criteria:**
 - [x] Exact Phase 21 inventory reconciled with app IDs, app names, repo slugs, source specs, and downstream readiness (82 apps).
