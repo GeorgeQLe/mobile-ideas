@@ -7572,3 +7572,15 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - **Adversarial review**: verified all 19 repos remain PRIVATE, no GitHub Actions present, source specs intact, all HIPAA, telehealth video/audio, e-prescribing (EPCS/DEA), pharmacy dispensing, insurance claims, patient records (HL7 FHIR), Epic EMR integration, therapy licensing, PBM formulary, NPI credentialing, CME accreditation, FDA product handling, reproductive health privacy, and payment processing features marked as explicitly blocked.
 - **Residual risk**: none for this prototype step; all provider/regulatory risks are in blocker banners.
 - **Rollback note**: revert prototype commits in each downstream repo to restore scaffold-only state.
+
+### 2026-06-05 — Phase 21 Step 21.9: React Native Variant for Pregnancy, Parenting, Family Safety & Remaining (21 apps)
+- **What**: Built and verified React Native variant scaffolds (`variants/react-native/`) for 21 pregnancy, parenting, family safety, and remaining apps across 21 private downstream repos.
+- **Apps**: BabyCenter (163), Huckleberry (164), Cozi (165), Life360 (166), Bark (167), Qustodio (168), Google Family Link (169), Rise Sleep (684), Pzizz (685), The Bump (686), What to Expect (687), Peanut (688), Find My Kids (689), Family Link (690), OurPact (691), Circle Parental Controls (692), FamCal (693), Winnie (694), Kinedu (695), Sprout Baby (696), FamilyAlbum (697).
+- **Categories**: Pregnancy/Maternity (3: BabyCenter, The Bump, What to Expect), Baby Tracking (3: Huckleberry, Kinedu, Sprout Baby), Parenting Community (1: Peanut), Family Calendar (2: Cozi, FamCal), Childcare (1: Winnie), Family Safety (2: Life360, Find My Kids), Parental Monitoring (1: Bark), Parental Controls (4: Qustodio, Google Family Link, Family Link, OurPact, Circle Parental Controls), Sleep Optimization (2: Rise Sleep, Pzizz), Family Photos (1: FamilyAlbum).
+- **Generator script**: `/tmp/generate-family-rn-variants.mjs` with 10 category-specific screen/blocker paths.
+- **Rate limit**: pre-run 722/5000 used, post-run 869/5000 used (remaining=4131).
+- **Verification**: checked=21, pass=21, fail=0. All repos PRIVATE with package.json, tsconfig.json, app.json, index.js, AppNavigator.js, BLOCKERS.md, and no GitHub Actions.
+- **Changed files**: 21 downstream repos (RN variant scaffolds), `tasks/todo.md` (checked off 21.9), `tasks/repo-seeding.md` (rate-limit evidence), `tasks/history.md` (this entry).
+- **Adversarial review**: verified all 21 repos remain PRIVATE, no GitHub Actions present, all COPPA/KOSA child-directed compliance, family GPS location tracking, MDM/device management APIs, screen time APIs, social media monitoring, pregnancy health data privacy, AI sleep/audio generation, community moderation, photo storage, and Expo SDK constraints marked as explicitly blocked in BLOCKERS.md.
+- **Residual risk**: none for this scaffold step; all regulatory/provider risks documented in blocker files.
+- **Rollback note**: revert RN variant commits in each downstream repo to remove `variants/react-native/`.
