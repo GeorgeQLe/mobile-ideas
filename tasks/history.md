@@ -1,5 +1,15 @@
 # History
 
+## 2026-06-05 - Phase 21 Step 21.14 (Tranche 3): Expo Variant for Sleep, Nutrition, Wellness & Wearable Platforms (22 apps)
+
+- Built and verified Expo variant scaffolds (`variants/expo/`) for 22 sleep, nutrition, wellness & wearable platform apps across 22 private downstream repos.
+- Categories: Sleep Tracking (6: Oura, Whoop, Sleep Cycle, Pillow, AutoSleep, SleepScore), Women's Health (4: Flo, Clue, Ovia, Nurx), Wellness Audio (2: Endel, Brain.fm), Nutrition (5: Noom, Lose It!, Cronometer, Lifesum, WaterMinder), Wearable Platforms (5: Withings Health Mate, Samsung Health, Apple Health, Google Fit, Welltory).
+- Each scaffold: package.json (Expo ~52.0.0, expo-router ~4.0.0, React Navigation), tsconfig.json (strict TS), app.json (Expo config), app/ directory with _layout.tsx + index.tsx + 4 tab screens (file-based routing), 5 components, 3-4 services, 3 hooks, BLOCKERS.md with category + Expo-specific blockers.
+- All 22 repos verified PRIVATE with package.json, tsconfig.json, app.json, app/_layout.tsx, BLOCKERS.md, and no GitHub Actions (checked=22, pass=22, fail=0).
+- Rate-limit evidence: pre-run 273/5000, post-run 427/5000 (remaining=4573).
+- Category-specific Expo blockers documented: HealthKit/Google Fit native modules (EAS Build required), BLE device pairing for wearable sleep trackers (Oura Ring, WHOOP, SleepScore Max), biometric sensors (HRV, SpO2, heart rate), reproductive health data privacy (state-specific regulations), AI-generated audio engines (proprietary algorithms), food/nutrition database licensing (USDA, NCCDB), barcode scanning camera API, sleep detection/scoring algorithms, ECG/blood pressure monitoring (medical device regulations), camera-based PPG/HRV measurement, Google Fit API migration to Health Connect (Android 14+).
+- Generator script: `/tmp/generate-wellness-expo-variants.mjs`.
+
 ## 2026-06-05 - Phase 21 Step 21.14 (Tranche 2): Expo Variant for Telehealth, Pharmacy & Health Records (19 apps)
 
 - Built and verified Expo variant scaffolds (`variants/expo/`) for 19 telehealth, pharmacy & health records apps across 19 private downstream repos.
