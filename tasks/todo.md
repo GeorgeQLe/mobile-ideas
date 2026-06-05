@@ -623,13 +623,13 @@
   - All Phase 21 milestone acceptance criteria checked off.
   - Phase archived to `tasks/phases/phase-21.md`.
 
-  **Ship-one-step handoff:** Implement only Step 21.14 Expo tranche 3 (Sleep, Nutrition, Wellness & Wearable Platforms, 22 apps), validate it, then run `/ship` when done. Subsequent Expo tranches follow in separate steps.
+  **Ship-one-step handoff:** Implement only Step 21.14 Expo tranche 4 (Family 21 apps), validate it, then run `/ship` when done. After tranche 4, document Native iOS/Android blockers and close out Phase 21.
 
-  **Tranche 3 Implementation Plan (this step):** Expo variant for Sleep, Nutrition, Wellness & Wearable Platforms (22 apps)
+  **Tranche 4 Implementation Plan (this step):** Expo variant for Pregnancy, Parenting, Family Safety & Remaining (21 apps)
 
-  **Apps (22):** Oura (158), Whoop (159), Sleep Cycle (160), Flo (088), Clue (161), Ovia (162), Nurx (668), Endel (291), Brain.fm (292), Noom (670), Lose It! (671), Cronometer (672), Lifesum (673), WaterMinder (674), Pillow (675), AutoSleep (676), SleepScore (677), Withings Health Mate (678), Samsung Health (679), Apple Health (680), Google Fit (681), Welltory (683).
+  **Apps (21):** BabyCenter (163), Huckleberry (164), Cozi (165), Life360 (166), Bark (167), Qustodio (168), Google Family Link (169), Rise Sleep (684), Pzizz (685), The Bump (686), What to Expect (687), Peanut (688), Find My Kids (689), Family Link (690), OurPact (691), Circle Parental Controls (692), FamCal (693), Winnie (694), Kinedu (695), Sprout Baby (696), FamilyAlbum (697).
 
-  **Repo slugs (22):** `oura-mobile-clone`, `whoop-mobile-clone`, `sleep-cycle-mobile-clone`, `flo-mobile-clone`, `clue-mobile-clone`, `ovia-mobile-clone`, `nurx-mobile-clone`, `endel-mobile-clone`, `brain-fm-mobile-clone`, `noom-mobile-clone`, `lose-it-mobile-clone`, `cronometer-mobile-clone`, `lifesum-mobile-clone`, `waterminder-mobile-clone`, `pillow-mobile-clone`, `autosleep-mobile-clone`, `sleepscore-mobile-clone`, `withings-health-mate-mobile-clone`, `samsung-health-mobile-clone`, `apple-health-mobile-clone`, `google-fit-mobile-clone`, `welltory-mobile-clone`
+  **Repo slugs (21):** `babycenter-mobile-clone`, `huckleberry-mobile-clone`, `cozi-mobile-clone`, `life360-mobile-clone`, `bark-mobile-clone`, `qustodio-mobile-clone`, `google-family-link-mobile-clone`, `rise-sleep-mobile-clone`, `pzizz-mobile-clone`, `the-bump-mobile-clone`, `what-to-expect-mobile-clone`, `peanut-mobile-clone`, `find-my-kids-mobile-clone`, `family-link-mobile-clone`, `ourpact-mobile-clone`, `circle-parental-controls-mobile-clone`, `famcal-mobile-clone`, `winnie-mobile-clone`, `kinedu-mobile-clone`, `sprout-baby-mobile-clone`, `familyalbum-mobile-clone`
 
   **What to build per repo:**
   - `variants/expo/package.json` — Expo ~52.0.0, expo-router ~4.0.0, React Navigation
@@ -639,18 +639,23 @@
   - `variants/expo/components/` — 5 per app, category-specific UI components
   - `variants/expo/services/` — 3-4 per app, mock data services
   - `variants/expo/hooks/` — 3 per app, custom hooks
-  - `variants/expo/BLOCKERS.md` — category + Expo-specific blockers (HealthKit/Google Fit, BLE, reproductive data privacy, AI audio, EAS Build)
+  - `variants/expo/BLOCKERS.md` — category + Expo-specific blockers (COPPA/KOSA, family GPS, MDM/device APIs, EAS Build)
 
   **Category-specific tabs:**
-  - Sleep tracking (Oura, Whoop, Sleep Cycle, Pillow, AutoSleep, SleepScore): home, sleep, readiness/recovery, trends, profile
-  - Women's health (Flo, Clue, Ovia, Nurx): home, cycle, calendar, insights, profile
-  - Wellness audio (Endel, Brain.fm): home, player, library, timer, profile
-  - Nutrition (Noom, Lose It!, Cronometer, Lifesum, WaterMinder): home, diary, nutrition, weight/hydration, profile
-  - Wearable platforms (Withings Health Mate, Samsung Health, Apple Health, Google Fit, Welltory): home, dashboard, devices, metrics, profile
+  - Pregnancy/maternity (BabyCenter, The Bump, What to Expect): home, weekly, milestones, community, profile
+  - Baby tracking (Huckleberry, Sprout Baby, Kinedu): home, tracking, schedule, milestones, profile
+  - Parenting community (Peanut): home, discover, groups, events, profile
+  - Family calendar (Cozi, FamCal): home, calendar, lists, meals, profile
+  - Childcare (Winnie): home, search, reviews, waitlist, profile
+  - Family safety (Life360, Find My Kids): home, map, members, places, profile
+  - Parental monitoring (Bark): home, monitor, alerts, screentime, profile
+  - Parental controls (Qustodio, Google Family Link, Family Link, OurPact, Circle Parental Controls): home, devices, screentime, content, profile
+  - Sleep optimization (Rise Sleep, Pzizz): home, sleepdebt, schedule, sounds, profile
+  - Family photos (FamilyAlbum): home, albums, moments, members, profile
 
   **Approach:**
   1. `gh api rate_limit` — record pre-scan evidence.
-  2. Write Node.js generator at `/tmp/generate-wellness-expo-variants.mjs` following same pattern as `/tmp/generate-fitness-expo-variants.mjs` and `/tmp/generate-telehealth-expo-variants.mjs`.
+  2. Write Node.js generator at `/tmp/generate-family-expo-variants.mjs` following same pattern as `/tmp/generate-wellness-expo-variants.mjs`.
   3. Serial clone → create `variants/expo/` scaffold → commit → push → verify via `gh api`.
   4. `gh api rate_limit` — record post-scan evidence.
   5. Update `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
@@ -658,12 +663,12 @@
   **Execution profile:** serial, main agent integration owner, low conflict risk.
 
   **Acceptance Criteria:**
-  - All 22 repos have `variants/expo/` scaffold with `package.json`, `tsconfig.json`, `app.json`, `app/_layout.tsx`, `BLOCKERS.md`.
+  - All 21 repos have `variants/expo/` scaffold with `package.json`, `tsconfig.json`, `app.json`, `app/_layout.tsx`, `BLOCKERS.md`.
   - Each repo verified PRIVATE, no GitHub Actions.
   - Rate-limit evidence recorded pre and post.
-  - Category-specific Expo blockers documented: HealthKit/Google Fit native modules, BLE device pairing (wearables), biometric sensors (HRV, SpO2), reproductive health data privacy, AI audio generation, nutrition database licensing, barcode scanner camera API, sleep detection algorithms, EAS Build for native modules.
+  - Category-specific Expo blockers documented: COPPA/KOSA child-directed compliance, family GPS location tracking (continuous background), MDM/device management APIs, screen time enforcement APIs, social media monitoring, content filtering, pregnancy health data privacy, AI sleep prediction/circadian modeling, algorithmic audio generation, community moderation, photo storage/CDN, geofencing, crash detection, EAS Build for native modules.
 
-  **Ship-one-step handoff:** Implement only Step 21.14 tranche 3 (Wellness 22 apps), validate it, then run `/ship` when done.
+  **Ship-one-step handoff:** Implement only Step 21.14 tranche 4 (Family 21 apps), validate it, then run `/ship` when done.
 
   **Files:** downstream repos (22), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
