@@ -1,5 +1,19 @@
 # History
 
+## 2026-06-04 - Phase 21 Step 21.2: Fitness, Activity Tracking & Meditation/Wellness Prototypes
+
+- Verified original static prototypes for 20 fitness/wellness apps across 20 private downstream repos:
+  - **Meditation/Wellness (2):** `GeorgeQLe/headspace-mobile-clone` (guided meditation, sleep stories, focus music, breathing, streaks), `GeorgeQLe/calm-mobile-clone` (Daily Calm, celebrity sleep stories, masterclasses, mood check-in).
+  - **Running/Outdoor (6):** `GeorgeQLe/strava-mobile-clone` (GPS activity, segments, leaderboards, clubs, social feed), `GeorgeQLe/nike-run-club-mobile-clone` (guided runs, audio coaching, adaptive training plans), `GeorgeQLe/runkeeper-mobile-clone` (goal setting, ASICS integration, audio cues), `GeorgeQLe/mapmyrun-mobile-clone` (Under Armour connected gear, route discovery, gear tracking), `GeorgeQLe/komoot-mobile-clone` (outdoor route planning, turn-by-turn navigation, offline maps), `GeorgeQLe/relive-mobile-clone` (3D video replays, photo integration, activity import).
+  - **Nutrition/Fitness (1):** `GeorgeQLe/myfitnesspal-mobile-clone` (food diary, barcode scanner, calorie/macro tracking, exercise logging, weight tracking).
+  - **Wearable/Health (3):** `GeorgeQLe/fitbit-mobile-clone` (steps, HR zones, sleep stages, Active Zone Minutes, challenges), `GeorgeQLe/garmin-connect-mobile-clone` (My Day, Body Battery, stress, SpO2, Connect IQ, LiveTrack), `GeorgeQLe/athlytic-mobile-clone` (Apple Watch HRV, readiness, strain, training load, recovery).
+  - **Connected Fitness (2):** `GeorgeQLe/peloton-mobile-clone` (live/on-demand classes, leaderboard, instructor profiles, output tracking), `GeorgeQLe/zwift-mobile-clone` (virtual 3D worlds, smart trainer ERG, group rides, races, training plans).
+  - **Gym/Strength (4):** `GeorgeQLe/nike-training-club-mobile-clone` (guided video workouts, NTC Master Trainers), `GeorgeQLe/fitbod-mobile-clone` (AI-generated workouts, muscle recovery map, progressive overload), `GeorgeQLe/strong-mobile-clone` (rep/set/weight logging, custom routines, 1RM estimation, progress charts), `GeorgeQLe/hevy-mobile-clone` (social feed, routine sharing, community, workout streaks).
+  - **Cycling Training (2):** `GeorgeQLe/trainerroad-mobile-clone` (Adaptive Training, structured power workouts, FTP testing, Plan Builder), `GeorgeQLe/trainingpeaks-mobile-clone` (TSS/CTL/ATL performance management, coach-athlete platform, structured workout library).
+- All 20 repos verified PRIVATE with README, index.html, package.json, src/app.js, src/styles.css, source specs under docs/source-specs/, root commits, and no GitHub Actions (checked=20, pass=20, fail=0).
+- Rate-limit evidence: pre-scan 0/5000, post-scan 481/5000.
+- All prototypes already existed from prior session; no new commits needed. Generator script (`/tmp/generate-fitness-prototypes.mjs`) confirmed idempotent output.
+
 ## 2026-06-04 - Phase 20 Step 20.5: Travel Booking, Car Rental, Parking, EV & Vehicle Prototypes
 
 - Built original static prototypes for 27 travel/transport apps as direct-to-`main` commits across 27 private downstream repos:

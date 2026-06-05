@@ -43,7 +43,7 @@
 
   **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`.
 
-- [ ] Step 21.2: First Health & Fitness tranche — Fitness & Activity Tracking (18 apps)
+- [x] Step 21.2: First Health & Fitness tranche — Fitness & Activity Tracking (18 apps) + Meditation/Wellness (2 apps) = 20 apps (completed 2026-06-04)
   - **Apps:** Headspace (082), Calm (083), Strava (084), Nike Run Club (085), MyFitnessPal (086), Fitbit (087), Peloton (356), Zwift (357), Garmin Connect (358), Nike Training Club (359), Fitbod (360), Strong (361), Hevy (362), Runkeeper (363), MapMyRun (364), Komoot (365), Relive (366), TrainerRoad (367), TrainingPeaks (368), Athlytic (682).
 
   NOTE: Headspace (082) and Calm (083) are meditation/wellness apps but grouped here for batch efficiency with existing fitness batch-05 apps. Total is 20 apps.
