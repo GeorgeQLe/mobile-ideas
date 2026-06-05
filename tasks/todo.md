@@ -133,6 +133,32 @@
   - Rate-limit evidence: pre-scan core used=604/remaining=4396; post-scan core used=743/remaining=4257. No rate-limit violations.
   - Full evidence in `tasks/repo-seeding.md` under "Phase 22 Step 22.1".
 
+- [ ] Step 22.3: Build React Native variant scaffolds for all 26 Education & Learning apps
+  - Build `variants/react-native/` scaffold for all 26 Education & Learning downstream repos.
+  - Each scaffold: `package.json` (Expo ~52.0.0 + React Navigation), `tsconfig.json` (strict), `app.json` (Expo config), `index.js` (entry), `src/screens/` (5 category-specific screens per app), `src/components/` (5 shared components), `src/navigation/AppNavigator.js` (bottom tab navigator), `src/services/` (3-4 mock data services), `src/hooks/` (3 custom hooks), `BLOCKERS.md` (category-specific + RN-specific blockers).
+  - Education-category-specific screens: language-learning (LessonScreen, PracticeScreen, LeaderboardScreen, ProfileScreen, ReviewScreen), translation (TranslateScreen, CameraScreen, ConversationScreen, HistoryScreen, SettingsScreen), classroom/LMS (CourseListScreen, AssignmentScreen, GradeScreen, CalendarScreen, MessageScreen), kids-education (LearningPathScreen, GameScreen, CreativeScreen, ProgressScreen, ParentScreen), kids-media (LibraryScreen, PlayerScreen, CollectionScreen, ParentControlScreen, ProfileScreen), education-platform (CourseScreen, PracticeScreen, ProgressScreen, ClassroomScreen, SearchScreen), higher-education (CatalogScreen, StudyScreen, AssessScreen, CertificateScreen, ProfileScreen), math/STEM (CameraScreen, SolutionScreen, GraphScreen, HistoryScreen, SettingsScreen), transcription (RecordScreen, TranscriptScreen, SummaryScreen, SearchScreen, SettingsScreen), writing-assistant (EditorScreen, SuggestionScreen, ToolsScreen, StatsScreen, SettingsScreen).
+  - Generator script pattern: serial clone → pull latest → scaffold → commit → push → verify.
+  - GitHub verification: confirm `variants/react-native/package.json`, `app.json`, `index.js`, `src/navigation/AppNavigator.js` present, repos still PRIVATE, no `.github/workflows`.
+  - Record pre/post rate-limit evidence.
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-run evidence.
+  2. Build generator script at `/tmp/generate-education-rn-variants.mjs` following Phase 21 fitness/telehealth RN variant pattern.
+  3. Serial execution: for each of 26 repos, clone/pull → scaffold → commit → push → verify.
+  4. `gh api rate_limit` — record post-run evidence.
+  5. Update `tasks/todo.md` with results, `tasks/repo-seeding.md` with verification evidence.
+
+  **Execution profile:** serial, main agent integration owner, low conflict risk.
+
+  **Acceptance Criteria:**
+  - 26 repos have `variants/react-native/` with package.json, app.json, index.js, AppNavigator, screens, components, services, hooks, BLOCKERS.md.
+  - All repos remain PRIVATE with no GitHub Actions.
+  - Rate-limit evidence recorded.
+
+  **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`, 26 downstream repos (`variants/react-native/`).
+
+  **Ship-one-step handoff:** Implement only Step 22.3, validate it, then run `/ship` when done.
+
 ### Milestone: Phase 22 — Education & Learning Complete
 **Acceptance Criteria:**
 - [ ] Exact Phase 22 inventory reconciled.
