@@ -7693,3 +7693,12 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - **Rate limit**: pre-scan core used=604/remaining=4396; post-scan core used=743/remaining=4257.
 - **Risk groups documented**: COPPA/KOSA (kids apps), FERPA (LMS/classroom/higher ed), speech recognition APIs, translation APIs/models, LMS integrations (LTI/SCORM), camera OCR, video delivery, NLP/AI models, custom keyboard APIs, academic integrity, content licensing, subscription tiers.
 - **Changed files**: `tasks/todo.md` (checked off 22.1, added results), `tasks/repo-seeding.md` (Phase 22 evidence), `tasks/history.md` (this entry).
+
+### 2026-06-05 — Phase 22 Step 22.2: Workflow Remediation + Static Variant Scaffolds (26 Education & Learning apps)
+- **What**: Removed unauthorized GitHub Actions workflows from 4 batch-11 repos and built static variant scaffolds (`variants/static/`) for all 26 Education & Learning downstream repos.
+- **Part A — Workflow Remediation**: Removed `.github/workflows` from ELSA Speak (212), Grammarly Keyboard (214), Wordtune (215), QuillBot (216). All 4 verified 404 via GitHub API.
+- **Part B — Static Variant Scaffolds**: 26 repos scaffolded with `variants/static/` (index.html, styles.css, app.js, README.md). Category-specific UI patterns: language-learning (lesson cards, quiz interfaces, streaks, XP), translation (text/camera/conversation inputs, glossary), classroom (behavior points, messaging, story feeds), LMS (course dashboards, assignment lists, grade books, calendars), kids-education (kid-safe cards, drag-and-drop blocks, parent dashboards), kids-media (video players, book libraries, parental controls), education-platform (mastery progress, practice exercises, hint system), higher-education (course catalogs, flashcards, certificates, study games), math/STEM (camera scan, step-by-step solutions, graphing), transcription (recording, AI summaries, speaker ID), writing-assistant (editors, grammar suggestions, paraphrasing modes, citations).
+- **Generator script**: `/tmp/generate-education-prototypes.mjs` with 11 category-specific HTML/CSS/JS template paths.
+- **Verification**: checked=26, pass=26, fail=0. All repos PRIVATE with index.html, styles.css, app.js, and no GitHub Actions.
+- **Rate limit**: pre-run core used=0/remaining=5000; post-run core used=134/remaining=4866.
+- **Changed files**: 26 downstream repos (static variant scaffolds), 4 downstream repos (workflow deletion), `tasks/todo.md` (checked off 22.2, added results), `tasks/repo-seeding.md` (verification evidence), `tasks/history.md` (this entry).

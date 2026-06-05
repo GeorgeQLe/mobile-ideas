@@ -84,7 +84,7 @@
 
   **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`.
 
-- [ ] Step 22.2: Remediate unauthorized GitHub Actions workflows in batch-11 repos (4 repos) and build static variant scaffolds for all 26 Education & Learning apps
+- [x] Step 22.2: Remediate unauthorized GitHub Actions workflows in batch-11 repos (4 repos) and build static variant scaffolds for all 26 Education & Learning apps
   - **Part A — Workflow Remediation (4 repos):**
     - Delete `.github/workflows/` directory from 4 batch-11 repos: ELSA Speak (212), Grammarly Keyboard (214), Wordtune (215), QuillBot (216).
     - Serial execution: clone each repo, `git rm -r .github/workflows`, commit with message `chore: remove unauthorized GitHub Actions workflows`, push, verify via `gh api` that `.github/workflows` returns 404.
@@ -115,6 +115,14 @@
   **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`, 26 downstream repos (`variants/static/`), 4 downstream repos (`.github/workflows` deletion).
 
   **Ship-one-step handoff:** Implement only Step 22.2, validate it, then run `/ship` when done.
+
+  **Step 22.2 Results (2026-06-05):**
+  - **Part A — Workflow Remediation:** 4/4 batch-11 repos remediated. `.github/workflows` removed from ELSA Speak (212), Grammarly Keyboard (214), Wordtune (215), QuillBot (216). All verified 404 via GitHub API.
+  - **Part B — Static Variant Scaffolds:** 26/26 repos scaffolded with `variants/static/` (index.html, styles.css, app.js, README.md). Each scaffold has category-specific UI: language-learning (lesson cards, quiz interfaces, XP/streak metrics), translation (text/camera/conversation inputs), classroom/LMS (course lists, assignments, grades, calendars), kids-education (kid-safe cards, progress bars, parent dashboards), kids-media (video players, parental controls, character collections), education-platform (mastery progress, practice exercises), higher-education (course catalogs, flashcards, certificates), math/STEM (camera scan, step-by-step solutions, graphing), transcription (recording, transcripts, AI summaries), writing-assistant (editors, suggestions, paraphrasing modes).
+  - **Verification:** 26/26 pass. All repos PRIVATE, static files present, no `.github/workflows`.
+  - **Rate-limit evidence:** pre-run core used=0/remaining=5000; post-run core used=134/remaining=4866. No rate-limit violations.
+  - **Generator script:** `/tmp/generate-education-prototypes.mjs`.
+  - Full evidence in `tasks/repo-seeding.md` under "Phase 22 Step 22.2".
 
   **Step 22.1 Results (2026-06-05):**
   - 26 apps verified across IDs 077-081, 170-186, 212, 214-216.

@@ -96,6 +96,56 @@ Guardrails:
 
 ## Execution Status And Evidence Log
 
+### Phase 22 Step 22.2 — Workflow Remediation + Static Variant Scaffolds (26 Education & Learning apps) - 2026-06-05
+
+- **Part A — Workflow Remediation (4 repos):**
+  - Removed unauthorized `.github/workflows` from 4 batch-11 repos: ELSA Speak (212), Grammarly Keyboard (214), Wordtune (215), QuillBot (216).
+  - Serial execution: pull → `git rm -r .github/workflows` → commit → push → verify via `gh api`.
+  - All 4 repos verified: `.github/workflows` returns HTTP 404.
+
+- **Part B — Static Variant Scaffolds (26 repos):**
+  - Built `variants/static/` scaffold for all 26 Education & Learning downstream repos.
+  - Each scaffold: `index.html`, `styles.css`, `app.js`, `README.md` with education-category-specific UI patterns.
+  - Categories covered: language-learning (5), translation (2), classroom (2), LMS (2), kids-education (3), kids-media (3), education-platform (1), higher-education (2), math/STEM (1), transcription (1), writing-assistant (4).
+  - Generator script: `/tmp/generate-education-prototypes.mjs`.
+
+- **Rate-limit evidence:**
+  - Pre-run: core used=0, remaining=5000.
+  - Post-run: core used=134, remaining=4866.
+  - No rate-limit violations.
+
+- **GitHub verification evidence:** serial `gh api` content checks confirmed every repo is PRIVATE, contains `variants/static/index.html`, `variants/static/styles.css`, `variants/static/app.js`, and does not contain `.github/workflows`. Checked=26, pass=26, fail=0.
+- GitHub Actions status: no workflow was enabled, dispatched, or used.
+
+| ID | App | Repo | Visibility | index.html | styles.css | app.js | Workflows |
+|---:|---|---|---|---|---|---|---|
+| 077 | Duolingo | `GeorgeQLe/duolingo-mobile-clone` | private | yes | yes | yes | absent |
+| 078 | Khan Academy | `GeorgeQLe/khan-academy-mobile-clone` | private | yes | yes | yes | absent |
+| 079 | Quizlet | `GeorgeQLe/quizlet-mobile-clone` | private | yes | yes | yes | absent |
+| 080 | Coursera | `GeorgeQLe/coursera-mobile-clone` | private | yes | yes | yes | absent |
+| 081 | Photomath | `GeorgeQLe/photomath-mobile-clone` | private | yes | yes | yes | absent |
+| 170 | ClassDojo | `GeorgeQLe/classdojo-mobile-clone` | private | yes | yes | yes | absent |
+| 171 | Remind | `GeorgeQLe/remind-mobile-clone` | private | yes | yes | yes | absent |
+| 172 | Canvas Student | `GeorgeQLe/canvas-student-mobile-clone` | private | yes | yes | yes | absent |
+| 173 | Google Classroom | `GeorgeQLe/google-classroom-mobile-clone` | private | yes | yes | yes | absent |
+| 174 | ScratchJr | `GeorgeQLe/scratchjr-mobile-clone` | private | yes | yes | yes | absent |
+| 175 | ABCmouse | `GeorgeQLe/abcmouse-mobile-clone` | private | yes | yes | yes | absent |
+| 176 | Khan Academy Kids | `GeorgeQLe/khan-academy-kids-mobile-clone` | private | yes | yes | yes | absent |
+| 177 | Epic! | `GeorgeQLe/epic-mobile-clone` | private | yes | yes | yes | absent |
+| 178 | YouTube Kids | `GeorgeQLe/youtube-kids-mobile-clone` | private | yes | yes | yes | absent |
+| 179 | PBS Kids | `GeorgeQLe/pbs-kids-mobile-clone` | private | yes | yes | yes | absent |
+| 180 | Babbel | `GeorgeQLe/babbel-mobile-clone` | private | yes | yes | yes | absent |
+| 181 | Rosetta Stone | `GeorgeQLe/rosetta-stone-mobile-clone` | private | yes | yes | yes | absent |
+| 182 | Busuu | `GeorgeQLe/busuu-mobile-clone` | private | yes | yes | yes | absent |
+| 183 | Google Translate | `GeorgeQLe/google-translate-mobile-clone` | private | yes | yes | yes | absent |
+| 184 | DeepL | `GeorgeQLe/deepl-mobile-clone` | private | yes | yes | yes | absent |
+| 185 | Otter.ai | `GeorgeQLe/otter-ai-mobile-clone` | private | yes | yes | yes | absent |
+| 186 | Grammarly | `GeorgeQLe/grammarly-mobile-clone` | private | yes | yes | yes | absent |
+| 212 | ELSA Speak | `GeorgeQLe/elsa-speak-mobile-clone` | private | yes | yes | yes | absent |
+| 214 | Grammarly Keyboard | `GeorgeQLe/grammarly-keyboard-mobile-clone` | private | yes | yes | yes | absent |
+| 215 | Wordtune | `GeorgeQLe/wordtune-mobile-clone` | private | yes | yes | yes | absent |
+| 216 | QuillBot | `GeorgeQLe/quillbot-mobile-clone` | private | yes | yes | yes | absent |
+
 ### Phase 21 Step 21.6 React Native Variant — Fitness & Activity Tracking (20 apps) - 2026-06-05
 
 - Scope: React Native variant scaffolds (`variants/react-native/`) for 20 fitness & activity tracking downstream repos: IDs 082-087, 356-368, 682.
