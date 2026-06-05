@@ -668,9 +668,36 @@
   - Rate-limit evidence recorded pre and post.
   - Category-specific Expo blockers documented: COPPA/KOSA child-directed compliance, family GPS location tracking (continuous background), MDM/device management APIs, screen time enforcement APIs, social media monitoring, content filtering, pregnancy health data privacy, AI sleep prediction/circadian modeling, algorithmic audio generation, community moderation, photo storage/CDN, geofencing, crash detection, EAS Build for native modules.
 
-  **Ship-one-step handoff:** Implement only Step 21.14 tranche 4 (Family 21 apps), validate it, then run `/ship` when done.
+  **Ship-one-step handoff:** ~~Implement only Step 21.14 tranche 4 (Family 21 apps), validate it, then run `/ship` when done.~~ DONE 2026-06-05.
 
-  **Files:** downstream repos (22), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+  **Files:** downstream repos (21), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
+
+  **Next sub-step: Complete Step 21.14 — Document Native iOS/Android blockers + close Phase 21**
+
+  All 4 Expo tranches verified (82/82 apps). Remaining work:
+
+  1. **Document Native iOS/Android variants as blocked** — append to `tasks/todo.md` a consolidated blocker statement for Native iOS (Swift/SwiftUI: Xcode toolchain not available, no iOS Simulator) and Native Android (Kotlin/Jetpack Compose: Android SDK/Gradle not available, no Android Emulator). This documents 5 variants addressed per app: 3 working (static, React Native, Flutter) + 1 Expo + 2 explicitly blocked (Native iOS, Native Android).
+
+  2. **Check off Phase 21 milestone criteria** in `tasks/todo.md`:
+     - [x] 82 apps inventory reconciled (done Step 21.1)
+     - All 82 apps have 4 working variants + 2 explicitly blocked = 5 variants addressed
+     - Validation evidence from all `gh api` checks across 13 steps (21.2-21.14)
+     - Health/workout/content flows rendered in prototypes or explicitly blocked in BLOCKERS.md
+     - Category-specific risk review documented across all BLOCKERS.md files in downstream repos
+
+  3. **Mark Step 21.14 complete**, archive Phase 21 to `tasks/phases/phase-21.md`, check off Phase 21 milestone in `tasks/roadmap.md`, copy next phase to `tasks/todo.md`.
+
+  **Files:** `tasks/todo.md`, `tasks/roadmap.md`, `tasks/history.md`, `tasks/phases/phase-21.md`.
+
+  **Execution profile:** serial, main agent integration owner, low conflict risk.
+
+  **Acceptance Criteria:**
+  - Native iOS/Android blockers documented.
+  - All Phase 21 milestone criteria checked off.
+  - Phase 21 archived to `tasks/phases/phase-21.md`.
+  - Next phase loaded into `tasks/todo.md`.
+
+  **Ship-one-step handoff:** Implement only this sub-step (document Native iOS/Android blockers, close Phase 21, archive, advance), validate it, then run `/ship` when done.
 
 ### Milestone: Phase 21 — Health, Fitness & Wellness Complete
 **Acceptance Criteria:**
