@@ -84,6 +84,38 @@
 
   **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`.
 
+- [ ] Step 22.2: Remediate unauthorized GitHub Actions workflows in batch-11 repos (4 repos) and build static variant scaffolds for all 26 Education & Learning apps
+  - **Part A — Workflow Remediation (4 repos):**
+    - Delete `.github/workflows/` directory from 4 batch-11 repos: ELSA Speak (212), Grammarly Keyboard (214), Wordtune (215), QuillBot (216).
+    - Serial execution: clone each repo, `git rm -r .github/workflows`, commit with message `chore: remove unauthorized GitHub Actions workflows`, push, verify via `gh api` that `.github/workflows` returns 404.
+    - Record pre/post rate-limit evidence.
+
+  - **Part B — Static Variant Scaffolds (26 repos):**
+    - Build `variants/static/` scaffold for all 26 Education & Learning downstream repos.
+    - Each scaffold: `index.html`, `styles.css`, `app.js`, `README.md` with app-specific screens/features, education-category-specific UI patterns (lesson cards, quiz interfaces, progress bars, course catalogs, translation inputs, writing editors, video players, kid-safe layouts).
+    - Generator script pattern: serial clone → scaffold → commit → push → verify.
+    - GitHub verification: confirm `variants/static/index.html`, `variants/static/styles.css`, `variants/static/app.js` present, repos still PRIVATE, no `.github/workflows`.
+    - Record pre/post rate-limit evidence.
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-run evidence.
+  2. Part A: For each of 4 batch-11 repos, serially clone, remove workflows, commit, push, verify.
+  3. Part B: Generate static variant scaffolds for all 26 repos with education-category-specific content.
+  4. `gh api rate_limit` — record post-run evidence.
+  5. Update `tasks/todo.md` with results, `tasks/repo-seeding.md` with verification evidence.
+
+  **Execution profile:** serial, main agent integration owner, low conflict risk.
+
+  **Acceptance Criteria:**
+  - 4 batch-11 repos have `.github/workflows` removed and verified absent (HTTP 404).
+  - 26 repos have `variants/static/` with index.html, styles.css, app.js.
+  - All repos remain PRIVATE with no GitHub Actions.
+  - Rate-limit evidence recorded.
+
+  **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`, 26 downstream repos (`variants/static/`), 4 downstream repos (`.github/workflows` deletion).
+
+  **Ship-one-step handoff:** Implement only Step 22.2, validate it, then run `/ship` when done.
+
   **Step 22.1 Results (2026-06-05):**
   - 26 apps verified across IDs 077-081, 170-186, 212, 214-216.
   - All 26 repos: PRIVATE, default branch `main`, README present, source spec present, root commit present.
