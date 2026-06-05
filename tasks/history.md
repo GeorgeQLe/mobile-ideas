@@ -1,5 +1,15 @@
 # History
 
+## 2026-06-05 - Phase 21 Step 21.14 (Tranche 2): Expo Variant for Telehealth, Pharmacy & Health Records (19 apps)
+
+- Built and verified Expo variant scaffolds (`variants/expo/`) for 19 telehealth, pharmacy & health records apps across 19 private downstream repos.
+- Categories: Prescription Pricing (1: GoodRx), Pharmacy (2: Walgreens, CVS Health), Pharmacy Benefits (1: Express Scripts), Doctor Booking (1: Zocdoc), Telehealth (5: Teladoc, Amwell, MDLIVE, Doctor On Demand, HealthTap), DTC Telehealth (2: Hims & Hers, Ro), Therapy (2: BetterHelp, Talkspace), Specialty Telehealth (1: Maven Clinic), Primary Care (2: One Medical, Carbon Health), Health Records (1: MyChart), Provider Network (1: Doximity).
+- Each scaffold: package.json (Expo ~52.0.0, expo-router ~4.0.0, React Navigation), tsconfig.json (strict TS), app.json (Expo config), app/ directory with _layout.tsx + index.tsx + 4 tab screens (file-based routing), 5 components, 3-4 services, 3 hooks, BLOCKERS.md with category + Expo-specific blockers.
+- All 19 repos verified PRIVATE with package.json, tsconfig.json, app.json, app/_layout.tsx, BLOCKERS.md, and no GitHub Actions (checked=19, pass=19, fail=0).
+- Rate-limit evidence: pre-run 140/5000, post-run 273/5000 (remaining=4727).
+- Category-specific Expo blockers documented: HIPAA-compliant data storage/transmission, telehealth video/audio (WebRTC native modules require EAS Build), e-prescribing (EPCS/DEA compliance), pharmacy dispensing systems, insurance claims/eligibility verification, patient records (HL7 FHIR integration), therapist licensing verification (state/country), PBM system integration, provider directory data licensing, EAS Build required for native camera/video modules, expo-dev-client needed for HIPAA-compliant custom native code.
+- Generator script: `/tmp/generate-telehealth-expo-variants.mjs`.
+
 ## 2026-06-05 - Phase 21 Step 21.14 (Tranche 1): Expo Variant for Fitness & Activity Tracking (20 apps)
 
 - Built and verified Expo variant scaffolds (`variants/expo/`) for 20 fitness & activity tracking apps across 20 private downstream repos.
