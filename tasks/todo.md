@@ -165,7 +165,7 @@
 
   **Files:** downstream repos (22), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
-- [ ] Step 21.5: Fourth Health & Fitness tranche — Pregnancy, Parenting, Family Safety & Remaining (21 apps)
+- [x] Step 21.5: Fourth Health & Fitness tranche — Pregnancy, Parenting, Family Safety & Remaining (21 apps) (completed 2026-06-05)
   - **Apps:** BabyCenter (163), Huckleberry (164), Cozi (165), Life360 (166), Bark (167), Qustodio (168), Google Family Link (169), Rise Sleep (684), Pzizz (685), The Bump (686), What to Expect (687), Peanut (688), Find My Kids (689), Family Link (690), OurPact (691), Circle Parental Controls (692), FamCal (693), Winnie (694), Kinedu (695), Sprout Baby (696), FamilyAlbum (697).
 
   **What to Build:**
