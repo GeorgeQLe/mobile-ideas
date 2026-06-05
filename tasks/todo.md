@@ -397,7 +397,7 @@
 
   **Files:** downstream repos (21), `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
-- [ ] Step 21.10: Ninth Health & Fitness tranche — Flutter variant for Fitness & Activity Tracking apps (20 apps)
+- [x] Step 21.10: Ninth Health & Fitness tranche — Flutter variant for Fitness & Activity Tracking apps (20 apps) (completed 2026-06-05)
   - **Apps:** Same 20 apps from Steps 21.2/21.6: Headspace (082), Calm (083), Strava (084), Nike Run Club (085), MyFitnessPal (086), Fitbit (087), Peloton (356), Zwift (357), Garmin Connect (358), Nike Training Club (359), Fitbod (360), Strong (361), Hevy (362), Runkeeper (363), MapMyRun (364), Komoot (365), Relive (366), TrainerRoad (367), TrainingPeaks (368), Athlytic (682).
 
   **What to Build:**

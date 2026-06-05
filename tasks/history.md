@@ -7584,3 +7584,16 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - **Adversarial review**: verified all 21 repos remain PRIVATE, no GitHub Actions present, all COPPA/KOSA child-directed compliance, family GPS location tracking, MDM/device management APIs, screen time APIs, social media monitoring, pregnancy health data privacy, AI sleep/audio generation, community moderation, photo storage, and Expo SDK constraints marked as explicitly blocked in BLOCKERS.md.
 - **Residual risk**: none for this scaffold step; all regulatory/provider risks documented in blocker files.
 - **Rollback note**: revert RN variant commits in each downstream repo to remove `variants/react-native/`.
+
+### 2026-06-05 — Phase 21 Step 21.10: Flutter Variant for Fitness & Activity Tracking (20 apps)
+- **What**: Built and verified Flutter variant scaffolds (`variants/flutter/`) for 20 fitness & activity tracking apps across 20 private downstream repos.
+- **Apps**: Headspace (082), Calm (083), Strava (084), Nike Run Club (085), MyFitnessPal (086), Fitbit (087), Peloton (356), Zwift (357), Garmin Connect (358), Nike Training Club (359), Fitbod (360), Strong (361), Hevy (362), Runkeeper (363), MapMyRun (364), Komoot (365), Relive (366), TrainerRoad (367), TrainingPeaks (368), Athlytic (682).
+- **Categories**: Meditation/Wellness (2: Headspace, Calm), Running/Outdoor (6: Strava, Nike Run Club, Runkeeper, MapMyRun, Komoot, Relive), Nutrition (1: MyFitnessPal), Wearable/Health (3: Fitbit, Garmin Connect, Athlytic), Connected Fitness (2: Peloton, Zwift), Gym/Strength (4: Nike Training Club, Fitbod, Strong, Hevy), Cycling Training (2: TrainerRoad, TrainingPeaks).
+- **Generator script**: `/tmp/generate-fitness-flutter-variants.mjs` with MaterialApp + GoRouter setup, 7 category-specific screen/widget/blocker paths.
+- **Scaffold contents**: `pubspec.yaml`, `analysis_options.yaml`, `lib/main.dart`, `lib/screens/` (5 per app), `lib/widgets/` (5 per app), `lib/services/` (3-4 per app), `lib/models/` (3-4 per app), `BLOCKERS.md`.
+- **Rate limit**: pre-run 30/5000 used, post-run 150/5000 used (remaining=4850).
+- **Verification**: checked=20, pass=20, fail=0. All repos PRIVATE with pubspec.yaml, analysis_options.yaml, lib/main.dart, BLOCKERS.md, and no GitHub Actions.
+- **Changed files**: 20 downstream repos (Flutter variant scaffolds), `tasks/todo.md` (checked off 21.10), `tasks/repo-seeding.md` (rate-limit evidence), `tasks/history.md` (this entry).
+- **Adversarial review**: verified all 20 repos remain PRIVATE, no GitHub Actions present, Flutter SDK toolchain blocker documented (local Flutter SDK unavailable — `flutter analyze` cannot run), all HealthKit/Google Fit platform channels, BLE device pairing, biometric sensors, GPS/location, payment/subscription, push notifications marked as explicitly blocked in BLOCKERS.md.
+- **Residual risk**: none for this scaffold step; all provider/hardware/regulatory risks documented in blocker files.
+- **Rollback note**: revert Flutter variant commits in each downstream repo to remove `variants/flutter/`.
