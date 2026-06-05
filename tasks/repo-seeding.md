@@ -3775,3 +3775,33 @@ The Step 21.4 full entry is preserved below:
 | 21 | FamilyAlbum | 697 | familyalbum-mobile-clone | PASS | PASS | PASS |
 
 **Result**: 21 checked, 21 pass, 0 fail.
+
+### Phase 21 Step 21.14 Expo Variant — Fitness & Activity Tracking (20 apps) - 2026-06-05
+
+**Pre-run rate limit**: core used=0, remaining=5000, limit=5000
+**Post-run rate limit**: core used=140, remaining=4860, limit=5000
+
+| # | App | ID | Repo | Expo Variant | PRIVATE | No Actions |
+|---|-----|----|------|--------------|---------|------------|
+| 1 | Headspace | 082 | headspace-mobile-clone | PASS | PASS | PASS |
+| 2 | Calm | 083 | calm-mobile-clone | PASS | PASS | PASS |
+| 3 | Strava | 084 | strava-mobile-clone | PASS | PASS | PASS |
+| 4 | Nike Run Club | 085 | nike-run-club-mobile-clone | PASS | PASS | PASS |
+| 5 | MyFitnessPal | 086 | myfitnesspal-mobile-clone | PASS | PASS | PASS |
+| 6 | Fitbit | 087 | fitbit-mobile-clone | PASS | PASS | PASS |
+| 7 | Peloton | 356 | peloton-mobile-clone | PASS | PASS | PASS |
+| 8 | Zwift | 357 | zwift-mobile-clone | PASS | PASS | PASS |
+| 9 | Garmin Connect | 358 | garmin-connect-mobile-clone | PASS | PASS | PASS |
+| 10 | Nike Training Club | 359 | nike-training-club-mobile-clone | PASS | PASS | PASS |
+| 11 | Fitbod | 360 | fitbod-mobile-clone | PASS | PASS | PASS |
+| 12 | Strong | 361 | strong-mobile-clone | PASS | PASS | PASS |
+| 13 | Hevy | 362 | hevy-mobile-clone | PASS | PASS | PASS |
+| 14 | Runkeeper | 363 | runkeeper-mobile-clone | PASS | PASS | PASS |
+| 15 | MapMyRun | 364 | mapmyrun-mobile-clone | PASS | PASS | PASS |
+| 16 | Komoot | 365 | komoot-mobile-clone | PASS | PASS | PASS |
+| 17 | Relive | 366 | relive-mobile-clone | PASS | PASS | PASS |
+| 18 | TrainerRoad | 367 | trainerroad-mobile-clone | PASS | PASS | PASS |
+| 19 | TrainingPeaks | 368 | trainingpeaks-mobile-clone | PASS | PASS | PASS |
+| 20 | Athlytic | 682 | athlytic-mobile-clone | PASS | PASS | PASS |
+
+**Result**: 20 checked, 20 pass, 0 fail.

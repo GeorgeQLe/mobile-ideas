@@ -1,5 +1,15 @@
 # History
 
+## 2026-06-05 - Phase 21 Step 21.14 (Tranche 1): Expo Variant for Fitness & Activity Tracking (20 apps)
+
+- Built and verified Expo variant scaffolds (`variants/expo/`) for 20 fitness & activity tracking apps across 20 private downstream repos.
+- Categories: Meditation/Wellness (2: Headspace, Calm), Running/Outdoor (6: Strava, Nike Run Club, Runkeeper, MapMyRun, Komoot, Relive), Nutrition (1: MyFitnessPal), Wearable/Health (3: Fitbit, Garmin Connect, Athlytic), Connected Fitness (2: Peloton, Zwift), Gym/Strength (4: Nike Training Club, Fitbod, Strong, Hevy), Cycling Training (2: TrainerRoad, TrainingPeaks).
+- Each scaffold: package.json (Expo ~52.0.0, expo-router ~4.0.0, React Navigation), tsconfig.json (strict TS), app.json (Expo config), app/ directory with _layout.tsx + index.tsx + 4 tab screens (file-based routing), 5 components, 3-4 services, 3 hooks, BLOCKERS.md with category + Expo-specific blockers.
+- All 20 repos verified PRIVATE with package.json, tsconfig.json, app.json, app/_layout.tsx, BLOCKERS.md, and no GitHub Actions (checked=20, pass=20, fail=0).
+- Rate-limit evidence: pre-run 0/5000, post-run 140/5000 (remaining=4860).
+- Expo-specific blockers documented: EAS Build required for native modules, expo-dev-client needed for custom native code, HealthKit/Google Fit/BLE require native module linking via EAS Build, OTA updates via expo-updates for JS-only changes.
+- Generator script: `/tmp/generate-fitness-expo-variants.mjs`.
+
 ## 2026-06-05 - Phase 21 Step 21.13: Flutter Variant for Pregnancy, Parenting, Family Safety & Remaining (21 apps)
 
 - Built and verified Flutter variant scaffolds (`variants/flutter/`) for 21 pregnancy, parenting, family safety & remaining apps across 21 private downstream repos.
