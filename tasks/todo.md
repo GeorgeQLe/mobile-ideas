@@ -225,6 +225,62 @@
 
   **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`, ~73 downstream repos (`variants/react-native/`).
 
+  **Implementation Plan (Step 23.3):**
+
+  **What:** Build and push `variants/react-native/` scaffolds to all 73 Phase 23 Productivity & Collaboration downstream repos.
+
+  **Approach:**
+  1. Write `/tmp/generate-productivity-rn-variants.mjs` — a Node.js generator script that:
+     - Defines all 73 apps with their IDs, names, repo slugs, categories, and category-specific screens/components.
+     - For each app: clone repo to `/tmp/`, create `variants/react-native/` directory tree, write scaffold files, commit, push.
+     - Serial execution with 30s delays between repos per CLAUDE.md.
+     - Stop on any 403, 429, or rate-limit response.
+  2. `gh api rate_limit` — record pre-run evidence.
+  3. Run generator: `node /tmp/generate-productivity-rn-variants.mjs`.
+  4. `gh api rate_limit` — record post-run evidence.
+  5. Verify all 73 repos have `variants/react-native/package.json` via `gh api`.
+  6. Update `tasks/todo.md` with results, `tasks/repo-seeding.md` with verification evidence.
+
+  **Scaffold structure per repo:**
+  ```
+  variants/react-native/
+  ├── package.json          # RN dependencies, scripts
+  ├── tsconfig.json         # TypeScript configuration
+  ├── app.json              # App metadata
+  ├── index.js              # Entry point
+  ├── src/
+  │   ├── screens/          # Category-specific screen files
+  │   ├── components/       # Shared UI components
+  │   ├── navigation/
+  │   │   └── AppNavigator.js  # Tab/stack navigation
+  │   ├── services/         # API/data service stubs
+  │   └── hooks/            # Custom hooks
+  └── BLOCKERS.md           # Category-specific blockers
+  ```
+
+  **Category-specific screens (same 12 categories as Step 23.2):**
+  - Task Management: DashboardScreen, WorkspaceScreen, BoardScreen, SettingsScreen
+  - Notes & Knowledge: NotesListScreen, EditorScreen, TagsScreen, SettingsScreen
+  - Documents & Office: DocumentsScreen, EditorScreen, FormattingScreen, CollaborationScreen
+  - Calendar: MonthViewScreen, WeekViewScreen, EventDetailScreen, SettingsScreen
+  - Scheduling: BookingScreen, AvailabilityScreen, ClientsScreen, SettingsScreen
+  - Cloud Storage: FilesScreen, SharedScreen, UploadScreen, SettingsScreen
+  - Document Scanning: ScansScreen, CameraScreen, ViewerScreen, SettingsScreen
+  - Email: InboxScreen, ThreadScreen, ComposeScreen, SettingsScreen
+  - Creator Tools: ProjectsScreen, EditorScreen, MediaScreen, ExportScreen
+  - Design: CanvasScreen, LayersScreen, PropertiesScreen, ComponentsScreen
+  - AI Assistant: ChatScreen, HistoryScreen, ToolsScreen, SettingsScreen
+  - Translation: TranslateScreen, HistoryScreen, CameraScreen, SettingsScreen
+
+  **Prior phase pattern:** Phase 22 used the same approach with `/tmp/generate-education-rn-variants.mjs`.
+
+  **Acceptance Criteria:**
+  - All 73 repos have `variants/react-native/` with package.json, tsconfig.json, app.json, index.js, src/ tree, BLOCKERS.md.
+  - Each scaffold has category-appropriate screens and navigation.
+  - Verification: 73/73 repos confirmed via `gh api`.
+  - Rate-limit evidence recorded before and after.
+  - `tasks/todo.md` checked off, `tasks/repo-seeding.md` updated.
+
 - [ ] Step 23.4: Build Flutter variant scaffolds for all Phase 23 Productivity & Collaboration apps
   - Build `variants/flutter/` scaffold for all Phase 23 downstream repos.
   - Each scaffold: `pubspec.yaml`, `analysis_options.yaml`, `lib/main.dart`, `lib/screens/`, `lib/widgets/`, `lib/services/`, `lib/models/`, `lib/providers/`, `BLOCKERS.md`.
