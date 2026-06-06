@@ -154,6 +154,54 @@
 
   **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`, ~73 downstream repos (`variants/static/`).
 
+  **Implementation Plan (Step 23.2):**
+
+  **What:** Build and push `variants/static/` scaffolds (index.html, styles.css, app.js, README.md) to all 73 Phase 23 Productivity & Collaboration downstream repos.
+
+  **Approach:**
+  1. Write `/tmp/generate-productivity-prototypes.mjs` — a Node.js generator script that:
+     - Defines all 73 apps with their IDs, names, repo slugs, categories, and category-specific screens/features.
+     - Category-specific UI patterns:
+       - **Task Management** (Notion, Todoist, Trello, Coda, Airtable): kanban boards, task lists, database views, drag-and-drop, rich text blocks.
+       - **Notes & Knowledge** (Obsidian, Bear, iA Writer, Ulysses, Craft, Roam Research, Logseq, Standard Notes, Joplin, Simplenote, Notesnook, Anytype, Evernote, OneNote): markdown editor, notebook/folder sidebar, note list, tagging, search, bidirectional links.
+       - **Documents & Office** (Google Docs/Sheets/Slides, MS Word/Excel/PowerPoint, Apple Pages/Numbers/Keynote, MS 365): document editor, toolbar/ribbon, spreadsheet grid, slide canvas, formatting controls.
+       - **Calendar** (Google Calendar, Fantastical, BusyCal, Timepage, Calendars by Readdle, Proton Calendar, Doodle): month/week/day views, event creation, drag-to-resize, color-coded calendars.
+       - **Scheduling** (Calendly, Cal.com, SavvyCal, Acuity, Square Appointments, Vagaro, Mindbody, Fresha, Booksy, StyleSeat, Schedulicity, Setmore): booking page, availability grid, client list, appointment details, service catalog.
+       - **Cloud Storage** (Dropbox, Google Drive, Box, OneDrive, iCloud Drive, MEGA, pCloud, Sync.com, WeTransfer): file browser, folder tree, upload area, sharing dialog, storage quota.
+       - **Document Scanning** (CamScanner, Genius Scan, Scanner Pro, Adobe Acrobat Reader, DocuSign, Adobe Scan, Microsoft Lens): camera viewfinder, document crop/enhance, PDF viewer, scan list, signature pad.
+       - **Email** (Gmail, Outlook): inbox list, email thread view, compose modal, label/folder sidebar.
+       - **Creator Tools** (CapCut, Canva, Lightroom): timeline/canvas, tools panel, media library, export dialog, filter/adjustment controls.
+       - **Design** (Figma): canvas, layers panel, properties inspector, component library, toolbar.
+       - **AI Assistant** (Monica): chat interface, conversation list, prompt input, settings.
+       - **Translation** (Google Translate, DeepL): source/target language selectors, text input/output, history list.
+     - For each app: clone repo to `/tmp/`, create `variants/static/` directory, write 4 files, commit, push.
+     - Serial execution with rate-limit awareness (30s between repos minimum per CLAUDE.md).
+  2. `gh api rate_limit` — record pre-run evidence.
+  3. Run generator: `node /tmp/generate-productivity-prototypes.mjs`.
+  4. `gh api rate_limit` — record post-run evidence.
+  5. Verify all 73 repos have `variants/static/index.html` via `gh api`.
+  6. Update `tasks/todo.md` with results, `tasks/repo-seeding.md` with verification evidence.
+
+  **Key Technical Decisions:**
+  - Follow the same generator pattern used in Phases 18-22 for static variants.
+  - Each `index.html` must include app-specific screen mockups with category-appropriate UI elements.
+  - Each `styles.css` uses app-specific color theme derived from the app's brand identity.
+  - Each `app.js` implements tab/screen navigation and basic interaction stubs.
+  - Each `README.md` documents the static prototype scope, screens, and blockers.
+  - Stop on any 403, 429, or rate-limit response per CLAUDE.md.
+
+  **Prior Phase Patterns:**
+  - Phase 22 used the same approach with `/tmp/generate-education-prototypes.mjs`.
+  - Generator scripts use `execSync` for git/gh commands, serial processing, rate-limit checks.
+  - Expect ~73 × 5 API calls for clone/push/verify = ~365 calls within rate limit budget.
+
+  **Acceptance Criteria:**
+  - All 73 repos have `variants/static/` with `index.html`, `styles.css`, `app.js`, `README.md`.
+  - Each scaffold has category-appropriate screens and UI patterns.
+  - Verification: 73/73 repos confirmed via `gh api`.
+  - Rate-limit evidence recorded before and after.
+  - `tasks/todo.md` checked off, `tasks/repo-seeding.md` updated.
+
 - [ ] Step 23.3: Build React Native variant scaffolds for all Phase 23 Productivity & Collaboration apps
   - Build `variants/react-native/` scaffold for all Phase 23 downstream repos.
   - Each scaffold: `package.json`, `tsconfig.json`, `app.json`, `index.js`, `src/screens/`, `src/components/`, `src/navigation/AppNavigator.js`, `src/services/`, `src/hooks/`, `BLOCKERS.md`.
