@@ -306,6 +306,75 @@
 
   **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`, ~73 downstream repos (`variants/flutter/`).
 
+  **Implementation Plan (Step 23.4):**
+
+  **What:** Build and push `variants/flutter/` scaffolds to all 73 Phase 23 Productivity & Collaboration downstream repos.
+
+  **Approach:**
+  1. Write `/tmp/generate-productivity-flutter-variants.mjs` — a Node.js generator script that:
+     - Defines all 73 apps with their IDs, names, repo slugs, categories, and category-specific screens/widgets.
+     - For each app: clone repo to `/tmp/`, create `variants/flutter/` directory tree, write scaffold files, commit, push.
+     - Serial execution with 32s delays between repos per CLAUDE.md.
+     - Stop on any 403, 429, or rate-limit response.
+     - GitHub owner: `GeorgeQLe`.
+  2. `gh api rate_limit` — record pre-run evidence.
+  3. Run generator: `node /tmp/generate-productivity-flutter-variants.mjs`.
+  4. `gh api rate_limit` — record post-run evidence.
+  5. Verify all 73 repos have `variants/flutter/pubspec.yaml` via `gh api`.
+  6. Update `tasks/todo.md` with results, `tasks/repo-seeding.md` with verification evidence.
+
+  **Scaffold structure per repo:**
+  ```
+  variants/flutter/
+  ├── pubspec.yaml              # Flutter dependencies
+  ├── analysis_options.yaml     # Lint rules
+  ├── lib/
+  │   ├── main.dart             # Entry point with MaterialApp
+  │   ├── screens/              # Category-specific screen files
+  │   ├── widgets/              # Shared widget components
+  │   ├── services/             # API/data service stubs
+  │   ├── models/               # Data model classes
+  │   └── providers/            # State management stubs
+  └── BLOCKERS.md               # Category-specific blockers
+  ```
+
+  **Category-specific screens (same 12 categories as Steps 23.2-23.3):**
+  - Task Management (5): dashboard_screen.dart, workspace_screen.dart, board_screen.dart, settings_screen.dart
+  - Notes & Knowledge (14): notes_list_screen.dart, editor_screen.dart, tags_screen.dart, settings_screen.dart
+  - Documents & Office (10): documents_screen.dart, editor_screen.dart, formatting_screen.dart, collaboration_screen.dart
+  - Calendar (7): month_view_screen.dart, week_view_screen.dart, event_detail_screen.dart, settings_screen.dart
+  - Scheduling (12): booking_screen.dart, availability_screen.dart, clients_screen.dart, settings_screen.dart
+  - Cloud Storage (9): files_screen.dart, shared_screen.dart, upload_screen.dart, settings_screen.dart
+  - Document Scanning (7): scans_screen.dart, camera_screen.dart, viewer_screen.dart, settings_screen.dart
+  - Email (2): inbox_screen.dart, thread_screen.dart, compose_screen.dart, settings_screen.dart
+  - Creator Tools (3): projects_screen.dart, editor_screen.dart, media_screen.dart, export_screen.dart
+  - Design (1): canvas_screen.dart, layers_screen.dart, properties_screen.dart, components_screen.dart
+  - AI Assistant (1): chat_screen.dart, history_screen.dart, tools_screen.dart, settings_screen.dart
+  - Translation (2): translate_screen.dart, history_screen.dart, camera_screen.dart, settings_screen.dart
+
+  **Category-specific services:** Same service domains as Step 23.3 (TaskService, NoteService, etc.) but in Dart.
+
+  **Prior phase patterns:**
+  - Steps 23.2 and 23.3 used the same serial generator approach — all 73/73 PASS with 0 failures.
+  - Flutter uses snake_case file names and Dart class conventions.
+  - main.dart uses MaterialApp with BottomNavigationBar for tab navigation.
+
+  **Key Technical Decisions:**
+  - Follow Flutter/Dart naming: snake_case files, PascalCase classes, camelCase methods.
+  - pubspec.yaml: Flutter SDK constraint, cupertino_icons, provider for state management.
+  - analysis_options.yaml: flutter_lints recommended rules.
+  - Each screen: StatelessWidget or StatefulWidget stub with Scaffold, AppBar, and placeholder body.
+  - Each service: Dart class with async CRUD method stubs returning empty/mock data.
+  - Each model: simple Dart class with fromJson/toJson stubs.
+  - Each provider: ChangeNotifier stub with loading/error/data state.
+
+  **Acceptance Criteria:**
+  - All 73 repos have `variants/flutter/` with pubspec.yaml, analysis_options.yaml, lib/main.dart, lib/screens/, lib/widgets/, lib/services/, lib/models/, lib/providers/, BLOCKERS.md.
+  - Each scaffold has category-appropriate screens, services, models, and providers.
+  - Verification: 73/73 repos confirmed via `gh api`.
+  - Rate-limit evidence recorded before and after.
+  - `tasks/todo.md` checked off, `tasks/repo-seeding.md` updated.
+
 - [ ] Step 23.5: Build Expo variant scaffolds for all Phase 23 Productivity & Collaboration apps
   - Build `variants/expo/` scaffold for all Phase 23 downstream repos.
   - Each scaffold: `package.json`, `tsconfig.json`, `app.json`, `app/_layout.tsx`, `app/(tabs)/`, `src/components/`, `src/services/`, `src/hooks/`, `src/stores/`, `BLOCKERS.md`.
