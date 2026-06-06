@@ -141,7 +141,7 @@
   - Neither workflow presence nor spec ID mismatches block variant scaffold work in Steps 23.2-23.7.
   - Full evidence in `tasks/repo-seeding.md` under "Phase 23 Step 23.1".
 
-- [ ] Step 23.2: Build static variant scaffolds for all Phase 23 Productivity & Collaboration apps
+- [x] Step 23.2: Build static variant scaffolds for all Phase 23 Productivity & Collaboration apps ✅ 2026-06-06
   - Build `variants/static/` scaffold for all Phase 23 downstream repos.
   - Each scaffold: `index.html`, `styles.css`, `app.js`, `README.md` with app-specific screens/features, category-specific UI patterns.
   - Generator script at `/tmp/generate-productivity-prototypes.mjs`.
@@ -201,6 +201,16 @@
   - Verification: 73/73 repos confirmed via `gh api`.
   - Rate-limit evidence recorded before and after.
   - `tasks/todo.md` checked off, `tasks/repo-seeding.md` updated.
+
+  **Results (2026-06-06):**
+  - Generator: `/tmp/generate-productivity-prototypes.mjs` — serial clone → scaffold → commit → push with 30s delays.
+  - **73/73 repos scaffolded and pushed successfully. 0 failures.**
+  - Run time: 05:55 UTC – 06:36 UTC (~41 minutes).
+  - Pre-run rate limit: 0/5000 used. Post-run rate limit: 2/5000 used.
+  - Verification: 73/73 repos confirmed via `gh api` (variants/static/index.html present).
+  - 20-repo spot check confirmed all 4 files (index.html, styles.css, app.js, README.md) present.
+  - 12 category-specific UI patterns: Task Management (5), Notes & Knowledge (14), Documents & Office (10), Calendar (7), Scheduling (12), Cloud Storage (9), Document Scanning (7), Email (2), Creator Tools (3), Design (1), AI Assistant (1), Translation (2).
+  - Full evidence in `tasks/repo-seeding.md` under "Phase 23 Step 23.2".
 
 - [ ] Step 23.3: Build React Native variant scaffolds for all Phase 23 Productivity & Collaboration apps
   - Build `variants/react-native/` scaffold for all Phase 23 downstream repos.

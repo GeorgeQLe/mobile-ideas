@@ -1,5 +1,15 @@
 # History
 
+## 2026-06-06 - Phase 23 Step 23.2: Static Variant Scaffolds (73 Productivity & Collaboration apps)
+
+- Built and pushed static HTML/CSS/JS variant scaffolds (`variants/static/`) for all 73 Productivity & Collaboration downstream repos.
+- Generator: `/tmp/generate-productivity-prototypes.mjs` — serial clone → scaffold → commit → push with 30s delays.
+- **73/73 repos scaffolded successfully. 0 failures.** Run time: ~41 minutes.
+- 12 category-specific UI patterns: Task Management (5), Notes & Knowledge (14), Documents & Office (10), Calendar (7), Scheduling (12), Cloud Storage (9), Document Scanning (7), Email (2), Creator Tools (3), Design (1), AI Assistant (1), Translation (2).
+- Verification: 73/73 confirmed via `gh api`. 20-repo spot check confirmed all 4 files present.
+- Rate limit: pre=0/5000, post=2/5000.
+- **Changed files**: 73 downstream repos (`variants/static/`), `tasks/todo.md` (checked off 23.2, added results), `tasks/repo-seeding.md` (verification evidence), `tasks/history.md` (this entry).
+
 ## 2026-06-05 - Phase 22 Step 22.3: React Native Variant Scaffolds (26 Education & Learning apps)
 
 - Built and verified React Native (Expo) variant scaffolds (`variants/react-native/`) for all 26 Education & Learning downstream repos.
