@@ -28,7 +28,7 @@
 
 ### Implementation
 
-- [ ] Step 23.1: Reconcile exact Productivity & Collaboration app inventory and downstream readiness (~73 apps)
+- [x] Step 23.1: Reconcile exact Productivity & Collaboration app inventory and downstream readiness (~73 apps) ✅ 2026-06-06
   - Reconcile all ~73 apps across IDs from batches 02, 03, 05, 10, 36, 37, 38, 39.
   - Serial GitHub API verification: visibility == PRIVATE, default branch == main, README present, source spec present under docs/source-specs/, root commit present, no .github/workflows.
   - Record pre/post rate-limit evidence.
@@ -130,6 +130,16 @@
   **Ship-one-step handoff:** Implement only Step 23.1, validate it, then run `/ship` when done.
 
   **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`.
+
+  **Results (2026-06-06):**
+  - 73 repos verified serially via `gh api`. Rate limit: 338 of 5000 core calls used.
+  - **65 PASS, 8 FAIL** (2 unauthorized workflows, 6 spec ID mismatches).
+  - Workflow failures: `todoist-mobile-clone`, `monica-mobile-clone` — each has 6 `.github/workflows/` files. Remediation: delete workflow directories.
+  - Spec ID mismatches: `camscanner-mobile-clone` (+43 offset), `genius-scan-mobile-clone` (+43), `scanner-pro-mobile-clone` (+43), `docusign-mobile-clone` (+3), `adobe-scan-mobile-clone` (+3), `microsoft-lens-mobile-clone` (+3). Content correct, filenames have wrong numeric prefix.
+  - 7 transient API failures re-verified manually — all PASS.
+  - 10 risk groups documented with carry-forward blockers.
+  - Neither workflow presence nor spec ID mismatches block variant scaffold work in Steps 23.2-23.7.
+  - Full evidence in `tasks/repo-seeding.md` under "Phase 23 Step 23.1".
 
 - [ ] Step 23.2: Build static variant scaffolds for all Phase 23 Productivity & Collaboration apps
   - Build `variants/static/` scaffold for all Phase 23 downstream repos.

@@ -4158,3 +4158,136 @@ The Step 21.4 full entry is preserved below:
 - Files found: `android-native.yml`, `benchmark.yml`, `expo.yml`, `flutter.yml`, `ios-native.yml`, `react-native.yml`
 - Action required: delete `.github/workflows/` directory from these 4 repos in a future step.
 - These workflows were not enabled, dispatched, or triggered during this verification.
+
+### Phase 23 Step 23.1 — Productivity & Collaboration Inventory Reconciliation (73 apps) - 2026-06-06
+
+**Pre-scan rate limit:** core 5000/5000 (0 used), graphql 4997/5000, search 30/30.
+**Post-scan rate limit:** core 4662/5000 (338 used), graphql 4999/5000, search 30/30.
+
+**Scan method:** Serial `gh api` verification with 2s delays between repos. Two batch runs (repos 1-51, then 52-73) due to one transient hang. All transient API failures re-verified manually.
+
+**Summary:** 73 repos checked. **65 PASS, 8 FAIL** (2 workflows present, 6 spec ID mismatches).
+
+**Verified Inventory:**
+
+| ID | App | Repo Slug | Private | Main | README | Spec | Commit | No Actions | Category | Status |
+|---:|-----|-----------|---------|------|--------|------|--------|------------|----------|--------|
+| 024 | Gmail | gmail-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Email | PASS |
+| 025 | Outlook | outlook-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Email | PASS |
+| 089 | Notion | notion-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Task Management | PASS |
+| 090 | Todoist | todoist-mobile-clone | PASS | PASS | PASS | PASS | PASS | **FAIL** | Task Management | **FAIL** |
+| 091 | Trello | trello-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Task Management | PASS |
+| 092 | Google Calendar | google-calendar-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Calendar | PASS |
+| 093 | Evernote | evernote-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Notes | PASS |
+| 094 | Dropbox | dropbox-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Cloud Storage | PASS |
+| 095 | Google Drive | google-drive-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Cloud Storage | PASS |
+| 096 | CapCut | capcut-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Creator Tools | PASS |
+| 097 | Canva | canva-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Creator Tools | PASS |
+| 098 | Lightroom | lightroom-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Creator Tools | PASS |
+| 183 | Google Translate | google-translate-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Translation | PASS |
+| 184 | DeepL | deepl-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Translation | PASS |
+| 192 | Figma | figma-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Design | PASS |
+| 194 | Calendly | calendly-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Calendar/Scheduling | PASS |
+| 195 | Fantastical | fantastical-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Calendar | PASS |
+| 197 | Obsidian | obsidian-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Notes | PASS |
+| 198 | Bear | bear-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Notes | PASS |
+| 219 | Monica | monica-mobile-clone | PASS | PASS | PASS | PASS | PASS | **FAIL** | AI Assistant | **FAIL** |
+| 720 | Microsoft 365 | microsoft-365-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Office Suite | PASS |
+| 721 | Google Docs | google-docs-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Documents | PASS |
+| 722 | Google Sheets | google-sheets-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Documents | PASS |
+| 723 | Google Slides | google-slides-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Documents | PASS |
+| 724 | Microsoft Word | microsoft-word-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Documents | PASS |
+| 725 | Microsoft Excel | microsoft-excel-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Documents | PASS |
+| 726 | Microsoft PowerPoint | microsoft-powerpoint-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Documents | PASS |
+| 727 | OneNote | onenote-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Notes | PASS |
+| 728 | Apple Pages | apple-pages-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Documents | PASS |
+| 729 | Apple Numbers | apple-numbers-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Documents | PASS |
+| 730 | Apple Keynote | apple-keynote-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Documents | PASS |
+| 731 | iA Writer | ia-writer-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Notes | PASS |
+| 732 | Ulysses | ulysses-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Notes | PASS |
+| 733 | Craft | craft-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Notes | PASS |
+| 734 | Roam Research | roam-research-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Notes | PASS |
+| 735 | Logseq | logseq-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Notes | PASS |
+| 736 | Standard Notes | standard-notes-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Notes | PASS |
+| 737 | Joplin | joplin-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Notes | PASS |
+| 738 | Simplenote | simplenote-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Notes | PASS |
+| 739 | Notesnook | notesnook-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Notes | PASS |
+| 740 | Anytype | anytype-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Notes | PASS |
+| 741 | Coda | coda-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Task Management | PASS |
+| 742 | Airtable | airtable-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Task Management | PASS |
+| 743 | CamScanner | camscanner-mobile-clone | PASS | PASS | PASS | **FAIL** | PASS | PASS | Document Scanning | **FAIL** |
+| 744 | Genius Scan | genius-scan-mobile-clone | PASS | PASS | PASS | **FAIL** | PASS | PASS | Document Scanning | **FAIL** |
+| 745 | Scanner Pro | scanner-pro-mobile-clone | PASS | PASS | PASS | **FAIL** | PASS | PASS | Document Scanning | **FAIL** |
+| 762 | Doodle | doodle-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Calendar/Scheduling | PASS |
+| 763 | BusyCal | busycal-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Calendar | PASS |
+| 764 | Timepage | timepage-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Calendar | PASS |
+| 765 | Calendars by Readdle | calendars-by-readdle-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Calendar | PASS |
+| 766 | Proton Calendar | proton-calendar-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Calendar | PASS |
+| 767 | Cal.com | cal-com-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Calendar/Scheduling | PASS |
+| 768 | SavvyCal | savvycal-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Calendar/Scheduling | PASS |
+| 769 | Acuity Scheduling | acuity-scheduling-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Scheduling | PASS |
+| 770 | Square Appointments | square-appointments-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Scheduling | PASS |
+| 771 | Vagaro | vagaro-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Scheduling | PASS |
+| 772 | Mindbody | mindbody-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Scheduling | PASS |
+| 773 | Fresha | fresha-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Scheduling | PASS |
+| 774 | Booksy | booksy-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Scheduling | PASS |
+| 775 | StyleSeat | styleseat-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Scheduling | PASS |
+| 776 | Schedulicity | schedulicity-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Scheduling | PASS |
+| 777 | Setmore | setmore-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Scheduling | PASS |
+| 778 | Box | box-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Cloud Storage | PASS |
+| 779 | OneDrive | onedrive-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Cloud Storage | PASS |
+| 780 | iCloud Drive | icloud-drive-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Cloud Storage | PASS |
+| 781 | MEGA | mega-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Cloud Storage | PASS |
+| 782 | pCloud | pcloud-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Cloud Storage | PASS |
+| 783 | Sync.com | sync-com-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Cloud Storage | PASS |
+| 784 | WeTransfer | wetransfer-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Cloud Storage | PASS |
+| 785 | Adobe Acrobat Reader | adobe-acrobat-reader-mobile-clone | PASS | PASS | PASS | PASS | PASS | PASS | Document Scanning | PASS |
+| 786 | DocuSign | docusign-mobile-clone | PASS | PASS | PASS | **FAIL** | PASS | PASS | Document Scanning | **FAIL** |
+| 787 | Adobe Scan | adobe-scan-mobile-clone | PASS | PASS | PASS | **FAIL** | PASS | PASS | Document Scanning | **FAIL** |
+| 788 | Microsoft Lens | microsoft-lens-mobile-clone | PASS | PASS | PASS | **FAIL** | PASS | PASS | Document Scanning | **FAIL** |
+
+**Failure Details:**
+
+1. **Unauthorized GitHub Actions Workflows (2 repos):**
+   - `todoist-mobile-clone`: 6 workflow files (`android-native.yml`, `benchmark.yml`, `expo.yml`, `flutter.yml`, `ios-native.yml`, `react-native.yml`)
+   - `monica-mobile-clone`: 6 workflow files (same set)
+   - Action required: delete `.github/workflows/` directory from these repos in a future remediation step.
+   - These workflows were not enabled, dispatched, or triggered during this verification.
+
+2. **Spec ID Mismatches (6 repos):**
+   Downstream repos were seeded with spec files using incorrect ID prefixes. All have correct app-name slugs and valid spec content, just wrong numeric IDs.
+
+   | Repo | Expected Spec | Actual Spec in Downstream | ID Offset |
+   |------|--------------|--------------------------|-----------|
+   | camscanner-mobile-clone | `743-camscanner.md` | `786-camscanner.md` | +43 |
+   | genius-scan-mobile-clone | `744-genius-scan.md` | `787-genius-scan.md` | +43 |
+   | scanner-pro-mobile-clone | `745-scanner-pro.md` | `788-scanner-pro.md` | +43 |
+   | docusign-mobile-clone | `786-docusign.md` | `789-docusign.md` | +3 |
+   | adobe-scan-mobile-clone | `787-adobe-scan.md` | `790-adobe-scan.md` | +3 |
+   | microsoft-lens-mobile-clone | `788-microsoft-lens.md` | `791-microsoft-lens.md` | +3 |
+
+   - Action required: rename spec files in downstream repos to match canonical IDs, or update canonical spec IDs if the downstream numbering is authoritative.
+   - These mismatches do not block variant scaffold work — the spec content is correct, only the filename prefix differs.
+
+**Transient API Failures (re-verified manually, all PASS):**
+- `joplin-mobile-clone`, `notesnook-mobile-clone`, `anytype-mobile-clone` — spec checks returned errors during batch scan but pass on manual re-verification.
+- `acuity-scheduling-mobile-clone` — actions check returned error during batch scan; no `.github/workflows` directory present (404).
+- `square-appointments-mobile-clone` — README check returned error during batch scan; `README.md` confirmed present.
+- `booksy-mobile-clone`, `pcloud-mobile-clone` — visibility/branch checks returned errors during batch scan; both confirmed `private` / `main` on manual re-check.
+
+**Risk Groups & Carry-Forward Blockers:**
+
+| Risk Group | Apps | Key Blockers |
+|---|---|---|
+| Task Management (5) | Notion, Todoist, Trello, Coda, Airtable | Real-time collaboration (CRDT/OT), drag-and-drop, rich text/block editing, database views, permissions/sharing, offline sync |
+| Notes & Knowledge (14) | Obsidian, Bear, iA Writer, Ulysses, Craft, Roam Research, Logseq, Standard Notes, Joplin, Simplenote, Notesnook, Anytype, Evernote, OneNote | Markdown/rich text engines, bidirectional linking, graph visualization, end-to-end encryption, plugin/extension systems, offline-first sync, local file storage |
+| Documents & Office (10) | Google Docs, Google Sheets, Google Slides, Microsoft Word, Microsoft Excel, Microsoft PowerPoint, Apple Pages, Apple Numbers, Apple Keynote, Microsoft 365 | Document format handling (DOCX/XLSX/PPTX/PDF), real-time collaborative editing (OT/CRDT), formula engines, presentation rendering, complex layout engines, font rendering |
+| Calendar (7) | Google Calendar, Fantastical, BusyCal, Timepage, Calendars by Readdle, Proton Calendar, Doodle | CalDAV/Google Calendar API integration, event sync, recurring event rules (RRULE), timezone handling, natural language parsing, widget/complication support |
+| Scheduling (12) | Calendly, Cal.com, SavvyCal, Acuity Scheduling, Square Appointments, Vagaro, Mindbody, Fresha, Booksy, StyleSeat, Schedulicity, Setmore | Booking/appointment flows, payment processing (Stripe/Square), business hours/availability, multi-timezone, SMS/email notifications, client management, POS integration |
+| Cloud Storage (9) | Dropbox, Google Drive, Box, OneDrive, iCloud Drive, MEGA, pCloud, Sync.com, WeTransfer | Cloud storage APIs (Google Drive API, Dropbox API, OneDrive API, S3), large file upload/download, selective sync, file sharing/permissions, offline access, end-to-end encryption |
+| Document Scanning (7) | CamScanner, Genius Scan, Scanner Pro, Adobe Acrobat Reader, DocuSign, Adobe Scan, Microsoft Lens | Camera/OCR integration, PDF generation/annotation, document edge detection, e-signature workflows, form filling, cloud document management |
+| Email (2) | Gmail, Outlook | IMAP/SMTP/Exchange integration, push notifications, threading/conversation view, rich HTML rendering, attachment handling, contact integration |
+| Creator Tools (3) | CapCut, Canva, Lightroom | Video editing pipeline, image processing/filters, template engines, media asset management, export formats, GPU-accelerated rendering |
+| Design (1) | Figma | Vector graphics engine, real-time multiplayer collaboration, component/design system, prototype interactions, plugin API |
+| AI Assistant (1) | Monica | LLM/NLP model integration, conversation management, context window handling, API key management, subscription tiers |
+| Translation (2) | Google Translate, DeepL | Translation API/model integration, offline model download, camera OCR/real-time translation, language pair licensing |
