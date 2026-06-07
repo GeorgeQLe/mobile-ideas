@@ -493,6 +493,85 @@
 
   **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`, ~73 downstream repos (`variants/ios-native/`).
 
+  **Implementation Plan (Step 23.6):**
+
+  **What:** Build and push `variants/ios-native/` scaffolds to all 73 Phase 23 Productivity & Collaboration downstream repos.
+
+  **Approach:**
+  1. Write `/tmp/generate-productivity-ios-variants.mjs` — a Node.js generator script that:
+     - Defines all 73 apps with their IDs, names, repo slugs, categories, and category-specific views/services/models.
+     - For each app: clone repo to `/tmp/`, create `variants/ios-native/` directory tree, write scaffold files, commit, push.
+     - Serial execution with 32s delays between repos per CLAUDE.md.
+     - Stop on any 403, 429, or rate-limit response.
+     - GitHub owner: `GeorgeQLe`.
+     - Support `START_INDEX`, `END_INDEX`, `SKIP_SLUGS` env vars for batched execution (10-min process timeout constraint).
+     - Skip already-scaffolded repos (check `git status --porcelain` before commit).
+     - Set explicit `cwd: '/tmp'` on clone commands to avoid getcwd errors from prior directory cleanup.
+  2. `gh api rate_limit` — record pre-run evidence.
+  3. Run generator in batches of ~15 repos: `START_INDEX=N END_INDEX=M node /tmp/generate-productivity-ios-variants.mjs`.
+  4. `gh api rate_limit` — record post-run evidence.
+  5. Verify all 73 repos have `variants/ios-native/Package.swift` via `gh api`.
+  6. Update `tasks/todo.md` with results, `tasks/repo-seeding.md` with verification evidence, `tasks/history.md` with session record.
+
+  **Scaffold structure per repo:**
+  ```
+  variants/ios-native/
+  ├── Package.swift                    # SPM package manifest
+  ├── Sources/
+  │   ├── App/
+  │   │   └── <AppName>App.swift       # @main App entry with TabView
+  │   ├── Views/
+  │   │   └── [screen]View.swift       # 4 category-specific SwiftUI views
+  │   ├── Components/
+  │   │   └── .gitkeep
+  │   ├── Services/
+  │   │   └── [service].swift          # 3 category-specific service classes
+  │   ├── Models/
+  │   │   └── [model].swift            # 3 category-specific Codable structs
+  │   └── ViewModels/
+  │       └── [viewmodel].swift        # 2 category-specific ObservableObject classes
+  └── BLOCKERS.md
+  ```
+
+  **Category-specific views (same 12 categories, PascalCase SwiftUI views):**
+  - Task Management (5): DashboardView, WorkspaceView, BoardView, SettingsView
+  - Notes & Knowledge (14): NotesListView, EditorView, TagsView, SettingsView
+  - Documents & Office (10): DocumentsView, EditorView, FormattingView, CollaborationView
+  - Calendar (7): MonthView, WeekView, EventDetailView, SettingsView
+  - Scheduling (12): BookingView, AvailabilityView, ClientsView, SettingsView
+  - Cloud Storage (9): FilesView, SharedView, UploadView, SettingsView
+  - Document Scanning (7): ScansView, CameraView, ViewerView, SettingsView
+  - Email (2): InboxView, ThreadView, ComposeView, SettingsView
+  - Creator Tools (3): ProjectsView, EditorView, MediaView, ExportView
+  - Design (1): CanvasView, LayersView, PropertiesView, ComponentsView
+  - AI Assistant (1): ChatView, HistoryView, ToolsView, SettingsView
+  - Translation (2): TranslateView, HistoryView, CameraView, SettingsView
+
+  **Category-specific services/models/viewmodels:** Same domains as Steps 23.3-23.5 but Swift with Codable structs and ObservableObject view models.
+
+  **Prior phase patterns (Steps 23.3-23.5 lessons):**
+  - Steps 23.3-23.5 used the same serial generator approach — all 73/73 PASS with 0 final failures.
+  - Process timeout is 10 minutes; run in batches of ~15 repos.
+  - Use explicit `cwd: '/tmp'` on clone commands to avoid getcwd errors.
+  - Support `START_INDEX`/`END_INDEX` env vars for batch resumption.
+  - Skip already-scaffolded repos via `git status --porcelain` check.
+  - Transient network errors (curl recv failure) may occur; retry failed repos individually after batch completes.
+
+  **Key Technical Decisions:**
+  - Package.swift: platforms .iOS(.v17), swift-tools-version 5.9.
+  - App entry: @main struct with WindowGroup + TabView.
+  - Each view: SwiftUI struct conforming to View with body stub.
+  - Each service: Swift class with async throws CRUD method stubs.
+  - Each model: Swift struct conforming to Codable and Identifiable.
+  - Each view model: @Observable class (or ObservableObject) with @Published properties.
+
+  **Acceptance Criteria:**
+  - All 73 repos have `variants/ios-native/` with Package.swift, Sources/ tree, BLOCKERS.md.
+  - Each scaffold has category-appropriate views, services, models, and view models.
+  - Verification: 73/73 repos confirmed via `gh api`.
+  - Rate-limit evidence recorded before and after.
+  - `tasks/todo.md` checked off, `tasks/repo-seeding.md` updated.
+
 - [ ] Step 23.7: Build Android Native (Kotlin/Jetpack Compose) variant scaffolds for all Phase 23 Productivity & Collaboration apps
   - Build `variants/android-native/` scaffold for all Phase 23 downstream repos.
   - Each scaffold: `build.gradle.kts`, `settings.gradle.kts`, `gradle.properties`, `src/main/AndroidManifest.xml`, `src/main/java/com/clone/<pkg>/MainActivity.kt`, `App.kt`, `ui/screens/`, `ui/components/`, `data/`, `model/`, `viewmodel/`, `BLOCKERS.md`.
