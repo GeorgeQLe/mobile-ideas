@@ -594,6 +594,91 @@
 
   **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`, ~73 downstream repos (`variants/android-native/`).
 
+  **Implementation Plan (Step 23.7):**
+
+  **What:** Build and push `variants/android-native/` scaffolds to all 73 Phase 23 Productivity & Collaboration downstream repos.
+
+  **Approach:**
+  1. Write `/tmp/generate-productivity-android-variants.mjs` — a Node.js generator script that:
+     - Defines all 73 apps with their IDs, names, repo slugs, categories, and category-specific screens/services/models.
+     - For each app: clone repo to `/tmp/`, create `variants/android-native/` directory tree, write scaffold files, commit, push.
+     - Serial execution with 32s delays between repos per CLAUDE.md.
+     - Stop on any 403, 429, or rate-limit response.
+     - GitHub owner: `GeorgeQLe`.
+     - Support `START_INDEX`, `END_INDEX`, `SKIP_SLUGS` env vars for batched execution (10-min process timeout constraint).
+     - Skip already-scaffolded repos (check `git status --porcelain` before commit).
+     - Set explicit `cwd: '/tmp'` on clone commands to avoid getcwd errors from prior directory cleanup.
+  2. `gh api rate_limit` — record pre-run evidence.
+  3. Run generator in batches of ~15 repos: `START_INDEX=N END_INDEX=M node /tmp/generate-productivity-android-variants.mjs`.
+  4. `gh api rate_limit` — record post-run evidence.
+  5. Verify all 73 repos have `variants/android-native/build.gradle.kts` via `gh api`.
+  6. Update `tasks/todo.md` with results, `tasks/repo-seeding.md` with verification evidence, `tasks/history.md` with session record.
+
+  **Scaffold structure per repo:**
+  ```
+  variants/android-native/
+  ├── build.gradle.kts              # App-level Gradle build (Kotlin DSL, AGP 8.2, Compose BOM)
+  ├── settings.gradle.kts           # Root settings with plugin management
+  ├── gradle.properties             # AndroidX, non-transitive R, Kotlin code style
+  ├── src/main/AndroidManifest.xml  # Manifest with single activity
+  ├── src/main/java/com/clone/<pkg>/
+  │   ├── MainActivity.kt           # ComponentActivity with setContent
+  │   ├── App.kt                    # Application class placeholder
+  │   ├── ui/
+  │   │   ├── screens/
+  │   │   │   └── [Screen]Screen.kt # 4 category-specific Compose screens
+  │   │   ├── components/
+  │   │   │   └── .gitkeep
+  │   │   └── theme/
+  │   │       └── Theme.kt          # Material3 theme wrapper
+  │   ├── data/
+  │   │   └── [Service].kt          # 3 category-specific repository/service classes
+  │   ├── model/
+  │   │   └── [Model].kt            # 3 category-specific data classes
+  │   └── viewmodel/
+  │       └── [ViewModel].kt        # 2 category-specific ViewModel classes
+  └── BLOCKERS.md
+  ```
+
+  **Category-specific screens (same 12 categories, Compose screens):**
+  - Task Management (5): DashboardScreen, WorkspaceScreen, BoardScreen, SettingsScreen
+  - Notes & Knowledge (14): NotesListScreen, EditorScreen, TagsScreen, SettingsScreen
+  - Documents & Office (10): DocumentsScreen, EditorScreen, FormattingScreen, CollaborationScreen
+  - Calendar (7): MonthScreen, WeekScreen, EventDetailScreen, SettingsScreen
+  - Scheduling (12): BookingScreen, AvailabilityScreen, ClientsScreen, SettingsScreen
+  - Cloud Storage (9): FilesScreen, SharedScreen, UploadScreen, SettingsScreen
+  - Document Scanning (7): ScansScreen, CameraScreen, ViewerScreen, SettingsScreen
+  - Email (2): InboxScreen, ThreadScreen, ComposeScreen, SettingsScreen
+  - Creator Tools (3): ProjectsScreen, EditorScreen, MediaScreen, ExportScreen
+  - Design (1): CanvasScreen, LayersScreen, PropertiesScreen, ComponentsScreen
+  - AI Assistant (1): ChatScreen, HistoryScreen, ToolsScreen, SettingsScreen
+  - Translation (2): TranslateScreen, HistoryScreen, CameraScreen, SettingsScreen
+
+  **Key Technical Decisions:**
+  - build.gradle.kts: AGP 8.2, Kotlin 1.9.22, Compose BOM 2024.02.00, compileSdk 34, minSdk 26, targetSdk 34.
+  - settings.gradle.kts: pluginManagement with google(), mavenCentral(), gradlePluginPortal().
+  - MainActivity: ComponentActivity with setContent using Material3 theme.
+  - Each screen: @Composable function with Scaffold + basic UI stub.
+  - Each service: Kotlin class with suspend CRUD stubs.
+  - Each model: data class with id, createdAt, updatedAt fields.
+  - Each ViewModel: extends ViewModel() with StateFlow/MutableStateFlow, viewModelScope.launch.
+  - Package name: `com.clone.<kebab-to-dot-converted-slug>` (e.g., `com.clone.gmail`).
+
+  **Prior phase patterns (Steps 23.3-23.6 lessons):**
+  - Steps 23.3-23.6 all achieved 73/73 PASS with 0 final failures using the same serial generator approach.
+  - Process timeout is 10 minutes; run in batches of ~15 repos.
+  - Use explicit `cwd: '/tmp'` on clone commands to avoid getcwd errors.
+  - Support `START_INDEX`/`END_INDEX` env vars for batch resumption.
+  - Skip already-scaffolded repos via `git status --porcelain` check.
+  - Transient network errors may occur; retry failed repos individually.
+
+  **Acceptance Criteria:**
+  - All 73 repos have `variants/android-native/` with build.gradle.kts, Sources tree, BLOCKERS.md.
+  - Each scaffold has category-appropriate screens, services, models, and view models.
+  - Verification: 73/73 repos confirmed via `gh api`.
+  - Rate-limit evidence recorded before and after.
+  - `tasks/todo.md` checked off, `tasks/repo-seeding.md` updated.
+
 ### Milestone: Phase 23 — Productivity & Collaboration Complete
 **Acceptance Criteria:**
 - [ ] Exact Phase 23 inventory reconciled.
