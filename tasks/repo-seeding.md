@@ -4479,3 +4479,88 @@ variants/android-native/
 ```
 
 **Category distribution (Android Native):** Task Management (5), Notes & Knowledge (14), Documents & Office (10), Calendar (7), Scheduling (12), Cloud Storage (9), Document Scanning (7), Email (2), Creator Tools (3), Design (1), AI Assistant (1), Translation (2).
+
+---
+
+## Phase 24 Inventory Verification — News, Maps & Navigation (48 Apps)
+
+**Date:** 2026-06-07
+**Step:** 24.1 — Reconcile News, Maps & Navigation app inventory
+
+### Rate-Limit Evidence
+
+| Checkpoint | Remaining | Limit | Reset |
+|-----------|-----------|-------|-------|
+| Pre-scan | 5000 | 5000 | 2026-06-08T00:23:54Z |
+| Post-scan | 4759 | 5000 | 2026-06-08T00:24:22Z |
+
+**API calls consumed:** 241
+
+### Verification Results: 48/48 PASS
+
+| Repo | Visibility | Branch | README | Spec | Commit | Workflows |
+|------|-----------|--------|--------|------|--------|-----------|
+| `smartnews-mobile-clone` | PRIVATE | main | yes | yes | `349ca57` | absent |
+| `ground-news-mobile-clone` | PRIVATE | main | yes | yes | `5bcd99c` | absent |
+| `alltrails-mobile-clone` | PRIVATE | main | yes | yes | `8bd3b3d` | absent |
+| `gaia-gps-mobile-clone` | PRIVATE | main | yes | yes | `6619799` | absent |
+| `onx-hunt-mobile-clone` | PRIVATE | main | yes | yes | `bf98f68` | absent |
+| `trailforks-mobile-clone` | PRIVATE | main | yes | yes | `8f8b973` | absent |
+| `wikiloc-mobile-clone` | PRIVATE | main | yes | yes | `daa74d3` | absent |
+| `peakvisor-mobile-clone` | PRIVATE | main | yes | yes | `633e619` | absent |
+| `windy-mobile-clone` | PRIVATE | main | yes | yes | `5f8e372` | absent |
+| `the-weather-channel-mobile-clone` | PRIVATE | main | yes | yes | `54be6e9` | absent |
+| `accuweather-mobile-clone` | PRIVATE | main | yes | yes | `f26376c` | absent |
+| `weatherbug-mobile-clone` | PRIVATE | main | yes | yes | `693e5fe` | absent |
+| `carrot-weather-mobile-clone` | PRIVATE | main | yes | yes | `8d0bc0d` | absent |
+| `myradar-mobile-clone` | PRIVATE | main | yes | yes | `0006011` | absent |
+| `noaa-weather-radar-mobile-clone` | PRIVATE | main | yes | yes | `e912683` | absent |
+| `hacker-news-mobile-clone` | PRIVATE | main | yes | yes | `7b6c3f1` | absent |
+| `cnn-mobile-clone` | PRIVATE | main | yes | yes | `5fd1d97` | absent |
+| `bbc-news-mobile-clone` | PRIVATE | main | yes | yes | `7d7ab93` | absent |
+| `the-guardian-mobile-clone` | PRIVATE | main | yes | yes | `728f5b5` | absent |
+| `reuters-mobile-clone` | PRIVATE | main | yes | yes | `fa9091c` | absent |
+| `ap-news-mobile-clone` | PRIVATE | main | yes | yes | `5acf89d` | absent |
+| `npr-mobile-clone` | PRIVATE | main | yes | yes | `63b1b6f` | absent |
+| `the-wall-street-journal-mobile-clone` | PRIVATE | main | yes | yes | `f33fbba` | absent |
+| `financial-times-mobile-clone` | PRIVATE | main | yes | yes | `467548a` | absent |
+| `the-washington-post-mobile-clone` | PRIVATE | main | yes | yes | `695d1f3` | absent |
+| `usa-today-mobile-clone` | PRIVATE | main | yes | yes | `f168cb2` | absent |
+| `fox-news-mobile-clone` | PRIVATE | main | yes | yes | `2d1d8a2` | absent |
+| `nbc-news-mobile-clone` | PRIVATE | main | yes | yes | `cd74f06` | absent |
+| `cbs-news-mobile-clone` | PRIVATE | main | yes | yes | `059fc6c` | absent |
+| `abc-news-mobile-clone` | PRIVATE | main | yes | yes | `5e7f6dd` | absent |
+| `al-jazeera-mobile-clone` | PRIVATE | main | yes | yes | `cd91958` | absent |
+| `the-economist-mobile-clone` | PRIVATE | main | yes | yes | `b10cddc` | absent |
+| `politico-mobile-clone` | PRIVATE | main | yes | yes | `7747d89` | absent |
+| `axios-mobile-clone` | PRIVATE | main | yes | yes | `62fe81d` | absent |
+| `semafor-mobile-clone` | PRIVATE | main | yes | yes | `6748b1f` | absent |
+| `vox-mobile-clone` | PRIVATE | main | yes | yes | `5e6bffe` | absent |
+| `the-verge-mobile-clone` | PRIVATE | main | yes | yes | `84755a0` | absent |
+| `engadget-mobile-clone` | PRIVATE | main | yes | yes | `6efab00` | absent |
+| `techcrunch-mobile-clone` | PRIVATE | main | yes | yes | `aac0429` | absent |
+| `ars-technica-mobile-clone` | PRIVATE | main | yes | yes | `b2ba233` | absent |
+| `wired-mobile-clone` | PRIVATE | main | yes | yes | `785782d` | absent |
+| `yandex-maps-mobile-clone` | PRIVATE | main | yes | yes | `0e91670` | absent |
+| `2gis-mobile-clone` | PRIVATE | main | yes | yes | `bb6ccd1` | absent |
+| `here-wego-mobile-clone` | PRIVATE | main | yes | yes | `bc31f76` | absent |
+| `maps-me-mobile-clone` | PRIVATE | main | yes | yes | `fea2071` | absent |
+| `osmand-mobile-clone` | PRIVATE | main | yes | yes | `014a4e3` | absent |
+| `sygic-mobile-clone` | PRIVATE | main | yes | yes | `0df9587` | absent |
+| `tomtom-go-mobile-clone` | PRIVATE | main | yes | yes | `193b828` | absent |
+
+### Category Breakdown
+
+| Category | Count | Apps |
+|----------|-------|------|
+| News/Media | 28 | SmartNews, Ground News, Hacker News, CNN, BBC News, The Guardian, Reuters, AP News, NPR, WSJ, Financial Times, Washington Post, USA Today, Fox News, NBC News, CBS News, ABC News, Al Jazeera, The Economist, Politico, Axios, Semafor, Vox, The Verge, Engadget, TechCrunch, Ars Technica, Wired |
+| Weather | 7 | Windy, The Weather Channel, AccuWeather, WeatherBug, CARROT Weather, MyRadar, NOAA Weather Radar |
+| Maps/Navigation | 7 | Yandex Maps, 2GIS, HERE WeGo, MAPS.ME, OsmAnd, Sygic, TomTom GO |
+| Outdoor/Trail | 6 | AllTrails, Gaia GPS, onX Hunt, Trailforks, Wikiloc, PeakVisor |
+
+### Carry-Forward Blockers
+
+- **News/Media:** Content APIs/licensing, paywall/subscription gates, push notifications for breaking news, real-time feed aggregation, content recommendation engines.
+- **Weather:** Weather data APIs (OpenWeatherMap, WeatherAPI, NWS), radar/satellite imagery providers, severe weather alert systems, location services, widget support.
+- **Maps/Navigation:** Map tile providers (Mapbox, OpenStreetMap, HERE), turn-by-turn navigation engines, offline map storage/download, GPS/location services, POI databases, traffic data.
+- **Outdoor/Trail:** Trail databases, elevation/terrain data, live tracking/SOS features, offline map caching, GPS accuracy requirements, community trail data.
