@@ -387,7 +387,7 @@
   - Post-verification rate limit: 124/5000 used.
   - Full evidence in `tasks/repo-seeding.md` under "Phase 23 Step 23.4".
 
-- [ ] Step 23.5: Build Expo variant scaffolds for all Phase 23 Productivity & Collaboration apps
+- [x] Step 23.5: Build Expo variant scaffolds for all Phase 23 Productivity & Collaboration apps ✅ 73/73 PASS, 0 failures
   - Build `variants/expo/` scaffold for all Phase 23 downstream repos.
   - Each scaffold: `package.json`, `tsconfig.json`, `app.json`, `app/_layout.tsx`, `app/(tabs)/`, `src/components/`, `src/services/`, `src/hooks/`, `src/stores/`, `BLOCKERS.md`.
   - Generator script at `/tmp/generate-productivity-expo-variants.mjs`.

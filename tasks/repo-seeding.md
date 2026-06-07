@@ -4366,4 +4366,37 @@ variants/flutter/
 └── BLOCKERS.md
 ```
 
-**Category distribution:** Task Management (5), Notes & Knowledge (14), Documents & Office (10), Calendar (7), Scheduling (12), Cloud Storage (9), Document Scanning (7), Email (2), Creator Tools (3), Design (1), AI Assistant (1), Translation (2).
+**Category distribution (Flutter):** Task Management (5), Notes & Knowledge (14), Documents & Office (10), Calendar (7), Scheduling (12), Cloud Storage (9), Document Scanning (7), Email (2), Creator Tools (3), Design (1), AI Assistant (1), Translation (2).
+
+#### Step 23.5 — Expo Variant Scaffolds (2026-06-07)
+
+**Pre-run rate limit:** Used 124/5000, Remaining 4876
+
+**Execution:** 5 batches + 2 retries, serial clone → scaffold → commit → push with 32s delays.
+- Batch 1 (repos 0–14): 15/15 PASS
+- Batch 2 (repos 15–29): 15/15 PASS
+- Batch 3 (repos 30–44): 13/15 PASS, 2 transient network failures (logseq, airtable — curl recv failure)
+- Batch 4 (repos 45–59): 15/15 PASS
+- Batch 5 (repos 60–72): 13/13 PASS
+- Retry logseq-mobile-clone: PASS
+- Retry airtable-mobile-clone: PASS
+
+**Post-run rate limit:** Used 0/5000, Remaining 5000 (rate limit window reset)
+
+**Verification:** 73/73 repos confirmed via `gh api` — `variants/expo/app.json` present in all repos.
+
+**Scaffold structure per repo:**
+```
+variants/expo/
+├── package.json, tsconfig.json, app.json
+├── app/_layout.tsx (Root layout with Expo Router)
+├── app/(tabs)/_layout.tsx (Tab navigation)
+├── app/(tabs)/[screen].tsx (4 category-specific tab screens)
+├── src/services/ (3 category-specific TypeScript service classes)
+├── src/hooks/ (3 category-specific custom React hooks)
+├── src/stores/ (2 category-specific Zustand stores)
+├── src/components/.gitkeep
+└── BLOCKERS.md
+```
+
+**Category distribution (Expo):** Task Management (5), Notes & Knowledge (14), Documents & Office (10), Calendar (7), Scheduling (12), Cloud Storage (9), Document Scanning (7), Email (2), Creator Tools (3), Design (1), AI Assistant (1), Translation (2).
