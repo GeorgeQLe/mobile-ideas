@@ -400,6 +400,86 @@
 
   **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`, ~73 downstream repos (`variants/expo/`).
 
+  **Implementation Plan (Step 23.5):**
+
+  **What:** Build and push `variants/expo/` scaffolds to all 73 Phase 23 Productivity & Collaboration downstream repos.
+
+  **Approach:**
+  1. Write `/tmp/generate-productivity-expo-variants.mjs` — a Node.js generator script that:
+     - Defines all 73 apps with their IDs, names, repo slugs, categories, and category-specific screens/components.
+     - For each app: clone repo to `/tmp/`, create `variants/expo/` directory tree, write scaffold files, commit, push.
+     - Serial execution with 32s delays between repos per CLAUDE.md.
+     - Stop on any 403, 429, or rate-limit response.
+     - GitHub owner: `GeorgeQLe`.
+     - Support `START_INDEX`, `END_INDEX`, `SKIP_SLUGS` env vars for batched execution (10-min process timeout constraint).
+     - Skip already-scaffolded repos (check `git status --porcelain` before commit).
+     - Set explicit `cwd: '/tmp'` on clone commands to avoid getcwd errors from prior directory cleanup.
+  2. `gh api rate_limit` — record pre-run evidence.
+  3. Run generator in batches of ~15 repos: `START_INDEX=N END_INDEX=M node /tmp/generate-productivity-expo-variants.mjs`.
+  4. `gh api rate_limit` — record post-run evidence.
+  5. Verify all 73 repos have `variants/expo/app.json` via `gh api`.
+  6. Update `tasks/todo.md` with results, `tasks/repo-seeding.md` with verification evidence, `tasks/history.md` with session record.
+
+  **Scaffold structure per repo:**
+  ```
+  variants/expo/
+  ├── package.json              # Expo/RN dependencies
+  ├── tsconfig.json             # TypeScript configuration
+  ├── app.json                  # Expo app config
+  ├── app/
+  │   ├── _layout.tsx           # Root layout with Tabs
+  │   └── (tabs)/
+  │       ├── _layout.tsx       # Tab layout
+  │       └── [screen].tsx      # Category-specific tab screens
+  ├── src/
+  │   ├── components/           # Shared UI components
+  │   ├── services/             # API/data service stubs
+  │   ├── hooks/                # Custom hooks
+  │   └── stores/               # Zustand/state management stubs
+  └── BLOCKERS.md               # Category-specific blockers
+  ```
+
+  **Category-specific screens (same 12 categories as Steps 23.2-23.4):**
+  - Task Management (5): dashboard.tsx, workspace.tsx, board.tsx, settings.tsx
+  - Notes & Knowledge (14): notes-list.tsx, editor.tsx, tags.tsx, settings.tsx
+  - Documents & Office (10): documents.tsx, editor.tsx, formatting.tsx, collaboration.tsx
+  - Calendar (7): month-view.tsx, week-view.tsx, event-detail.tsx, settings.tsx
+  - Scheduling (12): booking.tsx, availability.tsx, clients.tsx, settings.tsx
+  - Cloud Storage (9): files.tsx, shared.tsx, upload.tsx, settings.tsx
+  - Document Scanning (7): scans.tsx, camera.tsx, viewer.tsx, settings.tsx
+  - Email (2): inbox.tsx, thread.tsx, compose.tsx, settings.tsx
+  - Creator Tools (3): projects.tsx, editor.tsx, media.tsx, export.tsx
+  - Design (1): canvas.tsx, layers.tsx, properties.tsx, components.tsx
+  - AI Assistant (1): chat.tsx, history.tsx, tools.tsx, settings.tsx
+  - Translation (2): translate.tsx, history.tsx, camera.tsx, settings.tsx
+
+  **Category-specific services/hooks/stores:** Same domains as Steps 23.3-23.4 but TypeScript with Zustand stores.
+
+  **Prior phase patterns (Step 23.4 lessons):**
+  - Steps 23.2-23.4 used the same serial generator approach — all 73/73 PASS with 0 failures.
+  - Process timeout is 10 minutes; run in batches of ~15 repos.
+  - Use explicit `cwd: '/tmp'` on clone commands to avoid getcwd errors.
+  - Support `START_INDEX`/`END_INDEX` env vars for batch resumption.
+  - Skip already-scaffolded repos via `git status --porcelain` check.
+  - Expo uses file-based routing (app/ directory with Expo Router).
+  - TypeScript `.tsx` files for screens, `.ts` files for services/hooks/stores.
+
+  **Key Technical Decisions:**
+  - Follow Expo Router file-based routing: `app/_layout.tsx` + `app/(tabs)/` pattern.
+  - package.json: expo, expo-router, react-native, expo-status-bar, zustand.
+  - tsconfig.json: strict mode, expo module resolution.
+  - Each tab screen: React functional component with TypeScript.
+  - Each service: TypeScript class with async CRUD method stubs.
+  - Each hook: custom React hook with useState/useEffect stubs.
+  - Each store: Zustand store with typed state and actions.
+
+  **Acceptance Criteria:**
+  - All 73 repos have `variants/expo/` with package.json, tsconfig.json, app.json, app/ tree, src/ tree, BLOCKERS.md.
+  - Each scaffold has category-appropriate screens, services, hooks, and stores.
+  - Verification: 73/73 repos confirmed via `gh api`.
+  - Rate-limit evidence recorded before and after.
+  - `tasks/todo.md` checked off, `tasks/repo-seeding.md` updated.
+
 - [ ] Step 23.6: Build iOS Native (SwiftUI) variant scaffolds for all Phase 23 Productivity & Collaboration apps
   - Build `variants/ios-native/` scaffold for all Phase 23 downstream repos.
   - Each scaffold: `Package.swift`, `Sources/App/<AppName>App.swift`, `Sources/Views/`, `Sources/Components/`, `Sources/Services/`, `Sources/Models/`, `Sources/ViewModels/`, `BLOCKERS.md`.
