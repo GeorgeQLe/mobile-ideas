@@ -7809,3 +7809,13 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Scaffold: package.json, tsconfig.json, app.json, app/_layout.tsx (Root layout), app/(tabs)/_layout.tsx (Tab nav), app/(tabs)/[screen].tsx (4 screens), src/services/ (3 TypeScript service classes), src/hooks/ (3 custom hooks), src/stores/ (2 Zustand stores), src/components/.gitkeep, BLOCKERS.md.
 - 12 category-specific screen/service/hook/store patterns across all repos.
 - **Changed files**: `tasks/todo.md` (checked off 23.5, added results), `tasks/repo-seeding.md` (Phase 23 Step 23.5 verification evidence), `tasks/history.md` (this entry).
+
+## 2026-06-07 — Step 23.6: iOS Native (SwiftUI) Variant Scaffolds (73 Productivity Apps)
+
+- **What**: Built and pushed `variants/ios-native/` scaffolds to all 73 Phase 23 Productivity & Collaboration downstream repos.
+- **Result**: 73/73 PASS, 0 FAIL. Verified via `gh api`.
+- Rate limit: pre=103/5000, post=30/5000 (window reset mid-run).
+- Verification: 73/73 repos confirmed via `gh api` (variants/ios-native/Package.swift present).
+- Scaffold: Package.swift (SPM, iOS 17), Sources/App/<App>App.swift (@main TabView), Sources/Views/ (4 SwiftUI views), Sources/Services/ (3 async throws classes), Sources/Models/ (3 Codable structs), Sources/ViewModels/ (2 @Observable classes), Sources/Components/.gitkeep, BLOCKERS.md.
+- 12 category-specific view/service/model/viewModel patterns across all repos.
+- **Changed files**: `tasks/todo.md` (checked off 23.6, added results), `tasks/repo-seeding.md` (Phase 23 Step 23.6 verification evidence), `tasks/history.md` (this entry).

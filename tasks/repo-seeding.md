@@ -4400,3 +4400,30 @@ variants/expo/
 ```
 
 **Category distribution (Expo):** Task Management (5), Notes & Knowledge (14), Documents & Office (10), Calendar (7), Scheduling (12), Cloud Storage (9), Document Scanning (7), Email (2), Creator Tools (3), Design (1), AI Assistant (1), Translation (2).
+
+### Phase 23 Step 23.6 — iOS Native (SwiftUI) Variant Scaffolds (2026-06-07)
+
+**Pre-run rate limit:** Core: 103/5000 used, 4897 remaining, resets 2026-06-07 16:45:01 UTC
+
+**Execution:** 5 batches (15+15+15+15+13 repos), serial clone → scaffold → commit → push, 32s delays between repos.
+
+**Results:** 73 PASS, 0 FAIL, 0 SKIP.
+
+**Post-run rate limit:** Core: 30/5000 used, 4970 remaining (rate limit window reset mid-run to 2026-06-07 19:08:26 UTC)
+
+**Verification:** 73/73 repos confirmed via `gh api` — `variants/ios-native/Package.swift` present in all repos.
+
+**Scaffold structure per repo:**
+```
+variants/ios-native/
+├── Package.swift (SPM, platforms .iOS(.v17), swift-tools-version 5.9)
+├── Sources/App/<AppName>App.swift (@main with TabView)
+├── Sources/Views/[View].swift (4 category-specific SwiftUI views)
+├── Sources/Components/.gitkeep
+├── Sources/Services/[Service].swift (3 async throws service classes)
+├── Sources/Models/[Model].swift (3 Codable & Identifiable structs)
+├── Sources/ViewModels/[ViewModel].swift (2 @Observable classes)
+└── BLOCKERS.md
+```
+
+**Category distribution (iOS Native):** Task Management (5), Notes & Knowledge (14), Documents & Office (10), Calendar (7), Scheduling (12), Cloud Storage (9), Document Scanning (7), Email (2), Creator Tools (3), Design (1), AI Assistant (1), Translation (2).

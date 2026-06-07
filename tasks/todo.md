@@ -480,7 +480,7 @@
   - Rate-limit evidence recorded before and after.
   - `tasks/todo.md` checked off, `tasks/repo-seeding.md` updated.
 
-- [ ] Step 23.6: Build iOS Native (SwiftUI) variant scaffolds for all Phase 23 Productivity & Collaboration apps
+- [x] Step 23.6: Build iOS Native (SwiftUI) variant scaffolds for all Phase 23 Productivity & Collaboration apps ✅ 2026-06-07
   - Build `variants/ios-native/` scaffold for all Phase 23 downstream repos.
   - Each scaffold: `Package.swift`, `Sources/App/<AppName>App.swift`, `Sources/Views/`, `Sources/Components/`, `Sources/Services/`, `Sources/Models/`, `Sources/ViewModels/`, `BLOCKERS.md`.
   - Generator script at `/tmp/generate-productivity-ios-variants.mjs`.
@@ -571,6 +571,15 @@
   - Verification: 73/73 repos confirmed via `gh api`.
   - Rate-limit evidence recorded before and after.
   - `tasks/todo.md` checked off, `tasks/repo-seeding.md` updated.
+
+  **Results (2026-06-07):**
+  - 73/73 repos scaffolded and pushed (5 batches of 13-15, 32s delays, serial).
+  - 0 FAIL, 0 transient errors.
+  - Pre-run rate limit: 103/5000 used, 4897 remaining.
+  - Post-run rate limit: 30/5000 used, 4970 remaining (window reset mid-run).
+  - Verification: 73/73 repos confirmed via `gh api` — `variants/ios-native/Package.swift` present.
+  - Generator script: `/tmp/generate-productivity-ios-variants.mjs`.
+  - Category distribution: Task Management (5), Notes & Knowledge (14), Documents & Office (10), Calendar (7), Scheduling (12), Cloud Storage (9), Document Scanning (7), Email (2), Creator Tools (3), Design (1), AI Assistant (1), Translation (2).
 
 - [ ] Step 23.7: Build Android Native (Kotlin/Jetpack Compose) variant scaffolds for all Phase 23 Productivity & Collaboration apps
   - Build `variants/android-native/` scaffold for all Phase 23 downstream repos.
