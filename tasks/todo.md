@@ -129,6 +129,52 @@
   - Maps/Navigation (7): map view, search/POI, route planning, turn-by-turn, offline maps, saved places.
   - Outdoor/Trail (6): trail discovery, trail detail/map, activity recording, offline maps, safety/SOS, community reviews.
 
+  **What Needs to Be Built:**
+  A Node.js generator script (`/tmp/generate-newsmaps-prototypes.mjs`) that serially:
+  1. Clones each of the 48 repos from `GeorgeQLe/<slug>`.
+  2. Creates `variants/static/` with 4 files: `index.html`, `styles.css`, `app.js`, `README.md`.
+  3. Each file uses category-specific UI patterns (news feed vs weather display vs map vs trail).
+  4. Commits with message `feat: add static HTML/CSS/JS prototype (variants/static/)`.
+  5. Pushes to `main`.
+  6. Waits 32 seconds between repos.
+
+  **Files Created/Modified:**
+  - `/tmp/generate-newsmaps-prototypes.mjs` — generator script (48 repos × 4 category templates)
+  - 48 downstream repos: `variants/static/{index.html, styles.css, app.js, README.md}`
+  - `tasks/todo.md` — check off Step 24.2, add results
+  - `tasks/repo-seeding.md` — add static scaffold verification evidence
+  - `tasks/history.md` — append session record
+
+  **Approach:**
+  1. Record pre-scaffold rate-limit evidence.
+  2. Write `/tmp/generate-newsmaps-prototypes.mjs` with 4 category template functions:
+     - `newsTemplate(appName)` — article feed with cards, section nav, bookmark button, breaking banner
+     - `weatherTemplate(appName)` — current conditions widget, forecast grid, radar placeholder, alerts section
+     - `mapsTemplate(appName)` — map container, search bar, route panel, POI markers, offline indicator
+     - `outdoorTemplate(appName)` — trail list, trail detail with elevation, activity recorder, safety panel
+  3. Run the generator serially (48 repos × ~35s each ≈ 28 minutes).
+  4. Verify all 48 repos have `variants/static/` with 4 files via `gh api`.
+  5. Record post-scaffold rate-limit evidence.
+  6. Update task docs with results.
+
+  **Repo inventory (from Step 24.1):**
+  - News/Media (28): IDs 135-136, 853, 872-880, 881-896
+  - Weather (7): IDs 602-608
+  - Maps/Navigation (7): IDs 994-1000
+  - Outdoor/Trail (6): IDs 200, 597-601
+
+  **Execution Profile:**
+  - Parallel mode: serial
+  - Integration owner: main agent
+  - Conflict risk: low
+
+  **Acceptance Criteria:**
+  - All 48 repos have `variants/static/` directory with `index.html`, `styles.css`, `app.js`, `README.md`.
+  - Each scaffold uses category-appropriate UI patterns.
+  - All repos remain PRIVATE with no GitHub Actions.
+  - Rate-limit evidence recorded pre/post.
+  - 48/48 verification pass.
+
   **Ship-one-step handoff:** Implement only Step 24.2, validate it, then run `/ship` when done.
 
 - [ ] Step 24.3: Build React Native variant scaffolds for all Phase 24 News, Maps & Navigation apps
