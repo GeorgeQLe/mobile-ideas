@@ -321,6 +321,60 @@
   - Generator script at `/tmp/generate-newsmaps-expo-variants.mjs`.
   - Serial execution with 32s delays. Record pre/post rate-limit evidence.
 
+  **Category-specific Expo patterns:**
+  - News/Media (28): Expo Router file-based navigation, FlatList article feed, article detail screen, section tabs, bookmarks (AsyncStorage), breaking news banner, push notification placeholder (expo-notifications).
+  - Weather (7): current conditions card, hourly/daily forecast FlatList, radar placeholder (expo-maps or react-native-maps), alerts, location selector (expo-location).
+  - Maps/Navigation (7): MapView (react-native-maps), search bar, route planning, saved places, offline indicator, expo-location for GPS.
+  - Outdoor/Trail (6): trail discovery FlatList, trail detail with elevation chart placeholder, activity recorder with timer, safety/SOS panel, offline maps placeholder, expo-location.
+
+  **What Needs to Be Built:**
+  A Node.js generator script (`/tmp/generate-newsmaps-expo-variants.mjs`) that serially:
+  1. Clones each of the 48 repos from `GeorgeQLe/<slug>`.
+  2. Creates `variants/expo/` with: `package.json` (Expo ~52.0.0, Expo Router ~4.0.0, expo-location, react-native-maps for maps/weather/outdoor), `app.json`, `tsconfig.json`, `app/` (Expo Router file-based screens), `components/`, `services/`, `hooks/`, `constants/`, `BLOCKERS.md`.
+  3. Commits with message `feat: add Expo variant scaffold (variants/expo/)`.
+  4. Pushes to `main`.
+  5. Waits 32 seconds between repos.
+
+  **Difference from React Native (Step 24.3):**
+  - Expo Router file-based navigation (app/ directory) instead of React Navigation stack config.
+  - Expo SDK modules (expo-location, expo-notifications, expo-file-system) instead of community RN packages.
+  - TypeScript by default (.tsx files).
+  - Expo-specific app.json config.
+
+  **Files Created/Modified:**
+  - `/tmp/generate-newsmaps-expo-variants.mjs` — generator script (48 repos × 4 category templates)
+  - 48 downstream repos: `variants/expo/` with full scaffold
+  - `tasks/todo.md` — check off Step 24.5, add results
+  - `tasks/repo-seeding.md` — add Expo scaffold verification evidence
+  - `tasks/history.md` — append session record
+
+  **Approach:**
+  1. Record pre-scaffold rate-limit evidence (`gh api rate_limit`).
+  2. Write `/tmp/generate-newsmaps-expo-variants.mjs` with 4 category template functions using Expo Router patterns.
+  3. Run the generator serially (48 repos × ~35s each ≈ 28 minutes).
+  4. Retry any transient SSL failures (pattern from Steps 24.2–24.4).
+  5. Verify all 48 repos have `variants/expo/` with expected files via `gh api`.
+  6. Record post-scaffold rate-limit evidence.
+  7. Update task docs with results.
+
+  **Repo inventory (from Step 24.1):**
+  - News/Media (28): IDs 135-136, 853, 872-880, 881-896
+  - Weather (7): IDs 602-608
+  - Maps/Navigation (7): IDs 994-1000
+  - Outdoor/Trail (6): IDs 200, 597-601
+
+  **Execution Profile:**
+  - Parallel mode: serial
+  - Integration owner: main agent
+  - Conflict risk: low
+
+  **Acceptance Criteria:**
+  - All 48 repos have `variants/expo/` directory with expected files.
+  - Each scaffold uses category-appropriate Expo Router patterns with TypeScript.
+  - All repos remain PRIVATE with no GitHub Actions.
+  - Rate-limit evidence recorded pre/post.
+  - 48/48 verification pass.
+
   **Ship-one-step handoff:** Implement only Step 24.5, validate it, then run `/ship` when done.
 
 - [ ] Step 24.6: Build iOS Native (SwiftUI) variant scaffolds for all Phase 24 News, Maps & Navigation apps
