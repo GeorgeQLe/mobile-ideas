@@ -316,7 +316,7 @@
     - Outdoor: DiscoverScreen (SliverList), TrailDetailScreen (elevation/map placeholders), RecordScreen (timer), SafetyScreen (SOS/live tracking), ProfileScreen, TrailCard, AppShell, Trail model, TrailService, ActivityService, LocationService.
   - Verification: 48/48 repos confirmed via `gh api` — each has `pubspec.yaml`, `analysis_options.yaml`, `lib/`, `BLOCKERS.md`.
 
-- [ ] Step 24.5: Build Expo variant scaffolds for all Phase 24 News, Maps & Navigation apps
+- [x] Step 24.5: Build Expo variant scaffolds for all Phase 24 News, Maps & Navigation apps
   - Build `variants/expo/` scaffold for all 48 downstream repos.
   - Generator script at `/tmp/generate-newsmaps-expo-variants.mjs`.
   - Serial execution with 32s delays. Record pre/post rate-limit evidence.
@@ -376,6 +376,19 @@
   - 48/48 verification pass.
 
   **Ship-one-step handoff:** Implement only Step 24.5, validate it, then run `/ship` when done.
+
+  **Results (2026-06-08):**
+  - **48/48 PASS, 0 failures.** All repos scaffolded in a single pass (no retries needed).
+  - Rate limit: pre=4896/5000, post=5000/5000 (rate limit window reset mid-run).
+  - Generator: `/tmp/generate-newsmaps-expo-variants.mjs` — serial clone → scaffold → commit → push with 32s delays.
+  - 4 category-specific Expo Router templates: News/Media (28), Weather (7), Maps/Navigation (7), Outdoor/Trail (6).
+  - Each scaffold: `package.json` (Expo ~52.0.0, Expo Router ~4.0.0, TypeScript), `app.json` (Expo plugins config), `tsconfig.json`, `app/_layout.tsx` (Stack), `app/(tabs)/_layout.tsx` (Tabs), `app/(tabs)/*.tsx` (tab screens), `components/*.tsx`, `services/*.ts`, `hooks/*.ts`, `constants/theme.ts`, `BLOCKERS.md`.
+  - Category scaffolds:
+    - News: Feed (FlatList + router.push), article/[id].tsx (dynamic route), Sections (horizontal tab bar), Bookmarks, Settings, ArticleCard, BreakingBanner, LoadingSpinner, articleService, bookmarkService (AsyncStorage), notificationService (expo-notifications), useArticles, useBookmarks.
+    - Weather: Current conditions, Forecast (hourly/daily), Radar (MapView placeholder), Alerts, Locations, ConditionCard, HourlyScroller, LoadingSpinner, weatherService, alertService, locationService (AsyncStorage), useWeather, useAlerts.
+    - Maps: Map view (placeholder), Search (TextInput + FlatList), Route planning (mode buttons), Saved places, Settings, navigate.tsx (navigation screen), SearchBar, PlaceCard, LoadingSpinner, searchService, routeService, offlineMapService (expo-file-system), useSearch, useLocation (expo-location).
+    - Outdoor: Explore (trail FlatList + router.push), trail/[id].tsx (detail with stats), Record (start/stop), Saved, Safety (SOS), Profile, TrailCard, StatDisplay, LoadingSpinner, trailService, activityService (AsyncStorage), locationTrackingService (expo-location watchPositionAsync), useTrails, useTracking.
+  - Verification: 48/48 repos confirmed via `gh api` — each has `package.json`, `app.json`, `app/`, `BLOCKERS.md`.
 
 - [ ] Step 24.6: Build iOS Native (SwiftUI) variant scaffolds for all Phase 24 News, Maps & Navigation apps
   - Build `variants/ios-native/` scaffold for all 48 downstream repos.

@@ -7885,3 +7885,20 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
   - Maps: MapScreen (search bar + FABs), SearchScreen, RouteScreen (mode chips), SavedPlacesScreen, SettingsScreen, AppShell, OfflineIndicator, Place model, MapService, LocationService.
   - Outdoor: DiscoverScreen (SliverList), TrailDetailScreen (elevation/map placeholders), RecordScreen (timer), SafetyScreen (SOS/live tracking), ProfileScreen, TrailCard, AppShell, Trail model, TrailService, ActivityService, LocationService.
 - **Changed files**: `tasks/todo.md` (checked off 24.4, added results), `tasks/repo-seeding.md` (Phase 24 Step 24.4 verification evidence), `tasks/history.md` (this entry).
+
+---
+
+## 2026-06-08 — Step 24.5: Expo Router Variant Scaffolds (48 News, Maps & Navigation Apps)
+
+- **What**: Built and pushed `variants/expo/` scaffolds to all 48 Phase 24 News, Maps & Navigation downstream repos.
+- Generator: `/tmp/generate-newsmaps-expo-variants.mjs` — serial clone → scaffold → commit → push with 32s delays.
+- **Result: 48/48 PASS, 0 FAIL.** Single pass, no retries needed.
+- Rate limit: pre=4896/5000, post=5000/5000 (window reset mid-run).
+- Verification: 48/48 repos confirmed via `gh api` (package.json, app.json, app/, BLOCKERS.md present).
+- Scaffold: package.json (Expo ~52.0.0, Expo Router ~4.0.0, TypeScript), app.json (Expo plugins config), tsconfig.json, app/_layout.tsx (Stack), app/(tabs)/_layout.tsx (Tabs), app/(tabs)/*.tsx (tab screens), components/*.tsx, services/*.ts, hooks/*.ts, constants/theme.ts, BLOCKERS.md.
+- 4 category-specific templates: News/Media (28), Weather (7), Maps/Navigation (7), Outdoor/Trail (6).
+  - News: Feed (FlatList + expo-router push), article/[id].tsx (dynamic route with useLocalSearchParams), Sections (horizontal tab bar), Bookmarks, Settings, ArticleCard, BreakingBanner, LoadingSpinner, articleService, bookmarkService (AsyncStorage), notificationService (expo-notifications), useArticles, useBookmarks.
+  - Weather: Current conditions, Forecast (hourly/daily), Radar (MapView placeholder), Alerts, Locations, ConditionCard, HourlyScroller, LoadingSpinner, weatherService, alertService, locationService (AsyncStorage), useWeather, useAlerts.
+  - Maps: Map view (placeholder), Search (TextInput + FlatList), Route planning (mode buttons + router.push to /navigate), Saved places, Settings, navigate.tsx (navigation screen), SearchBar, PlaceCard, LoadingSpinner, searchService, routeService, offlineMapService (expo-file-system), useSearch, useLocation (expo-location).
+  - Outdoor: Explore (trail FlatList + router.push), trail/[id].tsx (detail with stats), Record (start/stop toggle), Saved, Safety (SOS), Profile, TrailCard, StatDisplay, LoadingSpinner, trailService, activityService (AsyncStorage), locationTrackingService (expo-location watchPositionAsync), useTrails, useTracking.
+- **Changed files**: `tasks/todo.md` (checked off 24.5, added results), `tasks/repo-seeding.md` (Phase 24 Step 24.5 verification evidence), `tasks/history.md` (this entry).

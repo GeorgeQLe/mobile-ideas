@@ -4631,7 +4631,7 @@ All 48 repos verified via `gh api repos/GeorgeQLe/<slug>/contents/variants/react
 | Weather | 7 | yes | PASS |
 | Maps/Navigation | 7 | yes | PASS |
 | Outdoor/Trail | 6 | yes | PASS |
-| **Total** | **48** | **yes** | **48/48 PASS** |
+| **Total-RN** | **48** | **yes** | **48/48 PASS** |
 
 ## Step 24.4: Flutter Variant Scaffolds (48 News, Maps & Navigation Apps)
 
@@ -4655,6 +4655,37 @@ All 48 repos verified via `gh api repos/GeorgeQLe/<slug>/contents/variants/react
 ### Verification Results: 48/48 PASS
 
 All 48 repos verified via `gh api repos/GeorgeQLe/<slug>/contents/variants/flutter` — each contains `pubspec.yaml, analysis_options.yaml, lib/, BLOCKERS.md`.
+
+| Category | Count | Expected Files | Status |
+|----------|-------|----------------|--------|
+| News/Media | 28 | yes | PASS |
+| Weather | 7 | yes | PASS |
+| Maps/Navigation | 7 | yes | PASS |
+| Outdoor/Trail | 6 | yes | PASS |
+| **Total** | **48** | **yes** | **48/48 PASS** |
+
+## Step 24.5: Expo Router Variant Scaffolds (48 News, Maps & Navigation Apps)
+
+**Date:** 2026-06-08
+
+### Rate Limit Evidence
+
+**Pre-scaffold:** `gh api rate_limit` → core 4896/5000 remaining at 2026-06-08T14:29:19Z reset.
+
+**Post-scaffold:** `gh api rate_limit` → core 5000/5000 remaining (rate limit window reset mid-run) at 2026-06-08T15:44:54Z reset.
+
+### Generator
+
+- Script: `/tmp/generate-newsmaps-expo-variants.mjs`
+- Serial execution with 32s delays between repos.
+- 4 category-specific Expo Router templates: News/Media (28), Weather (7), Maps/Navigation (7), Outdoor/Trail (6).
+- Expo ~52.0.0, Expo Router ~4.0.0, TypeScript (.tsx), expo-location, expo-notifications, expo-file-system, react-native-maps (category-specific).
+- Each scaffold: package.json, app.json (Expo plugins), tsconfig.json, app/_layout.tsx (Stack), app/(tabs)/_layout.tsx (Tabs), app/(tabs)/*.tsx, components/*.tsx, services/*.ts, hooks/*.ts, constants/theme.ts, BLOCKERS.md.
+- Single pass: **48/48 PASS, 0 failures.** No retries needed.
+
+### Verification Results: 48/48 PASS
+
+All 48 repos verified via `gh api repos/GeorgeQLe/<slug>/contents/variants/expo` — each contains `package.json, app.json, app/, BLOCKERS.md`.
 
 | Category | Count | Expected Files | Status |
 |----------|-------|----------------|--------|
