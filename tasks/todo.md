@@ -190,6 +190,53 @@
   - Generator script at `/tmp/generate-newsmaps-rn-variants.mjs`.
   - Serial execution with 32s delays. Record pre/post rate-limit evidence.
 
+  **Category-specific React Native patterns:**
+  - News/Media (28): FlatList article feed, story detail screen, section tab navigator, bookmarks with AsyncStorage, breaking news banner component.
+  - Weather (7): current conditions card, hourly/daily forecast ScrollViews, radar placeholder MapView, severe alert modal, location selector.
+  - Maps/Navigation (7): MapView container, search bar with autocomplete, route planning with waypoints, turn-by-turn directions list, offline indicator, saved places.
+  - Outdoor/Trail (6): trail discovery FlatList, trail detail with elevation SVG, activity recorder with timer, safety/SOS panel, offline maps indicator.
+
+  **What Needs to Be Built:**
+  A Node.js generator script (`/tmp/generate-newsmaps-rn-variants.mjs`) that serially:
+  1. Clones each of the 48 repos from `GeorgeQLe/<slug>`.
+  2. Creates `variants/react-native/` with: `package.json` (Expo ~52.0.0, React Navigation v7), `tsconfig.json`, `app.json`, `index.js`, `src/screens/` (5 category-specific), `src/components/` (5 shared), `src/navigation/AppNavigator.js`, `src/services/` (3-4 mock), `src/hooks/` (3 custom), `BLOCKERS.md`.
+  3. Commits with message `feat: add React Native (Expo) variant scaffold (variants/react-native/)`.
+  4. Pushes to `main`.
+  5. Waits 32 seconds between repos.
+
+  **Files Created/Modified:**
+  - `/tmp/generate-newsmaps-rn-variants.mjs` — generator script (48 repos × 4 category templates)
+  - 48 downstream repos: `variants/react-native/` with full scaffold
+  - `tasks/todo.md` — check off Step 24.3, add results
+  - `tasks/repo-seeding.md` — add RN scaffold verification evidence
+  - `tasks/history.md` — append session record
+
+  **Approach:**
+  1. Record pre-scaffold rate-limit evidence.
+  2. Write `/tmp/generate-newsmaps-rn-variants.mjs` with 4 category template functions matching Phase 23 RN patterns.
+  3. Run the generator serially (48 repos × ~35s each ≈ 28 minutes).
+  4. Verify all 48 repos have `variants/react-native/` with expected files via `gh api`.
+  5. Record post-scaffold rate-limit evidence.
+  6. Update task docs with results.
+
+  **Repo inventory (from Step 24.1):**
+  - News/Media (28): IDs 135-136, 853, 872-880, 881-896
+  - Weather (7): IDs 602-608
+  - Maps/Navigation (7): IDs 994-1000
+  - Outdoor/Trail (6): IDs 200, 597-601
+
+  **Execution Profile:**
+  - Parallel mode: serial
+  - Integration owner: main agent
+  - Conflict risk: low
+
+  **Acceptance Criteria:**
+  - All 48 repos have `variants/react-native/` directory with expected files.
+  - Each scaffold uses category-appropriate RN patterns.
+  - All repos remain PRIVATE with no GitHub Actions.
+  - Rate-limit evidence recorded pre/post.
+  - 48/48 verification pass.
+
   **Ship-one-step handoff:** Implement only Step 24.3, validate it, then run `/ship` when done.
 
 - [ ] Step 24.4: Build Flutter variant scaffolds for all Phase 24 News, Maps & Navigation apps
