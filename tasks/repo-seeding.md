@@ -4725,3 +4725,35 @@ All 48 repos verified via `gh api repos/GeorgeQLe/<slug>/contents/variants/ios-n
 | Maps/Navigation | 7 | yes | PASS |
 | Outdoor/Trail | 6 | yes | PASS |
 | **Total** | **48** | **yes** | **48/48 PASS** |
+
+## Step 24.7: Android Native (Kotlin/Jetpack Compose) Variant Scaffolds (48 News, Maps & Navigation Apps)
+
+**Date:** 2026-06-08
+
+### Rate Limit Evidence
+
+**Pre-scaffold:** `gh api rate_limit` → core 4889/5000 remaining.
+
+**Post-scaffold:** `gh api rate_limit` → core 4963/5000 remaining.
+
+### Generator
+
+- Script: `/tmp/generate-newsmaps-android-variants.mjs`
+- Serial execution with 32s delays between repos.
+- 4 category-specific Jetpack Compose templates: News/Media (28), Weather (7), Maps/Navigation (7), Outdoor/Trail (6).
+- Kotlin 2.0+, Compose BOM 2024.06.00, Navigation Compose, Hilt (declared), Material3, Material Icons Extended.
+- Maps/Weather/Outdoor categories include Google Maps Compose + Play Services Location dependencies and location permissions.
+- Each scaffold: build.gradle.kts, settings.gradle.kts, gradle.properties, AndroidManifest.xml, MainActivity.kt, App.kt, MainNavigation.kt, ui/theme/Theme.kt, ui/screens/ (5 screens), ui/components/ (3 composables), data/models/ (3 data classes), data/services/ (3 repositories), viewmodel/ (2 ViewModels), BLOCKERS.md.
+- Single pass: **48/48 PASS, 0 failures.** No retries needed.
+
+### Verification Results: 48/48 PASS
+
+All 48 repos verified via `gh api repos/GeorgeQLe/<slug>/contents/variants/android-native` — each contains `build.gradle.kts, settings.gradle.kts, gradle.properties, src/, BLOCKERS.md`.
+
+| Category | Count | Expected Files | Status |
+|----------|-------|----------------|--------|
+| News/Media | 28 | yes | PASS |
+| Weather | 7 | yes | PASS |
+| Maps/Navigation | 7 | yes | PASS |
+| Outdoor/Trail | 6 | yes | PASS |
+| **Total** | **48** | **yes** | **48/48 PASS** |

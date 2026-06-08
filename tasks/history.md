@@ -7913,3 +7913,20 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
   - Maps: Map view (placeholder), Search (TextInput + FlatList), Route planning (mode buttons + router.push to /navigate), Saved places, Settings, navigate.tsx (navigation screen), SearchBar, PlaceCard, LoadingSpinner, searchService, routeService, offlineMapService (expo-file-system), useSearch, useLocation (expo-location).
   - Outdoor: Explore (trail FlatList + router.push), trail/[id].tsx (detail with stats), Record (start/stop toggle), Saved, Safety (SOS), Profile, TrailCard, StatDisplay, LoadingSpinner, trailService, activityService (AsyncStorage), locationTrackingService (expo-location watchPositionAsync), useTrails, useTracking.
 - **Changed files**: `tasks/todo.md` (checked off 24.5, added results), `tasks/repo-seeding.md` (Phase 24 Step 24.5 verification evidence), `tasks/history.md` (this entry).
+
+---
+
+## 2026-06-08 — Step 24.7: Android Native (Kotlin/Jetpack Compose) Variant Scaffolds (48 News, Maps & Navigation Apps)
+
+- **What**: Built and pushed `variants/android-native/` scaffolds to all 48 Phase 24 News, Maps & Navigation downstream repos.
+- Generator: `/tmp/generate-newsmaps-android-variants.mjs` — serial clone → scaffold → commit → push with 32s delays.
+- **Result: 48/48 PASS, 0 FAIL.** Single pass, no retries needed.
+- Rate limit: pre=4889/5000, post=4963/5000.
+- Verification: 48/48 repos confirmed via `gh api` (build.gradle.kts, settings.gradle.kts, gradle.properties, src/, BLOCKERS.md present).
+- Scaffold: build.gradle.kts (Kotlin 2.0, Compose BOM 2024.06.00, Navigation Compose, Hilt, Material3), settings.gradle.kts, gradle.properties, AndroidManifest.xml, MainActivity.kt, App.kt, MainNavigation.kt (NavigationBar + NavHost), ui/theme/Theme.kt (dynamic color), ui/screens/ (5 category-specific screens), ui/components/ (3 category-specific composables), data/models/ (3 data classes), data/services/ (3 repository classes), viewmodel/ (2 ViewModels with StateFlow), BLOCKERS.md.
+- 4 category-specific templates:
+  - News (28): FeedScreen (LazyColumn + ArticleCard), ArticleDetailScreen (bookmark/share toolbar), SectionsScreen (ScrollableTabRow), BookmarksScreen (empty state), SettingsScreen, ArticleCard, SectionTabRow, BreakingNewsBanner, Article/Section/Bookmark models, ArticleRepository, BookmarkRepository, NotificationRepository, FeedViewModel, ArticleViewModel.
+  - Weather (7): CurrentConditionsScreen (LazyVerticalGrid weather cards), ForecastScreen (LazyRow hourly + 7-day list), RadarScreen (map placeholder + overlay), AlertsScreen (alert cards), LocationsScreen (search + saved), WeatherDetailCard, HourlyForecastRow, RadarMapOverlay, WeatherData/Forecast/WeatherAlert models, WeatherRepository, LocationRepository, AlertRepository, WeatherViewModel, ForecastViewModel.
+  - Maps (7): MapScreen (search bar + FABs), SearchScreen (categories + results), RouteScreen (transport mode chips + route cards), SavedPlacesScreen (favorites + recent), SettingsScreen, PlaceCard, RouteOptionRow, MapSearchBar, Place/Route/MapRegion models, MapRepository, SearchRepository, RouteRepository, MapViewModel, SearchViewModel.
+  - Outdoor (6): ExploreScreen (trail search + LazyColumn), TrailDetailScreen (map + stats + elevation + reviews), RecordScreen (GPS tracker + start/stop FAB), SafetyScreen (SOS dialog + live tracking + checklist), ProfileScreen (stats + settings), TrailCard, StatCard, ElevationChart, Trail/Activity/TrackPoint models, TrailRepository, ActivityRepository, LocationTrackingRepository, TrailViewModel, ActivityViewModel.
+- **Changed files**: `tasks/todo.md` (checked off 24.7, added results), `tasks/repo-seeding.md` (Phase 24 Step 24.7 verification evidence), `tasks/history.md` (this entry).

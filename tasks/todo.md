@@ -462,7 +462,8 @@
     - Outdoor: ExploreView (NavigationStack + List + TrailRow), TrailDetailView (Map + elevation profile + reviews), RecordView (Map + stats + start/stop), SafetyView (SOS + live tracking + checklist), ProfileView (stats + settings), StatView component, Trail/Activity/TrackPoint models, TrailService/ActivityService/LocationTrackingService, TrailViewModel/ActivityViewModel (@Observable).
   - Verification: 48/48 repos confirmed via `gh api` — each has `Package.swift`, `Sources/{App,Views,Services,Models,ViewModels,Components}/`, `BLOCKERS.md`.
 
-- [ ] Step 24.7: Build Android Native (Kotlin/Jetpack Compose) variant scaffolds for all Phase 24 News, Maps & Navigation apps
+- [x] Step 24.7: Build Android Native (Kotlin/Jetpack Compose) variant scaffolds for all Phase 24 News, Maps & Navigation apps
+  **Result: 48/48 PASS, 0 FAIL.** Single pass, no retries needed. Rate limit: pre=4889/5000, post=4963/5000.
   - Build `variants/android-native/` scaffold for all 48 downstream repos.
   - Generator script at `/tmp/generate-newsmaps-android-variants.mjs`.
   - Serial execution with 32s delays. Record pre/post rate-limit evidence.
