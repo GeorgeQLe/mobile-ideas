@@ -395,6 +395,58 @@
   - Generator script at `/tmp/generate-newsmaps-ios-variants.mjs`.
   - Serial execution with 32s delays. Record pre/post rate-limit evidence.
 
+  **Category-specific SwiftUI patterns:**
+  - News/Media (28): TabView + NavigationStack, article feed List, article detail view, section picker, bookmarks (UserDefaults), breaking news banner, push notification placeholder.
+  - Weather (7): current conditions card, hourly/daily forecast List, radar placeholder (MapKit), alerts sheet, location manager (CoreLocation).
+  - Maps/Navigation (7): MapKit Map view, search bar, route planning, saved places, offline indicator, CoreLocation for GPS.
+  - Outdoor/Trail (6): trail discovery List, trail detail with stats, activity recorder, safety/SOS panel, offline maps placeholder, CoreLocation continuous tracking.
+
+  **What Needs to Be Built:**
+  A Node.js generator script (`/tmp/generate-newsmaps-ios-variants.mjs`) that serially:
+  1. Clones each of the 48 repos from `GeorgeQLe/<slug>`.
+  2. Creates `variants/ios-native/` with: `Package.swift` (SPM, iOS 17+), `Sources/App/<App>App.swift` (@main + TabView), `Sources/Views/` (4-5 SwiftUI views), `Sources/Services/` (3 async throws classes), `Sources/Models/` (2-3 Codable structs), `Sources/ViewModels/` (2 @Observable classes), `Sources/Components/.gitkeep`, `BLOCKERS.md`.
+  3. Commits with message `feat: add iOS Native (SwiftUI) variant scaffold (variants/ios-native/)`.
+  4. Pushes to `main`.
+  5. Waits 32 seconds between repos.
+
+  **Key difference from Phase 23 Productivity iOS scaffolds:** Category-specific view/service/model/viewModel patterns for News, Weather, Maps, Outdoor instead of Productivity patterns.
+
+  **Reference script:** `/tmp/generate-productivity-ios-variants.mjs` (Phase 23 — same structure, different category templates).
+
+  **Files Created/Modified:**
+  - `/tmp/generate-newsmaps-ios-variants.mjs` — generator script (48 repos × 4 category templates)
+  - 48 downstream repos: `variants/ios-native/` with full scaffold
+  - `tasks/todo.md` — check off Step 24.6, add results
+  - `tasks/repo-seeding.md` — add iOS scaffold verification evidence
+  - `tasks/history.md` — append session record
+
+  **Approach:**
+  1. Record pre-scaffold rate-limit evidence (`gh api rate_limit`).
+  2. Write `/tmp/generate-newsmaps-ios-variants.mjs` with 4 category template functions matching Phase 23 iOS patterns but adapted for News/Weather/Maps/Outdoor categories.
+  3. Run the generator serially (48 repos × ~35s each ≈ 28 minutes).
+  4. Retry any transient SSL failures (pattern from Steps 24.2–24.5).
+  5. Verify all 48 repos have `variants/ios-native/` with expected files via `gh api`.
+  6. Record post-scaffold rate-limit evidence.
+  7. Update task docs with results.
+
+  **Repo inventory (from Step 24.1):**
+  - News/Media (28): IDs 135-136, 853, 872-880, 881-896
+  - Weather (7): IDs 602-608
+  - Maps/Navigation (7): IDs 994-1000
+  - Outdoor/Trail (6): IDs 200, 597-601
+
+  **Execution Profile:**
+  - Parallel mode: serial
+  - Integration owner: main agent
+  - Conflict risk: low
+
+  **Acceptance Criteria:**
+  - All 48 repos have `variants/ios-native/` directory with expected files.
+  - Each scaffold uses category-appropriate SwiftUI patterns.
+  - All repos remain PRIVATE with no GitHub Actions.
+  - Rate-limit evidence recorded pre/post.
+  - 48/48 verification pass.
+
   **Ship-one-step handoff:** Implement only Step 24.6, validate it, then run `/ship` when done.
 
 - [ ] Step 24.7: Build Android Native (Kotlin/Jetpack Compose) variant scaffolds for all Phase 24 News, Maps & Navigation apps
