@@ -467,6 +467,56 @@
   - Generator script at `/tmp/generate-newsmaps-android-variants.mjs`.
   - Serial execution with 32s delays. Record pre/post rate-limit evidence.
 
+  **Category-specific Jetpack Compose patterns:**
+  - News/Media (28): Scaffold + BottomNavigation, LazyColumn article feed, article detail screen, section tabs (TabRow), bookmarks (DataStore), breaking news banner composable.
+  - Weather (7): current conditions card, hourly/daily forecast LazyRow/LazyColumn, radar placeholder (Google Maps Compose), alerts dialog, location manager.
+  - Maps/Navigation (7): Google Maps Compose MapView, search bar, route planning, saved places, offline indicator, FusedLocationProvider for GPS.
+  - Outdoor/Trail (6): trail discovery LazyColumn, trail detail with stats, activity recorder, safety/SOS panel, offline maps placeholder, location tracking.
+
+  **What Needs to Be Built:**
+  A Node.js generator script (`/tmp/generate-newsmaps-android-variants.mjs`) that serially:
+  1. Clones each of the 48 repos from `GeorgeQLe/<slug>`.
+  2. Creates `variants/android-native/` with: `build.gradle.kts` (Kotlin 2.0+, Compose BOM, Navigation Compose, Hilt), `settings.gradle.kts`, `src/main/java/com/example/<app>/` with `MainActivity.kt`, `navigation/NavGraph.kt`, `ui/screens/` (4-5 screens), `ui/components/` (2-3 composables), `data/models/` (2-3 data classes), `data/services/` (3 mock repositories), `ui/viewmodels/` (2 ViewModels), `BLOCKERS.md`.
+  3. Commits with message `feat: add Android Native (Kotlin/Compose) variant scaffold (<category>)`.
+  4. Pushes to `main`.
+  5. Waits 32 seconds between repos.
+
+  **Key difference from Phase 23 Productivity Android scaffolds:** Category-specific screen/service/model/viewModel patterns for News, Weather, Maps, Outdoor instead of Productivity patterns. Reference: `/tmp/generate-productivity-android-variants.mjs` (Phase 23).
+
+  **Files Created/Modified:**
+  - `/tmp/generate-newsmaps-android-variants.mjs` — generator script (48 repos × 4 category templates)
+  - 48 downstream repos: `variants/android-native/` with full scaffold
+  - `tasks/todo.md` — check off Step 24.7, add results
+  - `tasks/repo-seeding.md` — add Android scaffold verification evidence
+  - `tasks/history.md` — append session record
+
+  **Approach:**
+  1. Record pre-scaffold rate-limit evidence (`gh api rate_limit`).
+  2. Write `/tmp/generate-newsmaps-android-variants.mjs` with 4 category template functions using Jetpack Compose patterns.
+  3. Run the generator serially (48 repos × ~35s each ≈ 28 minutes).
+  4. Retry any transient SSL failures (pattern from Steps 24.2–24.6).
+  5. Verify all 48 repos have `variants/android-native/` with expected files via `gh api`.
+  6. Record post-scaffold rate-limit evidence.
+  7. Update task docs with results.
+
+  **Repo inventory (from Step 24.1):**
+  - News/Media (28): IDs 135-136, 853, 872-880, 881-896
+  - Weather (7): IDs 602-608
+  - Maps/Navigation (7): IDs 994-1000
+  - Outdoor/Trail (6): IDs 200, 597-601
+
+  **Execution Profile:**
+  - Parallel mode: serial
+  - Integration owner: main agent
+  - Conflict risk: low
+
+  **Acceptance Criteria:**
+  - All 48 repos have `variants/android-native/` directory with expected files.
+  - Each scaffold uses category-appropriate Jetpack Compose patterns.
+  - All repos remain PRIVATE with no GitHub Actions.
+  - Rate-limit evidence recorded pre/post.
+  - 48/48 verification pass.
+
   **Ship-one-step handoff:** Implement only Step 24.7, validate it, then run `/ship` when done.
 
 ### Milestone: Phase 24 — News, Maps & Navigation Complete
