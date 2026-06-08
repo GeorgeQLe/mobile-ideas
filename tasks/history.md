@@ -1,5 +1,15 @@
 # History
 
+## 2026-06-07 - Phase 24 Step 24.2: Static Variant Scaffolds (48 News, Maps & Navigation apps)
+
+- Built and pushed static HTML/CSS/JS variant scaffolds (`variants/static/`) for all 48 Phase 24 downstream repos.
+- Generator: `/tmp/generate-newsmaps-prototypes.mjs` — serial clone → scaffold → commit → push with 32s delays.
+- First pass: 42/48 pass, 6 transient SSL/network failures. Retry: 6/6 pass. **48/48 total PASS.**
+- 4 category-specific UI templates: News/Media (28: article feed, section tabs, bookmarks, breaking banner), Weather (7: current conditions, hourly/daily forecast, radar, alerts), Maps/Navigation (7: map view, search, route planning, turn-by-turn, saved places), Outdoor/Trail (6: trail list, trail detail/elevation, activity recorder, safety/SOS).
+- Verification: 48/48 confirmed via `gh api`. All repos have `variants/static/{index.html, styles.css, app.js, README.md}`.
+- Rate limit: pre=4759/5000, post=4933/5000.
+- **Changed files**: 48 downstream repos (`variants/static/`), `tasks/todo.md` (checked off 24.2, added results), `tasks/repo-seeding.md` (verification evidence), `tasks/history.md` (this entry).
+
 ## 2026-06-07 - Phase 24 Step 24.1: Reconcile News, Maps & Navigation Inventory (48 apps)
 
 - Serial GitHub API verification of all 48 Phase 24 downstream repos under `GeorgeQLe/`.

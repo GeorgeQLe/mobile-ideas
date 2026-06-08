@@ -117,7 +117,7 @@
     - Maps/Navigation: map tile providers (Mapbox, OpenStreetMap, HERE), turn-by-turn navigation engines, offline map storage/download, GPS/location services, POI databases.
     - Outdoor/Trail: trail databases, elevation/terrain data, live tracking/SOS features, offline map caching, GPS accuracy requirements.
 
-- [ ] Step 24.2: Build static variant scaffolds for all Phase 24 News, Maps & Navigation apps
+- [x] Step 24.2: Build static variant scaffolds for all Phase 24 News, Maps & Navigation apps
   - Build `variants/static/` scaffold for all 48 downstream repos.
   - Each scaffold: `index.html`, `styles.css`, `app.js`, `README.md` with category-specific UI patterns.
   - Generator script at `/tmp/generate-newsmaps-prototypes.mjs`.
@@ -176,6 +176,14 @@
   - 48/48 verification pass.
 
   **Ship-one-step handoff:** Implement only Step 24.2, validate it, then run `/ship` when done.
+
+  **Results (2026-06-07):**
+  - **48/48 PASS, 0 failures.** All repos scaffolded with `variants/static/{index.html, styles.css, app.js, README.md}`.
+  - Generator: `/tmp/generate-newsmaps-prototypes.mjs` — serial clone → scaffold → commit → push with 32s delays.
+  - First pass: 42/48 pass, 6 transient SSL/network failures. Retry pass: 6/6 pass.
+  - 4 category-specific UI templates: News/Media (28), Weather (7), Maps/Navigation (7), Outdoor/Trail (6).
+  - Verification: 48/48 confirmed via `gh api` (all 4 files present in each repo).
+  - Rate limit: pre=4759/5000, post=4933/5000 (rate limit reset between runs).
 
 - [ ] Step 24.3: Build React Native variant scaffolds for all Phase 24 News, Maps & Navigation apps
   - Build `variants/react-native/` scaffold for all 48 downstream repos.

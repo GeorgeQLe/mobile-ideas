@@ -4564,3 +4564,38 @@ variants/android-native/
 - **Weather:** Weather data APIs (OpenWeatherMap, WeatherAPI, NWS), radar/satellite imagery providers, severe weather alert systems, location services, widget support.
 - **Maps/Navigation:** Map tile providers (Mapbox, OpenStreetMap, HERE), turn-by-turn navigation engines, offline map storage/download, GPS/location services, POI databases, traffic data.
 - **Outdoor/Trail:** Trail databases, elevation/terrain data, live tracking/SOS features, offline map caching, GPS accuracy requirements, community trail data.
+
+## Phase 24 Step 24.2 — Static Variant Scaffolds (48 News, Maps & Navigation Apps)
+
+**Date:** 2026-06-07
+**Step:** 24.2 — Build static variant scaffolds
+
+### Rate-Limit Evidence
+
+| Checkpoint | Remaining | Limit | Reset |
+|-----------|-----------|-------|-------|
+| Pre-scaffold | 4759 | 5000 | 2026-06-08T00:24:22Z |
+| Post-scaffold | 4933 | 5000 | 2026-06-08T04:04:10Z |
+
+**Note:** Rate limit counter reset between the main run and verification due to hourly window rotation.
+
+### Generator
+
+- Script: `/tmp/generate-newsmaps-prototypes.mjs`
+- Serial execution with 32s delays between repos.
+- 4 category-specific templates: News/Media, Weather, Maps/Navigation, Outdoor/Trail.
+- First pass: 42/48 pass, 6 transient SSL/network failures.
+- Retry script: `/tmp/retry-failed-scaffolds.mjs` — 6/6 pass.
+- Total: **48/48 PASS, 0 failures.**
+
+### Verification Results: 48/48 PASS
+
+All 48 repos verified via `gh api repos/GeorgeQLe/<slug>/contents/variants/static` — each contains `README.md, app.js, index.html, styles.css`.
+
+| Category | Count | All 4 Files | Status |
+|----------|-------|-------------|--------|
+| News/Media | 28 | yes | PASS |
+| Weather | 7 | yes | PASS |
+| Maps/Navigation | 7 | yes | PASS |
+| Outdoor/Trail | 6 | yes | PASS |
+| **Total** | **48** | **yes** | **48/48 PASS** |
