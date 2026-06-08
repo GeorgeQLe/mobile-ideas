@@ -4694,3 +4694,34 @@ All 48 repos verified via `gh api repos/GeorgeQLe/<slug>/contents/variants/expo`
 | Maps/Navigation | 7 | yes | PASS |
 | Outdoor/Trail | 6 | yes | PASS |
 | **Total** | **48** | **yes** | **48/48 PASS** |
+
+## Step 24.6: iOS Native (SwiftUI) Variant Scaffolds (48 News, Maps & Navigation Apps)
+
+**Date:** 2026-06-08
+
+### Rate Limit Evidence
+
+**Pre-scaffold:** `gh api rate_limit` → core 4952/5000 remaining.
+
+**Post-scaffold:** `gh api rate_limit` → core 4945/5000 remaining.
+
+### Generator
+
+- Script: `/tmp/generate-newsmaps-ios-variants.mjs`
+- Serial execution with 32s delays between repos.
+- 4 category-specific SwiftUI templates: News/Media (28), Weather (7), Maps/Navigation (7), Outdoor/Trail (6).
+- iOS 17+, SPM (Package.swift), @Observable ViewModels, async/throws services, TabView + NavigationStack, MapKit for Maps/Weather/Outdoor.
+- Each scaffold: Package.swift, Sources/App/<App>App.swift, Sources/Views/ (4-5 views), Sources/Services/ (3 services), Sources/Models/ (2-3 models), Sources/ViewModels/ (2 view models), Sources/Components/.gitkeep, BLOCKERS.md.
+- Single pass: **48/48 PASS, 0 failures.** No retries needed.
+
+### Verification Results: 48/48 PASS
+
+All 48 repos verified via `gh api repos/GeorgeQLe/<slug>/contents/variants/ios-native` — each contains `Package.swift, Sources/, BLOCKERS.md`.
+
+| Category | Count | Expected Files | Status |
+|----------|-------|----------------|--------|
+| News/Media | 28 | yes | PASS |
+| Weather | 7 | yes | PASS |
+| Maps/Navigation | 7 | yes | PASS |
+| Outdoor/Trail | 6 | yes | PASS |
+| **Total** | **48** | **yes** | **48/48 PASS** |

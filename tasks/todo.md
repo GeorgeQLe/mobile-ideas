@@ -390,7 +390,7 @@
     - Outdoor: Explore (trail FlatList + router.push), trail/[id].tsx (detail with stats), Record (start/stop), Saved, Safety (SOS), Profile, TrailCard, StatDisplay, LoadingSpinner, trailService, activityService (AsyncStorage), locationTrackingService (expo-location watchPositionAsync), useTrails, useTracking.
   - Verification: 48/48 repos confirmed via `gh api` — each has `package.json`, `app.json`, `app/`, `BLOCKERS.md`.
 
-- [ ] Step 24.6: Build iOS Native (SwiftUI) variant scaffolds for all Phase 24 News, Maps & Navigation apps
+- [x] Step 24.6: Build iOS Native (SwiftUI) variant scaffolds for all Phase 24 News, Maps & Navigation apps
   - Build `variants/ios-native/` scaffold for all 48 downstream repos.
   - Generator script at `/tmp/generate-newsmaps-ios-variants.mjs`.
   - Serial execution with 32s delays. Record pre/post rate-limit evidence.
@@ -448,6 +448,19 @@
   - 48/48 verification pass.
 
   **Ship-one-step handoff:** Implement only Step 24.6, validate it, then run `/ship` when done.
+
+  **Results (2026-06-08):**
+  - **48/48 PASS, 0 failures.** All repos scaffolded in a single pass (no retries needed).
+  - Rate limit: pre=4952/5000, post=4945/5000.
+  - Generator: `/tmp/generate-newsmaps-ios-variants.mjs` — serial clone → scaffold → commit → push with 32s delays.
+  - 4 category-specific SwiftUI templates: News/Media (28), Weather (7), Maps/Navigation (7), Outdoor/Trail (6).
+  - Each scaffold: `Package.swift` (SPM, iOS 17+), `Sources/App/<App>App.swift` (@main + TabView), `Sources/Views/` (4-5 category-specific SwiftUI views), `Sources/Services/` (3 async throws classes), `Sources/Models/` (2-3 Codable/Identifiable structs), `Sources/ViewModels/` (2 @Observable classes), `Sources/Components/.gitkeep`, `BLOCKERS.md`.
+  - Category scaffolds:
+    - News: FeedView (NavigationStack + List), ArticleDetailView (ScrollView + toolbar), SectionsView (horizontal section picker), BookmarksView (ContentUnavailableView), SettingsView, ArticleRow component, Article/Section/Bookmark models, ArticleService/BookmarkService (UserDefaults)/NotificationService, FeedViewModel/ArticleViewModel (@Observable).
+    - Weather: CurrentConditionsView (LazyVGrid detail cards), ForecastView (hourly ScrollView + 7-day List), RadarView (MapKit Map + layer buttons), AlertsView, LocationsView (searchable), WeatherDetailCard component, WeatherData/Forecast/WeatherAlert models, WeatherService/LocationService/AlertService, WeatherViewModel/ForecastViewModel (@Observable).
+    - Maps: MapView (MapKit Map + search bar + FABs), SearchView (categories + recent), RouteView (origin/dest + mode picker + route list), SavedPlacesView, SettingsView, Place/Route/MapRegion models, MapService/SearchService/RouteService, MapViewModel/SearchViewModel (@Observable).
+    - Outdoor: ExploreView (NavigationStack + List + TrailRow), TrailDetailView (Map + elevation profile + reviews), RecordView (Map + stats + start/stop), SafetyView (SOS + live tracking + checklist), ProfileView (stats + settings), StatView component, Trail/Activity/TrackPoint models, TrailService/ActivityService/LocationTrackingService, TrailViewModel/ActivityViewModel (@Observable).
+  - Verification: 48/48 repos confirmed via `gh api` — each has `Package.swift`, `Sources/{App,Views,Services,Models,ViewModels,Components}/`, `BLOCKERS.md`.
 
 - [ ] Step 24.7: Build Android Native (Kotlin/Jetpack Compose) variant scaffolds for all Phase 24 News, Maps & Navigation apps
   - Build `variants/android-native/` scaffold for all 48 downstream repos.

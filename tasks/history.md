@@ -1,5 +1,16 @@
 # History
 
+## 2026-06-08 - Phase 24 Step 24.6: iOS Native (SwiftUI) Variant Scaffolds (48 News, Maps & Navigation apps)
+
+- Built and pushed iOS Native (SwiftUI) variant scaffolds (`variants/ios-native/`) for all 48 Phase 24 downstream repos.
+- Generator: `/tmp/generate-newsmaps-ios-variants.mjs` — serial clone → scaffold → commit → push with 32s delays.
+- Single pass: **48/48 PASS, 0 failures.** No retries needed.
+- 4 category-specific SwiftUI templates: News/Media (28: FeedView, ArticleDetailView, SectionsView, BookmarksView), Weather (7: CurrentConditionsView, ForecastView, RadarView with MapKit, AlertsView, LocationsView), Maps/Navigation (7: MapView with MapKit, SearchView, RouteView, SavedPlacesView), Outdoor/Trail (6: ExploreView, TrailDetailView with MapKit, RecordView, SafetyView with SOS, ProfileView).
+- iOS 17+, SPM, @Observable ViewModels, async/throws services, TabView + NavigationStack, MapKit for maps/weather/outdoor.
+- Verification: 48/48 confirmed via `gh api`. All repos have `variants/ios-native/{Package.swift, Sources/, BLOCKERS.md}`.
+- Rate limit: pre=4952/5000, post=4945/5000.
+- **Changed files**: 48 downstream repos (`variants/ios-native/`), `tasks/todo.md` (checked off 24.6, added results), `tasks/repo-seeding.md` (verification evidence), `tasks/history.md` (this entry).
+
 ## 2026-06-07 - Phase 24 Step 24.2: Static Variant Scaffolds (48 News, Maps & Navigation apps)
 
 - Built and pushed static HTML/CSS/JS variant scaffolds (`variants/static/`) for all 48 Phase 24 downstream repos.
