@@ -4599,3 +4599,36 @@ All 48 repos verified via `gh api repos/GeorgeQLe/<slug>/contents/variants/stati
 | Maps/Navigation | 7 | yes | PASS |
 | Outdoor/Trail | 6 | yes | PASS |
 | **Total** | **48** | **yes** | **48/48 PASS** |
+
+## Step 24.3: React Native Variant Scaffolds (48 News, Maps & Navigation Apps)
+
+**Date:** 2026-06-08
+
+### Rate Limit Evidence
+
+**Pre-scaffold:** `gh api rate_limit` → core 4933/5000 remaining (67 used).
+
+**Post-scaffold:** `gh api rate_limit` → core 5000/5000 remaining (0 used — rate limit reset between runs).
+
+### Generator
+
+- Script: `/tmp/generate-newsmaps-rn-variants.mjs`
+- Serial execution with 32s delays between repos.
+- 4 category-specific RN templates: News/Media (28), Weather (7), Maps/Navigation (7), Outdoor/Trail (6).
+- Expo ~52.0.0, React Navigation v7, TypeScript config.
+- Each scaffold: package.json, tsconfig.json, app.json, index.js, src/{screens,components,navigation,services,hooks}/, BLOCKERS.md.
+- First pass: 44/48 pass, 4 transient SSL/network failures.
+- Retry script: `/tmp/retry-rn-failures.mjs` — 4/4 pass.
+- Total: **48/48 PASS, 0 failures.**
+
+### Verification Results: 48/48 PASS
+
+All 48 repos verified via `gh api repos/GeorgeQLe/<slug>/contents/variants/react-native` — each contains `package.json, src/, BLOCKERS.md`.
+
+| Category | Count | Expected Files | Status |
+|----------|-------|----------------|--------|
+| News/Media | 28 | yes | PASS |
+| Weather | 7 | yes | PASS |
+| Maps/Navigation | 7 | yes | PASS |
+| Outdoor/Trail | 6 | yes | PASS |
+| **Total** | **48** | **yes** | **48/48 PASS** |
