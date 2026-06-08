@@ -218,10 +218,49 @@
   **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
 - [ ] Step 25.2: Build static variant scaffolds for all Phase 25 Home, Security, Cloud & Enterprise apps
-  - Build `variants/static/` scaffold for all 129 downstream repos.
+  - Build `variants/static/` scaffold for all 128 Phase 25 downstream repos (excludes ID 853 Hacker News, already Phase 24).
   - Generator script at `/tmp/generate-homesec-prototypes.mjs`.
-  - Serial execution with 32s delays. Record pre/post rate-limit evidence.
-  - 7 category-specific HTML/CSS/JS templates.
+  - Serial execution with 32s delays between repos. Record pre/post rate-limit evidence.
+  - 7 category-specific HTML/CSS/JS templates (index.html, styles.css, app.js, README.md per repo).
+  - ID 113 (Realtor.com) uses repo slug `realtor-com-mobile-clone` (not `realtor-mobile-clone`).
+
+  **Repo inventory (from Step 25.1):**
+  - Smart Home (24): IDs 100, 635-657 — device dashboards, camera feeds, thermostat controls, lock management, security panels.
+  - Real Estate & Home Services (21): IDs 111-113, 617-634 — property listings, map search, service booking, home improvement.
+  - Jobs (3): IDs 108-110 — job search, company reviews, application tracking.
+  - Cloud/Identity (12): IDs 792-803 — password vaults, TOTP authenticators, credential management.
+  - Security & VPN (15): IDs 804-818 — VPN connection UI, threat scanning, 2FA management.
+  - Enterprise Operations (26): IDs 819-844 — CRM dashboards, HR/payroll, expense tracking, e-commerce, marketing.
+  - Developer Tools (27): IDs 187, 845-852, 854-871 — code repos, API testing, cloud consoles, monitoring dashboards, terminal/SSH, code editors.
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-run evidence.
+  2. Write `/tmp/generate-homesec-prototypes.mjs` with 7 category-specific templates:
+     - Smart Home: device grid, camera feed, thermostat control, lock status, automation rules.
+     - Real Estate: property cards, map placeholder, search filters, listing detail, mortgage calculator.
+     - Jobs: job cards, company profile, application tracker, salary comparison, resume upload.
+     - Cloud/Identity: vault list, credential detail, TOTP code display, password generator, breach alerts.
+     - Security & VPN: connection status, server list, speed test, threat scan, 2FA codes.
+     - Enterprise: dashboard with charts, data tables, detail views, settings, notifications.
+     - Developer Tools: code/repo views, terminal output, API request/response, monitoring charts, deployment status.
+  3. Each scaffold: `index.html` (category-specific screens), `styles.css` (app-branded theme), `app.js` (vanilla JS rendering), `README.md` (legal notice + blockers).
+  4. Serial clone → scaffold → commit → push with 32s delays.
+  5. `gh api rate_limit` — record post-run evidence.
+  6. Verify all 128 repos via `gh api` — confirm `variants/static/index.html` present.
+  7. Spot check 20 repos for all 4 files.
+
+  **Execution Profile:**
+  - Parallel mode: serial
+  - Integration owner: main agent
+  - Conflict risk: low
+
+  **Acceptance Criteria:**
+  - 128/128 Phase 25 repos have `variants/static/` scaffold with index.html, styles.css, app.js, README.md.
+  - Each scaffold uses category-specific UI screens and app-branded color theme.
+  - Rate-limit evidence recorded pre/post.
+  - No rate-limit errors, no auth failures, no clone/push failures.
+
+  **Files:** Generator at `/tmp/generate-homesec-prototypes.mjs`. Updates to `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
   **Ship-one-step handoff:** Implement only Step 25.2, validate it, then run `/ship` when done.
 
