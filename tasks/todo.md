@@ -248,7 +248,7 @@
   - Verification: 48/48 confirmed via `gh api` (package.json, src/, BLOCKERS.md present in each repo).
   - Rate limit: pre=4933/5000, post=5000/5000 (rate limit reset between runs).
 
-- [ ] Step 24.4: Build Flutter variant scaffolds for all Phase 24 News, Maps & Navigation apps
+- [x] Step 24.4: Build Flutter variant scaffolds for all Phase 24 News, Maps & Navigation apps
   - Build `variants/flutter/` scaffold for all 48 downstream repos.
   - Generator script at `/tmp/generate-newsmaps-flutter-variants.mjs`.
   - Serial execution with 32s delays. Record pre/post rate-limit evidence.
@@ -302,6 +302,19 @@
   - 48/48 verification pass.
 
   **Ship-one-step handoff:** Implement only Step 24.4, validate it, then run `/ship` when done.
+
+  **Results (2026-06-08):**
+  - **48/48 PASS, 0 failures.** All repos scaffolded in a single pass (no retries needed).
+  - Rate limit: pre=4952/5000, post=4952/5000 (rate limit window reset mid-run).
+  - Generator: `/tmp/generate-newsmaps-flutter-variants.mjs` — serial clone → scaffold → commit → push with 32s delays.
+  - 4 category-specific Flutter templates: News/Media (28), Weather (7), Maps/Navigation (7), Outdoor/Trail (6).
+  - Each scaffold: `pubspec.yaml` (Flutter 3.22+, Dart 3.4+, go_router, provider, shared_preferences, http, intl + category deps), `analysis_options.yaml`, `lib/main.dart`, `lib/router.dart` (GoRouter config), `lib/screens/` (4-5 screens), `lib/widgets/` (2-3 widgets), `lib/services/` (2-3 mock services), `lib/models/` (1-2 data classes), `BLOCKERS.md`.
+  - Category scaffolds:
+    - News: FeedScreen (SliverList), StoryDetailScreen, SectionsScreen (TabBarView), BookmarksScreen, SettingsScreen, ArticleCard, BreakingNewsBanner, AppShell, Article model, NewsService, BookmarkService (SharedPreferences).
+    - Weather: CurrentConditionsScreen, ForecastScreen (hourly/daily), RadarScreen (placeholder), AlertsScreen, LocationsScreen, ConditionsCard, AppShell, WeatherData model, WeatherService, LocationService.
+    - Maps: MapScreen (search bar + FABs), SearchScreen, RouteScreen (mode chips), SavedPlacesScreen, SettingsScreen, AppShell, OfflineIndicator, Place model, MapService, LocationService.
+    - Outdoor: DiscoverScreen (SliverList), TrailDetailScreen (elevation/map placeholders), RecordScreen (timer), SafetyScreen (SOS/live tracking), ProfileScreen, TrailCard, AppShell, Trail model, TrailService, ActivityService, LocationService.
+  - Verification: 48/48 repos confirmed via `gh api` — each has `pubspec.yaml`, `analysis_options.yaml`, `lib/`, `BLOCKERS.md`.
 
 - [ ] Step 24.5: Build Expo variant scaffolds for all Phase 24 News, Maps & Navigation apps
   - Build `variants/expo/` scaffold for all 48 downstream repos.

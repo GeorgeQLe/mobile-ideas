@@ -7868,3 +7868,20 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
   - Maps: MapView, Search/Autocomplete, RoutePlanning, SavedPlaces, OfflineIndicator, MapService, RouteService, OfflineService, PlaceService.
   - Outdoor: TrailDiscovery, TrailDetail (elevation chart), ActivityRecorder, Safety/SOS, Profile, TrailService, ActivityService, LocationService, SafetyService.
 - **Changed files**: `tasks/todo.md` (checked off 24.3, added results), `tasks/repo-seeding.md` (Phase 24 Step 24.3 verification evidence), `tasks/history.md` (this entry).
+
+---
+
+## 2026-06-08 — Step 24.4: Flutter Variant Scaffolds (48 News, Maps & Navigation Apps)
+
+- **What**: Built and pushed `variants/flutter/` scaffolds to all 48 Phase 24 News, Maps & Navigation downstream repos.
+- Generator: `/tmp/generate-newsmaps-flutter-variants.mjs` — serial clone → scaffold → commit → push with 32s delays.
+- **Result: 48/48 PASS, 0 FAIL.** Single pass, no retries needed. Run time ~28 minutes.
+- Rate limit: pre=4952/5000, post=4952/5000 (window reset mid-run).
+- Verification: 48/48 repos confirmed via `gh api` (pubspec.yaml, analysis_options.yaml, lib/, BLOCKERS.md present).
+- Scaffold: pubspec.yaml (Flutter 3.22+, Dart 3.4+, go_router v14, provider v6, shared_preferences, http, intl + category deps), analysis_options.yaml (flutter_lints), lib/main.dart, lib/router.dart (GoRouter), lib/screens/ (4-5 screens), lib/widgets/ (2-3 widgets), lib/services/ (2-3 mock services), lib/models/ (1-2 data classes), BLOCKERS.md.
+- 4 category-specific templates: News/Media (28), Weather (7), Maps/Navigation (7), Outdoor/Trail (6).
+  - News: FeedScreen (SliverList), StoryDetailScreen, SectionsScreen (TabBarView), BookmarksScreen, SettingsScreen, ArticleCard, BreakingNewsBanner, AppShell, Article model, NewsService, BookmarkService (SharedPreferences).
+  - Weather: CurrentConditionsScreen, ForecastScreen (hourly/daily), RadarScreen (placeholder), AlertsScreen, LocationsScreen, ConditionsCard, AppShell, WeatherData model, WeatherService, LocationService.
+  - Maps: MapScreen (search bar + FABs), SearchScreen, RouteScreen (mode chips), SavedPlacesScreen, SettingsScreen, AppShell, OfflineIndicator, Place model, MapService, LocationService.
+  - Outdoor: DiscoverScreen (SliverList), TrailDetailScreen (elevation/map placeholders), RecordScreen (timer), SafetyScreen (SOS/live tracking), ProfileScreen, TrailCard, AppShell, Trail model, TrailService, ActivityService, LocationService.
+- **Changed files**: `tasks/todo.md` (checked off 24.4, added results), `tasks/repo-seeding.md` (Phase 24 Step 24.4 verification evidence), `tasks/history.md` (this entry).

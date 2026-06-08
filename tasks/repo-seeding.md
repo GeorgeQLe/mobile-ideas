@@ -4632,3 +4632,34 @@ All 48 repos verified via `gh api repos/GeorgeQLe/<slug>/contents/variants/react
 | Maps/Navigation | 7 | yes | PASS |
 | Outdoor/Trail | 6 | yes | PASS |
 | **Total** | **48** | **yes** | **48/48 PASS** |
+
+## Step 24.4: Flutter Variant Scaffolds (48 News, Maps & Navigation Apps)
+
+**Date:** 2026-06-08
+
+### Rate Limit Evidence
+
+**Pre-scaffold:** `gh api rate_limit` → core 4952/5000 remaining (48 used) at 2026-06-08T13:36:46Z.
+
+**Post-scaffold:** `gh api rate_limit` → core 4952/5000 remaining (rate limit window reset mid-run) at 2026-06-08T14:03:53Z.
+
+### Generator
+
+- Script: `/tmp/generate-newsmaps-flutter-variants.mjs`
+- Serial execution with 32s delays between repos.
+- 4 category-specific Flutter templates: News/Media (28), Weather (7), Maps/Navigation (7), Outdoor/Trail (6).
+- Flutter 3.22+, Dart 3.4+, go_router v14, provider v6, shared_preferences, http, intl. Category-specific: google_maps_flutter + geolocator (weather/maps/outdoor), fl_chart (weather/outdoor), path_provider (maps/outdoor), flutter_polyline_points (maps).
+- Each scaffold: pubspec.yaml, analysis_options.yaml, lib/{main.dart, router.dart, screens/, widgets/, services/, models/}, BLOCKERS.md.
+- Single pass: **48/48 PASS, 0 failures.** No retries needed.
+
+### Verification Results: 48/48 PASS
+
+All 48 repos verified via `gh api repos/GeorgeQLe/<slug>/contents/variants/flutter` — each contains `pubspec.yaml, analysis_options.yaml, lib/, BLOCKERS.md`.
+
+| Category | Count | Expected Files | Status |
+|----------|-------|----------------|--------|
+| News/Media | 28 | yes | PASS |
+| Weather | 7 | yes | PASS |
+| Maps/Navigation | 7 | yes | PASS |
+| Outdoor/Trail | 6 | yes | PASS |
+| **Total** | **48** | **yes** | **48/48 PASS** |
