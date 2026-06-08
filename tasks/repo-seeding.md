@@ -96,6 +96,31 @@ Guardrails:
 
 ## Execution Status And Evidence Log
 
+### Phase 25 Step 25.1 — Reconcile Home, Security, Cloud & Enterprise Inventory (129 repos) - 2026-06-08
+
+- Scope: Inventory reconciliation and downstream readiness verification for 129 repos across 7 sub-categories: Smart Home (24), Real Estate & Home Services (21), Jobs (3), Cloud/Identity — Password Managers & Authenticators (12), Security & VPN (15), Enterprise Operations (26), Developer Tools (28 IDs, 27 Phase 25 apps + 1 excluded).
+- Rate-limit evidence before scan: core used=89/5000, remaining=4911.
+- Serial `gh api` verification: visibility == PRIVATE, default branch == main, README present, source spec present under `docs/source-specs/`, root commit present, no `.github/workflows`.
+- Rate-limit evidence after scan: core used=523/5000, remaining=4477 (~434 API calls consumed).
+- Result: **129/129 repos PASS all verification checks. 0 failures.**
+- ID 113 (Realtor.com) repo slug is `realtor-com-mobile-clone` (not `realtor-mobile-clone`) — known naming variation from seeding.
+- ID 853 (Hacker News) verified present and passing but EXCLUDED from Phase 25 scope (already built in Phase 24).
+- Phase 25 working set: **128 apps** (129 verified minus 1 excluded).
+- Exclusions confirmed: Phase 21 parental/family (21 apps), Phase 23 cloud storage/doc scanning (16 apps), Phase 24 Hacker News (ID 853).
+- Risk groups documented: smart-home (IoT protocols, camera streaming, alarm panels), real-estate (MLS data, property APIs), jobs (aggregation APIs), cloud-identity (zero-knowledge encryption, TOTP/HOTP, biometric auth), security-vpn (VPN tunnel protocols, network extensions), enterprise-ops (SSO/SAML, PCI-DSS, payroll, RBAC), developer-tools (cloud provider APIs, code editing engines, SSH/terminal, observability).
+- GitHub Actions status: no workflows found in any of the 129 repos.
+
+| Sub-category | Count | Checked | Pass | Fail | Notes |
+|---|---:|---:|---:|---:|---|
+| Smart Home | 24 | 24 | 24 | 0 | |
+| Real Estate & Home Services | 21 | 21 | 21 | 0 | ID 113 slug = `realtor-com-mobile-clone` |
+| Jobs | 3 | 3 | 3 | 0 | |
+| Cloud/Identity | 12 | 12 | 12 | 0 | |
+| Security & VPN | 15 | 15 | 15 | 0 | |
+| Enterprise Operations | 26 | 26 | 26 | 0 | |
+| Developer Tools | 28 | 28 | 28 | 0 | ID 853 excluded (Phase 24) |
+| **Total** | **129** | **129** | **129** | **0** | |
+
 ### Phase 23 Step 23.2 — Static HTML/CSS/JS Variant Scaffolds (73 Productivity & Collaboration apps) - 2026-06-06
 
 - Scope: Static variant scaffolds (`variants/static/`) for 73 Productivity & Collaboration downstream repos across 12 categories: Task Management (5), Notes & Knowledge (14), Documents & Office (10), Calendar (7), Scheduling (12), Cloud Storage (9), Document Scanning (7), Email (2), Creator Tools (3), Design (1), AI Assistant (1), Translation (2).

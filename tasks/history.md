@@ -7930,3 +7930,18 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
   - Maps (7): MapScreen (search bar + FABs), SearchScreen (categories + results), RouteScreen (transport mode chips + route cards), SavedPlacesScreen (favorites + recent), SettingsScreen, PlaceCard, RouteOptionRow, MapSearchBar, Place/Route/MapRegion models, MapRepository, SearchRepository, RouteRepository, MapViewModel, SearchViewModel.
   - Outdoor (6): ExploreScreen (trail search + LazyColumn), TrailDetailScreen (map + stats + elevation + reviews), RecordScreen (GPS tracker + start/stop FAB), SafetyScreen (SOS dialog + live tracking + checklist), ProfileScreen (stats + settings), TrailCard, StatCard, ElevationChart, Trail/Activity/TrackPoint models, TrailRepository, ActivityRepository, LocationTrackingRepository, TrailViewModel, ActivityViewModel.
 - **Changed files**: `tasks/todo.md` (checked off 24.7, added results), `tasks/repo-seeding.md` (Phase 24 Step 24.7 verification evidence), `tasks/history.md` (this entry).
+
+---
+
+## 2026-06-08 — Step 25.1: Reconcile Home, Security, Cloud & Enterprise Inventory (129 Apps)
+
+- **What**: Reconciled Phase 25 app inventory (129 repos across 7 sub-categories) and verified downstream repo readiness via serial GitHub API checks.
+- **Result: 129/129 PASS, 0 FAIL.** All repos verified PRIVATE, default branch `main`, README present, source spec under `docs/source-specs/`, root commit present, no `.github/workflows`.
+- Rate limit: pre=4911/5000, post=4477/5000 (~434 API calls).
+- ID 113 (Realtor.com) uses slug `realtor-com-mobile-clone` (known naming variation).
+- ID 853 (Hacker News) verified but EXCLUDED from Phase 25 (already built in Phase 24).
+- Phase 25 working set: **128 apps** (129 verified minus 1 excluded).
+- 7 sub-categories: Smart Home (24), Real Estate & Home Services (21), Jobs (3), Cloud/Identity — Password Managers & Authenticators (12), Security & VPN (15), Enterprise Operations (26), Developer Tools (27 + 1 excluded).
+- Risk groups and carry-forward blockers documented: IoT protocols, VPN tunneling, zero-knowledge encryption, biometric auth, MLS data licensing, SSO/SAML, PCI-DSS, cloud provider APIs, code editing engines.
+- Exclusions confirmed: Phase 21 parental/family (21), Phase 23 cloud storage/doc scanning (16), Phase 24 Hacker News (ID 853).
+- **Changed files**: `tasks/todo.md` (checked off 25.1, added full inventory results), `tasks/repo-seeding.md` (Phase 25 Step 25.1 verification evidence), `tasks/history.md` (this entry).
