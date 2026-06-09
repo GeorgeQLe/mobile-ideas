@@ -4816,3 +4816,46 @@ Spot check of 20 repos (across all 7 categories) confirmed all 4 files present: 
 | Enterprise Operations | 26 | yes | yes | PASS |
 | Developer Tools | 27 | yes | yes | PASS |
 | **Total** | **128** | **yes** | **yes** | **128/128 PASS** |
+
+---
+
+## Phase 25: Step 25.3 — React Native Variant Scaffolds (2026-06-09)
+
+**Pre-run rate-limit:** 4830/5000 remaining.
+**Post-run rate-limit:** 4832/5000 remaining (reset between runs). Verification used 168 API calls.
+
+**Generator:** `/tmp/generate-homesec-rn-variants.mjs` — 7 category-specific React Native (Expo) templates.
+**Execution:** Serial clone → scaffold → commit → push with 32s delays.
+
+**Categories and screens:**
+- Smart Home (24): DeviceListScreen, CameraFeedScreen, ThermostatScreen, LockStatusScreen, AutomationScreen.
+- Real Estate & Home Services (21): PropertyListScreen, PropertyDetailScreen, SearchFiltersScreen, MortgageCalcScreen, SavedHomesScreen.
+- Jobs (3): JobSearchScreen, JobDetailScreen, ApplicationsScreen, CompanyProfileScreen, SalaryScreen.
+- Cloud/Identity (12): VaultListScreen, CredentialDetailScreen, TOTPScreen, PasswordGenScreen, BreachAlertsScreen.
+- Security & VPN (15): ConnectionScreen, ServerListScreen, SpeedTestScreen, ThreatScanScreen, SettingsScreen.
+- Enterprise Operations (26): DashboardScreen, RecordsScreen, DetailScreen, ReportsScreen, NotificationsScreen.
+- Developer Tools (27): RepoListScreen, TerminalScreen, APITestScreen, MonitorScreen, DeployScreen.
+
+**Execution notes:**
+- First run: 118 new scaffolds pushed, 5 skipped (already scaffolded from partial prior run), 5 transient failures.
+- Transient failures (clone timeouts): malwarebytes-mobile-clone, norton-360-mobile-clone, mcafee-security-mobile-clone, avast-one-mobile-clone, bitdefender-mobile-security-mobile-clone.
+- All 5 retried successfully after network recovery.
+
+**Each scaffold:** `variants/react-native/index.js`, `package.json`, `app.json`, `tsconfig.json`, `BLOCKERS.md`, `src/screens/` (5), `src/components/` (3), `src/navigation/AppNavigator.js`, `src/services/` (2-3), `src/hooks/` (2-3).
+
+### Verification Results: 128/128 PASS
+
+All 128 repos verified via `gh api repos/GeorgeQLe/<slug>/contents/variants/react-native/index.js` — all return `index.js`.
+
+Spot check of 20 repos (across all 7 categories) confirmed full file set (23-25 files each):
+
+| Category | Count | index.js | Full file set | Status |
+|----------|-------|----------|---------------|--------|
+| Smart Home | 24 | yes | 25 files | PASS |
+| Real Estate & Home Services | 21 | yes | 24 files | PASS |
+| Jobs | 3 | yes | 23 files | PASS |
+| Cloud/Identity | 12 | yes | 25 files | PASS |
+| Security & VPN | 15 | yes | 25 files | PASS |
+| Enterprise Operations | 26 | yes | 25 files | PASS |
+| Developer Tools | 27 | yes | 25 files | PASS |
+| **Total** | **128** | **yes** | **23-25 files** | **128/128 PASS** |

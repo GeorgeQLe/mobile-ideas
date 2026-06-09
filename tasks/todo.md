@@ -272,7 +272,7 @@
 
   **Files:** Generator at `/tmp/generate-homesec-prototypes.mjs`. Updates to `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
-- [ ] Step 25.3: Build React Native variant scaffolds for all Phase 25 apps
+- [x] Step 25.3: Build React Native variant scaffolds for all Phase 25 apps
   - Build `variants/react-native/` scaffold for all 128 Phase 25 downstream repos (excludes ID 853 Hacker News, already Phase 24).
   - Generator script at `/tmp/generate-homesec-rn-variants.mjs`.
   - Serial execution with 32s delays. Record pre/post rate-limit evidence.
@@ -319,6 +319,14 @@
   **Files:** Generator at `/tmp/generate-homesec-rn-variants.mjs`. Updates to `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
   **Ship-one-step handoff:** Implement only Step 25.3, validate it, then run `/ship` when done.
+
+  **Results (2026-06-09):**
+  - **128/128 PASS, 0 failures.** All repos verified with `variants/react-native/index.js` present. Spot check of 20 repos confirmed full file set (23-25 files per repo: index.js, package.json, app.json, tsconfig.json, BLOCKERS.md, src/screens/ (5), src/components/ (3), src/navigation/AppNavigator.js, src/services/ (2-3), src/hooks/ (2-3)).
+  - Generator: `/tmp/generate-homesec-rn-variants.mjs` — 7 category-specific templates (Smart Home, Real Estate, Jobs, Cloud/Identity, Security & VPN, Enterprise, Developer Tools).
+  - Execution: 118 new scaffolds pushed first run, 5 skipped (already done from prior partial run), 5 transient clone failures retried successfully (malwarebytes, norton-360, mcafee-security, avast-one, bitdefender-mobile-security — all network timeouts during clone).
+  - Rate-limit evidence: pre=4830/5000, post=4832/5000 (verification pass used 168 API calls).
+
+  **Files:** Generator at `/tmp/generate-homesec-rn-variants.mjs`. Updates to `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
 - [ ] Step 25.4: Build Flutter variant scaffolds for all Phase 25 apps
   - Build `variants/flutter/` scaffold for all 129 downstream repos.

@@ -7954,3 +7954,13 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Rate-limit evidence: pre=4472/5000, post=4830/5000.
 - Spot check: 20 repos across all 7 categories confirmed all 4 files present.
 - **Changed files**: `tasks/todo.md` (checked off 25.2, added results), `tasks/repo-seeding.md` (Phase 25 Step 25.2 verification evidence), `tasks/history.md` (this entry).
+
+### 2026-06-09 — Phase 25, Step 25.3: React Native Variant Scaffolds (128 Home, Security, Cloud & Enterprise apps)
+
+- Wrote `/tmp/generate-homesec-rn-variants.mjs` — 7 category-specific React Native (Expo) templates following Phase 24 pattern.
+- Categories: Smart Home (24), Real Estate & Home Services (21), Jobs (3), Cloud/Identity (12), Security & VPN (15), Enterprise Operations (26), Developer Tools (27).
+- Each scaffold: index.js, package.json, app.json, tsconfig.json, BLOCKERS.md, src/screens/ (5 category-specific), src/components/ (3), src/navigation/AppNavigator.js, src/services/ (2-3), src/hooks/ (2-3). Total 23-25 files per repo.
+- Execution: Serial clone → scaffold → commit → push with 32s delays. First run: 118 new, 5 skipped (already scaffolded from partial run), 5 transient clone failures (malwarebytes, norton-360, mcafee-security, avast-one, bitdefender-mobile-security). All 5 retried successfully.
+- Verification: 128/128 repos confirmed via `gh api` — `variants/react-native/index.js` present in all. Spot check of 20 repos confirmed full file set.
+- Rate-limit evidence: pre=4830/5000, post=4832/5000 (reset between runs, verification used 168 API calls).
+- **Changed files**: `tasks/todo.md` (checked off 25.3, added results), `tasks/repo-seeding.md` (Phase 25 Step 25.3 verification evidence), `tasks/history.md` (this entry).
