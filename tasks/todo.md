@@ -329,10 +329,55 @@
   **Files:** Generator at `/tmp/generate-homesec-rn-variants.mjs`. Updates to `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
 - [ ] Step 25.4: Build Flutter variant scaffolds for all Phase 25 apps
-  - Build `variants/flutter/` scaffold for all 129 downstream repos.
+  - Build `variants/flutter/` scaffold for all 128 Phase 25 downstream repos (excludes ID 853 Hacker News, already Phase 24).
   - Generator script at `/tmp/generate-homesec-flutter-variants.mjs`.
   - Serial execution with 32s delays. Record pre/post rate-limit evidence.
   - 7 category-specific Flutter templates.
+  - ID 113 (Realtor.com) uses repo slug `realtor-com-mobile-clone` (not `realtor-mobile-clone`).
+
+  **Repo inventory (from Step 25.1):**
+  - Smart Home (24): IDs 100, 635-657 — device dashboards, camera feeds, thermostat controls, lock management, security panels.
+  - Real Estate & Home Services (21): IDs 111-113, 617-634 — property listings, map search, service booking, home improvement.
+  - Jobs (3): IDs 108-110 — job search, company reviews, application tracking.
+  - Cloud/Identity (12): IDs 792-803 — password vaults, TOTP authenticators, credential management.
+  - Security & VPN (15): IDs 804-818 — VPN connection UI, threat scanning, 2FA management.
+  - Enterprise Operations (26): IDs 819-844 — CRM dashboards, HR/payroll, expense tracking, e-commerce, marketing.
+  - Developer Tools (27): IDs 187, 845-852, 854-871 — code repos, API testing, cloud consoles, monitoring dashboards, terminal/SSH, code editors.
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-run evidence.
+  2. Write `/tmp/generate-homesec-flutter-variants.mjs` following the Phase 24 Flutter generator pattern (`/tmp/generate-newsmaps-flutter-variants.mjs`).
+  3. 7 category-specific Flutter templates:
+     - Smart Home: DeviceListScreen, CameraFeedScreen, ThermostatScreen, LockStatusScreen, AutomationScreen.
+     - Real Estate: PropertyListScreen, PropertyDetailScreen, SearchFiltersScreen, MortgageCalcScreen, SavedHomesScreen.
+     - Jobs: JobSearchScreen, JobDetailScreen, ApplicationsScreen, CompanyProfileScreen, SalaryScreen.
+     - Cloud/Identity: VaultListScreen, CredentialDetailScreen, TOTPScreen, PasswordGenScreen, BreachAlertsScreen.
+     - Security & VPN: ConnectionScreen, ServerListScreen, SpeedTestScreen, ThreatScanScreen, SettingsScreen.
+     - Enterprise: DashboardScreen, RecordsScreen, DetailScreen, ReportsScreen, NotificationsScreen.
+     - Developer Tools: RepoListScreen, TerminalScreen, APITestScreen, MonitorScreen, DeployScreen.
+  4. Each scaffold: main.dart, pubspec.yaml, lib/screens/ (5 per category), lib/widgets/ (3 shared), lib/services/ (2-3), lib/models/ (1-2), BLOCKERS.md, README.md.
+  5. Serial clone → scaffold → commit → push with 32s delays.
+  6. `gh api rate_limit` — record post-run evidence.
+  7. Verify all 128 repos via `gh api` — confirm `variants/flutter/pubspec.yaml` present.
+  8. Spot check 20 repos for full file set.
+
+  **Key details from Step 25.3 execution:**
+  - The 128-repo list and slug mapping is identical to Step 25.3 (same REPOS array).
+  - 5 repos had transient clone timeouts in Step 25.3 (malwarebytes, norton-360, mcafee-security, avast-one, bitdefender-mobile-security) — the retry script pattern works, keep it ready.
+  - Handle already-scaffolded repos gracefully (SKIP, not FAIL).
+
+  **Execution Profile:**
+  - Parallel mode: serial
+  - Integration owner: main agent
+  - Conflict risk: low
+
+  **Acceptance Criteria:**
+  - 128/128 Phase 25 repos have `variants/flutter/` scaffold with main.dart, pubspec.yaml, lib/screens/, lib/widgets/, lib/services/.
+  - Each scaffold uses category-specific screens and data models.
+  - Rate-limit evidence recorded pre/post.
+  - No rate-limit errors, no auth failures, no clone/push failures.
+
+  **Files:** Generator at `/tmp/generate-homesec-flutter-variants.mjs`. Updates to `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
   **Ship-one-step handoff:** Implement only Step 25.4, validate it, then run `/ship` when done.
 
