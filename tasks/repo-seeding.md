@@ -4859,3 +4859,46 @@ Spot check of 20 repos (across all 7 categories) confirmed full file set (23-25 
 | Enterprise Operations | 26 | yes | 25 files | PASS |
 | Developer Tools | 27 | yes | 25 files | PASS |
 | **Total** | **128** | **yes** | **23-25 files** | **128/128 PASS** |
+
+---
+
+## Phase 25: Step 25.4 — Flutter Variant Scaffolds (2026-06-09)
+
+**Pre-run rate-limit:** 4832/5000 remaining.
+**Post-run rate-limit:** 5000/5000 remaining (rate limit reset between runs).
+
+**Generator:** `/tmp/generate-homesec-flutter-variants.mjs` — 7 category-specific Flutter templates.
+**Execution:** Serial clone → scaffold → commit → push with 32s delays.
+
+**Categories and screens:**
+- Smart Home (24): DeviceListScreen, CameraFeedScreen, ThermostatScreen, LockStatusScreen, AutomationScreen.
+- Real Estate & Home Services (21): PropertyListScreen, PropertyDetailScreen, SearchFiltersScreen, MortgageCalcScreen, SavedHomesScreen.
+- Jobs (3): JobSearchScreen, JobDetailScreen, ApplicationsScreen, CompanyProfileScreen, SalaryScreen.
+- Cloud/Identity (12): VaultListScreen, CredentialDetailScreen, TOTPScreen, PasswordGenScreen, BreachAlertsScreen.
+- Security & VPN (15): ConnectionScreen, ServerListScreen, SpeedTestScreen, ThreatScanScreen, SettingsScreen.
+- Enterprise Operations (26): DashboardScreen, RecordsScreen, DetailScreen, ReportsScreen, NotificationsScreen.
+- Developer Tools (27): RepoListScreen, TerminalScreen, APITestScreen, MonitorScreen, DeployScreen.
+
+**Execution notes:**
+- 127 new scaffolds pushed, 1 skipped (wyze-mobile-clone — already scaffolded from first attempt that timed out after push).
+- 3 transient clone timeouts, all retried successfully.
+- Flutter SDK >=3.4.0, Material 3, go_router, provider, category-specific dependencies (flutter_blue_plus for Smart Home, google_maps_flutter for Real Estate, flutter_secure_storage for Cloud/Security, fl_chart for Enterprise, flutter_highlight for DevTools).
+
+**Each scaffold:** `variants/flutter/pubspec.yaml`, `analysis_options.yaml`, `BLOCKERS.md`, `lib/main.dart`, `lib/router.dart`, `lib/screens/` (5), `lib/widgets/` (2-3), `lib/services/` (2-3), `lib/models/` (1).
+
+### Verification Results: 128/128 PASS
+
+All 128 repos verified via `gh api repos/GeorgeQLe/<slug>/contents/variants/flutter/pubspec.yaml` — all return `pubspec.yaml`.
+
+Spot check of 20 repos (across all 7 categories) confirmed full file set (19-21 files each):
+
+| Category | Count | pubspec.yaml | File count | Status |
+|----------|-------|-------------|------------|--------|
+| Smart Home | 24 | yes | 21 files | PASS |
+| Real Estate & Home Services | 21 | yes | 19 files | PASS |
+| Jobs | 3 | yes | 19 files | PASS |
+| Cloud/Identity | 12 | yes | 20 files | PASS |
+| Security & VPN | 15 | yes | 20 files | PASS |
+| Enterprise Operations | 26 | yes | 20 files | PASS |
+| Developer Tools | 27 | yes | 21 files | PASS |
+| **Total** | **128** | **yes** | **19-21 files** | **128/128 PASS** |

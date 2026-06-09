@@ -1,5 +1,16 @@
 # History
 
+## 2026-06-09 - Phase 25 Step 25.4: Flutter Variant Scaffolds (128 Home, Security, Cloud & Enterprise apps)
+
+- Built and pushed Flutter variant scaffolds (`variants/flutter/`) for all 128 Phase 25 downstream repos.
+- Generator: `/tmp/generate-homesec-flutter-variants.mjs` — serial clone → scaffold → commit → push with 32s delays.
+- **128/128 PASS, 0 failures.** 127 new scaffolds pushed, 1 skipped (wyze — already scaffolded from timed-out first attempt), 3 transient clone timeouts retried successfully.
+- 7 category-specific Flutter templates: Smart Home (24: DeviceListScreen, CameraFeedScreen, ThermostatScreen, LockStatusScreen, AutomationScreen), Real Estate (21: PropertyListScreen, PropertyDetailScreen, SearchFiltersScreen, MortgageCalcScreen, SavedHomesScreen), Jobs (3: JobSearchScreen, JobDetailScreen, ApplicationsScreen, CompanyProfileScreen, SalaryScreen), Cloud/Identity (12: VaultListScreen, CredentialDetailScreen, TOTPScreen, PasswordGenScreen, BreachAlertsScreen), Security & VPN (15: ConnectionScreen, ServerListScreen, SpeedTestScreen, ThreatScanScreen, SettingsScreen), Enterprise (26: DashboardScreen, RecordsScreen, DetailScreen, ReportsScreen, NotificationsScreen), Developer Tools (27: RepoListScreen, TerminalScreen, APITestScreen, MonitorScreen, DeployScreen).
+- Flutter SDK >=3.4.0, Material 3, go_router, provider, category-specific deps (flutter_blue_plus, google_maps_flutter, flutter_secure_storage, fl_chart, flutter_highlight).
+- Verification: 128/128 confirmed via `gh api`. Spot check of 20 repos confirmed 19-21 files each.
+- Rate limit: pre=4832/5000, post=5000/5000 (reset between runs).
+- **Changed files**: 128 downstream repos (`variants/flutter/`), `tasks/todo.md` (checked off 25.4, added results), `tasks/repo-seeding.md` (verification evidence), `tasks/history.md` (this entry).
+
 ## 2026-06-08 - Phase 24 Step 24.6: iOS Native (SwiftUI) Variant Scaffolds (48 News, Maps & Navigation apps)
 
 - Built and pushed iOS Native (SwiftUI) variant scaffolds (`variants/ios-native/`) for all 48 Phase 24 downstream repos.
