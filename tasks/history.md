@@ -7945,3 +7945,12 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Risk groups and carry-forward blockers documented: IoT protocols, VPN tunneling, zero-knowledge encryption, biometric auth, MLS data licensing, SSO/SAML, PCI-DSS, cloud provider APIs, code editing engines.
 - Exclusions confirmed: Phase 21 parental/family (21), Phase 23 cloud storage/doc scanning (16), Phase 24 Hacker News (ID 853).
 - **Changed files**: `tasks/todo.md` (checked off 25.1, added full inventory results), `tasks/repo-seeding.md` (Phase 25 Step 25.1 verification evidence), `tasks/history.md` (this entry).
+
+### Session: 2026-06-08 — Phase 25 Step 25.2: Static Variant Scaffolds (128 Home, Security, Cloud & Enterprise Apps)
+- Built and pushed `variants/static/` scaffolds (index.html, styles.css, app.js, README.md) to all 128 Phase 25 downstream repos.
+- 7 category-specific templates: Smart Home (device grid, camera feeds, thermostat, locks, automations), Real Estate (property cards, map, filters, mortgage calculator), Jobs (job cards, company profiles, application tracker), Cloud/Identity (vault list, TOTP codes, password generator, breach alerts), Security & VPN (connection ring, server list, speed test, threat scanner), Enterprise (dashboard stats, charts, data tables, notifications), Developer Tools (repo list, terminal, API testing, monitoring, deployments).
+- Generator: `/tmp/generate-homesec-prototypes.mjs` — serial execution with 32s delays.
+- Results: 122 new scaffolds, 4 already done (ring, google-home, amazon-alexa, apple-home), 2 transient failures retried (microsoft-authenticator clone timeout, digitalocean push race). Final: **128/128 PASS**.
+- Rate-limit evidence: pre=4472/5000, post=4830/5000.
+- Spot check: 20 repos across all 7 categories confirmed all 4 files present.
+- **Changed files**: `tasks/todo.md` (checked off 25.2, added results), `tasks/repo-seeding.md` (Phase 25 Step 25.2 verification evidence), `tasks/history.md` (this entry).

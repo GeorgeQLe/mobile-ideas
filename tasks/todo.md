@@ -217,7 +217,7 @@
 
   **Files:** `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
-- [ ] Step 25.2: Build static variant scaffolds for all Phase 25 Home, Security, Cloud & Enterprise apps
+- [x] Step 25.2: Build static variant scaffolds for all Phase 25 Home, Security, Cloud & Enterprise apps
   - Build `variants/static/` scaffold for all 128 Phase 25 downstream repos (excludes ID 853 Hacker News, already Phase 24).
   - Generator script at `/tmp/generate-homesec-prototypes.mjs`.
   - Serial execution with 32s delays between repos. Record pre/post rate-limit evidence.
@@ -263,6 +263,14 @@
   **Files:** Generator at `/tmp/generate-homesec-prototypes.mjs`. Updates to `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
   **Ship-one-step handoff:** Implement only Step 25.2, validate it, then run `/ship` when done.
+
+  **Results (2026-06-08):**
+  - **128/128 PASS, 0 failures.** All repos verified with `variants/static/index.html` present. Spot check of 20 repos confirmed all 4 files (index.html, styles.css, app.js, README.md).
+  - Generator: `/tmp/generate-homesec-prototypes.mjs` — 7 category-specific templates (Smart Home, Real Estate, Jobs, Cloud/Identity, Security & VPN, Enterprise, Developer Tools).
+  - Execution: 122 new scaffolds pushed, 4 skipped (already done from prior run), 2 transient failures retried successfully (microsoft-authenticator clone timeout, digitalocean push race).
+  - Rate-limit evidence: pre=4472/5000, post=4830/5000.
+
+  **Files:** Generator at `/tmp/generate-homesec-prototypes.mjs`. Updates to `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
 - [ ] Step 25.3: Build React Native variant scaffolds for all Phase 25 apps
   - Build `variants/react-native/` scaffold for all 129 downstream repos.
