@@ -421,10 +421,57 @@
   **Files:** Generator at `/tmp/generate-homesec-ios-variants.mjs`. Updates to `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
 - [ ] Step 25.7: Build Android Native (Kotlin/Jetpack Compose) variant scaffolds for all Phase 25 apps
-  - Build `variants/android-native/` scaffold for all 129 downstream repos.
+  - Build `variants/android-native/` scaffold for all 128 Phase 25 downstream repos (excludes ID 853 Hacker News, already Phase 24).
   - Generator script at `/tmp/generate-homesec-android-variants.mjs`.
   - Serial execution with 32s delays. Record pre/post rate-limit evidence.
   - 7 category-specific Jetpack Compose templates.
+  - ID 113 (Realtor.com) uses repo slug `realtor-com-mobile-clone` (not `realtor-mobile-clone`).
+
+  **Repo inventory (from Step 25.1):**
+  - Smart Home (24): IDs 100, 635-657 — device dashboards, camera feeds, thermostat controls, lock management, security panels.
+  - Real Estate & Home Services (21): IDs 111-113, 617-634 — property listings, map search, service booking, home improvement.
+  - Jobs (3): IDs 108-110 — job search, company reviews, application tracking.
+  - Cloud/Identity (12): IDs 792-803 — password vaults, TOTP authenticators, credential management.
+  - Security & VPN (15): IDs 804-818 — VPN connection UI, threat scanning, 2FA management.
+  - Enterprise Operations (26): IDs 819-844 — CRM dashboards, HR/payroll, expense tracking, e-commerce, marketing.
+  - Developer Tools (27): IDs 187, 845-852, 854-871 — code repos, API testing, cloud consoles, monitoring dashboards, terminal/SSH, code editors.
+
+  **Approach:**
+  1. `gh api rate_limit` — record pre-run evidence.
+  2. Write `/tmp/generate-homesec-android-variants.mjs` following the Phase 24 Android generator pattern (`/tmp/generate-newsmaps-android-variants.mjs`).
+  3. 7 category-specific Jetpack Compose templates:
+     - Smart Home: DeviceListScreen, CameraFeedScreen, ThermostatScreen, LockStatusScreen, AutomationScreen.
+     - Real Estate: PropertyListScreen, PropertyDetailScreen, SearchFiltersScreen, MortgageCalcScreen, SavedHomesScreen.
+     - Jobs: JobSearchScreen, JobDetailScreen, ApplicationsScreen, CompanyProfileScreen, SalaryScreen.
+     - Cloud/Identity: VaultListScreen, CredentialDetailScreen, TOTPScreen, PasswordGenScreen, BreachAlertsScreen.
+     - Security & VPN: ConnectionScreen, ServerListScreen, SpeedTestScreen, ThreatScanScreen, SettingsScreen.
+     - Enterprise: DashboardScreen, RecordsScreen, DetailScreen, ReportsScreen, NotificationsScreen.
+     - Developer Tools: RepoListScreen, TerminalScreen, APITestScreen, MonitorScreen, DeployScreen.
+  4. Each scaffold: build.gradle.kts (app-level), settings.gradle.kts, gradle.properties, {AppName}Activity.kt (MainActivity with Compose setContent), ui/theme/Theme.kt, ui/theme/Color.kt, screens/ (5 per category @Composable), models/ (1-2 data classes), services/ (2-3 repository/service classes), viewmodels/ (2 ViewModels extending ViewModel), navigation/NavGraph.kt, BLOCKERS.md.
+  5. Architecture: MVVM with Jetpack Compose, Material3, Navigation Compose, Hilt-ready annotations, Kotlin 1.9+, compileSdk 34, minSdk 26, targetSdk 34.
+  6. Serial clone → scaffold → commit → push with 32s delays (3 batches: 0-39, 40-79, 80-127).
+  7. `gh api rate_limit` — record post-run evidence.
+  8. Verify all 128 repos via `gh api` — confirm `variants/android-native/build.gradle.kts` present.
+  9. Spot check 20 repos for full file set.
+
+  **Key details from Step 25.6 execution:**
+  - The 128-repo list and slug mapping is identical to Steps 25.2-25.6 (same APPS array).
+  - 0 transient failures in Step 25.6 — cleanest run yet.
+  - 2 repos (ring, google-home) may already have Android scaffolds from prior partial runs — handle as SKIP.
+  - Handle already-scaffolded repos gracefully (SKIP, not FAIL).
+
+  **Execution Profile:**
+  - Parallel mode: serial
+  - Integration owner: main agent
+  - Conflict risk: low
+
+  **Acceptance Criteria:**
+  - 128/128 Phase 25 repos have `variants/android-native/` scaffold with build.gradle.kts, MainActivity, screens/, models/, services/, viewmodels/, navigation/.
+  - Each scaffold uses category-specific composable screens and data models.
+  - Rate-limit evidence recorded pre/post.
+  - No rate-limit errors, no auth failures, no clone/push failures.
+
+  **Files:** Generator at `/tmp/generate-homesec-android-variants.mjs`. Updates to `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
   **Ship-one-step handoff:** Implement only Step 25.7, validate it, then run `/ship` when done.
 
