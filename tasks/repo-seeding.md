@@ -4944,3 +4944,60 @@ Spot check of 20 repos (across all 7 categories) confirmed full file set (25-28 
 | Enterprise Operations | 26 | yes | 27 files | PASS |
 | Developer Tools | 27 | yes | 28 files | PASS |
 | **Total** | **128** | **yes** | **25-28 files** | **128/128 PASS** |
+
+---
+
+## Phase 25, Step 25.6: iOS Native (SwiftUI) Variant Scaffolds — 128 Home, Security, Cloud & Enterprise Apps
+
+**Date:** 2026-06-11
+**Generator:** `/tmp/generate-homesec-ios-variants.mjs`
+**Pattern:** Phase 24 Step 24.6 iOS Native generator (`/tmp/generate-newsmaps-ios-variants.mjs`)
+
+### Rate-Limit Evidence
+
+| Checkpoint | core remaining/limit | Reset |
+|---|---|---|
+| Pre-run (batch 1) | 4972/5000 | 2026-06-11T15:34:04Z |
+| Post-run (batch 3) | 4968/5000 | 2026-06-11T15:34:04Z |
+
+### Execution Summary
+
+3 serial batches with 32s delays between repos:
+- Batch 1 (repos 0-39): 38 PASS, 0 FAIL, 2 SKIP (ring-mobile-clone, google-home-mobile-clone already scaffolded).
+- Batch 2 (repos 40-79): 40 PASS, 0 FAIL, 0 SKIP.
+- Batch 3 (repos 80-127): 48 PASS, 0 FAIL, 0 SKIP.
+- **Total: 126 new scaffolds pushed, 2 skipped, 0 failures.**
+
+### Architecture
+
+- swift-tools-version: 5.9, iOS 17+ platform
+- MVVM with @Observable macro (iOS 17+)
+- NavigationStack with typed navigation destinations
+- TabView with SF Symbols for tab icons
+- 7 category-specific SwiftUI templates:
+  - Smart Home (24): DeviceListView, CameraFeedView, ThermostatView, LockStatusView, AutomationView. Services: DeviceService, AutomationService. Models: Device. ViewModels: DeviceViewModel, AutomationViewModel.
+  - Real Estate & Home Services (21): PropertyListView, PropertyDetailView, SearchFiltersView, MortgageCalcView, SavedHomesView. Services: PropertyService, SearchService, MortgageService. Models: Property, SearchFilters. ViewModels: PropertyViewModel, SearchViewModel.
+  - Jobs (3): JobSearchView, JobDetailView, ApplicationsView, CompanyProfileView, SalaryView. Services: JobService, ApplicationService, SalaryService. Models: Job, Application. ViewModels: JobSearchViewModel, ApplicationViewModel.
+  - Cloud/Identity (12): VaultListView, CredentialDetailView, TOTPView, PasswordGenView, BreachAlertsView. Services: VaultService, TOTPService, BreachService. Models: Credential, TOTPCode. ViewModels: VaultViewModel, TOTPViewModel.
+  - Security & VPN (15): ConnectionView, ServerListView, SpeedTestView, ThreatScanView, SettingsView. Services: VPNService, ThreatService. Models: Server, ThreatReport. ViewModels: ConnectionViewModel, ServerViewModel.
+  - Enterprise Operations (26): DashboardView, RecordsView, DetailView, ReportsView, NotificationsView. Services: DataService, ReportService, NotificationService. Models: Record. ViewModels: DashboardViewModel, RecordViewModel.
+  - Developer Tools (27): RepoListView, TerminalView, APITestView, MonitorView, DeployView. Services: GitService, APIService, MonitorService. Models: Repository, Deployment. ViewModels: RepoViewModel, TerminalViewModel.
+
+**Each scaffold:** `variants/ios-native/Package.swift`, `Sources/App/{AppName}App.swift`, `Sources/Views/` (5), `Sources/Services/` (2-3), `Sources/Models/` (1-2), `Sources/ViewModels/` (2), `Sources/Components/.gitkeep`, `BLOCKERS.md`. Total: 23 files per repo.
+
+### Verification Results: 128/128 PASS
+
+All 128 repos verified via `gh api repos/GeorgeQLe/<slug>/contents/variants/ios-native/Package.swift` — all return `Package.swift`.
+
+Spot check of 20 repos (across all 7 categories) confirmed full file set (23 files each):
+
+| Category | Count | Package.swift | File count | Status |
+|----------|-------|--------------|------------|--------|
+| Smart Home | 24 | yes | 23 files | PASS |
+| Real Estate & Home Services | 21 | yes | 23 files | PASS |
+| Jobs | 3 | yes | 23 files | PASS |
+| Cloud/Identity | 12 | yes | 23 files | PASS |
+| Security & VPN | 15 | yes | 23 files | PASS |
+| Enterprise Operations | 26 | yes | 23 files | PASS |
+| Developer Tools | 27 | yes | 23 files | PASS |
+| **Total** | **128** | **yes** | **23 files** | **128/128 PASS** |

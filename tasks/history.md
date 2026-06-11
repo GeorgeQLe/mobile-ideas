@@ -7985,3 +7985,14 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Verification: 128/128 repos confirmed via `gh api` — `variants/expo/package.json` present in all. Spot check of 20 repos confirmed full file set (25-28 files per repo).
 - Rate-limit evidence: pre=4872/5000, post=4871/5000 (rate limit reset between runs, verification used 129 API calls).
 - **Changed files**: `tasks/todo.md` (checked off 25.5, added results), `tasks/repo-seeding.md` (Phase 25 Step 25.5 verification evidence), `tasks/history.md` (this entry).
+
+### 2026-06-11 — Phase 25, Step 25.6: iOS Native (SwiftUI) Variant Scaffolds (128 Home, Security, Cloud & Enterprise apps)
+
+- Wrote `/tmp/generate-homesec-ios-variants.mjs` — 7 category-specific SwiftUI templates following Phase 24 pattern.
+- Categories: Smart Home (24), Real Estate & Home Services (21), Jobs (3), Cloud/Identity (12), Security & VPN (15), Enterprise Operations (26), Developer Tools (27).
+- Architecture: MVVM with @Observable macro (iOS 17+), NavigationStack, TabView with SF Symbols, swift-tools-version 5.9.
+- Each scaffold: Package.swift, {AppName}App.swift, BLOCKERS.md, Sources/Views/ (5), Sources/Services/ (2-3), Sources/Models/ (1-2), Sources/ViewModels/ (2), Sources/Components/.gitkeep. Total 23 files per repo.
+- Execution: Serial clone → scaffold → commit → push with 32s delays. 3 batches: 126 new, 2 skipped (ring, google-home — already scaffolded from prior run), 0 failures.
+- Verification: 128/128 repos confirmed via `gh api` — `variants/ios-native/Package.swift` present in all. Spot check of 20 repos confirmed full file set (23 files per repo).
+- Rate-limit evidence: pre=4972/5000, post=4968/5000.
+- **Changed files**: `tasks/todo.md` (checked off 25.6, added results), `tasks/repo-seeding.md` (Phase 25 Step 25.6 verification evidence), `tasks/history.md` (this entry).

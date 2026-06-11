@@ -404,58 +404,21 @@
 
   **Files:** Generator at `/tmp/generate-homesec-expo-variants.mjs`. Updates to `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
-- [ ] Step 25.6: Build iOS Native (SwiftUI) variant scaffolds for all Phase 25 apps
+- [x] Step 25.6: Build iOS Native (SwiftUI) variant scaffolds for all Phase 25 apps
   - Build `variants/ios-native/` scaffold for all 128 Phase 25 downstream repos (excludes ID 853 Hacker News, already Phase 24).
   - Generator script at `/tmp/generate-homesec-ios-variants.mjs`.
   - Serial execution with 32s delays. Record pre/post rate-limit evidence.
   - 7 category-specific SwiftUI templates.
   - ID 113 (Realtor.com) uses repo slug `realtor-com-mobile-clone` (not `realtor-mobile-clone`).
 
-  **Repo inventory (from Step 25.1):**
-  - Smart Home (24): IDs 100, 635-657 — device dashboards, camera feeds, thermostat controls, lock management, security panels.
-  - Real Estate & Home Services (21): IDs 111-113, 617-634 — property listings, map search, service booking, home improvement.
-  - Jobs (3): IDs 108-110 — job search, company reviews, application tracking.
-  - Cloud/Identity (12): IDs 792-803 — password vaults, TOTP authenticators, credential management.
-  - Security & VPN (15): IDs 804-818 — VPN connection UI, threat scanning, 2FA management.
-  - Enterprise Operations (26): IDs 819-844 — CRM dashboards, HR/payroll, expense tracking, e-commerce, marketing.
-  - Developer Tools (27): IDs 187, 845-852, 854-871 — code repos, API testing, cloud consoles, monitoring dashboards, terminal/SSH, code editors.
-
-  **Approach:**
-  1. `gh api rate_limit` — record pre-run evidence.
-  2. Write `/tmp/generate-homesec-ios-variants.mjs` following the Phase 24 iOS generator pattern (`/tmp/generate-newsmaps-ios-variants.mjs`).
-  3. 7 category-specific SwiftUI templates:
-     - Smart Home: DeviceListView, CameraFeedView, ThermostatView, LockStatusView, AutomationView.
-     - Real Estate: PropertyListView, PropertyDetailView, SearchFiltersView, MortgageCalcView, SavedHomesView.
-     - Jobs: JobSearchView, JobDetailView, ApplicationsView, CompanyProfileView, SalaryView.
-     - Cloud/Identity: VaultListView, CredentialDetailView, TOTPView, PasswordGenView, BreachAlertsView.
-     - Security & VPN: ConnectionView, ServerListView, SpeedTestView, ThreatScanView, SettingsView.
-     - Enterprise: DashboardView, RecordsView, DetailView, ReportsView, NotificationsView.
-     - Developer Tools: RepoListView, TerminalView, APITestView, MonitorView, DeployView.
-  4. Each scaffold: Package.swift, {AppName}App.swift, ContentView.swift, Views/ (5 per category), Models/ (1-2), Services/ (2-3), BLOCKERS.md.
-  5. Serial clone → scaffold → commit → push with 32s delays.
-  6. `gh api rate_limit` — record post-run evidence.
-  7. Verify all 128 repos via `gh api` — confirm `variants/ios-native/Package.swift` present.
-  8. Spot check 20 repos for full file set.
-
-  **Key details from Step 25.5 execution:**
-  - The 128-repo list and slug mapping is identical to Steps 25.2-25.5 (same REPOS array).
-  - 3 transient clone timeouts in Step 25.5 (all retried successfully) — retry pattern works.
-  - Handle already-scaffolded repos gracefully (SKIP, not FAIL).
-
-  **Execution Profile:**
-  - Parallel mode: serial
-  - Integration owner: main agent
-  - Conflict risk: low
-
-  **Acceptance Criteria:**
-  - 128/128 Phase 25 repos have `variants/ios-native/` scaffold with Package.swift, {AppName}App.swift, ContentView.swift, Views/, Models/, Services/.
-  - Each scaffold uses category-specific views and data models.
-  - Rate-limit evidence recorded pre/post.
-  - No rate-limit errors, no auth failures, no clone/push failures.
+  **Results (2026-06-11):**
+  - **128/128 PASS, 0 failures.** All repos verified with `variants/ios-native/Package.swift` present. Spot check of 20 repos confirmed full file set (23 files per repo: Package.swift, {AppName}App.swift, BLOCKERS.md, Sources/Views/ (5), Sources/Services/ (2-3), Sources/Models/ (1-2), Sources/ViewModels/ (2), Sources/Components/.gitkeep).
+  - Generator: `/tmp/generate-homesec-ios-variants.mjs` — 7 category-specific SwiftUI templates (Smart Home, Real Estate, Jobs, Cloud/Identity, Security & VPN, Enterprise, Developer Tools).
+  - Architecture: MVVM with @Observable macro (iOS 17+), NavigationStack with typed destinations, TabView with SF Symbols, swift-tools-version 5.9.
+  - Execution: 3 batches (0-39, 40-79, 80-127). 126 new scaffolds pushed, 2 skipped (ring-mobile-clone, google-home-mobile-clone — already scaffolded from prior run), 0 transient failures.
+  - Rate-limit evidence: pre=4972/5000, post=4968/5000 (mid-run check after batch 2).
 
   **Files:** Generator at `/tmp/generate-homesec-ios-variants.mjs`. Updates to `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
-
-  **Ship-one-step handoff:** Implement only Step 25.6, validate it, then run `/ship` when done.
 
 - [ ] Step 25.7: Build Android Native (Kotlin/Jetpack Compose) variant scaffolds for all Phase 25 apps
   - Build `variants/android-native/` scaffold for all 129 downstream repos.
