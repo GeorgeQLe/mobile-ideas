@@ -4902,3 +4902,45 @@ Spot check of 20 repos (across all 7 categories) confirmed full file set (19-21 
 | Enterprise Operations | 26 | yes | 20 files | PASS |
 | Developer Tools | 27 | yes | 21 files | PASS |
 | **Total** | **128** | **yes** | **19-21 files** | **128/128 PASS** |
+
+## Phase 25, Step 25.5: Expo Variant Scaffolds (2026-06-11)
+
+**Pre-run rate limit:** 4872/5000 remaining (128 used).
+**Post-run rate limit:** 4871/5000 remaining (129 used — rate limit reset between scaffold and verification runs).
+
+### Generator
+
+Script: `/tmp/generate-homesec-expo-variants.mjs` — 7 category-specific Expo Router templates.
+
+**Category-specific Expo Router templates (128 repos):**
+- Smart Home (24): DeviceListScreen, CameraFeedScreen, ThermostatScreen, LockStatusScreen, AutomationScreen. Dependencies: expo-camera, expo-av.
+- Real Estate & Home Services (21): PropertyListScreen, PropertyDetailScreen, SearchFiltersScreen, MortgageCalcScreen, SavedHomesScreen. Dependencies: react-native-maps, expo-location.
+- Jobs (3): JobSearchScreen, JobDetailScreen, ApplicationsScreen, CompanyProfileScreen, SalaryScreen.
+- Cloud/Identity (12): VaultListScreen, CredentialDetailScreen, TOTPScreen, PasswordGenScreen, BreachAlertsScreen. Dependencies: expo-local-authentication, expo-clipboard, expo-crypto.
+- Security & VPN (15): ConnectionScreen, ServerListScreen, SpeedTestScreen, ThreatScanScreen, SettingsScreen. Dependencies: expo-local-authentication.
+- Enterprise Operations (26): DashboardScreen, RecordsScreen, DetailScreen, ReportsScreen, NotificationsScreen.
+- Developer Tools (27): RepoListScreen, TerminalScreen, APITestScreen, MonitorScreen, DeployScreen. Dependencies: expo-clipboard.
+
+**Execution notes:**
+- 117 new scaffolds pushed, 8 skipped (already scaffolded from accidental import run).
+- 3 transient clone timeouts (authy-mobile-clone, google-authenticator-mobile-clone, buffer-mobile-clone), all retried successfully.
+- Expo SDK ~52.0.0, Expo Router ~4.0.0, TypeScript strict mode, category-specific dependencies.
+
+**Each scaffold:** `variants/expo/package.json`, `app.json`, `tsconfig.json`, `BLOCKERS.md`, `constants/theme.ts`, `app/_layout.tsx`, `app/(tabs)/_layout.tsx`, `app/(tabs)/` (5 tab screens), `app/[dynamic]/[id].tsx` (1 detail route), `components/` (3), `services/` (2-3), `hooks/` (2).
+
+### Verification Results: 128/128 PASS
+
+All 128 repos verified via `gh api repos/GeorgeQLe/<slug>/contents/variants/expo/package.json` — all return `package.json`.
+
+Spot check of 20 repos (across all 7 categories) confirmed full file set (25-28 files each):
+
+| Category | Count | package.json | File count | Status |
+|----------|-------|-------------|------------|--------|
+| Smart Home | 24 | yes | 27 files | PASS |
+| Real Estate & Home Services | 21 | yes | 27 files | PASS |
+| Jobs | 3 | yes | 27 files | PASS |
+| Cloud/Identity | 12 | yes | 26-28 files | PASS |
+| Security & VPN | 15 | yes | 25 files | PASS |
+| Enterprise Operations | 26 | yes | 27 files | PASS |
+| Developer Tools | 27 | yes | 28 files | PASS |
+| **Total** | **128** | **yes** | **25-28 files** | **128/128 PASS** |

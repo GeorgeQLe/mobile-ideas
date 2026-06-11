@@ -7975,3 +7975,13 @@ Merged 3 Step 14.10 PRs (DuetHarmony, VocalStar, SoundSpot) and executed the nin
 - Verification: 128/128 repos confirmed via `gh api` — `variants/react-native/index.js` present in all. Spot check of 20 repos confirmed full file set.
 - Rate-limit evidence: pre=4830/5000, post=4832/5000 (reset between runs, verification used 168 API calls).
 - **Changed files**: `tasks/todo.md` (checked off 25.3, added results), `tasks/repo-seeding.md` (Phase 25 Step 25.3 verification evidence), `tasks/history.md` (this entry).
+
+### 2026-06-11 — Phase 25, Step 25.5: Expo Variant Scaffolds (128 Home, Security, Cloud & Enterprise apps)
+
+- Wrote `/tmp/generate-homesec-expo-variants.mjs` — 7 category-specific Expo Router templates following Phase 24 pattern.
+- Categories: Smart Home (24), Real Estate & Home Services (21), Jobs (3), Cloud/Identity (12), Security & VPN (15), Enterprise Operations (26), Developer Tools (27).
+- Each scaffold: package.json, app.json, tsconfig.json, BLOCKERS.md, constants/theme.ts, app/_layout.tsx, app/(tabs)/_layout.tsx, app/(tabs)/ (5 category-specific tab screens), app/[detail route]/[id].tsx (1), components/ (3), services/ (2-3), hooks/ (2). Total 25-28 files per repo.
+- Execution: Serial clone → scaffold → commit → push with 32s delays. First run: 117 new, 8 skipped (already scaffolded from accidental import), 3 transient clone failures (authy, google-authenticator, buffer). All 3 retried successfully in a separate retry script.
+- Verification: 128/128 repos confirmed via `gh api` — `variants/expo/package.json` present in all. Spot check of 20 repos confirmed full file set (25-28 files per repo).
+- Rate-limit evidence: pre=4872/5000, post=4871/5000 (rate limit reset between runs, verification used 129 API calls).
+- **Changed files**: `tasks/todo.md` (checked off 25.5, added results), `tasks/repo-seeding.md` (Phase 25 Step 25.5 verification evidence), `tasks/history.md` (this entry).

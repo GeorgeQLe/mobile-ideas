@@ -343,7 +343,7 @@
 
   **Files:** Generator at `/tmp/generate-homesec-flutter-variants.mjs`. Updates to `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
-- [ ] Step 25.5: Build Expo variant scaffolds for all Phase 25 apps
+- [x] Step 25.5: Build Expo variant scaffolds for all Phase 25 apps
   - Build `variants/expo/` scaffold for all 128 Phase 25 downstream repos (excludes ID 853 Hacker News, already Phase 24).
   - Generator script at `/tmp/generate-homesec-expo-variants.mjs`.
   - Serial execution with 32s delays. Record pre/post rate-limit evidence.
@@ -395,6 +395,14 @@
   **Files:** Generator at `/tmp/generate-homesec-expo-variants.mjs`. Updates to `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
   **Ship-one-step handoff:** Implement only Step 25.5, validate it, then run `/ship` when done.
+
+  **Results (2026-06-11):**
+  - **128/128 PASS, 0 failures.** All repos verified with `variants/expo/package.json` present. Spot check of 20 repos confirmed full file set (25-28 files per repo: package.json, app.json, tsconfig.json, BLOCKERS.md, constants/theme.ts, app/_layout.tsx, app/(tabs)/_layout.tsx, app/(tabs)/ (5 screens), app/[dynamic route] (1), components/ (3), services/ (2-3), hooks/ (2)).
+  - Generator: `/tmp/generate-homesec-expo-variants.mjs` — 7 category-specific Expo Router templates (Smart Home, Real Estate, Jobs, Cloud/Identity, Security & VPN, Enterprise, Developer Tools).
+  - Execution: 117 new scaffolds pushed first run, 8 skipped (already done from accidental import), 3 transient clone failures retried successfully (authy-mobile-clone, google-authenticator-mobile-clone, buffer-mobile-clone — all network timeouts during clone).
+  - Rate-limit evidence: pre=4872/5000, post=4871/5000 (rate limit reset between scaffold and verification runs, verification used 129 API calls).
+
+  **Files:** Generator at `/tmp/generate-homesec-expo-variants.mjs`. Updates to `tasks/todo.md`, `tasks/repo-seeding.md`, `tasks/history.md`.
 
 - [ ] Step 25.6: Build iOS Native (SwiftUI) variant scaffolds for all Phase 25 apps
   - Build `variants/ios-native/` scaffold for all 129 downstream repos.
